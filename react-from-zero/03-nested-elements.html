@@ -1,0 +1,57 @@
+<!doctype html>
+
+<title>03 Nested Elements - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+
+// 元素可以嵌套, 这将导致`React.createElement()`嵌套调用
+// 正如你可以想象的那样,不用`JSX`写这些嵌套会很乏味/繁琐
+var reactElement =
+  <div className="abc">
+    <h1>Hello</h1> 
+    <h2>world</h2>
+  </div>
+
+// 他们也可以像 第 2 课中, 提到的那样包含`JavaScript`在`{}`
+var myClass = "abc"
+
+function myText() { return "world" }
+
+// `JavaScript`插入在属性中的语法, 与在 普通文本或元素 中的语法相同
+reactElement =
+  <div className={myClass}>
+    <h1>Hello {10 * 10}</h1>
+    <h2>{myText()}</h2>
+  </div>
+
+// 这个`JavaScript`也可以包含元素,
+var nestedElement = <h2>world</h2>
+
+reactElement =
+  <div>
+    <h1>Hello</h1>
+    {nestedElement}
+  </div>
+
+// 也可以将对象, "散布{...}" 为属性
+var properties = {
+  className: "abc",
+  onClick: function() { alert("click") },
+}
+
+reactElement =
+  <div {...properties}>
+    <h1>Hello</h1>
+    <h2>world</h2>
+  </div>
+
+var renderTarget = document.getElementById("app")
+
+ReactDOM.render(reactElement, renderTarget)
+</script>

@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>调试 - Rust and WebAssembly</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="setup.zh.html"><strong aria-hidden="true">3.</strong> 安装准备</a></li><li><a href="hello-world.zh.html"><strong aria-hidden="true">4.</strong> 你好,世界</a></li><li><a href="tools.zh.html"><strong aria-hidden="true">5.</strong> 工具</a></li><li><a href="workflows.zh.html"><strong aria-hidden="true">6.</strong> 工作流程</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript互操作</a></li><li><a href="tutorials.zh.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li><a href="game-of-life/introduction.zh.html"><strong aria-hidden="true">8.1.</strong> 康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">8.1.1.</strong> 安装</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">8.1.2.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">8.1.3.</strong> 实现</a></li><li><a href="game-of-life/debugging.zh.html" class="active"><strong aria-hidden="true">8.1.4.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">8.1.5.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">8.1.6.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">8.1.7.</strong> 收缩.wasm尺寸</a></li><li><a href="game-of-life/publishing.zh.html"><strong aria-hidden="true">8.1.8.</strong> 发布</a></li></ol></li><li><a href="wasm-pack/introduction.zh.html"><strong aria-hidden="true">8.2.</strong> wasm-pack</a></li><li><ol class="section"><li><a href="wasm-pack/setup.zh.html"><strong aria-hidden="true">8.2.1.</strong> 安装</a></li><li><a href="wasm-pack/initialize.zh.html"><strong aria-hidden="true">8.2.2.</strong> 项目初始化</a></li><li><a href="wasm-pack/rust-code.zh.html"><strong aria-hidden="true">8.2.3.</strong> 锈编码</a></li><li><a href="wasm-pack/package-code.zh.html"><strong aria-hidden="true">8.2.4.</strong> 包裹代码为npm</a></li><li><a href="wasm-pack/run-the-code.zh.html"><strong aria-hidden="true">8.2.5.</strong> 从npm运行代码</a></li><li><a href="wasm-pack/next-steps.zh.html"><strong aria-hidden="true">8.2.6.</strong> 下一步做什么</a></li></ol></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rust and WebAssembly</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="game-of-life/debugging.zh.html#a调试" id="a调试"><h1>调试</h1></a>
+<p>在我们编写更多代码之前,我们需要在出现问题时使用一些调试工具.</p>
+<a class="header" href="game-of-life/debugging.zh.html#a使用调试符号构建" id="a使用调试符号构建"><h2>使用调试符号构建</h2></a>
+<blockquote>
+<p>⚡调试时,请务必确保使用调试符号构建!</p>
+</blockquote>
+<p>如果您没有启用调试符号,那么<code>&quot;name&quot;</code>部分将不会出现在<code>.wasm</code>二进制编译中和堆栈跟踪将具有类似的函数名称<code>wasm[42]</code>而不是<code>wasm_game_of_life::Universe::live_neighbor_count</code>.</p>
+<p>使用&quot;debug&quot;版本时 (又称<code>npm run build-debug</code>) 默认情况下启用调试符号.</p>
+<p>使用&quot;release&quot;构建时,默认情况下不启用调试符号. 要启用调试符号,请确保您<code>debug = true</code>在<code>Cargo.toml</code>的<code>[profile.release]</code>:</p>
+<pre><code class="language-toml">[profile.release]
+debug = true
+</code></pre>
+<p>默认情况下我们一直在使用的项目模板添加了这个<code>Cargo.toml</code>,为方便起见.</p>
+<a class="header" href="game-of-life/debugging.zh.html#a记录" id="a记录"><h2>记录</h2></a>
+<p>记录是我们用来证明和反驳我们的程序错误原因的最有效工具之一. 在 web 上,<code>console.log</code> 是将消息记录到浏览器的开发人员工具控制台的方法. 我们可以用<code>wasm_bindgen</code>导入对它的引用,如下所示:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(msg: &amp;str);
+}
+
+// A macro to 提供 `println!(..)`-style syntax 给 `console.log` logging.
+macro_rules! log {
+    ($($t:tt)*) =&gt; (log(&amp;format!($($t)*)))
+}
+#}</code></pre></pre>
+<p>然后,我们可以通过在Rust代码中,插入<code>log</code>调用将消息记录到控制台. 例如,要记录每个单元的状态,活动邻居数和下一个状态,我们可以像这样修改我们的代码:</p>
+<pre><code class="language-diff">diff --git a/src/lib.rs b/src/lib.rs
+index f757641..a30e107 100755
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -63,6 +63,11 @@ impl Universe {
+                 let cell = self.cells[idx];
+                 let live_neighbors = self.live_neighbor_count(row, col);
+
++                log!(
++                    &quot;cell[{}, {}] is initially {:?} and has {} live neighbors&quot;,
++                    row, col, cell, live_neighbors
++                );
++
+                 let next_cell = match (cell, live_neighbors) {
+                     // Rule 1: Any live cell with fewer than two live neighbours
+                     // dies, as if caused by underpopulation.
+@@ -80,6 +85,8 @@ impl Universe {
+                     (otherwise, _) =&gt; otherwise,
+                 };
+
++                log!(&quot;    it becomes {:?}&quot;, next_cell);
++
+                 next[idx] = next_cell;
+             }
+         }
+</code></pre>
+<p><code>console.log</code>或者<code>console.error</code>函数具有相同的接口<code>,但是,</code>console.error`在开发人员工具也倾向于在记录消息时捕获并显示堆栈跟踪用来.</p>
+<a class="header" href="game-of-life/debugging.zh.html#a参考" id="a参考"><h3>参考</h3></a>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console">该<code>console</code>对象</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Web_Console">Firefox开发人员工具 -  Web控制台</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console">Microsoft Edge开发人员工具 - 控制台</a></li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/console/get-started">开始使用Chrome DevTools控制台</a></li>
+</ul>
+<a class="header" href="game-of-life/debugging.zh.html#a使用调试器" id="a使用调试器"><h2>使用调试器</h2></a>
+<p>不幸的是,WebAssembly 的调试仍然不成熟. 在大多数 Unix系统上,<a href="http://dwarfstd.org/">DWARF</a>用于编码调试器提供正在运行的程序的源级检查的信息. 在Windows 上有一种替代格式可以编码类似的信息. 目前, WebAssembly 没有等价物. 因此,调试器目前提供有限的实用程序,我们最终逐步执行编译器发出的原始 WebAssembly 指令,而不是我们编写的Rust源文本.</p>
+<p>尽管如此,调试器仍然可用于检查 与WebAssembly交互的JavaScript. 例如,我们可以使用调试器在我们的<code>renderLoop</code>函数每次迭代中暂停. 这为我们提供了一个方便的检查点,用于检查记录的消息,并将当前呈现的帧与前一帧进行比较.</p>
+<p><a href="./images/game-of-life/debugging.png"><img src="./images/game-of-life/debugging.png" alt="Screenshot of debugging the Game of Life" /></a></p>
+<a class="header" href="game-of-life/debugging.zh.html#a参考-1" id="a参考-1"><h3>参考</h3></a>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger">Firefox开发者工具 - 调试器</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/debugger">Microsoft Edge开发人员工具 - 调试器</a></li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/javascript/">开始在Chrome DevTools中调试JavaScript</a></li>
+</ul>
+<a class="header" href="game-of-life/debugging.zh.html#a首先避免调试webassembly" id="a首先避免调试webassembly"><h2>首先避免调试WebAssembly</h2></a>
+<p>虽然一些错误特定于 JavaScript和WebAssembly 的接口,但经验表明大多数错误都没有. 尝试将 bug重现 通过正常的Rust<code>#[test]</code>函数,您可以在调试时利用操作系统的成熟工具. 使用测试箱子<a href="https://crates.io/crates/quickcheck"><code>quickcheck</code></a>练习您向JavaScript公开的接口. 最终,如果您可以在不需要与 JavaScript交互 的小测试用例中隔离它们,您将更容易找到并修复错误.</p>
+<p>注意,为了运行<code>#[test]</code>没有编译器和链接器错误,你需要添加<code>#![wasm_bindgen]</code>注释和<code>crate-type = &quot;cdylib&quot;</code>.</p>
+<a class="header" href="game-of-life/debugging.zh.html#a练习" id="a练习"><h2>练习</h2></a>
+<ul>
+<li>
+<p>添加日志记录到<code>tick</code>函数,记录每个单元格的行和列 - 状态从活动转换为死亡,反之亦然.</p>
+</li>
+<li>
+<p>介绍一个<code>panic!()</code>在<code>Universe::new</code>方法里面. 在 Web浏览器的JavaScript调试器 中检查恐慌的回溯. 禁用调试符号,重建并再次检查堆栈跟踪. 不是很有用,是吗?</p>
+</li>
+<li>
+<p>checkout <code>chapter-one-with-bug</code> branch. 重建并重新加载网页. 现在很明显, 这个分支的实现包含一个<code>bug</code>, 每个单元格显然都是活着的. 这是您的作者在最初创建示例代码时, 所犯的真实世界 (tm) 错误. 找到错误并修复它. *不要看提交历史! 那是作弊 ;-) *</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="game-of-life/implementing.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="game-of-life/interactivity.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="game-of-life/implementing.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="game-of-life/interactivity.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

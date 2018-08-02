@@ -1,0 +1,136 @@
+<!doctype html>
+
+<title>12 Component Refactor - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/create-react-class@15.6.3/create-react-class.js"></script>
+<script src="https://cdn.bootcss.com/prop-types/15.6.1/prop-types.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// 重构是另一件`React`很好的事情
+// 首先,我们将讨论如何将一个组件重构为另一个组件,
+// 如果好运的话,您可以更改组件的实现,而无需在 呼叫站点 更改任何内容
+
+// 我们从一个以某种方式 渲染 rooms 记录 的组件开始
+function ViewBefore(props) {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Room</th>
+          <th>People</th>
+        </tr>
+      </thead>
+      <tbody>
+        {props.rooms.map(function(room, k) {
+          return <tr key={k}>
+            <td>{room.name}</td>
+            <td>{room.people}</td>
+          </tr>
+        })}
+      </tbody>
+    </table>
+  )
+}
+
+// 该组件有一个简单的`props`-接口
+ViewBefore.propTypes = {
+  rooms: PropTypes.array.isRequired,
+}
+
+// 现在我们用更复杂的东西来实现
+function ViewAfter(props) {
+  return (
+    <div>
+      {props.rooms.map(function(room, k) {
+        var barStyle = {
+          display: "inline-block",
+          background: "lightgrey",
+          width: room.people * 25,
+        }
+        return <div key={k}>
+          {room.people > 0
+            ? <span style={barStyle}>{room.people} People</span>
+            : <span>0 People</span>
+          }
+          <span> in {room.name}</span>
+        </div>
+      })}
+    </div>
+  )
+}
+// 我们保持`props`- 接口相同
+ViewAfter.propTypes = {
+  rooms: PropTypes.array.isRequired,
+}
+
+// 我们也可以用 更动态的东西 实现
+var ViewDynamic = createReactClass({
+
+  // 我们仍然保持着`props`- 接口相同
+  propTypes: {
+    rooms: PropTypes.array.isRequired,
+  },
+
+  getInitialState: function() {
+    return {currentRoom: 0}
+  },
+
+  componentDidMount() {
+    var component = this
+    var props = this.props
+
+    this.interval = setInterval(function() {
+      var currentRoom = component.state.currentRoom < props.rooms.length - 1
+        ? component.state.currentRoom + 1
+        : 0
+      component.setState({currentRoom: currentRoom})
+    }, 1000)
+  },
+
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  },
+
+  render: function() {
+    var room = this.props.rooms[this.state.currentRoom]
+
+    return (
+      <span style={{color: this.state.color}}>
+        Room <b>{room.name}</b> has <b>{room.people}</b> People.
+      </span>
+    )
+  },
+
+})
+
+// 一些数据
+var rooms = [
+  {name:"Office", people: 10},
+  {name:"Kitchen", people: 15},
+  {name:"Floor", people: 3},
+  {name:"Bathroom", people: 0},
+]
+
+// 正如我们所看到的,组件的使用方式完全相同
+// 如果我们将 ViewAfter的实现 复制到 ViewBefore 中,所有内容都可以继续工作
+var reactElement =
+  <div style={{margin: "auto", width: 500}}>
+
+    <h3>Before the refactor</h3>
+    <ViewBefore rooms={rooms}/>
+
+    <h3>After the refactor</h3>
+    <ViewAfter rooms={rooms}/>
+
+    <h3>Dynamic refactor</h3>
+    <ViewDynamic rooms={rooms}/>
+
+  </div>
+
+ReactDOM.render(reactElement, document.getElementById("app"))
+</script>

@@ -1,0 +1,42 @@
+<svg width="122.99999999999999" height="21" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created by Sindre Sorhus -->
+ <defs>
+  <filter id="a" filterUnits="userSpaceOnUse" x="0" y="0" width="111" height="20"/>
+  <linearGradient id="c" x1="0.49962" y1="0" x2="0.49962" y2="1">
+   <stop offset="0" stop-color="#BBB" stop-opacity="0.1"/>
+   <stop offset="1" stop-opacity="0.1"/>
+  </linearGradient>
+  <linearGradient id="svg_42" x1="0" y1="0" x2="0.62891" y2="0.29453">
+   <stop stop-color="#ffffff" offset="0"/>
+   <stop stop-color="#000000" offset="1"/>
+  </linearGradient>
+  <radialGradient id="svg_56" spreadMethod="pad" cx="0.5" cy="0.5" r="1.62316">
+   <stop stop-color="#191919" stop-opacity="0.99609" offset="0"/>
+   <stop stop-color="#3f007f" stop-opacity="0.99609" offset="1"/>
+  </radialGradient>
+ </defs>
+ <mask maskUnits="userSpaceOnUse" x="0" y="0" width="111" height="20" id="b">
+  <path fill="#FFF" filter="url(#a)" d="m3,0l104,0c1.66,0 3,1.34 3,3l0,14c0,1.66 -1.34,3 -3,3l-104,0c-1.66,0 -3,-1.34 -3,-3l0,-14c0,-1.66 1.34,-3 3,-3z" id="svg_1"/>
+ </mask>
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="125" height="23" id="canvas_background" fill="none"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path fill="#007fff" stroke-width="null" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" d="m18.08459,13.89355l3.71778,-3.87598l0,1.93799l5.57666,0l0,-5.81397l-1.85889,0l3.71777,-3.87598l3.71777,3.87598l-1.85889,0l0,9.68994l-9.29443,0l0,1.93799l-3.71778,-3.87598l0,0l0.00001,0.00001z" id="svg_9" stroke="#ffffff"/>
+  <rect stroke="#ffffff" fill="#007fff" stroke-width="null" x="-2.30262" y="-5.7418" width="48.67706" height="32.04786" id="svg_53" rx="11"/>
+  <rect fill="#d8d6d6" stroke-width="null" x="41.06247" y="-4.06879" width="81.83223" height="28.86727" id="svg_41" rx="6" stroke="null"/>
+  <g mask="url(#b)" id="svg_2">
+   <path fill="#CCA6C4" d="m21.49993,-22.24995l33.99999,0l0,20l-33.99999,0l0,-20z" id="svg_3"/>
+   <path fill="#494368" d="m55.49992,-22.24995l77,0l0,20l-77,0l0,-20z" id="svg_4"/>
+   <path fill="url(#c)" d="m21.49993,-22.24995l110.99999,0l0,20l-110.99999,0l0,-20z" id="svg_5"/>
+  </g>
+  <text fill="#999999" stroke="null" stroke-width="0" x="-1.15036" y="-8.26294" id="svg_39" font-size="24" font-family="Georgia, Times, 'Times New Roman', serif" text-anchor="start" xml:space="preserve" transform="matrix(0.814019,0,0,0.6389689999999999,44.4452953125,20.5623) ">translate</text>
+  <rect fill="url(#svg_42)" stroke="null" stroke-width="null" stroke-opacity="null" fill-opacity="0.62" x="67.43754" y="18.05628" width="3.00001" height="0" id="svg_43"/>
+  <text font-weight="normal" fill="#191919" stroke="null" stroke-width="0" x="-1.92174" y="-7.4343" id="svg_47" font-size="24" font-family="Georgia, Times, 'Times New Roman', serif" text-anchor="start" xml:space="preserve" transform="matrix(0.814019,0,0,0.652025,44.6826,21.0758) ">translate</text>
+  <rect fill="url(#svg_56)" stroke="#ffaaaa" stroke-width="null" stroke-opacity="null" x="44.81263" y="31.18099" width="0" height="0.125" id="svg_54"/>
+  <path stroke="#ffffff" fill="#ffffff" stroke-width="null" stroke-linejoin="null" stroke-linecap="null" d="m10.46724,10.9822l3.34966,-3.01602l0,1.50801l5.02449,0l0,-4.52403l-1.67483,0l3.34966,-3.01602l3.34966,3.01602l-1.67483,0l0,7.54005l-8.37415,0l0,1.50801l-3.34966,-3.01602l0,0l0,-0.00001l0,0.00001z" id="svg_12" transform="rotate(180 17.166566848754883,7.9661865234375) "/>
+  <path stroke="#ffffff" fill="#ffffff" stroke-width="null" stroke-linejoin="null" stroke-linecap="null" d="m16.43215,16.24536l3.34966,-3.01602l0,1.50801l5.02449,0l0,-4.52403l-1.67483,0l3.34966,-3.01601l3.34967,3.01601l-1.67483,0l0,7.54005l-8.37416,0l0,1.50801l-3.34966,-3.01602l0,0l0,0z" id="svg_6"/>
+ </g>
+</svg>

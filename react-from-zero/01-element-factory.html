@@ -1,0 +1,32 @@
+<!doctype html>
+
+<title>01 Element Factory - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+
+<div id="app"></div>
+
+<script>
+  //`React.createElement()`需要 类型-type, 属性-props, 孩子-children. 这比使用普通对象文字的冗长
+  // 它隐藏了第0课中提到的 $$type/Symbol 和 ref
+  var reactElement = React.createElement("h1", // type
+  { // props
+
+    className: "abc", 
+
+    style: {
+      textAlign: "center",
+    },
+
+    onClick: function () { alert("click") },
+
+  }, "Hello, world!") // children
+
+  // 第二个参数是 属性-props 对象 ,如果为空,则必须为null
+  var anotherElement = React.createElement("p", null, "A nice text paragraph.")
+
+  var renderTarget = document.getElementById("app")
+
+  ReactDOM.render(reactElement, renderTarget)
+</script>

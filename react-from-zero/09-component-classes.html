@@ -1,0 +1,100 @@
+<!doctype html>
+
+<title>09 Component Classes - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/prop-types/15.6.1/prop-types.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<script src="https://unpkg.com/create-react-class@15.6.3/create-react-class.js">
+// `React.createClass` 已从`React 16`中删除, 现在是它自己的软件包
+</script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// 通常情况下,组件需要维护一些内部状态,
+// 例如,如果在这种情况下涉及交互,
+// 但组件功能不够,
+// 组件功能只能具有属性而没有状态,
+// 我们需要具有 渲染-render 功能 的 组件类
+var MyComponent = createReactClass({
+
+  // 用于与 组件函数 相同的 属性类型检查
+  propTypes: {
+    color: PropTypes.string,
+  },
+
+  // 此方法为缺少的属性设置默认值,它将在`React`组件被 装入-mounted DOM 之前 被调用
+  getDefaultProps: function() {
+    return {color: "green"}
+  },
+
+  // 这个方法它将被`React`调用, 用来为 组件 设置初始状态
+  // 如果缺少这种方法,
+  // 组件被装入DOM之前,`this.state`将是未定义的
+  getInitialState: function() {
+    // 状态-state 可以是任何`JavaScript`值,往往是一个对象
+    return {times: 0}
+  },
+
+    // 此方法处理所有的点击`<span>`元件
+  handleClick: function() {
+    // `setState()` 可以使用 包含新状态的对象 调用,
+    // 通常会触发 `render()`的调用,
+    // 但`React` 可以集合多次调用并推迟 `render()` 调用 (通过异步调用) 
+    // 为了防止出现这种情况,`setState`可以用一个回调代替
+
+    // 如果我们依赖我们的计算到的`this.state`或者`this.props`,
+    // 这可能会导致意想不到的行为
+    // this.setState({times: this.state.times + 1})
+
+    // 回调版本就没有这个问题
+    // 在更新时, 回调得到正确的 状态和`props`
+    this.setState(function(prevState, props) {
+      return {times: prevState.times + 1}
+    })
+
+  },
+
+  // 每次将组件装入 DOM 和
+  // `this.setState()` 调用之后
+  // 这个方法会被`React`调用
+  // 它就像之前的组件函数,
+  // 但没有`props`参数
+  render: function() {
+
+    // 使用 创建者给出的该组件 属性-props
+    // `props`现在是`this.props`而不是`props`参数
+    var style = {color: this.props.color}
+
+    // 返回一个带有 点击处理程序,`props`和 状态值-state 的元素
+    // `state`存储在`this.state`
+    return (
+      <span onClick={this.handleClick} style={style}>
+        Clicked {this.state.times} times
+      </span>
+    )
+
+  },
+
+})
+
+// 创建一些具有 状态组件类的实例
+// 其中一个是默认值
+// 一切与 简单的组件函数使用完全相同,
+// 对于此组件的用户接口没有改变
+var reactElement =
+  <div>
+    <MyComponent color="red"/>
+    <br/>
+    <MyComponent color="blue"/>
+    <br/>
+    <MyComponent/>
+  </div>;
+
+var renderTarget = document.getElementById("app")
+
+ReactDOM.render(reactElement, renderTarget)
+</script>

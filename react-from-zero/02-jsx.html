@@ -1,0 +1,52 @@
+<!doctype html>
+
+<title>02 JSX - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js">
+
+// 现在我们将使用`JSX`,这需要转换为`JavaScript`. 
+// 为此我们将使用`Babel`. `Babel`通常用于转换`ES2015`至`ES5`,
+// 但它也可以转换`JSX`至`ES5`. `Babel`浏览器版本使用 `text/babel` `<script>` 标签. 
+</script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// JSX is the idiomatic way of creating elements.
+// It's basically XHTML with {} for dynamic content
+// also class has to be called className
+// `JSX`是创造元素的惯用方式. 
+// 基本上是这样`XHTML`夹杂`{}`, 这样带入`动态内容/js`,
+// 还有将 `class` 改称为 `className`
+var reactElement =
+  <h1
+    className="abc"
+    style={{textAlign: "center"}}
+    onClick={function() { alert("click") }}>
+    Hello, world!
+  </h1>
+
+// 是相同的
+reactElement =
+  React.createElement(
+    "h1",
+    {className: "abc", style: {textAlign: "center"},
+    onClick: function() { alert("click") }},
+    "Hello, world!"
+  )
+
+// JSX shines especially with simple elements that make up the majority
+// `JSX`特别是构成大多数的简单元素, 所以尤为闪耀简单
+var anotherElement = <p>A nice text paragraph.</p>
+
+// 是相同的
+anotherElement = React.createElement("p", null, "A nice text paragraph.")
+
+// 正如我们所看到的,其他一切和以前一样
+var renderTarget = document.getElementById("app")
+
+ReactDOM.render(reactElement, renderTarget)
+</script>

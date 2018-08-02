@@ -1,0 +1,57 @@
+<!doctype html>
+
+<title>14 References - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/create-react-class@15.6.3/create-react-class.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// 有时我们需要 某个元素或某个组件 的状态,
+// 或者必须以某种方式直接进行修改. 
+// 对于这种情况,我们可以告诉`React`创建引用-ref.
+var RefComponent = createReactClass({
+
+  // 首先我们告诉`React`在渲染输入时使用 ref 回调,
+  // 当`DOM`的输入元素是可用时, 将会调用它, 保存
+  render: function() {
+    return (
+      <div>
+        <input ref={this.handleRef}/>
+        <button onClick={this.handleClick}>Do Something</button>
+      </div>
+    )
+  },
+
+  // 当input元素被装载到DOM中时 调用此回调函数,
+  // 当然它再次被卸载时, 也会回到 null. 
+  // 对于元素,渲染`DOM`节点 将被存储
+  // 对于组件,组件的实例 将被存储.
+  handleRef(nameInput) {
+    // 我们保存对其的引用以备后用.
+    this.nameInput = nameInput
+  },
+
+  // 此按钮被单击时
+  // 调用此回调读出`this.nameInput`输入的值.
+  handleClick: function() {
+    console.log(this.nameInput.value)
+  },
+
+})
+
+// 由于 引用 对 其组件是局部变量,
+// 因此它们可以用作 本地ID「this.nameInput」 来获取元素,
+// 并且在创建另一个组件实例时也不会相互覆盖
+var reactElement =
+  <div>
+    <RefComponent/>
+    <RefComponent/>
+    <RefComponent/>
+  </div>
+
+ReactDOM.render(reactElement, document.getElementById("app"))
+</script>

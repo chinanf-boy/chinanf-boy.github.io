@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>事件 on </title>
+    <link>/tags/%E4%BA%8B%E4%BB%B6/</link>
+    <description>Recent content in 事件 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 04 Jun 2017 16:03:08 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/%E4%BA%8B%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React事件与原生事件</title>
+      <link>/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/</link>
+      <pubDate>Sun, 04 Jun 2017 16:03:08 +0000</pubDate>
+      
+      <guid>/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/</guid>
+      <description>实例 我们用一个实例，发现，原生与 react事件 冲突
+JS Bin on jsbin.com
+原生事件 1 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ 2 this.setState({s1:!this.state.s1}) 3 alert(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) 4 console.log(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) 5 6 }) 7 react事件 1onSubmit(e){ 2 alert(&amp;#39;onsubmit&amp;#39;, e.target.value) 3 this.setState({s1:!this.state.s1}) 4} 5//... 6&amp;lt;input id=&amp;#39;qr&amp;#39; value=&amp;#39;二维码&amp;#39; type=&amp;#34;button&amp;#34; onClick={this.onSubmit} /&amp;gt; 7 点击二维码 可以看到，事件从body开始，div.qr -&amp;gt;div.root
+实例的功能是
+点击二维码按钮，可以显示／隐藏，照片
+ 在，照片显示时
+ 1.点击非照片区域，可以隐藏，
+2.点击照片，没有变化
+  但是 可以看到，点击，显示照片，事件顺序
+body -&amp;gt; div.code -&amp;gt; div.root
+由此说来，body,的优先级很大啊
+但是 可以看到console面板，我留在，body事件的输出语句
+二维码 是 div.qr 的 value 值。
+ img 是 div.</description>
+    </item>
+    
+  </channel>
+</rss>

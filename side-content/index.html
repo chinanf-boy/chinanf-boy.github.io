@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh">
+	
+<head>
+	<meta charset="UTF-8">
+	<title>test-side-content</title>
+	<style>html { font-size: 62.5%; }
+		html, body { height: 100%; }
+		
+		body {
+			float: right;
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 150%;
+			line-height: 1.3;
+			color: #f6e6cc;
+			width: 66vw;
+			margin: auto;
+			background: #27221a;
+			position: relative;
+			padding: 0 30px;
+		}
+		
+		p,ul,ol,dl,table,pre { margin-bottom: 1em; }
+		ul { margin-left: 20px; }
+		a { text-decoration: none; cursor: pointer; color: #ba832c; font-weight: bold; }
+		a:focus { outline: 1px dotted; }
+		a:visited {  }
+		a:hover, a:focus { color: #d3a459; text-decoration: none; }
+		a *, button * { cursor: pointer; }
+		hr { display: none; }
+		small { font-size: 90%; }
+		input, select, button, textarea, option { font-family: Arial, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif; font-size: 100%; }
+		button, label, select, option, input[type=submit] { cursor: pointer; }
+		.group:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; } .group {display: inline-block;}
+		/* Hides from IE-mac \*/ * html .group {height: 1%;} .group {display: block;} /* End hide from IE-mac */
+		sup { font-size: 80%; line-height: 1; vertical-align: super; }
+		button::-moz-focus-inner { border: 0; padding: 1px; }
+		span.amp { font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif; font-weight: normal; font-style: italic; font-size: 1.2em; line-height: 0.8; }
+		
+		h1,h2,h3,h4,h5,h6 { 
+			line-height: 1.1; 
+			font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+		}
+		
+		h2 { font-size: 22pt; }
+		h3 { font-size: 20pt; }
+		h4 { font-size: 18pt; }
+		h5 { font-size: 16pt; }
+		h6 { font-size: 14pt; }
+		
+		::selection { background: #745626; }
+		::-moz-selection { background: #745626; }
+		
+		h1 {
+			font-size: 420%;
+			margin: 0 0 0.1em;
+			font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+		}
+		
+		h1 a,
+		h1 a:hover {
+			color: #d7af72;
+			font-weight: normal;
+			text-decoration: none;
+		}
+		
+		pre {
+			background: rgba(0,0,0,0.3);
+			color: #fff;
+			padding: 8px 10px;
+			border-radius: 0.4em;
+			-moz-border-radius: 0.4em;
+			-webkit-border-radius: 0.4em;
+			overflow-x: hidden;
+			text-align: left;
+		}
+		
+		pre code {
+			font-size: 15pt;
+		}
+		
+		.thumb { 
+			float:left;
+			margin: 10px;
+		}
+		
+		#side-content {
+			float: right;
+			max-width: 1000px;
+			text-align: center;
+			margin-top:0;
+			margin-left: auto;
+			margin-right: 10px;
+			background-color: #ffc;
+		}
+		
+		#side-content div{
+			margin: 20px;
+			padding: 5px;
+			background-color: #27221a;
+		}
+		
+		#sider {
+			position: fixed;
+			left: 60px;
+			top: 400px;
+			min-width: 20em;
+			text-align: center;
+			border:1px #ffc solid;
+			background-color: #fff;
+		}
+		
+		#footer {
+			margin-top:50% !important;
+			margin-bottom:50% !important;
+		}
+		
+		#sider a{
+			text-decoration: none;
+			list-style: none;
+			display: block;
+			padding: 5px;
+		}
+		
+		a:hover {
+			cursor: pointer;
+		}
+		
+		#sider a.active{
+			background-color: #cecece;
+		}
+		
+		#sider li{
+			list-style:none;
+		}
+		#sider li:hover{
+			background-color: #cecece;
+			border:1px #4183c4 solid;
+		}
+		
+		img {
+			height: 240px;
+		}</style>
+	<style>svg{fill:#fff;color:#151513;position:absolute;border:0;right:0}foreignObject,image,marker,pattern,svg:not(:root),symbol{overflow:hidden}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}.github-corner .octo-arm{-webkit-transform-origin:130px 106px;transform-origin:130px 106px}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}</style>
+</head>
+
+<body>
+	<!-- github link -->
+	<a class="github-corner" href="https://github.com/chinanf-boy/Side-content" aria-label="View source on Github">
+		<svg width="100" height="100" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path class="octo-arm" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor"></path><path class="octo-body" d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor"></path></svg>
+		  </a>
+	<section>
+		<div>
+			<a href="https://github.com/chinanf-boy/Side-content" style="font-size:10rem">Github</a>
+			<ul id='sider'>
+
+			</ul>
+		</div>
+	</section>
+
+	<article>
+		<div id='side-content'>
+			<div class="content-1">
+				<div id="side-1">你</div>
+				<div>
+
+					<h1>Side-Content</h1>
+
+<p>V_0.3</p>
+
+<hr/>
+
+<h2>简单,以标题链接侧边</h2>
+
+<h2>how-to-use</h2>
+
+<a href="/dist/side-content.min.js" download="minfile">
+	下载- 压缩版本 
+</a>
+	<br />
+<a href="https://github.com/chinanf-boy/Side-content" style="font-size:4rem">Github地址</a>
+
+<ul><li>添加 <b>js</b> 文件 <code>side-content.js</code></li></ul>
+
+<pre><code>
+&lt;script src=&#39;side-content.js&#39;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+
+
+<h2>设置一个 <p><code>sider ID</code></p> 用来显示标题</h2>
+
+<pre><code>
+&lt;ul id=&#39;sider&#39;&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h2>设置一个主内容 ID</h2>
+
+<blockquote><pre>例如 <code>side-content</code> 可是自己设置</pre></blockquote>
+
+<pre><code>
+&lt;div id=&#39;side-content&#39;&gt;
+	&lt;div id=&quot;side-1&quot;&gt;你&lt;/div&gt;
+	&lt;div id=&quot;side-2&quot;&gt;是&lt;/div&gt;
+	//你想添加的标题 -- 前缀必须是 side-
+&lt;/div&gt;
+</code></pre>
+
+<pre><code>
+var a = setSider(&#39;side-content&#39;); //setSider(&#39;主内容ID&#39;);
+//or
+var a = setSider(); //默认 side-content
+</code></pre>
+
+<h2>and done ,完成</h2>
+
+<blockquote><p>tips: 视口的变化，会，影响准确性，主要是 高度，</p></blockquote>
+
+<p><img alt="show" src="https://github.com/chinanf-boy/Side-content/blob/master/show_pic/show_one.gif?raw=true"/></p>
+
+
+
+
+
+				</div>
+			</div>
+			<div class="content-2">
+				<div id="side-2">好</div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+				magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+				occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+			<div class="content-3">
+				<div id="side-3">啊</div>
+				<div>ddd</div>
+			</div>
+			<div class="content-4">
+				<div id="side-4">朋</div>
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis deserunt nisi id, officia vitae nulla praesentium perferendis voluptates explicabo vel ipsum dignissimos, autem maxime accusantium eius ratione similique repellat laudantium?
+			</div>
+			<div class="content-5">
+				<div id="side-5">友</div>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptate quae animi debitis eaque, rerum excepturi unde, quibusdam nesciunt nisi, nemo magni. Consequatur neque aliquid, ut expedita ab non harum.
+			</div>
+			<div id="footer">d</div>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsa ipsum, cumque adipisci perspiciatis maiores repellat provident. Placeat minima corrupti reiciendis tempora aspernatur, excepturi, delectus officia et laborum vitae deserunt.
+
+		</div>
+	</article>
+
+	<!-- -->
+	<h1>test</h1>
+	<script src='./dist/side-content.min.js'></script>
+	<script>
+		var Sider = setSider();
+	</script>
+</body>
+
+</html>

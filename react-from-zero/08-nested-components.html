@@ -1,0 +1,45 @@
+<!doctype html>
+
+<title>08 Nested Components - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// 组件像元素一样可以嵌套
+// 为此,子组件内部使用子属性
+
+// 这个组件只是将它的孩子包裹在一个`<li>`元件
+function Item(props) {
+  return <li>{props.children}</li>
+}
+
+// 这个组件把它的孩子包装成一个`<ul>`元件
+function List(props) {
+  return <ul>{props.children}</ul>
+}
+
+// 如果`<List>`没有孩子的时候会创建一个默认的孩子
+List.defaultProps = {
+  children: <Item>Empty</Item>
+}
+
+// now we render two <List>s, without and with Items
+// 现在我们渲染两个`<List>`, 一个有物品,一个没有
+var reactElement =
+  <div>
+    <List/>
+    <List>
+      <Item>First</Item>
+      <Item>Second</Item>
+      <Item>Third</Item>
+    </List>
+  </div>
+
+var renderTarget = document.getElementById("app")
+
+ReactDOM.render(reactElement, renderTarget)
+</script>

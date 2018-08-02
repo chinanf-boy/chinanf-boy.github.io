@@ -1,0 +1,131 @@
+
+// <!doctype html>
+
+<title>16 Advanced Integration - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/create-react-class@15.6.3/create-react-class.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<script src="https://unpkg.com/d3@4.7.3/build/d3.min.js">
+// 有时我们需要整合更复杂的库. 
+// 那些库会 直接使用DOM 或 需要异步交互. 
+// 在这个例子中,我们使用了一个免费的 InfoVis 库 => D3.js.
+</script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// 由于 D3 需要 直接与`DOM`交互,
+// 我们应该使用一个组件类,
+// 因为它可以 存储对它自身的`DOM-elements`的 引用-ref.
+var Visual = createReactClass({
+
+  // 我们只是渲染一个空的 画布-canvas ,
+  // 并告诉`React`在渲染之后 存储其引用
+  render: function() {
+    return <canvas ref={this.handleRef} width={500} height={500}/>
+  },
+
+  handleRef: function(canvas) {
+    this.canvas = canvas // 存储 ref
+  },
+
+  // 在第一次渲染之后,我们获取对 canvas-`DOM`元素 的引用,
+  // 并在这里将其传递给 D3库 ,
+  componentDidMount: function() {
+  // 我们也使用一些额外的颜色配置
+    drawGraph(this.canvas, this.props.color)
+  },
+
+  // 我们对重新渲染也有一些细粒度的控制. 使用这个 lifecylce 方法
+  shouldComponentUpdate: function(nextProps, nextState) {
+    // 在这里,我们可以告诉我们的库 新数据`props`或状态,
+    // 这样它就可以更新`DOM`元素本身
+
+    // 最后,我们总是返回false,
+    // 所以我们的 render方法 没有被调用, canvas元素也没有被替换
+    return false
+  },
+
+  // 在 从 DOM 中删除组件 之前,可以使用此生命周期方法来释放资源. 
+  // 我们的画布肯定会被移除,但是对于库来说,
+  // 其他对象,监听事件之类的,通常会有状态,
+  // 他们可以存储在组件上,也可以被删除以防止内存泄漏
+  componentWillUnmount() {},
+
+})
+
+// 现在我们可以使用该D3库做成的组件
+// 不需要全局ID,每个实例都有自己的画布引用存储,也有它自己的颜色属性
+var reactElement =
+  <div>
+    <Visual color="#f00"/>
+    <Visual color="#0f0"/>
+    <Visual color="#00f"/>
+  </div>
+
+ReactDOM.render(reactElement, document.getElementById("app"))
+
+// 将 D3库交互 包装成一个函数
+function drawGraph(canvas, strokeColor) {
+
+  // 来自http://bl.ocks.org/mbostock/1b64ec067fcfc51e7471d944f51f1611 的 一个例子
+  // GPL-V3协议
+  var n = 20
+
+  var nodes = d3.range(n * n).map(function(i) {
+    return {index: i}
+  })
+
+  var links = []
+
+  for (var y = 0; y < n; ++y) {
+    for (var x = 0; x < n; ++x) {
+      if (y > 0) links.push({source: (y - 1) * n + x, target: y * n + x});
+      if (x > 0) links.push({source: y * n + (x - 1), target: y * n + x});
+    }
+  }
+
+  d3.forceSimulation(nodes)
+    .force("charge", d3.forceManyBody().strength(-30))
+    .force("link", d3.forceLink(links).distance(20).iterations(10))
+    .on("tick", ticked)
+
+  var context = canvas.getContext("2d")
+  var width = canvas.width
+  var height = canvas.height
+
+  function ticked() {
+    context.clearRect(0, 0, width, height)
+    context.save()
+    context.translate(width / 2, height / 2)
+
+    context.beginPath()
+    links.forEach(drawLink)
+    context.strokeStyle = "#aaa"
+    context.stroke()
+
+    context.beginPath()
+    nodes.forEach(drawNode)
+    context.fill()
+    context.strokeStyle = strokeColor
+    context.stroke()
+
+    context.restore()
+  }
+
+  function drawLink(d) {
+    context.moveTo(d.source.x, d.source.y)
+    context.lineTo(d.target.x, d.target.y)
+  }
+
+  function drawNode(d) {
+    context.moveTo(d.x + 3, d.y);
+    context.arc(d.x, d.y, 3, 0, 2 * Math.PI)
+  }
+
+}
+
+</script>

@@ -1,0 +1,46 @@
+<!doctype html>
+
+<title>05 Properties - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// 组件与 元素一样也可以使用 属性-props
+function MyComponent(props) {
+  return (
+    <div className={props.className}>
+      <h1>Hello</h1>
+      <h2>{props.customData}</h2>
+    </div>
+  )
+}
+
+var reactElement = <MyComponent className="abc" customData="world"/>
+
+// 这也适用于 对象 和  (...) 运算符
+var props = {
+  className: "abc",
+  customData: "world",
+}
+
+reactElement = <MyComponent {...props}/>
+
+// 这允许具有 动态内容 的组件
+var planets = ["earth", "mars", "venus"]
+
+// 如果一个数组被用作"子节点", 
+// 那么 每个孩子 都需要一个 唯一的键 属性
+var elements = planets.map(function(planet, index) {
+  return <MyComponent className="myClass" customData={planet} key={index}/>
+})
+
+reactElement = <div>{elements}</div>
+
+var renderTarget = document.getElementById("app")
+
+ReactDOM.render(reactElement, renderTarget)
+</script>

@@ -1,0 +1,50 @@
+<!doctype html>
+
+<title>06 Property Types - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<script src="https://cdn.bootcss.com/prop-types/15.6.1/prop-types.js">
+// PropType 已从`React 16`中删除, 现在是 分出来 的库
+</script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+
+// 创建组件来 封装应该在一起的东西 并 重用. 
+// 重复使用的组件, 要求用户提供正确的 属性-props, 以便我们可以定义每个属性的类型 并 设置默认值
+function MyComponent(props) {
+  return (
+    <div className={props.className}>
+      <h1>Hello</h1>
+      <h2>{props.customData}</h2>
+    </div>
+  )
+}
+
+// 将 propTypes (function-)属性 添加到组件函数, 可以验证其 ( (element) ) 属性
+MyComponent.propTypes = {
+  // `React`为我们提供了一堆类型,比如 字符串
+  customData: PropTypes.string,
+}
+
+// 如果用户未提供任何内容, 
+// 则添加 defaultProps (function-)属性以设置默认
+MyComponent.defaultProps = {
+  customData: "default",
+  className: "default-class",
+}
+
+// 这将在控制台中显示警告,因为 customData 应该是一个字符串
+var reactElement = <MyComponent customData={123}/>
+
+// 这将使用默认值
+reactElement = <MyComponent/>
+
+var renderTarget = document.getElementById("app")
+
+ReactDOM.render(reactElement, renderTarget)
+</script>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>node 命令行应用 与 npm 包发布 &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/" />
+
+     <meta name="description" content="先讲讲 Npm
+NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
+让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
+安" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="/file_imgs/nodelogo.png"/>
+    
+ 
+    <meta name="twitter:title" content="node 命令行应用 与 npm 包发布"/>
+    <meta name="twitter:description" content="先讲讲 Npm
+NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
+让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
+安"/>
+    <meta name="twitter:url" content="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="node 命令行应用 与 npm 包发布 &middot; Same like,Same guy" />
+    <meta property="og:url" content="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="先讲讲 Npm
+NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
+让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
+安" />
+
+    <meta property="article:published_time" content="2017-10-01T09:27:06Z" />
+    <meta property="article:tag" content="npm" /><meta property="article:tag" content="node命令行" />
+
+    <meta property="og:image" content="/file_imgs/nodelogo.png"/>
+
+
+    <meta name="generator" content="Hugo 0.45.1" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="Same like,Same guy" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about/">Projects me</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/getnoabsbooks">No-Abs-Book</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/">分类</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/tags">标签</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/chinanf-boy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2017-10-01">1 October 2017</time>
+                <span class="date-divider">/</span> <a href="/tags/npm/">#npm</a>&nbsp;<a href="/tags/node%E5%91%BD%E4%BB%A4%E8%A1%8C/">#node命令行</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">node 命令行应用 与 npm 包发布</h1>
+    </header>
+    
+    <figure class="post-full-image" style="background-image: url(/file_imgs/nodelogo.png)">
+    </figure>
+
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        
+
+<p>先讲讲 <code>Npm</code></p>
+
+<h2 id="npm">NPM</h2>
+
+<p>NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:</p>
+
+<p>让用户从NPM服务器下载别人编写的命令程序到本地使用
+允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用
+允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用</p>
+
+<!-- more -->
+
+<h2 id="安装">安装</h2>
+
+<p>新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm -v</pre></div>
+<h2 id="更新npm版本的命令">更新NPM版本的命令:</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>sudo npm install npm -g</pre></div>
+<h2 id="使用">使用</h2>
+
+<p>npm安装nodejs模块语法格式:</p>
+
+<p>npm install <Moudle Name></p>
+
+<h2 id="全局安装与本地安装">全局安装与本地安装</h2>
+
+<p>npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm install express //本地安装
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>npm install express -g //全局安装</pre></div>
+<h3 id="两者的区别">两者的区别</h3>
+
+<h4 id="本地安装">本地安装:</h4>
+
+<p>将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。
+可以通过 require() 来引入本地安装的包。</p>
+
+<h4 id="全局安装">全局安装:</h4>
+
+<p>将安装包放在 /usr/local 下。
+可以直接在命令行里使用。
+不能通过 require() 来引入本地安装的包。</p>
+
+<p>可以用以下命令来查看所有全局安装的模块:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm ls -g</pre></div>
+<h3 id="package-json-属性说明">Package.json 属性说明</h3>
+
+<ul>
+<li>name - 包名。</li>
+<li>version - 包的版本号。</li>
+<li>description - 包的描述。</li>
+<li>homepage - 包的官网 url 。</li>
+<li>author - 包的作者姓名。</li>
+<li>contributors - 包的其他贡献者姓名。</li>
+<li>dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。</li>
+<li>repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。</li>
+<li>main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&ldquo;express&rdquo;)。</li>
+<li>keywords - 关键字</li>
+</ul>
+
+<p><a href="https://docs.npmjs.com/files/package.json">官网属性列表</a>
+<a href="http://www.cnblogs.com/tzyy/p/5193811.html">中文——属性解释</a></p>
+
+<h3 id="卸载模块-可以使用以下命令来卸载nodejs">卸载模块 可以使用以下命令来卸载Nodejs</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm uninstall express //卸载该express模块
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>npm ls // 查看是否成功卸载</pre></div>
+<h3 id="更新模块-可以使用以下命令来更新模块">更新模块 可以使用以下命令来更新模块</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm update express</pre></div>
+<h3 id="搜索模块-使用以下命令来搜索模块">搜索模块 使用以下命令来搜索模块</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm search express</pre></div>
+<h3 id="创建模块-生成package-json">创建模块 生成package.json</h3>
+
+<p>注册一个npm账户</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm adduser
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>Username :
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>Password:
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>Email:</pre></div>
+<p>发布模块</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm publish</pre></div>
+<h3 id="版本号-使用npm下载和发布代码时都会接触到版本号-npm使用语义版本号来管理代码-语义版本号分为x-y-z三位-分别代表主版本号-次版本号和补丁版本号-当代码变更时-版本号按以下原则更新">版本号 使用NPM下载和发布代码时都会接触到版本号。NPM使用语义版本号来管理代码, 语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。</h3>
+
+<p>如果只是修复bug，需要更新Z位。
+如果是新增了功能，但是向下兼容，需要更新Y位。
+如果有大变动，向下不兼容，需要更新X位。
+版本号有了这个保证后，在申明第三方包依赖时，除了可依赖于一个固定版本号外，还可依赖于某个范围的版本号。例如&rdquo;argv&rdquo;: &ldquo;0.0.x&rdquo;表示依赖于0.0.x系列的最新版argv。</p>
+
+<p>NPM常用命令</p>
+
+<ul>
+<li>NPM提供了很多命令，例如install和publish，使用npm help可查看所有命令。</li>
+<li>使用npm help <command>可查看某条命令的详细帮助，例如npm help install。</li>
+<li>在package.json所在目录下使用npm install . -g可先在本地安装当前命令行程序，可用于发布前的本地测试。</li>
+<li>使用npm update <package>可以把当前目录下node_modules子目录里边的对应模块更新至最新版本。</li>
+<li>使用npm update <package> -g可以把全局安装的对应命令行程序更新至最新版。 使用npm cache clear可以清空NPM本地缓存，用于对付使用相同版本号发布新版本代码的人。</li>
+<li>使用npm unpublish <package>@<version>可以撤销发布自己发布过的某个版本代码。</li>
+</ul>
+
+<h1 id="再来说说-命令行-cli">再来说说 命令行 cli</h1>
+
+<p>拿一个简单的 github 项目来说</p>
+
+<p><a href="https://github.com/kevva/wifi-password-cli/blob/master/cli.js">wifi-password-cli</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#6272a4">#!/usr/bin/env node
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span><span style="color:#6272a4"></span><span style="color:#f1fa8c">&#39;use strict&#39;</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#ff79c6">const</span> meow <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;meow&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#ff79c6">const</span> wifiPassword <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;wifi-password&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#ff79c6">const</span> cli <span style="color:#ff79c6">=</span> meow(<span style="color:#f1fa8c">`
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span><span style="color:#f1fa8c">	Usage
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#f1fa8c">	  $ wifi-password [network-name]
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span><span style="color:#f1fa8c">	Example
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span><span style="color:#f1fa8c">	  $ wifi-password
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span><span style="color:#f1fa8c">	  unicorns
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span><span style="color:#f1fa8c">	  $ wifi-password foo-network
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span><span style="color:#f1fa8c">	  foosecretpassword
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span><span style="color:#f1fa8c">`</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>wifiPassword(cli.input[<span style="color:#bd93f9">0</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>	.then(console.log)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>	.<span style="color:#ff79c6">catch</span>(err =&gt; {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>		<span style="color:#ff79c6">if</span> (err.message <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">`Your network doesn&#39;t have a password`</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>			console.error(err.message);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>			process.exit(<span style="color:#bd93f9">1</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>		}
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>		<span style="color:#ff79c6">throw</span> err;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>	});
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span></code></pre></div>
+<h3 id="meow">meow</h3>
+
+<p><a href="https://github.com/sindresorhus/meow">meow</a> 是 简单的命令行帮助程序</p>
+
+<h3 id="wifi-password-cli的使用">wifi-password-cli的使用</h3>
+
+<p>安装</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm install -g wifi-password-cli</pre></div>
+<p>使用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>$ wifi-password --help
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>  Usage
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    $ wifi-password <span style="color:#ff79c6">[</span>network-name<span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>  Example
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    $ wifi-password
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    unicorns
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    $ wifi-password foo-network
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    foosecretpassword</code></pre></div>
+<p>可以看到正是上面代码的 <code>meow{}</code> 的内容</p>
+
+<h3 id="那么可以看出-全局安装的部分由-npm-完成">- 那么可以看出，全局安装的部分由<code>npm</code>完成</h3>
+
+<h3 id="package-json-里面-发布相关部分也要注意-尤其是-bin">- <code>package.json</code>里面，发布相关部分也要注意⚠️,尤其是<code>bin</code></h3>
+
+<h3 id="那么最后-命令行-cli-js-编写调用-主程序-上文就是-wifi-password-和名字">- 那么最后 命令行 <code>cli.js</code>编写调用-&gt;<code>主程序</code>-&gt;上文就是 <code>wifi-password</code>，和名字</h3>
+
+<h1 id="进阶-命令行-commander">进阶 命令行 commander</h1>
+
+<p>是由 <code>express</code>和<code>koa</code> 项目 开发者之一的 <a href="https://github.com/tj">tj</a></p>
+
+<p>从<code>Ruby</code> 移植 <code>javascript</code>项目 <a href="https://github.com/tj/commander.js">commander</a></p>
+    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="/">yobrave</a></h4>
+                <p>I - explain/translate/code &lt; er </p>
+        </section>
+      </section>
+    </footer>
+</article>
+    
+    
+    
+
+  </div>
+
+
+
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Same like,Same guy &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="/tags/npm/">#npm</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="/2018/03/11/vue-slot-scope-2.5.-example/">vue slot-scope 2.5.* example</a></li>            
+        
+          <li><a href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">React-Redux 父-Provider 子-connect</a></li>            
+        
+          <li><a href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">Travis Ci 测试以及 发布 npm</a></li>            
+        
+          <li><a href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">批量修改文件名-cmd:bash</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="/tags/npm/">See all related posts →</a>
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/ioniclogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #ionic 
+              #node-sass  </span>
+              
+              <h2 class="post-card-title">ionic 项目 npm问题解决</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> ionic项目 问题
+1npm install 主要问题在于 node-sass node 版本 要求 我最后使用 8.0
+使用 n
+和
+python 版本要求 2.5&lt;x&lt;3.0
+使用 conda
+去改变 版本
+1npm rebuild node-sass --force </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Mac 使用 NTFS </h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> 本机：10.12.4版本 Mounty：1.6(9)
+介绍 Mac 使用 NTFS 方法 直接下载 安装包或查看官网
+官方网址
+下载链接
+ 或
+ 你有 Homebrew , 你可以
+1brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件复制／粘贴
+请确保U盘之类： 正确-推出 ✅
+避免： 直接拔出 ❌
+不正确的操作，会导致BUG,和一定后果 可看官网 下拉 到下面标题
+1Some questions that might come up </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="/">
+      <img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="" />
+      <span></span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">node 命令行应用 与 npm 包发布</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=node%20%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%ba%94%e7%94%a8%20%e4%b8%8e%20npm%20%e5%8c%85%e5%8f%91%e5%b8%83&amp;url=%2f2017%2f10%2f01%2fnode-%25E5%2591%25BD%25E4%25BB%25A4%25E8%25A1%258C%25E5%25BA%2594%25E7%2594%25A8-%25E4%25B8%258E-npm-%25E5%258C%2585%25E5%258F%2591%25E5%25B8%2583%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f10%2f01%2fnode-%25E5%2591%25BD%25E4%25BB%25A4%25E8%25A1%258C%25E5%25BA%2594%25E7%2594%25A8-%25E4%25B8%258E-npm-%25E5%258C%2585%25E5%258F%2591%25E5%25B8%2583%2f"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/">yobrave</a> © 2018 <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/chinanf-boy" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+
+</body></html>

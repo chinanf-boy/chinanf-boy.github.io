@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>安装 - Rust and WebAssembly</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="setup.zh.html"><strong aria-hidden="true">3.</strong> 安装准备</a></li><li><a href="hello-world.zh.html"><strong aria-hidden="true">4.</strong> 你好,世界</a></li><li><a href="tools.zh.html"><strong aria-hidden="true">5.</strong> 工具</a></li><li><a href="workflows.zh.html"><strong aria-hidden="true">6.</strong> 工作流程</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript互操作</a></li><li><a href="tutorials.zh.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li><a href="game-of-life/introduction.zh.html"><strong aria-hidden="true">8.1.</strong> 康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html" class="active"><strong aria-hidden="true">8.1.1.</strong> 安装</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">8.1.2.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">8.1.3.</strong> 实现</a></li><li><a href="game-of-life/debugging.zh.html"><strong aria-hidden="true">8.1.4.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">8.1.5.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">8.1.6.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">8.1.7.</strong> 收缩.wasm尺寸</a></li><li><a href="game-of-life/publishing.zh.html"><strong aria-hidden="true">8.1.8.</strong> 发布</a></li></ol></li><li><a href="wasm-pack/introduction.zh.html"><strong aria-hidden="true">8.2.</strong> wasm-pack</a></li><li><ol class="section"><li><a href="wasm-pack/setup.zh.html"><strong aria-hidden="true">8.2.1.</strong> 安装</a></li><li><a href="wasm-pack/initialize.zh.html"><strong aria-hidden="true">8.2.2.</strong> 项目初始化</a></li><li><a href="wasm-pack/rust-code.zh.html"><strong aria-hidden="true">8.2.3.</strong> 锈编码</a></li><li><a href="wasm-pack/package-code.zh.html"><strong aria-hidden="true">8.2.4.</strong> 包裹代码为npm</a></li><li><a href="wasm-pack/run-the-code.zh.html"><strong aria-hidden="true">8.2.5.</strong> 从npm运行代码</a></li><li><a href="wasm-pack/next-steps.zh.html"><strong aria-hidden="true">8.2.6.</strong> 下一步做什么</a></li></ol></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rust and WebAssembly</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="game-of-life/setup.zh.html#a安装" id="a安装"><h1>安装</h1></a>
+<a class="header" href="game-of-life/setup.zh.html#a必备工具" id="a必备工具"><h2>必备工具</h2></a>
+<p>您需要安装以下工具才能学习本教程.</p>
+<a class="header" href="game-of-life/setup.zh.html#rust工具链" id="rust工具链"><h3>Rust工具链</h3></a>
+<p>本教程,您将需要标准的 Rust工具链,包括<code>rustup</code>,<code>rustc</code>,和<code>cargo</code></p>
+<p><a href="https://www.rust-lang.org/en-US/install.html">按照以下说明安装Rust工具链. </a></p>
+<a class="header" href="game-of-life/setup.zh.html#a该wasm32-unknown-unknown目标" id="a该wasm32-unknown-unknown目标"><h3>该<code>wasm32-unknown-unknown</code>目标</h3></a>
+<p>一旦安装了 Rust工具链 ,您就可以将 Rust程序 编译为 WebAssembly,而不是机器的本机代码. 您可以通过添加<code>wasm32-unknown-unknown</code>来启用此功能,使用以下命令进行目标:</p>
+<pre><code>rustup update
+rustup install nightly
+rustup target add wasm32-unknown-unknown --toolchain nightly
+</code></pre>
+<a class="header" href="game-of-life/setup.zh.html#npm" id="npm"><h3><code>npm</code></h3></a>
+<p><code>npm</code>是 JavaScript的包管理器. 我们将使用它来安装和运行 JavaScript捆绑器 和 开发服务器. 在本教程结束时,我们将发布我们编译的<code>.wasm</code>到了<code>npm</code>注册表中.</p>
+<p><a href="https://www.npmjs.com/get-npm">请按照以下说明进行安装<code>npm</code>. </a></p>
+<a class="header" href="game-of-life/setup.zh.html#wasm-bindgen" id="wasm-bindgen"><h3><code>wasm-bindgen</code></h3></a>
+<p><a href="https://github.com/rustwasm/wasm-bindgen"><code>wasm-bindgen</code></a>为 Rust和WebAssembly 生成与 JavaScript 的双向绑定.</p>
+<p>安装<code>wasm-bindgen</code>使用此命令:</p>
+<pre><code>cargo +nightly install wasm-bindgen-cli
+</code></pre>
+<a class="header" href="game-of-life/setup.zh.html#a克隆项目模板" id="a克隆项目模板"><h2>克隆项目模板</h2></a>
+<p>项目模板包含一个&quot;hello world&quot;程序. 它预先配置了默认的默认设置,因此您可以快速构建,集成和打包Web代码.</p>
+<p>克隆此教程代码存储库,输入其目录,然后 checkout <code>chapter-zero</code> branch:</p>
+<pre><code class="language-text">git clone https://github.com/rustwasm/wasm_game_of_life.git
+cd ./wasm_game_of_life
+git checkout -b chapter-zero origin/chapter-zero
+</code></pre>
+<a class="header" href="game-of-life/setup.zh.html#a里面有什么" id="a里面有什么"><h2>里面有什么</h2></a>
+<p>让我们来看看我们项目的内容:</p>
+<pre><code class="language-text">.
+├── bootstrap.js
+├── Cargo.lock
+├── Cargo.toml
+├── index.html
+├── index.js
+├── package.json
+├── package-lock.json
+├── src
+│   └── lib.rs
+├── wasm_game_of_life_bg.wasm
+├── wasm_game_of_life.js
+└── webpack.config.js
+</code></pre>
+<p>其中大多数是配置文件,但我们应该突出显示一些文件.</p>
+<a class="header" href="game-of-life/setup.zh.html#indexhtml" id="indexhtml"><h3><code>index.html</code></h3></a>
+<p>这是网页的根HTML文件. 它除了加载<code>bootstrap.js</code>之外没有其他作用,这是一个非常薄的包装<code>index.js</code>.</p>
+<pre><code class="language-html">&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta content=&quot;text/html;charset=utf-8&quot; http-equiv=&quot;Content-Type&quot;/&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script src='./bootstrap.js'&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<a class="header" href="game-of-life/setup.zh.html#indexjs" id="indexjs"><h3><code>index.js</code></h3></a>
+<p>该<code>index.js</code>是我们网页的 JavaScript 的主要入口点. 它导入项目的WebAssembly模块,并调用模块<code>greet</code>功能.</p>
+<pre><code class="language-js">import { greet } from &quot;./wasm_game_of_life&quot;;
+
+greet(&quot;Rust and WebAssembly&quot;);
+</code></pre>
+<a class="header" href="game-of-life/setup.zh.html#srclibrs" id="srclibrs"><h3><code>src/lib.rs</code></h3></a>
+<p>该<code>src/lib.rs</code>file是我们正在编译到 WebAssembly的Rust包 的根. 它用<code>wasm_bindgen</code>与 JavaScript交互. 它导入了<code>window.alert</code> - JavaScript函数,并导出<code>greet</code>rust函数,需要一个<code>name</code>参数就可以 <code>alert greeting</code> 消息.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![feature(proc_macro, wasm_custom_section, wasm_import_module)]
+
+#fn main() {
+extern crate wasm_bindgen;
+
+use wasm_bindgen::prelude::*;
+
+#[wasm_bindgen]
+extern {
+    fn alert(s: &amp;str);
+}
+
+#[wasm_bindgen]
+pub fn greet(name: &amp;str) {
+    alert(&amp;format!(&quot;Hello, {}!&quot;, name));
+}
+#}</code></pre></pre>
+<a class="header" href="game-of-life/setup.zh.html#a建设和服务" id="a建设和服务"><h2>建设和服务</h2></a>
+<p>首先,确保为此项目安装了JavaScript构建依赖项:</p>
+<pre><code class="language-text">npm install
+</code></pre>
+<p>此命令只需运行一次,并将安装<code>webpack</code> - JavaScript bundler及其开发服务器. 注意:使用<code>webpack</code>对 Rust和WebAssembly 来说不是必需的,它只是我们为方便起见而选择的捆绑器和开发服务器.</p>
+<p>构建 Rust crate{📦} 为 WebAssembly 并生成<code>wasm_bindgen</code>胶水,运行此命令:</p>
+<pre><code class="language-text">npm run build-debug
+</code></pre>
+<p>第一个构建可能需要一些时间,因为需要编译依赖项. 但不要担心: 后续构建,当依赖关系不需要重新编译时,将会快得多.</p>
+<p>命令会创建 Rust crates的&quot;debug&quot;版本: 未优化应用的构建,并包含符号以便在浏览器的开发人员工具中进行更好的调试. 您还可以创建一个&quot;发布-release&quot;版本,该版本具有使用此命令应用的优化过程:</p>
+<pre><code>npm run build-release
+</code></pre>
+<p>这是我们想要用来创建, 用于分析和部署到生产的<code>.wasm</code>二进制文件的命令.</p>
+<p>接下来,为开发服务器打开一个新终端. 在新终端中运行服务器让我们让它在后台运行,并且不会阻止我们在此期间运行其他命令. 在新终端中,运行以下命令:</p>
+<pre><code>npm run serve
+</code></pre>
+<p>浏览Web浏览器<a href="http://localhost:8080/">http://localhost:8080/)</a>你应该收到一条 alert 信息:</p>
+<p><a href="./images/game-of-life/setup.png"><img src="./images/game-of-life/setup.png" alt="Screenshot of the &quot;Hello, Rust and WebAssembly!&quot; Web page alert" /></a></p>
+<p>任何时候你做出改变并希望它们反映出来<a href="http://localhost:8080/">http://localhost:8080/)</a>,只是重新运行<code>npm run build-debug</code>命令.</p>
+<a class="header" href="game-of-life/setup.zh.html#a练习" id="a练习"><h2>练习</h2></a>
+<ul>
+<li>
+<p>修改<code>index.js</code>用你的名字而不是&quot;Rust和WebAssembly&quot;来 问候-greet 你.</p>
+</li>
+<li>
+<p>修改<code>greet</code>函数参数要两个<code>&amp;str</code>参数. 如果你没有传递第二个参数会发生什么<code>index.js</code>? <em>提示: 打开Web浏览器的开发人员工具.</em></p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="game-of-life/introduction.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="game-of-life/rules.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="game-of-life/introduction.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="game-of-life/rules.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

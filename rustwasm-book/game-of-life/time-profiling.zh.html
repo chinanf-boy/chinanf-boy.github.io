@@ -1,0 +1,614 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>时间分析 - Rust and WebAssembly</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="setup.zh.html"><strong aria-hidden="true">3.</strong> 安装准备</a></li><li><a href="hello-world.zh.html"><strong aria-hidden="true">4.</strong> 你好,世界</a></li><li><a href="tools.zh.html"><strong aria-hidden="true">5.</strong> 工具</a></li><li><a href="workflows.zh.html"><strong aria-hidden="true">6.</strong> 工作流程</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript互操作</a></li><li><a href="tutorials.zh.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li><a href="game-of-life/introduction.zh.html"><strong aria-hidden="true">8.1.</strong> 康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">8.1.1.</strong> 安装</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">8.1.2.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">8.1.3.</strong> 实现</a></li><li><a href="game-of-life/debugging.zh.html"><strong aria-hidden="true">8.1.4.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">8.1.5.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html" class="active"><strong aria-hidden="true">8.1.6.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">8.1.7.</strong> 收缩.wasm尺寸</a></li><li><a href="game-of-life/publishing.zh.html"><strong aria-hidden="true">8.1.8.</strong> 发布</a></li></ol></li><li><a href="wasm-pack/introduction.zh.html"><strong aria-hidden="true">8.2.</strong> wasm-pack</a></li><li><ol class="section"><li><a href="wasm-pack/setup.zh.html"><strong aria-hidden="true">8.2.1.</strong> 安装</a></li><li><a href="wasm-pack/initialize.zh.html"><strong aria-hidden="true">8.2.2.</strong> 项目初始化</a></li><li><a href="wasm-pack/rust-code.zh.html"><strong aria-hidden="true">8.2.3.</strong> 锈编码</a></li><li><a href="wasm-pack/package-code.zh.html"><strong aria-hidden="true">8.2.4.</strong> 包裹代码为npm</a></li><li><a href="wasm-pack/run-the-code.zh.html"><strong aria-hidden="true">8.2.5.</strong> 从npm运行代码</a></li><li><a href="wasm-pack/next-steps.zh.html"><strong aria-hidden="true">8.2.6.</strong> 下一步做什么</a></li></ol></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rust and WebAssembly</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="game-of-life/time-profiling.zh.html#a时间分析" id="a时间分析"><h1>时间分析</h1></a>
+<p>本章介绍如何使用 Rust和WebAssembly 来分析Web页面,其目标是提高吞吐量或降低延迟.</p>
+<blockquote>
+<p>⚡始终确保使用的是<code>--release</code>分析! 使用我们的项目模板,这意味着使用<code>npm run build-release</code>代替<code>npm run build-debug</code>.</p>
+</blockquote>
+<a class="header" href="game-of-life/time-profiling.zh.html#a可用工具" id="a可用工具"><h2>可用工具</h2></a>
+<a class="header" href="game-of-life/time-profiling.zh.html#a该performancenow计时器" id="a该performancenow计时器"><h3>该<code>performance.now()</code>计时器</h3></a>
+<p>该<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/now"><code>performance.now()</code></a>函数返回,自加载网页以来以毫秒为单位测量的单调时间戳. 我们可以使用它来计算各种操作的时间,我们可以通过以下方式 从Rust 访问它,通过<code>wasm_bindgen</code>导入申报:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    #[wasm_bindgen(js_namespace = performance)]
+    fn now() -&gt; f64;
+}
+#}</code></pre></pre>
+<p>调用<code>performance.now</code>开销很小,因此我们可以从中创建简单的测量,而不会扭曲系统其他部分的性能.</p>
+<p>例如,我们可以创建一个简单的 <code>FPS-帧数</code> 计数器,我们在每次迭代时更新<code>renderLoop</code>:</p>
+<pre><code class="language-js">const fps = new class {
+  constructor() {
+    this.fps = document.getElementById(&quot;fps&quot;);
+    this.frames = [];
+    this.lastFrameTimeStamp = performance.now();
+  }
+
+  render() {
+    // 时间计算.
+    const now = performance.now();
+    const delta = now - this.lastFrameTimeStamp;
+    this.lastFrameTimeStamp = now;
+    const fps = 1 / delta * 1000;
+
+    // Save only the latest 100 timings.
+    this.frames.push(fps);
+    if (this.frames.length &gt; 100) {
+      this.frames.shift();
+    }
+
+    // 找出我们100个最新时间的最大值，最小值和平均值.
+    let min = Infinity;
+    let max = -Infinity;
+    let sum = 0;
+    for (let i = 0; i &lt; this.frames.length; i++) {
+      sum += this.frames[i];
+      min = Math.min(this.frames[i], min);
+      max = Math.max(this.frames[i], max);
+    }
+    let mean = sum / this.frames.length;
+
+    // Render the statistics.
+    this.fps.textContent = `
+Frames per Second:
+         latest = ${Math.round(fps)}
+avg of last 100 = ${Math.round(mean)}
+min of last 100 = ${Math.round(min)}
+max of last 100 = ${Math.round(max)}
+`.trim();
+  }
+};
+</code></pre>
+<a class="header" href="game-of-life/time-profiling.zh.html#a开发人员工具profilers" id="a开发人员工具profilers"><h3>开发人员工具Profilers</h3></a>
+<p>所有 Web浏览器 的内置开发人员工具都包含一个分析器. 这些分析器显示哪些函数花费最多时间的可视化,如调用树和火焰图. 如果你<a href="/game-of-life/debugging.html#building-with-debug-symbols">用调试符号构建</a>,然后这些分析器应该显示 Rust函数名称 而不是像<code>wasm-function[123]</code>. 请注意这些分析器<em>惯于</em>显示内联函数,由于 Rust和LLVM 依赖于如此大量的内联,结果可能会有点令人困惑.</p>
+<p><a href="./images/game-of-life/profiler-with-rust-names.png"><img src="./images/game-of-life/profiler-with-rust-names.png" alt="Screenshot of profiler with Rust symbols" /></a></p>
+<a class="header" href="game-of-life/time-profiling.zh.html#a资源" id="a资源"><h4>资源</h4></a>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Performance">Firefox开发者工具 - 性能</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/performance">Microsoft Edge开发人员工具 - 性能</a></li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/rendering-tools/js-execution">Chrome DevTools JavaScript Profiler</a></li>
+</ul>
+<a class="header" href="game-of-life/time-profiling.zh.html#consoletime和consoletimeend功能" id="consoletime和consoletimeend功能"><h3><code>console.time</code>和<code>console.timeEnd</code>功能</h3></a>
+<p><code>console.time</code>和<code>console.timeEnd</code>函数允许您将命名操作的时间记录到浏览器的开发人员工具控制台.</p>
+<p>你可以用它将它们导入 Rust<code>wasm-bindgen</code> 声明中:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    #[wasm_bindgen(js_namespace = console)]
+    fn time(name: &amp;str);
+
+    #[wasm_bindgen(js_namespace = console)]
+    fn timeEnd(name: &amp;str);
+}
+#}</code></pre></pre>
+<p>因为<code>console.timeEnd</code>有对应的<code>console.time</code>调用,将它们包装在 RAII 类型中很方便:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub struct Timer&lt;'a&gt; {
+    name: &amp;'a str,
+}
+
+impl&lt;'a&gt; Timer&lt;'a&gt; {
+    pub fn new(name: &amp;'a str) -&gt; Timer&lt;'a&gt; {
+        time(name);
+        Timer { name }
+    }
+}
+
+impl&lt;'a&gt; Drop for Timer&lt;'a&gt; {
+    fn drop(&amp;mut self) {
+        timeEnd(self.name);
+    }
+}
+#}</code></pre></pre>
+<p>然后,我们可以计算每个时间<code>Universe::tick</code>,将此代码段添加到方法的顶部:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let _timer = Timer::new(&quot;Universe::tick&quot;);
+#}</code></pre></pre>
+<p>现在每次运行的时间<code>Universe::tick</code>都会记录了:</p>
+<p><a href="./images/game-of-life/console-time.png"><img src="./images/game-of-life/console-time.png" alt="Screenshot of console.time logs" /></a></p>
+<p>另外,<code>console.time</code>和<code>console.timeEnd</code>对将显示在,浏览器的分析器的&quot;timeline&quot;或&quot;waterfall&quot;视图中:</p>
+<p><a href="./images/game-of-life/console-time-in-profiler.png"><img src="./images/game-of-life/console-time-in-profiler.png" alt="Screenshot of console.time logs" /></a></p>
+<a class="header" href="game-of-life/time-profiling.zh.html#a运用bench与本地代码" id="a运用bench与本地代码"><h3>运用<code>#[bench]</code>与本地代码</h3></a>
+<p>我们通常也可以通过编写,来利用我们操作系统的本机代码调试工具<code>#[test]</code>而不是在Web上调试,我们也可以通过编写<code>#[bench]</code>功能.</p>
+<p>然而!在为本机代码分析投入大量精力之前,请确保您知道瓶颈在 WebAssembly 中! 使用浏览器的分析器确认这一点,否则您可能会浪费时间来优化不热的代码.</p>
+<a class="header" href="game-of-life/time-profiling.zh.html#a发展我们的生命博弈宇宙" id="a发展我们的生命博弈宇宙"><h2>发展我们的生命博弈宇宙</h2></a>
+<p>如果我们让我们的生命游戏世界更大,会发生什么? 使用 128 x 128 宇宙替换 64 x 64 宇宙导致FPS从 平滑的60 下降到 40-ish.</p>
+<p>如果我们记录一个配置文件并查看瀑布视图,我们会看到每个动画帧花费超过20毫秒. 回想一下,每秒60帧,每帧大概16毫秒. 16毫秒内不仅仅是有我们的 JavaScript和WebAssembly ,还有浏览器正在做的其他事情,比如绘制页面.</p>
+<p><a href="./images/game-of-life/drawCells-before-waterfall.png"><img src="./images/game-of-life/drawCells-before-waterfall.png" alt="Screenshot of a waterfall view of rendering a frame" /></a></p>
+<p>如果我们看一下单个动画帧中发生的事情,我们就会看到<code>CanvasRenderingContext2D.fillStyle</code> 很长!</p>
+<p><a href="./images/game-of-life/drawCells-before-flamegraph.png"><img src="./images/game-of-life/drawCells-before-flamegraph.png" alt="Screenshot of a flamegraph view of rendering a frame" /></a></p>
+<p>我们可以通过查看调用树的多个帧的聚合来确认这不是异常:</p>
+<p><a href="./images/game-of-life/drawCells-before-calltree.png"><img src="./images/game-of-life/drawCells-before-calltree.png" alt="Screenshot of a flamegraph view of rendering a frame" /></a></p>
+<p>我们将近40%的时间都花在了这个函数身上!</p>
+<blockquote>
+<p>⚡我们可能对此有所期待<code>tick</code>方法是性能瓶颈,但事实并非如此. 让分析引导您的注意力,而不是把时间花在您想当然的地方.</p>
+</blockquote>
+<p>在<code>drawCells</code>函数,在每个动画帧上,<code>fillStyle</code>为宇宙中的每个单元格设置一次:</p>
+<pre><code class="language-js">for (let row = 0; row &lt; height; row++) {
+  for (let col = 0; col &lt; width; col++) {
+    const idx = getIndex(row, col);
+
+    ctx.fillStyle = cells[idx] === DEAD
+      ? DEAD_COLOR
+      : ALIVE_COLOR;
+
+    ctx.fillRect(
+      col * (CELL_SIZE + 1) + 1,
+      row * (CELL_SIZE + 1) + 1,
+      CELL_SIZE,
+      CELL_SIZE
+    );
+  }
+}
+</code></pre>
+<p>现在我们已经发现了这个<code>fillStyle</code>是如此昂贵,我们可以做些什么来避免经常设置它? 改变<code>fillStyle</code>取决于细胞是活着还是死亡. 如果我们设定<code>fillStyle = ALIVE_COLOR</code>, 然后在一次总绘制每个活细胞,然后设置<code>fillStyle = DEAD_COLOR</code>,并在另一次总绘制每个死细胞,那么我们只设置<code>fillStyle</code>两次,而不是每个细胞一次.</p>
+<pre><code class="language-js">// Alive cells.
+ctx.fillStyle = ALIVE_COLOR;
+for (let row = 0; row &lt; height; row++) {
+  for (let col = 0; col &lt; width; col++) {
+    const idx = getIndex(row, col);
+    if (cells[idx] !== ALIVE) {
+      continue;
+    }
+
+    ctx.fillRect(
+      col * (CELL_SIZE + 1) + 1,
+      row * (CELL_SIZE + 1) + 1,
+      CELL_SIZE,
+      CELL_SIZE
+    );
+  }
+}
+
+// Dead cells.
+ctx.fillStyle = DEAD_COLOR;
+for (let row = 0; row &lt; height; row++) {
+  for (let col = 0; col &lt; width; col++) {
+    const idx = getIndex(row, col);
+    if (cells[idx] !== DEAD) {
+      continue;
+    }
+
+    ctx.fillRect(
+      col * (CELL_SIZE + 1) + 1,
+      row * (CELL_SIZE + 1) + 1,
+      CELL_SIZE,
+      CELL_SIZE
+    );
+  }
+}
+</code></pre>
+<p>保存这些更改并刷新后<a href="http://localhost:8080/">http://localhost:8080/</a>,渲染回到平滑每秒60帧.</p>
+<p>如果我们采用另一个配置文件,我们可以看到现在每个动画帧只花费大约10毫秒.</p>
+<p><a href="./images/game-of-life/drawCells-after-waterfall.png"><img src="./images/game-of-life/drawCells-after-waterfall.png" alt="Screenshot of a waterfall view of rendering a frame after the drawCells changes" /></a></p>
+<p>打破了超时帧,我们看到了<code>fillStyle</code>昂贵的成本消失了,我们的大部分时间花在了内部<code>fillRect</code>,绘制每个单元格的矩形.</p>
+<p><a href="./images/game-of-life/drawCells-after-flamegraph.png"><img src="./images/game-of-life/drawCells-after-flamegraph.png" alt="Screenshot of a flamegraph view of rendering a frame after the drawCells changes" /></a></p>
+<a class="header" href="game-of-life/time-profiling.zh.html#a让时间更快" id="a让时间更快"><h2>让时间更快</h2></a>
+<p>有些人不喜欢等待,认为每个动画帧是 9个 <code>tick</code>. 我们可以修改<code>renderLoop</code>函数,这很容易做到这一点:</p>
+<pre><code class="language-js">for (let i = 0; i &lt; 9; i++) {
+  universe.tick();
+}
+</code></pre>
+<p>在我的机器上,这使我们恢复到每秒35帧. 不好. 我们想要那个美丽的 <code>60!</code></p>
+<p>现在我们知道时间花在了<code>Universe::tick</code>,让我们添加一些<code>Timer</code>,用它来包装,给予<code>console.time</code>和<code>console.timeEnd</code>运行,引导我们. 我的假设是,分配一个新的细胞载体,并在每个滴答上释放旧的是昂贵的成本,占用了我们时间预算的很大一部分.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn tick(&amp;mut self) {
+    let _timer = Timer::new(&quot;Universe::tick&quot;);
+
+    let mut next = {
+        let _timer = Timer::new(&quot;allocate next cells&quot;);
+        self.cells.clone()
+    };
+
+    {
+        let _timer = Timer::new(&quot;new generation&quot;);
+        for row in 0..self.height {
+            for col in 0..self.width {
+                let idx = self.get_index(row, col);
+                let cell = self.cells[idx];
+                let live_neighbors = self.live_neighbor_count(row, col);
+
+                let next_cell = match (cell, live_neighbors) {
+                    // Rule 1: Any live cell with fewer than two live neighbours
+                    // dies, as if caused by underpopulation.
+                    (Cell::Alive, x) if x &lt; 2 =&gt; Cell::Dead,
+                    // Rule 2: Any live cell with two or three live neighbours
+                    // lives on to the next generation.
+                    (Cell::Alive, 2) | (Cell::Alive, 3) =&gt; Cell::Alive,
+                    // Rule 3: Any live cell with more than three live
+                    // neighbours dies, as if by overpopulation.
+                    (Cell::Alive, x) if x &gt; 3 =&gt; Cell::Dead,
+                    // Rule 4: Any dead cell with exactly three live neighbours
+                    // becomes a live cell, as if by reproduction.
+                    (Cell::Dead, 3) =&gt; Cell::Alive,
+                    // All other cells remain in the same state.
+                    (otherwise, _) =&gt; otherwise,
+                };
+
+                next[idx] = next_cell;
+            }
+        }
+    }
+
+    let _timer = Timer::new(&quot;free old cells&quot;);
+    self.cells = next;
+}
+#}</code></pre></pre>
+<p>看看时间,很明显我的假设是不正确的: 实际上绝大部分时间花在,计算下一代细胞上. 令人惊讶的是,在每个单元上分配和释放载体似乎具有可忽略的成本. 再一次告诉指导我们的分析工作!</p>
+<p><a href="./images/game-of-life/console-time-in-universe-tick.png"><img src="./images/game-of-life/console-time-in-universe-tick.png" alt="Screenshot of a Universe::tick timer results" /></a></p>
+<p>我们可以写一个本机代码<code>#[bench]</code>来做同样的事情 - 我们的 WebAssembly 正在做的, 但我们可以使用更成熟的分析工具. 这就是新的<code>benches/bench.rs</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![feature(test)]
+
+#fn main() {
+extern crate test;
+extern crate wasm_game_of_life;
+
+#[bench]
+fn universe_ticks(b: &amp;mut test::Bencher) {
+    let mut universe = wasm_game_of_life::Universe::new();
+
+    b.iter(|| {
+        universe.tick();
+    });
+}
+#}</code></pre></pre>
+<p>我们还要给上所有的<code>#[wasm_bindgen]</code>注释和<code>&quot;cdylib&quot;</code> - 来自<code>Cargo.toml</code>, 否则构建本机代码将失败并出现链接错误.</p>
+<p>有了这一切,我们就可以运行了<code>cargo bench</code>编译并运行我们的基准测试!</p>
+<pre><code>$ cargo bench
+    Finished release [optimized + debuginfo] target(s) in 0.0 secs
+     Running target/release/deps/wasm_game_of_life-91574dfbe2b5a124
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+     Running target/release/deps/bench-8474091a05cfa2d9
+
+running 1 test
+test universe_ticks ... bench:     664,421 ns/iter (+/- 51,926)
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 1 measured; 0 filtered out
+</code></pre>
+<p>这也告诉我们二进制文件的位置,我们可以再次运行基准测试,但这次是在我们的操作系统的分析器下. 就我而言,我运行在Linux,所以<code>perf</code>是我将使用的探查器:</p>
+<pre><code>$ perf record -g target/release/deps/bench-8474091a05cfa2d9 --bench
+running 1 test
+test universe_ticks ... bench:     635,061 ns/iter (+/- 38,764)
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 1 measured; 0 filtered out
+
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.178 MB perf.data (2349 samples) ]
+</code></pre>
+<p>使用<code>perf report</code>加载配置文件后,表明我们所有的时间都花在了<code>Universe::tick</code>,如预期的那样:</p>
+<p><a href="./images/game-of-life/bench-perf-report.png"><img src="./images/game-of-life/bench-perf-report.png" alt="Screenshot of perf report" /></a></p>
+<p><code>perf</code>注释说明函数的时间,通过指令<code>a</code>:</p>
+<p><a href="./images/game-of-life/bench-perf-annotate.png"><img src="./images/game-of-life/bench-perf-annotate.png" alt="Screenshot of perf's instruction annotation" /></a></p>
+<p>这告诉我们 <code>26.67%</code> 的时间用于求和相邻单元格的值,<code>23.41%</code> 的时间用于获取邻居的列索引,另外 <code>15.42%</code> 的时间用于获取邻居的行索引. 在这三个最昂贵的指令中,第二个和第三个指令都很昂贵之于<code>div 说明</code>. <code>div</code>实现模数索引逻辑在<code>Universe::live_neighbor_count</code>.</p>
+<p>回想一下<code>live_neighbor_count</code>定义:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn live_neighbor_count(&amp;self, row: u32, column: u32) -&gt; u8 {
+    let mut count = 0;
+    for delta_row in [self.height - 1, 0, 1].iter().cloned() {
+        for delta_col in [self.width - 1, 0, 1].iter().cloned() {
+            if delta_row == 0 &amp;&amp; delta_col == 0 {
+                continue;
+            }
+
+            let neighbor_row = (row + delta_row) % self.height;
+            let neighbor_col = (column + delta_col) % self.width;
+            let idx = self.get_index(neighbor_row, neighbor_col);
+            count += self.cells[idx] as u8;
+        }
+    }
+    count
+}
+#}</code></pre></pre>
+<p>我们使用 多条件 的原因是为了避免使代码混乱, 通过使用<code>if</code>,第一行或最后一行或列边缘情况的条件. 但我们付出的代价是<code>div</code>, 也就是最常见的情况,既不是<code>row</code>也不是<code>column</code>,而是在宇宙的边缘,他们不需要模数包裹处理. 相反,如果我们使用多个<code>if</code>为边缘情况,并展开此循环,CPU的分支预测器<em>应该</em>可以很好地预测它.</p>
+<p>我们改写<code>live_neighbor_count</code>,像这样这个:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn live_neighbor_count(&amp;self, row: u32, column: u32) -&gt; u8 {
+    let mut count = 0;
+
+    let north = if row == 0 {
+        self.height - 1
+    } else {
+        row - 1
+    };
+
+    let south = if row == self.height - 1 {
+        0
+    } else {
+        row + 1
+    };
+
+    let west = if column == 0 {
+        self.width - 1
+    } else {
+        column - 1
+    };
+
+    let east = if column == self.width - 1 {
+        0
+    } else {
+        column + 1
+    };
+
+    let nw = self.get_index(north, west);
+    count += self.cells[nw] as u8;
+
+    let n = self.get_index(north, column);
+    count += self.cells[n] as u8;
+
+    let ne = self.get_index(north, east);
+    count += self.cells[ne] as u8;
+
+    let w = self.get_index(row, west);
+    count += self.cells[w] as u8;
+
+    let e = self.get_index(row, east);
+    count += self.cells[e] as u8;
+
+    let sw = self.get_index(south, west);
+    count += self.cells[sw] as u8;
+
+    let s = self.get_index(south, column);
+    count += self.cells[s] as u8;
+
+    let se = self.get_index(south, east);
+    count += self.cells[se] as u8;
+
+    count
+}
+#}</code></pre></pre>
+<p>现在让我们再次运行基准测试!</p>
+<pre><code>$ cargo bench
+   Compiling wasm_game_of_life v0.1.0 (file:///home/fitzgen/wasm_game_of_life)
+    Finished release [optimized + debuginfo] target(s) in 0.82 secs
+     Running target/release/deps/wasm_game_of_life-91574dfbe2b5a124
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+     Running target/release/deps/bench-8474091a05cfa2d9
+
+running 1 test
+test universe_ticks ... bench:      87,258 ns/iter (+/- 14,632)
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 1 measured; 0 filtered out
+</code></pre>
+<p>看起来好多了! 我们可以看到它有多好,通过<a href="https://github.com/BurntSushi/cargo-benchcmp"><code>cargo benchcmp</code></a>工具:</p>
+<pre><code>$ cargo benchcmp before.txt after.txt
+ name            before.txt ns/iter  after.txt ns/iter  diff ns/iter   diff %  speedup
+ universe_ticks  664,421             87,258                 -577,163  -86.87%   x 7.61
+</code></pre>
+<p>哇! 7.61倍加速!</p>
+<p>WebAssembly 映射到常见的硬件架构,但我们确实需要为这个本机代码加速.</p>
+<p>让我们恢复所有<code>#[wasm_bindgen]</code>注释,重建<code>.wasm</code>同<code>npm run build-release</code>,并刷新<a href="http://localhost:8080/">http://localhost:8080/</a>. 在我的机器上,页面再次以每秒60帧的速度运行,并且使用浏览器的分析器记录,另一个配置文件显示每个动画帧大约需要10毫秒.</p>
+<p>成功!</p>
+<p><a href="./images/game-of-life/waterfall-after-branches-and-unrolling.png"><img src="./images/game-of-life/waterfall-after-branches-and-unrolling.png" alt="Screenshot of a waterfall view of rendering a frame after replacing modulos with branches" /></a></p>
+<a class="header" href="game-of-life/time-profiling.zh.html#a练习" id="a练习"><h2>练习</h2></a>
+<ul>
+<li>
+<p>在这一点上,下一个加速<code>Universe::tick</code>是删除分配和免费. 实现细胞的双缓冲,其中<code>Universe</code>维护两个向量,并且不释放它们中的任何一个,那么就永远不会分配新的缓冲区<code>tick</code>.</p>
+</li>
+<li>
+<p>从&quot;实现生命&quot;一章的实现是 基于delta 的设计,其中 Rust代码 返回 将状态更改为JavaScript 的单元格列表. 这会使渲染<code>&lt;canvas&gt;</code>更快? 你可以实现这个设计, 而不必在每个滴答上分配一个新的增量列表吗 ?</p>
+</li>
+<li>
+<p>正如我们的分析向我们展示的那样,2D<code>&lt;canvas&gt;</code>渲染速度不是特别快. 用WebGL 渲染器替换 2 canvas 渲染器. WebGL版本的速度有多快 ? 在WebGL渲染成为瓶颈之前,你能创造多大的宇宙 ?</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="game-of-life/interactivity.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="game-of-life/code-size.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="game-of-life/interactivity.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="game-of-life/code-size.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>实现 - Rust and WebAssembly</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="setup.zh.html"><strong aria-hidden="true">3.</strong> 安装准备</a></li><li><a href="hello-world.zh.html"><strong aria-hidden="true">4.</strong> 你好,世界</a></li><li><a href="tools.zh.html"><strong aria-hidden="true">5.</strong> 工具</a></li><li><a href="workflows.zh.html"><strong aria-hidden="true">6.</strong> 工作流程</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript互操作</a></li><li><a href="tutorials.zh.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li><a href="game-of-life/introduction.zh.html"><strong aria-hidden="true">8.1.</strong> 康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">8.1.1.</strong> 安装</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">8.1.2.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html" class="active"><strong aria-hidden="true">8.1.3.</strong> 实现</a></li><li><a href="game-of-life/debugging.zh.html"><strong aria-hidden="true">8.1.4.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">8.1.5.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">8.1.6.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">8.1.7.</strong> 收缩.wasm尺寸</a></li><li><a href="game-of-life/publishing.zh.html"><strong aria-hidden="true">8.1.8.</strong> 发布</a></li></ol></li><li><a href="wasm-pack/introduction.zh.html"><strong aria-hidden="true">8.2.</strong> wasm-pack</a></li><li><ol class="section"><li><a href="wasm-pack/setup.zh.html"><strong aria-hidden="true">8.2.1.</strong> 安装</a></li><li><a href="wasm-pack/initialize.zh.html"><strong aria-hidden="true">8.2.2.</strong> 项目初始化</a></li><li><a href="wasm-pack/rust-code.zh.html"><strong aria-hidden="true">8.2.3.</strong> 锈编码</a></li><li><a href="wasm-pack/package-code.zh.html"><strong aria-hidden="true">8.2.4.</strong> 包裹代码为npm</a></li><li><a href="wasm-pack/run-the-code.zh.html"><strong aria-hidden="true">8.2.5.</strong> 从npm运行代码</a></li><li><a href="wasm-pack/next-steps.zh.html"><strong aria-hidden="true">8.2.6.</strong> 下一步做什么</a></li></ol></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rust and WebAssembly</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="game-of-life/implementing.zh.html#a实施康威的生命游戏" id="a实施康威的生命游戏"><h1>实施康威的生命游戏</h1></a>
+<a class="header" href="game-of-life/implementing.zh.html#a设计" id="a设计"><h2>设计</h2></a>
+<p>在我们深入之前,我们有一些设计选择需要考虑.</p>
+<a class="header" href="game-of-life/implementing.zh.html#a无限的宇宙" id="a无限的宇宙"><h3>无限的宇宙</h3></a>
+<p>生命游戏是在无限的宇宙中进行的,但我们没有无限的记忆和计算能力. 解决这个相当恼人的限制通常有以下三种风格之一:</p>
+<ol>
+<li>
+<p>跟踪宇宙的哪个子集发生了有趣的事情,并根据需要,扩展此区域. 在最坏的情况下,这种扩展是无限制的,实现将变得越来越慢,最终耗尽内存.</p>
+</li>
+<li>
+<p>创建固定大小的 Universe，边缘上的单元格具有较少的邻居
+比中间的细胞。 这种方法的缺点是无限
+像滑翔机一样到达宇宙尽头的模式被扼杀了。</p>
+</li>
+<li>
+<p>创建一个固定大小的周期性 Universe <code>移动</code>,其中边缘上的单元格具有环绕到 Universe 另一侧的邻居. 因为邻居环绕宇宙的边缘,滑翔机可以永远运行.</p>
+</li>
+</ol>
+<p>我们将实施<code>第三种</code>选择.</p>
+<a class="header" href="game-of-life/implementing.zh.html#a连接-rust和javascript" id="a连接-rust和javascript"><h3>连接 Rust和JavaScript</h3></a>
+<blockquote>
+<p>⚡这是理解和从本教程中你获取的最重要的概念之一!</p>
+</blockquote>
+<p>JavaScript 的垃圾收集堆 - <code>Object</code>,<code>Array</code>和 DOM节点 被分配 - 不同于 WebAssembly 的线性内存空间,我们的 Rust值 存在于其中. WebAssembly 目前无法直接访问垃圾收集堆 (截至2018年4月,预计会随之改变<a href="https://github.com/WebAssembly/host-bindings/blob/master/proposals/host-bindings/Overview.md">&quot;主机绑定 host-bindings&quot;提案</a>) . 另一方面,JavaScript 可以读取和写入 WebAssembly 线性存储空间,但仅作为一个<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer"><code>ArrayBuffer</code></a>标量值 (<code>u8</code>,<code>i32</code>,<code>f64</code>等等......) WebAssembly 函数也接受,并返回标量值. 这些是构成 WebAssembly和JavaScript通信 的所有构建块.</p>
+<p><code>wasm_bindgen</code>定义了如何在这个边界上,使用复合结构的共同理解. 它涉及装箱 Rust 结构,将指针包装在 JavaScript类 中以实现可用性,或者 索引到Rust中的JavaScript对象表. <code>wasm_bindgen</code>非常方便,但它不需要考虑我们的数据表示,以及跨越这个边界传递什么值和结构. 相反,将其视为实现您选择的接口设计的工具.</p>
+<p>在设计 WebAssembly和JavaScript 之间的接口时,我们希望针对以下属性进行优化:</p>
+<ol>
+<li>
+<p>**最小化复制WebAssembly线性存储器的 进/出 .**不必要的副本会产生不必要的开销.</p>
+</li>
+<li>
+<p>**最小化序列化和反序列化.**与副本类似,序列化和反序列化也会产生开销,并且通常也会进行复制. 如果我们可以将不透明控制传递给数据结构 - 而不是一侧序列化后,将其复制到 WebAssembly 线性存储器中的某个已知位置,并在另一侧进行反序列化 - 我们通常可以减少大量开销. <code>wasm_bindgen</code>帮助我们 定义和使用 JavaScript 的不透明控制<code>Object</code>或 盒装 Rust 结构.</p>
+</li>
+</ol>
+<p>作为一般的经验法则,一个好的 JavaScript↔WebAssembly 接口设计通常是将大型,长寿命的数据结构实现为 生活在 WebAssembly线性内存 中的 Rust 类型,并作为不透明控制暴露给 JavaScript. JavaScript 调用导出的WebAssembly 函数,这些函数接受这些不透明的控制,转换数据,执行繁重的计算,查询数据,最终返回一个小的可复制结果. 通过仅返回计算的小结果,我们避免在JavaScript 垃圾收集堆和 WebAssembly 线性存储器 之间,来回复制和序列化所有内容.</p>
+<a class="header" href="game-of-life/implementing.zh.html#a在我们的生命游戏中连接-rust和javascript" id="a在我们的生命游戏中连接-rust和javascript"><h3>在我们的生命游戏中连接 Rust和JavaScript</h3></a>
+<p>让我们首先列举一些要避免的危险. 我们不希望在每个<code>tick</code>上将整个 Universe 复制到 WebAssembly线性内存 中. 我们不希望为宇宙中的每个单元分配对象,也不想强加函数调用来读写每个单元.</p>
+<p>这给我们留下了什么? 我们可以将 Universe 表示为位于 WebAssembly线性内存中的平面数组,并且每个单元格都有一个字节. <code>0</code>是一个死细胞,<code>1</code>是一个活细胞.</p>
+<p>以下是 4 x 4 宇宙在内存中的样子:</p>
+<p><img src="./images/game-of-life/universe.png" alt="Screenshot of a 4 by 4 universe" /></p>
+<p>要在 Universe 中的给定行和列中查找单元格的数组索引,我们可以使用以下公式:</p>
+<pre><code class="language-text">index(row, column, universe) = row * width(universe) + column
+</code></pre>
+<p>我们有几种方法可以将 Universe 的单元格暴露给 JavaScript. 首先,我们添加实施<a href="https://doc.rust-lang.org/1.25.0/std/fmt/trait.Display.html"><code>std::fmt::Display</code></a>到<code>Universe</code>,我们可以用来展示 一个 Rust<code>String</code> 呈现为文本字符的单元格. 然后将此 Rust String 从 WebAssembly线性内存 复制到 JavaScript的垃圾回收堆中 的JavaScript String 中,然后通过设置<code>HTML</code>显示<code>textContent</code>. 在本章的后面,我们将推演这个实现,以避免在堆之间复制 Universe 的单元格,再渲染<code>&lt;canvas&gt;</code>.</p>
+<p><em>另一个可行的设计替代方案是 Rust 返回每个滴答后,更改状态的每个单元格的列表,而不是将整个 Universe 暴露给 JavaScript. 这样,JavaScript 在渲染时不需要遍历整个 Universe ,只需要相关的子集. 权衡的问题是这种 基于delta 的设计实施起来稍微困难一些.</em></p>
+<a class="header" href="game-of-life/implementing.zh.html#rust实现" id="rust实现"><h2>Rust实现</h2></a>
+<p>在上一章中,我们克隆了一个初始项目模板. 我们现在将修改该项目模板.</p>
+<p>让我们开始删除 <code>alert</code> import 和<code>greet</code> 函数 - <code>src/lib.rs</code>, 并用单元格的类型定义替换它们:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[repr(u8)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cell {
+    Dead = 0,
+    Alive = 1,
+}
+#}</code></pre></pre>
+<p>重要的是我们拥有<code>#[repr(u8)]</code>,以便每个单元格表示为单个字节. 同样重要的是<code>Dead</code>代表<code>0</code>,那个<code>Alive</code>是<code>1</code>,这样我们就可以轻松地计算一个细胞的活体邻居.</p>
+<p>接下来,让我们定义宇宙. 宇宙具有宽度和高度,以及长度为单元格的向量<code>width * height</code>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+pub struct Universe {
+    width: u32,
+    height: u32,
+    cells: Vec&lt;Cell&gt;,
+}
+#}</code></pre></pre>
+<p>要访问给定行和列的单元格,我们将 行和列 转换为 单元格向量 的索引,如前所述:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+impl Universe {
+    fn get_index(&amp;self, row: u32, column: u32) -&gt; usize {
+        (row * self.width + column) as usize
+    }
+
+    // ...
+}
+#}</code></pre></pre>
+<p>为了计算单元格的下一个状态,我们需要计算 其邻居有多少 是活着的. 我们来写一个<code>live_neighbor_count</code>做到这一点的方法!</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+impl Universe {
+    // ...
+
+    fn live_neighbor_count(&amp;self, row: u32, column: u32) -&gt; u8 {
+        let mut count = 0;
+        for delta_row in [self.height - 1, 0, 1].iter().cloned() {
+            for delta_col in [self.width - 1, 0, 1].iter().cloned() {
+                if delta_row == 0 &amp;&amp; delta_col == 0 {
+                    continue;
+                }
+
+                let neighbor_row = (row + delta_row) % self.height;
+                let neighbor_col = (column + delta_col) % self.width;
+                let idx = self.get_index(neighbor_row, neighbor_col);
+                count += self.cells[idx] as u8;
+            }
+        }
+        count
+    }
+}
+#}</code></pre></pre>
+<p>该<code>live_neighbor_count</code>方法使用 增量和模数来 避免 宇宙的边缘情况. 当 delta 应用 <code>-1</code>,我们<em>添加</em>
+<code>self.height - 1</code>让 模数 做它的事,而不是试图减去<code>1</code>. <code>row</code>和<code>column</code>可以为<code>0</code>,如果我们试图减去<code>1</code>, 从他们来看,会有一个 无符号整数 下溢.</p>
+<p>现在我们拥有了从当前计算下一代所需的一切! 每个游戏的规则遵循 直接转换条件用<code>match</code>表达. 另外,因为我们希望 JavaScript 控制滴答时间,我们将把这个方法放在一个<code>#[wasm_bindgen]</code>注释下,以便它暴露给JavaScript.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+/// Public methods, exported to JavaScript.
+#[wasm_bindgen]
+impl Universe {
+    pub fn tick(&amp;mut self) {
+        let mut next = self.cells.clone();
+
+        for row in 0..self.height {
+            for col in 0..self.width {
+                let idx = self.get_index(row, col);
+                let cell = self.cells[idx];
+                let live_neighbors = self.live_neighbor_count(row, col);
+
+                let next_cell = match (cell, live_neighbors) {
+                    // Rule 1: Any live cell with fewer than two live neighbours
+                    // dies, as if caused by underpopulation.
+                    (Cell::Alive, x) if x &lt; 2 =&gt; Cell::Dead,
+                    // Rule 2: Any live cell with two or three live neighbours
+                    // lives on to the next generation.
+                    (Cell::Alive, 2) | (Cell::Alive, 3) =&gt; Cell::Alive,
+                    // Rule 3: Any live cell with more than three live
+                    // neighbours dies, as if by overpopulation.
+                    (Cell::Alive, x) if x &gt; 3 =&gt; Cell::Dead,
+                    // Rule 4: Any dead cell with exactly three live neighbours
+                    // becomes a live cell, as if by reproduction.
+                    (Cell::Dead, 3) =&gt; Cell::Alive,
+                    // All other cells remain in the same state.
+                    (otherwise, _) =&gt; otherwise,
+                };
+
+                next[idx] = next_cell;
+            }
+        }
+
+        self.cells = next;
+    }
+
+    // ...
+}
+#}</code></pre></pre>
+<p>到目前为止,宇宙的状态被表示为 细胞 的载体. 为了使这个可读,让我们实现一个基本的文本渲染器. 我们的想法是逐行将 Universe 写成文本,对于每个活着的单元格,打印 unicode 字符<code>◼️</code> (&quot;黑色方格&quot;) . 对于死细胞,我们将打印<code>◻️</code> (&quot;白色方格&quot;) .</p>
+<p>通过实施<a href="https://doc.rust-lang.org/1.25.0/std/fmt/trait.Display.html"><code>Display</code></a>是来自 Rust标准库 的特性,我们可以添加一种以 面向用户的方式 格式化结构的方法. 这也会自动给我们一个<a href="https://doc.rust-lang.org/1.25.0/std/string/trait.ToString.html"><code>to_string</code></a>方法.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::fmt;
+
+impl fmt::Display for Universe {
+    fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
+        for line in self.cells.as_slice().chunks(self.width as usize) {
+            for &amp;cell in line {
+                let symbol = if cell == Cell::Dead { &quot;◻️&quot; } else { &quot;◼️&quot; };
+                write!(f, &quot;{}&quot;, symbol)?;
+            }
+            write!(f, &quot;\n&quot;)?;
+        }
+
+        Ok(())
+    }
+}
+#}</code></pre></pre>
+<p>最后,我们定义一个构造函数,用一个有趣的 活细胞和死细胞 模式来初始化宇宙,以及<code>render</code>方法:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+/// Public methods, exported to JavaScript.
+#[wasm_bindgen]
+impl Universe {
+    // ...
+
+    pub fn new() -&gt; Universe {
+        let width = 64;
+        let height = 64;
+
+        let cells = (0..width * height)
+            .map(|i| {
+                if i % 2 == 0 || i % 7 == 0 {
+                    Cell::Alive
+                } else {
+                    Cell::Dead
+                }
+            })
+            .collect();
+
+        Universe {
+            width,
+            height,
+            cells,
+        }
+    }
+
+    pub fn render(&amp;self) -&gt; String {
+        self.to_string()
+    }
+}
+#}</code></pre></pre>
+<p>有了这个,我们的生命游戏 Rust 实现的一半就完成了!</p>
+<a class="header" href="game-of-life/implementing.zh.html#a使用-javascript-渲染" id="a使用-javascript-渲染"><h2>使用 JavaScript 渲染</h2></a>
+<p>首先,让我们添加一个<code>&lt;pre&gt;</code>HTML用于渲染:</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;pre id=&quot;game-of-life-canvas&quot;&gt;&lt;/pre&gt;
+    &lt;script src='./bootstrap.js'&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>另外,我们想要的<code>&lt;pre&gt;</code>以网页中间为中心. 我们可以使用 CSS flex 来完成这项任务. 添加以下内容<code>&lt;style&gt;</code>在<code>index.html</code>的<code>&lt;head&gt;</code>里面:</p>
+<pre><code class="language-html">&lt;style&gt;
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+&lt;/style&gt;
+</code></pre>
+<p>在顶端<code>index.js</code>,让我们修复我们的导入来引入<code>Universe</code>而不是旧的<code>greet</code>功能:</p>
+<pre><code class="language-js">import { Universe } from &quot;./wasm_game_of_life&quot;;
+</code></pre>
+<p>另外,让我们获取<code>&lt;pre&gt;</code>并实例化新 Universe 的元素:</p>
+<pre><code class="language-js">const pre = document.getElementById(&quot;game-of-life-canvas&quot;);
+const universe = Universe.new();
+</code></pre>
+<p>JavaScript 运行于<code>requestAnimationFrame</code>循环. 在每次迭代中,它将当前的 Universe 绘制到<code>&lt;pre&gt;</code>,然后运行<code>Universe::tick</code>.</p>
+<pre><code class="language-js">const renderLoop = () =&gt; {
+  pre.textContent = universe.render();
+  universe.tick();
+
+  requestAnimationFrame(renderLoop);
+};
+</code></pre>
+<p>要开始渲染过程,我们所要做的就是为渲染循环的第一次迭代进行初始调用:</p>
+<pre><code class="language-js">requestAnimationFrame(renderLoop);
+</code></pre>
+<p>这就是它现在的样子:</p>
+<p><a href="./images/game-of-life/initial-game-of-life-pre.png"><img src="./images/game-of-life/initial-game-of-life-pre.png" alt="Screenshot of the Game of Life implementation with text rendering" /></a></p>
+<a class="header" href="game-of-life/implementing.zh.html#a直接从内存渲染到画布" id="a直接从内存渲染到画布"><h2>直接从内存渲染到画布</h2></a>
+<p>在 Rust 中生成 (和分配) 一个<code>String</code>, 然后有<code>wasm-bindgen</code>将其转换为有效的 JavaScript字符串 ,来会生成 Universe单元格 的不必要副本. 而不是我们现在的<code>render</code>方法,我们可以返回一个指向 单元格数组开头 的指针. JavaScript代码 知道 Universe 的宽度和高度,并且可以直接读取构成单元格的字节. 此设计不会 复制 Universe的单元格 或 JavaScript垃圾收集器 的运转,但我们必须直接从 JavaScript 中读取 WebAssembly线性内存 中的单元格字节. 我们将切换到使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a>. 而不是渲染 unicode文本. 我们将在本教程的其余部分中使用此设计.</p>
+<p>首先,让我们替换<code>pre</code>,换成了一个<code>&lt;canvas&gt;</code> (它也应该在<code>&lt;body&gt;</code>, <code>&lt;script&gt;</code>加载我们的 JavaScript 之前) :</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;canvas id=&quot;game-of-life-canvas&quot;&gt;&lt;/canvas&gt;
+    &lt;script src='./bootstrap.js'&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>为了从 Rust实现 中获取必要的信息,我们需要为 Universe 的宽度,高度和指向 其单元数组 的指针 添加一些更多的 <code>getter</code>函数. 所有这些都暴露在JavaScript 中.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+/// Public methods, exported to JavaScript.
+#[wasm_bindgen]
+impl Universe {
+    // ...
+
+    pub fn width(&amp;self) -&gt; u32 {
+        self.width
+    }
+
+    pub fn height(&amp;self) -&gt; u32 {
+        self.height
+    }
+
+    pub fn cells(&amp;self) -&gt; *const Cell {
+        self.cells.as_ptr()
+    }
+}
+#}</code></pre></pre>
+<p>接下来,让我们定义 JavaScript 在渲染画布时将使用的一些常量:</p>
+<pre><code class="language-js">const CELL_SIZE = 5; // px
+const GRID_COLOR = &quot;#CCCCCC&quot;;
+const DEAD_COLOR = &quot;#FFFFFF&quot;;
+const ALIVE_COLOR = &quot;#000000&quot;;
+
+// These must match `Cell::Alive` and `Cell::Dead` in `src/lib.rs`.
+const DEAD = 0;
+const ALIVE = 1;
+</code></pre>
+<p>现在,让我们重写当前的 JS代码 (导入除外) ,不再写入<code>&lt;pre&gt;</code>而是专注在<code>&lt;canvas&gt;</code>:</p>
+<pre><code class="language-js">// Construct the universe, and get its width and height.
+const universe = Universe.new();
+const width = universe.width();
+const height = universe.height();
+
+// Give the canvas room for all of our cells and a 1px border
+// around each of them.
+const canvas = document.getElementById(&quot;game-of-life-canvas&quot;);
+canvas.height = (CELL_SIZE + 1) * height + 1;
+canvas.width = (CELL_SIZE + 1) * width + 1;
+
+const ctx = canvas.getContext('2d');
+
+const renderLoop = () =&gt; {
+  universe.tick();
+
+  drawGrid();
+  drawCells();
+
+  requestAnimationFrame(renderLoop);
+};
+</code></pre>
+<p>为了在单元格之间绘制网格,我们绘制 一组等间隔 的 水平线 和 一组等间距 的 垂直线. 这些线 纵横交错 形成网格.</p>
+<pre><code class="language-js">const drawGrid = () =&gt; {
+  ctx.beginPath();
+  ctx.lineWidth = 1 / window.devicePixelRatio;
+  ctx.strokeStyle = GRID_COLOR;
+
+  // Vertical lines.
+  for (let i = 0; i &lt;= width; i++) {
+    ctx.moveTo(i * (CELL_SIZE + 1) + 1, 0);
+    ctx.lineTo(i * (CELL_SIZE + 1) + 1, (CELL_SIZE + 1) * height + 1);
+  }
+
+  // Horizontal lines.
+  for (let j = 0; j &lt;= height; j++) {
+    ctx.moveTo(0,                           j * (CELL_SIZE + 1) + 1);
+    ctx.lineTo((CELL_SIZE + 1) * width + 1, j * (CELL_SIZE + 1) + 1);
+  }
+
+  ctx.stroke();
+};
+</code></pre>
+<p>为了绘制 细胞,我们将 细胞数 从 WebAssembly memory 拿出 ,构造一个<code>Uint8Array</code>覆盖细胞缓冲区,迭代每个细胞,并分别根据 细胞是死还是活,绘制白色或黑色矩形. 通过使用 <code>idx</code> 和 覆盖,我们避免在每个<code>tick</code>上跨越边界复制单元格.</p>
+<pre><code class="language-js">// Import the WebAssembly memory at the top of the file.
+import { memory } from &quot;./wasm_game_of_life_bg&quot;;
+
+// ...
+
+const getIndex = (row, column) =&gt; {
+  return row * width + column;
+};
+
+const drawCells = () =&gt; {
+  const cellsPtr = universe.cells();
+  const cells = new Uint8Array(memory.buffer, cellsPtr, width * height);
+
+  ctx.beginPath();
+
+  for (let row = 0; row &lt; height; row++) {
+    for (let col = 0; col &lt; width; col++) {
+      const idx = getIndex(row, col);
+
+      ctx.fillStyle = cells[idx] === DEAD
+        ? DEAD_COLOR
+        : ALIVE_COLOR;
+
+      ctx.fillRect(
+        col * (CELL_SIZE + 1) + 1,
+        row * (CELL_SIZE + 1) + 1,
+        CELL_SIZE,
+        CELL_SIZE
+      );
+    }
+  }
+
+  ctx.stroke();
+};
+</code></pre>
+<p>要开始渲染过程,我们将使用与 上部分相同的代码 来开始渲染循环的第一次迭代:</p>
+<pre><code class="language-js">requestAnimationFrame(renderLoop);
+</code></pre>
+<a class="header" href="game-of-life/implementing.zh.html#a它工作了" id="a它工作了"><h2>它工作了!</h2></a>
+<p>重建 WebAssembly 和 绑定 :</p>
+<pre><code>npm run build-debug
+</code></pre>
+<p>确保您的开发服务器仍在运行. 如果不是,请再次启动:</p>
+<pre><code>npm run serve
+</code></pre>
+<p>如果你刷新<a href="http://localhost:8080/">http://localhost:8080/</a>,你应该受到令人兴奋的展示!</p>
+<p><a href="./images/game-of-life/initial-game-of-life.png"><img src="./images/game-of-life/initial-game-of-life.png" alt="Screenshot of the Game of Life implementation" /></a></p>
+<p>您可以 checkout <code>chapter-one</code> branch 找到完整代码.</p>
+<p>还有一个非常巧妙的算法,来实现生命游戏<a href="https://en.wikipedia.org/wiki/Hashlife">hashlife</a>. 它使用积极的记忆,实际上可以获得<em>指数级更快</em>计算后代的时间越长! 鉴于此,您可能想知道为什么我们在本教程中没有实现<code>hashlife</code>. 因为它超出了本文的范围,我们专注于 Rust和WebAssembly 集成,但我们强烈建议您自己去了解<code>hashlife</code>!</p>
+<a class="header" href="game-of-life/implementing.zh.html#a练习" id="a练习"><h2>练习</h2></a>
+<ul>
+<li>
+<p>使用单个太空飞船,初始化宇宙.</p>
+</li>
+<li>
+<p>不是硬编码最初的宇宙,而是生成一个随机的,有五十五个细胞活着或死亡的机会.</p>
+<p><em>提示: 使用<code>wasm_bindgen</code> import <code>Math.random</code> JavaScript函数:</em></p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    #[wasm_bindgen(js_namespace = Math)]
+    fn random() -&gt; f64;
+}
+#}</code></pre></pre>
+</li>
+<li>
+<p>用 一个字节 表示 每个单元格 可以很容易地迭代单元格,但这是以浪费内存为代价的. 每个字节是8位,但我们只需要 一个位 来表示每个单元 是活还是死. 重构数据表示,以便每个单元,仅使用一个空格位.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="game-of-life/rules.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="game-of-life/debugging.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="game-of-life/rules.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="game-of-life/debugging.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

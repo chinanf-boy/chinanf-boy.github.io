@@ -1,0 +1,36 @@
+<!doctype html>
+
+<title>07 Property Example - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/prop-types/15.6.1/prop-types.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+  // 这是一个更实用的组件,
+  // 格式化日期并返回一个`<span>`包含格式化的字符串
+function DateSpan(props) {
+  var date = props.date,
+    day = date.getDate(),
+    month = date.getMonth() + 1,
+    year = date.getFullYear()
+
+  return <span>{day}.{month}.{year}</span>
+}
+
+// 还有一个更复杂的日期属性类型检查,
+// 该属性是必需的,因为没有设置默认值
+DateSpan.propTypes = {
+  date: PropTypes.instanceOf(Date).isRequired,
+}
+
+// 我们必须提供一个日期对象,组件才能进行格式化
+var reactElement = <DateSpan date={new Date()}/>
+
+var renderTarget = document.getElementById("app")
+
+ReactDOM.render(reactElement, renderTarget)
+</script>

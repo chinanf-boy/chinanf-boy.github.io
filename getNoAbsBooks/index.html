@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=applicable-device content=mobile><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=MobileOptimized content=240><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"><link rel="shortcut icon" href=/getNoAbsBooks/favicon.ico><title>vue-getNoAbsBooks</title><script>var pageButton = function(event){
+				let href = window.location.href;
+				if(href.includes('/index_')){
+				let RmHrefIndex = href.lastIndexOf('/');
+				href = href.substring(0, RmHrefIndex);
+				}
+
+				if(href.endsWith('/')){
+					let RmHrefIndex = href.lastIndexOf('/');
+					href = href.substring(0,RmHrefIndex)
+				}
+				let source = event.href
+				if(source.includes('/index_')){
+					let RmHrefIndex = source.lastIndexOf('/');
+					source = source.substring(RmHrefIndex);
+				}
+        // console.log('pages add',href,source)
+        if(source.startsWith('http')){
+          event.href = window.location.origin + '/#/' + source;
+        }else{
+          event.href= href + source
+        }
+
+				// console.log('pages',event);
+				
+      };
+      var SelectJs = function(event){
+        var A = document.createElement('a');
+        let href = window.location.href
+        if(href.includes('/index_')){
+          let RmHrefIndex = href.lastIndexOf('/')
+          href = href.substring(0, RmHrefIndex)
+        }
+        if(!href.endsWith('/')){
+          href += '/'
+        }
+
+        let selectValue = event.options[event.options.selectedIndex].value
+        if(selectValue.includes('/index_')){
+          let valueIndex = selectValue.lastIndexOf('/')
+          selectValue = selectValue.substring(valueIndex)
+        }
+        
+        if(selectValue.startsWith('/')){
+          selectValue = selectValue.substring(1)
+        }
+
+        A.href= href +selectValue ;
+
+        window.location.href = A.href
+        // console.log('select route',A.href);
+      }</script><link rel=preload as=script href=/getNoAbsBooks/js/vendor.8810e010.js><link rel=preload as=script href=/getNoAbsBooks/js/app.3f696f65.js><link rel=preload as=style href=/getNoAbsBooks/css/app.248189f6.css><link href=/getNoAbsBooks/css/app.248189f6.css rel=stylesheet></head><body><noscript><strong>We're sorry but vue-getNoAbsBooks doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script type=text/javascript>(function(r){var n=window["webpackJsonp"];window["webpackJsonp"]=function(e,u,c){for(var i,f,p,l=0,a=[];l<e.length;l++)f=e[l],t[f]&&a.push(t[f][0]),t[f]=0;for(i in u)Object.prototype.hasOwnProperty.call(u,i)&&(r[i]=u[i]);n&&n(e,u,c);while(a.length)a.shift()();if(c)for(l=0;l<c.length;l++)p=o(o.s=c[l]);return p};var e={},t={2:0};function o(n){if(e[n])return e[n].exports;var t=e[n]={i:n,l:!1,exports:{}};return r[n].call(t.exports,t,t.exports,o),t.l=!0,t.exports}o.m=r,o.c=e,o.d=function(r,n,e){o.o(r,n)||Object.defineProperty(r,n,{configurable:!1,enumerable:!0,get:e})},o.n=function(r){var n=r&&r.__esModule?function(){return r["default"]}:function(){return r};return o.d(n,"a",n),n},o.o=function(r,n){return Object.prototype.hasOwnProperty.call(r,n)},o.p="/",o.oe=function(r){throw console.error(r),r}})([]);
+//# sourceMappingURL=/getNoAbsBooks/js/manifest.bb41d6d8.js.map</script><script type=text/javascript src=/getNoAbsBooks/js/vendor.8810e010.js></script><script type=text/javascript src=/getNoAbsBooks/js/app.3f696f65.js></script></body></html>

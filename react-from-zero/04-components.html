@@ -1,0 +1,78 @@
+<!doctype html>
+
+<title>04 Components - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// `React`主要卖点之一是它的组件系统,
+// 组件 被用来封装 元素 和它们的 行为, 
+// 将它们视为 MVC 的 控制器-C 和 视图-V 的混合
+
+// 这里我们使用 独立元素 和一些数据
+var data = "world"
+var reactElement =
+  <div>
+    <h1>Hello</h1>
+    <h2>{data}</h2>
+  </div>
+
+// 这里的元素被封装在一个简单的组件函数中,
+// 它们必须以大写字母开头,
+// 并返回仅一个根元素 (或不带嵌套元素)  (之前`React`16) 
+function MyComponent() {
+  var data = "world"
+  return (
+    <div>
+      <h1>Hello</h1>
+      <h2>{data}</h2>
+    </div>
+  )
+}
+
+// 至`React 16.0.0`以来,组件也可以返回元素数组. 
+// 为此, 不创建额外的包装器元素. 
+// 有一点需要注意的是, 与我们在 渲染数组 时所做的相似,
+// 我们必须为数组中的每个元素添加一个 唯一键-key,同时不要忘记逗号隔开数组项
+// (在下一课中我们会看到更多内容)
+function MyComponent() {
+  var data = "world"
+  return [
+    <h1 key="hello">Hello</h1>,
+    <h2 key="data">{data}</h2>
+  ]
+}
+
+// 至`React 16.2.0`以来, 我们可以使用称为 片段-fragments 的 特殊"包装器"组件,
+// 它们的行为相同 (不创建额外的包装器元素) ,
+// 但是不需要设置明确的 键-key ( fragments 在 React控制下进行) 和逗号
+function MyComponent() {
+  var data = "world"
+  return (
+    <React.Fragment>
+      <h1>Hello</h1>
+      <h2>{data}</h2>
+    </React.Fragment>
+  )
+}
+
+// 一个组件函数 可以像 一个元素 一样使用
+reactElement = <MyComponent/>
+
+// 这转化为一个`React.createElement()`调用
+// null 表示没有设置属性
+reactElement = React.createElement(MyComponent, null)
+
+// 引用`React`-内部 `<div>` 标签
+var anotherElement = <div/>
+// 被转换为
+anotherElement = React.createElement("div", null)
+
+var renderTarget = document.getElementById("app")
+
+ReactDOM.render(reactElement, renderTarget)
+</script>

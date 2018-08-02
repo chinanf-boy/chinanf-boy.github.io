@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on </title>
+    <link>/tags/go/</link>
+    <description>Recent content in Go on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Sep 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wonderful</title>
+      <link>/2014/09/25/wonderful/</link>
+      <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/09/25/wonderful/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+    <item>
+      <title>mac repl js go 大混杂</title>
+      <link>/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/</link>
+      <pubDate>Wed, 24 Jan 2018 15:53:30 +0000</pubDate>
+      
+      <guid>/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/</guid>
+      <description>这是我 mac 上 repl 软件-「js, go」 大混杂
+Go 语言 官方并没有给出，repl 交互环境
+所以有 gore 这类-终端的
+用起来，就像 node
+ 不过我想说得是   gophernotes jupyter Go 内核  没错，能在jupyter 上用内核，
+ 不过 -mac- 上无法使用
+ 但是你知道-docker 就十分方便了-也给出docker的入门中文
+1docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
+当你想与容器-gophernotes- 互通数据文件
+1docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes  -p 端口互通
+ --mount 可以文件夹互通
+ source 本地存在的文件夹 要自己新建
+ target 容器的文件夹
+    用alias 命名一下，就好用了</description>
+    </item>
+    
+    <item>
+      <title>目录环境加载 direnv</title>
+      <link>/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/</link>
+      <pubDate>Sun, 17 Dec 2017 20:39:21 +0000</pubDate>
+      
+      <guid>/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/</guid>
+      <description> direnv 它可以让你明白一个目录的意思，
+简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
+比如我 zsh
+1# Add direnv hook 2eval &amp;#34;$(direnv hook zsh)&amp;#34; 当然前提是要下载，在github 上就有很详细
+1cd/my_project 2echo &amp;#34;echo &amp;#39;hello this is my project&amp;#39;&amp;#34; &amp;gt;&amp;gt; .envrc 3direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
+问题: 不需要 unloading or loading .envrc 之类的日志输出时。
+.zshrc
+1# Add direnv hook 2eval &amp;#34;$(direnv hook zsh)&amp;#34; 3# remove direnv log loading 4export DIRENV_LOG_FORMAT= 原文，
+1direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 2 3在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 4 5因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。</description>
+    </item>
+    
+    <item>
+      <title>hugo hexo 傻傻分不清出 GO实现</title>
+      <link>/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 14 Nov 2017 15:08:32 +0000</pubDate>
+      
+      <guid>/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/</guid>
+      <description>hugo  像 hexo 一样的 静态网站生成
+ 重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
+ 不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
+三部走
+ 下载  1$ brew install hugo 2 3$ hugo version  创建  1$ hugo new site quickstart  加皮肤 themes  1cd quickstart;\ 2git init;\ 3git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\ 4 5# Edit your config.toml configuration file 6# and add the Ananke theme. 7echo &amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml 噢不止三步, 那四部 - 加文章</description>
+    </item>
+    
+    <item>
+      <title>Colenak</title>
+      <link>/2015/09/28/colenak/</link>
+      <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/09/28/colenak/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>/2014/04/02/hugo-template-primer/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/04/02/hugo-template-primer/</guid>
+      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
+This document is a brief primer on using go templates.</description>
+    </item>
+    
+  </channel>
+</rss>

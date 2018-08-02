@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redux on </title>
+    <link>/tags/redux/</link>
+    <description>Recent content in Redux on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 13 Jun 2017 10:39:06 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/redux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redux combineReducers js 作者简单实现</title>
+      <link>/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 13 Jun 2017 10:39:06 +0000</pubDate>
+      
+      <guid>/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
+      <description> 来源 Redux作者入门教程
+combineReducers  js 简单实现
+ 1const combineReducers = (reducers) =&amp;gt;{ 2 return (state = {}, action) =&amp;gt;{ 3 return Object.Keys(reducers).reduce( 4 5 (nextState, key) =&amp;gt;{ 6 7 nextState[key] = reducers[key]( 8 state[key], 9 action 10 ); 11 return nextState; 12 13 }, {}) 14 }; 15}; 16</description>
+    </item>
+    
+    <item>
+      <title>Redux 基础</title>
+      <link>/2017/04/24/redux-%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 24 Apr 2017 17:01:53 +0000</pubDate>
+      
+      <guid>/2017/04/24/redux-%E5%9F%BA%E7%A1%80/</guid>
+      <description>一个世界(store)  redux的中心思想，一直是共享数据的理念
+ 只有一个更改数据的接口dispatch
+ 一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
+  创造数据中心 1import { createStore } from &amp;#34;redux&amp;#34; 2 3const store = createStore(reducer); 4 打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
+ 1const reducer = function( state, action ) { 2 if (action.type === &amp;#34;Something&amp;#34;){ 3 //为什么叫 逻辑 ,就因为 if if if 4 //你可以加1 5 //return state+1; 6 //返回值，自动改变原有数据。 7 return state; 8 } 9 if (action.</description>
+    </item>
+    
+  </channel>
+</rss>

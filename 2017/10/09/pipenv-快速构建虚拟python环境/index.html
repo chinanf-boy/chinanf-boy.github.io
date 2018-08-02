@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>pipenv 快速构建虚拟python环境 &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/" />
+
+     <meta name="description" content="pipenv python的快速构建虚拟环境 使用 1pip install pipenv 搭建 1pipenv --three 2pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建pytho" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="/file_imgs/pipenvlogo.jpg"/>
+    
+ 
+    <meta name="twitter:title" content="pipenv 快速构建虚拟python环境"/>
+    <meta name="twitter:description" content="pipenv python的快速构建虚拟环境 使用 1pip install pipenv 搭建 1pipenv --three 2pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建pytho"/>
+    <meta name="twitter:url" content="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="pipenv 快速构建虚拟python环境 &middot; Same like,Same guy" />
+    <meta property="og:url" content="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="pipenv python的快速构建虚拟环境 使用 1pip install pipenv 搭建 1pipenv --three 2pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建pytho" />
+
+    <meta property="article:published_time" content="2017-10-09T08:15:28Z" />
+    <meta property="article:tag" content="python" /><meta property="article:tag" content="pipenv" />
+
+    <meta property="og:image" content="/file_imgs/pipenvlogo.jpg"/>
+
+
+    <meta name="generator" content="Hugo 0.45.1" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="Same like,Same guy" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about/">Projects me</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/getnoabsbooks">No-Abs-Book</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/">分类</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/tags">标签</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/chinanf-boy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2017-10-09">9 October 2017</time>
+                <span class="date-divider">/</span> <a href="/tags/python/">#python</a>&nbsp;<a href="/tags/pipenv/">#pipenv</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">pipenv 快速构建虚拟python环境</h1>
+    </header>
+    
+    <figure class="post-full-image" style="background-image: url(/file_imgs/pipenvlogo.jpg)">
+    </figure>
+
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        
+
+<h1 id="pipenv-python的快速构建虚拟环境">pipenv python的快速构建虚拟环境</h1>
+
+<h2 id="使用">使用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>pip install pipenv</pre></div>
+<h2 id="搭建">搭建</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>pipenv --three 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>pipenv --two</pre></div>
+<blockquote>
+<p>&ndash;three 3.x版本
+&ndash;two 2.x版本</p>
+</blockquote>
+
+<h2 id="主要下载问题">主要下载问题</h2>
+
+<h4 id="1-pipenv-无法与-conda-或-其他-虚拟环境搭建python环境共用">1. <code>pipenv</code> 无法与 <code>conda</code> 或 其他 虚拟环境搭建python环境共用</h4>
+
+<h4 id="必须保证-下载-pipenv-的-pip-是纯净的-python">必须保证，下载 <code>pipenv</code>的<code>pip</code>，是纯净的<code>python</code></h4>
+
+<h4 id="2-运行-pipenv-three-如果出现错误-像我">2. 运行 pipenv &ndash;three ，如果出现错误，像我</h4>
+
+<p>因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建，
+但是之前说了，为了纯净，这就会发生错误。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>$ pipenv --three
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>error
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>$ which python
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>anaconda/bin/python</pre></div>
+<p>✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python</p>
+
+<p>Mac oX 系统</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6</pre></div>
+<h2 id="更多">更多</h2>
+
+<p><a href="https://github.com/kennethreitz/pipenv">Github</a>
+<a href="https://docs.pipenv.org/">官网</a></p>
+    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="/">yobrave</a></h4>
+                <p>I - explain/translate/code &lt; er </p>
+        </section>
+      </section>
+    </footer>
+</article>
+    
+    
+    
+
+  </div>
+
+
+
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Same like,Same guy &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="/tags/python/">#python</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">中间件js实现</a></li>            
+        
+          <li><a href="/2017/01/11/tensorflow-by-google/">TensorFlow by Google</a></li>            
+        
+          <li><a href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/">如何将完整的文件夹放进hugo</a></li>            
+        
+          <li><a href="/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/">ChangeLog 生成器</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="/tags/python/">See all related posts →</a>
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/10/09/slack-hubot-use-py-or-js/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/slacklogo.jpeg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/10/09/slack-hubot-use-py-or-js/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #slack 
+              #hubot 
+              #python 
+              #javascript  </span>
+              
+              <h2 class="post-card-title">Slack-Hubot-use-py-or-js</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> Slack 的机器人 和Slack上的机器人发命令
+在服务器布置的 接收 处理
+下面是两个，简单的构建示例
+1.用python SlackClient 简单构建 github代码
+2.用Hubot与Slack结合 js github代码
+区别是  使用语言不同
+ hubot是一个完备的框架
+   </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/10/06/ionic-going/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/ioniclogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/10/06/ionic-going/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #ionic  </span>
+              
+              <h2 class="post-card-title">ionic Going</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>似流程，不是流程 下载问题可看上一篇文章
+ionic 是一套使用 javascript html css 技术构建 手机原生应用的 框架 从这里就可以看出，困难的地方就是，如何转换，原生应用，这点上 ionic 帮我们做了，
+不仅如此，还做了分享平台，测试应用的快速教程和应用，不可谓不大大的良心
+命令行下载 1npm install -g cordova ionic  cordova 是 为了 神不知鬼不觉 的 构建原生应用 后续
+ 主要网站 官网：http://ionicframework.com/
+分享部署平台和主要代码管理和测试：https://dashboard.ionicjs.com/
+网上编辑器可拖拉搞定：https://creator.ionic.io/app/dashboard
+手机应用—— ionic view 与分享平台结合
+官方文档真的很棒，不过要翻墙，上面大部分 使用 Angular 与 sass 和 TypeScript 作为 编写条件 不过可以试试第一个官方应用 1ionic start myApp tabs 服务器
+1ionic serve 链接平台,要有账号,在这一步通过与本身项目链接 自动 git remote add ionic [你的项目.git]
+这个过程还会配合ssh
+1ionic link [可选项 项目唯一id] 部署功能与Ionic Pro Git工作流配合使用，可在生产（或测试）应用程序中部署新的代码更新。 ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="/">
+      <img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="" />
+      <span></span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">pipenv 快速构建虚拟python环境</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=pipenv%20%e5%bf%ab%e9%80%9f%e6%9e%84%e5%bb%ba%e8%99%9a%e6%8b%9fpython%e7%8e%af%e5%a2%83&amp;url=%2f2017%2f10%2f09%2fpipenv-%25E5%25BF%25AB%25E9%2580%259F%25E6%259E%2584%25E5%25BB%25BA%25E8%2599%259A%25E6%258B%259Fpython%25E7%258E%25AF%25E5%25A2%2583%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f10%2f09%2fpipenv-%25E5%25BF%25AB%25E9%2580%259F%25E6%259E%2584%25E5%25BB%25BA%25E8%2599%259A%25E6%258B%259Fpython%25E7%258E%25AF%25E5%25A2%2583%2f"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/">yobrave</a> © 2018 <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/chinanf-boy" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+
+</body></html>

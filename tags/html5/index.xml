@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html5 on </title>
+    <link>/tags/html5/</link>
+    <description>Recent content in Html5 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 19 Jan 2017 21:46:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/html5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>translate与rotate</title>
+      <link>/2017/01/19/translate%E4%B8%8Erotate/</link>
+      <pubDate>Thu, 19 Jan 2017 21:46:00 +0000</pubDate>
+      
+      <guid>/2017/01/19/translate%E4%B8%8Erotate/</guid>
+      <description>translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
+一：translate  translate 在 canvas中定义了，画框的位置
+ 比如
+1 &amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border: 1px solid #d3d3d3;&amp;#34; width=&amp;#34;300&amp;#34; height=&amp;#34;150&amp;#34;&amp;gt; 2 &amp;lt;script&amp;gt;; 3 var c = document.getElementById(&amp;#34;myCanvas&amp;#34;); 4 var ctx = c.getContext(&amp;#34;2d&amp;#34;); 5 ctx.fillRect(10, 10, 100, 50); 6 ctx.translate(150, 75); 7 ctx.fillRect(10, 10, 100, 50); 8 &amp;lt;/script&amp;gt;&amp;lt;/canvas&amp;gt;; 91&amp;gt; 定义一个宽300px，高150px的画布  1 在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); 2 3 translate(150,75)命令 4 5 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 6 7 此时，如果再画一个矩形，那么，位置，也会发生改变 8 9 画布并没有改变，但是，观察画布的位置发生了变化 10 11 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口 二：rotate 1 &amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border: 1px solid #d3d3d3;&amp;#34; width=&amp;#34;300&amp;#34; height=&amp;#34;150&amp;#34;&amp;gt; 2 &amp;lt;script&amp;gt; 3 var c = document.</description>
+    </item>
+    
+  </channel>
+</rss>

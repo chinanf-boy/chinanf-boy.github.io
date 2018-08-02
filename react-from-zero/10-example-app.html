@@ -1,0 +1,128 @@
+<!doctype html>
+
+<title>10 Example App - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/create-react-class@15.6.3/create-react-class.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// 一个简单`React`应用程序的例子
+// 一个无状态组件的简单组件函数,
+// 和一个使用 复杂的组件类 来处理交互
+
+
+// 首先我们有 Task 和 TaskList
+// 他们通过 他们的属性-props 获得他们所有的 数据-data/状态-state 
+// <TaskList>
+//   <Task text="Do something"/>
+//   <Task text="Do nothing"/>
+// </TaskList>
+
+//  Task 需要一个 文本属性
+function Task(props) {
+  return <li>{props.text}</li>
+}
+
+// TaskList 需要在其 子属性 中包含 Task 数组
+function TaskList(props) {
+  // 打印第一个粗体元素
+  return (
+    <ul>
+      <b key={0}>{props.children[0]}</b>
+      {props.children.slice(1)}
+    </ul>
+  )
+}
+
+// 这个组件处理输入
+// 它需要是一个类,因为`<input>`元素是有状态的
+var TaskInput = createReactClass({
+
+  getInitialState: function() {
+    return {value: ""}
+  },
+
+  // 当有人在`<input>`元素输入时, 被调用
+  handleChange: function(e) {
+    this.setState({value: e.target.value})
+  },
+
+  // 当有人在`<button>`元素点击时, 被调用
+  handleAdd: function(e) {
+    if (!this.state.value) return
+
+    // 调用添加到其 onAdd 属性, props.onAdd 函数,
+    this.props.onAdd(this.state.value)
+
+    // 清除状态,以便在添加后, 输入再次为空
+    this.setState({value: ""})
+  },
+
+  // 每次有人 输入或添加 时渲染元素
+  render: function() {
+    return (
+      <div>
+
+        <input
+          placeholder="Enter Task	."
+          value={this.state.value}
+          onChange={this.handleChange}/>
+
+        <button onClick={this.handleAdd}>Add</button>
+
+      </div>
+    )
+  },
+
+})
+
+// 该应用程序跟踪其当前 Task 状态
+var TodoApp = createReactClass({
+
+  getInitialState: function() {
+    return {tasks: []}
+  },
+
+    // 这个回调会被插入到`<TaskInput>`组件的 onAdd 属性「props.onAdd」中
+  handleAdd: function(task) {
+    // 增加一项新 Task 
+    var tasks = [task].concat(this.state.tasks)
+
+    // 这迫使了`<TodoApp>`渲染组件
+    this.setState({tasks: tasks})
+  },
+
+  render: function() {
+    // create the list of <Task> components from the tasks array in the state
+      // 创建来自 state.tasks 数组中的 的`<Task>`列表组件
+    var taskElements = this.state.tasks.map(function(t, i) {
+      return <Task key={i} text={t}/>
+    })
+
+    // 一些简单的样式和
+    // 添加 处理程序-`this.handleAdd` 到`<TaskInput>`组件
+    return (
+      <div style={{width: 300, margin: "auto"}}>
+
+        <TaskInput onAdd={this.handleAdd}/>
+
+        <TaskList>
+          {taskElements}
+        </TaskList>
+
+      </div>
+    )
+  },
+
+})
+
+var renderTarget = document.getElementById("app")
+
+//我们可以直接使用组件
+ReactDOM.render(<TodoApp/>, renderTarget)
+
+</script>

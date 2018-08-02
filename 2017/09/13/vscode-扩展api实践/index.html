@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>vscode 扩展Api实践 &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/" />
+
+     <meta name="description" content="前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
+安装发电机 1npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
+1yo code 更多详情 创建扩展的文件夹
+扩展" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="vscode 扩展Api实践"/>
+    <meta name="twitter:description" content="前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
+安装发电机 1npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
+1yo code 更多详情 创建扩展的文件夹
+扩展"/>
+    <meta name="twitter:url" content="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="vscode 扩展Api实践 &middot; Same like,Same guy" />
+    <meta property="og:url" content="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
+安装发电机 1npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
+1yo code 更多详情 创建扩展的文件夹
+扩展" />
+
+    <meta property="article:published_time" content="2017-09-13T21:45:35Z" />
+    <meta property="article:tag" content="vscode" />
+
+    <meta property="og:image" content="/img/blog-cover.jpg"/>
+
+    <meta name="generator" content="Hugo 0.45.1" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="Same like,Same guy" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about/">Projects me</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/getnoabsbooks">No-Abs-Book</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/">分类</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/tags">标签</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/chinanf-boy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2017-09-13">13 September 2017</time>
+                <span class="date-divider">/</span> <a href="/tags/vscode/">#vscode</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">vscode 扩展Api实践</h1>
+    </header>
+    
+    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    </figure>
+
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        
+
+<h2 id="前提">前提</h2>
+
+<p>您需要安装<a href="https://nodejs.org/en/">Node.js</a>并且可以使用<code>$PATH</code>。Node.js安装包括<a href="https://www.npmjs.com/">npm</a>，Node.js软件包管理器，它将用于安装扩展生成器。</p>
+
+<h2 id="安装发电机">安装发电机</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm install -g yo generator-code</code></pre></div>
+<h2 id="运行">运行</h2>
+
+<p>要启动生成器，请在命令提示符下键入以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>yo code</pre></div>
+<p><a href="https://code.visualstudio.com/docs/extensions/yocode">更多详情</a> 创建扩展的文件夹</p>
+
+<h2 id="扩展-api-流程-的介绍">扩展<code>API</code>流程 的介绍</h2>
+
+<h3 id="扩展清单-package-json">扩展清单： <code>package.json</code></h3>
+
+<h4 id="contributes">contributes</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>&#34;contributes&#34;: {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>        &#34;commands&#34;: [{
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>            &#34;command&#34;: &#34;extension.sayHello&#34;,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>            &#34;title&#34;: &#34;Hello World&#34;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>        }]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    }</pre></div>
+<p>调用命令的标签为命令调色板<code>（⇧⌘P）</code>提供一个条目
+输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;</p>
+
+<h4 id="activationevents">activationEvents</h4>
+
+<p>启动事件—通过命令也就是 <code>contributes</code> 中 <code>&quot;Hello World&quot;</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>&#34;activationEvents&#34;: [
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>        &#34;onCommand:extension.sayHello&#34;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    ]</pre></div>
+<p>启动事件—当语言为<code>markdown</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>&#34;activationEvents&#34;: [
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>        &#34;onLanguage:markdown&#34;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    ]</pre></div>
+<!-- more -->
+
+<h3 id="示例-extension-ts-你好世界">示例 <code>extension.ts</code> 你好世界</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> <span style="color:#ff79c6">as</span> vscode from <span style="color:#f1fa8c">&#39;vscode&#39;</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span> activate(context: <span style="color:#8be9fd">vscode.ExtensionContext</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span><span style="color:#6272a4">// 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#6272a4">//需要主函数 activate() 导出。
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span><span style="color:#6272a4">//
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#6272a4">//当 activationEvents 启动时，主函数 activate() 仅运行一次。
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    console.log(<span style="color:#f1fa8c">&#39;Congratulations, your extension &#34;my-first-extension&#34; is now active!&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span><span style="color:#6272a4">//vscodeAPI，然后注册一个命令 registerCommand
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span><span style="color:#6272a4">//将命令&#34;extension.sayHello&#34;调用时调用的函数关联起来
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span><span style="color:#6272a4">// disposable 是 释放资源
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">var</span> disposable <span style="color:#ff79c6">=</span> vscode.commands.registerCommand(<span style="color:#f1fa8c">&#39;extension.sayHello&#39;</span>, () <span style="color:#ff79c6">=&gt;</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>        <span style="color:#6272a4">// vscodeAPI 窗口显示信息
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span><span style="color:#6272a4"></span>        vscode.<span style="color:#8be9fd;font-style:italic">window</span>.showInformationMessage(<span style="color:#f1fa8c">&#39;Hello World!&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>    });
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>    <span style="color:#6272a4">//处理扩展活动—释放资源—如事件订阅或UI控制
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span><span style="color:#6272a4"></span>    context.subscriptions.push(disposable);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>}</code></pre></div>
+<h3 id="示例-字数">示例 字数</h3>
+
+<p><a href="https://code.visualstudio.com/docs/extensions/example-word-count">例子</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">import</span> {<span style="color:#8be9fd;font-style:italic">window</span>, commands, Disposable, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument} from <span style="color:#f1fa8c">&#39;vscode&#39;</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span> activate(context: <span style="color:#8be9fd">ExtensionContext</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    console.log(<span style="color:#f1fa8c">&#39;Congratulations, your extension &#34;WordCount&#34; is now active!&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    <span style="color:#6272a4">// create a new word counter
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">let</span> wordCounter <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> WordCounter();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    <span style="color:#8be9fd;font-style:italic">let</span> disposable <span style="color:#ff79c6">=</span> commands.registerCommand(<span style="color:#f1fa8c">&#39;extension.sayHello&#39;</span>, () <span style="color:#ff79c6">=&gt;</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>        wordCounter.updateWordCount();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>    });
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>    context.subscriptions.push(wordCounter);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>    context.subscriptions.push(disposable);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>}
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span><span style="color:#ff79c6">class</span> WordCounter {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>    <span style="color:#6272a4">//在VS代码中显示自定义文本 Status Bar
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">private</span> _statusBarItem: <span style="color:#8be9fd">StatusBarItem</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>    <span style="color:#ff79c6">public</span> updateWordCount() {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>        <span style="color:#6272a4">// 创建新的状态条 左
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span><span style="color:#ff79c6">this</span>._statusBarItem) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27</span>            <span style="color:#ff79c6">this</span>._statusBarItem <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">window</span>.createStatusBarItem(StatusBarAlignment.Left);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30</span>        <span style="color:#6272a4">// 获取正活动文本
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31</span><span style="color:#6272a4"></span>        <span style="color:#8be9fd;font-style:italic">let</span> editor <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">window</span>.activeTextEditor;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">32</span>        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>editor) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">33</span>            <span style="color:#ff79c6">this</span>._statusBarItem.hide();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">34</span>            <span style="color:#ff79c6">return</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">35</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">36</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">37</span>        <span style="color:#6272a4">//文本文档对象
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">38</span><span style="color:#6272a4"></span>        <span style="color:#8be9fd;font-style:italic">let</span> doc <span style="color:#ff79c6">=</span> editor.<span style="color:#8be9fd;font-style:italic">document</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">39</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">40</span>        <span style="color:#6272a4">// 仅当语言类型是 markdown
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">41</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (doc.languageId <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;markdown&#34;</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">42</span>            <span style="color:#8be9fd;font-style:italic">let</span> wordCount <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span>._getWordCount(doc);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">43</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">44</span>            <span style="color:#6272a4">// 更新状态条
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">45</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">this</span>._statusBarItem.text <span style="color:#ff79c6">=</span> wordCount <span style="color:#ff79c6">!==</span> <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">?</span> <span style="color:#f1fa8c">`</span><span style="color:#f1fa8c">${</span>wordCount<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> Words`</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;1 Word&#39;</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">46</span>            <span style="color:#6272a4">//显示状态条
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">47</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">this</span>._statusBarItem.show();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">48</span>        } <span style="color:#ff79c6">else</span> { 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">49</span>            <span style="color:#6272a4">// 隐藏状态条
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">50</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">this</span>._statusBarItem.hide();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">51</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">52</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">53</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">54</span>    <span style="color:#ff79c6">public</span> _getWordCount(doc: <span style="color:#8be9fd">TextDocument</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">number</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">55</span>        <span style="color:#6272a4">// 获取文档文字
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">56</span><span style="color:#6272a4"></span>        <span style="color:#8be9fd;font-style:italic">let</span> docContent <span style="color:#ff79c6">=</span> doc.getText();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">57</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">58</span>        <span style="color:#6272a4">// 替换空格，多余换行
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">59</span><span style="color:#6272a4"></span>        docContent <span style="color:#ff79c6">=</span> docContent.replace(<span style="color:#f1fa8c">/(&lt; ([^&gt;]+)&lt;)/g</span>, <span style="color:#f1fa8c">&#39;&#39;</span>).replace(<span style="color:#f1fa8c">/\s+/g</span>, <span style="color:#f1fa8c">&#39; &#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">60</span>        docContent <span style="color:#ff79c6">=</span> docContent.replace(<span style="color:#f1fa8c">/^\s\s*/</span>, <span style="color:#f1fa8c">&#39;&#39;</span>).replace(<span style="color:#f1fa8c">/\s\s*$/</span>, <span style="color:#f1fa8c">&#39;&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">61</span>        <span style="color:#8be9fd;font-style:italic">let</span> wordCount <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">62</span>        <span style="color:#ff79c6">if</span> (docContent <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;&#34;</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">63</span>            wordCount <span style="color:#ff79c6">=</span> docContent.split(<span style="color:#f1fa8c">&#34; &#34;</span>).length;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">64</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">65</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">66</span>        <span style="color:#ff79c6">return</span> wordCount;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">67</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">68</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">69</span>    dispose() {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">70</span>        <span style="color:#ff79c6">this</span>._statusBarItem.dispose();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">71</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">72</span>}</code></pre></div>
+<h3 id="两个示例总结">两个示例总结</h3>
+
+<ul>
+<li><p>需要导出 <code>activate</code>主函数</p></li>
+
+<li><p><code>activate</code>主函数中<code>context.subscriptions.push</code>的作用是当扩展禁用时会调用 <code>dispose()</code>方法</p>
+
+<ul>
+<li>那么<code>dispose</code>函数定义的方式也有两种:
+<br /></li>
+</ul>
+
+<p>一：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>     <span style="color:#8be9fd;font-style:italic">let</span> disposable <span style="color:#ff79c6">=</span> commands.registerCommand(<span style="color:#f1fa8c">&#39;extension.sayHello&#39;</span>, () =&gt; {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    wordCounter.updateWordCount();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    });
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#6272a4">//用注册事件返回的对象
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#6272a4"></span>    context.subscriptions.push(disposable);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span></code></pre></div>
+<p>二：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>    <span style="color:#8be9fd;font-style:italic">let</span> wordCounter <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> WordCounter();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    <span style="color:#ff79c6">class</span> WordCounter {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>    <span style="color:#6272a4">// ...
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#6272a4"></span>    dispose() {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>            <span style="color:#6272a4">//...
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#6272a4"></span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    <span style="color:#6272a4">//新对象中 dispose 方法
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span><span style="color:#6272a4"></span>    context.subscriptions.push(wordCounter);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span></code></pre></div></li>
+</ul>
+
+<h3 id="示例-字数-添加事件绑定">示例 字数 添加事件绑定</h3>
+
+<ul>
+<li><p><code>window.onDidChangeTextEditorSelection</code></p>
+
+<ul>
+<li>光标改变</li>
+</ul></li>
+
+<li><p><code>window.onDidChangeActiveTextEditor</code></p>
+
+<ul>
+<li>切换文件</li>
+</ul></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">class</span> WordCounterController {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>        <span style="color:#ff79c6">private</span> _wordCounter<span style="color:#ff79c6">:</span> WordCounter;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>        <span style="color:#ff79c6">private</span> _disposable<span style="color:#ff79c6">:</span> Disposable;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>        constructor(wordCounter<span style="color:#ff79c6">:</span> WordCounter) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>            <span style="color:#ff79c6">this</span>._wordCounter <span style="color:#ff79c6">=</span> wordCounter;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>            <span style="color:#6272a4">// subscribe to selection change and editor activation events
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span><span style="color:#6272a4"></span>            <span style="color:#8be9fd;font-style:italic">let</span> subscriptions<span style="color:#ff79c6">:</span> Disposable[] <span style="color:#ff79c6">=</span> [];
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>            <span style="color:#6272a4">//当光标改变—事件
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span><span style="color:#6272a4"></span>            <span style="color:#8be9fd;font-style:italic">window</span>.onDidChangeTextEditorSelection(<span style="color:#ff79c6">this</span>._onEvent, <span style="color:#ff79c6">this</span>, subscriptions);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>            <span style="color:#6272a4">//当活动文本改变—事件
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span><span style="color:#6272a4"></span>            <span style="color:#8be9fd;font-style:italic">window</span>.onDidChangeActiveTextEditor(<span style="color:#ff79c6">this</span>._onEvent, <span style="color:#ff79c6">this</span>, subscriptions);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>            <span style="color:#6272a4">// update the counter for the current file
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">this</span>._wordCounter.updateWordCount();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>            <span style="color:#6272a4">// 同一订阅-处理资源
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">this</span>._disposable <span style="color:#ff79c6">=</span> Disposable.from(...subscriptions);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>        dispose() {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>            <span style="color:#ff79c6">this</span>._disposable.dispose();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27</span>        <span style="color:#ff79c6">private</span> _onEvent() {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28</span>            <span style="color:#ff79c6">this</span>._wordCounter.updateWordCount();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29</span>        }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31</span></code></pre></div>
+<h3 id="api-各种看看">API 各种看看</h3>
+
+<p>获取活动编辑文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>        <span style="color:#8be9fd;font-style:italic">let</span> editor <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">window</span>.activeTextEditor;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span></code></pre></div>
+<h3 id="扩展例子">扩展例子</h3>
+
+<p><a href="https://code.visualstudio.com/docs/extensions/samples">详情</a></p>
+
+<p>持续</p>
+    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="/">yobrave</a></h4>
+                <p>I - explain/translate/code &lt; er </p>
+        </section>
+      </section>
+    </footer>
+</article>
+    
+    
+    
+
+  </div>
+
+
+
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Same like,Same guy &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="/tags/vscode/">#vscode</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="/2017/01/11/tensorflow-by-google/">TensorFlow by Google</a></li>            
+        
+          <li><a href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">目录环境加载 direnv</a></li>            
+        
+          <li><a href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">让你的py优雅</a></li>            
+        
+          <li><a href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">Redux 基础</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="/tags/vscode/">See all related posts →</a>
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">highlight-css样式列表</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> 代码高亮 正如 hexo 就是使用 highlight.js 的插件
+通过CDN可以快速获取 highlight.js 的源码
+ 但是
+ 没有 css文件也是白瞎
+噢，好险，highlight.js官方上 多种风格与语言列表预览
+当你，查看网站资源获取时，它是一下子收多个css文件，所以有点慢加载
+想用哪个用哪个
+  没人想全要吧~|!
+  比如： CSsdarcula风格网站文件
+1&lt;link rel=&#34;stylesheet&#34; href=&#34;https://highlightjs.org/static/demo/styles/dracula.css&#34;&gt;  源码样式文件——github
+下面有个 codepen 的例子
+See the Pen highlight_无本地例子 by braveyo (@china-boy) on CodePen.   </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #pip 
+              #npm 
+              #conda  </span>
+              
+              <h2 class="post-card-title">pip npm conda 换下载源</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> Pip 换 阿里源 linux下运行命令 1vi ~/.pip/pip.confp1[global] 2trusted-host = mirrors.aliyun.com 3index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2 3conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
+1npm --registry https://registry.npm.taobao.org install express 2.持久使用
+1npm config set registry https://registry.npm.taobao.org 3.通过cnpm
+1npm install -g cnpm --registry=https://registry.npm.taobao.org 二、使用官方镜像
+1npm config set registry https://registry.npmjs.org/ 三、查看npm源地址
+1npm config get registry </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="/">
+      <img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="" />
+      <span></span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">vscode 扩展Api实践</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=vscode%20%e6%89%a9%e5%b1%95Api%e5%ae%9e%e8%b7%b5&amp;url=%2f2017%2f09%2f13%2fvscode-%25E6%2589%25A9%25E5%25B1%2595api%25E5%25AE%259E%25E8%25B7%25B5%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f09%2f13%2fvscode-%25E6%2589%25A9%25E5%25B1%2595api%25E5%25AE%259E%25E8%25B7%25B5%2f"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/">yobrave</a> © 2018 <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/chinanf-boy" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+
+</body></html>

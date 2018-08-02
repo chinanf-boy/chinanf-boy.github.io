@@ -1,0 +1,102 @@
+<!doctype html>
+
+<title>13 Element Refactor - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/create-react-class@15.6.3/create-react-class.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// 重构一个元素有点棘手
+// 首先,`JSX`要明确标签 是否是元素或组件
+// 小写 的意思是元素
+// 大写 意味着组件
+
+var element = <div/>
+// 变
+element = React.createElement("div", null)
+
+try {
+
+var component = <Div/>
+// 变
+component = React.createElement(Div, null)
+
+} catch(e) {}
+
+// 第二,`React`将这些元素触发的所有事件转换为合成事件. 
+// 这通常不是问题,它们仅仅是事件. 但你不能触发你自己的. 
+// 所以,即使你的`<Input>`组件接受一个`onClick`回调作为属性
+// 你不能用一个相同的事件给`<input>`元素来调用它
+
+
+// 一种方法可能是这样的. 
+// 我们只是实现我们自己的`onChange`,
+// 我们创建一个只能 数字输入调用的 `NumberInput`
+// (非数字触发一个空的变化)
+var NumberInput = createReactClass({
+
+  getInitialState: function() {
+    return {value: ""}
+  },
+
+  handleInput: function(e) { // 自己的`onChange`
+
+    // 我们可以尝试修改事件来获取我们的数据,
+    // 但这可能会让事情搞砸,
+    // 重要的应该是我们 阻止此事件进一步采取行动
+    e.preventDefault()
+
+    var newNumber = e.target.value
+
+    // 过滤空白变化
+    if (newNumber.length < 1 || newNumber === this.state.value) return
+
+    this.setState({value: newNumber})
+
+    // 然后我们提取我们的数据并提供给`onChange`
+    this.props.onChange(newNumber) // 来自 <NumberInput onChange={logChange}/> 的 logChange
+
+  },
+
+  render: function () {
+
+    return <input type="number" value={this.state.value} onChange={this.handleInput}/>
+
+  },
+
+})
+
+function logChange(v){
+  console.log(v)
+}
+
+
+// 在这里我们看到,新的 NumberInput 具有不同的接口
+// 它的 onChange 属性 似乎会收到事件,但事实并非如此. 
+// 即便我们想把它像 `html元素`原始输入一样 运行.
+// 我们还需要使用 大写字母,为了区分
+var reactElement = <div style={{width: 300, margin: "auto"}}>
+
+  <h2>Logging number inputs</h2>
+
+  <h2>Before 重构</h2>
+  <input type="number" onChange={function(e) { logChange(e.target.value) }}/>
+
+  <h2>After 重构</h2>
+  <NumberInput onChange={logChange}/>
+
+</div>
+
+ReactDOM.render(reactElement, document.getElementById("app"))
+
+// 其他方法包括在第一个地方不使用 "默认"prop属性名称 
+// 比如`onUpdate`替换`onChange`
+// 它一个组件使用 `onMouseDown` 做一些内部的事情
+// 并触发一个`onChange`也可能发生, 当然这可能会导致混淆
+// 通常 组件 比 第一个元素`<div>`提供更丰富的交互,
+// 所以它们的 prop方法 可以用 名称 来反映
+</script>

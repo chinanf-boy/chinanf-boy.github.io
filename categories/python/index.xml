@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on </title>
+    <link>/categories/python/</link>
+    <description>Recent content in Python on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 01 Aug 2018 19:14:03 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>让你的py优雅</title>
+      <link>/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/</link>
+      <pubDate>Wed, 01 Aug 2018 19:14:03 +0800</pubDate>
+      
+      <guid>/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/</guid>
+      <description>参考译文来自：www.lightxue.com/transforming-code-into-beautiful-idiomatic-python
+在Python社区文化的浇灌下，演化出了一种独特的代码风格，去指导如何正确地使用Python，这就是常说的pythonic。
+Raymond Hettinger是Python核心开发者，本文提到的许多特性都是他开发的。同时他也是Python社区热忱的布道师，不遗余力地传授pythoni c之道。这篇文章是网友Jeff Paine整理的他在2013年美国的PyCon的演讲的笔记。
+以下正文
+遍历一个范围内的数字 0 for i in [0, 1, 2, 3, 4, 5]: 1 print i ** 2 2 3 for i in range(6): 4 print i ** 2 更好的方法
+1for i in xrange(6): 2 print i ** 2 xrange会返回一个迭代器，用来一次 遍历一个范围。这种方式会比range更省内存。xrange在Python 3中已经改名为range。
+遍历一个集合 1colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] 2 3for i in range(len(colors)): 4 print colors[i] 更好的方法
+1for color in colors: 2 print color 反向遍历 1colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] 2 3for i in range(len(colors)-1, -1, -1): 4 print colors[i] 更好的方法</description>
+    </item>
+    
+  </channel>
+</rss>

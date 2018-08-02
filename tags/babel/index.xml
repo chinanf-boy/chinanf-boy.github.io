@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Babel on </title>
+    <link>/tags/babel/</link>
+    <description>Recent content in Babel on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 27 May 2017 11:19:22 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/babel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>babel 继承 Es5</title>
+      <link>/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/</link>
+      <pubDate>Sat, 27 May 2017 11:19:22 +0000</pubDate>
+      
+      <guid>/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/</guid>
+      <description>继承 复制下面代码 - 点击https://babeljs.io/repl/
+1class b { 2 constructor(c,d){ 3 c = c+&amp;#39;1111&amp;#39;; 4 console.log(c,d); 5 } 6 start(){ 7 console.log(&amp;#39;ba ba&amp;#39;) 8 } 9} 10 11class a extends b { 12 constructor(c,b){ 13 super(c,b); 14 c = c+&amp;#39;222222&amp;#39;; 15 console.log(1,c,2,b); 16 return this.start; 17 } 18 start(){ 19 console.log(&amp;#39;son&amp;#39;); 20 } 21} 22 23var o1 = new a(&amp;#39;first&amp;#39;, &amp;#39;second&amp;#39;); 24 25console.log(&amp;#39;------------------&amp;#39;); 26console.log(o1.toString()); 27 -为了实现，相当于 类的 继承 问题，js 给 大众</description>
+    </item>
+    
+  </channel>
+</rss>

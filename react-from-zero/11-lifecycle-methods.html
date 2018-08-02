@@ -1,0 +1,114 @@
+<!doctype html>
+
+<title>11 Lifecycle Methods - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/create-react-class@15.6.3/create-react-class.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+
+<div id="app"></div>
+
+<script type="text/babel">
+// 如果我们使用 组件类,我们的组件会继承
+// 一堆`React`在特定的时间调用的方法, 
+// 这些方法让我们对我们的组件有更多的控制,
+// 其中一些我们已经在 第9课 中遇到过. 
+// 下面有几个新组件. 并不是代表全部,但却是最重要的
+var TRANSLATION_FROM_SOMEWHERE = "Text from a synchronous source."
+
+var MyComponent = createReactClass({
+  // 这个默认的 prop 值的方法
+  // 是在`props`给我们的组件之前被调用的
+  // 如果有传递"真实"`props`下来,那么会覆盖默认
+  getDefaultProps: function() {
+    return {
+      iGetOverriden: "default",
+      iStayAsIAm: "default",
+    }
+  },
+
+  // 这个方法在 组件被 装载-mounted 到 DOM 之前 被调用,
+  // 它返回的值用于`this.state`
+  getInitialState: function() {
+    return {serverData: null}
+  },
+
+  // 在装载组件之前调用此方法
+  // 可用于初始化某些同步配置,
+  // 该配置在组件渲染前,应该可用
+  componentWillMount: function() {
+    this.TEXT = TRANSLATION_FROM_SOMEWHERE
+  },
+
+  // 这个方法在组件被挂载后 立即调用,
+  // 这是启动一些异步任务的好地方. 
+  // 例如,在第一个 mount 上显示一个加载消息,
+  // 然后调用 componentDidMount 并获取一些服务器数据.
+  componentDidMount: function() {
+
+    var component = this
+
+    // 我们清理数据, 并从某处获得新的信息
+    function loadData() {
+
+      component.setState({serverData: null})
+
+      getServerData(function(data) {
+        component.setState({serverData: data})
+      })
+
+    }
+
+    // 初始数据加载
+    loadData()
+
+    // 我们每4秒模拟一次服务器请求
+    this.updateInterval = setInterval(loadData, 4000)
+
+  },
+
+  // 这个方法在组件被移除之前被调用. 有点像自毁
+  // 在这里,我们可以做一些清理.
+  componentWillUnmount: function() {
+
+    clearInterval(this.updateInterval)
+
+  },
+
+  // 这个方法在渲染之前 `props`或状态是可用的时 调用,
+  // 它不会在第一个渲染 或 `this.forceUpdate()`调用时使用
+  // 如果某些 状态 或 props 变化后,不需要重新渲染,可以使用它做些条件返回
+  shouldComponentUpdate: function(nextProps, nextState) {
+
+    // 我们想要在每次更改时渲染,这是默认行为
+    return true
+
+  },
+
+  render: function() {
+    return (
+      <h2 style={{width: 400, margin: "auto"}}>
+
+        Overriden Prop: {this.props.iGetOverriden}<br/><br/>
+
+        Default Prop: {this.props.iStayAsIAm}<br/><br/>
+
+        {this.TEXT}<br/><br/>
+
+        {this.state.serverData
+          ? this.state.serverData
+          : "Loading..."
+        }
+      </h2>
+    )
+  },
+
+})
+
+function getServerData(fn) {
+  setTimeout(function() { fn("Data Loaded!") }, 700)
+}
+
+ReactDOM.render(<MyComponent iGetOverriden={"override"}/>, document.getElementById("app"))
+</script>

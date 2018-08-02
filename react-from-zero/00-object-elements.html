@@ -1,0 +1,74 @@
+<!doctype html>
+
+<title>00 Object Elements/React元素长什么样 - React From Zero</title>
+
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
+
+<div id="app">
+  <!--我们 React 应用渲染的目标元素 id="app"-->
+</div>
+
+<script>
+  // `React`使用`ES2015`符号`"tag"`标签化它的元素对象. 
+  // 它在旧版浏览器上使用 神奇的数字 作为回调. 
+  var magicValue = (Symbol && Symbol.for("react.element")) || 0xeac7
+
+  // `React`使用虚拟`DOM`元素,在渲染时会成为真实的`DOM`的元素. 
+  // 虚拟`DOM`元素可以被定义为一个简单的对象文字. 
+  // 通常你会使用`React.createElement()`创建一个元素. 
+  // 下面看起来就像是`React.createElement()`运行后的返回值.
+  var reactElement = {
+
+    // 这个特殊的 财产-property 将被`React`检查,
+    // 确保这个对象是一个`React`元素,
+    // 而不仅仅是一些用户数据
+    // `React.createElement()`自动为你设置
+    $$typeof: magicValue,
+
+    // 这也将被`React`检查.
+    // 我们稍后将讨论 引用-ref , 
+    // 但如果您不使用它们,则必须将其设置为null,而不是 未定义-undefined 的
+    ref: null,
+
+    // 这定义了 HTML 标签
+    type: "h1",
+
+    // 这定义了传递给元素的属性
+    props: {
+
+      // 在这个例子中,只有一个文本节点作为子节点
+      children: "Hello, world!",
+
+      // 一个`CSS`类
+      className: "abc",
+
+      // 样式可以作为对象传递, 
+      // `React`使用 驼峰 而不是虚线 (例如`CSS/D3`) : text-align{虚线} => textAlign{驼峰}
+      style: {
+        textAlign: "center",
+      },
+
+      // 事件处理程序也可以作为属性添加,
+      // `React`使用 组合事件,基本上试图规范化浏览器的行为
+      onClick: function (notYourRegularEvent) { alert("click") },
+    },
+
+  }
+
+  // 另一个没有太多配置的元素
+  var anotherElement = {
+    $$typeof: magicValue,
+    ref: null,
+    type: "p",
+    props: {
+      children: "A nice text paragraph.",
+    },
+  }
+
+  // `React`需要一个`DOM`元素作为渲染目标
+  var renderTarget = document.getElementById("app")
+
+  // `ReactDOM`负责将元素插入到 DOM 中
+  ReactDOM.render(reactElement, renderTarget)
+</script>
