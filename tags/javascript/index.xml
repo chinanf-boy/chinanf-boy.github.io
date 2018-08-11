@@ -35,7 +35,7 @@
       <guid>/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
       <description> 来源 Redux作者入门教程
 combineReducers  js 简单实现
- 1const combineReducers = (reducers) =&amp;gt;{ 2 return (state = {}, action) =&amp;gt;{ 3 return Object.Keys(reducers).reduce( 4 5 (nextState, key) =&amp;gt;{ 6 7 nextState[key] = reducers[key]( 8 state[key], 9 action 10 ); 11 return nextState; 12 13 }, {}) 14 }; 15}; 16</description>
+ const combineReducers = (reducers) =&amp;gt;{ return (state = {}, action) =&amp;gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&amp;gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; }; </description>
     </item>
     
     <item>
@@ -48,7 +48,7 @@ combineReducers  js 简单实现
 如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
  简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
  数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-1const app = { 2 callback (ctx) { 3 console.log(ctx) 4 }, 5 6 use (fn) { 7 /* TODO */ 8 }, 9 10 go (ctx) { 11 /* TODO */ 12 } 13} 14 15app.use((ctx, next) =&amp;gt; { 16 ctx.name = &amp;#39;Lucy&amp;#39; 17 next() 18}) 19 20app.use((ctx, next) =&amp;gt; { 21 ctx.age = 12 22 next() 23}) 24 25app.</description>
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&amp;gt; { ctx.name = &amp;#39;Lucy&amp;#39; next() }) app.use((ctx, next) =&amp;gt; { ctx.age = 12 next() }) app.use((ctx, next) =&amp;gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&amp;gt; Lucy is 12 years old. next() }) // .</description>
     </item>
     
     <item>
@@ -65,8 +65,8 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
  p5.js
  fire.html
   fire.html
-1 &amp;lt;html&amp;gt; 2 &amp;lt;head&amp;gt; 3 &amp;lt;script src=&amp;#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 4 &amp;lt;script src=&amp;#34;sketch.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 5 &amp;lt;/head&amp;gt; 6 &amp;lt;body&amp;gt; 7 &amp;lt;/body&amp;gt; 8&amp;lt;/html&amp;gt; sketch.js
-1// Global variables 2function setup() { 3 createCanvas(640, 480); 4} 5 6function draw() { 7 if (mouseIsPressed) { 8 fill(0); 9 } else { 10 fill(255); 11 } 12 ellipse(mouseX, mouseY, 80, 80); 13} 14 就这样 就是上 显示的</description>
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;sketch.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; sketch.js
+// Global variables function setup() { createCanvas(640, 480); } function draw() { if (mouseIsPressed) { fill(0); } else { fill(255); } ellipse(mouseX, mouseY, 80, 80); }  就这样 就是上 显示的</description>
     </item>
     
     <item>
@@ -79,7 +79,9 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
 typescript作为微软实现的js的超集.
 在类的实现，有如传统语言一样简单，
 例子：官方
-1//.ts 2class Greeter { 3 greeting: string; 4 constructor(message: string) { 5 this.greeting = message; 6 } 7 greet() { 8 return &amp;#34;Hello, &amp;#34; + this.greeting; 9 } 10}1//.js 2var Greeter = (function () { 3 function Greeter(message) { 4 this.greeting = message; 5 } 6 Greeter.prototype.greet = function () { 7 return &amp;#34;Hello, &amp;#34; + this.greeting; 8 }; 9 return Greeter; 10}()); 11 说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。</description>
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &amp;#34;Hello, &amp;#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &amp;#34;Hello, &amp;#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console.</description>
     </item>
     
     <item>
@@ -92,8 +94,9 @@ typescript作为微软实现的js的超集.
  因此我们需使用函数作用域来模拟这个概念。
  由于闭包的存在，声明的变量和方法只在该模式内部可用，
   但在返回对象上的定义的变量和方法，则对外部使用者都是可用的。
-1var testModule = (function () { 2//私有变量 3var myPrivateVar = 0; 4//记录所有参数的私有函数 5var myPrivateMethod = function(bar){ 6console.log(bar); 7} 8return { 9//公有变量 10myPublicVar : &amp;#34;foo&amp;#34;, 11//调用私有变量和方法的公有函数 12myPublicFunction: function(bar){ 13 14//增加私有计数器值 15 16 myPrivateVar++; 17 console.log(myPrivateVar); 18//传入bar调用私有方法 19 myPrivateMethod(bar); 20} 21}; 22})(); 23console.log(testModule); 24//用公有变量传值公有函数 25testModule.myPublicFunction(testModule.myPublicVar); 26 输出
-1{ myPublicVar: &amp;#39;foo&amp;#39;, 2 myPublicFunction: [Function: myPublicFunction] } 31 4foo 5 可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。</description>
+var testModule = (function () { //私有变量 var myPrivateVar = 0; //记录所有参数的私有函数 var myPrivateMethod = function(bar){ console.log(bar); } return { //公有变量 myPublicVar : &amp;#34;foo&amp;#34;, //调用私有变量和方法的公有函数 myPublicFunction: function(bar){ //增加私有计数器值  myPrivateVar++; console.log(myPrivateVar); //传入bar调用私有方法  myPrivateMethod(bar); } }; })(); console.log(testModule); //用公有变量传值公有函数 testModule.myPublicFunction(testModule.myPublicVar);  输出
+{ myPublicVar: &amp;#39;foo&amp;#39;, myPublicFunction: [Function: myPublicFunction] } 1 foo  可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。
+却可以，通过两个函数来操控，myPrivateVar表现得就像一个私有变量。</description>
     </item>
     
     <item>
@@ -104,8 +107,8 @@ typescript作为微软实现的js的超集.
       <guid>/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/</guid>
       <description>#对象／构造／原型
  对象 &amp;ndash; 原型  all 浏览器 获取原型方法
-1var a = {}; 2//a.prototype 无法获取——原型 3 4a.constructor.prototype;// Object {} 5 6a.constructor// function Object() { [native code] } 7  函数 &amp;ndash; 构造 + 原型  1var a = function(){}; 2	//函数可以直接 prototype 3a.prototype// Object {}; 4 5a.constructor// function Function() { [native code] } 6  上面可以看出，构造都是函数
-  对象 &amp;gt; 构造函数 &amp;gt; 函数 。。  1var b = {}; 2b// Object {} 3b.</description>
+var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// Object {}  a.constructor// function Object() { [native code] }   函数 &amp;ndash; 构造 + 原型  var a = function(){}; //函数可以直接 prototype a.prototype// Object {};  a.constructor// function Function() { [native code] }   上面可以看出，构造都是函数
+  对象 &amp;gt; 构造函数 &amp;gt; 函数 。。  var b = {}; b// Object {} b.</description>
     </item>
     
   </channel>

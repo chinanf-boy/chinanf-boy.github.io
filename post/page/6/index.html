@@ -109,8 +109,48 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/nodelogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #npm 
+              #node命令行  </span>
+              
+              <h2 class="post-card-title">node 命令行应用 与 npm 包发布</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>先讲讲 Npm
+NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
+让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
+安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
+npm -v 更新NPM版本的命令: sudo npm install npm -g 使用 npm安装nodejs模块语法格式:
+npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
+npm install express //本地安装 npm install express -g //全局安装 两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
+可以用以下命令来查看所有全局安装的模块:
+npm ls -g Package.json 属性说明  name - 包名。 version - 包的版本号。 description - 包的描述。 homepage - 包的官网 url 。 author - 包的作者姓名。 contributors - 包的其他贡献者姓名。 dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。 repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。 main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&ldquo;express&rdquo;)。 keywords - 关键字  官网属性列表 中文——属性解释 ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
@@ -128,11 +168,11 @@
 下载链接
  或
  你有 Homebrew , 你可以
-1brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件复制／粘贴
+brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件复制／粘贴
 请确保U盘之类： 正确-推出 ✅
 避免： 直接拔出 ❌
 不正确的操作，会导致BUG,和一定后果 可看官网 下拉 到下面标题
-1Some questions that might come up </p>
+Some questions that might come up </p>
               
           </section>
       </a>
@@ -148,7 +188,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
@@ -169,7 +209,7 @@
 想用哪个用哪个
   没人想全要吧~|!
   比如： CSsdarcula风格网站文件
-1&lt;link rel=&#34;stylesheet&#34; href=&#34;https://highlightjs.org/static/demo/styles/dracula.css&#34;&gt;  源码样式文件——github
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://highlightjs.org/static/demo/styles/dracula.css&#34;&gt;  源码样式文件——github
 下面有个 codepen 的例子
 See the Pen highlight_无本地例子 by braveyo (@china-boy) on CodePen.   </p>
               
@@ -187,7 +227,7 @@ See the Pen highlight_无本地例子 by braveyo (@china-boy) on CodePen.   </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
@@ -202,12 +242,12 @@ See the Pen highlight_无本地例子 by braveyo (@china-boy) on CodePen.   </p>
           <section class="post-card-excerpt">
               
                 <p>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
-安装发电机 1npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
-1yo code 更多详情 创建扩展的文件夹
-扩展API流程 的介绍 扩展清单： package.json contributes 1&#34;contributes&#34;: { 2 &#34;commands&#34;: [{ 3 &#34;command&#34;: &#34;extension.sayHello&#34;, 4 &#34;title&#34;: &#34;Hello World&#34; 5 }] 6 } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
+安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
+yo code 更多详情 创建扩展的文件夹
+扩展API流程 的介绍 扩展清单： package.json contributes &#34;contributes&#34;: { &#34;commands&#34;: [{ &#34;command&#34;: &#34;extension.sayHello&#34;, &#34;title&#34;: &#34;Hello World&#34; }] } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
 activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hello World&quot;
-1&#34;activationEvents&#34;: [ 2 &#34;onCommand:extension.sayHello&#34; 3 ] 启动事件—当语言为markdown
-1&#34;activationEvents&#34;: [ 2 &#34;onLanguage:markdown&#34; 3 ] 示例 extension.ts 你好世界 1import * as vscode from &#39;vscode&#39;; 2 3 4export function activate(context: vscode. ...  </p>
+&#34;activationEvents&#34;: [ &#34;onCommand:extension.sayHello&#34; ] 启动事件—当语言为markdown
+&#34;activationEvents&#34;: [ &#34;onLanguage:markdown&#34; ] 示例 extension.ts 你好世界 import * as vscode from &#39;vscode&#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console. ...  </p>
               
           </section>
       </a>
@@ -239,12 +279,12 @@ activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hell
           </header>
           <section class="post-card-excerpt">
               
-                <p> Pip 换 阿里源 linux下运行命令 1vi ~/.pip/pip.confp1[global] 2trusted-host = mirrors.aliyun.com 3index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2 3conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
-1npm --registry https://registry.npm.taobao.org install express 2.持久使用
-1npm config set registry https://registry.npm.taobao.org 3.通过cnpm
-1npm install -g cnpm --registry=https://registry.npm.taobao.org 二、使用官方镜像
-1npm config set registry https://registry.npmjs.org/ 三、查看npm源地址
-1npm config get registry </p>
+                <p> Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
+npm --registry https://registry.npm.taobao.org install express 2.持久使用
+npm config set registry https://registry.npm.taobao.org 3.通过cnpm
+npm install -g cnpm --registry=https://registry.npm.taobao.org 二、使用官方镜像
+npm config set registry https://registry.npmjs.org/ 三、查看npm源地址
+npm config get registry </p>
               
           </section>
       </a>
@@ -260,7 +300,7 @@ activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hell
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -275,48 +315,12 @@ activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hell
           <section class="post-card-excerpt">
               
                 <p>问题描述:
-1UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
+UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
  在python目录 Python27\Lib\site-packages 建一个文件
 sitecustomize.py
 内容写：
-1import sys 2sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
+import sys sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
 参考链接：https://www.v2ex.com/t/90659 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/pythonlogo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #python  </span>
-              
-              <h2 class="post-card-title">Python核心编程第三版-第二章代码运行 问题解决</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>当在windows和Mac上，练习对应的代码时
-非常明显的错误就在于 传输类型
-1TypeError: a bytes-like object is required, not &#39;str&#39; 2 3TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &#39;str 45self.wfile.write(b&#39;[%s] %s&#39; % (bytes(ctime(), &#39;utf-8&#39;), bytes(self.rfile.readline(), &#39;utf-8&#39;))) 6TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
-所以需要使用
- bytes() 函数
- 以下是可以正常运行的代码
-1from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) 2from time import ctime 3 4HOST = &#34;&#34; 5PORT = 21467 6BUFSIZ = 1024 7ADDR = (HOST, PORT) 8 9class MyRequestHandler(SRH): 10 def handle(self): 11 print(&#39;connect. ...  </p>
               
           </section>
       </a>

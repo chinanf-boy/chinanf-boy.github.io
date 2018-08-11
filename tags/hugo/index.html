@@ -114,7 +114,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -165,15 +165,15 @@
  有两种方式
  在项目根目录  创建 i18n 文件夹
 i18n
-1en.toml/yaml 2zh.toml/yaml en.toml
-1[home] 2 other = &#34;home&#34; zh.toml
-1[home] 2 other = &#34;主页&#34; 上面的设置好后，在 模版主题中使用
+en.toml/yaml zh.toml/yaml en.toml
+[home] other = &#34;home&#34; zh.toml
+[home] other = &#34;主页&#34; 上面的设置好后，在 模版主题中使用
 *.html
-1{{ i18n &#34;home&#34; }} 这样在
+{{ i18n &#34;home&#34; }} 这样在
 html 头的带领下 呈现 en/zh.toml
-1&lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
+&lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
  config.toml
-1defaultContentLanguage = &#34;en&#34; 2# 这里是 默认网址 https://example.com 3 4# 如果是 true https://example.com/en 5defaultContentLanguageInSubdir = false 6 7[languages. ...  </p>
+defaultContentLanguage = &#34;en&#34; # 这里是 默认网址 https://example.com # 如果是 true https://example.com/en defaultContentLanguageInSubdir = false [languages. ...  </p>
               
           </section>
       </a>
@@ -203,15 +203,15 @@ html 头的带领下 呈现 en/zh.toml
           </header>
           <section class="post-card-excerpt">
               
-                <p>1--- 2title: &#34;Hugo Template&#34; 3date: 2017-11-14T15:39:48+08:00 4description: &#34;a hugo template example&#34; 5featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg 6--- hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
-1{{ block &#34;main&#34; . }}{{ end }}  定义 区域块
+                <p>--- title: &#34;Hugo Template&#34; date: 2017-11-14T15:39:48+08:00 description: &#34;a hugo template example&#34; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg --- hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
+{{ block &#34;main&#34; . }}{{ end }}  定义 区域块
  其他 html themes/youthemes/layouts/_default/list.html
-1{{ define &#34;main&#34; }} 2{{ end }}  注意⚠️ themes/youthemes/layouts/_default/single.html
+{{ define &#34;main&#34; }} {{ end }}  注意⚠️ themes/youthemes/layouts/_default/single.html
 themes/youthemes/layouts/_default/list.html
  对于，Hugo 来说，网站分为 index.html list.html single.html
  根目录文件夹中
  在 content 文件夹下 就是 路由
-1content 2 about // list. ...  </p>
+content about // list.html me. ...  </p>
               
           </section>
       </a>
@@ -246,7 +246,8 @@ themes/youthemes/layouts/_default/list.html
  重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
  不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
 三部走
- 下载  1$ brew install hugo 2 3$ hugo version  创建  1$ hugo new site quickstart  加皮肤 themes  1cd quickstart;\ 2git init;\ 3git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\ 4 5# Edit your config.toml configuration file 6# and add the Ananke theme. 7echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章 ...  </p>
+ 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章
+hugo new posts/my-first-post. ...  </p>
               
           </section>
       </a>

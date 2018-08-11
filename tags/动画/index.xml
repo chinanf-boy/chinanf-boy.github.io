@@ -25,8 +25,8 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
  p5.js
  fire.html
   fire.html
-1 &amp;lt;html&amp;gt; 2 &amp;lt;head&amp;gt; 3 &amp;lt;script src=&amp;#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 4 &amp;lt;script src=&amp;#34;sketch.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 5 &amp;lt;/head&amp;gt; 6 &amp;lt;body&amp;gt; 7 &amp;lt;/body&amp;gt; 8&amp;lt;/html&amp;gt; sketch.js
-1// Global variables 2function setup() { 3 createCanvas(640, 480); 4} 5 6function draw() { 7 if (mouseIsPressed) { 8 fill(0); 9 } else { 10 fill(255); 11 } 12 ellipse(mouseX, mouseY, 80, 80); 13} 14 就这样 就是上 显示的</description>
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;sketch.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; sketch.js
+// Global variables function setup() { createCanvas(640, 480); } function draw() { if (mouseIsPressed) { fill(0); } else { fill(255); } ellipse(mouseX, mouseY, 80, 80); }  就这样 就是上 显示的</description>
     </item>
     
     <item>

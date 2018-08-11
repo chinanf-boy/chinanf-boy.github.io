@@ -165,11 +165,11 @@ Go 语言 官方并没有给出，repl 交互环境
 </blockquote>
 
 <p>但是你知道-<code>docker</code> 就十分方便了-也给出<a href="https://github.com/yeasy/docker_practice">docker的入门中文</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash·" data-lang="bash·"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>docker run -it -p 8888:8888 gopherdata/gophernotes</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash·" data-lang="bash·">docker run -it -p 8888:8888 gopherdata/gophernotes</code></pre></div>
 <p>这条命令，是下载与运行</p>
 
 <p>当你想与容器-gophernotes- 互通数据文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes</pre></div>
 <ul>
 <li><p><code>-p</code> 端口互通</p></li>
 
@@ -249,13 +249,13 @@ Go 语言 官方并没有给出，repl 交互环境
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/10/06/ionic-going/">ionic Going</a></li>            
+          <li><a href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">React事件与原生事件</a></li>            
         
-          <li><a href="/2017/10/09/slack-hubot-use-py-or-js/">Slack-Hubot-use-py-or-js</a></li>            
+          <li><a href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">Typescript类-转换学习</a></li>            
         
           <li><a href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">Redux combineReducers js 作者简单实现</a></li>            
         
-          <li><a href="/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/">浏览器与node，this，的不同</a></li>            
+          <li><a href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/">如何将完整的文件夹放进hugo</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -300,7 +300,7 @@ Go 语言 官方并没有给出，repl 交互环境
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -316,7 +316,7 @@ Go 语言 官方并没有给出，repl 交互环境
           <section class="post-card-excerpt">
               
                 <p> pm2 startup 开机启动 不支持 window 使用 pm2-windows-startup
-1npm install pm2 -g 2npm install pm2-windows-startup -g 3pm2-startup install 4pm2 start myApp.js --name mySuperApp 5pm2 save 6# 重启电脑 7pm2 ls 完成，就这么简单， tips 开机会有终端运行  </p>
+npm install pm2 -g npm install pm2-windows-startup -g pm2-startup install pm2 start myApp.js --name mySuperApp pm2 save # 重启电脑 pm2 ls 完成，就这么简单， tips 开机会有终端运行  </p>
               
           </section>
       </a>

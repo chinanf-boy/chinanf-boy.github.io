@@ -131,7 +131,7 @@
               
                 <p>实例 我们用一个实例，发现，原生与 react事件 冲突
 JS Bin on jsbin.com
-原生事件 1 document.body.addEventListener(&#39;click&#39;, e =&gt;{ 2 this.setState({s1:!this.state.s1}) 3 alert(&#39;body&#39;,e.target.alt,e.target.value) 4 console.log(&#39;body&#39;,e.target.alt,e.target.value) 5 6 }) 7 react事件 1onSubmit(e){ 2 alert(&#39;onsubmit&#39;, e.target.value) 3 this.setState({s1:!this.state.s1}) 4} 5//... 6&lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt; 7 点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
+原生事件 document.body.addEventListener(&#39;click&#39;, e =&gt;{ this.setState({s1:!this.state.s1}) alert(&#39;body&#39;,e.target.alt,e.target.value) console.log(&#39;body&#39;,e.target.alt,e.target.value) })  react事件 onSubmit(e){ alert(&#39;onsubmit&#39;, e.target.value) this.setState({s1:!this.state.s1}) } //... &lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt;  点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
 实例的功能是
 点击二维码按钮，可以显示／隐藏，照片
  在，照片显示时
@@ -142,7 +142,8 @@ body -&gt; div.code -&gt; div.root
 由此说来，body,的优先级很大啊
 但是 可以看到console面板，我留在，body事件的输出语句
 二维码 是 div.qr 的 value 值。
- img 是 div. ...  </p>
+ img 是 div.code的 alt 值。
+ 以此可以看出，原生body事件是，触发了， 而 e.target 是 二维码按钮的实例. ...  </p>
               
           </section>
       </a>
@@ -181,13 +182,13 @@ react, typescript, material-ui, redux, bootstrap
 单独一二项，看的明白，混在一起的. 科科
  虽然说，用react框架省去了些，步骤，redux做全局，meterial-ui 做 UI ，bootstrap 做 布局 部分，代码文件，后缀名是，.js 但是，应该是，用工具转代码的， 因为，变量数据格式，太凸显 ， 还是说用了其他的方式。
 editor/packages/renderer/src/index.js v0.2.10 line-8
-1const gridClass = (size: number = 12): string =&gt; 2 `ory-cell-sm-${size}ory-cell-xs-12` 3  eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
+const gridClass = (size: number = 12): string =&gt; `ory-cell-sm-${size}ory-cell-xs-12`   eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
  作者造搞了，自己的数据格式，主要通过 cells Raws
 状态是一个规范的JSON对象，不涉及HTML。
 也是为了，免xss威胁。
 行 列 去区分，显示
 editor/examples/src/content.js
-1export default [ 2 { 3 &#34;id&#34;: &#34;1&#34;, 4 &#34;cells&#34;: [ 5 { 6 &#34;id&#34;: &#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;, 7 &#34;inline&#34;: null, 8 &#34;size&#34;: 12, 9 &#34;rows&#34;: [ 10 { 11 &#34;id&#34;: &#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;, 12 &#34;cells&#34;: [ 13 { 14 &#34;id&#34;: &#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;, 15 &#34;inline&#34;: null, 16 &#34;size&#34;: 12, 17 用来对，服务器渲染，静态 ...  </p>
+export default [ { &#34;id&#34;: &#34;1&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12, &#34;rows&#34;: [ { &#34;id&#34;: &#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12,  用来对，服务器渲染，静态 ...  </p>
               
           </section>
       </a>
@@ -220,7 +221,7 @@ editor/examples/src/content.js
               
                 <p>react-router v4  react 的路由解决方案
  而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
-1 &lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
+&lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
 比如我的 域名 llever.com
 当应用直接放在 llever.com/ 的时候，会实用。
 但是 如果我想 放在 llever.com/about/
@@ -266,8 +267,8 @@ editor/examples/src/content.js
                 <p>一个世界(store)  redux的中心思想，一直是共享数据的理念
  只有一个更改数据的接口dispatch
  一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 1import { createStore } from &#34;redux&#34; 2 3const store = createStore(reducer); 4 打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
- 1const reducer = function( state, action ) { 2 if (action.type === &#34;Something&#34;){ 3 //为什么叫 逻辑 ,就因为 if if if 4 //你可以加1 5 //return state+1; 6 //返回值，自动改变原有数据。 7 return state; 8 } 9 if (action. ...  </p>
+  创造数据中心 import { createStore } from &#34;redux&#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
+ const reducer = function( state, action ) { if (action.type === &#34;Something&#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &#34;Another&#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在 ...  </p>
               
           </section>
       </a>
@@ -303,7 +304,8 @@ editor/examples/src/content.js
 而在 fackbook文档-web Component 中
 例子中
 x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-1class HelloMessage3 extends React.Component { 2 render() { 3 return &lt;div className=&#39;new&#39;&gt; 4 className=&#39;new&#39; 5 &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; 6 &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; 7 class=&#39;new2&#39; 8 &lt;/div&gt;; 9 } 10} 11 12ReactDOM.render( 13 &lt;HelloMessage name=&#39;1&#39; /&gt;, 14 document.getElementById(&#39;root&#39;) 15); 16 Codepen Demo 参考 Codepen 参考 ...  </p>
+class HelloMessage3 extends React.Component { render() { return &lt;div className=&#39;new&#39;&gt; className=&#39;new&#39; &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; class=&#39;new2&#39; &lt;/div&gt;; } } ReactDOM.render( &lt;HelloMessage name=&#39;1&#39; /&gt;, document.getElementById(&#39;root&#39;) );  Codepen Demo 参考 Codepen 参考
+.new{ color:red; } .new2{ color:blue; } 。。。。未完待续 </p>
               
           </section>
       </a>

@@ -18,7 +18,7 @@
       
       <guid>/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/</guid>
       <description> pm2 startup 开机启动 不支持 window 使用 pm2-windows-startup
-1npm install pm2 -g 2npm install pm2-windows-startup -g 3pm2-startup install 4pm2 start myApp.js --name mySuperApp 5pm2 save 6# 重启电脑 7pm2 ls 完成，就这么简单， tips 开机会有终端运行 </description>
+npm install pm2 -g npm install pm2-windows-startup -g pm2-startup install pm2 start myApp.js --name mySuperApp pm2 save # 重启电脑 pm2 ls 完成，就这么简单， tips 开机会有终端运行 </description>
     </item>
     
   </channel>

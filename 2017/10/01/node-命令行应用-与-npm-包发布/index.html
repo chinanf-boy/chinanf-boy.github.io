@@ -146,9 +146,9 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
 <h2 id="安装">安装</h2>
 
 <p>新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm -v</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm -v</pre></div>
 <h2 id="更新npm版本的命令">更新NPM版本的命令:</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>sudo npm install npm -g</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo npm install npm -g</pre></div>
 <h2 id="使用">使用</h2>
 
 <p>npm安装nodejs模块语法格式:</p>
@@ -158,8 +158,8 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
 <h2 id="全局安装与本地安装">全局安装与本地安装</h2>
 
 <p>npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm install express //本地安装
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>npm install express -g //全局安装</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm install express //本地安装
+npm install express -g //全局安装</pre></div>
 <h3 id="两者的区别">两者的区别</h3>
 
 <h4 id="本地安装">本地安装:</h4>
@@ -174,7 +174,7 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
 不能通过 require() 来引入本地安装的包。</p>
 
 <p>可以用以下命令来查看所有全局安装的模块:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm ls -g</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm ls -g</pre></div>
 <h3 id="package-json-属性说明">Package.json 属性说明</h3>
 
 <ul>
@@ -194,22 +194,22 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
 <a href="http://www.cnblogs.com/tzyy/p/5193811.html">中文——属性解释</a></p>
 
 <h3 id="卸载模块-可以使用以下命令来卸载nodejs">卸载模块 可以使用以下命令来卸载Nodejs</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm uninstall express //卸载该express模块
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>npm ls // 查看是否成功卸载</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm uninstall express //卸载该express模块
+npm ls // 查看是否成功卸载</pre></div>
 <h3 id="更新模块-可以使用以下命令来更新模块">更新模块 可以使用以下命令来更新模块</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm update express</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm update express</pre></div>
 <h3 id="搜索模块-使用以下命令来搜索模块">搜索模块 使用以下命令来搜索模块</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm search express</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm search express</pre></div>
 <h3 id="创建模块-生成package-json">创建模块 生成package.json</h3>
 
 <p>注册一个npm账户</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm adduser
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>Username :
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>Password:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>Email:</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm adduser
+
+Username :
+Password:
+Email:</pre></div>
 <p>发布模块</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm publish</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm publish</pre></div>
 <h3 id="版本号-使用npm下载和发布代码时都会接触到版本号-npm使用语义版本号来管理代码-语义版本号分为x-y-z三位-分别代表主版本号-次版本号和补丁版本号-当代码变更时-版本号按以下原则更新">版本号 使用NPM下载和发布代码时都会接触到版本号。NPM使用语义版本号来管理代码, 语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。</h3>
 
 <p>如果只是修复bug，需要更新Z位。
@@ -233,32 +233,32 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
 <p>拿一个简单的 github 项目来说</p>
 
 <p><a href="https://github.com/kevva/wifi-password-cli/blob/master/cli.js">wifi-password-cli</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#6272a4">#!/usr/bin/env node
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span><span style="color:#6272a4"></span><span style="color:#f1fa8c">&#39;use strict&#39;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#ff79c6">const</span> meow <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;meow&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#ff79c6">const</span> wifiPassword <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;wifi-password&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#ff79c6">const</span> cli <span style="color:#ff79c6">=</span> meow(<span style="color:#f1fa8c">`
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span><span style="color:#f1fa8c">	Usage
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#f1fa8c">	  $ wifi-password [network-name]
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span><span style="color:#f1fa8c">	Example
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span><span style="color:#f1fa8c">	  $ wifi-password
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span><span style="color:#f1fa8c">	  unicorns
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span><span style="color:#f1fa8c">	  $ wifi-password foo-network
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span><span style="color:#f1fa8c">	  foosecretpassword
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span><span style="color:#f1fa8c">`</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>wifiPassword(cli.input[<span style="color:#bd93f9">0</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>	.then(console.log)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>	.<span style="color:#ff79c6">catch</span>(err =&gt; {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>		<span style="color:#ff79c6">if</span> (err.message <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">`Your network doesn&#39;t have a password`</span>) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>			console.error(err.message);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>			process.exit(<span style="color:#bd93f9">1</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>		}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>		<span style="color:#ff79c6">throw</span> err;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>	});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#6272a4">#!/usr/bin/env node
+</span><span style="color:#6272a4"></span><span style="color:#f1fa8c">&#39;use strict&#39;</span>;
+<span style="color:#ff79c6">const</span> meow <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;meow&#39;</span>);
+<span style="color:#ff79c6">const</span> wifiPassword <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;wifi-password&#39;</span>);
+
+<span style="color:#ff79c6">const</span> cli <span style="color:#ff79c6">=</span> meow(<span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">	Usage
+</span><span style="color:#f1fa8c">	  $ wifi-password [network-name]
+</span><span style="color:#f1fa8c">	Example
+</span><span style="color:#f1fa8c">	  $ wifi-password
+</span><span style="color:#f1fa8c">	  unicorns
+</span><span style="color:#f1fa8c">	  $ wifi-password foo-network
+</span><span style="color:#f1fa8c">	  foosecretpassword
+</span><span style="color:#f1fa8c">`</span>);
+
+wifiPassword(cli.input[<span style="color:#bd93f9">0</span>])
+	.then(console.log)
+	.<span style="color:#ff79c6">catch</span>(err =&gt; {
+		<span style="color:#ff79c6">if</span> (err.message <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">`Your network doesn&#39;t have a password`</span>) {
+			console.error(err.message);
+			process.exit(<span style="color:#bd93f9">1</span>);
+		}
+
+		<span style="color:#ff79c6">throw</span> err;
+	});
+</code></pre></div>
 <h3 id="meow">meow</h3>
 
 <p><a href="https://github.com/sindresorhus/meow">meow</a> 是 简单的命令行帮助程序</p>
@@ -266,18 +266,18 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
 <h3 id="wifi-password-cli的使用">wifi-password-cli的使用</h3>
 
 <p>安装</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm install -g wifi-password-cli</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm install -g wifi-password-cli</pre></div>
 <p>使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>$ wifi-password --help
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>  Usage
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    $ wifi-password <span style="color:#ff79c6">[</span>network-name<span style="color:#ff79c6">]</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>  Example
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    $ wifi-password
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    unicorns
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    $ wifi-password foo-network
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    foosecretpassword</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wifi-password --help
+
+  Usage
+    $ wifi-password <span style="color:#ff79c6">[</span>network-name<span style="color:#ff79c6">]</span>
+
+  Example
+    $ wifi-password
+    unicorns
+    $ wifi-password foo-network
+    foosecretpassword</code></pre></div>
 <p>可以看到正是上面代码的 <code>meow{}</code> 的内容</p>
 
 <h3 id="那么可以看出-全局安装的部分由-npm-完成">- 那么可以看出，全局安装的部分由<code>npm</code>完成</h3>
@@ -333,13 +333,13 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/11/15/hugo-i18n/">hugo i18n </a></li>            
+          <li><a href="/2014/04/02/hugo-template-primer/">(Hu)go Template Primer</a></li>            
         
-          <li><a href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">Js - Module模式 - 私有-公有-命名空间</a></li>            
+          <li><a href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/">mac repl js go 大混杂</a></li>            
         
-          <li><a href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/">如何将完整的文件夹放进hugo</a></li>            
+          <li><a href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">position sticky 粘连定位</a></li>            
         
-          <li><a href="/2017/04/21/react.component-use-class-or-classname/">React.Component use class or className</a></li>            
+          <li><a href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">Typescript类-转换学习</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -369,13 +369,13 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
           <section class="post-card-excerpt">
               
                 <p> ionic项目 问题
-1npm install 主要问题在于 node-sass node 版本 要求 我最后使用 8.0
+npm install 主要问题在于 node-sass node 版本 要求 我最后使用 8.0
 使用 n
 和
 python 版本要求 2.5&lt;x&lt;3.0
 使用 conda
 去改变 版本
-1npm rebuild node-sass --force </p>
+npm rebuild node-sass --force </p>
               
           </section>
       </a>
@@ -391,7 +391,7 @@ python 版本要求 2.5&lt;x&lt;3.0
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
@@ -409,11 +409,11 @@ python 版本要求 2.5&lt;x&lt;3.0
 下载链接
  或
  你有 Homebrew , 你可以
-1brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件复制／粘贴
+brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件复制／粘贴
 请确保U盘之类： 正确-推出 ✅
 避免： 直接拔出 ❌
 不正确的操作，会导致BUG,和一定后果 可看官网 下拉 到下面标题
-1Some questions that might come up </p>
+Some questions that might come up </p>
               
           </section>
       </a>

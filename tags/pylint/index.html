@@ -113,7 +113,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -128,11 +128,11 @@
           <section class="post-card-excerpt">
               
                 <p>问题描述:
-1UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
+UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
  在python目录 Python27\Lib\site-packages 建一个文件
 sitecustomize.py
 内容写：
-1import sys 2sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
+import sys sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
 参考链接：https://www.v2ex.com/t/90659 </p>
               
           </section>

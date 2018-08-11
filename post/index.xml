@@ -22,6 +22,24 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
+      <title>Macbook屏幕修理记</title>
+      <link>/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/</link>
+      <pubDate>Sat, 11 Aug 2018 17:30:30 +0800</pubDate>
+      
+      <guid>/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/</guid>
+      <description>macbook问题描述 长时间使用电脑导致的, 长达二三个月, 每天都会出现
+ 屏幕下的黑框
+  一时无法移去的鼠标箭头
+ 解决 当然, 是找授权的维修店
+那么， 你最好最好是在保修期限内
+Mac 保修期限 Mac 电脑整机及所含附件自原始购买之日起享有 1 年保修期。 主要部件享有自购买之日起 2 年保修期。 Mac 台式电脑所有主要部件包括：主板 (MLB)、处理器 (CPU)、内存、硬盘 (HDD/SSD)、电源和显卡。 Mac 笔记本电脑所有主要部件范围包括主板 (MLB)、处理器 (CPU)、内存、硬盘 (HDD/SSD)、电源适配器、键盘和显示屏 (LCD)。 可另外购买 AppleCare Protection Plan 全方位服务计划。 维修方式 根据具体的故障情况对设备进行维修。 所有更换的部件和附件都是全新的。 更换的非主要部件和附件享受原有保修期的剩余时长或自更换日起 90 天的保修期，以二者中期限较长者为准。更换后的主要部件享有重新计算的 2 年保修期。 更多可看 https://support.apple.com/zh-cn/warranties
+那么官方预订维修 可通过 https://support.apple.com/zh-cn/repair/products
+店面需要的信息  个人身份证 (可与买电脑时不同) 买电脑的发票或电子发票之类 记得备份  这些信息, 在预约邮件都会有
+ 个人于 2016 12月买的电脑， 用得是QQ邮箱, 电子发票的邮件早已删除
+但是, 如果是QQ邮箱, 是可以于服务器端查找的</description>
+    </item>
+    
+    <item>
       <title>FiraCode 使用在 Vscode 的问题</title>
       <link>/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 01 Aug 2018 13:09:07 +0000</pubDate>
@@ -32,9 +50,7 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
 如果无法 请到 https://github.com/tonsky/FiraCode/releases 下载 压缩
 对应每个平台的系统字体应用, 将 下载的 字体文件夹 添加
  macOS Windows Linux/Unix-based systems  比如: macOS
-{% asset_img action.png action image %}
-{% asset_img screen.png screen image %}
-记得把 Vscode 的配置 写好 1 &amp;#34;editor.fontFamily&amp;#34;:&amp;#34;&amp;#39;Fira Code&amp;#39;, Source Code Pro&amp;#34;, 2 &amp;#34;editor.fontSize&amp;#34;: 13, 3 &amp;#34;editor.fontLigatures&amp;#34;: true, 4</description>
+记得把 Vscode 的配置 写好 &amp;#34;editor.fontFamily&amp;#34;:&amp;#34;&amp;#39;Fira Code&amp;#39;, Source Code Pro&amp;#34;, &amp;#34;editor.fontSize&amp;#34;: 13, &amp;#34;editor.fontLigatures&amp;#34;: true, </description>
     </item>
     
     <item>
@@ -48,9 +64,9 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
 Raymond Hettinger是Python核心开发者，本文提到的许多特性都是他开发的。同时他也是Python社区热忱的布道师，不遗余力地传授pythoni c之道。这篇文章是网友Jeff Paine整理的他在2013年美国的PyCon的演讲的笔记。
 以下正文
 遍历一个范围内的数字 0 for i in [0, 1, 2, 3, 4, 5]: 1 print i ** 2 2 3 for i in range(6): 4 print i ** 2 更好的方法
-1for i in xrange(6): 2 print i ** 2 xrange会返回一个迭代器，用来一次 遍历一个范围。这种方式会比range更省内存。xrange在Python 3中已经改名为range。
-遍历一个集合 1colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] 2 3for i in range(len(colors)): 4 print colors[i] 更好的方法
-1for color in colors: 2 print color 反向遍历 1colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] 2 3for i in range(len(colors)-1, -1, -1): 4 print colors[i] 更好的方法</description>
+for i in xrange(6): print i ** 2 xrange会返回一个迭代器，用来一次 遍历一个范围。这种方式会比range更省内存。xrange在Python 3中已经改名为range。
+遍历一个集合 colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] for i in range(len(colors)): print colors[i] 更好的方法
+for color in colors: print color 反向遍历 colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] for i in range(len(colors)-1, -1, -1): print colors[i] 更好的方法</description>
     </item>
     
     <item>
@@ -74,8 +90,8 @@ Raymond Hettinger是Python核心开发者，本文提到的许多特性都是他
 解决  根据 官方论坛-项目维护者 beq
  有三种替代方法可以包含“完整的外部HTML”：
  将HTML及其所有资源放在 /static中 将HTML放入 /content（将资源等放在 /content 或 /static 中） 与3相同，但前面有关系 我不会详细介绍3，它们应该易于测试 - 但最后2个可以包含模板语法，最后一个是带有布局和短代码等的内容文件。  最好是第一种方法 2. hugo server 其实, 不是很透明, 甚至, 我老觉得它有好多bug, 坑 最好是, 把 服务器 生成静态文件夹, 放在我们可以看到的位置, 这样, 是否有加什么, 减了什么, 能看到
-1hugo server -d dev 3. hugo 生产 public 文件夹 只需要
-1hugo 就可以了</description>
+hugo server -d dev 3. hugo 生产 public 文件夹 只需要
+hugo 就可以了</description>
     </item>
     
     <item>
@@ -86,7 +102,7 @@ Raymond Hettinger是Python核心开发者，本文提到的许多特性都是他
       <guid>/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/</guid>
       <description> 问题: 批量修改文件名 解决: bash 好耶, 无得顶啊 https://www.zhihu.com/question/21294798/answer/62848985
 写个bash,用 for循环mv文件. 比如改扩展名,把 .c 改成 .cpp
-1for f in *.c ; do mv &amp;#34;$f&amp;#34; &amp;#34;${f/c/cpp}&amp;#34; ; done</description>
+for f in *.c ; do mv &amp;#34;$f&amp;#34; &amp;#34;${f/c/cpp}&amp;#34; ; done</description>
     </item>
     
     <item>
@@ -127,9 +143,9 @@ Go 语言 官方并没有给出，repl 交互环境
  不过我想说得是   gophernotes jupyter Go 内核  没错，能在jupyter 上用内核，
  不过 -mac- 上无法使用
  但是你知道-docker 就十分方便了-也给出docker的入门中文
-1docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
+docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
 当你想与容器-gophernotes- 互通数据文件
-1docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes  -p 端口互通
+docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes  -p 端口互通
  --mount 可以文件夹互通
  source 本地存在的文件夹 要自己新建
  target 容器的文件夹
@@ -143,7 +159,7 @@ Go 语言 官方并没有给出，repl 交互环境
       
       <guid>/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/</guid>
       <description> pm2 startup 开机启动 不支持 window 使用 pm2-windows-startup
-1npm install pm2 -g 2npm install pm2-windows-startup -g 3pm2-startup install 4pm2 start myApp.js --name mySuperApp 5pm2 save 6# 重启电脑 7pm2 ls 完成，就这么简单， tips 开机会有终端运行 </description>
+npm install pm2 -g npm install pm2-windows-startup -g pm2-startup install pm2 start myApp.js --name mySuperApp pm2 save # 重启电脑 pm2 ls 完成，就这么简单， tips 开机会有终端运行 </description>
     </item>
     
     <item>
@@ -167,10 +183,10 @@ static relative absolute fixed 这四个
       
       <guid>/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/</guid>
       <description> yarn 全局下载时不使用 sudo 方法如下
-1yarn global bin // 默认全局下载目录 开始设置 新建目录
-1mkdir ~/.yarn-global  设置目录
-1yarn config set prefix ~/.yarn-global 写入 .zshrc / .bashrc
-1export PATH=&amp;#34;$PATH:$HOME/.yarn-global&amp;#34; 内容地址 </description>
+yarn global bin // 默认全局下载目录 开始设置 新建目录
+mkdir ~/.yarn-global  设置目录
+yarn config set prefix ~/.yarn-global 写入 .zshrc / .bashrc
+export PATH=&amp;#34;$PATH:$HOME/.yarn-global&amp;#34; 内容地址 </description>
     </item>
     
     <item>
@@ -182,12 +198,12 @@ static relative absolute fixed 这四个
       <description> direnv 它可以让你明白一个目录的意思，
 简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
 比如我 zsh
-1# Add direnv hook 2eval &amp;#34;$(direnv hook zsh)&amp;#34; 当然前提是要下载，在github 上就有很详细
-1cd/my_project 2echo &amp;#34;echo &amp;#39;hello this is my project&amp;#39;&amp;#34; &amp;gt;&amp;gt; .envrc 3direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
+# Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; 当然前提是要下载，在github 上就有很详细
+cd/my_project echo &amp;#34;echo &amp;#39;hello this is my project&amp;#39;&amp;#34; &amp;gt;&amp;gt; .envrc direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
 问题: 不需要 unloading or loading .envrc 之类的日志输出时。
 .zshrc
-1# Add direnv hook 2eval &amp;#34;$(direnv hook zsh)&amp;#34; 3# remove direnv log loading 4export DIRENV_LOG_FORMAT= 原文，
-1direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 2 3在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 4 5因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。</description>
+# Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
+direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。</description>
     </item>
     
     <item>
@@ -197,13 +213,13 @@ static relative absolute fixed 这四个
       
       <guid>/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/</guid>
       <description>ChangeLog 生成器
-1gem install github_changelog_generator 示例
+gem install github_changelog_generator 示例
 最好生成 github token 因为 github 限制了 每小时 50个请求 对于匿名用户
 快速token生成&amp;ndash;点击
 然后 把 获得 token id 放进 .bashrc or .zshrc
-1# Add ChangeLog github token 2export CHANGELOG_GITHUB_TOKEN=&amp;#39;token id&amp;#39; 使用 在你的项目中，
-1github_changelog_generator or
-1github_changelog_generator github_name/github_project 更多信息 1github_changelog_generator --help 为什么 ChangeLog 重要 or 如何维护更新日志
+# Add ChangeLog github token export CHANGELOG_GITHUB_TOKEN=&amp;#39;token id&amp;#39; 使用 在你的项目中，
+github_changelog_generator or
+github_changelog_generator github_name/github_project 更多信息 github_changelog_generator --help 为什么 ChangeLog 重要 or 如何维护更新日志
 github库</description>
     </item>
     
@@ -216,7 +232,7 @@ github库</description>
       <description>github 连接动画 小手摆摆 See the Pen githubLink by braveyo (@china-boy) on CodePen.  vscode 用户自定义代码片段 快速添加 github 动画连接
  vscode软件 -&amp;gt; 首选项 -&amp;gt; 用户代码片段 -&amp;gt; 选择对应 HTML
  有个模版，你可以自己看看，或者 复制
-1&amp;#34;Print github link&amp;#34;: { 2	&amp;#34;prefix&amp;#34;: &amp;#34;ghand&amp;#34;, 3	&amp;#34;body&amp;#34;: [ 4	&amp;#34;&amp;lt;style&amp;gt;svg{fill:#fff;color:#151513;position:absolute;border:0;right:0}foreignObject,image,marker,pattern,svg:not(:root),symbol{overflow:hidden}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}.github-corner .octo-arm{-webkit-transform-origin:130px 106px;transform-origin:130px 106px}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}&amp;lt;/style&amp;gt;&amp;#34;, 5	&amp;#34;&amp;lt;a class=\&amp;#34;github-corner\&amp;#34; href=\&amp;#34;$1\&amp;#34; aria-label=\&amp;#34;View source on Github\&amp;#34;&amp;gt;&amp;#34;, 6	&amp;#34;&amp;lt;svg width=\&amp;#34;80\&amp;#34; height=\&amp;#34;80\&amp;#34; viewBox=\&amp;#34;0 0 250 250\&amp;#34; aria-hidden=\&amp;#34;true\&amp;#34;&amp;gt;&amp;lt;path d=\&amp;#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\&amp;#34;&amp;gt;&amp;lt;/path&amp;gt;&amp;lt;path class=\&amp;#34;octo-arm\&amp;#34; d=\&amp;#34;M128.</description>
+&amp;#34;Print github link&amp;#34;: { &amp;#34;prefix&amp;#34;: &amp;#34;ghand&amp;#34;, &amp;#34;body&amp;#34;: [ &amp;#34;&amp;lt;style&amp;gt;svg{fill:#fff;color:#151513;position:absolute;border:0;right:0}foreignObject,image,marker,pattern,svg:not(:root),symbol{overflow:hidden}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}.github-corner .octo-arm{-webkit-transform-origin:130px 106px;transform-origin:130px 106px}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}&amp;lt;/style&amp;gt;&amp;#34;, &amp;#34;&amp;lt;a class=\&amp;#34;github-corner\&amp;#34; href=\&amp;#34;$1\&amp;#34; aria-label=\&amp;#34;View source on Github\&amp;#34;&amp;gt;&amp;#34;, &amp;#34;&amp;lt;svg width=\&amp;#34;80\&amp;#34; height=\&amp;#34;80\&amp;#34; viewBox=\&amp;#34;0 0 250 250\&amp;#34; aria-hidden=\&amp;#34;true\&amp;#34;&amp;gt;&amp;lt;path d=\&amp;#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\&amp;#34;&amp;gt;&amp;lt;/path&amp;gt;&amp;lt;path class=\&amp;#34;octo-arm\&amp;#34; d=\&amp;#34;M128.</description>
     </item>
     
     <item>
@@ -243,7 +259,7 @@ github库</description>
       <description> 从 npm@5.2.0 开始 npx 被集合在了 npm
  npx 让我们免于下载众多的全局包
  cd you-project
-1npx create-react-app my-react-app Done! 不需要 1npm i -g create-react-app</description>
+npx create-react-app my-react-app Done! 不需要 npm i -g create-react-app</description>
     </item>
     
     <item>
@@ -257,10 +273,10 @@ github库</description>
  codecov contributing editorconfig eslint gitignore jest license lintstaged package prettier readme semantic-release styleguidist stylelint travis typescript 
 mrm项目
 帮助你管理你的配置
-1npx mrm gitignore 2// 一个 .gitignore 就在运行目录 如何定义
-1mkdir ~/dotfiles || cd ~/dotfiles &amp;amp;&amp;amp; mkdir mrm || cd mrm 2 3npm init -y 4npm i --save mrm-core  如  gitignore
+npx mrm gitignore // 一个 .gitignore 就在运行目录 如何定义
+mkdir ~/dotfiles || cd ~/dotfiles &amp;amp;&amp;amp; mkdir mrm || cd mrm npm init -y npm i --save mrm-core  如  gitignore
 ～/dotfiles/mrm/&amp;lt;Task&amp;gt;/index.js
-1// Mrm module to work with new line separated text files 2const { lines } = require(&amp;#39;mrm-core&amp;#39;); 3 4function task() { 5 // Read .</description>
+// Mrm module to work with new line separated text files const { lines } = require(&amp;#39;mrm-core&amp;#39;); function task() { // Read .</description>
     </item>
     
     <item>
@@ -272,7 +288,7 @@ mrm项目
       <description> translate-js 在我的 项目发布问题上
 ISSUE3
 主要问题 在于 travis CI 识别 Npm-version-标签的 提交
-1git push --tags 进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
+git push --tags 进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
 在我提交多个标签
 到 github
 v2.1 v2.2 v2.3
@@ -291,15 +307,15 @@ v2.1 可以看 </description>
  有两种方式
  在项目根目录  创建 i18n 文件夹
 i18n
-1en.toml/yaml 2zh.toml/yaml en.toml
-1[home] 2 other = &amp;#34;home&amp;#34; zh.toml
-1[home] 2 other = &amp;#34;主页&amp;#34; 上面的设置好后，在 模版主题中使用
+en.toml/yaml zh.toml/yaml en.toml
+[home] other = &amp;#34;home&amp;#34; zh.toml
+[home] other = &amp;#34;主页&amp;#34; 上面的设置好后，在 模版主题中使用
 *.html
-1{{ i18n &amp;#34;home&amp;#34; }} 这样在
+{{ i18n &amp;#34;home&amp;#34; }} 这样在
 html 头的带领下 呈现 en/zh.toml
-1&amp;lt;html lang=&amp;#39;en&amp;#39;&amp;gt;  第二种   根目录中
+&amp;lt;html lang=&amp;#39;en&amp;#39;&amp;gt;  第二种   根目录中
  config.toml
-1defaultContentLanguage = &amp;#34;en&amp;#34; 2# 这里是 默认网址 https://example.com 3 4# 如果是 true https://example.com/en 5defaultContentLanguageInSubdir = false 6 7[languages.</description>
+defaultContentLanguage = &amp;#34;en&amp;#34; # 这里是 默认网址 https://example.com # 如果是 true https://example.com/en defaultContentLanguageInSubdir = false [languages.</description>
     </item>
     
     <item>
@@ -308,15 +324,15 @@ html 头的带领下 呈现 en/zh.toml
       <pubDate>Tue, 14 Nov 2017 17:48:57 +0000</pubDate>
       
       <guid>/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/</guid>
-      <description>1--- 2title: &amp;#34;Hugo Template&amp;#34; 3date: 2017-11-14T15:39:48+08:00 4description: &amp;#34;a hugo template example&amp;#34; 5featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg 6--- hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
-1{{ block &amp;#34;main&amp;#34; . }}{{ end }}  定义 区域块
+      <description>--- title: &amp;#34;Hugo Template&amp;#34; date: 2017-11-14T15:39:48+08:00 description: &amp;#34;a hugo template example&amp;#34; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg --- hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
+{{ block &amp;#34;main&amp;#34; . }}{{ end }}  定义 区域块
  其他 html themes/youthemes/layouts/_default/list.html
-1{{ define &amp;#34;main&amp;#34; }} 2{{ end }}  注意⚠️ themes/youthemes/layouts/_default/single.html
+{{ define &amp;#34;main&amp;#34; }} {{ end }}  注意⚠️ themes/youthemes/layouts/_default/single.html
 themes/youthemes/layouts/_default/list.html
  对于，Hugo 来说，网站分为 index.html list.html single.html
  根目录文件夹中
  在 content 文件夹下 就是 路由
-1content 2 about // list.</description>
+content about // list.html me.</description>
     </item>
     
     <item>
@@ -340,7 +356,8 @@ themes/youthemes/layouts/_default/list.html
  重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
  不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
 三部走
- 下载  1$ brew install hugo 2 3$ hugo version  创建  1$ hugo new site quickstart  加皮肤 themes  1cd quickstart;\ 2git init;\ 3git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\ 4 5# Edit your config.toml configuration file 6# and add the Ananke theme. 7echo &amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml 噢不止三步, 那四部 - 加文章</description>
+ 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml 噢不止三步, 那四部 - 加文章
+hugo new posts/my-first-post.</description>
     </item>
     
     <item>
@@ -350,14 +367,14 @@ themes/youthemes/layouts/_default/list.html
       
       <guid>/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/</guid>
       <description>&lt;h1 id=&#34;npm-和-git-补全噢&#34;&gt;npm 和 git 补全噢😯&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;1&lt;/span&gt;npm &amp;lt;Tab&amp;gt; &lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;npm &amp;lt;Tab&amp;gt; &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;会补全命令&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;npm&lt;/code&gt;实现代码
 &lt;a href=&#34;https://github.com/npm/npm/blob/master/lib/utils/completion.sh&#34;&gt;https://github.com/npm/npm/blob/master/lib/utils/completion.sh&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;or&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;1&lt;/span&gt;npm completion&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;npm completion&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;code&gt;git&lt;/code&gt; 实现代码&lt;/p&gt;
@@ -374,12 +391,12 @@ themes/youthemes/layouts/_default/list.html
 &lt;p&gt;首先定义一个&lt;code&gt;可执行文件 sh&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;test_completion.sh&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;1&lt;/span&gt;if type compdef &amp;amp;&amp;gt;/dev/null; then
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;2&lt;/span&gt;
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;3&lt;/span&gt;    _test_completion() {
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;4&lt;/span&gt;    }
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;5&lt;/span&gt;
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;6&lt;/span&gt;    compdef _test_completion npm&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;if type compdef &amp;amp;&amp;gt;/dev/null; then
+
+    _test_completion() {
+    }
+
+    compdef _test_completion npm&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;当你运行上面 什么都没有的 文件时&lt;/p&gt;
 
 &lt;p&gt;or 复制 &lt;code&gt;then&lt;/code&gt; 后面那段代码，粘贴到 命令行运行也可以。&lt;/p&gt;
@@ -427,9 +444,9 @@ themes/youthemes/layouts/_default/list.html
 &lt;hr /&gt;
 
 &lt;h2 id=&#34;补全规则&#34;&gt;补全规则&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;1&lt;/span&gt;_test_completion(){
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;2&lt;/span&gt;
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;3&lt;/span&gt;}&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;_test_completion(){
+
+}&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;zsh 实现了 简便的 命令添加-函数&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -437,11 +454,11 @@ themes/youthemes/layouts/_default/list.html
 &lt;h2 id=&#34;compadd&#34;&gt;compadd&lt;/h2&gt;
 
 &lt;p&gt;源代码中主要&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;1&lt;/span&gt;    compadd -- &lt;span style=&#34;color:#ff79c6&#34;&gt;$(&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_CWORD&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;$((&lt;/span&gt;CURRENT-1&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_LINE&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;$BUFFER&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_POINT&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 npm completion -- &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;words&lt;/span&gt;[@]&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;&amp;gt;/dev/null&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;    compadd -- &lt;span style=&#34;color:#ff79c6&#34;&gt;$(&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_CWORD&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;$((&lt;/span&gt;CURRENT-1&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_LINE&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;$BUFFER&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_POINT&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 npm completion -- &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;words&lt;/span&gt;[@]&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;&amp;gt;/dev/null&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这样的 ,不难看出 &amp;ndash; $ 后面就是 compadd函数 - 变量定义&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -457,24 +474,24 @@ themes/youthemes/layouts/_default/list.html
 &lt;blockquote&gt;
 &lt;p&gt;示例&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;1&lt;/span&gt;    _test_completion&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;2&lt;/span&gt;        compadd -- install
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;3&lt;/span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;4&lt;/span&gt;    compdef _test_completion npm &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;1&lt;/span&gt;$ npm &amp;lt;tab&amp;gt;
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;2&lt;/span&gt;
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;3&lt;/span&gt;$ npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;    _test_completion&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+        compadd -- install
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+    compdef _test_completion npm &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ npm &amp;lt;tab&amp;gt;
+
+$ npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;噢 那么就会提示 install&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;再试试&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;1&lt;/span&gt;    _test_completion() {
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;2&lt;/span&gt;        echo &amp;#34;${words[@]}&amp;#34; 
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;3&lt;/span&gt;        echo $CURRENT
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;4&lt;/span&gt;        echo $BUFFER
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;5&lt;/span&gt;        compadd -- install up
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;6&lt;/span&gt;    }
-&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79&#34;&gt;7&lt;/span&gt;    compdef _test_completion npm &lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;    _test_completion() {
+        echo &amp;#34;${words[@]}&amp;#34; 
+        echo $CURRENT
+        echo $BUFFER
+        compadd -- install up
+    }
+    compdef _test_completion npm &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
@@ -497,11 +514,11 @@ themes/youthemes/layouts/_default/list.html
       <guid>/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/</guid>
       <description>本文说明，一点heroku疑问
 procfile heroku运行的命令文件
-1web 2worker 3clock 本地项目可以 查看procfile
-1heroku ps 可以使用 js的web框架express koa
-1web: node index.js 2 但是 app.listen(port) 一定要是他们定下来的
-1var port = process.env.PORT 2 同理 python
-1import os 2os.environ[&amp;#39;POST&amp;#39;] 这样，heroku转路由 直接网址-就能看到了</description>
+web worker clock 本地项目可以 查看procfile
+heroku ps 可以使用 js的web框架express koa
+web: node index.js  但是 app.listen(port) 一定要是他们定下来的
+var port = process.env.PORT  同理 python
+import os os.environ[&amp;#39;POST&amp;#39;] 这样，heroku转路由 直接网址-就能看到了</description>
     </item>
     
     <item>
@@ -526,11 +543,11 @@ procfile heroku运行的命令文件
       <pubDate>Mon, 09 Oct 2017 08:15:28 +0000</pubDate>
       
       <guid>/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/</guid>
-      <description>pipenv python的快速构建虚拟环境 使用 1pip install pipenv 搭建 1pipenv --three 2pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+      <description>pipenv python的快速构建虚拟环境 使用 pip install pipenv 搭建 pipenv --three pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
  主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境共用 必须保证，下载 pipenv的pip，是纯净的python 2. 运行 pipenv &amp;ndash;three ，如果出现错误，像我 因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建， 但是之前说了，为了纯净，这就会发生错误。
-1$ pipenv --three 2error 3 4$ which python 5anaconda/bin/python ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
+$ pipenv --three error $ which python anaconda/bin/python ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
 Mac oX 系统
-1$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 更多 Github 官网</description>
+$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 更多 Github 官网</description>
     </item>
     
     <item>
@@ -542,15 +559,15 @@ Mac oX 系统
       <description>似流程，不是流程 下载问题可看上一篇文章
 ionic 是一套使用 javascript html css 技术构建 手机原生应用的 框架 从这里就可以看出，困难的地方就是，如何转换，原生应用，这点上 ionic 帮我们做了，
 不仅如此，还做了分享平台，测试应用的快速教程和应用，不可谓不大大的良心
-命令行下载 1npm install -g cordova ionic  cordova 是 为了 神不知鬼不觉 的 构建原生应用 后续
+命令行下载 npm install -g cordova ionic  cordova 是 为了 神不知鬼不觉 的 构建原生应用 后续
  主要网站 官网：http://ionicframework.com/
 分享部署平台和主要代码管理和测试：https://dashboard.ionicjs.com/
 网上编辑器可拖拉搞定：https://creator.ionic.io/app/dashboard
 手机应用—— ionic view 与分享平台结合
-官方文档真的很棒，不过要翻墙，上面大部分 使用 Angular 与 sass 和 TypeScript 作为 编写条件 不过可以试试第一个官方应用 1ionic start myApp tabs 服务器
-1ionic serve 链接平台,要有账号,在这一步通过与本身项目链接 自动 git remote add ionic [你的项目.git]
+官方文档真的很棒，不过要翻墙，上面大部分 使用 Angular 与 sass 和 TypeScript 作为 编写条件 不过可以试试第一个官方应用 ionic start myApp tabs 服务器
+ionic serve 链接平台,要有账号,在这一步通过与本身项目链接 自动 git remote add ionic [你的项目.git]
 这个过程还会配合ssh
-1ionic link [可选项 项目唯一id] 部署功能与Ionic Pro Git工作流配合使用，可在生产（或测试）应用程序中部署新的代码更新。</description>
+ionic link [可选项 项目唯一id] 部署功能与Ionic Pro Git工作流配合使用，可在生产（或测试）应用程序中部署新的代码更新。</description>
     </item>
     
     <item>
@@ -560,13 +577,13 @@ ionic 是一套使用 javascript html css 技术构建 手机原生应用的 框
       
       <guid>/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description> ionic项目 问题
-1npm install 主要问题在于 node-sass node 版本 要求 我最后使用 8.0
+npm install 主要问题在于 node-sass node 版本 要求 我最后使用 8.0
 使用 n
 和
 python 版本要求 2.5&amp;lt;x&amp;lt;3.0
 使用 conda
 去改变 版本
-1npm rebuild node-sass --force</description>
+npm rebuild node-sass --force</description>
     </item>
     
     <item>
@@ -579,12 +596,12 @@ python 版本要求 2.5&amp;lt;x&amp;lt;3.0
 NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
 让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
 安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
-1npm -v 更新NPM版本的命令: 1sudo npm install npm -g 使用 npm安装nodejs模块语法格式:
+npm -v 更新NPM版本的命令: sudo npm install npm -g 使用 npm安装nodejs模块语法格式:
 npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
-1npm install express //本地安装 2npm install express -g //全局安装 两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+npm install express //本地安装 npm install express -g //全局安装 两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
 全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
 可以用以下命令来查看所有全局安装的模块:
-1npm ls -g Package.json 属性说明  name - 包名。 version - 包的版本号。 description - 包的描述。 homepage - 包的官网 url 。 author - 包的作者姓名。 contributors - 包的其他贡献者姓名。 dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。 repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。 main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&amp;ldquo;express&amp;rdquo;)。 keywords - 关键字  官网属性列表 中文——属性解释</description>
+npm ls -g Package.json 属性说明  name - 包名。 version - 包的版本号。 description - 包的描述。 homepage - 包的官网 url 。 author - 包的作者姓名。 contributors - 包的其他贡献者姓名。 dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。 repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。 main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&amp;ldquo;express&amp;rdquo;)。 keywords - 关键字  官网属性列表 中文——属性解释</description>
     </item>
     
     <item>
@@ -599,11 +616,11 @@ npm install 全局安装与本地安装 npm的包安装分为本地安装 (local
 下载链接
  或
  你有 Homebrew , 你可以
-1brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件复制／粘贴
+brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件复制／粘贴
 请确保U盘之类： 正确-推出 ✅
 避免： 直接拔出 ❌
 不正确的操作，会导致BUG,和一定后果 可看官网 下拉 到下面标题
-1Some questions that might come up</description>
+Some questions that might come up</description>
     </item>
     
     <item>
@@ -621,7 +638,7 @@ npm install 全局安装与本地安装 npm的包安装分为本地安装 (local
 想用哪个用哪个
   没人想全要吧~|!
   比如： CSsdarcula风格网站文件
-1&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://highlightjs.org/static/demo/styles/dracula.css&amp;#34;&amp;gt;  源码样式文件——github
+&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://highlightjs.org/static/demo/styles/dracula.css&amp;#34;&amp;gt;  源码样式文件——github
 下面有个 codepen 的例子
 See the Pen highlight_无本地例子 by braveyo (@china-boy) on CodePen.  </description>
     </item>
@@ -633,12 +650,12 @@ See the Pen highlight_无本地例子 by braveyo (@china-boy) on CodePen.  </des
       
       <guid>/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/</guid>
       <description>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
-安装发电机 1npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
-1yo code 更多详情 创建扩展的文件夹
-扩展API流程 的介绍 扩展清单： package.json contributes 1&amp;#34;contributes&amp;#34;: { 2 &amp;#34;commands&amp;#34;: [{ 3 &amp;#34;command&amp;#34;: &amp;#34;extension.sayHello&amp;#34;, 4 &amp;#34;title&amp;#34;: &amp;#34;Hello World&amp;#34; 5 }] 6 } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&amp;rdquo;Hello world&amp;rdquo;调用命令&amp;rdquo;extension.sayHello&amp;rdquo;
+安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
+yo code 更多详情 创建扩展的文件夹
+扩展API流程 的介绍 扩展清单： package.json contributes &amp;#34;contributes&amp;#34;: { &amp;#34;commands&amp;#34;: [{ &amp;#34;command&amp;#34;: &amp;#34;extension.sayHello&amp;#34;, &amp;#34;title&amp;#34;: &amp;#34;Hello World&amp;#34; }] } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&amp;rdquo;Hello world&amp;rdquo;调用命令&amp;rdquo;extension.sayHello&amp;rdquo;
 activationEvents 启动事件—通过命令也就是 contributes 中 &amp;quot;Hello World&amp;quot;
-1&amp;#34;activationEvents&amp;#34;: [ 2 &amp;#34;onCommand:extension.sayHello&amp;#34; 3 ] 启动事件—当语言为markdown
-1&amp;#34;activationEvents&amp;#34;: [ 2 &amp;#34;onLanguage:markdown&amp;#34; 3 ] 示例 extension.ts 你好世界 1import * as vscode from &amp;#39;vscode&amp;#39;; 2 3 4export function activate(context: vscode.</description>
+&amp;#34;activationEvents&amp;#34;: [ &amp;#34;onCommand:extension.sayHello&amp;#34; ] 启动事件—当语言为markdown
+&amp;#34;activationEvents&amp;#34;: [ &amp;#34;onLanguage:markdown&amp;#34; ] 示例 extension.ts 你好世界 import * as vscode from &amp;#39;vscode&amp;#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console.</description>
     </item>
     
     <item>
@@ -647,12 +664,12 @@ activationEvents 启动事件—通过命令也就是 contributes 中 &amp;quot;
       <pubDate>Tue, 12 Sep 2017 10:09:44 +0000</pubDate>
       
       <guid>/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/</guid>
-      <description> Pip 换 阿里源 linux下运行命令 1vi ~/.pip/pip.confp1[global] 2trusted-host = mirrors.aliyun.com 3index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2 3conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
-1npm --registry https://registry.npm.taobao.org install express 2.持久使用
-1npm config set registry https://registry.npm.taobao.org 3.通过cnpm
-1npm install -g cnpm --registry=https://registry.npm.taobao.org 二、使用官方镜像
-1npm config set registry https://registry.npmjs.org/ 三、查看npm源地址
-1npm config get registry</description>
+      <description> Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
+npm --registry https://registry.npm.taobao.org install express 2.持久使用
+npm config set registry https://registry.npm.taobao.org 3.通过cnpm
+npm install -g cnpm --registry=https://registry.npm.taobao.org 二、使用官方镜像
+npm config set registry https://registry.npmjs.org/ 三、查看npm源地址
+npm config get registry</description>
     </item>
     
     <item>
@@ -662,11 +679,11 @@ activationEvents 启动事件—通过命令也就是 contributes 中 &amp;quot;
       
       <guid>/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description>问题描述:
-1UnicodeEncodeError: &amp;#39;ascii&amp;#39; codec can&amp;#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
+UnicodeEncodeError: &amp;#39;ascii&amp;#39; codec can&amp;#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
  在python目录 Python27\Lib\site-packages 建一个文件
 sitecustomize.py
 内容写：
-1import sys 2sys.setdefaultencoding(&amp;#39;gbk&amp;#39;)  python会自动运行这个文件。
+import sys sys.setdefaultencoding(&amp;#39;gbk&amp;#39;)  python会自动运行这个文件。
 参考链接：https://www.v2ex.com/t/90659</description>
     </item>
     
@@ -678,11 +695,11 @@ sitecustomize.py
       <guid>/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description>当在windows和Mac上，练习对应的代码时
 非常明显的错误就在于 传输类型
-1TypeError: a bytes-like object is required, not &amp;#39;str&amp;#39; 2 3TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &amp;#39;str 45self.wfile.write(b&amp;#39;[%s] %s&amp;#39; % (bytes(ctime(), &amp;#39;utf-8&amp;#39;), bytes(self.rfile.readline(), &amp;#39;utf-8&amp;#39;))) 6TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
+TypeError: a bytes-like object is required, not &amp;#39;str&amp;#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &amp;#39;str self.wfile.write(b&amp;#39;[%s] %s&amp;#39; % (bytes(ctime(), &amp;#39;utf-8&amp;#39;), bytes(self.rfile.readline(), &amp;#39;utf-8&amp;#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
 所以需要使用
  bytes() 函数
  以下是可以正常运行的代码
-1from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) 2from time import ctime 3 4HOST = &amp;#34;&amp;#34; 5PORT = 21467 6BUFSIZ = 1024 7ADDR = (HOST, PORT) 8 9class MyRequestHandler(SRH): 10 def handle(self): 11 print(&amp;#39;connect.</description>
+from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &amp;#34;&amp;#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&amp;#39;connect.</description>
     </item>
     
     <item>
@@ -694,8 +711,8 @@ sitecustomize.py
       <description>conda  是 Anaconda 的 命令行
  因为使用zsh终端后，conda路径失去了
 ohmyzsh
-1$ conda 2conda command not found 解决 1export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; 2 3source ~/.zshrc  zsh中 .zshrc
-1//error: 2export PATH = &amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; 3 4//right 5export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; 6 不要保持良好的代码格式,会出错
+$ conda conda command not found 解决 export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; source ~/.zshrc  zsh中 .zshrc
+//error: export PATH = &amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; //right export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34;  不要保持良好的代码格式,会出错
  参考 stackoverflow .zshrc保持不空格</description>
     </item>
     
@@ -706,7 +723,7 @@ ohmyzsh
       
       <guid>/2017/06/16/preact-%E5%B0%8Freact/</guid>
       <description> Preact webSite
-See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  1import { h, render, Component } from &amp;#39;preact&amp;#39; 2</description>
+See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { h, render, Component } from &amp;#39;preact&amp;#39; </description>
     </item>
     
     <item>
@@ -719,7 +736,7 @@ See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  1import {
 React-Redux  两个主要 Api Provider connect
  先放一边
 React 的 context context 实现了，一个全局变量
-1const PropTypes = require(&amp;#39;prop-types&amp;#39;); 2 3class Button extends React.Component { 4 render() { 5 return ( 6 //################ 7 &amp;lt;button style={{background: this.context.color}}&amp;gt; 8 9 {this.props.children} 10 &amp;lt;/button&amp;gt; 11 ); 12 } 13} 14 //################ 15Button.contextTypes = { 16 color: PropTypes.string 17}; 18 19class Message extends React.Component { 20 render() { 21 return ( 22 &amp;lt;div&amp;gt; 23 {this.</description>
+const PropTypes = require(&amp;#39;prop-types&amp;#39;); class Button extends React.Component { render() { return ( //################ &amp;lt;button style={{background: this.context.color}}&amp;gt; {this.props.children} &amp;lt;/button&amp;gt; ); } } //################ Button.contextTypes = { color: PropTypes.string }; class Message extends React.Component { render() { return ( &amp;lt;div&amp;gt; {this.props.text} &amp;lt;Button&amp;gt;Delete&amp;lt;/Button&amp;gt; &amp;lt;/div&amp;gt; ); } } class MessageList extends React.Component { //################  getChildContext() { return {color: &amp;#34;purple&amp;#34;}; } render() { const children = this.</description>
     </item>
     
     <item>
@@ -730,7 +747,7 @@ React 的 context context 实现了，一个全局变量
       <guid>/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
       <description> 来源 Redux作者入门教程
 combineReducers  js 简单实现
- 1const combineReducers = (reducers) =&amp;gt;{ 2 return (state = {}, action) =&amp;gt;{ 3 return Object.Keys(reducers).reduce( 4 5 (nextState, key) =&amp;gt;{ 6 7 nextState[key] = reducers[key]( 8 state[key], 9 action 10 ); 11 return nextState; 12 13 }, {}) 14 }; 15}; 16</description>
+ const combineReducers = (reducers) =&amp;gt;{ return (state = {}, action) =&amp;gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&amp;gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; }; </description>
     </item>
     
     <item>
@@ -743,7 +760,7 @@ combineReducers  js 简单实现
 如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
  简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
  数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-1const app = { 2 callback (ctx) { 3 console.log(ctx) 4 }, 5 6 use (fn) { 7 /* TODO */ 8 }, 9 10 go (ctx) { 11 /* TODO */ 12 } 13} 14 15app.use((ctx, next) =&amp;gt; { 16 ctx.name = &amp;#39;Lucy&amp;#39; 17 next() 18}) 19 20app.use((ctx, next) =&amp;gt; { 21 ctx.age = 12 22 next() 23}) 24 25app.</description>
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&amp;gt; { ctx.name = &amp;#39;Lucy&amp;#39; next() }) app.use((ctx, next) =&amp;gt; { ctx.age = 12 next() }) app.use((ctx, next) =&amp;gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&amp;gt; Lucy is 12 years old. next() }) // .</description>
     </item>
     
     <item>
@@ -754,7 +771,7 @@ combineReducers  js 简单实现
       <guid>/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/</guid>
       <description>实例 我们用一个实例，发现，原生与 react事件 冲突
 JS Bin on jsbin.com
-原生事件 1 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ 2 this.setState({s1:!this.state.s1}) 3 alert(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) 4 console.log(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) 5 6 }) 7 react事件 1onSubmit(e){ 2 alert(&amp;#39;onsubmit&amp;#39;, e.target.value) 3 this.setState({s1:!this.state.s1}) 4} 5//... 6&amp;lt;input id=&amp;#39;qr&amp;#39; value=&amp;#39;二维码&amp;#39; type=&amp;#34;button&amp;#34; onClick={this.onSubmit} /&amp;gt; 7 点击二维码 可以看到，事件从body开始，div.qr -&amp;gt;div.root
+原生事件 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ this.setState({s1:!this.state.s1}) alert(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) console.log(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) })  react事件 onSubmit(e){ alert(&amp;#39;onsubmit&amp;#39;, e.target.value) this.setState({s1:!this.state.s1}) } //... &amp;lt;input id=&amp;#39;qr&amp;#39; value=&amp;#39;二维码&amp;#39; type=&amp;#34;button&amp;#34; onClick={this.onSubmit} /&amp;gt;  点击二维码 可以看到，事件从body开始，div.qr -&amp;gt;div.root
 实例的功能是
 点击二维码按钮，可以显示／隐藏，照片
  在，照片显示时
@@ -765,7 +782,8 @@ body -&amp;gt; div.code -&amp;gt; div.root
 由此说来，body,的优先级很大啊
 但是 可以看到console面板，我留在，body事件的输出语句
 二维码 是 div.qr 的 value 值。
- img 是 div.</description>
+ img 是 div.code的 alt 值。
+ 以此可以看出，原生body事件是，触发了， 而 e.target 是 二维码按钮的实例.</description>
     </item>
     
     <item>
@@ -780,13 +798,13 @@ react, typescript, material-ui, redux, bootstrap
 单独一二项，看的明白，混在一起的. 科科
  虽然说，用react框架省去了些，步骤，redux做全局，meterial-ui 做 UI ，bootstrap 做 布局 部分，代码文件，后缀名是，.js 但是，应该是，用工具转代码的， 因为，变量数据格式，太凸显 ， 还是说用了其他的方式。
 editor/packages/renderer/src/index.js v0.2.10 line-8
-1const gridClass = (size: number = 12): string =&amp;gt; 2 `ory-cell-sm-${size}ory-cell-xs-12` 3  eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
+const gridClass = (size: number = 12): string =&amp;gt; `ory-cell-sm-${size}ory-cell-xs-12`   eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
  作者造搞了，自己的数据格式，主要通过 cells Raws
 状态是一个规范的JSON对象，不涉及HTML。
 也是为了，免xss威胁。
 行 列 去区分，显示
 editor/examples/src/content.js
-1export default [ 2 { 3 &amp;#34;id&amp;#34;: &amp;#34;1&amp;#34;, 4 &amp;#34;cells&amp;#34;: [ 5 { 6 &amp;#34;id&amp;#34;: &amp;#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&amp;#34;, 7 &amp;#34;inline&amp;#34;: null, 8 &amp;#34;size&amp;#34;: 12, 9 &amp;#34;rows&amp;#34;: [ 10 { 11 &amp;#34;id&amp;#34;: &amp;#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&amp;#34;, 12 &amp;#34;cells&amp;#34;: [ 13 { 14 &amp;#34;id&amp;#34;: &amp;#34;39417572-f976-44b7-97b2-9a7e00fd66f2&amp;#34;, 15 &amp;#34;inline&amp;#34;: null, 16 &amp;#34;size&amp;#34;: 12, 17 用来对，服务器渲染，静态</description>
+export default [ { &amp;#34;id&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;cells&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&amp;#34;, &amp;#34;inline&amp;#34;: null, &amp;#34;size&amp;#34;: 12, &amp;#34;rows&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&amp;#34;, &amp;#34;cells&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;39417572-f976-44b7-97b2-9a7e00fd66f2&amp;#34;, &amp;#34;inline&amp;#34;: null, &amp;#34;size&amp;#34;: 12,  用来对，服务器渲染，静态</description>
     </item>
     
     <item>
@@ -796,7 +814,13 @@ editor/examples/src/content.js
       
       <guid>/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/</guid>
       <description>继承 复制下面代码 - 点击https://babeljs.io/repl/
-1class b { 2 constructor(c,d){ 3 c = c+&amp;#39;1111&amp;#39;; 4 console.log(c,d); 5 } 6 start(){ 7 console.log(&amp;#39;ba ba&amp;#39;) 8 } 9} 10 11class a extends b { 12 constructor(c,b){ 13 super(c,b); 14 c = c+&amp;#39;222222&amp;#39;; 15 console.log(1,c,2,b); 16 return this.start; 17 } 18 start(){ 19 console.log(&amp;#39;son&amp;#39;); 20 } 21} 22 23var o1 = new a(&amp;#39;first&amp;#39;, &amp;#39;second&amp;#39;); 24 25console.log(&amp;#39;------------------&amp;#39;); 26console.log(o1.toString()); 27 -为了实现，相当于 类的 继承 问题，js 给 大众</description>
+class b { constructor(c,d){ c = c+&amp;#39;1111&amp;#39;; console.log(c,d); } start(){ console.log(&amp;#39;ba ba&amp;#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&amp;#39;222222&amp;#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&amp;#39;son&amp;#39;); } } var o1 = new a(&amp;#39;first&amp;#39;, &amp;#39;second&amp;#39;); console.log(&amp;#39;------------------&amp;#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
+一个 ， 丑陋的 写法，构造，与原型，的，概念.
+增加，初学者的入门，难度, 不过，好在，
+TypeScript babel 语法实现
+ coffeeScript 太极端了， 一堆空格。
+有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
+ 让我们不在需要，对，继承,</description>
     </item>
     
     <item>
@@ -807,7 +831,7 @@ editor/examples/src/content.js
       <guid>/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/</guid>
       <description>react-router v4  react 的路由解决方案
  而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
-1 &amp;lt;Route path=&amp;#34;/&amp;#34; component={App} /&amp;gt; 注意这个 ／
+&amp;lt;Route path=&amp;#34;/&amp;#34; component={App} /&amp;gt; 注意这个 ／
 比如我的 域名 llever.com
 当应用直接放在 llever.com/ 的时候，会实用。
 但是 如果我想 放在 llever.com/about/
@@ -836,8 +860,8 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
  p5.js
  fire.html
   fire.html
-1 &amp;lt;html&amp;gt; 2 &amp;lt;head&amp;gt; 3 &amp;lt;script src=&amp;#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 4 &amp;lt;script src=&amp;#34;sketch.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 5 &amp;lt;/head&amp;gt; 6 &amp;lt;body&amp;gt; 7 &amp;lt;/body&amp;gt; 8&amp;lt;/html&amp;gt; sketch.js
-1// Global variables 2function setup() { 3 createCanvas(640, 480); 4} 5 6function draw() { 7 if (mouseIsPressed) { 8 fill(0); 9 } else { 10 fill(255); 11 } 12 ellipse(mouseX, mouseY, 80, 80); 13} 14 就这样 就是上 显示的</description>
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;sketch.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; sketch.js
+// Global variables function setup() { createCanvas(640, 480); } function draw() { if (mouseIsPressed) { fill(0); } else { fill(255); } ellipse(mouseX, mouseY, 80, 80); }  就这样 就是上 显示的</description>
     </item>
     
     <item>
@@ -860,13 +884,13 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
       <guid>/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/</guid>
       <description>把完整的网页放进，hexo中  我做了一下步骤
  在不影响，快捷命令
-1hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
+hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
 所以，放source才能被 看到
- 2. 在 html 文件中 第一行 写下 1--- 2layout: false 3---  不能被模版化
+ 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
  3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
  4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
  提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
-1... 2skip_render [floder/*, floder/**/*] 具体看这issue</description>
+... skip_render [floder/*, floder/**/*] 具体看这issue</description>
     </item>
     
     <item>
@@ -878,8 +902,8 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
       <description>一个世界(store)  redux的中心思想，一直是共享数据的理念
  只有一个更改数据的接口dispatch
  一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 1import { createStore } from &amp;#34;redux&amp;#34; 2 3const store = createStore(reducer); 4 打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
- 1const reducer = function( state, action ) { 2 if (action.type === &amp;#34;Something&amp;#34;){ 3 //为什么叫 逻辑 ,就因为 if if if 4 //你可以加1 5 //return state+1; 6 //返回值，自动改变原有数据。 7 return state; 8 } 9 if (action.</description>
+  创造数据中心 import { createStore } from &amp;#34;redux&amp;#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
+ const reducer = function( state, action ) { if (action.type === &amp;#34;Something&amp;#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &amp;#34;Another&amp;#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在</description>
     </item>
     
     <item>
@@ -894,7 +918,8 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
 而在 fackbook文档-web Component 中
 例子中
 x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-1class HelloMessage3 extends React.Component { 2 render() { 3 return &amp;lt;div className=&amp;#39;new&amp;#39;&amp;gt; 4 className=&amp;#39;new&amp;#39; 5 &amp;lt;x-search class=&amp;#39;new2&amp;#39; &amp;gt;{this.props.name}&amp;lt;/x-search&amp;gt; 6 &amp;lt;span className=&amp;#39;new2&amp;#39;&amp;gt;好&amp;lt;/span&amp;gt; 7 class=&amp;#39;new2&amp;#39; 8 &amp;lt;/div&amp;gt;; 9 } 10} 11 12ReactDOM.render( 13 &amp;lt;HelloMessage name=&amp;#39;1&amp;#39; /&amp;gt;, 14 document.getElementById(&amp;#39;root&amp;#39;) 15); 16 Codepen Demo 参考 Codepen 参考</description>
+class HelloMessage3 extends React.Component { render() { return &amp;lt;div className=&amp;#39;new&amp;#39;&amp;gt; className=&amp;#39;new&amp;#39; &amp;lt;x-search class=&amp;#39;new2&amp;#39; &amp;gt;{this.props.name}&amp;lt;/x-search&amp;gt; &amp;lt;span className=&amp;#39;new2&amp;#39;&amp;gt;好&amp;lt;/span&amp;gt; class=&amp;#39;new2&amp;#39; &amp;lt;/div&amp;gt;; } } ReactDOM.render( &amp;lt;HelloMessage name=&amp;#39;1&amp;#39; /&amp;gt;, document.getElementById(&amp;#39;root&amp;#39;) );  Codepen Demo 参考 Codepen 参考
+.new{ color:red; } .new2{ color:blue; } 。。。。未完待续</description>
     </item>
     
     <item>
@@ -909,8 +934,8 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
    不同的是，配置结果，是为了，把less &amp;gt; css + 补全浏览器前缀
 还有 babel js 语法
  postcss.config.js 启动补全前缀
-1module.exports = { 2 plugins: [ 3 require(&amp;#39;autoprefixer&amp;#39;) 4 ] 5} 6 webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
-1var path = require(&amp;#39;path&amp;#39;); 2var ExtractTextPlugin = require(&amp;#39;extract-text-webpack-plugin&amp;#39;); 3const webpack = require(&amp;#39;webpack&amp;#39;); 4 5module.exports = { 6 entry: &amp;#39;./app/index.js&amp;#39;, 7 output: { 8 filename: &amp;#39;bundle.js&amp;#39;, 9 path: path.</description>
+module.exports = { plugins: [ require(&amp;#39;autoprefixer&amp;#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
+var path = require(&amp;#39;path&amp;#39;); var ExtractTextPlugin = require(&amp;#39;extract-text-webpack-plugin&amp;#39;); const webpack = require(&amp;#39;webpack&amp;#39;); module.exports = { entry: &amp;#39;./app/index.js&amp;#39;, output: { filename: &amp;#39;bundle.js&amp;#39;, path: path.resolve(__dirname, &amp;#39;dist&amp;#39;) }, module: { rules: [{ test: /\.</description>
     </item>
     
     <item>
@@ -923,7 +948,9 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
 typescript作为微软实现的js的超集.
 在类的实现，有如传统语言一样简单，
 例子：官方
-1//.ts 2class Greeter { 3 greeting: string; 4 constructor(message: string) { 5 this.greeting = message; 6 } 7 greet() { 8 return &amp;#34;Hello, &amp;#34; + this.greeting; 9 } 10}1//.js 2var Greeter = (function () { 3 function Greeter(message) { 4 this.greeting = message; 5 } 6 Greeter.prototype.greet = function () { 7 return &amp;#34;Hello, &amp;#34; + this.greeting; 8 }; 9 return Greeter; 10}()); 11 说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。</description>
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &amp;#34;Hello, &amp;#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &amp;#34;Hello, &amp;#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console.</description>
     </item>
     
     <item>
@@ -936,8 +963,9 @@ typescript作为微软实现的js的超集.
  因此我们需使用函数作用域来模拟这个概念。
  由于闭包的存在，声明的变量和方法只在该模式内部可用，
   但在返回对象上的定义的变量和方法，则对外部使用者都是可用的。
-1var testModule = (function () { 2//私有变量 3var myPrivateVar = 0; 4//记录所有参数的私有函数 5var myPrivateMethod = function(bar){ 6console.log(bar); 7} 8return { 9//公有变量 10myPublicVar : &amp;#34;foo&amp;#34;, 11//调用私有变量和方法的公有函数 12myPublicFunction: function(bar){ 13 14//增加私有计数器值 15 16 myPrivateVar++; 17 console.log(myPrivateVar); 18//传入bar调用私有方法 19 myPrivateMethod(bar); 20} 21}; 22})(); 23console.log(testModule); 24//用公有变量传值公有函数 25testModule.myPublicFunction(testModule.myPublicVar); 26 输出
-1{ myPublicVar: &amp;#39;foo&amp;#39;, 2 myPublicFunction: [Function: myPublicFunction] } 31 4foo 5 可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。</description>
+var testModule = (function () { //私有变量 var myPrivateVar = 0; //记录所有参数的私有函数 var myPrivateMethod = function(bar){ console.log(bar); } return { //公有变量 myPublicVar : &amp;#34;foo&amp;#34;, //调用私有变量和方法的公有函数 myPublicFunction: function(bar){ //增加私有计数器值  myPrivateVar++; console.log(myPrivateVar); //传入bar调用私有方法  myPrivateMethod(bar); } }; })(); console.log(testModule); //用公有变量传值公有函数 testModule.myPublicFunction(testModule.myPublicVar);  输出
+{ myPublicVar: &amp;#39;foo&amp;#39;, myPublicFunction: [Function: myPublicFunction] } 1 foo  可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。
+却可以，通过两个函数来操控，myPrivateVar表现得就像一个私有变量。</description>
     </item>
     
     <item>
@@ -948,8 +976,8 @@ typescript作为微软实现的js的超集.
       <guid>/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/</guid>
       <description>#对象／构造／原型
  对象 &amp;ndash; 原型  all 浏览器 获取原型方法
-1var a = {}; 2//a.prototype 无法获取——原型 3 4a.constructor.prototype;// Object {} 5 6a.constructor// function Object() { [native code] } 7  函数 &amp;ndash; 构造 + 原型  1var a = function(){}; 2	//函数可以直接 prototype 3a.prototype// Object {}; 4 5a.constructor// function Function() { [native code] } 6  上面可以看出，构造都是函数
-  对象 &amp;gt; 构造函数 &amp;gt; 函数 。。  1var b = {}; 2b// Object {} 3b.</description>
+var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// Object {}  a.constructor// function Object() { [native code] }   函数 &amp;ndash; 构造 + 原型  var a = function(){}; //函数可以直接 prototype a.prototype// Object {};  a.constructor// function Function() { [native code] }   上面可以看出，构造都是函数
+  对象 &amp;gt; 构造函数 &amp;gt; 函数 。。  var b = {}; b// Object {} b.</description>
     </item>
     
     <item>
@@ -958,12 +986,12 @@ typescript作为微软实现的js的超集.
       <pubDate>Tue, 31 Jan 2017 15:31:15 +0000</pubDate>
       
       <guid>/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/</guid>
-      <description>区别 浏览器   Chrome + Firefox   1function local() { 2	this.a = 7; 3	var a = 2; 4	this.a = 7; 5	console.log(a); 6	return this; 7} 8var local1 = local(); 9console.log(a); 10local1 == this ? console.log(a) : console.log(0); 11 输出结果：
-12 27 37  也就是说，浏览器，认为 local 函数返回的 this
+      <description>区别 浏览器   Chrome + Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 == this ? console.log(a) : console.log(0);  输出结果：
+2 7 7  也就是说，浏览器，认为 local 函数返回的 this
  和 window，总this 是相同的！
   node v6.9.2
  对于同样的代码
- 1function local() { 2	this.a = 7; 3	var a = 2; 4	this.</description>
+ function local() { this.a = 7; var a = 2; this.</description>
     </item>
     
     <item>
@@ -975,7 +1003,7 @@ typescript作为微软实现的js的超集.
       <description>translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
 一：translate  translate 在 canvas中定义了，画框的位置
  比如
-1 &amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border: 1px solid #d3d3d3;&amp;#34; width=&amp;#34;300&amp;#34; height=&amp;#34;150&amp;#34;&amp;gt; 2 &amp;lt;script&amp;gt;; 3 var c = document.getElementById(&amp;#34;myCanvas&amp;#34;); 4 var ctx = c.getContext(&amp;#34;2d&amp;#34;); 5 ctx.fillRect(10, 10, 100, 50); 6 ctx.translate(150, 75); 7 ctx.fillRect(10, 10, 100, 50); 8 &amp;lt;/script&amp;gt;&amp;lt;/canvas&amp;gt;; 91&amp;gt; 定义一个宽300px，高150px的画布  1 在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); 2 3 translate(150,75)命令 4 5 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 6 7 此时，如果再画一个矩形，那么，位置，也会发生改变 8 9 画布并没有改变，但是，观察画布的位置发生了变化 10 11 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口 二：rotate 1 &amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border: 1px solid #d3d3d3;&amp;#34; width=&amp;#34;300&amp;#34; height=&amp;#34;150&amp;#34;&amp;gt; 2 &amp;lt;script&amp;gt; 3 var c = document.</description>
+&amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border: 1px solid #d3d3d3;&amp;#34; width=&amp;#34;300&amp;#34; height=&amp;#34;150&amp;#34;&amp;gt; &amp;lt;script&amp;gt;; var c = document.getElementById(&amp;#34;myCanvas&amp;#34;); var ctx = c.getContext(&amp;#34;2d&amp;#34;); ctx.fillRect(10, 10, 100, 50); ctx.translate(150, 75); ctx.fillRect(10, 10, 100, 50); &amp;lt;/script&amp;gt;&amp;lt;/canvas&amp;gt;; &amp;gt; 定义一个宽300px，高150px的画布  在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); translate(150,75)命令 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 此时，如果再画一个矩形，那么，位置，也会发生改变 画布并没有改变，但是，观察画布的位置发生了变化 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口 二：rotate &amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border: 1px solid #d3d3d3;&amp;#34; width=&amp;#34;300&amp;#34; height=&amp;#34;150&amp;#34;&amp;gt; &amp;lt;script&amp;gt; var c = document.</description>
     </item>
     
     <item>
@@ -1069,10 +1097,10 @@ This document is a brief primer on using go templates.</description>
       
       <guid>/1/01/01/hello-world/</guid>
       <description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick Start Create a new post 1$ hexo new &amp;#34;My New Post&amp;#34; More info: Writing
-Run server 1$ hexo server More info: Server
-Generate static files 1$ hexo generate More info: Generating
-Deploy to remote sites 1$ hexo deploy More info: Deployment</description>
+Quick Start Create a new post $ hexo new &amp;#34;My New Post&amp;#34; More info: Writing
+Run server $ hexo server More info: Server
+Generate static files $ hexo generate More info: Generating
+Deploy to remote sites $ hexo deploy More info: Deployment</description>
     </item>
     
   </channel>

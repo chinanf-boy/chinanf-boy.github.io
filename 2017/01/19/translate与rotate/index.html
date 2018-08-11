@@ -15,7 +15,7 @@
      <meta name="description" content="translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
 一：translate  translate 在 canvas中定义了，画框的位置
  比如
-1 &amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;borde" /> 
+&amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border:" /> 
 
      
     
@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
 一：translate  translate 在 canvas中定义了，画框的位置
  比如
-1 &amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;borde"/>
+&amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border:"/>
     <meta name="twitter:url" content="/2017/01/19/translate%E4%B8%8Erotate/" />
     <meta name="twitter:site" content="@"/>
 
@@ -39,7 +39,7 @@
     <meta property="og:description" content="translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
 一：translate  translate 在 canvas中定义了，画框的位置
  比如
-1 &amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;borde" />
+&amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border:" />
 
     <meta property="article:published_time" content="2017-01-19T21:46:00Z" />
     <meta property="article:tag" content="canvas" /><meta property="article:tag" content="html5" />
@@ -122,7 +122,7 @@
         <h1 class="post-full-title">translate与rotate</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/4.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -145,56 +145,56 @@
 </blockquote>
 
 <p>比如</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>    <span style="color:#ff79c6">&lt;</span>canvas id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;myCanvas&#34;</span> style<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;border: 1px solid #d3d3d3;&#34;</span> width<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;300&#34;</span> height<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;150&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">&lt;</span>script<span style="color:#ff79c6">&gt;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    <span style="color:#8be9fd;font-style:italic">var</span> c <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.getElementById(<span style="color:#f1fa8c">&#34;myCanvas&#34;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#8be9fd;font-style:italic">var</span> ctx <span style="color:#ff79c6">=</span> c.getContext(<span style="color:#f1fa8c">&#34;2d&#34;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    ctx.translate(<span style="color:#bd93f9">150</span>, <span style="color:#bd93f9">75</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>    <span style="color:#ff79c6">&lt;</span>/script&gt;&lt;/canvas&gt;;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>&gt; 定义一个宽300px，高150px的画布</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#ff79c6">&lt;</span>canvas id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;myCanvas&#34;</span> style<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;border: 1px solid #d3d3d3;&#34;</span> width<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;300&#34;</span> height<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;150&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>script<span style="color:#ff79c6">&gt;</span>;
+    <span style="color:#8be9fd;font-style:italic">var</span> c <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.getElementById(<span style="color:#f1fa8c">&#34;myCanvas&#34;</span>);
+    <span style="color:#8be9fd;font-style:italic">var</span> ctx <span style="color:#ff79c6">=</span> c.getContext(<span style="color:#f1fa8c">&#34;2d&#34;</span>);
+    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
+    ctx.translate(<span style="color:#bd93f9">150</span>, <span style="color:#bd93f9">75</span>);
+    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
+    <span style="color:#ff79c6">&lt;</span>/script&gt;&lt;/canvas&gt;;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt; 定义一个宽300px，高150px的画布</pre></div>
 <blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>  在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>  translate(150,75)命令
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>  就会在，已初始画布的基础上，向下移动150px，和向右移动75px
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>  此时，如果再画一个矩形，那么，位置，也会发生改变
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>  画布并没有改变，但是，观察画布的位置发生了变化
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>  我们重新，以(150,75)定义为左上角(0,0)的新观察窗口</pre></div></blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50);
+
+  translate(150,75)命令
+
+  就会在，已初始画布的基础上，向下移动150px，和向右移动75px
+
+  此时，如果再画一个矩形，那么，位置，也会发生改变
+
+  画布并没有改变，但是，观察画布的位置发生了变化
+
+  我们重新，以(150,75)定义为左上角(0,0)的新观察窗口</pre></div></blockquote>
 
 <h3 id="二-rotate">二：rotate</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>    <span style="color:#ff79c6">&lt;</span>canvas id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;myCanvas&#34;</span> style<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;border: 1px solid #d3d3d3;&#34;</span> width<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;300&#34;</span> height<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;150&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    <span style="color:#ff79c6">&lt;</span>script<span style="color:#ff79c6">&gt;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>    <span style="color:#8be9fd;font-style:italic">var</span> c <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.getElementById(<span style="color:#f1fa8c">&#34;myCanvas&#34;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    <span style="color:#8be9fd;font-style:italic">var</span> ctx <span style="color:#ff79c6">=</span> c.getContext(<span style="color:#f1fa8c">&#34;2d&#34;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>    ctx.translate(<span style="color:#bd93f9">150</span>, <span style="color:#bd93f9">75</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    ctx.rotate(<span style="color:#8be9fd;font-style:italic">Math</span>.PI<span style="color:#f1fa8c">/6);/</span>/Math.PI 是 180度
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    <span style="color:#ff79c6">&lt;</span>/script&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    <span style="color:#ff79c6">&lt;</span>/canvas&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>rotate定义的是`旋转`，观察窗口的旋转，上面
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>ctx.rotate(Math.PI/6);就是旋转30度，顺时针(负值-逆时针)</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#ff79c6">&lt;</span>canvas id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;myCanvas&#34;</span> style<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;border: 1px solid #d3d3d3;&#34;</span> width<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;300&#34;</span> height<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;150&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>script<span style="color:#ff79c6">&gt;</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> c <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.getElementById(<span style="color:#f1fa8c">&#34;myCanvas&#34;</span>);
+    <span style="color:#8be9fd;font-style:italic">var</span> ctx <span style="color:#ff79c6">=</span> c.getContext(<span style="color:#f1fa8c">&#34;2d&#34;</span>);
+    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
+    ctx.translate(<span style="color:#bd93f9">150</span>, <span style="color:#bd93f9">75</span>);
+    ctx.rotate(<span style="color:#8be9fd;font-style:italic">Math</span>.PI<span style="color:#f1fa8c">/6);/</span>/Math.PI 是 180度
+    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
+    <span style="color:#ff79c6">&lt;</span>/script&gt;
+    <span style="color:#ff79c6">&lt;</span>/canvas&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">rotate定义的是`旋转`，观察窗口的旋转，上面
+
+ctx.rotate(Math.PI/6);就是旋转30度，顺时针(负值-逆时针)</pre></div>
 <h3 id="三-rotate与translate的关系">三. rotate与translate的关系</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>  &lt;script&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    var c = document.getElementById(&#34;myCanvas&#34;);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>    var ctx = c.getContext(&#34;2d&#34;);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    ctx.translate(150, 75);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    ctx.rotate(1*Math.PI/6);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>    ctx.translate(0, -25);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    ctx.fillText(1000000, 0, 0);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    ctx.fillRect(0, 0, 10, 5);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    ctx.translate(0, 25);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    ctx.fillText(1000000, 0, 0);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>    ctx.fillRect(0, 0, 10, 5);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>    ctx.rotate(-1*Math.PI/6);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>    &lt;/script&gt;</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  &lt;script&gt;
+    var c = document.getElementById(&#34;myCanvas&#34;);
+    var ctx = c.getContext(&#34;2d&#34;);
+    ctx.translate(150, 75);
+    ctx.rotate(1*Math.PI/6);
+    ctx.translate(0, -25);
+    ctx.fillText(1000000, 0, 0);
+    ctx.fillRect(0, 0, 10, 5);
+    ctx.translate(0, 25);
+    ctx.fillText(1000000, 0, 0);
+    ctx.fillRect(0, 0, 10, 5);
+    ctx.rotate(-1*Math.PI/6);
+    &lt;/script&gt;</pre></div>
 <p>在于，当<code>rotate</code>,旋转后，translate，移动的窗口位置，随</p>
 
 <p>着旋转。！！</p>
@@ -240,13 +240,13 @@
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/">FiraCode 使用在 Vscode 的问题</a></li>            
+          <li><a href="/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/">ChangeLog 生成器</a></li>            
         
-          <li><a href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/">如何将完整的文件夹放进hugo</a></li>            
+          <li><a href="/2017/10/06/ionic-going/">ionic Going</a></li>            
         
-          <li><a href="/2017/10/09/slack-hubot-use-py-or-js/">Slack-Hubot-use-py-or-js</a></li>            
+          <li><a href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">让你的py优雅</a></li>            
         
-          <li><a href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python核心编程第三版-第二章代码运行 问题解决</a></li>            
+          <li><a href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">npx 不用下载全局包啦</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -275,12 +275,12 @@
           </header>
           <section class="post-card-excerpt">
               
-                <p>区别 浏览器   Chrome + Firefox   1function local() { 2	this.a = 7; 3	var a = 2; 4	this.a = 7; 5	console.log(a); 6	return this; 7} 8var local1 = local(); 9console.log(a); 10local1 == this ? console.log(a) : console.log(0); 11 输出结果：
-12 27 37  也就是说，浏览器，认为 local 函数返回的 this
+                <p>区别 浏览器   Chrome + Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 == this ? console.log(a) : console.log(0);  输出结果：
+2 7 7  也就是说，浏览器，认为 local 函数返回的 this
  和 window，总this 是相同的！
   node v6.9.2
  对于同样的代码
- 1function local() { 2	this.a = 7; 3	var a = 2; 4	this. ...  </p>
+ function local() { this.a = 7; var a = 2; this. ...  </p>
               
           </section>
       </a>
@@ -296,7 +296,7 @@
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 

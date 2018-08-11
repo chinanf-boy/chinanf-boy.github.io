@@ -15,7 +15,7 @@
      <meta name="description" content="conda  是 Anaconda 的 命令行
  因为使用zsh终端后，conda路径失去了
 ohmyzsh
-1$ conda 2conda command not found 解决 1export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; 2 3source " /> 
+$ conda conda command not found 解决 export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; source ~/.zsh" /> 
 
      
     
@@ -26,7 +26,7 @@ ohmyzsh
     <meta name="twitter:description" content="conda  是 Anaconda 的 命令行
  因为使用zsh终端后，conda路径失去了
 ohmyzsh
-1$ conda 2conda command not found 解决 1export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; 2 3source "/>
+$ conda conda command not found 解决 export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; source ~/.zsh"/>
     <meta name="twitter:url" content="/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/" />
     <meta name="twitter:site" content="@"/>
 
@@ -39,7 +39,7 @@ ohmyzsh
     <meta property="og:description" content="conda  是 Anaconda 的 命令行
  因为使用zsh终端后，conda路径失去了
 ohmyzsh
-1$ conda 2conda command not found 解决 1export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; 2 3source " />
+$ conda conda command not found 解决 export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; source ~/.zsh" />
 
     <meta property="article:published_time" content="2017-08-12T09:58:18Z" />
     <meta property="article:tag" content="zsh" /><meta property="article:tag" content="Anaconda" /><meta property="article:tag" content="conda" />
@@ -122,7 +122,7 @@ ohmyzsh
         <h1 class="post-full-title">Anaconda conda command not found : 解决</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -138,20 +138,20 @@ ohmyzsh
 <p>因为使用<strong>zsh</strong>终端后，conda路径失去了</p>
 
 <p><a href="https://github.com/robbyrussell/oh-my-zsh">ohmyzsh</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>$ conda
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>conda <span style="color:#8be9fd;font-style:italic">command</span> not found</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ conda
+conda <span style="color:#8be9fd;font-style:italic">command</span> not found</code></pre></div>
 <h2 id="解决">解决</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>export PATH=&#34;/home/username/miniconda/bin:$PATH&#34;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>source ~/.zshrc</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">export PATH=&#34;/home/username/miniconda/bin:$PATH&#34;
+
+source ~/.zshrc</pre></div>
 <blockquote>
 <p>zsh中 .zshrc</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#6272a4">//error:
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">export</span> PATH <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;/home/username/miniconda/bin:$PATH&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span><span style="color:#6272a4">//right
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#6272a4"></span><span style="color:#ff79c6">export</span> PATH<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/home/username/miniconda/bin:$PATH&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#6272a4">//error:
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">export</span> PATH <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;/home/username/miniconda/bin:$PATH&#34;</span>
+
+<span style="color:#6272a4">//right
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">export</span> PATH<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/home/username/miniconda/bin:$PATH&#34;</span>
+</code></pre></div>
 <p>不要保持良好的代码格式,会出错</p>
 </blockquote>
 
@@ -200,13 +200,13 @@ ohmyzsh
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">pip npm conda 换下载源</a></li>            
+          <li><a href="/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/">ory-editer 网页编辑器-基于react</a></li>            
         
-          <li><a href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">babel 继承 Es5</a></li>            
+          <li><a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">hexo-disqus-proxy-heroku 发布 感觉一般般</a></li>            
         
-          <li><a href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">js原型与构造</a></li>            
+          <li><a href="/2014/09/25/wonderful/">Wonderful</a></li>            
         
-          <li><a href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">放原网页首页进来</a></li>            
+          <li><a href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">vscode 扩展Api实践</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -236,11 +236,11 @@ ohmyzsh
               
                 <p>当在windows和Mac上，练习对应的代码时
 非常明显的错误就在于 传输类型
-1TypeError: a bytes-like object is required, not &#39;str&#39; 2 3TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &#39;str 45self.wfile.write(b&#39;[%s] %s&#39; % (bytes(ctime(), &#39;utf-8&#39;), bytes(self.rfile.readline(), &#39;utf-8&#39;))) 6TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
+TypeError: a bytes-like object is required, not &#39;str&#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &#39;str self.wfile.write(b&#39;[%s] %s&#39; % (bytes(ctime(), &#39;utf-8&#39;), bytes(self.rfile.readline(), &#39;utf-8&#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
 所以需要使用
  bytes() 函数
  以下是可以正常运行的代码
-1from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) 2from time import ctime 3 4HOST = &#34;&#34; 5PORT = 21467 6BUFSIZ = 1024 7ADDR = (HOST, PORT) 8 9class MyRequestHandler(SRH): 10 def handle(self): 11 print(&#39;connect. ...  </p>
+from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &#34;&#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&#39;connect. ...  </p>
               
           </section>
       </a>
@@ -269,7 +269,7 @@ ohmyzsh
           <section class="post-card-excerpt">
               
                 <p> Preact webSite
-See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  1import { h, render, Component } from &#39;preact&#39; 2 </p>
+See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { h, render, Component } from &#39;preact&#39;  </p>
               
           </section>
       </a>

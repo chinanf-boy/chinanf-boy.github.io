@@ -13,7 +13,7 @@
     <link rel="canonical" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/" />
 
      <meta name="description" content="&lt;h1 id=&#34;npm-和-git-补全噢&#34;&gt;npm 和 git 补全噢😯&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;" /> 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;n" /> 
 
      
     
@@ -22,7 +22,7 @@
  
     <meta name="twitter:title" content="zsh completion tab 补全提示"/>
     <meta name="twitter:description" content="&lt;h1 id=&#34;npm-和-git-补全噢&#34;&gt;npm 和 git 补全噢😯&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;"/>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;n"/>
     <meta name="twitter:url" content="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/" />
     <meta name="twitter:site" content="@"/>
 
@@ -33,7 +33,7 @@
 
     <meta property="og:type" content="article" />
     <meta property="og:description" content="&lt;h1 id=&#34;npm-和-git-补全噢&#34;&gt;npm 和 git 补全噢😯&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;" />
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;n" />
 
     <meta property="article:published_time" content="2017-11-14T14:17:47Z" />
     <meta property="article:tag" content="npm" /><meta property="article:tag" content="zsh" />
@@ -116,20 +116,20 @@
         <h1 class="post-full-title">zsh completion tab 补全提示</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <h1 id="npm-和-git-补全噢">npm 和 git 补全噢😯</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm &lt;Tab&gt; </pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm &lt;Tab&gt; </pre></div>
 <p>会补全命令</p>
 
 <p><code>npm</code>实现代码
 <a href="https://github.com/npm/npm/blob/master/lib/utils/completion.sh">https://github.com/npm/npm/blob/master/lib/utils/completion.sh</a></p>
 
 <p>or</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm completion</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm completion</code></pre></div>
 <hr />
 
 <p><code>git</code> 实现代码</p>
@@ -146,12 +146,12 @@
 <p>首先定义一个<code>可执行文件 sh</code></p>
 
 <p>test_completion.sh</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>if type compdef &amp;&gt;/dev/null; then
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    _test_completion() {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    compdef _test_completion npm</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if type compdef &amp;&gt;/dev/null; then
+
+    _test_completion() {
+    }
+
+    compdef _test_completion npm</pre></div>
 <p>当你运行上面 什么都没有的 文件时</p>
 
 <p>or 复制 <code>then</code> 后面那段代码，粘贴到 命令行运行也可以。</p>
@@ -199,9 +199,9 @@
 <hr />
 
 <h2 id="补全规则">补全规则</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>_test_completion(){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>}</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">_test_completion(){
+
+}</pre></div>
 <blockquote>
 <p>zsh 实现了 简便的 命令添加-函数</p>
 </blockquote>
@@ -209,11 +209,11 @@
 <h2 id="compadd">compadd</h2>
 
 <p>源代码中主要</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>    compadd -- <span style="color:#ff79c6">$(</span><span style="color:#8be9fd;font-style:italic">COMP_CWORD</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$((</span>CURRENT-1<span style="color:#ff79c6">))</span> <span style="color:#f1fa8c">\
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_LINE</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$BUFFER</span> <span style="color:#f1fa8c">\
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_POINT</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> <span style="color:#f1fa8c">\
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span><span style="color:#f1fa8c"></span>                 npm completion -- <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">words</span>[@]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#f1fa8c">\
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#f1fa8c"></span>                 <span style="color:#bd93f9">2</span>&gt;/dev/null<span style="color:#ff79c6">)</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">    compadd -- <span style="color:#ff79c6">$(</span><span style="color:#8be9fd;font-style:italic">COMP_CWORD</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$((</span>CURRENT-1<span style="color:#ff79c6">))</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_LINE</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$BUFFER</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_POINT</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 npm completion -- <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">words</span>[@]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#bd93f9">2</span>&gt;/dev/null<span style="color:#ff79c6">)</span></code></pre></div>
 <p>这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义</p>
 
 <blockquote>
@@ -229,31 +229,31 @@
 <blockquote>
 <p>示例</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>    _test_completion<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>        compadd -- install
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    compdef _test_completion npm </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>$ npm &lt;tab&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>$ npm install</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">    _test_completion<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+        compadd -- install
+    <span style="color:#ff79c6">}</span>
+    compdef _test_completion npm </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm &lt;tab&gt;
+
+$ npm install</code></pre></div>
 <p>噢 那么就会提示 install</p>
 
 <blockquote>
 <p>再试试</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>    _test_completion() {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>        echo &#34;${words[@]}&#34; 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>        echo $CURRENT
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>        echo $BUFFER
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>        compadd -- install up
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>    compdef _test_completion npm </pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    _test_completion() {
+        echo &#34;${words[@]}&#34; 
+        echo $CURRENT
+        echo $BUFFER
+        compadd -- install up
+    }
+    compdef _test_completion npm </pre></div>
 <p></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>$ npm &lt;tab&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>$ npm 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>install up</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ npm &lt;tab&gt;
+
+$ npm 
+install up</pre></div>
 <p>噢😯, 那么问题也就是说下面代码</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm completion -- &#34;${words[@]}&#34;</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm completion -- &#34;${words[@]}&#34;</pre></div>
 <p>返回的就是一串 命令 <code>install up </code>之类.</p>
 
 <hr />
@@ -265,20 +265,20 @@
 <hr />
 
 <p>不过最重要的是</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>$ npm run &lt;tab&gt;</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ npm run &lt;tab&gt;</pre></div>
 <p>会根据 <code>package.json</code> 文件的变化</p>
 
 <p>我想 秘密就在</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>    compadd -- <span style="color:#ff79c6">$(</span><span style="color:#8be9fd;font-style:italic">COMP_CWORD</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$((</span>CURRENT-1<span style="color:#ff79c6">))</span> <span style="color:#f1fa8c">\
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_LINE</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$BUFFER</span> <span style="color:#f1fa8c">\
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_POINT</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> <span style="color:#f1fa8c">\
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span><span style="color:#f1fa8c"></span>                 npm completion -- <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">words</span>[@]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#f1fa8c">\
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#f1fa8c"></span>                 <span style="color:#bd93f9">2</span>&gt;/dev/null<span style="color:#ff79c6">)</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    compadd -- <span style="color:#ff79c6">$(</span><span style="color:#8be9fd;font-style:italic">COMP_CWORD</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$((</span>CURRENT-1<span style="color:#ff79c6">))</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_LINE</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$BUFFER</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_POINT</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 npm completion -- <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">words</span>[@]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#bd93f9">2</span>&gt;/dev/null<span style="color:#ff79c6">)</span></code></pre></div>
 <p>-</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>$ npm &lt;tab&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    // <span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">words</span>[@]<span style="color:#f1fa8c">}</span> <span style="color:#ff79c6">=</span> npm 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    // <span style="color:#8be9fd;font-style:italic">$CURRENT</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    // <span style="color:#8be9fd;font-style:italic">$BUFFER</span> <span style="color:#ff79c6">=</span> npm</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">$ npm &lt;tab&gt;
+    // <span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">words</span>[@]<span style="color:#f1fa8c">}</span> <span style="color:#ff79c6">=</span> npm 
+    // <span style="color:#8be9fd;font-style:italic">$CURRENT</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>
+    // <span style="color:#8be9fd;font-style:italic">$BUFFER</span> <span style="color:#ff79c6">=</span> npm</code></pre></div>
 <ul>
 <li>
 <code>zsh
@@ -299,9 +299,9 @@ $ npm run &lt;tab&gt;
 <h2 id="中的疑惑函数">中的疑惑函数</h2>
 
 <h2 id="bash-的判断">bash 的判断？？</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>if type complete &amp;&gt;/dev/null; then</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if type complete &amp;&gt;/dev/null; then</pre></div>
 <h2 id="命令返回-秘密所在">命令返回，秘密所在？？</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>elif type compctl &amp;&gt;/dev/null; then</pre></div>    
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">elif type compctl &amp;&gt;/dev/null; then</pre></div>    
         </div>
     </section>
 
@@ -343,13 +343,13 @@ $ npm run &lt;tab&gt;
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">heroku web  port 问题</a></li>            
-        
-          <li><a href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">js原型与构造</a></li>            
+          <li><a href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">Typescript类-转换学习</a></li>            
         
           <li><a href="/2017/01/11/tensorflow-by-google/">TensorFlow by Google</a></li>            
         
-          <li><a href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">中间件js实现</a></li>            
+          <li><a href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">highlight-css样式列表</a></li>            
+        
+          <li><a href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/">yarn no sudo 设置</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -382,7 +382,8 @@ $ npm run &lt;tab&gt;
  重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
  不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
 三部走
- 下载  1$ brew install hugo 2 3$ hugo version  创建  1$ hugo new site quickstart  加皮肤 themes  1cd quickstart;\ 2git init;\ 3git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\ 4 5# Edit your config.toml configuration file 6# and add the Ananke theme. 7echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章 ...  </p>
+ 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章
+hugo new posts/my-first-post. ...  </p>
               
           </section>
       </a>

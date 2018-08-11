@@ -34,9 +34,9 @@ Go 语言 官方并没有给出，repl 交互环境
  不过我想说得是   gophernotes jupyter Go 内核  没错，能在jupyter 上用内核，
  不过 -mac- 上无法使用
  但是你知道-docker 就十分方便了-也给出docker的入门中文
-1docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
+docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
 当你想与容器-gophernotes- 互通数据文件
-1docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes  -p 端口互通
+docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes  -p 端口互通
  --mount 可以文件夹互通
  source 本地存在的文件夹 要自己新建
  target 容器的文件夹
@@ -52,12 +52,12 @@ Go 语言 官方并没有给出，repl 交互环境
       <description> direnv 它可以让你明白一个目录的意思，
 简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
 比如我 zsh
-1# Add direnv hook 2eval &amp;#34;$(direnv hook zsh)&amp;#34; 当然前提是要下载，在github 上就有很详细
-1cd/my_project 2echo &amp;#34;echo &amp;#39;hello this is my project&amp;#39;&amp;#34; &amp;gt;&amp;gt; .envrc 3direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
+# Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; 当然前提是要下载，在github 上就有很详细
+cd/my_project echo &amp;#34;echo &amp;#39;hello this is my project&amp;#39;&amp;#34; &amp;gt;&amp;gt; .envrc direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
 问题: 不需要 unloading or loading .envrc 之类的日志输出时。
 .zshrc
-1# Add direnv hook 2eval &amp;#34;$(direnv hook zsh)&amp;#34; 3# remove direnv log loading 4export DIRENV_LOG_FORMAT= 原文，
-1direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 2 3在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 4 5因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。</description>
+# Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
+direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。</description>
     </item>
     
     <item>
@@ -70,7 +70,8 @@ Go 语言 官方并没有给出，repl 交互环境
  重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
  不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
 三部走
- 下载  1$ brew install hugo 2 3$ hugo version  创建  1$ hugo new site quickstart  加皮肤 themes  1cd quickstart;\ 2git init;\ 3git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\ 4 5# Edit your config.toml configuration file 6# and add the Ananke theme. 7echo &amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml 噢不止三步, 那四部 - 加文章</description>
+ 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml 噢不止三步, 那四部 - 加文章
+hugo new posts/my-first-post.</description>
     </item>
     
     <item>

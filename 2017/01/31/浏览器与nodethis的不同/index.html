@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="canonical" href="/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/" />
 
-     <meta name="description" content="区别 浏览器   Chrome &#43; Firefox   1function local() { 2	this.a = 7; 3	var a = 2; 4	this.a = 7; 5	console.log(a); 6	return this; 7} 8var local1 = local(); 9console.log" /> 
+     <meta name="description" content="区别 浏览器   Chrome &#43; Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 ==" /> 
 
      
     
@@ -21,7 +21,7 @@
     
  
     <meta name="twitter:title" content="浏览器与node，this，的不同"/>
-    <meta name="twitter:description" content="区别 浏览器   Chrome &#43; Firefox   1function local() { 2	this.a = 7; 3	var a = 2; 4	this.a = 7; 5	console.log(a); 6	return this; 7} 8var local1 = local(); 9console.log"/>
+    <meta name="twitter:description" content="区别 浏览器   Chrome &#43; Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 =="/>
     <meta name="twitter:url" content="/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/" />
     <meta name="twitter:site" content="@"/>
 
@@ -31,7 +31,7 @@
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="区别 浏览器   Chrome &#43; Firefox   1function local() { 2	this.a = 7; 3	var a = 2; 4	this.a = 7; 5	console.log(a); 6	return this; 7} 8var local1 = local(); 9console.log" />
+    <meta property="og:description" content="区别 浏览器   Chrome &#43; Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 ==" />
 
     <meta property="article:published_time" content="2017-01-31T15:31:15Z" />
     <meta property="article:tag" content="node" /><meta property="article:tag" content="函数" />
@@ -131,21 +131,21 @@
 <li>Chrome + Firefox</li>
 </ul>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#8be9fd;font-style:italic">function</span> local() {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>	<span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>	console.log(a);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#8be9fd;font-style:italic">var</span> local1 <span style="color:#ff79c6">=</span> local();
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>console.log(a);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>local1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">this</span> <span style="color:#ff79c6">?</span> console.log(a) <span style="color:#ff79c6">:</span> console.log(<span style="color:#bd93f9">0</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">function</span> local() {
+	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+	<span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>;
+	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+	console.log(a);
+	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>;
+}
+<span style="color:#8be9fd;font-style:italic">var</span> local1 <span style="color:#ff79c6">=</span> local();
+console.log(a);
+local1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">this</span> <span style="color:#ff79c6">?</span> console.log(a) <span style="color:#ff79c6">:</span> console.log(<span style="color:#bd93f9">0</span>);
+</code></pre></div>
 <p>输出结果：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>2
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>7
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>7</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">2
+7
+7</pre></div>
 <ul>
 <li><p>也就是说，浏览器，认为 <code>local</code> 函数返回的 <code>this</code></p></li>
 
@@ -159,22 +159,22 @@
 <blockquote>
 <p>对于同样的代码</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#8be9fd;font-style:italic">function</span> local() {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>	<span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>	console.log(a);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#8be9fd;font-style:italic">var</span> local1 <span style="color:#ff79c6">=</span> local();
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>console.log(a);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>local1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">this</span> <span style="color:#ff79c6">?</span> console.log(a) <span style="color:#ff79c6">:</span> console.log(<span style="color:#bd93f9">0</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">function</span> local() {
+	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+	<span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>;
+	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+	console.log(a);
+	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>;
+}
+<span style="color:#8be9fd;font-style:italic">var</span> local1 <span style="color:#ff79c6">=</span> local();
+console.log(a);
+local1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">this</span> <span style="color:#ff79c6">?</span> console.log(a) <span style="color:#ff79c6">:</span> console.log(<span style="color:#bd93f9">0</span>);
+</code></pre></div>
 <p>输出结果:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>2
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>7
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>0
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>[Finished in 0.7s]</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">2
+7
+0
+[Finished in 0.7s]</pre></div>
 <ul>
 <li><p>也就是说，浏览器，认为 <code>local</code> 函数返回的 <code>this</code></p></li>
 
@@ -182,9 +182,9 @@
 
 <li><p>其实是因为</p></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>console.log(<span style="color:#ff79c6">this</span>);<span style="color:#6272a4">//{}
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#6272a4"></span>console.log(global);<span style="color:#6272a4">//才是全局变量。在node中！
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#6272a4"></span></code></pre></div>    
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#ff79c6">this</span>);<span style="color:#6272a4">//{}
+</span><span style="color:#6272a4"></span>console.log(global);<span style="color:#6272a4">//才是全局变量。在node中！
+</span><span style="color:#6272a4"></span></code></pre></div>    
         </div>
     </section>
 
@@ -226,15 +226,13 @@
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">pipenv 快速构建虚拟python环境</a></li>            
+          <li><a href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">position sticky 粘连定位</a></li>            
         
-          <li><a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">hexo-disqus-proxy-heroku 发布 感觉一般般</a></li>            
+          <li><a href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">pip npm conda 换下载源</a></li>            
         
-          <li><a href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">highlight-css样式列表</a></li>            
+          <li><a href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">React事件与原生事件</a></li>            
         
-                      
-        
-          <li><a href="/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/">pm2 window 开机启动</a></li>            
+          <li><a href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/">Hyper open in finder and 服务</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -264,8 +262,8 @@
               
                 <p>#对象／构造／原型
  对象 &ndash; 原型  all 浏览器 获取原型方法
-1var a = {}; 2//a.prototype 无法获取——原型 3 4a.constructor.prototype;// Object {} 5 6a.constructor// function Object() { [native code] } 7  函数 &ndash; 构造 + 原型  1var a = function(){}; 2	//函数可以直接 prototype 3a.prototype// Object {}; 4 5a.constructor// function Function() { [native code] } 6  上面可以看出，构造都是函数
-  对象 &gt; 构造函数 &gt; 函数 。。  1var b = {}; 2b// Object {} 3b. ...  </p>
+var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// Object {}  a.constructor// function Object() { [native code] }   函数 &ndash; 构造 + 原型  var a = function(){}; //函数可以直接 prototype a.prototype// Object {};  a.constructor// function Function() { [native code] }   上面可以看出，构造都是函数
+  对象 &gt; 构造函数 &gt; 函数 。。  var b = {}; b// Object {} b. ...  </p>
               
           </section>
       </a>
@@ -281,7 +279,7 @@
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/01/19/translate%E4%B8%8Erotate/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -299,7 +297,7 @@
                 <p>translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
 一：translate  translate 在 canvas中定义了，画框的位置
  比如
-1 &lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; 2 &lt;script&gt;; 3 var c = document.getElementById(&#34;myCanvas&#34;); 4 var ctx = c.getContext(&#34;2d&#34;); 5 ctx.fillRect(10, 10, 100, 50); 6 ctx.translate(150, 75); 7 ctx.fillRect(10, 10, 100, 50); 8 &lt;/script&gt;&lt;/canvas&gt;; 91&gt; 定义一个宽300px，高150px的画布  1 在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); 2 3 translate(150,75)命令 4 5 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 6 7 此时，如果再画一个矩形，那么，位置，也会发生改变 8 9 画布并没有改变，但是，观察画布的位置发生了变化 10 11 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口 二：rotate 1 &lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; 2 &lt;script&gt; 3 var c = document. ...  </p>
+&lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt;; var c = document.getElementById(&#34;myCanvas&#34;); var ctx = c.getContext(&#34;2d&#34;); ctx.fillRect(10, 10, 100, 50); ctx.translate(150, 75); ctx.fillRect(10, 10, 100, 50); &lt;/script&gt;&lt;/canvas&gt;; &gt; 定义一个宽300px，高150px的画布  在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); translate(150,75)命令 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 此时，如果再画一个矩形，那么，位置，也会发生改变 画布并没有改变，但是，观察画布的位置发生了变化 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口 二：rotate &lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt; var c = document. ...  </p>
               
           </section>
       </a>

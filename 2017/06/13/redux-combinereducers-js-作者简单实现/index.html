@@ -14,7 +14,7 @@
 
      <meta name="description" content=" 来源 Redux作者入门教程
 combineReducers  js 简单实现
- 1const combineReducers = (reducers) =&amp;gt;{ 2 return (state = {}, action) =&amp;gt;{ 3 return Object.Keys(reducers).reduce(" /> 
+ const combineReducers = (reducers) =&amp;gt;{ return (state = {}, action) =&amp;gt;{ return Object.Keys(reducers).reduce( (nex" /> 
 
      
     
@@ -25,7 +25,7 @@ combineReducers  js 简单实现
     <meta name="twitter:title" content="Redux combineReducers js 作者简单实现"/>
     <meta name="twitter:description" content=" 来源 Redux作者入门教程
 combineReducers  js 简单实现
- 1const combineReducers = (reducers) =&amp;gt;{ 2 return (state = {}, action) =&amp;gt;{ 3 return Object.Keys(reducers).reduce("/>
+ const combineReducers = (reducers) =&amp;gt;{ return (state = {}, action) =&amp;gt;{ return Object.Keys(reducers).reduce( (nex"/>
     <meta name="twitter:url" content="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" />
     <meta name="twitter:site" content="@"/>
 
@@ -37,7 +37,7 @@ combineReducers  js 简单实现
     <meta property="og:type" content="article" />
     <meta property="og:description" content=" 来源 Redux作者入门教程
 combineReducers  js 简单实现
- 1const combineReducers = (reducers) =&amp;gt;{ 2 return (state = {}, action) =&amp;gt;{ 3 return Object.Keys(reducers).reduce(" />
+ const combineReducers = (reducers) =&amp;gt;{ return (state = {}, action) =&amp;gt;{ return Object.Keys(reducers).reduce( (nex" />
 
     <meta property="article:published_time" content="2017-06-13T10:39:06Z" />
     <meta property="article:tag" content="Redux" /><meta property="article:tag" content="javascript" />
@@ -135,22 +135,22 @@ combineReducers  js 简单实现
 <blockquote>
 <p>js 简单实现</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">const</span> combineReducers <span style="color:#ff79c6">=</span> (reducers) =&gt;{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    <span style="color:#ff79c6">return</span> (state <span style="color:#ff79c6">=</span> {}, action) =&gt;{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>        <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">Object</span>.Keys(reducers).reduce(
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>            (nextState, key) =&gt;{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>                nextState[key] <span style="color:#ff79c6">=</span> reducers[key](
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>                    state[key], 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>                    action
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>                );
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>                <span style="color:#ff79c6">return</span> nextState;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>            }, {})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>    };
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span></code></pre></div>    
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> combineReducers <span style="color:#ff79c6">=</span> (reducers) =&gt;{
+    <span style="color:#ff79c6">return</span> (state <span style="color:#ff79c6">=</span> {}, action) =&gt;{
+        <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">Object</span>.Keys(reducers).reduce(
+
+            (nextState, key) =&gt;{
+
+                nextState[key] <span style="color:#ff79c6">=</span> reducers[key](
+                    state[key], 
+                    action
+                );
+                <span style="color:#ff79c6">return</span> nextState;
+
+            }, {})
+    };
+};
+</code></pre></div>    
         </div>
     </section>
 
@@ -192,15 +192,13 @@ combineReducers  js 简单实现
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">放原网页首页进来</a></li>            
+          <li><a href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">sublime text 插件：color Highlighter</a></li>            
         
-          <li><a href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ionic 项目 npm问题解决</a></li>            
+          <li><a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">hexo-disqus-proxy-heroku 发布 感觉一般般</a></li>            
         
-          <li><a href="/2017/11/15/hugo-i18n/">hugo i18n </a></li>            
+          <li><a href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python核心编程第三版-第二章代码运行 问题解决</a></li>            
         
-                      
-        
-          <li><a href="/2017/03/15/webpack-less-autoprefixer/">webpack&#43;less&#43;Autoprefixer</a></li>            
+          <li><a href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">批量修改文件名-cmd:bash</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -230,7 +228,7 @@ combineReducers  js 简单实现
 React-Redux  两个主要 Api Provider connect
  先放一边
 React 的 context context 实现了，一个全局变量
-1const PropTypes = require(&#39;prop-types&#39;); 2 3class Button extends React.Component { 4 render() { 5 return ( 6 //################ 7 &lt;button style={{background: this.context.color}}&gt; 8 9 {this.props.children} 10 &lt;/button&gt; 11 ); 12 } 13} 14 //################ 15Button.contextTypes = { 16 color: PropTypes.string 17}; 18 19class Message extends React.Component { 20 render() { 21 return ( 22 &lt;div&gt; 23 {this. ...  </p>
+const PropTypes = require(&#39;prop-types&#39;); class Button extends React.Component { render() { return ( //################ &lt;button style={{background: this.context.color}}&gt; {this.props.children} &lt;/button&gt; ); } } //################ Button.contextTypes = { color: PropTypes.string }; class Message extends React.Component { render() { return ( &lt;div&gt; {this.props.text} &lt;Button&gt;Delete&lt;/Button&gt; &lt;/div&gt; ); } } class MessageList extends React.Component { //################  getChildContext() { return {color: &#34;purple&#34;}; } render() { const children = this. ...  </p>
               
           </section>
       </a>
@@ -265,7 +263,7 @@ React 的 context context 实现了，一个全局变量
 如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
  简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
  数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-1const app = { 2 callback (ctx) { 3 console.log(ctx) 4 }, 5 6 use (fn) { 7 /* TODO */ 8 }, 9 10 go (ctx) { 11 /* TODO */ 12 } 13} 14 15app.use((ctx, next) =&gt; { 16 ctx.name = &#39;Lucy&#39; 17 next() 18}) 19 20app.use((ctx, next) =&gt; { 21 ctx.age = 12 22 next() 23}) 24 25app. ...  </p>
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
               
           </section>
       </a>

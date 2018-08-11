@@ -14,7 +14,7 @@
 
      <meta name="description" content="实例 我们用一个实例，发现，原生与 react事件 冲突
 JS Bin on jsbin.com
-原生事件 1 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ 2 this.setState({s1:!this.state.s1}) 3 alert(&amp;#" /> 
+原生事件 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ this.setState({s1:!this.state.s1}) alert(&amp;#39;bod" /> 
 
      
     
@@ -25,7 +25,7 @@ JS Bin on jsbin.com
     <meta name="twitter:title" content="React事件与原生事件"/>
     <meta name="twitter:description" content="实例 我们用一个实例，发现，原生与 react事件 冲突
 JS Bin on jsbin.com
-原生事件 1 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ 2 this.setState({s1:!this.state.s1}) 3 alert(&amp;#"/>
+原生事件 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ this.setState({s1:!this.state.s1}) alert(&amp;#39;bod"/>
     <meta name="twitter:url" content="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/" />
     <meta name="twitter:site" content="@"/>
 
@@ -37,7 +37,7 @@ JS Bin on jsbin.com
     <meta property="og:type" content="article" />
     <meta property="og:description" content="实例 我们用一个实例，发现，原生与 react事件 冲突
 JS Bin on jsbin.com
-原生事件 1 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ 2 this.setState({s1:!this.state.s1}) 3 alert(&amp;#" />
+原生事件 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ this.setState({s1:!this.state.s1}) alert(&amp;#39;bod" />
 
     <meta property="article:published_time" content="2017-06-04T16:03:08Z" />
     <meta property="article:tag" content="react" /><meta property="article:tag" content="事件" />
@@ -135,23 +135,23 @@ JS Bin on jsbin.com
 <p><a class="jsbin-embed" href="http://jsbin.com/cezomip/embed?js,console,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?4.0.2"></script></p>
 
 <h2 id="原生事件">原生事件</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>   <span style="color:#8be9fd;font-style:italic">document</span>.body.addEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>, e =&gt;{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>  <span style="color:#ff79c6">this</span>.setState({s1<span style="color:#ff79c6">:!</span><span style="color:#ff79c6">this</span>.state.s1})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>      alert(<span style="color:#f1fa8c">&#39;body&#39;</span>,e.target.alt,e.target.value)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>      console.log(<span style="color:#f1fa8c">&#39;body&#39;</span>,e.target.alt,e.target.value)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>      
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    })
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">   <span style="color:#8be9fd;font-style:italic">document</span>.body.addEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>, e =&gt;{
+  <span style="color:#ff79c6">this</span>.setState({s1<span style="color:#ff79c6">:!</span><span style="color:#ff79c6">this</span>.state.s1})
+      alert(<span style="color:#f1fa8c">&#39;body&#39;</span>,e.target.alt,e.target.value)
+      console.log(<span style="color:#f1fa8c">&#39;body&#39;</span>,e.target.alt,e.target.value)
+      
+    })
+</code></pre></div>
 <!-- more -->
 
 <h2 id="react事件">react事件</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>onSubmit(e){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>  alert(<span style="color:#f1fa8c">&#39;onsubmit&#39;</span>, e.target.value)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>  <span style="color:#ff79c6">this</span>.setState({s1<span style="color:#ff79c6">:!</span><span style="color:#ff79c6">this</span>.state.s1})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#6272a4">//...
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span><span style="color:#6272a4"></span><span style="color:#ff79c6">&lt;</span>input id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;qr&#39;</span> value<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;二维码&#39;</span> type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;button&#34;</span> onClick<span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.onSubmit} /&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">onSubmit(e){
+  alert(<span style="color:#f1fa8c">&#39;onsubmit&#39;</span>, e.target.value)
+  <span style="color:#ff79c6">this</span>.setState({s1<span style="color:#ff79c6">:!</span><span style="color:#ff79c6">this</span>.state.s1})
+}
+<span style="color:#6272a4">//...
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">&lt;</span>input id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;qr&#39;</span> value<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;二维码&#39;</span> type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;button&#34;</span> onClick<span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.onSubmit} /&gt;
+</code></pre></div>
 <h2 id="点击二维码">点击二维码</h2>
 
 <p>可以看到，事件从<code>body</code>开始，<code>div.qr</code> -&gt;<code>div.root</code></p>
@@ -201,36 +201,36 @@ JS Bin on jsbin.com
 <blockquote>
 <p>用了，原生事件要移除</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>  componentWillUnmount(){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#8be9fd;font-style:italic">document</span>.body.removeEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  componentWillUnmount(){
+    <span style="color:#8be9fd;font-style:italic">document</span>.body.removeEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>);
+  }
+</code></pre></div>
 <p>或者
 2. 在 body</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>   <span style="color:#8be9fd;font-style:italic">document</span>.body.addEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>, e =&gt;{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>    alert(<span style="color:#f1fa8c">&#39;body&#39;</span>,e.target.alt,e.target.value)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    console.log(<span style="color:#f1fa8c">&#39;body&#39;</span>,e.target.alt,e.target.value)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>      <span style="color:#6272a4">//： 判断
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span><span style="color:#6272a4"></span>      <span style="color:#ff79c6">if</span>(e.target.alt <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;img&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>        <span style="color:#ff79c6">return</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    <span style="color:#ff79c6">this</span>.setState({s1<span style="color:#ff79c6">:</span><span style="color:#ff79c6">false</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>    })
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">   <span style="color:#8be9fd;font-style:italic">document</span>.body.addEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>, e =&gt;{
+
+    alert(<span style="color:#f1fa8c">&#39;body&#39;</span>,e.target.alt,e.target.value)
+    console.log(<span style="color:#f1fa8c">&#39;body&#39;</span>,e.target.alt,e.target.value)
+
+      <span style="color:#6272a4">//： 判断
+</span><span style="color:#6272a4"></span>      <span style="color:#ff79c6">if</span>(e.target.alt <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;img&#39;</span>)
+        <span style="color:#ff79c6">return</span>
+
+    <span style="color:#ff79c6">this</span>.setState({s1<span style="color:#ff79c6">:</span><span style="color:#ff79c6">false</span>})
+
+    })
+</code></pre></div>
 <h3 id="react事件的冒泡也是个问题">react事件的冒泡也是个问题</h3>
 
 <p>可以用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>  onSubmit3(e){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>      <span style="color:#6272a4">//阻止事件冒泡
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#6272a4"></span>      <span style="color:#6272a4">// body -&gt; div.code -//-&gt; div.root
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span><span style="color:#6272a4"></span>    e.stopPropagation();
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    alert(<span style="color:#f1fa8c">&#39;div.code&#39;</span>, e.target.alt)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span></code></pre></div>    
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  onSubmit3(e){
+      <span style="color:#6272a4">//阻止事件冒泡
+</span><span style="color:#6272a4"></span>      <span style="color:#6272a4">// body -&gt; div.code -//-&gt; div.root
+</span><span style="color:#6272a4"></span>    e.stopPropagation();
+
+    alert(<span style="color:#f1fa8c">&#39;div.code&#39;</span>, e.target.alt)
+}
+</code></pre></div>    
         </div>
     </section>
 
@@ -272,13 +272,13 @@ JS Bin on jsbin.com
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/">如何将完整的文件夹放进hugo</a></li>            
+          <li><a href="/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/">ory-editer 网页编辑器-基于react</a></li>            
         
-          <li><a href="/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/">浏览器与node，this，的不同</a></li>            
+          <li><a href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">Mac 使用 NTFS </a></li>            
         
-          <li><a href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">目录环境加载 direnv</a></li>            
+          <li><a href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">React-Redux 父-Provider 子-connect</a></li>            
         
-          <li><a href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">heroku web  port 问题</a></li>            
+          <li><a href="/2017/06/16/preact-%E5%B0%8Freact/">Preact 小React</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -311,7 +311,7 @@ JS Bin on jsbin.com
 如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
  简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
  数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-1const app = { 2 callback (ctx) { 3 console.log(ctx) 4 }, 5 6 use (fn) { 7 /* TODO */ 8 }, 9 10 go (ctx) { 11 /* TODO */ 12 } 13} 14 15app.use((ctx, next) =&gt; { 16 ctx.name = &#39;Lucy&#39; 17 next() 18}) 19 20app.use((ctx, next) =&gt; { 21 ctx.age = 12 22 next() 23}) 24 25app. ...  </p>
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
               
           </section>
       </a>
@@ -350,13 +350,13 @@ react, typescript, material-ui, redux, bootstrap
 单独一二项，看的明白，混在一起的. 科科
  虽然说，用react框架省去了些，步骤，redux做全局，meterial-ui 做 UI ，bootstrap 做 布局 部分，代码文件，后缀名是，.js 但是，应该是，用工具转代码的， 因为，变量数据格式，太凸显 ， 还是说用了其他的方式。
 editor/packages/renderer/src/index.js v0.2.10 line-8
-1const gridClass = (size: number = 12): string =&gt; 2 `ory-cell-sm-${size}ory-cell-xs-12` 3  eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
+const gridClass = (size: number = 12): string =&gt; `ory-cell-sm-${size}ory-cell-xs-12`   eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
  作者造搞了，自己的数据格式，主要通过 cells Raws
 状态是一个规范的JSON对象，不涉及HTML。
 也是为了，免xss威胁。
 行 列 去区分，显示
 editor/examples/src/content.js
-1export default [ 2 { 3 &#34;id&#34;: &#34;1&#34;, 4 &#34;cells&#34;: [ 5 { 6 &#34;id&#34;: &#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;, 7 &#34;inline&#34;: null, 8 &#34;size&#34;: 12, 9 &#34;rows&#34;: [ 10 { 11 &#34;id&#34;: &#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;, 12 &#34;cells&#34;: [ 13 { 14 &#34;id&#34;: &#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;, 15 &#34;inline&#34;: null, 16 &#34;size&#34;: 12, 17 用来对，服务器渲染，静态 ...  </p>
+export default [ { &#34;id&#34;: &#34;1&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12, &#34;rows&#34;: [ { &#34;id&#34;: &#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12,  用来对，服务器渲染，静态 ...  </p>
               
           </section>
       </a>

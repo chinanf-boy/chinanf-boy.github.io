@@ -136,8 +136,8 @@
    不同的是，配置结果，是为了，把less &gt; css + 补全浏览器前缀
 还有 babel js 语法
  postcss.config.js 启动补全前缀
-1module.exports = { 2 plugins: [ 3 require(&#39;autoprefixer&#39;) 4 ] 5} 6 webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
-1var path = require(&#39;path&#39;); 2var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;); 3const webpack = require(&#39;webpack&#39;); 4 5module.exports = { 6 entry: &#39;./app/index.js&#39;, 7 output: { 8 filename: &#39;bundle.js&#39;, 9 path: path. ...  </p>
+module.exports = { plugins: [ require(&#39;autoprefixer&#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
+var path = require(&#39;path&#39;); var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;); const webpack = require(&#39;webpack&#39;); module.exports = { entry: &#39;./app/index.js&#39;, output: { filename: &#39;bundle.js&#39;, path: path.resolve(__dirname, &#39;dist&#39;) }, module: { rules: [{ test: /\. ...  </p>
               
           </section>
       </a>

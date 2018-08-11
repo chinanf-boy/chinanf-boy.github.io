@@ -161,29 +161,29 @@ See the Pen CSS ICON: right double quote by braveyo " />
 </ul>
 
 <p>fire.html</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span> &lt;<span style="color:#ff79c6">html</span>&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>  &lt;<span style="color:#ff79c6">head</span>&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sketch.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>  &lt;/<span style="color:#ff79c6">head</span>&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>  &lt;<span style="color:#ff79c6">body</span>&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>  &lt;/<span style="color:#ff79c6">body</span>&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>&lt;/<span style="color:#ff79c6">html</span>&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#ff79c6">html</span>&gt;
+  &lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+    &lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sketch.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+  &lt;/<span style="color:#ff79c6">head</span>&gt;
+  &lt;<span style="color:#ff79c6">body</span>&gt;
+  &lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;</code></pre></div>
 <p>sketch.js</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#6272a4">// Global variables
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">function</span> setup() {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>  createCanvas(<span style="color:#bd93f9">640</span>, <span style="color:#bd93f9">480</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#8be9fd;font-style:italic">function</span> draw() {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>  <span style="color:#ff79c6">if</span> (mouseIsPressed) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    fill(<span style="color:#bd93f9">0</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>  } <span style="color:#ff79c6">else</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    fill(<span style="color:#bd93f9">255</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>  ellipse(mouseX, mouseY, <span style="color:#bd93f9">80</span>, <span style="color:#bd93f9">80</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">// Global variables
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">function</span> setup() {
+  createCanvas(<span style="color:#bd93f9">640</span>, <span style="color:#bd93f9">480</span>);
+}
+
+<span style="color:#8be9fd;font-style:italic">function</span> draw() {
+  <span style="color:#ff79c6">if</span> (mouseIsPressed) {
+    fill(<span style="color:#bd93f9">0</span>);
+  } <span style="color:#ff79c6">else</span> {
+    fill(<span style="color:#bd93f9">255</span>);
+  }
+  ellipse(mouseX, mouseY, <span style="color:#bd93f9">80</span>, <span style="color:#bd93f9">80</span>);
+}
+</code></pre></div>
 <p>就这样 就是上 显示的</p>
 
 <p>例子可以看 ：<a href="https://p5js.org/get-started/">p5 学习</a></p>
@@ -233,11 +233,11 @@ See the Pen CSS ICON: right double quote by braveyo " />
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/06/16/preact-%E5%B0%8Freact/">Preact 小React</a></li>            
+          <li><a href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">google 备份与同步 mac版无法登录问题</a></li>            
         
-          <li><a href="/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/">浏览器与node，this，的不同</a></li>            
+          <li><a href="/2017/03/15/webpack-less-autoprefixer/">webpack&#43;less&#43;Autoprefixer</a></li>            
         
-          <li><a href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">sublime text 插件：color Highlighter</a></li>            
+          <li><a href="/2017/10/09/slack-hubot-use-py-or-js/">Slack-Hubot-use-py-or-js</a></li>            
         
           <li><a href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">vscode 扩展Api实践</a></li>            
         </ul>
@@ -270,7 +270,7 @@ See the Pen CSS ICON: right double quote by braveyo " />
               
                 <p>react-router v4  react 的路由解决方案
  而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
-1 &lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
+&lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
 比如我的 域名 llever.com
 当应用直接放在 llever.com/ 的时候，会实用。
 但是 如果我想 放在 llever.com/about/

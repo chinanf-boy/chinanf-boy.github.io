@@ -158,9 +158,9 @@ react, typescript, material-ui, redux, bootstrap
 
 <p>editor/packages/renderer/src/index.js
 v0.2.10 line-<code>8</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">const</span> gridClass <span style="color:#ff79c6">=</span> (size<span style="color:#ff79c6">:</span> number <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">12</span>)<span style="color:#ff79c6">:</span> string =&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>  <span style="color:#f1fa8c">`ory-cell-sm-</span><span style="color:#f1fa8c">${</span>size<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> ory-cell-xs-12`</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> gridClass <span style="color:#ff79c6">=</span> (size<span style="color:#ff79c6">:</span> number <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">12</span>)<span style="color:#ff79c6">:</span> string =&gt;
+  <span style="color:#f1fa8c">`ory-cell-sm-</span><span style="color:#f1fa8c">${</span>size<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> ory-cell-xs-12`</span>
+</code></pre></div>
 <blockquote>
 <p>eslint 总 显示红线， 这个是<code>ts</code>的书写 啊，一坨的红线。</p>
 </blockquote>
@@ -174,28 +174,28 @@ v0.2.10 line-<code>8</code></p>
 <p><code>行</code> <code>列</code> 去区分，显示</p>
 
 <p>editor/examples/src/content.js</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> [
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>  {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>    <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;1&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    <span style="color:#f1fa8c">&#34;cells&#34;</span><span style="color:#ff79c6">:</span> [
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>      {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>        <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>        <span style="color:#f1fa8c">&#34;inline&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>        <span style="color:#f1fa8c">&#34;size&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">12</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>        <span style="color:#f1fa8c">&#34;rows&#34;</span><span style="color:#ff79c6">:</span> [
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>          {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>            <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>            <span style="color:#f1fa8c">&#34;cells&#34;</span><span style="color:#ff79c6">:</span> [
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>              {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>                <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>                <span style="color:#f1fa8c">&#34;inline&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>                <span style="color:#f1fa8c">&#34;size&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">12</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> [
+  {
+    <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;1&#34;</span>,
+    <span style="color:#f1fa8c">&#34;cells&#34;</span><span style="color:#ff79c6">:</span> [
+      {
+        <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;</span>,
+        <span style="color:#f1fa8c">&#34;inline&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
+        <span style="color:#f1fa8c">&#34;size&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">12</span>,
+        <span style="color:#f1fa8c">&#34;rows&#34;</span><span style="color:#ff79c6">:</span> [
+          {
+            <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;</span>,
+            <span style="color:#f1fa8c">&#34;cells&#34;</span><span style="color:#ff79c6">:</span> [
+              {
+                <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;</span>,
+                <span style="color:#f1fa8c">&#34;inline&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
+                <span style="color:#f1fa8c">&#34;size&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">12</span>,
+</code></pre></div>
 <p>用来对，服务器渲染，静态</p>
 
 <p>editor/examples/src/index.js line-<code>92</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>ReactDOM.render(<span style="color:#ff79c6">&lt;</span>HTMLRenderer state<span style="color:#ff79c6">=</span>{content[<span style="color:#bd93f9">0</span>]} plugins<span style="color:#ff79c6">=</span>{plugins} /&gt;, document.getElementById(&#39;editable-static&#39;))
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">ReactDOM.render(<span style="color:#ff79c6">&lt;</span>HTMLRenderer state<span style="color:#ff79c6">=</span>{content[<span style="color:#bd93f9">0</span>]} plugins<span style="color:#ff79c6">=</span>{plugins} /&gt;, document.getElementById(&#39;editable-static&#39;))
+</code></pre></div>
 <blockquote>
 <p>state = content[0] //就是上面的一串格式</p>
 
@@ -243,13 +243,13 @@ v0.2.10 line-<code>8</code></p>
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">React-Redux 父-Provider 子-connect</a></li>            
+          <li><a href="/2018/03/11/vue-slot-scope-2.5.-example/">vue slot-scope 2.5.* example</a></li>            
         
           <li><a href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">mo.js 专注动画</a></li>            
         
-          <li><a href="/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/">浏览器与node，this，的不同</a></li>            
+          <li><a href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">babel 继承 Es5</a></li>            
         
-          <li><a href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">中间件js实现</a></li>            
+          <li><a href="/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/">Macbook屏幕修理记</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -280,7 +280,7 @@ v0.2.10 line-<code>8</code></p>
               
                 <p>实例 我们用一个实例，发现，原生与 react事件 冲突
 JS Bin on jsbin.com
-原生事件 1 document.body.addEventListener(&#39;click&#39;, e =&gt;{ 2 this.setState({s1:!this.state.s1}) 3 alert(&#39;body&#39;,e.target.alt,e.target.value) 4 console.log(&#39;body&#39;,e.target.alt,e.target.value) 5 6 }) 7 react事件 1onSubmit(e){ 2 alert(&#39;onsubmit&#39;, e.target.value) 3 this.setState({s1:!this.state.s1}) 4} 5//... 6&lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt; 7 点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
+原生事件 document.body.addEventListener(&#39;click&#39;, e =&gt;{ this.setState({s1:!this.state.s1}) alert(&#39;body&#39;,e.target.alt,e.target.value) console.log(&#39;body&#39;,e.target.alt,e.target.value) })  react事件 onSubmit(e){ alert(&#39;onsubmit&#39;, e.target.value) this.setState({s1:!this.state.s1}) } //... &lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt;  点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
 实例的功能是
 点击二维码按钮，可以显示／隐藏，照片
  在，照片显示时
@@ -291,7 +291,8 @@ body -&gt; div.code -&gt; div.root
 由此说来，body,的优先级很大啊
 但是 可以看到console面板，我留在，body事件的输出语句
 二维码 是 div.qr 的 value 值。
- img 是 div. ...  </p>
+ img 是 div.code的 alt 值。
+ 以此可以看出，原生body事件是，触发了， 而 e.target 是 二维码按钮的实例. ...  </p>
               
           </section>
       </a>
@@ -323,7 +324,13 @@ body -&gt; div.code -&gt; div.root
           <section class="post-card-excerpt">
               
                 <p>继承 复制下面代码 - 点击https://babeljs.io/repl/
-1class b { 2 constructor(c,d){ 3 c = c+&#39;1111&#39;; 4 console.log(c,d); 5 } 6 start(){ 7 console.log(&#39;ba ba&#39;) 8 } 9} 10 11class a extends b { 12 constructor(c,b){ 13 super(c,b); 14 c = c+&#39;222222&#39;; 15 console.log(1,c,2,b); 16 return this.start; 17 } 18 start(){ 19 console.log(&#39;son&#39;); 20 } 21} 22 23var o1 = new a(&#39;first&#39;, &#39;second&#39;); 24 25console.log(&#39;------------------&#39;); 26console.log(o1.toString()); 27 -为了实现，相当于 类的 继承 问题，js 给 大众 ...  </p>
+class b { constructor(c,d){ c = c+&#39;1111&#39;; console.log(c,d); } start(){ console.log(&#39;ba ba&#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&#39;222222&#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&#39;son&#39;); } } var o1 = new a(&#39;first&#39;, &#39;second&#39;); console.log(&#39;------------------&#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
+一个 ， 丑陋的 写法，构造，与原型，的，概念.
+增加，初学者的入门，难度, 不过，好在，
+TypeScript babel 语法实现
+ coffeeScript 太极端了， 一堆空格。
+有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
+ 让我们不在需要，对，继承, ...  </p>
               
           </section>
       </a>

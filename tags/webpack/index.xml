@@ -23,8 +23,8 @@
    不同的是，配置结果，是为了，把less &amp;gt; css + 补全浏览器前缀
 还有 babel js 语法
  postcss.config.js 启动补全前缀
-1module.exports = { 2 plugins: [ 3 require(&amp;#39;autoprefixer&amp;#39;) 4 ] 5} 6 webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
-1var path = require(&amp;#39;path&amp;#39;); 2var ExtractTextPlugin = require(&amp;#39;extract-text-webpack-plugin&amp;#39;); 3const webpack = require(&amp;#39;webpack&amp;#39;); 4 5module.exports = { 6 entry: &amp;#39;./app/index.js&amp;#39;, 7 output: { 8 filename: &amp;#39;bundle.js&amp;#39;, 9 path: path.</description>
+module.exports = { plugins: [ require(&amp;#39;autoprefixer&amp;#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
+var path = require(&amp;#39;path&amp;#39;); var ExtractTextPlugin = require(&amp;#39;extract-text-webpack-plugin&amp;#39;); const webpack = require(&amp;#39;webpack&amp;#39;); module.exports = { entry: &amp;#39;./app/index.js&amp;#39;, output: { filename: &amp;#39;bundle.js&amp;#39;, path: path.resolve(__dirname, &amp;#39;dist&amp;#39;) }, module: { rules: [{ test: /\.</description>
     </item>
     
   </channel>

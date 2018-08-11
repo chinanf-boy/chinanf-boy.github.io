@@ -18,7 +18,7 @@
 而在 fackbook文档-web Component 中
 例子中
 x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-1" /> 
+c" /> 
 
      
     
@@ -33,7 +33,7 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
 而在 fackbook文档-web Component 中
 例子中
 x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-1"/>
+c"/>
     <meta name="twitter:url" content="/2017/04/21/react.component-use-class-or-classname/" />
     <meta name="twitter:site" content="@"/>
 
@@ -49,7 +49,7 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
 而在 fackbook文档-web Component 中
 例子中
 x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-1" />
+c" />
 
     <meta property="article:published_time" content="2017-04-21T13:32:14Z" />
     <meta property="article:tag" content="react" />
@@ -155,31 +155,31 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
 
 <p><code>x-search</code> 元素
 却是要使用 <strong>class</strong> 才能 赋予 <strong><code>css</code></strong> 正确的样式</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">class</span> HelloMessage3 <span style="color:#ff79c6">extends</span> React.Component {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>  render() {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">&lt;</span>div className<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new&#39;</span><span style="color:#ff79c6">&gt;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>      className<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new&#39;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>      <span style="color:#ff79c6">&lt;</span>x<span style="color:#ff79c6">-</span>search <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new2&#39;</span> <span style="color:#ff79c6">&gt;</span>{<span style="color:#ff79c6">this</span>.props.name}<span style="color:#ff79c6">&lt;</span>/x-search&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>      <span style="color:#ff79c6">&lt;</span>span className<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new2&#39;</span><span style="color:#ff79c6">&gt;</span>好<span style="color:#ff79c6">&lt;</span>/span&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>        <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new2&#39;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    <span style="color:#ff79c6">&lt;</span>/div&gt;;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>ReactDOM.render(
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>  <span style="color:#ff79c6">&lt;</span>HelloMessage name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;1&#39;</span> /&gt;,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>  <span style="color:#8be9fd;font-style:italic">document</span>.getElementById(<span style="color:#f1fa8c">&#39;root&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">class</span> HelloMessage3 <span style="color:#ff79c6">extends</span> React.Component {
+  render() {
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">&lt;</span>div className<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new&#39;</span><span style="color:#ff79c6">&gt;</span>
+      className<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new&#39;</span>
+      <span style="color:#ff79c6">&lt;</span>x<span style="color:#ff79c6">-</span>search <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new2&#39;</span> <span style="color:#ff79c6">&gt;</span>{<span style="color:#ff79c6">this</span>.props.name}<span style="color:#ff79c6">&lt;</span>/x-search&gt;
+      <span style="color:#ff79c6">&lt;</span>span className<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new2&#39;</span><span style="color:#ff79c6">&gt;</span>好<span style="color:#ff79c6">&lt;</span>/span&gt;
+        <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;new2&#39;</span>
+    <span style="color:#ff79c6">&lt;</span>/div&gt;;
+  }
+}
+
+ReactDOM.render(
+  <span style="color:#ff79c6">&lt;</span>HelloMessage name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;1&#39;</span> /&gt;,
+  <span style="color:#8be9fd;font-style:italic">document</span>.getElementById(<span style="color:#f1fa8c">&#39;root&#39;</span>)
+);
+</code></pre></div>
 <p>Codepen Demo 参考
 <a href="https://codepen.io/china-boy/pen/EmKEzo">Codepen 参考</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>.<span style="color:#50fa7b">new</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>  <span style="color:#ff79c6">color</span>:<span style="color:#ff79c6">red</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>.<span style="color:#50fa7b">new2</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>  <span style="color:#ff79c6">color</span>:<span style="color:#ff79c6">blue</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>}</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#50fa7b">new</span>{
+  <span style="color:#ff79c6">color</span>:<span style="color:#ff79c6">red</span>;
+}
+
+.<span style="color:#50fa7b">new2</span>{
+  <span style="color:#ff79c6">color</span>:<span style="color:#ff79c6">blue</span>;
+}</code></pre></div>
 <p>。。。。未完待续</p>
     
         </div>
@@ -223,13 +223,13 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/">codepen 代码嵌入</a></li>            
+          <li><a href="/2014/09/25/wonderful/">Wonderful</a></li>            
         
-          <li><a href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">highlight-css样式列表</a></li>            
+          <li><a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">hexo-disqus-proxy-heroku 发布 感觉一般般</a></li>            
         
-          <li><a href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">React事件与原生事件</a></li>            
+          <li><a href="/2017/01/11/tensorflow-by-google/">TensorFlow by Google</a></li>            
         
-          <li><a href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">react-router v4 哎 路由</a></li>            
+          <li><a href="/2017/06/16/preact-%E5%B0%8Freact/">Preact 小React</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -261,8 +261,8 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
                 <p>一个世界(store)  redux的中心思想，一直是共享数据的理念
  只有一个更改数据的接口dispatch
  一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 1import { createStore } from &#34;redux&#34; 2 3const store = createStore(reducer); 4 打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
- 1const reducer = function( state, action ) { 2 if (action.type === &#34;Something&#34;){ 3 //为什么叫 逻辑 ,就因为 if if if 4 //你可以加1 5 //return state+1; 6 //返回值，自动改变原有数据。 7 return state; 8 } 9 if (action. ...  </p>
+  创造数据中心 import { createStore } from &#34;redux&#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
+ const reducer = function( state, action ) { if (action.type === &#34;Something&#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &#34;Another&#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在 ...  </p>
               
           </section>
       </a>
@@ -301,8 +301,8 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
    不同的是，配置结果，是为了，把less &gt; css + 补全浏览器前缀
 还有 babel js 语法
  postcss.config.js 启动补全前缀
-1module.exports = { 2 plugins: [ 3 require(&#39;autoprefixer&#39;) 4 ] 5} 6 webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
-1var path = require(&#39;path&#39;); 2var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;); 3const webpack = require(&#39;webpack&#39;); 4 5module.exports = { 6 entry: &#39;./app/index.js&#39;, 7 output: { 8 filename: &#39;bundle.js&#39;, 9 path: path. ...  </p>
+module.exports = { plugins: [ require(&#39;autoprefixer&#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
+var path = require(&#39;path&#39;); var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;); const webpack = require(&#39;webpack&#39;); module.exports = { entry: &#39;./app/index.js&#39;, output: { filename: &#39;bundle.js&#39;, path: path.resolve(__dirname, &#39;dist&#39;) }, module: { rules: [{ test: /\. ...  </p>
               
           </section>
       </a>

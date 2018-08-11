@@ -130,7 +130,7 @@
               
                 <p>实例 我们用一个实例，发现，原生与 react事件 冲突
 JS Bin on jsbin.com
-原生事件 1 document.body.addEventListener(&#39;click&#39;, e =&gt;{ 2 this.setState({s1:!this.state.s1}) 3 alert(&#39;body&#39;,e.target.alt,e.target.value) 4 console.log(&#39;body&#39;,e.target.alt,e.target.value) 5 6 }) 7 react事件 1onSubmit(e){ 2 alert(&#39;onsubmit&#39;, e.target.value) 3 this.setState({s1:!this.state.s1}) 4} 5//... 6&lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt; 7 点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
+原生事件 document.body.addEventListener(&#39;click&#39;, e =&gt;{ this.setState({s1:!this.state.s1}) alert(&#39;body&#39;,e.target.alt,e.target.value) console.log(&#39;body&#39;,e.target.alt,e.target.value) })  react事件 onSubmit(e){ alert(&#39;onsubmit&#39;, e.target.value) this.setState({s1:!this.state.s1}) } //... &lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt;  点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
 实例的功能是
 点击二维码按钮，可以显示／隐藏，照片
  在，照片显示时
@@ -141,7 +141,8 @@ body -&gt; div.code -&gt; div.root
 由此说来，body,的优先级很大啊
 但是 可以看到console面板，我留在，body事件的输出语句
 二维码 是 div.qr 的 value 值。
- img 是 div. ...  </p>
+ img 是 div.code的 alt 值。
+ 以此可以看出，原生body事件是，触发了， 而 e.target 是 二维码按钮的实例. ...  </p>
               
           </section>
       </a>

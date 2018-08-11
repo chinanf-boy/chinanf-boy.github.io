@@ -21,7 +21,7 @@
 如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
  简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
  数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-1const app = { 2 callback (ctx) { 3 console.log(ctx) 4 }, 5 6 use (fn) { 7 /* TODO */ 8 }, 9 10 go (ctx) { 11 /* TODO */ 12 } 13} 14 15app.use((ctx, next) =&amp;gt; { 16 ctx.name = &amp;#39;Lucy&amp;#39; 17 next() 18}) 19 20app.use((ctx, next) =&amp;gt; { 21 ctx.age = 12 22 next() 23}) 24 25app.</description>
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&amp;gt; { ctx.name = &amp;#39;Lucy&amp;#39; next() }) app.use((ctx, next) =&amp;gt; { ctx.age = 12 next() }) app.use((ctx, next) =&amp;gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&amp;gt; Lucy is 12 years old. next() }) // .</description>
     </item>
     
   </channel>

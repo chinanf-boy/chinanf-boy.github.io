@@ -130,8 +130,8 @@
               
                 <p>#对象／构造／原型
  对象 &ndash; 原型  all 浏览器 获取原型方法
-1var a = {}; 2//a.prototype 无法获取——原型 3 4a.constructor.prototype;// Object {} 5 6a.constructor// function Object() { [native code] } 7  函数 &ndash; 构造 + 原型  1var a = function(){}; 2	//函数可以直接 prototype 3a.prototype// Object {}; 4 5a.constructor// function Function() { [native code] } 6  上面可以看出，构造都是函数
-  对象 &gt; 构造函数 &gt; 函数 。。  1var b = {}; 2b// Object {} 3b. ...  </p>
+var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// Object {}  a.constructor// function Object() { [native code] }   函数 &ndash; 构造 + 原型  var a = function(){}; //函数可以直接 prototype a.prototype// Object {};  a.constructor// function Function() { [native code] }   上面可以看出，构造都是函数
+  对象 &gt; 构造函数 &gt; 函数 。。  var b = {}; b// Object {} b. ...  </p>
               
           </section>
       </a>

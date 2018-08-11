@@ -109,6 +109,51 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">
+      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/21/React-Component-use-class-or-className/logo_og.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #react 
+              #事件  </span>
+              
+              <h2 class="post-card-title">React事件与原生事件</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>实例 我们用一个实例，发现，原生与 react事件 冲突
+JS Bin on jsbin.com
+原生事件 document.body.addEventListener(&#39;click&#39;, e =&gt;{ this.setState({s1:!this.state.s1}) alert(&#39;body&#39;,e.target.alt,e.target.value) console.log(&#39;body&#39;,e.target.alt,e.target.value) })  react事件 onSubmit(e){ alert(&#39;onsubmit&#39;, e.target.value) this.setState({s1:!this.state.s1}) } //... &lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt;  点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
+实例的功能是
+点击二维码按钮，可以显示／隐藏，照片
+ 在，照片显示时
+ 1.点击非照片区域，可以隐藏，
+2.点击照片，没有变化
+  但是 可以看到，点击，显示照片，事件顺序
+body -&gt; div.code -&gt; div.root
+由此说来，body,的优先级很大啊
+但是 可以看到console面板，我留在，body事件的输出语句
+二维码 是 div.qr 的 value 值。
+ img 是 div.code的 alt 值。
+ 以此可以看出，原生body事件是，触发了， 而 e.target 是 二维码按钮的实例. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/">
       <div class="post-card-image" style="background-image: url(https://github.com/ory/editor/raw/master/logo.png)"></div>
     </a>
@@ -133,13 +178,13 @@ react, typescript, material-ui, redux, bootstrap
 单独一二项，看的明白，混在一起的. 科科
  虽然说，用react框架省去了些，步骤，redux做全局，meterial-ui 做 UI ，bootstrap 做 布局 部分，代码文件，后缀名是，.js 但是，应该是，用工具转代码的， 因为，变量数据格式，太凸显 ， 还是说用了其他的方式。
 editor/packages/renderer/src/index.js v0.2.10 line-8
-1const gridClass = (size: number = 12): string =&gt; 2 `ory-cell-sm-${size}ory-cell-xs-12` 3  eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
+const gridClass = (size: number = 12): string =&gt; `ory-cell-sm-${size}ory-cell-xs-12`   eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
  作者造搞了，自己的数据格式，主要通过 cells Raws
 状态是一个规范的JSON对象，不涉及HTML。
 也是为了，免xss威胁。
 行 列 去区分，显示
 editor/examples/src/content.js
-1export default [ 2 { 3 &#34;id&#34;: &#34;1&#34;, 4 &#34;cells&#34;: [ 5 { 6 &#34;id&#34;: &#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;, 7 &#34;inline&#34;: null, 8 &#34;size&#34;: 12, 9 &#34;rows&#34;: [ 10 { 11 &#34;id&#34;: &#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;, 12 &#34;cells&#34;: [ 13 { 14 &#34;id&#34;: &#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;, 15 &#34;inline&#34;: null, 16 &#34;size&#34;: 12, 17 用来对，服务器渲染，静态 ...  </p>
+export default [ { &#34;id&#34;: &#34;1&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12, &#34;rows&#34;: [ { &#34;id&#34;: &#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12,  用来对，服务器渲染，静态 ...  </p>
               
           </section>
       </a>
@@ -171,7 +216,13 @@ editor/examples/src/content.js
           <section class="post-card-excerpt">
               
                 <p>继承 复制下面代码 - 点击https://babeljs.io/repl/
-1class b { 2 constructor(c,d){ 3 c = c+&#39;1111&#39;; 4 console.log(c,d); 5 } 6 start(){ 7 console.log(&#39;ba ba&#39;) 8 } 9} 10 11class a extends b { 12 constructor(c,b){ 13 super(c,b); 14 c = c+&#39;222222&#39;; 15 console.log(1,c,2,b); 16 return this.start; 17 } 18 start(){ 19 console.log(&#39;son&#39;); 20 } 21} 22 23var o1 = new a(&#39;first&#39;, &#39;second&#39;); 24 25console.log(&#39;------------------&#39;); 26console.log(o1.toString()); 27 -为了实现，相当于 类的 继承 问题，js 给 大众 ...  </p>
+class b { constructor(c,d){ c = c+&#39;1111&#39;; console.log(c,d); } start(){ console.log(&#39;ba ba&#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&#39;222222&#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&#39;son&#39;); } } var o1 = new a(&#39;first&#39;, &#39;second&#39;); console.log(&#39;------------------&#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
+一个 ， 丑陋的 写法，构造，与原型，的，概念.
+增加，初学者的入门，难度, 不过，好在，
+TypeScript babel 语法实现
+ coffeeScript 太极端了， 一堆空格。
+有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
+ 让我们不在需要，对，继承, ...  </p>
               
           </section>
       </a>
@@ -204,7 +255,7 @@ editor/examples/src/content.js
               
                 <p>react-router v4  react 的路由解决方案
  而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
-1 &lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
+&lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
 比如我的 域名 llever.com
 当应用直接放在 llever.com/ 的时候，会实用。
 但是 如果我想 放在 llever.com/about/
@@ -257,8 +308,8 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
  p5.js
  fire.html
   fire.html
-1 &lt;html&gt; 2 &lt;head&gt; 3 &lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&#34;&gt;&lt;/script&gt; 4 &lt;script src=&#34;sketch.js&#34;&gt;&lt;/script&gt; 5 &lt;/head&gt; 6 &lt;body&gt; 7 &lt;/body&gt; 8&lt;/html&gt; sketch.js
-1// Global variables 2function setup() { 3 createCanvas(640, 480); 4} 5 6function draw() { 7 if (mouseIsPressed) { 8 fill(0); 9 } else { 10 fill(255); 11 } 12 ellipse(mouseX, mouseY, 80, 80); 13} 14 就这样 就是上 显示的 ...  </p>
+&lt;html&gt; &lt;head&gt; &lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;sketch.js&#34;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;/body&gt; &lt;/html&gt; sketch.js
+// Global variables function setup() { createCanvas(640, 480); } function draw() { if (mouseIsPressed) { fill(0); } else { fill(255); } ellipse(mouseX, mouseY, 80, 80); }  就这样 就是上 显示的 ...  </p>
               
           </section>
       </a>
@@ -293,44 +344,6 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
 # 有个 右下角 Embed 的 功能
 # 复制 提供的 iframe 或 html 代码 就好
 # 上面的 点击 制造 黑洞 模仿黑洞引力哦 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #hexo  </span>
-              
-              <h2 class="post-card-title">放原网页首页进来</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>把完整的网页放进，hexo中  我做了一下步骤
- 在不影响，快捷命令
-1hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
-所以，放source才能被 看到
- 2. 在 html 文件中 第一行 写下 1--- 2layout: false 3---  不能被模版化
- 3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
- 4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
- 提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
-1... 2skip_render [floder/*, floder/**/*] 具体看这issue </p>
               
           </section>
       </a>

@@ -22,9 +22,7 @@
 如果无法 请到 https://github.com/tonsky/FiraCode/releases 下载 压缩
 对应每个平台的系统字体应用, 将 下载的 字体文件夹 添加
  macOS Windows Linux/Unix-based systems  比如: macOS
-{% asset_img action.png action image %}
-{% asset_img screen.png screen image %}
-记得把 Vscode 的配置 写好 1 &amp;#34;editor.fontFamily&amp;#34;:&amp;#34;&amp;#39;Fira Code&amp;#39;, Source Code Pro&amp;#34;, 2 &amp;#34;editor.fontSize&amp;#34;: 13, 3 &amp;#34;editor.fontLigatures&amp;#34;: true, 4</description>
+记得把 Vscode 的配置 写好 &amp;#34;editor.fontFamily&amp;#34;:&amp;#34;&amp;#39;Fira Code&amp;#39;, Source Code Pro&amp;#34;, &amp;#34;editor.fontSize&amp;#34;: 13, &amp;#34;editor.fontLigatures&amp;#34;: true, </description>
     </item>
     
   </channel>

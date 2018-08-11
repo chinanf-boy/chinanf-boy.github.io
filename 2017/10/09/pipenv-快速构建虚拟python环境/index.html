@@ -12,8 +12,8 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="canonical" href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/" />
 
-     <meta name="description" content="pipenv python的快速构建虚拟环境 使用 1pip install pipenv 搭建 1pipenv --three 2pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
- 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建pytho" /> 
+     <meta name="description" content="pipenv python的快速构建虚拟环境 使用 pip install pipenv 搭建 pipenv --three pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境" /> 
 
      
     
@@ -22,8 +22,8 @@
     
  
     <meta name="twitter:title" content="pipenv 快速构建虚拟python环境"/>
-    <meta name="twitter:description" content="pipenv python的快速构建虚拟环境 使用 1pip install pipenv 搭建 1pipenv --three 2pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
- 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建pytho"/>
+    <meta name="twitter:description" content="pipenv python的快速构建虚拟环境 使用 pip install pipenv 搭建 pipenv --three pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境"/>
     <meta name="twitter:url" content="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/" />
     <meta name="twitter:site" content="@"/>
 
@@ -33,8 +33,8 @@
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="pipenv python的快速构建虚拟环境 使用 1pip install pipenv 搭建 1pipenv --three 2pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
- 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建pytho" />
+    <meta property="og:description" content="pipenv python的快速构建虚拟环境 使用 pip install pipenv 搭建 pipenv --three pipenv --two  &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境" />
 
     <meta property="article:published_time" content="2017-10-09T08:15:28Z" />
     <meta property="article:tag" content="python" /><meta property="article:tag" content="pipenv" />
@@ -128,10 +128,10 @@
 <h1 id="pipenv-python的快速构建虚拟环境">pipenv python的快速构建虚拟环境</h1>
 
 <h2 id="使用">使用</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>pip install pipenv</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pip install pipenv</pre></div>
 <h2 id="搭建">搭建</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>pipenv --three 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>pipenv --two</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pipenv --three 
+pipenv --two</pre></div>
 <blockquote>
 <p>&ndash;three 3.x版本
 &ndash;two 2.x版本</p>
@@ -147,15 +147,15 @@
 
 <p>因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建，
 但是之前说了，为了纯净，这就会发生错误。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>$ pipenv --three
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>error
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>$ which python
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>anaconda/bin/python</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ pipenv --three
+error
+
+$ which python
+anaconda/bin/python</pre></div>
 <p>✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python</p>
 
 <p>Mac oX 系统</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6</pre></div>
 <h2 id="更多">更多</h2>
 
 <p><a href="https://github.com/kennethreitz/pipenv">Github</a>
@@ -202,13 +202,13 @@
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python核心编程第三版-第二章代码运行 问题解决</a></li>            
+          <li><a href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">hugo templete 语法</a></li>            
         
-          <li><a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">hexo-disqus-proxy-heroku 发布 感觉一般般</a></li>            
+          <li><a href="/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/">pm2 window 开机启动</a></li>            
         
-          <li><a href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">让你的py优雅</a></li>            
+          <li><a href="/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/">ChangeLog 生成器</a></li>            
         
-          <li><a href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">vscode 扩展Api实践</a></li>            
+          <li><a href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ionic 项目 npm问题解决</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -279,15 +279,15 @@
                 <p>似流程，不是流程 下载问题可看上一篇文章
 ionic 是一套使用 javascript html css 技术构建 手机原生应用的 框架 从这里就可以看出，困难的地方就是，如何转换，原生应用，这点上 ionic 帮我们做了，
 不仅如此，还做了分享平台，测试应用的快速教程和应用，不可谓不大大的良心
-命令行下载 1npm install -g cordova ionic  cordova 是 为了 神不知鬼不觉 的 构建原生应用 后续
+命令行下载 npm install -g cordova ionic  cordova 是 为了 神不知鬼不觉 的 构建原生应用 后续
  主要网站 官网：http://ionicframework.com/
 分享部署平台和主要代码管理和测试：https://dashboard.ionicjs.com/
 网上编辑器可拖拉搞定：https://creator.ionic.io/app/dashboard
 手机应用—— ionic view 与分享平台结合
-官方文档真的很棒，不过要翻墙，上面大部分 使用 Angular 与 sass 和 TypeScript 作为 编写条件 不过可以试试第一个官方应用 1ionic start myApp tabs 服务器
-1ionic serve 链接平台,要有账号,在这一步通过与本身项目链接 自动 git remote add ionic [你的项目.git]
+官方文档真的很棒，不过要翻墙，上面大部分 使用 Angular 与 sass 和 TypeScript 作为 编写条件 不过可以试试第一个官方应用 ionic start myApp tabs 服务器
+ionic serve 链接平台,要有账号,在这一步通过与本身项目链接 自动 git remote add ionic [你的项目.git]
 这个过程还会配合ssh
-1ionic link [可选项 项目唯一id] 部署功能与Ionic Pro Git工作流配合使用，可在生产（或测试）应用程序中部署新的代码更新。 ...  </p>
+ionic link [可选项 项目唯一id] 部署功能与Ionic Pro Git工作流配合使用，可在生产（或测试）应用程序中部署新的代码更新。 ...  </p>
               
           </section>
       </a>

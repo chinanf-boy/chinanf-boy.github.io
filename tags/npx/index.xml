@@ -20,7 +20,7 @@
       <description> 从 npm@5.2.0 开始 npx 被集合在了 npm
  npx 让我们免于下载众多的全局包
  cd you-project
-1npx create-react-app my-react-app Done! 不需要 1npm i -g create-react-app</description>
+npx create-react-app my-react-app Done! 不需要 npm i -g create-react-app</description>
     </item>
     
   </channel>

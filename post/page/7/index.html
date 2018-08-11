@@ -109,8 +109,44 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/pythonlogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #python  </span>
+              
+              <h2 class="post-card-title">Python核心编程第三版-第二章代码运行 问题解决</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>当在windows和Mac上，练习对应的代码时
+非常明显的错误就在于 传输类型
+TypeError: a bytes-like object is required, not &#39;str&#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &#39;str self.wfile.write(b&#39;[%s] %s&#39; % (bytes(ctime(), &#39;utf-8&#39;), bytes(self.rfile.readline(), &#39;utf-8&#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
+所以需要使用
+ bytes() 函数
+ 以下是可以正常运行的代码
+from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &#34;&#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&#39;connect. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
@@ -129,8 +165,8 @@
                 <p>conda  是 Anaconda 的 命令行
  因为使用zsh终端后，conda路径失去了
 ohmyzsh
-1$ conda 2conda command not found 解决 1export PATH=&#34;/home/username/miniconda/bin:$PATH&#34; 2 3source ~/.zshrc  zsh中 .zshrc
-1//error: 2export PATH = &#34;/home/username/miniconda/bin:$PATH&#34; 3 4//right 5export PATH=&#34;/home/username/miniconda/bin:$PATH&#34; 6 不要保持良好的代码格式,会出错
+$ conda conda command not found 解决 export PATH=&#34;/home/username/miniconda/bin:$PATH&#34; source ~/.zshrc  zsh中 .zshrc
+//error: export PATH = &#34;/home/username/miniconda/bin:$PATH&#34; //right export PATH=&#34;/home/username/miniconda/bin:$PATH&#34;  不要保持良好的代码格式,会出错
  参考 stackoverflow .zshrc保持不空格 </p>
               
           </section>
@@ -160,7 +196,7 @@ ohmyzsh
           <section class="post-card-excerpt">
               
                 <p> Preact webSite
-See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  1import { h, render, Component } from &#39;preact&#39; 2 </p>
+See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { h, render, Component } from &#39;preact&#39;  </p>
               
           </section>
       </a>
@@ -176,7 +212,7 @@ See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  1import {
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
@@ -192,7 +228,7 @@ See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  1import {
 React-Redux  两个主要 Api Provider connect
  先放一边
 React 的 context context 实现了，一个全局变量
-1const PropTypes = require(&#39;prop-types&#39;); 2 3class Button extends React.Component { 4 render() { 5 return ( 6 //################ 7 &lt;button style={{background: this.context.color}}&gt; 8 9 {this.props.children} 10 &lt;/button&gt; 11 ); 12 } 13} 14 //################ 15Button.contextTypes = { 16 color: PropTypes.string 17}; 18 19class Message extends React.Component { 20 render() { 21 return ( 22 &lt;div&gt; 23 {this. ...  </p>
+const PropTypes = require(&#39;prop-types&#39;); class Button extends React.Component { render() { return ( //################ &lt;button style={{background: this.context.color}}&gt; {this.props.children} &lt;/button&gt; ); } } //################ Button.contextTypes = { color: PropTypes.string }; class Message extends React.Component { render() { return ( &lt;div&gt; {this.props.text} &lt;Button&gt;Delete&lt;/Button&gt; &lt;/div&gt; ); } } class MessageList extends React.Component { //################  getChildContext() { return {color: &#34;purple&#34;}; } render() { const children = this. ...  </p>
               
           </section>
       </a>
@@ -225,7 +261,7 @@ React 的 context context 实现了，一个全局变量
               
                 <p> 来源 Redux作者入门教程
 combineReducers  js 简单实现
- 1const combineReducers = (reducers) =&gt;{ 2 return (state = {}, action) =&gt;{ 3 return Object.Keys(reducers).reduce( 4 5 (nextState, key) =&gt;{ 6 7 nextState[key] = reducers[key]( 8 state[key], 9 action 10 ); 11 return nextState; 12 13 }, {}) 14 }; 15}; 16 </p>
+ const combineReducers = (reducers) =&gt;{ return (state = {}, action) =&gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; };  </p>
               
           </section>
       </a>
@@ -260,51 +296,7 @@ combineReducers  js 简单实现
 如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
  简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
  数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-1const app = { 2 callback (ctx) { 3 console.log(ctx) 4 }, 5 6 use (fn) { 7 /* TODO */ 8 }, 9 10 go (ctx) { 11 /* TODO */ 12 } 13} 14 15app.use((ctx, next) =&gt; { 16 ctx.name = &#39;Lucy&#39; 17 next() 18}) 19 20app.use((ctx, next) =&gt; { 21 ctx.age = 12 22 next() 23}) 24 25app. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/21/React-Component-use-class-or-className/logo_og.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #react 
-              #事件  </span>
-              
-              <h2 class="post-card-title">React事件与原生事件</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>实例 我们用一个实例，发现，原生与 react事件 冲突
-JS Bin on jsbin.com
-原生事件 1 document.body.addEventListener(&#39;click&#39;, e =&gt;{ 2 this.setState({s1:!this.state.s1}) 3 alert(&#39;body&#39;,e.target.alt,e.target.value) 4 console.log(&#39;body&#39;,e.target.alt,e.target.value) 5 6 }) 7 react事件 1onSubmit(e){ 2 alert(&#39;onsubmit&#39;, e.target.value) 3 this.setState({s1:!this.state.s1}) 4} 5//... 6&lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt; 7 点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
-实例的功能是
-点击二维码按钮，可以显示／隐藏，照片
- 在，照片显示时
- 1.点击非照片区域，可以隐藏，
-2.点击照片，没有变化
-  但是 可以看到，点击，显示照片，事件顺序
-body -&gt; div.code -&gt; div.root
-由此说来，body,的优先级很大啊
-但是 可以看到console面板，我留在，body事件的输出语句
-二维码 是 div.qr 的 value 值。
- img 是 div. ...  </p>
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
               
           </section>
       </a>

@@ -18,7 +18,7 @@
    不同的是，配置结果，是为了，把less &amp;gt; css &#43; 补全浏览器前缀
 还有 babel js 语法
  postcss.config.js 启动补全前缀
-1module.expo" /> 
+module.expor" /> 
 
      
     
@@ -33,7 +33,7 @@
    不同的是，配置结果，是为了，把less &amp;gt; css &#43; 补全浏览器前缀
 还有 babel js 语法
  postcss.config.js 启动补全前缀
-1module.expo"/>
+module.expor"/>
     <meta name="twitter:url" content="/2017/03/15/webpack-less-autoprefixer/" />
     <meta name="twitter:site" content="@"/>
 
@@ -49,7 +49,7 @@
    不同的是，配置结果，是为了，把less &amp;gt; css &#43; 补全浏览器前缀
 还有 babel js 语法
  postcss.config.js 启动补全前缀
-1module.expo" />
+module.expor" />
 
     <meta property="article:published_time" content="2017-03-15T11:56:59Z" />
     <meta property="article:tag" content="webpack" /><meta property="article:tag" content="less" /><meta property="article:tag" content="Autoprefixer" /><meta property="article:tag" content="postCss" />
@@ -159,60 +159,60 @@
 <!-- more -->
 
 <p>postcss.config.js 启动补全前缀</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>module.exports <span style="color:#ff79c6">=</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>  plugins<span style="color:#ff79c6">:</span> [
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    require(<span style="color:#f1fa8c">&#39;autoprefixer&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>  ]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">module.exports <span style="color:#ff79c6">=</span> {
+  plugins<span style="color:#ff79c6">:</span> [
+    require(<span style="color:#f1fa8c">&#39;autoprefixer&#39;</span>)
+  ]
+}
+</code></pre></div>
 <p>webpack.config.js (<code>babel</code> 语法，<code>css</code>，<code>less</code>文件解析补全,合并到一个‘<code>style.css</code>’)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#8be9fd;font-style:italic">var</span> path <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;path&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span><span style="color:#8be9fd;font-style:italic">var</span> ExtractTextPlugin <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;extract-text-webpack-plugin&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#ff79c6">const</span> webpack <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;webpack&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>module.exports <span style="color:#ff79c6">=</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>  entry<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;./app/index.js&#39;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>  output<span style="color:#ff79c6">:</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    filename<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;bundle.js&#39;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    path<span style="color:#ff79c6">:</span> path.resolve(__dirname, <span style="color:#f1fa8c">&#39;dist&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>  },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>  module<span style="color:#ff79c6">:</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>       rules<span style="color:#ff79c6">:</span> [{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>           test<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/\.css$/</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>           use<span style="color:#ff79c6">:</span> ExtractTextPlugin.extract({
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>                fallback<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;style-loader&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>                use<span style="color:#ff79c6">:</span> [ <span style="color:#f1fa8c">&#39;css-loader&#39;</span>, <span style="color:#f1fa8c">&#39;postcss-loader&#39;</span> ]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>            })
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>       },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>       {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>          test<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/\.less$/</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>          use<span style="color:#ff79c6">:</span> ExtractTextPlugin.extract({
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>            fallback<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;style-loader&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>            use<span style="color:#ff79c6">:</span>[ <span style="color:#f1fa8c">&#39;css-loader&#39;</span>, <span style="color:#f1fa8c">&#39;postcss-loader&#39;</span>, <span style="color:#f1fa8c">&#39;less-loader&#39;</span> ]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>          })
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>       },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span>       {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27</span>         test<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/\.js$/</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28</span>         exclude<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/(node_modules)/</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29</span>         use<span style="color:#ff79c6">:</span> [{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30</span>           loader<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;babel-loader&#39;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31</span>           options<span style="color:#ff79c6">:</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">32</span>             presets<span style="color:#ff79c6">:</span> [[<span style="color:#f1fa8c">&#39;es2015&#39;</span>, {modules<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>}]],
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">33</span>             plugins<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;syntax-dynamic-import&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">34</span>           }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">35</span>          }]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">36</span>      }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">37</span>     ]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">38</span>   },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">39</span>    plugins<span style="color:#ff79c6">:</span> [
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">40</span>        <span style="color:#ff79c6">new</span> ExtractTextPlugin(<span style="color:#f1fa8c">&#39;styles.css&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">41</span>    ]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">42</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">43</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> path <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;path&#39;</span>);
+<span style="color:#8be9fd;font-style:italic">var</span> ExtractTextPlugin <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;extract-text-webpack-plugin&#39;</span>);
+<span style="color:#ff79c6">const</span> webpack <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;webpack&#39;</span>);
+
+module.exports <span style="color:#ff79c6">=</span> {
+  entry<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;./app/index.js&#39;</span>,
+  output<span style="color:#ff79c6">:</span> {
+    filename<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;bundle.js&#39;</span>,
+    path<span style="color:#ff79c6">:</span> path.resolve(__dirname, <span style="color:#f1fa8c">&#39;dist&#39;</span>)
+  },
+  module<span style="color:#ff79c6">:</span> {
+       rules<span style="color:#ff79c6">:</span> [{
+           test<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/\.css$/</span>,
+           use<span style="color:#ff79c6">:</span> ExtractTextPlugin.extract({
+                fallback<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;style-loader&#34;</span>,
+                use<span style="color:#ff79c6">:</span> [ <span style="color:#f1fa8c">&#39;css-loader&#39;</span>, <span style="color:#f1fa8c">&#39;postcss-loader&#39;</span> ]
+            })
+       },
+       {
+          test<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/\.less$/</span>,
+          use<span style="color:#ff79c6">:</span> ExtractTextPlugin.extract({
+            fallback<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;style-loader&#34;</span>,
+            use<span style="color:#ff79c6">:</span>[ <span style="color:#f1fa8c">&#39;css-loader&#39;</span>, <span style="color:#f1fa8c">&#39;postcss-loader&#39;</span>, <span style="color:#f1fa8c">&#39;less-loader&#39;</span> ]
+          })
+       },
+       {
+         test<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/\.js$/</span>,
+         exclude<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/(node_modules)/</span>,
+         use<span style="color:#ff79c6">:</span> [{
+           loader<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;babel-loader&#39;</span>,
+           options<span style="color:#ff79c6">:</span> {
+             presets<span style="color:#ff79c6">:</span> [[<span style="color:#f1fa8c">&#39;es2015&#39;</span>, {modules<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>}]],
+             plugins<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;syntax-dynamic-import&#39;</span>]
+           }
+          }]
+      }
+     ]
+   },
+    plugins<span style="color:#ff79c6">:</span> [
+        <span style="color:#ff79c6">new</span> ExtractTextPlugin(<span style="color:#f1fa8c">&#39;styles.css&#39;</span>)
+    ]
+};
+</code></pre></div>
 <p>index.js (写入，导入命令)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;../css/H5.css&#34;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;../css/test.less&#34;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;../css/H5.css&#34;</span>;
+<span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;../css/test.less&#34;</span>;
+</code></pre></div>
 <h1 id="参考">参考</h1>
 
 <ul>
@@ -262,13 +262,13 @@
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ionic 项目 npm问题解决</a></li>            
+          <li><a href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">Js - Module模式 - 私有-公有-命名空间</a></li>            
         
-          <li><a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">hexo-disqus-proxy-heroku 发布 感觉一般般</a></li>            
+          <li><a href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">Typescript类-转换学习</a></li>            
         
-          <li><a href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python核心编程第三版-第二章代码运行 问题解决</a></li>            
+          <li><a href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">pip npm conda 换下载源</a></li>            
         
-          <li><a href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">React-Redux 父-Provider 子-connect</a></li>            
+          <li><a href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/">mac repl js go 大混杂</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -302,7 +302,8 @@
 而在 fackbook文档-web Component 中
 例子中
 x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-1class HelloMessage3 extends React.Component { 2 render() { 3 return &lt;div className=&#39;new&#39;&gt; 4 className=&#39;new&#39; 5 &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; 6 &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; 7 class=&#39;new2&#39; 8 &lt;/div&gt;; 9 } 10} 11 12ReactDOM.render( 13 &lt;HelloMessage name=&#39;1&#39; /&gt;, 14 document.getElementById(&#39;root&#39;) 15); 16 Codepen Demo 参考 Codepen 参考 ...  </p>
+class HelloMessage3 extends React.Component { render() { return &lt;div className=&#39;new&#39;&gt; className=&#39;new&#39; &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; class=&#39;new2&#39; &lt;/div&gt;; } } ReactDOM.render( &lt;HelloMessage name=&#39;1&#39; /&gt;, document.getElementById(&#39;root&#39;) );  Codepen Demo 参考 Codepen 参考
+.new{ color:red; } .new2{ color:blue; } 。。。。未完待续 </p>
               
           </section>
       </a>
@@ -337,7 +338,9 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
 typescript作为微软实现的js的超集.
 在类的实现，有如传统语言一样简单，
 例子：官方
-1//.ts 2class Greeter { 3 greeting: string; 4 constructor(message: string) { 5 this.greeting = message; 6 } 7 greet() { 8 return &#34;Hello, &#34; + this.greeting; 9 } 10}1//.js 2var Greeter = (function () { 3 function Greeter(message) { 4 this.greeting = message; 5 } 6 Greeter.prototype.greet = function () { 7 return &#34;Hello, &#34; + this.greeting; 8 }; 9 return Greeter; 10}()); 11 说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。 ...  </p>
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &#34;Hello, &#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &#34;Hello, &#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console. ...  </p>
               
           </section>
       </a>

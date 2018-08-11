@@ -109,6 +109,42 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Travis Ci 测试以及 发布 npm</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> translate-js 在我的 项目发布问题上
+ISSUE3
+主要问题 在于 travis CI 识别 Npm-version-标签的 提交
+git push --tags 进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
+在我提交多个标签
+到 github
+v2.1 v2.2 v2.3
+但是 Travis Ci 的测试顺序 是反过来的，也就是说，我Npm的版本变成了
+v2.1 可以看  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/11/15/hugo-i18n/">
       <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
     </a>
@@ -130,15 +166,15 @@
  有两种方式
  在项目根目录  创建 i18n 文件夹
 i18n
-1en.toml/yaml 2zh.toml/yaml en.toml
-1[home] 2 other = &#34;home&#34; zh.toml
-1[home] 2 other = &#34;主页&#34; 上面的设置好后，在 模版主题中使用
+en.toml/yaml zh.toml/yaml en.toml
+[home] other = &#34;home&#34; zh.toml
+[home] other = &#34;主页&#34; 上面的设置好后，在 模版主题中使用
 *.html
-1{{ i18n &#34;home&#34; }} 这样在
+{{ i18n &#34;home&#34; }} 这样在
 html 头的带领下 呈现 en/zh.toml
-1&lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
+&lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
  config.toml
-1defaultContentLanguage = &#34;en&#34; 2# 这里是 默认网址 https://example.com 3 4# 如果是 true https://example.com/en 5defaultContentLanguageInSubdir = false 6 7[languages. ...  </p>
+defaultContentLanguage = &#34;en&#34; # 这里是 默认网址 https://example.com # 如果是 true https://example.com/en defaultContentLanguageInSubdir = false [languages. ...  </p>
               
           </section>
       </a>
@@ -168,15 +204,15 @@ html 头的带领下 呈现 en/zh.toml
           </header>
           <section class="post-card-excerpt">
               
-                <p>1--- 2title: &#34;Hugo Template&#34; 3date: 2017-11-14T15:39:48+08:00 4description: &#34;a hugo template example&#34; 5featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg 6--- hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
-1{{ block &#34;main&#34; . }}{{ end }}  定义 区域块
+                <p>--- title: &#34;Hugo Template&#34; date: 2017-11-14T15:39:48+08:00 description: &#34;a hugo template example&#34; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg --- hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
+{{ block &#34;main&#34; . }}{{ end }}  定义 区域块
  其他 html themes/youthemes/layouts/_default/list.html
-1{{ define &#34;main&#34; }} 2{{ end }}  注意⚠️ themes/youthemes/layouts/_default/single.html
+{{ define &#34;main&#34; }} {{ end }}  注意⚠️ themes/youthemes/layouts/_default/single.html
 themes/youthemes/layouts/_default/list.html
  对于，Hugo 来说，网站分为 index.html list.html single.html
  根目录文件夹中
  在 content 文件夹下 就是 路由
-1content 2 about // list. ...  </p>
+content about // list.html me. ...  </p>
               
           </section>
       </a>
@@ -244,7 +280,8 @@ themes/youthemes/layouts/_default/list.html
  重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
  不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
 三部走
- 下载  1$ brew install hugo 2 3$ hugo version  创建  1$ hugo new site quickstart  加皮肤 themes  1cd quickstart;\ 2git init;\ 3git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\ 4 5# Edit your config.toml configuration file 6# and add the Ananke theme. 7echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章 ...  </p>
+ 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章
+hugo new posts/my-first-post. ...  </p>
               
           </section>
       </a>
@@ -275,16 +312,16 @@ themes/youthemes/layouts/_default/list.html
           </header>
           <section class="post-card-excerpt">
               
-                <p>npm 和 git 补全噢😯 1npm &lt;Tab&gt;  会补全命令
+                <p>npm 和 git 补全噢😯 npm &lt;Tab&gt;  会补全命令
 npm实现代码 https://github.com/npm/npm/blob/master/lib/utils/completion.sh
 or
-1npm completion git 实现代码
+npm completion git 实现代码
 分终端（zsh,bash..) 分实现文件 https://github.com/git/git/blob/master/contrib/completion/
 因为npm 的实现文件只有一个，懒为主。
 我的是 zsh
 首先定义一个可执行文件 sh
 test_completion.sh
-1if type compdef &amp;&gt;/dev/null; then 2 3 _test_completion() { 4 } 5 6 compdef _test_completion npm 当你运行上面 什么都没有的 文件时
+if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm 当你运行上面 什么都没有的 文件时
 or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
 之前npm &lt;Tab&gt; 的 提示就会没有
 ## 代码分解
@@ -300,53 +337,18 @@ or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
  npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
 只要把 npm 替换成 git 那么，
 git 的 补全命令 也会被替换 什么都没有。
-补全规则 1_test_completion(){ 2 3}  zsh 实现了 简便的 命令添加-函数
+补全规则 _test_completion(){ }  zsh 实现了 简便的 命令添加-函数
  compadd 源代码中主要
-1 compadd -- $(COMP_CWORD=$((CURRENT-1)) \ 2 COMP_LINE=$BUFFER \ 3 COMP_POINT=0 \ 4 npm completion -- &#34;${words[@]}&#34; \ 5 2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
+compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
  源文档太大了，截掉什么看看区别
  当我把 npm completion -- &quot;${words[@]}&quot; \ 剪掉
 npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
 不过我们看了终点，不如回到原点。加加看
  示例
- 1 _test_completion() { 2 compadd -- install 3 } 4 compdef _test_completion npm 1$ npm &lt;tab&gt; 2 3$ npm install 噢 那么就会提示 install
+ _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
  再试试
- 1 _test_completion() { 2 echo &#34;${words[@]}&#34; 3 echo $CURRENT 4 echo $BUFFER 5 compadd -- install up 6 } 7 compdef _test_completion npm  
+ _test_completion() { echo &#34;${words[@]}&#34; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
  ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/nodelogo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #hexo 
-              #disqus 
-              #heroku 
-              #preact  </span>
-              
-              <h2 class="post-card-title">hexo-disqus-proxy-heroku 发布 感觉一般般</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> fork 别人项目 源地址
-改成heroku做服务端
-去掉 port fix 样式 bug react -&gt; preact 大小 从 400多k 到 100多K  </p>
               
           </section>
       </a>

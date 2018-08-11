@@ -114,7 +114,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
@@ -132,7 +132,7 @@
                 <p> 从 npm@5.2.0 开始 npx 被集合在了 npm
  npx 让我们免于下载众多的全局包
  cd you-project
-1npx create-react-app my-react-app Done! 不需要 1npm i -g create-react-app </p>
+npx create-react-app my-react-app Done! 不需要 npm i -g create-react-app </p>
               
           </section>
       </a>
@@ -148,7 +148,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -163,16 +163,16 @@
           </header>
           <section class="post-card-excerpt">
               
-                <p>npm 和 git 补全噢😯 1npm &lt;Tab&gt;  会补全命令
+                <p>npm 和 git 补全噢😯 npm &lt;Tab&gt;  会补全命令
 npm实现代码 https://github.com/npm/npm/blob/master/lib/utils/completion.sh
 or
-1npm completion git 实现代码
+npm completion git 实现代码
 分终端（zsh,bash..) 分实现文件 https://github.com/git/git/blob/master/contrib/completion/
 因为npm 的实现文件只有一个，懒为主。
 我的是 zsh
 首先定义一个可执行文件 sh
 test_completion.sh
-1if type compdef &amp;&gt;/dev/null; then 2 3 _test_completion() { 4 } 5 6 compdef _test_completion npm 当你运行上面 什么都没有的 文件时
+if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm 当你运行上面 什么都没有的 文件时
 or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
 之前npm &lt;Tab&gt; 的 提示就会没有
 ## 代码分解
@@ -188,17 +188,17 @@ or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
  npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
 只要把 npm 替换成 git 那么，
 git 的 补全命令 也会被替换 什么都没有。
-补全规则 1_test_completion(){ 2 3}  zsh 实现了 简便的 命令添加-函数
+补全规则 _test_completion(){ }  zsh 实现了 简便的 命令添加-函数
  compadd 源代码中主要
-1 compadd -- $(COMP_CWORD=$((CURRENT-1)) \ 2 COMP_LINE=$BUFFER \ 3 COMP_POINT=0 \ 4 npm completion -- &#34;${words[@]}&#34; \ 5 2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
+compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
  源文档太大了，截掉什么看看区别
  当我把 npm completion -- &quot;${words[@]}&quot; \ 剪掉
 npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
 不过我们看了终点，不如回到原点。加加看
  示例
- 1 _test_completion() { 2 compadd -- install 3 } 4 compdef _test_completion npm 1$ npm &lt;tab&gt; 2 3$ npm install 噢 那么就会提示 install
+ _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
  再试试
- 1 _test_completion() { 2 echo &#34;${words[@]}&#34; 3 echo $CURRENT 4 echo $BUFFER 5 compadd -- install up 6 } 7 compdef _test_completion npm  
+ _test_completion() { echo &#34;${words[@]}&#34; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
  ...  </p>
               
           </section>
@@ -234,12 +234,12 @@ npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
 NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
 让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
 安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
-1npm -v 更新NPM版本的命令: 1sudo npm install npm -g 使用 npm安装nodejs模块语法格式:
+npm -v 更新NPM版本的命令: sudo npm install npm -g 使用 npm安装nodejs模块语法格式:
 npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
-1npm install express //本地安装 2npm install express -g //全局安装 两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+npm install express //本地安装 npm install express -g //全局安装 两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
 全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
 可以用以下命令来查看所有全局安装的模块:
-1npm ls -g Package.json 属性说明  name - 包名。 version - 包的版本号。 description - 包的描述。 homepage - 包的官网 url 。 author - 包的作者姓名。 contributors - 包的其他贡献者姓名。 dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。 repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。 main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&ldquo;express&rdquo;)。 keywords - 关键字  官网属性列表 中文——属性解释 ...  </p>
+npm ls -g Package.json 属性说明  name - 包名。 version - 包的版本号。 description - 包的描述。 homepage - 包的官网 url 。 author - 包的作者姓名。 contributors - 包的其他贡献者姓名。 dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。 repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。 main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&ldquo;express&rdquo;)。 keywords - 关键字  官网属性列表 中文——属性解释 ...  </p>
               
           </section>
       </a>
@@ -255,7 +255,7 @@ npm install 全局安装与本地安装 npm的包安装分为本地安装 (local
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
@@ -271,12 +271,12 @@ npm install 全局安装与本地安装 npm的包安装分为本地安装 (local
           </header>
           <section class="post-card-excerpt">
               
-                <p> Pip 换 阿里源 linux下运行命令 1vi ~/.pip/pip.confp1[global] 2trusted-host = mirrors.aliyun.com 3index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2 3conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
-1npm --registry https://registry.npm.taobao.org install express 2.持久使用
-1npm config set registry https://registry.npm.taobao.org 3.通过cnpm
-1npm install -g cnpm --registry=https://registry.npm.taobao.org 二、使用官方镜像
-1npm config set registry https://registry.npmjs.org/ 三、查看npm源地址
-1npm config get registry </p>
+                <p> Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
+npm --registry https://registry.npm.taobao.org install express 2.持久使用
+npm config set registry https://registry.npm.taobao.org 3.通过cnpm
+npm install -g cnpm --registry=https://registry.npm.taobao.org 二、使用官方镜像
+npm config set registry https://registry.npmjs.org/ 三、查看npm源地址
+npm config get registry </p>
               
           </section>
       </a>

@@ -13,7 +13,7 @@
     <link rel="canonical" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/" />
 
      <meta name="description" content="继承 复制下面代码 - 点击https://babeljs.io/repl/
-1class b { 2 constructor(c,d){ 3 c = c&#43;&amp;#39;1111&amp;#39;; 4 console.log(c,d); 5 } 6 start(){ 7 console.log(&amp;#39;ba ba&amp;#39;) " /> 
+class b { constructor(c,d){ c = c&#43;&amp;#39;1111&amp;#39;; console.log(c,d); } start(){ console.log(&amp;#39;ba ba&amp;#39;) } } class a e" /> 
 
      
     
@@ -23,7 +23,7 @@
  
     <meta name="twitter:title" content="babel 继承 Es5"/>
     <meta name="twitter:description" content="继承 复制下面代码 - 点击https://babeljs.io/repl/
-1class b { 2 constructor(c,d){ 3 c = c&#43;&amp;#39;1111&amp;#39;; 4 console.log(c,d); 5 } 6 start(){ 7 console.log(&amp;#39;ba ba&amp;#39;) "/>
+class b { constructor(c,d){ c = c&#43;&amp;#39;1111&amp;#39;; console.log(c,d); } start(){ console.log(&amp;#39;ba ba&amp;#39;) } } class a e"/>
     <meta name="twitter:url" content="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/" />
     <meta name="twitter:site" content="@"/>
 
@@ -34,7 +34,7 @@
 
     <meta property="og:type" content="article" />
     <meta property="og:description" content="继承 复制下面代码 - 点击https://babeljs.io/repl/
-1class b { 2 constructor(c,d){ 3 c = c&#43;&amp;#39;1111&amp;#39;; 4 console.log(c,d); 5 } 6 start(){ 7 console.log(&amp;#39;ba ba&amp;#39;) " />
+class b { constructor(c,d){ c = c&#43;&amp;#39;1111&amp;#39;; console.log(c,d); } start(){ console.log(&amp;#39;ba ba&amp;#39;) } } class a e" />
 
     <meta property="article:published_time" content="2017-05-27T11:19:22Z" />
     <meta property="article:tag" content="babel" /><meta property="article:tag" content="Es5" />
@@ -128,33 +128,33 @@
 <h1 id="继承">继承</h1>
 
 <p><a href="https://babeljs.io/repl/">复制下面代码 - 点击https://babeljs.io/repl/</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">class</span> b {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>  constructor(c,d){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>    c <span style="color:#ff79c6">=</span> c<span style="color:#ff79c6">+</span><span style="color:#f1fa8c">&#39;1111&#39;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>    console.log(c,d);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>  start(){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    console.log(<span style="color:#f1fa8c">&#39;ba ba&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span><span style="color:#ff79c6">class</span> a <span style="color:#ff79c6">extends</span> b {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>  constructor(c,b){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>    <span style="color:#ff79c6">super</span>(c,b);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>    c <span style="color:#ff79c6">=</span> c<span style="color:#ff79c6">+</span><span style="color:#f1fa8c">&#39;222222&#39;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>    console.log(<span style="color:#bd93f9">1</span>,c,<span style="color:#bd93f9">2</span>,b);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.start;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>  } 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>  start(){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>    console.log(<span style="color:#f1fa8c">&#39;son&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span><span style="color:#8be9fd;font-style:italic">var</span> o1 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> a(<span style="color:#f1fa8c">&#39;first&#39;</span>, <span style="color:#f1fa8c">&#39;second&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>console.log(<span style="color:#f1fa8c">&#39;------------------&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span>console.log(o1.toString());
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">class</span> b {
+  constructor(c,d){
+    c <span style="color:#ff79c6">=</span> c<span style="color:#ff79c6">+</span><span style="color:#f1fa8c">&#39;1111&#39;</span>;
+    console.log(c,d);
+  }
+  start(){
+    console.log(<span style="color:#f1fa8c">&#39;ba ba&#39;</span>)
+  }
+}
+
+<span style="color:#ff79c6">class</span> a <span style="color:#ff79c6">extends</span> b {
+  constructor(c,b){
+    <span style="color:#ff79c6">super</span>(c,b);
+    c <span style="color:#ff79c6">=</span> c<span style="color:#ff79c6">+</span><span style="color:#f1fa8c">&#39;222222&#39;</span>;
+    console.log(<span style="color:#bd93f9">1</span>,c,<span style="color:#bd93f9">2</span>,b);
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.start;
+  } 
+  start(){
+    console.log(<span style="color:#f1fa8c">&#39;son&#39;</span>);
+  }
+}
+
+<span style="color:#8be9fd;font-style:italic">var</span> o1 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> a(<span style="color:#f1fa8c">&#39;first&#39;</span>, <span style="color:#f1fa8c">&#39;second&#39;</span>);
+
+console.log(<span style="color:#f1fa8c">&#39;------------------&#39;</span>);
+console.log(o1.toString());
+</code></pre></div>
 <p>-为了实现，相当于 类的 继承 问题，js 给 大众</p>
 
 <p>一个 ， <code>丑陋</code>的 写法，<code>构造</code>，与<code>原型</code>，的，概念.</p>
@@ -214,13 +214,13 @@
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">批量修改文件名-cmd:bash</a></li>            
+          <li><a href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">目录环境加载 direnv</a></li>            
         
-          <li><a href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/">codepen 代码嵌入</a></li>            
+          <li><a href="/2015/09/28/colenak/">Colenak</a></li>            
         
-          <li><a href="/1/01/01/hello-world/">Hello World</a></li>            
+          <li><a href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">pipenv 快速构建虚拟python环境</a></li>            
         
-          <li><a href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">React-Redux 父-Provider 子-connect</a></li>            
+          <li><a href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">中间件js实现</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -257,13 +257,13 @@ react, typescript, material-ui, redux, bootstrap
 单独一二项，看的明白，混在一起的. 科科
  虽然说，用react框架省去了些，步骤，redux做全局，meterial-ui 做 UI ，bootstrap 做 布局 部分，代码文件，后缀名是，.js 但是，应该是，用工具转代码的， 因为，变量数据格式，太凸显 ， 还是说用了其他的方式。
 editor/packages/renderer/src/index.js v0.2.10 line-8
-1const gridClass = (size: number = 12): string =&gt; 2 `ory-cell-sm-${size}ory-cell-xs-12` 3  eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
+const gridClass = (size: number = 12): string =&gt; `ory-cell-sm-${size}ory-cell-xs-12`   eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
  作者造搞了，自己的数据格式，主要通过 cells Raws
 状态是一个规范的JSON对象，不涉及HTML。
 也是为了，免xss威胁。
 行 列 去区分，显示
 editor/examples/src/content.js
-1export default [ 2 { 3 &#34;id&#34;: &#34;1&#34;, 4 &#34;cells&#34;: [ 5 { 6 &#34;id&#34;: &#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;, 7 &#34;inline&#34;: null, 8 &#34;size&#34;: 12, 9 &#34;rows&#34;: [ 10 { 11 &#34;id&#34;: &#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;, 12 &#34;cells&#34;: [ 13 { 14 &#34;id&#34;: &#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;, 15 &#34;inline&#34;: null, 16 &#34;size&#34;: 12, 17 用来对，服务器渲染，静态 ...  </p>
+export default [ { &#34;id&#34;: &#34;1&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12, &#34;rows&#34;: [ { &#34;id&#34;: &#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12,  用来对，服务器渲染，静态 ...  </p>
               
           </section>
       </a>
@@ -296,7 +296,7 @@ editor/examples/src/content.js
               
                 <p>react-router v4  react 的路由解决方案
  而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
-1 &lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
+&lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
 比如我的 域名 llever.com
 当应用直接放在 llever.com/ 的时候，会实用。
 但是 如果我想 放在 llever.com/about/

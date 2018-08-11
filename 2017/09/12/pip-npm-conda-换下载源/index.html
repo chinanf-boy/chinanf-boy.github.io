@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="canonical" href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/" />
 
-     <meta name="description" content=" Pip 换 阿里源 linux下运行命令 1vi ~/.pip/pip.confp1[global] 2trusted-host = mirrors.aliyun.com 3index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 1conda con" /> 
+     <meta name="description" content=" Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config -" /> 
 
      
     
@@ -20,7 +20,7 @@
     
  
     <meta name="twitter:title" content="pip npm conda 换下载源"/>
-    <meta name="twitter:description" content=" Pip 换 阿里源 linux下运行命令 1vi ~/.pip/pip.confp1[global] 2trusted-host = mirrors.aliyun.com 3index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 1conda con"/>
+    <meta name="twitter:description" content=" Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config -"/>
     <meta name="twitter:url" content="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/" />
     <meta name="twitter:site" content="@"/>
 
@@ -30,7 +30,7 @@
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:description" content=" Pip 换 阿里源 linux下运行命令 1vi ~/.pip/pip.confp1[global] 2trusted-host = mirrors.aliyun.com 3index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 1conda con" />
+    <meta property="og:description" content=" Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config -" />
 
     <meta property="article:published_time" content="2017-09-12T10:09:44Z" />
     <meta property="article:tag" content="pip" /><meta property="article:tag" content="npm" /><meta property="article:tag" content="conda" />
@@ -113,7 +113,7 @@
         <h1 class="post-full-title">pip npm conda 换下载源</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -123,26 +123,26 @@
 <h2 id="pip-换-阿里源">Pip 换 阿里源</h2>
 
 <h3 id="linux下运行命令">linux下运行命令</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>vi ~/.pip/pip.confp</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">[</span>global<span style="color:#ff79c6">]</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>trusted-host <span style="color:#ff79c6">=</span>  mirrors.aliyun.com
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>index-url <span style="color:#ff79c6">=</span> http://mirrors.aliyun.com/pypi/simple</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vi ~/.pip/pip.confp</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ff79c6">[</span>global<span style="color:#ff79c6">]</span>
+trusted-host <span style="color:#ff79c6">=</span>  mirrors.aliyun.com
+index-url <span style="color:#ff79c6">=</span> http://mirrors.aliyun.com/pypi/simple</code></pre></div>
 <h2 id="conda-换-清华源">Conda 换 清华源</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>conda config --set show_channel_urls yes</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+
+conda config --set show_channel_urls yes</code></pre></div>
 <h2 id="npm-换-淘宝源">Npm 换 淘宝源</h2>
 
 <p>一、使用淘宝镜像
 1.临时使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm --registry https://registry.npm.taobao.org install express</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm --registry https://registry.npm.taobao.org install express</pre></div>
 <p>2.持久使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm config set registry https://registry.npm.taobao.org</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm config set registry https://registry.npm.taobao.org</pre></div>
 <p>3.通过cnpm</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm install -g cnpm --registry=https://registry.npm.taobao.org</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm install -g cnpm --registry=https://registry.npm.taobao.org</pre></div>
 <p>二、使用官方镜像</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm config set registry https://registry.npmjs.org/</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm config set registry https://registry.npmjs.org/</pre></div>
 <p>三、查看npm源地址</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>npm config get registry</pre></div>    
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm config get registry</pre></div>    
         </div>
     </section>
 
@@ -184,13 +184,13 @@
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">Js - Module模式 - 私有-公有-命名空间</a></li>            
+          <li><a href="/2017/10/09/slack-hubot-use-py-or-js/">Slack-Hubot-use-py-or-js</a></li>            
         
-          <li><a href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python核心编程第三版-第二章代码运行 问题解决</a></li>            
+          <li><a href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/">yarn no sudo 设置</a></li>            
         
-          <li><a href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">Mac 使用 NTFS </a></li>            
+          <li><a href="/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/">浏览器与node，this，的不同</a></li>            
         
-          <li><a href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/">codepen 代码嵌入</a></li>            
+          <li><a href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">position sticky 粘连定位</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -204,7 +204,7 @@
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -219,12 +219,12 @@
           <section class="post-card-excerpt">
               
                 <p>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
-安装发电机 1npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
-1yo code 更多详情 创建扩展的文件夹
-扩展API流程 的介绍 扩展清单： package.json contributes 1&#34;contributes&#34;: { 2 &#34;commands&#34;: [{ 3 &#34;command&#34;: &#34;extension.sayHello&#34;, 4 &#34;title&#34;: &#34;Hello World&#34; 5 }] 6 } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
+安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
+yo code 更多详情 创建扩展的文件夹
+扩展API流程 的介绍 扩展清单： package.json contributes &#34;contributes&#34;: { &#34;commands&#34;: [{ &#34;command&#34;: &#34;extension.sayHello&#34;, &#34;title&#34;: &#34;Hello World&#34; }] } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
 activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hello World&quot;
-1&#34;activationEvents&#34;: [ 2 &#34;onCommand:extension.sayHello&#34; 3 ] 启动事件—当语言为markdown
-1&#34;activationEvents&#34;: [ 2 &#34;onLanguage:markdown&#34; 3 ] 示例 extension.ts 你好世界 1import * as vscode from &#39;vscode&#39;; 2 3 4export function activate(context: vscode. ...  </p>
+&#34;activationEvents&#34;: [ &#34;onCommand:extension.sayHello&#34; ] 启动事件—当语言为markdown
+&#34;activationEvents&#34;: [ &#34;onLanguage:markdown&#34; ] 示例 extension.ts 你好世界 import * as vscode from &#39;vscode&#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console. ...  </p>
               
           </section>
       </a>
@@ -240,7 +240,7 @@ activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hell
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -255,11 +255,11 @@ activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hell
           <section class="post-card-excerpt">
               
                 <p>问题描述:
-1UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
+UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
  在python目录 Python27\Lib\site-packages 建一个文件
 sitecustomize.py
 内容写：
-1import sys 2sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
+import sys sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
 参考链接：https://www.v2ex.com/t/90659 </p>
               
           </section>

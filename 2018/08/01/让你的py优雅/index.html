@@ -113,7 +113,7 @@
         <h1 class="post-full-title">让你的py优雅</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -142,114 +142,114 @@ c之道。这篇文章是网友Jeff Paine整理的他在2013年美国的PyCon的
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>        <span style="color:#ff79c6">print</span> i <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span></code></pre></div>
 
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">xrange</span>(<span style="color:#bd93f9">6</span>):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">print</span> i <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">xrange</span>(<span style="color:#bd93f9">6</span>):
+    <span style="color:#ff79c6">print</span> i <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span></code></pre></div>
 <p>xrange会返回一个迭代器，用来一次
 遍历一个范围。这种方式会比range更省内存。xrange在Python 3中已经改名为range。</p>
 
 <h2 id="遍历一个集合">遍历一个集合</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(colors)):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">print</span> colors[i]</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
+ 
+<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(colors)):
+    <span style="color:#ff79c6">print</span> colors[i]</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> colors:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">print</span> color</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> colors:
+    <span style="color:#ff79c6">print</span> color</code></pre></div>
 <h2 id="反向遍历">反向遍历</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(colors)<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">print</span> colors[i]</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
+ 
+<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(colors)<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>):
+    <span style="color:#ff79c6">print</span> colors[i]</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">reversed</span>(colors):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">print</span> color</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">reversed</span>(colors):
+    <span style="color:#ff79c6">print</span> color</code></pre></div>
 <!-- more -->
 
 <h2 id="遍历一个集合及其下标">遍历一个集合及其下标</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(colors)):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">print</span> i, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, colors[i]</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
+ 
+<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#8be9fd;font-style:italic">len</span>(colors)):
+    <span style="color:#ff79c6">print</span> i, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, colors[i]</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">for</span> i, color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(colors):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">print</span> i, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, color</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">for</span> i, color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(colors):
+    <span style="color:#ff79c6">print</span> i, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, color</code></pre></div>
 <p>这种写法效率高，优雅，而且帮你省去亲自创建和自增下标。</p>
 
 <p>当你发现你在操作集合的下标时，你很有可能在做错事。</p>
 
 <h2 id="遍历两个集合">遍历两个集合</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>n <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#8be9fd;font-style:italic">len</span>(names), <span style="color:#8be9fd;font-style:italic">len</span>(colors))
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    <span style="color:#ff79c6">print</span> names[i], <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, colors[i]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span><span style="color:#ff79c6">for</span> name, color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(names, colors):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9</span>    <span style="color:#ff79c6">print</span> name, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, color</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>]
+colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
+
+n <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">min</span>(<span style="color:#8be9fd;font-style:italic">len</span>(names), <span style="color:#8be9fd;font-style:italic">len</span>(colors))
+<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+    <span style="color:#ff79c6">print</span> names[i], <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, colors[i]
+
+<span style="color:#ff79c6">for</span> name, color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(names, colors):
+    <span style="color:#ff79c6">print</span> name, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, color</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">for</span> name, color <span style="color:#ff79c6">in</span> izip(names, colors):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">print</span> name, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, color</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#ff79c6">for</span> name, color <span style="color:#ff79c6">in</span> izip(names, colors):
+    <span style="color:#ff79c6">print</span> name, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, color</code></pre></div>
 <p>zip在内存中生成一个新的列表，需要更多的内存。izip比zip效率更高。</p>
 
 <p>注意：在Python 3中，izip改名为zip，并替换了原来的zip成为内置函数。</p>
 
 <p>有序地遍历</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#6272a4"># 正序</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span><span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(colors):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    <span style="color:#ff79c6">print</span> colors
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span><span style="color:#6272a4"># 倒序</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span><span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(colors, reverse<span style="color:#ff79c6">=</span>True):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9</span>    <span style="color:#ff79c6">print</span> colors</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
+
+<span style="color:#6272a4"># 正序</span>
+<span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(colors):
+    <span style="color:#ff79c6">print</span> colors
+
+<span style="color:#6272a4"># 倒序</span>
+<span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(colors, reverse<span style="color:#ff79c6">=</span>True):
+    <span style="color:#ff79c6">print</span> colors</code></pre></div>
 <p>自定义排序顺序</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">compare_length</span>(c1, c2):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(c1) <span style="color:#ff79c6">&lt;</span> <span style="color:#8be9fd;font-style:italic">len</span>(c2): <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(c1) <span style="color:#ff79c6">&gt;</span> <span style="color:#8be9fd;font-style:italic">len</span>(c2): <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span><span style="color:#ff79c6">print</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(colors, <span style="color:#8be9fd;font-style:italic">cmp</span><span style="color:#ff79c6">=</span>compare_length)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;yellow&#39;</span>]
+
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">compare_length</span>(c1, c2):
+    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(c1) <span style="color:#ff79c6">&lt;</span> <span style="color:#8be9fd;font-style:italic">len</span>(c2): <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
+    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(c1) <span style="color:#ff79c6">&gt;</span> <span style="color:#8be9fd;font-style:italic">len</span>(c2): <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>
+
+<span style="color:#ff79c6">print</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(colors, <span style="color:#8be9fd;font-style:italic">cmp</span><span style="color:#ff79c6">=</span>compare_length)</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">print</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(colors, key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">print</span> <span style="color:#8be9fd;font-style:italic">sorted</span>(colors, key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">len</span>)</code></pre></div>
 <p>第一种方法效率低而且写起来很不爽。另外，Python 3已经不支持比较函数了。</p>
 
 <p>调用一个函数直到遇到标记值</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>blocks <span style="color:#ff79c6">=</span> []
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">while</span> True:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    block <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span>read(<span style="color:#bd93f9">32</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">if</span> block <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;&#39;</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>        <span style="color:#ff79c6">break</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    blocks<span style="color:#ff79c6">.</span>append(block)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">blocks <span style="color:#ff79c6">=</span> []
+<span style="color:#ff79c6">while</span> True:
+    block <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span>read(<span style="color:#bd93f9">32</span>)
+    <span style="color:#ff79c6">if</span> block <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;&#39;</span>:
+        <span style="color:#ff79c6">break</span>
+    blocks<span style="color:#ff79c6">.</span>append(block)</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>blocks <span style="color:#ff79c6">=</span> []
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">for</span> block <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">iter</span>(partial(f<span style="color:#ff79c6">.</span>read, <span style="color:#bd93f9">32</span>), <span style="color:#f1fa8c">&#39;&#39;</span>):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    blocks<span style="color:#ff79c6">.</span>append(block)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">blocks <span style="color:#ff79c6">=</span> []
+<span style="color:#ff79c6">for</span> block <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">iter</span>(partial(f<span style="color:#ff79c6">.</span>read, <span style="color:#bd93f9">32</span>), <span style="color:#f1fa8c">&#39;&#39;</span>):
+    blocks<span style="color:#ff79c6">.</span>append(block)</code></pre></div>
 <p>iter接受两个参数。第一个是你反复调用的函数，第二个是标记值。</p>
 
 <p>译注：这个例子里不太能看出来方法二的优势，甚至觉得partial让代码可读性更差了。方法二的优势在于iter的返回值是个迭代器，迭代器能用在各种地方，set，s</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>orted，<span style="color:#8be9fd;font-style:italic">min</span>，<span style="color:#8be9fd;font-style:italic">max</span>，heapq，<span style="color:#8be9fd;font-style:italic">sum</span>……</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">orted，<span style="color:#8be9fd;font-style:italic">min</span>，<span style="color:#8be9fd;font-style:italic">max</span>，heapq，<span style="color:#8be9fd;font-style:italic">sum</span>……</code></pre></div>
 <p>在循环内识别多个退出点</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find</span>(seq, target):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    found <span style="color:#ff79c6">=</span> False
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    <span style="color:#ff79c6">for</span> i, value <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(seq):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>        <span style="color:#ff79c6">if</span> value <span style="color:#ff79c6">==</span> target:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>            found <span style="color:#ff79c6">=</span> True
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>            <span style="color:#ff79c6">break</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">not</span> found:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9</span>    <span style="color:#ff79c6">return</span> i</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find</span>(seq, target):
+    found <span style="color:#ff79c6">=</span> False
+    <span style="color:#ff79c6">for</span> i, value <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(seq):
+        <span style="color:#ff79c6">if</span> value <span style="color:#ff79c6">==</span> target:
+            found <span style="color:#ff79c6">=</span> True
+            <span style="color:#ff79c6">break</span>
+    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">not</span> found:
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
+    <span style="color:#ff79c6">return</span> i</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find</span>(seq, target):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">for</span> i, value <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(seq):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>        <span style="color:#ff79c6">if</span> value <span style="color:#ff79c6">==</span> target:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>            <span style="color:#ff79c6">break</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    <span style="color:#ff79c6">else</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>    <span style="color:#ff79c6">return</span> i</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find</span>(seq, target):
+    <span style="color:#ff79c6">for</span> i, value <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(seq):
+        <span style="color:#ff79c6">if</span> value <span style="color:#ff79c6">==</span> target:
+            <span style="color:#ff79c6">break</span>
+    <span style="color:#ff79c6">else</span>:
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
+    <span style="color:#ff79c6">return</span> i</code></pre></div>
 <p>for执行完所有的循环后就会执行else。</p>
 
 <p>译注：刚了解for-else语法时会困惑，什么情况下会执行到else里。有两种方法去理解else。传统的方法是把for看作if，当for后面的条件为False时
@@ -257,14 +257,14 @@ c之道。这篇文章是网友Jeff Paine整理的他在2013年美国的PyCon的
 reak，那么循环结束时会进入到else。</p>
 
 <p>遍历字典的key</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>d <span style="color:#ff79c6">=</span> {<span style="color:#f1fa8c">&#39;matthew&#39;</span>: <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>: <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;raymond&#39;</span>: <span style="color:#f1fa8c">&#39;red&#39;</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> d:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">print</span> k
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span><span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> d<span style="color:#ff79c6">.</span>keys():
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>    <span style="color:#ff79c6">if</span> k<span style="color:#ff79c6">.</span>startswith(<span style="color:#f1fa8c">&#39;r&#39;</span>):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>        <span style="color:#ff79c6">del</span> d[k]</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#ff79c6">=</span> {<span style="color:#f1fa8c">&#39;matthew&#39;</span>: <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>: <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;raymond&#39;</span>: <span style="color:#f1fa8c">&#39;red&#39;</span>}
+
+<span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> d:
+    <span style="color:#ff79c6">print</span> k
+
+<span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> d<span style="color:#ff79c6">.</span>keys():
+    <span style="color:#ff79c6">if</span> k<span style="color:#ff79c6">.</span>startswith(<span style="color:#f1fa8c">&#39;r&#39;</span>):
+        <span style="color:#ff79c6">del</span> d[k]</code></pre></div>
 <p>什么时候应该使用第二种而不是第一种方法？当你需要修改字典的时候。</p>
 
 <p>如果你在迭代一个东西的时候修改它，那就是在冒天下之大不韪，接下来发生什么都活该。</p>
@@ -277,94 +277,94 @@ reak，那么循环结束时会进入到else。</p>
 <p>遍历一个字典的key和value</p>
 
 <h1 id="并不快-每次必须要重新哈希并做一次查找">并不快，每次必须要重新哈希并做一次查找</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> d:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">print</span> k, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, d[k]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span><span style="color:#6272a4"># 产生一个很大的列表</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> d<span style="color:#ff79c6">.</span>items():
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    <span style="color:#ff79c6">print</span> k, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, v</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> d:
+    <span style="color:#ff79c6">print</span> k, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, d[k]
+
+<span style="color:#6272a4"># 产生一个很大的列表</span>
+<span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> d<span style="color:#ff79c6">.</span>items():
+    <span style="color:#ff79c6">print</span> k, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, v</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> d<span style="color:#ff79c6">.</span>iteritems():
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">print</span> k, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, v</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> d<span style="color:#ff79c6">.</span>iteritems():
+    <span style="color:#ff79c6">print</span> k, <span style="color:#f1fa8c">&#39;---&gt;&#39;</span>, v</code></pre></div>
 <p>iteritems()更好是因为它返回了一个迭代器。</p>
 
 <p>注意：Python 3已经没有iteritems()了，items()的行为和iteritems()很接近。详情请看文档。</p>
 
 <p>用key-value对构建字典</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>d <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(izip(names, colors))
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#6272a4"># {&#39;matthew&#39;: &#39;blue&#39;, &#39;rachel&#39;: &#39;green&#39;, &#39;raymond&#39;: &#39;red&#39;}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>Python <span style="color:#bd93f9">3</span>: d <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(<span style="color:#8be9fd;font-style:italic">zip</span>(names, colors))</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>]
+colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>]
+
+d <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(izip(names, colors))
+<span style="color:#6272a4"># {&#39;matthew&#39;: &#39;blue&#39;, &#39;rachel&#39;: &#39;green&#39;, &#39;raymond&#39;: &#39;red&#39;}</span>
+
+Python <span style="color:#bd93f9">3</span>: d <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(<span style="color:#8be9fd;font-style:italic">zip</span>(names, colors))</code></pre></div>
 <p>用字典计数</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;red&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#6272a4"># 简单，基本的计数方法。适合初学者起步时学习。</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>d <span style="color:#ff79c6">=</span> {}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span><span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> colors:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>    <span style="color:#ff79c6">if</span> color <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">in</span> d:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>        d[color] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    d[color] <span style="color:#ff79c6">+=</span> <span style="color:#bd93f9">1</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span><span style="color:#6272a4"># {&#39;blue&#39;: 1, &#39;green&#39;: 2, &#39;red&#39;: 3}</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">colors <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;red&#39;</span>]
+
+<span style="color:#6272a4"># 简单，基本的计数方法。适合初学者起步时学习。</span>
+d <span style="color:#ff79c6">=</span> {}
+<span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> colors:
+    <span style="color:#ff79c6">if</span> color <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">in</span> d:
+        d[color] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+    d[color] <span style="color:#ff79c6">+=</span> <span style="color:#bd93f9">1</span>
+
+<span style="color:#6272a4"># {&#39;blue&#39;: 1, &#39;green&#39;: 2, &#39;red&#39;: 3}</span></code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>d <span style="color:#ff79c6">=</span> {}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> colors:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    d[color] <span style="color:#ff79c6">=</span> d<span style="color:#ff79c6">.</span>get(color, <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#6272a4"># 稍微潮点的方法，但有些坑需要注意，适合熟练的老手。</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>d <span style="color:#ff79c6">=</span> defaultdict(<span style="color:#8be9fd;font-style:italic">int</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span><span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> colors:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>    d[color] <span style="color:#ff79c6">+=</span> <span style="color:#bd93f9">1</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#ff79c6">=</span> {}
+<span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> colors:
+    d[color] <span style="color:#ff79c6">=</span> d<span style="color:#ff79c6">.</span>get(color, <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>
+
+<span style="color:#6272a4"># 稍微潮点的方法，但有些坑需要注意，适合熟练的老手。</span>
+d <span style="color:#ff79c6">=</span> defaultdict(<span style="color:#8be9fd;font-style:italic">int</span>)
+<span style="color:#ff79c6">for</span> color <span style="color:#ff79c6">in</span> colors:
+    d[color] <span style="color:#ff79c6">+=</span> <span style="color:#bd93f9">1</span></code></pre></div>
 <p>用字典分组 — 第I部分和第II部分</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>, <span style="color:#f1fa8c">&#39;roger&#39;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>         <span style="color:#f1fa8c">&#39;betty&#39;</span>, <span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;judith&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#6272a4"># 在这个例子，我们按name的长度分组</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>d <span style="color:#ff79c6">=</span> {}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> names:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    key <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(name)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    <span style="color:#ff79c6">if</span> key <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">in</span> d:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>        d[key] <span style="color:#ff79c6">=</span> []
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    d[key]<span style="color:#ff79c6">.</span>append(name)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span><span style="color:#6272a4"># {5: [&#39;roger&#39;, &#39;betty&#39;], 6: [&#39;rachel&#39;, &#39;judith&#39;], 7: [&#39;raymond&#39;, &#39;matthew&#39;,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span><span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>]}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>d <span style="color:#ff79c6">=</span> {}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span><span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> names:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>    key <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(name)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>    d<span style="color:#ff79c6">.</span>setdefault(key, [])<span style="color:#ff79c6">.</span>append(name)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>, <span style="color:#f1fa8c">&#39;roger&#39;</span>,
+         <span style="color:#f1fa8c">&#39;betty&#39;</span>, <span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;judith&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>]
+
+<span style="color:#6272a4"># 在这个例子，我们按name的长度分组</span>
+d <span style="color:#ff79c6">=</span> {}
+<span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> names:
+    key <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(name)
+    <span style="color:#ff79c6">if</span> key <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">in</span> d:
+        d[key] <span style="color:#ff79c6">=</span> []
+    d[key]<span style="color:#ff79c6">.</span>append(name)
+
+<span style="color:#6272a4"># {5: [&#39;roger&#39;, &#39;betty&#39;], 6: [&#39;rachel&#39;, &#39;judith&#39;], 7: [&#39;raymond&#39;, &#39;matthew&#39;,</span>
+<span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>]}
+
+d <span style="color:#ff79c6">=</span> {}
+<span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> names:
+    key <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(name)
+    d<span style="color:#ff79c6">.</span>setdefault(key, [])<span style="color:#ff79c6">.</span>append(name)</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>d <span style="color:#ff79c6">=</span> defaultdict(<span style="color:#8be9fd;font-style:italic">list</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> names:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    key <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(name)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    d[key]<span style="color:#ff79c6">.</span>append(name)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#ff79c6">=</span> defaultdict(<span style="color:#8be9fd;font-style:italic">list</span>)
+<span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> names:
+    key <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(name)
+    d[key]<span style="color:#ff79c6">.</span>append(name)</code></pre></div>
 <p>字典的popitem()是原子的吗？</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>d <span style="color:#ff79c6">=</span> {<span style="color:#f1fa8c">&#39;matthew&#39;</span>: <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>: <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;raymond&#39;</span>: <span style="color:#f1fa8c">&#39;red&#39;</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#ff79c6">while</span> d:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    key, value <span style="color:#ff79c6">=</span> d<span style="color:#ff79c6">.</span>popitem()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    <span style="color:#ff79c6">print</span> key, <span style="color:#f1fa8c">&#39;--&gt;&#39;</span>, value</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#ff79c6">=</span> {<span style="color:#f1fa8c">&#39;matthew&#39;</span>: <span style="color:#f1fa8c">&#39;blue&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>: <span style="color:#f1fa8c">&#39;green&#39;</span>, <span style="color:#f1fa8c">&#39;raymond&#39;</span>: <span style="color:#f1fa8c">&#39;red&#39;</span>}
+
+<span style="color:#ff79c6">while</span> d:
+    key, value <span style="color:#ff79c6">=</span> d<span style="color:#ff79c6">.</span>popitem()
+    <span style="color:#ff79c6">print</span> key, <span style="color:#f1fa8c">&#39;--&gt;&#39;</span>, value</code></pre></div>
 <p>popitem是原子的，所以多线程的时候没必要用锁包着它。</p>
 
 <p>连接字典</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>defaults <span style="color:#ff79c6">=</span> {<span style="color:#f1fa8c">&#39;color&#39;</span>: <span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;user&#39;</span>: <span style="color:#f1fa8c">&#39;guest&#39;</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>parser <span style="color:#ff79c6">=</span> argparse<span style="color:#ff79c6">.</span>ArgumentParser()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>parser<span style="color:#ff79c6">.</span>add_argument(<span style="color:#f1fa8c">&#39;-u&#39;</span>, <span style="color:#f1fa8c">&#39;--user&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>parser<span style="color:#ff79c6">.</span>add_argument(<span style="color:#f1fa8c">&#39;-c&#39;</span>, <span style="color:#f1fa8c">&#39;--color&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>namespace <span style="color:#ff79c6">=</span> parser<span style="color:#ff79c6">.</span>parse_args([])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>command_line_args <span style="color:#ff79c6">=</span> {k: v <span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">vars</span>(namespace)<span style="color:#ff79c6">.</span>items() <span style="color:#ff79c6">if</span> v}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#6272a4"># 下面是通常的作法，默认使用第一个字典，接着用环境变量覆盖它，最后用命令行参数覆盖它。</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span><span style="color:#6272a4"># 然而不幸的是，这种方法拷贝数据太疯狂。</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>d <span style="color:#ff79c6">=</span> defaults<span style="color:#ff79c6">.</span>copy()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>d<span style="color:#ff79c6">.</span>update(os<span style="color:#ff79c6">.</span>environ)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>d<span style="color:#ff79c6">.</span>update(command_line_args)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">defaults <span style="color:#ff79c6">=</span> {<span style="color:#f1fa8c">&#39;color&#39;</span>: <span style="color:#f1fa8c">&#39;red&#39;</span>, <span style="color:#f1fa8c">&#39;user&#39;</span>: <span style="color:#f1fa8c">&#39;guest&#39;</span>}
+parser <span style="color:#ff79c6">=</span> argparse<span style="color:#ff79c6">.</span>ArgumentParser()
+parser<span style="color:#ff79c6">.</span>add_argument(<span style="color:#f1fa8c">&#39;-u&#39;</span>, <span style="color:#f1fa8c">&#39;--user&#39;</span>)
+parser<span style="color:#ff79c6">.</span>add_argument(<span style="color:#f1fa8c">&#39;-c&#39;</span>, <span style="color:#f1fa8c">&#39;--color&#39;</span>)
+namespace <span style="color:#ff79c6">=</span> parser<span style="color:#ff79c6">.</span>parse_args([])
+command_line_args <span style="color:#ff79c6">=</span> {k: v <span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">vars</span>(namespace)<span style="color:#ff79c6">.</span>items() <span style="color:#ff79c6">if</span> v}
+
+<span style="color:#6272a4"># 下面是通常的作法，默认使用第一个字典，接着用环境变量覆盖它，最后用命令行参数覆盖它。</span>
+<span style="color:#6272a4"># 然而不幸的是，这种方法拷贝数据太疯狂。</span>
+d <span style="color:#ff79c6">=</span> defaults<span style="color:#ff79c6">.</span>copy()
+d<span style="color:#ff79c6">.</span>update(os<span style="color:#ff79c6">.</span>environ)
+d<span style="color:#ff79c6">.</span>update(command_line_args)</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>d <span style="color:#ff79c6">=</span> ChainMap(command_line_args, os<span style="color:#ff79c6">.</span>environ, defaults)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#ff79c6">=</span> ChainMap(command_line_args, os<span style="color:#ff79c6">.</span>environ, defaults)</code></pre></div>
 <p>ChainMap在Python 3中加入。高效而优雅。</p>
 
 <p>提高可读性</p>
@@ -375,54 +375,54 @@ reak，那么循环结束时会进入到else。</p>
 第二种方法和人类思考方式一致</p>
 
 <p>用关键字参数提高函数调用的可读性</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>twitter_search(<span style="color:#f1fa8c">&#39;@obama&#39;</span>, False, <span style="color:#bd93f9">20</span>, True)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">twitter_search(<span style="color:#f1fa8c">&#39;@obama&#39;</span>, False, <span style="color:#bd93f9">20</span>, True)</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>twitter_search(<span style="color:#f1fa8c">&#39;@obama&#39;</span>, retweets<span style="color:#ff79c6">=</span>False, numtweets<span style="color:#ff79c6">=</span><span style="color:#bd93f9">20</span>, popular<span style="color:#ff79c6">=</span>True)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">twitter_search(<span style="color:#f1fa8c">&#39;@obama&#39;</span>, retweets<span style="color:#ff79c6">=</span>False, numtweets<span style="color:#ff79c6">=</span><span style="color:#bd93f9">20</span>, popular<span style="color:#ff79c6">=</span>True)</code></pre></div>
 <p>第二种方法稍微(微秒级)慢一点，但为了代码的可读性和开发时间，值得。</p>
 
 <p>用namedtuple提高多个返回值的可读性</p>
 
 <h1 id="老的testmod返回值">老的testmod返回值</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>doctest<span style="color:#ff79c6">.</span>testmod()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#6272a4"># (0, 4)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#6272a4"># 测试结果是好是坏？你看不出来，因为返回值不清晰。</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>更好的方法
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span><span style="color:#6272a4"># 新的testmod返回值, 一个namedtuple</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>doctest<span style="color:#ff79c6">.</span>testmod()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9</span><span style="color:#6272a4"># TestResults(failed=0, attempted=4)</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">doctest<span style="color:#ff79c6">.</span>testmod()
+<span style="color:#6272a4"># (0, 4)</span>
+<span style="color:#6272a4"># 测试结果是好是坏？你看不出来，因为返回值不清晰。</span>
+
+更好的方法
+
+<span style="color:#6272a4"># 新的testmod返回值, 一个namedtuple</span>
+doctest<span style="color:#ff79c6">.</span>testmod()
+<span style="color:#6272a4"># TestResults(failed=0, attempted=4)</span></code></pre></div>
 <p>namedtuple是tuple的子类，所以仍适用正常的元组操作，但它更友好。</p>
 
 <p>创建一个nametuple</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>TestResults <span style="color:#ff79c6">=</span> namedTuple(<span style="color:#f1fa8c">&#39;TestResults&#39;</span>, [<span style="color:#f1fa8c">&#39;failed&#39;</span>, <span style="color:#f1fa8c">&#39;attempted&#39;</span>])</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">TestResults <span style="color:#ff79c6">=</span> namedTuple(<span style="color:#f1fa8c">&#39;TestResults&#39;</span>, [<span style="color:#f1fa8c">&#39;failed&#39;</span>, <span style="color:#f1fa8c">&#39;attempted&#39;</span>])</code></pre></div>
 <p>unpack序列</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>p <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Raymond&#39;</span>, <span style="color:#f1fa8c">&#39;Hettinger&#39;</span>, <span style="color:#bd93f9">0x30</span>, <span style="color:#f1fa8c">&#39;python@example.com&#39;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#6272a4"># 其它语言的常用方法/习惯</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>fname <span style="color:#ff79c6">=</span> p[<span style="color:#bd93f9">0</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>lname <span style="color:#ff79c6">=</span> p[<span style="color:#bd93f9">1</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>age <span style="color:#ff79c6">=</span> p[<span style="color:#bd93f9">2</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>email <span style="color:#ff79c6">=</span> p[<span style="color:#bd93f9">3</span>]</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">p <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Raymond&#39;</span>, <span style="color:#f1fa8c">&#39;Hettinger&#39;</span>, <span style="color:#bd93f9">0x30</span>, <span style="color:#f1fa8c">&#39;python@example.com&#39;</span>
+
+<span style="color:#6272a4"># 其它语言的常用方法/习惯</span>
+fname <span style="color:#ff79c6">=</span> p[<span style="color:#bd93f9">0</span>]
+lname <span style="color:#ff79c6">=</span> p[<span style="color:#bd93f9">1</span>]
+age <span style="color:#ff79c6">=</span> p[<span style="color:#bd93f9">2</span>]
+email <span style="color:#ff79c6">=</span> p[<span style="color:#bd93f9">3</span>]</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>fname, lname, age, email <span style="color:#ff79c6">=</span> p</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fname, lname, age, email <span style="color:#ff79c6">=</span> p</code></pre></div>
 <p>第二种方法用了unpack元组，更快，可读性更好。</p>
 
 <p>更新多个变量的状态</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">fibonacci</span>(n):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    x <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    y <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>        <span style="color:#ff79c6">print</span> x
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>        t <span style="color:#ff79c6">=</span> y
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>        y <span style="color:#ff79c6">=</span> x <span style="color:#ff79c6">+</span> y
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>        x <span style="color:#ff79c6">=</span> t</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">fibonacci</span>(n):
+    x <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+    y <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+        <span style="color:#ff79c6">print</span> x
+        t <span style="color:#ff79c6">=</span> y
+        y <span style="color:#ff79c6">=</span> x <span style="color:#ff79c6">+</span> y
+        x <span style="color:#ff79c6">=</span> t</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">fibonacci</span>(n):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    x, y <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>        <span style="color:#ff79c6">print</span> x
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>        x, y <span style="color:#ff79c6">=</span> y, x <span style="color:#ff79c6">+</span> y</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">fibonacci</span>(n):
+    x, y <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>
+    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(n):
+        <span style="color:#ff79c6">print</span> x
+        x, y <span style="color:#ff79c6">=</span> y, x <span style="color:#ff79c6">+</span> y</code></pre></div>
 <p>第一种方法的问题</p>
 
 <p>x和y是状态，状态应该在一次操作中更新，分几行的话状态会互相对不上，这经常是bug的源头。
@@ -432,19 +432,19 @@ reak，那么循环结束时会进入到else。</p>
 <p>第二种方法抽象层级更高，没有操作顺序出错的风险而且更效率更高。</p>
 
 <p>同时状态更新</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>tmp_x <span style="color:#ff79c6">=</span> x <span style="color:#ff79c6">+</span> dx <span style="color:#ff79c6">*</span> t
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>tmp_y <span style="color:#ff79c6">=</span> y <span style="color:#ff79c6">+</span> dy <span style="color:#ff79c6">*</span> t
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>tmp_dx <span style="color:#ff79c6">=</span> influence(m, x, y, dx, dy, partial<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;x&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>tmp_dy <span style="color:#ff79c6">=</span> influence(m, x, y, dx, dy, partial<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;y&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>x <span style="color:#ff79c6">=</span> tmp_x
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>y <span style="color:#ff79c6">=</span> tmp_y
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>dx <span style="color:#ff79c6">=</span> tmp_dx
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>dy <span style="color:#ff79c6">=</span> tmp_dy</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tmp_x <span style="color:#ff79c6">=</span> x <span style="color:#ff79c6">+</span> dx <span style="color:#ff79c6">*</span> t
+tmp_y <span style="color:#ff79c6">=</span> y <span style="color:#ff79c6">+</span> dy <span style="color:#ff79c6">*</span> t
+tmp_dx <span style="color:#ff79c6">=</span> influence(m, x, y, dx, dy, partial<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;x&#39;</span>)
+tmp_dy <span style="color:#ff79c6">=</span> influence(m, x, y, dx, dy, partial<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;y&#39;</span>)
+x <span style="color:#ff79c6">=</span> tmp_x
+y <span style="color:#ff79c6">=</span> tmp_y
+dx <span style="color:#ff79c6">=</span> tmp_dx
+dy <span style="color:#ff79c6">=</span> tmp_dy</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>x, y, dx, dy <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">+</span> dx <span style="color:#ff79c6">*</span> t,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>                y <span style="color:#ff79c6">+</span> dy <span style="color:#ff79c6">*</span> t,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>                influence(m, x, y, dx, dy, partial<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;x&#39;</span>),
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>                influence(m, x, y, dx, dy, partial<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;y&#39;</span>))</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x, y, dx, dy <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">+</span> dx <span style="color:#ff79c6">*</span> t,
+                y <span style="color:#ff79c6">+</span> dy <span style="color:#ff79c6">*</span> t,
+                influence(m, x, y, dx, dy, partial<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;x&#39;</span>),
+                influence(m, x, y, dx, dy, partial<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;y&#39;</span>))</code></pre></div>
 <p>效率</p>
 
 <p>优化的基本原则
@@ -454,33 +454,33 @@ reak，那么循环结束时会进入到else。</p>
 <p>总的来说，不要无故移动数据</p>
 
 <p>连接字符串</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>, <span style="color:#f1fa8c">&#39;roger&#39;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>         <span style="color:#f1fa8c">&#39;betty&#39;</span>, <span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;judith&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>s <span style="color:#ff79c6">=</span> names[<span style="color:#bd93f9">0</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> names[<span style="color:#bd93f9">1</span>:]:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    s <span style="color:#ff79c6">+=</span> <span style="color:#f1fa8c">&#39;, &#39;</span> <span style="color:#ff79c6">+</span> name
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span><span style="color:#ff79c6">print</span> s</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>, <span style="color:#f1fa8c">&#39;roger&#39;</span>,
+         <span style="color:#f1fa8c">&#39;betty&#39;</span>, <span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;judith&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>]
+
+s <span style="color:#ff79c6">=</span> names[<span style="color:#bd93f9">0</span>]
+<span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> names[<span style="color:#bd93f9">1</span>:]:
+    s <span style="color:#ff79c6">+=</span> <span style="color:#f1fa8c">&#39;, &#39;</span> <span style="color:#ff79c6">+</span> name
+<span style="color:#ff79c6">print</span> s</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;, &#39;</span><span style="color:#ff79c6">.</span>join(names)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;, &#39;</span><span style="color:#ff79c6">.</span>join(names)</code></pre></div>
 <p>更新序列</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>, <span style="color:#f1fa8c">&#39;roger&#39;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>         <span style="color:#f1fa8c">&#39;betty&#39;</span>, <span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;judith&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#ff79c6">del</span> names[<span style="color:#bd93f9">0</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span><span style="color:#6272a4"># 下面的代码标志着你用错了数据结构</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>names<span style="color:#ff79c6">.</span>pop(<span style="color:#bd93f9">0</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>names<span style="color:#ff79c6">.</span>insert(<span style="color:#bd93f9">0</span>, <span style="color:#f1fa8c">&#39;mark&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>更好的方法
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>names <span style="color:#ff79c6">=</span> deque([<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>, <span style="color:#f1fa8c">&#39;roger&#39;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>               <span style="color:#f1fa8c">&#39;betty&#39;</span>, <span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;judith&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span><span style="color:#6272a4"># 用deque更有效率</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span><span style="color:#ff79c6">del</span> names[<span style="color:#bd93f9">0</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>names<span style="color:#ff79c6">.</span>popleft()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>names<span style="color:#ff79c6">.</span>appendleft(<span style="color:#f1fa8c">&#39;mark&#39;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">names <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>, <span style="color:#f1fa8c">&#39;roger&#39;</span>,
+         <span style="color:#f1fa8c">&#39;betty&#39;</span>, <span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;judith&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>]
+
+<span style="color:#ff79c6">del</span> names[<span style="color:#bd93f9">0</span>]
+<span style="color:#6272a4"># 下面的代码标志着你用错了数据结构</span>
+names<span style="color:#ff79c6">.</span>pop(<span style="color:#bd93f9">0</span>)
+names<span style="color:#ff79c6">.</span>insert(<span style="color:#bd93f9">0</span>, <span style="color:#f1fa8c">&#39;mark&#39;</span>)
+
+更好的方法
+
+names <span style="color:#ff79c6">=</span> deque([<span style="color:#f1fa8c">&#39;raymond&#39;</span>, <span style="color:#f1fa8c">&#39;rachel&#39;</span>, <span style="color:#f1fa8c">&#39;matthew&#39;</span>, <span style="color:#f1fa8c">&#39;roger&#39;</span>,
+               <span style="color:#f1fa8c">&#39;betty&#39;</span>, <span style="color:#f1fa8c">&#39;melissa&#39;</span>, <span style="color:#f1fa8c">&#39;judith&#39;</span>, <span style="color:#f1fa8c">&#39;charlie&#39;</span>])
+
+<span style="color:#6272a4"># 用deque更有效率</span>
+<span style="color:#ff79c6">del</span> names[<span style="color:#bd93f9">0</span>]
+names<span style="color:#ff79c6">.</span>popleft()
+names<span style="color:#ff79c6">.</span>appendleft(<span style="color:#f1fa8c">&#39;mark&#39;</span>)</code></pre></div>
 <p>装饰器和上下文管理</p>
 
 <p>用于把业务和管理的逻辑分开
@@ -491,79 +491,79 @@ reak，那么循环结束时会进入到else。</p>
 <p>使用装饰器分离出管理逻辑</p>
 
 <h1 id="混着业务和管理逻辑-无法重用">混着业务和管理逻辑，无法重用</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">web_lookup</span>(url, saved<span style="color:#ff79c6">=</span>{}):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">if</span> url <span style="color:#ff79c6">in</span> saved:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>        <span style="color:#ff79c6">return</span> saved[url]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    page <span style="color:#ff79c6">=</span> urllib<span style="color:#ff79c6">.</span>urlopen(url)<span style="color:#ff79c6">.</span>read()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    saved[url] <span style="color:#ff79c6">=</span> page
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    <span style="color:#ff79c6">return</span> page</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">web_lookup</span>(url, saved<span style="color:#ff79c6">=</span>{}):
+    <span style="color:#ff79c6">if</span> url <span style="color:#ff79c6">in</span> saved:
+        <span style="color:#ff79c6">return</span> saved[url]
+    page <span style="color:#ff79c6">=</span> urllib<span style="color:#ff79c6">.</span>urlopen(url)<span style="color:#ff79c6">.</span>read()
+    saved[url] <span style="color:#ff79c6">=</span> page
+    <span style="color:#ff79c6">return</span> page</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>@cache
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">web_lookup</span>(url):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    <span style="color:#ff79c6">return</span> urllib<span style="color:#ff79c6">.</span>urlopen(url)<span style="color:#ff79c6">.</span>read()</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@cache
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">web_lookup</span>(url):
+    <span style="color:#ff79c6">return</span> urllib<span style="color:#ff79c6">.</span>urlopen(url)<span style="color:#ff79c6">.</span>read()</code></pre></div>
 <p>注意：Python 3.2开始加入了functools.lru_cache解决这个问题。</p>
 
 <p>分离临时上下文</p>
 
 <h1 id="保存旧的-创建新的">保存旧的，创建新的</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>old_context <span style="color:#ff79c6">=</span> getcontext()<span style="color:#ff79c6">.</span>copy()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>getcontext()<span style="color:#ff79c6">.</span>prec <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">50</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#ff79c6">print</span> Decimal(<span style="color:#bd93f9">355</span>) <span style="color:#ff79c6">/</span> Decimal(<span style="color:#bd93f9">113</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>setcontext(old_context)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>更好的方法
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span><span style="color:#ff79c6">with</span> localcontext(Context(prec<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9</span>    <span style="color:#ff79c6">print</span> Decimal(<span style="color:#bd93f9">355</span>) <span style="color:#ff79c6">/</span> Decimal(<span style="color:#bd93f9">113</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">old_context <span style="color:#ff79c6">=</span> getcontext()<span style="color:#ff79c6">.</span>copy()
+getcontext()<span style="color:#ff79c6">.</span>prec <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">50</span>
+<span style="color:#ff79c6">print</span> Decimal(<span style="color:#bd93f9">355</span>) <span style="color:#ff79c6">/</span> Decimal(<span style="color:#bd93f9">113</span>)
+setcontext(old_context)
+
+更好的方法
+
+<span style="color:#ff79c6">with</span> localcontext(Context(prec<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)):
+    <span style="color:#ff79c6">print</span> Decimal(<span style="color:#bd93f9">355</span>) <span style="color:#ff79c6">/</span> Decimal(<span style="color:#bd93f9">113</span>)</code></pre></div>
 <p>译注：示例代码在使用标准库decimal，这个库已经实现好了localcontext。</p>
 
 <p>如何打开关闭文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>f <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#39;data.txt&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">try</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    data <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span>read()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span><span style="color:#ff79c6">finally</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    f<span style="color:#ff79c6">.</span>close()</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">f <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#39;data.txt&#39;</span>)
+<span style="color:#ff79c6">try</span>:
+    data <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span>read()
+<span style="color:#ff79c6">finally</span>:
+    f<span style="color:#ff79c6">.</span>close()</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#39;data.txt&#39;</span>) <span style="color:#ff79c6">as</span> f:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    data <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span>read()</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#39;data.txt&#39;</span>) <span style="color:#ff79c6">as</span> f:
+    data <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span>read()</code></pre></div>
 <p>如何使用锁</p>
 
 <h1 id="创建锁">创建锁</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>lock <span style="color:#ff79c6">=</span> threading<span style="color:#ff79c6">.</span>Lock()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#6272a4"># 使用锁的老方法</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>lock<span style="color:#ff79c6">.</span>acquire()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#ff79c6">try</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    <span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;Critical section 1&#39;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>    <span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;Critical section 2&#39;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span><span style="color:#ff79c6">finally</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9</span>    lock<span style="color:#ff79c6">.</span>release()</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lock <span style="color:#ff79c6">=</span> threading<span style="color:#ff79c6">.</span>Lock()
+
+<span style="color:#6272a4"># 使用锁的老方法</span>
+lock<span style="color:#ff79c6">.</span>acquire()
+<span style="color:#ff79c6">try</span>:
+    <span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;Critical section 1&#39;</span>
+    <span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;Critical section 2&#39;</span>
+<span style="color:#ff79c6">finally</span>:
+    lock<span style="color:#ff79c6">.</span>release()</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#6272a4"># 使用锁的新方法</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">with</span> lock:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    <span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;Critical section 1&#39;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;Critical section 2&#39;</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># 使用锁的新方法</span>
+<span style="color:#ff79c6">with</span> lock:
+    <span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;Critical section 1&#39;</span>
+    <span style="color:#ff79c6">print</span> <span style="color:#f1fa8c">&#39;Critical section 2&#39;</span></code></pre></div>
 <p>分离出临时的上下文</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">try</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    os<span style="color:#ff79c6">.</span>remove(<span style="color:#f1fa8c">&#39;somefile.tmp&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#ff79c6">except</span> OSError:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">pass</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>更好的方法
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span><span style="color:#ff79c6">with</span> ignored(OSError):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">9</span>    os<span style="color:#ff79c6">.</span>remove(<span style="color:#f1fa8c">&#39;somefile.tmp&#39;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">try</span>:
+    os<span style="color:#ff79c6">.</span>remove(<span style="color:#f1fa8c">&#39;somefile.tmp&#39;</span>)
+<span style="color:#ff79c6">except</span> OSError:
+    <span style="color:#ff79c6">pass</span>
+
+更好的方法
+
+<span style="color:#ff79c6">with</span> ignored(OSError):
+    os<span style="color:#ff79c6">.</span>remove(<span style="color:#f1fa8c">&#39;somefile.tmp&#39;</span>)</code></pre></div>
 <p>ignored是Python 3.4加入的, 文档。</p>
 
 <p>注意：ignored 实际上在标准库叫suppress(译注：contextlib.supress).</p>
 
 <p>试试创建你自己的ignored上下文管理器。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>@contextmanager
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">ignored</span>(<span style="color:#ff79c6">*</span>exceptions):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    <span style="color:#ff79c6">try</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>        <span style="color:#ff79c6">yield</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    <span style="color:#ff79c6">except</span> exceptions:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>        <span style="color:#ff79c6">pass</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@contextmanager
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">ignored</span>(<span style="color:#ff79c6">*</span>exceptions):
+    <span style="color:#ff79c6">try</span>:
+        <span style="color:#ff79c6">yield</span>
+    <span style="color:#ff79c6">except</span> exceptions:
+        <span style="color:#ff79c6">pass</span></code></pre></div>
 <p>把它放在你的工具目录，你也可以忽略异常</p>
 
 <p>译注：contextmanager在标准库contextlib中，通过装饰生成器函数，省去用<strong>enter</strong>和<strong>exit</strong>写上下文管理器。详情请看文档。</p>
@@ -571,28 +571,28 @@ reak，那么循环结束时会进入到else。</p>
 <p>分离临时上下文</p>
 
 <h1 id="临时把标准输出重定向到一个文件-然后再恢复正常">临时把标准输出重定向到一个文件，然后再恢复正常</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#39;help.txt&#39;</span>, <span style="color:#f1fa8c">&#39;w&#39;</span>) <span style="color:#ff79c6">as</span> f:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    oldstdout <span style="color:#ff79c6">=</span> sys<span style="color:#ff79c6">.</span>stdout
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    sys<span style="color:#ff79c6">.</span>stdout <span style="color:#ff79c6">=</span> f
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    <span style="color:#ff79c6">try</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>        help(<span style="color:#8be9fd;font-style:italic">pow</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>    <span style="color:#ff79c6">finally</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>        sys<span style="color:#ff79c6">.</span>stdout <span style="color:#ff79c6">=</span> oldstdout</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#39;help.txt&#39;</span>, <span style="color:#f1fa8c">&#39;w&#39;</span>) <span style="color:#ff79c6">as</span> f:
+    oldstdout <span style="color:#ff79c6">=</span> sys<span style="color:#ff79c6">.</span>stdout
+    sys<span style="color:#ff79c6">.</span>stdout <span style="color:#ff79c6">=</span> f
+    <span style="color:#ff79c6">try</span>:
+        help(<span style="color:#8be9fd;font-style:italic">pow</span>)
+    <span style="color:#ff79c6">finally</span>:
+        sys<span style="color:#ff79c6">.</span>stdout <span style="color:#ff79c6">=</span> oldstdout</code></pre></div>
 <p>更好的写法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#39;help.txt&#39;</span>, <span style="color:#f1fa8c">&#39;w&#39;</span>) <span style="color:#ff79c6">as</span> f:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>    <span style="color:#ff79c6">with</span> redirect_stdout(f):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>        help(<span style="color:#8be9fd;font-style:italic">pow</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#39;help.txt&#39;</span>, <span style="color:#f1fa8c">&#39;w&#39;</span>) <span style="color:#ff79c6">as</span> f:
+    <span style="color:#ff79c6">with</span> redirect_stdout(f):
+        help(<span style="color:#8be9fd;font-style:italic">pow</span>)</code></pre></div>
 <p>redirect_stdout在Python 3.4加入(译注：contextlib.redirect_stdout)， bug反馈。</p>
 
 <p>实现你自己的redirect_stdout上下文管理器。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>@contextmanager
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">redirect_stdout</span>(fileobj):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>    oldstdout <span style="color:#ff79c6">=</span> sys<span style="color:#ff79c6">.</span>stdout
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    sys<span style="color:#ff79c6">.</span>stdout <span style="color:#ff79c6">=</span> fileobj
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span>    <span style="color:#ff79c6">try</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6</span>        <span style="color:#ff79c6">yield</span> fieldobj
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">7</span>    <span style="color:#ff79c6">finally</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">8</span>        sys<span style="color:#ff79c6">.</span>stdout <span style="color:#ff79c6">=</span> oldstdout</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@contextmanager
+<span style="color:#ff79c6">def</span> <span style="color:#50fa7b">redirect_stdout</span>(fileobj):
+    oldstdout <span style="color:#ff79c6">=</span> sys<span style="color:#ff79c6">.</span>stdout
+    sys<span style="color:#ff79c6">.</span>stdout <span style="color:#ff79c6">=</span> fileobj
+    <span style="color:#ff79c6">try</span>:
+        <span style="color:#ff79c6">yield</span> fieldobj
+    <span style="color:#ff79c6">finally</span>:
+        sys<span style="color:#ff79c6">.</span>stdout <span style="color:#ff79c6">=</span> oldstdout</code></pre></div>
 <p>简洁的单句表达</p>
 
 <p>两个冲突的原则：</p>
@@ -605,13 +605,13 @@ reak，那么循环结束时会进入到else。</p>
 <p>一行代码的逻辑等价于一句自然语言</p>
 
 <p>列表解析和生成器</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>result <span style="color:#ff79c6">=</span> []
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">10</span>):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span>s <span style="color:#ff79c6">=</span> i <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span>    result<span style="color:#ff79c6">.</span>append(s)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5</span><span style="color:#ff79c6">print</span> <span style="color:#8be9fd;font-style:italic">sum</span>(result)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result <span style="color:#ff79c6">=</span> []
+<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">10</span>):
+s <span style="color:#ff79c6">=</span> i <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span>
+    result<span style="color:#ff79c6">.</span>append(s)
+<span style="color:#ff79c6">print</span> <span style="color:#8be9fd;font-style:italic">sum</span>(result)</code></pre></div>
 <p>更好的方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">print</span> <span style="color:#8be9fd;font-style:italic">sum</span>(i<span style="color:#ff79c6">**</span><span style="color:#bd93f9">2</span> <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">xrange</span>(<span style="color:#bd93f9">10</span>))</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">print</span> <span style="color:#8be9fd;font-style:italic">sum</span>(i<span style="color:#ff79c6">**</span><span style="color:#bd93f9">2</span> <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">xrange</span>(<span style="color:#bd93f9">10</span>))</code></pre></div>
 <p>第一种方法说的是你在做什么，第二种方法说的是你想要什么。</p>
     
         </div>
@@ -655,13 +655,13 @@ reak，那么循环结束时会进入到else。</p>
     <div class="read-next-card-content">
       
         <ul>
+          <li><a href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">pip npm conda 换下载源</a></li>            
+        
+          <li><a href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">js原型与构造</a></li>            
+        
+          <li><a href="/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/">ory-editer 网页编辑器-基于react</a></li>            
+        
           <li><a href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">mo.js 专注动画</a></li>            
-        
-          <li><a href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">react-router v4 哎 路由</a></li>            
-        
-          <li><a href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">Typescript类-转换学习</a></li>            
-        
-          <li><a href="/2017/11/15/hugo-i18n/">hugo i18n </a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -695,9 +695,7 @@ reak，那么循环结束时会进入到else。</p>
 如果无法 请到 https://github.com/tonsky/FiraCode/releases 下载 压缩
 对应每个平台的系统字体应用, 将 下载的 字体文件夹 添加
  macOS Windows Linux/Unix-based systems  比如: macOS
-{% asset_img action.png action image %}
-{% asset_img screen.png screen image %}
-记得把 Vscode 的配置 写好 1 &#34;editor.fontFamily&#34;:&#34;&#39;Fira Code&#39;, Source Code Pro&#34;, 2 &#34;editor.fontSize&#34;: 13, 3 &#34;editor.fontLigatures&#34;: true, 4 </p>
+记得把 Vscode 的配置 写好 &#34;editor.fontFamily&#34;:&#34;&#39;Fira Code&#39;, Source Code Pro&#34;, &#34;editor.fontSize&#34;: 13, &#34;editor.fontLigatures&#34;: true,  </p>
               
           </section>
       </a>

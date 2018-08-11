@@ -15,7 +15,7 @@
      <meta name="description" content="一个世界(store)  redux的中心思想，一直是共享数据的理念
  只有一个更改数据的接口dispatch
  一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 1import { createStore } from &amp;#3" /> 
+  创造数据中心 import { createStore } from &amp;#34" /> 
 
      
     
@@ -27,7 +27,7 @@
     <meta name="twitter:description" content="一个世界(store)  redux的中心思想，一直是共享数据的理念
  只有一个更改数据的接口dispatch
  一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 1import { createStore } from &amp;#3"/>
+  创造数据中心 import { createStore } from &amp;#34"/>
     <meta name="twitter:url" content="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/" />
     <meta name="twitter:site" content="@"/>
 
@@ -40,7 +40,7 @@
     <meta property="og:description" content="一个世界(store)  redux的中心思想，一直是共享数据的理念
  只有一个更改数据的接口dispatch
  一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 1import { createStore } from &amp;#3" />
+  创造数据中心 import { createStore } from &amp;#34" />
 
     <meta property="article:published_time" content="2017-04-24T17:01:53Z" />
     <meta property="article:tag" content="Redux" /><meta property="article:tag" content="React" />
@@ -142,29 +142,29 @@
 </ol>
 
 <h2 id="创造数据中心">创造数据中心</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#ff79c6">import</span> { createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
+
+<span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer);
+</code></pre></div>
 <h2 id="打造数据逻辑结构">打造数据逻辑结构</h2>
 
 <blockquote>
 <p><code>reducer</code> Redux 把 数据逻辑结构 叫 <code>reducer</code></p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state, action ) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Something&#34;</span>){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>    <span style="color:#6272a4">//为什么叫 逻辑 ,就因为 if if if
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//你可以加1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//return state+1;
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//返回值，自动改变原有数据。
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Another&#34;</span>){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>  <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state, action ) {
+  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Something&#34;</span>){
+    <span style="color:#6272a4">//为什么叫 逻辑 ,就因为 if if if
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//你可以加1
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//return state+1;
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//返回值，自动改变原有数据。
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> state;
+  }
+  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Another&#34;</span>){
+    <span style="color:#ff79c6">return</span> state;
+  }
+  <span style="color:#ff79c6">return</span> state;
+}
+</code></pre></div>
 <h2 id="行动属性">行动属性</h2>
 
 <blockquote>
@@ -172,9 +172,9 @@
 
 <p>fire 开火 美 特种兵 听到 那些之类</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span><span style="color:#8be9fd;font-style:italic">var</span> action <span style="color:#ff79c6">=</span> {type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Some&#34;</span>, other<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;other&#34;</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span><span style="color:#6272a4">//
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3</span><span style="color:#6272a4"></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">var</span> action <span style="color:#ff79c6">=</span> {type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Some&#34;</span>, other<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;other&#34;</span>};
+<span style="color:#6272a4">//
+</span><span style="color:#6272a4"></span></code></pre></div>
 <p><code>redux</code> 中 <code>type</code> 是固定的 对应 上面结构代码 <code>type</code></p>
 
 <h2 id="行动命令">行动命令</h2>
@@ -182,33 +182,33 @@
 <blockquote>
 <p><code>dispatch</code> 行动命令</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1</span>store.dispatch(action);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">store.dispatch(action);
+</code></pre></div>
 <h2 id="总">总</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">import</span> { createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#6272a4">//state 默认 0
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>, action ) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;ADD&#34;</span>){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>    <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Cut&#34;</span>){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>  <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span><span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span><span style="color:#8be9fd;font-style:italic">var</span> action <span style="color:#ff79c6">=</span> {type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;ADD&#34;</span>, other<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;other&#34;</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span><span style="color:#6272a4">//行动 函数 一旦行动发生 函数-运行
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span><span style="color:#6272a4"></span>store.subscribe(() =&gt; {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>  console.log(<span style="color:#f1fa8c">&#34;the state - &#34;</span>, store.getState());
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>store.dispatch(action)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
+
+<span style="color:#6272a4">//state 默认 0
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>, action ) {
+  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;ADD&#34;</span>){
+    <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>;
+  }
+  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Cut&#34;</span>){
+    <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
+  }
+  <span style="color:#ff79c6">return</span> state;
+}
+
+<span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer);
+
+<span style="color:#8be9fd;font-style:italic">var</span> action <span style="color:#ff79c6">=</span> {type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;ADD&#34;</span>, other<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;other&#34;</span>};
+
+<span style="color:#6272a4">//行动 函数 一旦行动发生 函数-运行
+</span><span style="color:#6272a4"></span>store.subscribe(() =&gt; {
+  console.log(<span style="color:#f1fa8c">&#34;the state - &#34;</span>, store.getState());
+})
+
+store.dispatch(action)
+</code></pre></div>
 <blockquote>
 <p>最基本的 例子</p>
 </blockquote>
@@ -216,46 +216,46 @@
 <h2 id="数据结构组合">数据结构组合</h2>
 
 <p>在 现实应用中，数据结构一般具有一定复杂度。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span>store <span style="color:#ff79c6">=</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>    user<span style="color:#ff79c6">:</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>      id<span style="color:#ff79c6">:</span><span style="color:#bd93f9">1</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>      name<span style="color:#ff79c6">:</span><span style="color:#f1fa8c">&#39;hi&#39;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>      <span style="color:#6272a4">//等等
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#6272a4"></span>  },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>  shoppingCart<span style="color:#ff79c6">:</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    shop1<span style="color:#ff79c6">:</span><span style="color:#f1fa8c">&#34;what&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    time<span style="color:#ff79c6">:</span><span style="color:#f1fa8c">&#34;when&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">store <span style="color:#ff79c6">=</span> {
+    user<span style="color:#ff79c6">:</span>{
+      id<span style="color:#ff79c6">:</span><span style="color:#bd93f9">1</span>,
+      name<span style="color:#ff79c6">:</span><span style="color:#f1fa8c">&#39;hi&#39;</span>,
+      <span style="color:#6272a4">//等等
+</span><span style="color:#6272a4"></span>  },
+  shoppingCart<span style="color:#ff79c6">:</span>{
+    shop1<span style="color:#ff79c6">:</span><span style="color:#f1fa8c">&#34;what&#34;</span>,
+    time<span style="color:#ff79c6">:</span><span style="color:#f1fa8c">&#34;when&#34;</span>,
+  }
+}
+</code></pre></div>
 <blockquote>
 <p><code>combineReducers</code></p>
 
 <p>所以为了，解决<code>多</code>数据结构<code>拼接</code> <code>combineReducers</code> 出现了</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">import</span> { combineReducers, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#ff79c6">const</span> userReducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>  <span style="color:#ff79c6">if</span> (action.type){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>    <span style="color:#6272a4">// return something
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span><span style="color:#6272a4"></span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>  <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span><span style="color:#ff79c6">const</span> shopReducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>  <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span><span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> combineReducers({
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>  users<span style="color:#ff79c6">:</span> userReducer,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>  shoppingCart<span style="color:#ff79c6">:</span> shopReducer,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span><span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>...
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { combineReducers, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
+
+<span style="color:#ff79c6">const</span> userReducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
+  <span style="color:#ff79c6">if</span> (action.type){
+    <span style="color:#ff79c6">return</span> state;
+    <span style="color:#6272a4">// return something
+</span><span style="color:#6272a4"></span>  }
+  <span style="color:#ff79c6">return</span> state;
+
+};
+
+<span style="color:#ff79c6">const</span> shopReducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
+  <span style="color:#ff79c6">return</span> state;
+};
+
+<span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> combineReducers({
+  users<span style="color:#ff79c6">:</span> userReducer,
+  shoppingCart<span style="color:#ff79c6">:</span> shopReducer,
+})
+
+<span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer);
+...
+</code></pre></div>
 <blockquote>
 <p>但要注意 <code>action.type</code> 是判定条件，这点是不变的</p>
 
@@ -267,66 +267,66 @@
 <blockquote>
 <p>一般来说，为了保留原<code>state</code> ,我们使用 <code>...state</code></p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#6272a4">//承接上面的改动
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> { combineReducers, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#ff79c6">const</span> userReducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>    state <span style="color:#ff79c6">=</span> {...state, name<span style="color:#ff79c6">:</span> action.newName };
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    <span style="color:#6272a4">// es6写法 babel
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>  <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span><span style="color:#ff79c6">const</span> shopReducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>  <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span><span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> combineReducers({
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>  users<span style="color:#ff79c6">:</span> userReducer,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>  shoppingCart<span style="color:#ff79c6">:</span> shopReducer,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span><span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>, newName<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;brave&#34;</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">//承接上面的改动
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> { combineReducers, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
+
+<span style="color:#ff79c6">const</span> userReducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
+  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>){
+    state <span style="color:#ff79c6">=</span> {...state, name<span style="color:#ff79c6">:</span> action.newName };
+    <span style="color:#6272a4">// es6写法 babel
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> state;
+  }
+  <span style="color:#ff79c6">return</span> state;
+
+};
+
+<span style="color:#ff79c6">const</span> shopReducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
+  <span style="color:#ff79c6">return</span> state;
+};
+
+<span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> combineReducers({
+  users<span style="color:#ff79c6">:</span> userReducer,
+  shoppingCart<span style="color:#ff79c6">:</span> shopReducer,
+})
+
+<span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer);
+
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>, newName<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;brave&#34;</span>})
+</code></pre></div>
 <h2 id="redux-中间件">redux 中间件</h2>
 
 <p>定义，行动流程</p>
 
 <p><code>applyMiddleware</code> 作用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">import</span> { applyMiddleware, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>  <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span><span style="color:#ff79c6">const</span> logger <span style="color:#ff79c6">=</span> (store) =&gt; (next) =&gt; (action) =&gt;{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>  console.log(<span style="color:#f1fa8c">&#34;action fired&#34;</span>, action);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>  next(action);<span style="color:#6272a4">//***
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span><span style="color:#6272a4"></span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span><span style="color:#ff79c6">const</span> middleware <span style="color:#ff79c6">=</span> applyMiddleware(logger);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span><span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer, middleware);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>store.subscribe(() =&gt; {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>  console.log(<span style="color:#f1fa8c">&#34;stare change&#34;</span>, store.getState());
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;chuser-name&#34;</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { applyMiddleware, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
+
+<span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> {}, action ){
+  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>){
+    <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>;
+  }
+  <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
+
+};
+
+<span style="color:#ff79c6">const</span> logger <span style="color:#ff79c6">=</span> (store) =&gt; (next) =&gt; (action) =&gt;{
+  console.log(<span style="color:#f1fa8c">&#34;action fired&#34;</span>, action);
+  next(action);<span style="color:#6272a4">//***
+</span><span style="color:#6272a4"></span>}
+
+<span style="color:#ff79c6">const</span> middleware <span style="color:#ff79c6">=</span> applyMiddleware(logger);
+
+<span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer, middleware);
+
+store.subscribe(() =&gt; {
+  console.log(<span style="color:#f1fa8c">&#34;stare change&#34;</span>, store.getState());
+})
+
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>})
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>})
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>})
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>})
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;chuser-name&#34;</span>})
+</code></pre></div>
 <p>有一点要注意</p>
 
 <blockquote>
@@ -336,139 +336,139 @@
 </blockquote>
 
 <p>定义 <code>error</code> 行动</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">import</span> { applyMiddleware, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>, action ){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>    <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;E&#34;</span>){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd;font-style:italic">Error</span>(<span style="color:#f1fa8c">&#39;aaaaaa&#39;</span>); <span style="color:#6272a4">//+
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span><span style="color:#6272a4"></span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>  <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span><span style="color:#ff79c6">const</span> logger <span style="color:#ff79c6">=</span> (store) =&gt; (next) =&gt; (action) =&gt;{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>  console.log(<span style="color:#f1fa8c">&#34;action fired&#34;</span>, action);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>  next(action);<span style="color:#6272a4">//***
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span><span style="color:#6272a4"></span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span><span style="color:#ff79c6">const</span> error <span style="color:#ff79c6">=</span> (store) =&gt; (next) =&gt; (action) =&gt;{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>  <span style="color:#ff79c6">try</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>    next(action);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>  } <span style="color:#ff79c6">catch</span> (e) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>    console.log(<span style="color:#f1fa8c">&#34;erororooror&#34;</span>, e);<span style="color:#6272a4">//+
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span><span style="color:#6272a4"></span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span><span style="color:#ff79c6">const</span> middleware <span style="color:#ff79c6">=</span> applyMiddleware(logger, error);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28</span><span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer, middleware);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30</span>store.subscribe(() =&gt; {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31</span>  console.log(<span style="color:#f1fa8c">&#34;stare change&#34;</span>, store.getState());
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">32</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">33</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">34</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">35</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">36</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">37</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">38</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;chuser-name&#34;</span>});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">39</span>store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;E&#34;</span>});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">40</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { applyMiddleware, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>
+
+<span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>( state <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>, action ){
+  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>){
+    <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>;
+  }
+  <span style="color:#ff79c6">if</span> (action.type <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;E&#34;</span>){
+    <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd;font-style:italic">Error</span>(<span style="color:#f1fa8c">&#39;aaaaaa&#39;</span>); <span style="color:#6272a4">//+
+</span><span style="color:#6272a4"></span>  }
+  <span style="color:#ff79c6">return</span> state<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
+
+};
+
+<span style="color:#ff79c6">const</span> logger <span style="color:#ff79c6">=</span> (store) =&gt; (next) =&gt; (action) =&gt;{
+  console.log(<span style="color:#f1fa8c">&#34;action fired&#34;</span>, action);
+  next(action);<span style="color:#6272a4">//***
+</span><span style="color:#6272a4"></span>}
+
+<span style="color:#ff79c6">const</span> error <span style="color:#ff79c6">=</span> (store) =&gt; (next) =&gt; (action) =&gt;{
+  <span style="color:#ff79c6">try</span> {
+    next(action);
+  } <span style="color:#ff79c6">catch</span> (e) {
+    console.log(<span style="color:#f1fa8c">&#34;erororooror&#34;</span>, e);<span style="color:#6272a4">//+
+</span><span style="color:#6272a4"></span>}
+
+<span style="color:#ff79c6">const</span> middleware <span style="color:#ff79c6">=</span> applyMiddleware(logger, error);
+
+<span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer, middleware);
+
+store.subscribe(() =&gt; {
+  console.log(<span style="color:#f1fa8c">&#34;stare change&#34;</span>, store.getState());
+})
+
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>});
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>});
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>});
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;change-user-name&#34;</span>});
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;chuser-name&#34;</span>});
+store.dispatch({ type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;E&#34;</span>});
+</code></pre></div>
 <h2 id="异步">异步</h2>
 
 <p><code>logger</code> 变成 <code>redux-logger</code> 实现
 <code>thunk</code> 变成 <code>redux-thunk</code> 实现 多 <code>dispatch</code>行为
 <code>axios</code> 网络请求 <code>ajax</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#ff79c6">import</span> { applyMiddleware, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span><span style="color:#ff79c6">import</span> axios from <span style="color:#f1fa8c">&#34;axios&#34;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#ff79c6">import</span> logger from <span style="color:#f1fa8c">&#34;redux-logger&#34;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#ff79c6">import</span> thunk from <span style="color:#f1fa8c">&#34;redux-thunk&#34;</span>; <span style="color:#6272a4">//
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span><span style="color:#6272a4"></span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#ff79c6">const</span> initState <span style="color:#ff79c6">=</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>  fetching<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>  fetched<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>  users<span style="color:#ff79c6">:</span>[],
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>  error<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span><span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(state <span style="color:#ff79c6">=</span> initState, action ){
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>  <span style="color:#ff79c6">switch</span> (action.type) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>    <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;AJAX-USER&#34;</span><span style="color:#ff79c6">:</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>      stare <span style="color:#ff79c6">=</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>        ...state,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>        fetching<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>      <span style="color:#ff79c6">break</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>    }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>    <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;ERROR_AJAX&#34;</span><span style="color:#ff79c6">:</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>      stare <span style="color:#ff79c6">=</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>        ...state,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>        fetching<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span>        error<span style="color:#ff79c6">:</span> action.error
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span>      };
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27</span>      <span style="color:#ff79c6">break</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28</span>    }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29</span>    <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;GET_USER&#34;</span><span style="color:#ff79c6">:</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30</span>      stare <span style="color:#ff79c6">=</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31</span>        ...state,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">32</span>        fetching<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">33</span>        fetched<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">34</span>        user<span style="color:#ff79c6">:</span> action.get_date
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">35</span>      };
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">36</span>      <span style="color:#ff79c6">break</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">37</span>    }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">38</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">39</span>  <span style="color:#ff79c6">return</span> state;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">40</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">41</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">42</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">43</span><span style="color:#ff79c6">const</span> middleware <span style="color:#ff79c6">=</span> applyMiddleware(thunk, logger());
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">44</span><span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer, middleware);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">45</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">46</span>store.dispatch((dispatch) =&gt; {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">47</span>  dispatch({type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;AJAX-USER&#34;</span>});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">48</span>  axios.get(<span style="color:#f1fa8c">&#34;http://rest.learncode.academy/api/wstern/users&#34;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">49</span>  .then((response) =&gt; {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">50</span>      dispatch({type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;GET_USER&#34;</span>, get_date<span style="color:#ff79c6">:</span> response.data});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">51</span>    })
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">52</span>    .<span style="color:#ff79c6">catch</span>((err) =&gt; {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">53</span>    dispatch({type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;ERROR_AJAX&#34;</span>, error<span style="color:#ff79c6">:</span> err});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">54</span>    })
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">55</span>  <span style="color:#6272a4">// 异步
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">56</span><span style="color:#6272a4"></span>});
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">57</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { applyMiddleware, createStore } from <span style="color:#f1fa8c">&#34;redux&#34;</span>;
+<span style="color:#ff79c6">import</span> axios from <span style="color:#f1fa8c">&#34;axios&#34;</span>;
+<span style="color:#ff79c6">import</span> logger from <span style="color:#f1fa8c">&#34;redux-logger&#34;</span>;
+<span style="color:#ff79c6">import</span> thunk from <span style="color:#f1fa8c">&#34;redux-thunk&#34;</span>; <span style="color:#6272a4">//
+</span><span style="color:#6272a4"></span>
+<span style="color:#ff79c6">const</span> initState <span style="color:#ff79c6">=</span> {
+  fetching<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>,
+  fetched<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>,
+  users<span style="color:#ff79c6">:</span>[],
+  error<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
+}
+
+<span style="color:#ff79c6">const</span> reducer <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(state <span style="color:#ff79c6">=</span> initState, action ){
+  <span style="color:#ff79c6">switch</span> (action.type) {
+    <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;AJAX-USER&#34;</span><span style="color:#ff79c6">:</span>{
+      stare <span style="color:#ff79c6">=</span> {
+        ...state,
+        fetching<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>};
+      <span style="color:#ff79c6">break</span>;
+    }
+    <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;ERROR_AJAX&#34;</span><span style="color:#ff79c6">:</span>{
+      stare <span style="color:#ff79c6">=</span> {
+        ...state,
+        fetching<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>,
+        error<span style="color:#ff79c6">:</span> action.error
+      };
+      <span style="color:#ff79c6">break</span>;
+    }
+    <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;GET_USER&#34;</span><span style="color:#ff79c6">:</span>{
+      stare <span style="color:#ff79c6">=</span> {
+        ...state,
+        fetching<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>,
+        fetched<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>,
+        user<span style="color:#ff79c6">:</span> action.get_date
+      };
+      <span style="color:#ff79c6">break</span>;
+    }
+  }
+  <span style="color:#ff79c6">return</span> state;
+
+};
+
+<span style="color:#ff79c6">const</span> middleware <span style="color:#ff79c6">=</span> applyMiddleware(thunk, logger());
+<span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span> createStore(reducer, middleware);
+
+store.dispatch((dispatch) =&gt; {
+  dispatch({type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;AJAX-USER&#34;</span>});
+  axios.get(<span style="color:#f1fa8c">&#34;http://rest.learncode.academy/api/wstern/users&#34;</span>)
+  .then((response) =&gt; {
+      dispatch({type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;GET_USER&#34;</span>, get_date<span style="color:#ff79c6">:</span> response.data});
+    })
+    .<span style="color:#ff79c6">catch</span>((err) =&gt; {
+    dispatch({type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;ERROR_AJAX&#34;</span>, error<span style="color:#ff79c6">:</span> err});
+    })
+  <span style="color:#6272a4">// 异步
+</span><span style="color:#6272a4"></span>});
+</code></pre></div>
 <p>还有 <code>redux</code> 有个内置 <code>promise</code> 方便形成上面的结构</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#6272a4">/*
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span><span style="color:#6272a4">**store.dispatch((dispatch) =&gt; {
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span><span style="color:#6272a4">  dispatch({type: &#34;AJAX-USER&#34;});
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span><span style="color:#6272a4">  axios.get(&#34;http://rest.learncode.academy/api/wstern/users&#34;)
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span><span style="color:#6272a4">  .then((response) =&gt; {
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span><span style="color:#6272a4">      dispatch({type: &#34;GET_USER&#34;, get_date: response.data});
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span><span style="color:#6272a4">    })
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span><span style="color:#6272a4">    .catch((err) =&gt; {
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span><span style="color:#6272a4">    dispatch({type: &#34;ERROR_AJAX&#34;, error: err});
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span><span style="color:#6272a4">    })
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span><span style="color:#6272a4">  // 异步
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span><span style="color:#6272a4">});
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span><span style="color:#6272a4">*/</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span><span style="color:#6272a4">//change 只写改变的
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> promise from <span style="color:#f1fa8c">&#34;redux-promise-middleware&#34;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span><span style="color:#ff79c6">const</span> middleware <span style="color:#ff79c6">=</span> applyMiddleware(promise(), thunk, logger());
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>store.dispatch({
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>  type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;AJAX_USER&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>  get_date<span style="color:#ff79c6">:</span> axios.get(<span style="color:#f1fa8c">&#34;http://rest.learncode.academy/api/wstern/users&#34;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span>})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25</span><span style="color:#6272a4">//自动 在 AJAX-USER 后面 更改 type
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26</span><span style="color:#6272a4">// 但 自己 reducer 要改过来 对应
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27</span><span style="color:#6272a4">// AJAX-USER -&gt; AJAX_USER_PENDING
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28</span><span style="color:#6272a4">// GET_USER -&gt; AJAX_USER_REJECTED
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29</span><span style="color:#6272a4">// ERROR_AJAX -&gt; AJAX_USER_FULTILLED
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30</span><span style="color:#6272a4"></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">/*
+</span><span style="color:#6272a4">**store.dispatch((dispatch) =&gt; {
+</span><span style="color:#6272a4">  dispatch({type: &#34;AJAX-USER&#34;});
+</span><span style="color:#6272a4">  axios.get(&#34;http://rest.learncode.academy/api/wstern/users&#34;)
+</span><span style="color:#6272a4">  .then((response) =&gt; {
+</span><span style="color:#6272a4">      dispatch({type: &#34;GET_USER&#34;, get_date: response.data});
+</span><span style="color:#6272a4">    })
+</span><span style="color:#6272a4">    .catch((err) =&gt; {
+</span><span style="color:#6272a4">    dispatch({type: &#34;ERROR_AJAX&#34;, error: err});
+</span><span style="color:#6272a4">    })
+</span><span style="color:#6272a4">  // 异步
+</span><span style="color:#6272a4">});
+</span><span style="color:#6272a4">*/</span>
+
+<span style="color:#6272a4">//change 只写改变的
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> promise from <span style="color:#f1fa8c">&#34;redux-promise-middleware&#34;</span>;
+
+<span style="color:#ff79c6">const</span> middleware <span style="color:#ff79c6">=</span> applyMiddleware(promise(), thunk, logger());
+
+store.dispatch({
+  type<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;AJAX_USER&#34;</span>,
+  get_date<span style="color:#ff79c6">:</span> axios.get(<span style="color:#f1fa8c">&#34;http://rest.learncode.academy/api/wstern/users&#34;</span>)
+})
+
+<span style="color:#6272a4">//自动 在 AJAX-USER 后面 更改 type
+</span><span style="color:#6272a4">// 但 自己 reducer 要改过来 对应
+</span><span style="color:#6272a4">// AJAX-USER -&gt; AJAX_USER_PENDING
+</span><span style="color:#6272a4">// GET_USER -&gt; AJAX_USER_REJECTED
+</span><span style="color:#6272a4">// ERROR_AJAX -&gt; AJAX_USER_FULTILLED
+</span><span style="color:#6272a4"></span></code></pre></div>
 <h1 id="react-redux">react-redux</h1>
     
         </div>
@@ -512,13 +512,13 @@
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/">yarn no sudo 设置</a></li>            
+          <li><a href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ionic 项目 npm问题解决</a></li>            
         
-          <li><a href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">react-router v4 哎 路由</a></li>            
+          <li><a href="/2017/10/06/ionic-going/">ionic Going</a></li>            
         
-          <li><a href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">React事件与原生事件</a></li>            
+          <li><a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">hexo-disqus-proxy-heroku 发布 感觉一般般</a></li>            
         
-          <li><a href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">position sticky 粘连定位</a></li>            
+          <li><a href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">zsh completion tab 补全提示</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -532,7 +532,7 @@
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -548,13 +548,13 @@
               
                 <p>把完整的网页放进，hexo中  我做了一下步骤
  在不影响，快捷命令
-1hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
+hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
 所以，放source才能被 看到
- 2. 在 html 文件中 第一行 写下 1--- 2layout: false 3---  不能被模版化
+ 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
  3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
  4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
  提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
-1... 2skip_render [floder/*, floder/**/*] 具体看这issue </p>
+... skip_render [floder/*, floder/**/*] 具体看这issue </p>
               
           </section>
       </a>
@@ -590,7 +590,8 @@
 而在 fackbook文档-web Component 中
 例子中
 x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-1class HelloMessage3 extends React.Component { 2 render() { 3 return &lt;div className=&#39;new&#39;&gt; 4 className=&#39;new&#39; 5 &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; 6 &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; 7 class=&#39;new2&#39; 8 &lt;/div&gt;; 9 } 10} 11 12ReactDOM.render( 13 &lt;HelloMessage name=&#39;1&#39; /&gt;, 14 document.getElementById(&#39;root&#39;) 15); 16 Codepen Demo 参考 Codepen 参考 ...  </p>
+class HelloMessage3 extends React.Component { render() { return &lt;div className=&#39;new&#39;&gt; className=&#39;new&#39; &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; class=&#39;new2&#39; &lt;/div&gt;; } } ReactDOM.render( &lt;HelloMessage name=&#39;1&#39; /&gt;, document.getElementById(&#39;root&#39;) );  Codepen Demo 参考 Codepen 参考
+.new{ color:red; } .new2{ color:blue; } 。。。。未完待续 </p>
               
           </section>
       </a>

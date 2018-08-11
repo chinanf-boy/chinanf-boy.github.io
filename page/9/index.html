@@ -109,6 +109,44 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #hexo  </span>
+              
+              <h2 class="post-card-title">放原网页首页进来</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>把完整的网页放进，hexo中  我做了一下步骤
+ 在不影响，快捷命令
+hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
+所以，放source才能被 看到
+ 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
+ 3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
+ 4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
+ 提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
+... skip_render [floder/*, floder/**/*] 具体看这issue </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">
       <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/24/Redux-%E5%9F%BA%E7%A1%80/CPxwNCzSTOWdD4YprFIX_reduxblog.webp)"></div>
     </a>
@@ -128,8 +166,8 @@
                 <p>一个世界(store)  redux的中心思想，一直是共享数据的理念
  只有一个更改数据的接口dispatch
  一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 1import { createStore } from &#34;redux&#34; 2 3const store = createStore(reducer); 4 打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
- 1const reducer = function( state, action ) { 2 if (action.type === &#34;Something&#34;){ 3 //为什么叫 逻辑 ,就因为 if if if 4 //你可以加1 5 //return state+1; 6 //返回值，自动改变原有数据。 7 return state; 8 } 9 if (action. ...  </p>
+  创造数据中心 import { createStore } from &#34;redux&#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
+ const reducer = function( state, action ) { if (action.type === &#34;Something&#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &#34;Another&#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在 ...  </p>
               
           </section>
       </a>
@@ -165,7 +203,8 @@
 而在 fackbook文档-web Component 中
 例子中
 x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-1class HelloMessage3 extends React.Component { 2 render() { 3 return &lt;div className=&#39;new&#39;&gt; 4 className=&#39;new&#39; 5 &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; 6 &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; 7 class=&#39;new2&#39; 8 &lt;/div&gt;; 9 } 10} 11 12ReactDOM.render( 13 &lt;HelloMessage name=&#39;1&#39; /&gt;, 14 document.getElementById(&#39;root&#39;) 15); 16 Codepen Demo 参考 Codepen 参考 ...  </p>
+class HelloMessage3 extends React.Component { render() { return &lt;div className=&#39;new&#39;&gt; className=&#39;new&#39; &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; class=&#39;new2&#39; &lt;/div&gt;; } } ReactDOM.render( &lt;HelloMessage name=&#39;1&#39; /&gt;, document.getElementById(&#39;root&#39;) );  Codepen Demo 参考 Codepen 参考
+.new{ color:red; } .new2{ color:blue; } 。。。。未完待续 </p>
               
           </section>
       </a>
@@ -204,8 +243,8 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
    不同的是，配置结果，是为了，把less &gt; css + 补全浏览器前缀
 还有 babel js 语法
  postcss.config.js 启动补全前缀
-1module.exports = { 2 plugins: [ 3 require(&#39;autoprefixer&#39;) 4 ] 5} 6 webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
-1var path = require(&#39;path&#39;); 2var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;); 3const webpack = require(&#39;webpack&#39;); 4 5module.exports = { 6 entry: &#39;./app/index.js&#39;, 7 output: { 8 filename: &#39;bundle.js&#39;, 9 path: path. ...  </p>
+module.exports = { plugins: [ require(&#39;autoprefixer&#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
+var path = require(&#39;path&#39;); var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;); const webpack = require(&#39;webpack&#39;); module.exports = { entry: &#39;./app/index.js&#39;, output: { filename: &#39;bundle.js&#39;, path: path.resolve(__dirname, &#39;dist&#39;) }, module: { rules: [{ test: /\. ...  </p>
               
           </section>
       </a>
@@ -240,7 +279,9 @@ x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
 typescript作为微软实现的js的超集.
 在类的实现，有如传统语言一样简单，
 例子：官方
-1//.ts 2class Greeter { 3 greeting: string; 4 constructor(message: string) { 5 this.greeting = message; 6 } 7 greet() { 8 return &#34;Hello, &#34; + this.greeting; 9 } 10}1//.js 2var Greeter = (function () { 3 function Greeter(message) { 4 this.greeting = message; 5 } 6 Greeter.prototype.greet = function () { 7 return &#34;Hello, &#34; + this.greeting; 8 }; 9 return Greeter; 10}()); 11 说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。 ...  </p>
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &#34;Hello, &#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &#34;Hello, &#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console. ...  </p>
               
           </section>
       </a>
@@ -274,41 +315,9 @@ typescript作为微软实现的js的超集.
  因此我们需使用函数作用域来模拟这个概念。
  由于闭包的存在，声明的变量和方法只在该模式内部可用，
   但在返回对象上的定义的变量和方法，则对外部使用者都是可用的。
-1var testModule = (function () { 2//私有变量 3var myPrivateVar = 0; 4//记录所有参数的私有函数 5var myPrivateMethod = function(bar){ 6console.log(bar); 7} 8return { 9//公有变量 10myPublicVar : &#34;foo&#34;, 11//调用私有变量和方法的公有函数 12myPublicFunction: function(bar){ 13 14//增加私有计数器值 15 16 myPrivateVar++; 17 console.log(myPrivateVar); 18//传入bar调用私有方法 19 myPrivateMethod(bar); 20} 21}; 22})(); 23console.log(testModule); 24//用公有变量传值公有函数 25testModule.myPublicFunction(testModule.myPublicVar); 26 输出
-1{ myPublicVar: &#39;foo&#39;, 2 myPublicFunction: [Function: myPublicFunction] } 31 4foo 5 可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。 ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #javascript  </span>
-              
-              <h2 class="post-card-title">js原型与构造</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>#对象／构造／原型
- 对象 &ndash; 原型  all 浏览器 获取原型方法
-1var a = {}; 2//a.prototype 无法获取——原型 3 4a.constructor.prototype;// Object {} 5 6a.constructor// function Object() { [native code] } 7  函数 &ndash; 构造 + 原型  1var a = function(){}; 2	//函数可以直接 prototype 3a.prototype// Object {}; 4 5a.constructor// function Function() { [native code] } 6  上面可以看出，构造都是函数
-  对象 &gt; 构造函数 &gt; 函数 。。  1var b = {}; 2b// Object {} 3b. ...  </p>
+var testModule = (function () { //私有变量 var myPrivateVar = 0; //记录所有参数的私有函数 var myPrivateMethod = function(bar){ console.log(bar); } return { //公有变量 myPublicVar : &#34;foo&#34;, //调用私有变量和方法的公有函数 myPublicFunction: function(bar){ //增加私有计数器值  myPrivateVar++; console.log(myPrivateVar); //传入bar调用私有方法  myPrivateMethod(bar); } }; })(); console.log(testModule); //用公有变量传值公有函数 testModule.myPublicFunction(testModule.myPublicVar);  输出
+{ myPublicVar: &#39;foo&#39;, myPublicFunction: [Function: myPublicFunction] } 1 foo  可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。
+却可以，通过两个函数来操控，myPrivateVar表现得就像一个私有变量。 </p>
               
           </section>
       </a>
