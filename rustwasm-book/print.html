@@ -312,13 +312,13 @@ pub fn greet(name: &amp;str) {
 <p>可以把最初的细胞结构定义为种子，当所有在种子中的细胞同时被以上规则处理后, 可以得到第一代细胞图。按规则继续处理当前的细胞图，可以得到下一代的细胞图，周而复始。</p>
 </blockquote>
 <p>考虑以下初始 Universe:</p>
-<p><img src='../images/game-of-life/initial-universe.png' alt='Initial Universe' width="80" /></p>
+<p><img src='./images/game-of-life/initial-universe.png' alt='Initial Universe' width="80" /></p>
 <p>我们可以通过考虑每个单元来计算下一代. 左上角的单元格已经死了. 规则 (4) 是适用于死细胞的唯一转换规则. 但是,因为左上角的单元格没有正好三个活动邻居,所以转换规则不适用,并且它在下一代中仍然不存在. 对于 第一行 中的每个其他单元也是如此.</p>
 <p>当我们考虑第二列,第三列中的活细胞时,事情变得有趣. 对于活细胞,前三个规则中的任何一个都可能适用. 在这个黑单元的情况下,它只有下面一个活的邻居,因此规则 (1) 适用: 这个单元将在下一代中死亡. 同样的命运也对应着最下面的活黑细胞.</p>
 <p>中间活细胞有两个活的邻居: 顶部和底部活细胞. 这意味着规则 (2) 适用,并且它仍然存在于下一代.</p>
 <p>最后有趣的案例是中间活细胞左侧和右侧的死细胞. 这三个活细胞都是这些细胞的邻居,这意味着规则 (4) 适用,并且这些细胞将在下一代中存活.</p>
 <p>把它们放在一起,我们在下一个滴答之后得到这个宇宙:</p>
-<p><img src='../images/game-of-life/next-universe.png' alt='Next Universe' width=80 /></p>
+<p><img src='./images/game-of-life/next-universe.png' alt='Next Universe' width=80 /></p>
 <p>从这些简单的,确定性的规则出现,奇怪和令人兴奋的行为出现了:</p>
 <table><thead><tr><th> Gosper的滑翔机枪                                                                                        </th><th> 脉冲星                                                                                    </th><th> 太空飞船                                                                                                         </th></tr></thead><tbody>
 <tr><td> <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Gospers_glider_gun.gif" alt="Gosper's glider gun" /> </td><td> <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Game_of_life_pulsar.gif" alt="Pulsar" /> </td><td> <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Game_of_life_animated_LWSS.gif" alt="Lighweight space ship" /> </td></tr>
@@ -354,33 +354,33 @@ pub fn greet(name: &amp;str) {
 </li>
 </ol>
 <p>我们将实施<code>第三种</code>选择.</p>
-<a class="header" href="print.html#a连接-rust和javascript" id="a连接-rust和javascript"><h3>连接 Rust和JavaScript</h3></a>
+<a class="header" href="print.html#a连接-rust-和-javascript" id="a连接-rust-和-javascript"><h3>连接 Rust 和 JavaScript</h3></a>
 <blockquote>
-<p>⚡这是理解和从本教程中你获取的最重要的概念之一!</p>
+<p>⚡ 这是理解和从本教程中你获取的最重要的概念之一!</p>
 </blockquote>
-<p>JavaScript 的垃圾收集堆 - <code>Object</code>,<code>Array</code>和 DOM节点 被分配 - 不同于 WebAssembly 的线性内存空间,我们的 Rust值 存在于其中. WebAssembly 目前无法直接访问垃圾收集堆 (截至2018年4月,预计会随之改变<a href="https://github.com/WebAssembly/host-bindings/blob/master/proposals/host-bindings/Overview.md">&quot;主机绑定 host-bindings&quot;提案</a>) . 另一方面,JavaScript 可以读取和写入 WebAssembly 线性存储空间,但仅作为一个<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer"><code>ArrayBuffer</code></a>标量值 (<code>u8</code>,<code>i32</code>,<code>f64</code>等等......) WebAssembly 函数也接受,并返回标量值. 这些是构成 WebAssembly和JavaScript通信 的所有构建块.</p>
-<p><code>wasm_bindgen</code>定义了如何在这个边界上,使用复合结构的共同理解. 它涉及装箱 Rust 结构,将指针包装在 JavaScript类 中以实现可用性,或者 索引到Rust中的JavaScript对象表. <code>wasm_bindgen</code>非常方便,但它不需要考虑我们的数据表示,以及跨越这个边界传递什么值和结构. 相反,将其视为实现您选择的接口设计的工具.</p>
-<p>在设计 WebAssembly和JavaScript 之间的接口时,我们希望针对以下属性进行优化:</p>
+<p>JavaScript 的垃圾收集堆 - <code>Object</code>,<code>Array</code>和 DOM 节点 被分配 - 不同于 WebAssembly 的线性内存空间,我们的 Rust 值 存在于其中. WebAssembly 目前无法直接访问垃圾收集堆 (截至 2018 年 4 月,预计会随之改变<a href="https://github.com/WebAssembly/host-bindings/blob/master/proposals/host-bindings/Overview.md">&quot;主机绑定 host-bindings&quot;提案</a>) . 另一方面,JavaScript 可以读取和写入 WebAssembly 线性存储空间,但仅作为一个<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer"><code>ArrayBuffer</code></a>标量值 (<code>u8</code>,<code>i32</code>,<code>f64</code>等等......) WebAssembly 函数也接受,并返回标量值. 这些是构成 WebAssembly 和 JavaScript 通信 的所有构建块.</p>
+<p><code>wasm_bindgen</code>定义了如何在这个边界上,使用复合结构的共同理解. 它涉及装箱 Rust 结构,将指针包装在 JavaScript 类 中以实现可用性,或者 索引到 Rust 中的 JavaScript 对象表. <code>wasm_bindgen</code>非常方便,但它不需要考虑我们的数据表示,以及跨越这个边界传递什么值和结构. 相反,将其视为实现您选择的接口设计的工具.</p>
+<p>在设计 WebAssembly 和 JavaScript 之间的接口时,我们希望针对以下属性进行优化:</p>
 <ol>
 <li>
-<p>**最小化复制WebAssembly线性存储器的 进/出 .**不必要的副本会产生不必要的开销.</p>
+<p>**最小化复制 WebAssembly 线性存储器的 进/出 .**不必要的副本会产生不必要的开销.</p>
 </li>
 <li>
 <p>**最小化序列化和反序列化.**与副本类似,序列化和反序列化也会产生开销,并且通常也会进行复制. 如果我们可以将不透明控制传递给数据结构 - 而不是一侧序列化后,将其复制到 WebAssembly 线性存储器中的某个已知位置,并在另一侧进行反序列化 - 我们通常可以减少大量开销. <code>wasm_bindgen</code>帮助我们 定义和使用 JavaScript 的不透明控制<code>Object</code>或 盒装 Rust 结构.</p>
 </li>
 </ol>
-<p>作为一般的经验法则,一个好的 JavaScript↔WebAssembly 接口设计通常是将大型,长寿命的数据结构实现为 生活在 WebAssembly线性内存 中的 Rust 类型,并作为不透明控制暴露给 JavaScript. JavaScript 调用导出的WebAssembly 函数,这些函数接受这些不透明的控制,转换数据,执行繁重的计算,查询数据,最终返回一个小的可复制结果. 通过仅返回计算的小结果,我们避免在JavaScript 垃圾收集堆和 WebAssembly 线性存储器 之间,来回复制和序列化所有内容.</p>
-<a class="header" href="print.html#a在我们的生命游戏中连接-rust和javascript" id="a在我们的生命游戏中连接-rust和javascript"><h3>在我们的生命游戏中连接 Rust和JavaScript</h3></a>
-<p>让我们首先列举一些要避免的危险. 我们不希望在每个<code>tick</code>上将整个 Universe 复制到 WebAssembly线性内存 中. 我们不希望为宇宙中的每个单元分配对象,也不想强加函数调用来读写每个单元.</p>
-<p>这给我们留下了什么? 我们可以将 Universe 表示为位于 WebAssembly线性内存中的平面数组,并且每个单元格都有一个字节. <code>0</code>是一个死细胞,<code>1</code>是一个活细胞.</p>
+<p>作为一般的经验法则,一个好的 JavaScript↔WebAssembly 接口设计通常是将大型,长寿命的数据结构实现为 生活在 WebAssembly 线性内存 中的 Rust 类型,并作为不透明控制暴露给 JavaScript. JavaScript 调用导出的 WebAssembly 函数,这些函数接受这些不透明的控制,转换数据,执行繁重的计算,查询数据,最终返回一个小的可复制结果. 通过仅返回计算的小结果,我们避免在 JavaScript 垃圾收集堆和 WebAssembly 线性存储器 之间,来回复制和序列化所有内容.</p>
+<a class="header" href="print.html#a在我们的生命游戏中连接-rust-和-javascript" id="a在我们的生命游戏中连接-rust-和-javascript"><h3>在我们的生命游戏中连接 Rust 和 JavaScript</h3></a>
+<p>让我们首先列举一些要避免的危险. 我们不希望在每个<code>tick</code>上将整个 Universe 复制到 WebAssembly 线性内存 中. 我们不希望为宇宙中的每个单元分配对象,也不想强加函数调用来读写每个单元.</p>
+<p>这给我们留下了什么? 我们可以将 Universe 表示为位于 WebAssembly 线性内存中的平面数组,并且每个单元格都有一个字节. <code>0</code>是一个死细胞,<code>1</code>是一个活细胞.</p>
 <p>以下是 4 x 4 宇宙在内存中的样子:</p>
 <p><img src="./images/game-of-life/universe.png" alt="Screenshot of a 4 by 4 universe" /></p>
 <p>要在 Universe 中的给定行和列中查找单元格的数组索引,我们可以使用以下公式:</p>
 <pre><code class="language-text">index(row, column, universe) = row * width(universe) + column
 </code></pre>
-<p>我们有几种方法可以将 Universe 的单元格暴露给 JavaScript. 首先,我们添加实施<a href="https://doc.rust-lang.org/1.25.0/std/fmt/trait.Display.html"><code>std::fmt::Display</code></a>到<code>Universe</code>,我们可以用来展示 一个 Rust<code>String</code> 呈现为文本字符的单元格. 然后将此 Rust String 从 WebAssembly线性内存 复制到 JavaScript的垃圾回收堆中 的JavaScript String 中,然后通过设置<code>HTML</code>显示<code>textContent</code>. 在本章的后面,我们将推演这个实现,以避免在堆之间复制 Universe 的单元格,再渲染<code>&lt;canvas&gt;</code>.</p>
-<p><em>另一个可行的设计替代方案是 Rust 返回每个滴答后,更改状态的每个单元格的列表,而不是将整个 Universe 暴露给 JavaScript. 这样,JavaScript 在渲染时不需要遍历整个 Universe ,只需要相关的子集. 权衡的问题是这种 基于delta 的设计实施起来稍微困难一些.</em></p>
-<a class="header" href="print.html#rust实现" id="rust实现"><h2>Rust实现</h2></a>
+<p>我们有几种方法可以将 Universe 的单元格暴露给 JavaScript. 首先,我们添加实施<a href="https://doc.rust-lang.org/1.25.0/std/fmt/trait.Display.html"><code>std::fmt::Display</code></a>到<code>Universe</code>,我们可以用来展示 一个 Rust<code>String</code> 呈现为文本字符的单元格. 然后将此 Rust String 从 WebAssembly 线性内存 复制到 JavaScript 的垃圾回收堆中 的 JavaScript String 中,然后通过设置<code>HTML</code>显示<code>textContent</code>. 在本章的后面,我们将推演这个实现,以避免在堆之间复制 Universe 的单元格,再渲染<code>&lt;canvas&gt;</code>.</p>
+<p><em>另一个可行的设计替代方案是 Rust 返回每个滴答后,更改状态的每个单元格的列表,而不是将整个 Universe 暴露给 JavaScript. 这样,JavaScript 在渲染时不需要遍历整个 Universe ,只需要相关的子集. 权衡的问题是这种 基于 delta 的设计实施起来稍微困难一些.</em></p>
+<a class="header" href="print.html#rust-实现" id="rust-实现"><h2>Rust 实现</h2></a>
 <p>在上一章中,我们克隆了一个初始项目模板. 我们现在将修改该项目模板.</p>
 <p>让我们开始删除 <code>alert</code> import 和<code>greet</code> 函数 - <code>src/lib.rs</code>, 并用单元格的类型定义替换它们:</p>
 <pre><pre class="playpen"><code class="language-rust">
@@ -444,7 +444,7 @@ impl Universe {
 #}</code></pre></pre>
 <p>该<code>live_neighbor_count</code>方法使用 增量和模数来 避免 宇宙的边缘情况. 当 delta 应用 <code>-1</code>,我们<em>添加</em>
 <code>self.height - 1</code>让 模数 做它的事,而不是试图减去<code>1</code>. <code>row</code>和<code>column</code>可以为<code>0</code>,如果我们试图减去<code>1</code>, 从他们来看,会有一个 无符号整数 下溢.</p>
-<p>现在我们拥有了从当前计算下一代所需的一切! 每个游戏的规则遵循 直接转换条件用<code>match</code>表达. 另外,因为我们希望 JavaScript 控制滴答时间,我们将把这个方法放在一个<code>#[wasm_bindgen]</code>注释下,以便它暴露给JavaScript.</p>
+<p>现在我们拥有了从当前计算下一代所需的一切! 每个游戏的规则遵循 直接转换条件用<code>match</code>表达. 另外,因为我们希望 JavaScript 控制滴答时间,我们将把这个方法放在一个<code>#[wasm_bindgen]</code>注释下,以便它暴露给 JavaScript.</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -488,7 +488,7 @@ impl Universe {
 }
 #}</code></pre></pre>
 <p>到目前为止,宇宙的状态被表示为 细胞 的载体. 为了使这个可读,让我们实现一个基本的文本渲染器. 我们的想法是逐行将 Universe 写成文本,对于每个活着的单元格,打印 Unicode 字符<code>◼️</code> (&quot;黑色方格&quot;) . 对于死细胞,我们将打印<code>◻️</code> (&quot;白色方格&quot;) .</p>
-<p>通过实施<a href="https://doc.rust-lang.org/1.25.0/std/fmt/trait.Display.html"><code>Display</code></a>是来自 Rust标准库 的特性,我们可以添加一种以 面向用户的方式 格式化结构的方法. 这也会自动给我们一个<a href="https://doc.rust-lang.org/1.25.0/std/string/trait.ToString.html"><code>to_string</code></a>方法.</p>
+<p>通过实施<a href="https://doc.rust-lang.org/1.25.0/std/fmt/trait.Display.html"><code>Display</code></a>是来自 Rust 标准库 的特性,我们可以添加一种以 面向用户的方式 格式化结构的方法. 这也会自动给我们一个<a href="https://doc.rust-lang.org/1.25.0/std/string/trait.ToString.html"><code>to_string</code></a>方法.</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -545,7 +545,7 @@ impl Universe {
 #}</code></pre></pre>
 <p>有了这个,我们的生命游戏 Rust 实现的一半就完成了!</p>
 <a class="header" href="print.html#a使用-javascript-渲染" id="a使用-javascript-渲染"><h2>使用 JavaScript 渲染</h2></a>
-<p>首先,让我们添加一个<code>&lt;pre&gt;</code>HTML用于渲染:</p>
+<p>首先,让我们添加一个<code>&lt;pre&gt;</code>HTML 用于渲染:</p>
 <pre><code class="language-html">&lt;body&gt;
     &lt;pre id=&quot;game-of-life-canvas&quot;&gt;&lt;/pre&gt;
     &lt;script src='./bootstrap.js'&gt;&lt;/script&gt;
@@ -563,10 +563,10 @@ impl Universe {
 &lt;/style&gt;
 </code></pre>
 <p>在顶端<code>index.js</code>,让我们修复我们的导入来引入<code>Universe</code>而不是旧的<code>greet</code>功能:</p>
-<pre><code class="language-js">import { Universe } from &quot;./wasm_game_of_life&quot;;
+<pre><code class="language-js">import {Universe} from './wasm_game_of_life';
 </code></pre>
 <p>另外,让我们获取<code>&lt;pre&gt;</code>并实例化新 Universe 的元素:</p>
-<pre><code class="language-js">const pre = document.getElementById(&quot;game-of-life-canvas&quot;);
+<pre><code class="language-js">const pre = document.getElementById('game-of-life-canvas');
 const universe = Universe.new();
 </code></pre>
 <p>JavaScript 运行于<code>requestAnimationFrame</code>循环. 在每次迭代中,它将当前的 Universe 绘制到<code>&lt;pre&gt;</code>,然后运行<code>Universe::tick</code>.</p>
@@ -583,15 +583,15 @@ const universe = Universe.new();
 <p>这就是它现在的样子:</p>
 <p><a href="./images/game-of-life/initial-game-of-life-pre.png"><img src="./images/game-of-life/initial-game-of-life-pre.png" alt="Screenshot of the Game of Life implementation with text rendering" /></a></p>
 <a class="header" href="print.html#a直接从内存渲染到画布" id="a直接从内存渲染到画布"><h2>直接从内存渲染到画布</h2></a>
-<p>在 Rust 中生成 (和分配) 一个<code>String</code>, 然后有<code>wasm-bindgen</code>将其转换为有效的 JavaScript字符串 ,来会生成 Universe单元格 的不必要副本. 其实在JavaScript代码 知道 Universe 的宽度和高度,并且可以直接从 JavaScript 中读取 WebAssembly线性内存 中的单元格字节, 我们就可以修改<code>render</code>方法,用来返回 单元数组的开头指针.</p>
-<p>还有,我们将切换到使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a>. 而不是渲染 unicode文本. 我们将在本教程的其余部分中使用此设计.</p>
+<p>在 Rust 中生成 (和分配) 一个<code>String</code>, 然后有<code>wasm-bindgen</code>将其转换为有效的 JavaScript 字符串 ,来会生成 Universe 单元格 的不必要副本. 其实在 JavaScript 代码 知道 Universe 的宽度和高度,并且可以直接从 JavaScript 中读取 WebAssembly 线性内存 中的单元格字节, 我们就可以修改<code>render</code>方法,用来返回 单元数组的开头指针.</p>
+<p>还有,我们将切换到使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a>. 而不是渲染 unicode 文本. 我们将在本教程的其余部分中使用此设计.</p>
 <p>首先,让我们替换<code>pre</code>,换成了一个<code>&lt;canvas&gt;</code> (它也应该在<code>&lt;body&gt;</code>, <code>&lt;script&gt;</code>加载我们的 JavaScript 之前) :</p>
 <pre><code class="language-html">&lt;body&gt;
     &lt;canvas id=&quot;game-of-life-canvas&quot;&gt;&lt;/canvas&gt;
     &lt;script src='./bootstrap.js'&gt;&lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p>为了从 Rust实现 中获取必要的信息,我们需要为 Universe 的宽度,高度和指向 其单元数组 的指针 添加一些更多的 <code>getter</code>函数. 所有这些都暴露在JavaScript 中.</p>
+<p>为了从 Rust 实现 中获取必要的信息,我们需要为 Universe 的宽度,高度和指向 其单元数组 的指针 添加一些更多的 <code>getter</code>函数. 所有这些都暴露在 JavaScript 中.</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -614,18 +614,18 @@ impl Universe {
 }
 #}</code></pre></pre>
 <p>接下来,让我们在<code>import</code>代码行下面定义 JavaScript 在渲染画布时将使用的一些常量:</p>
-<pre><code class="language-js">import { Universe } from &quot;./wasm_game_of_life&quot;;
+<pre><code class="language-js">import {Universe} from './wasm_game_of_life';
 
 const CELL_SIZE = 5; // px
-const GRID_COLOR = &quot;#CCCCCC&quot;;
-const DEAD_COLOR = &quot;#FFFFFF&quot;;
-const ALIVE_COLOR = &quot;#000000&quot;;
+const GRID_COLOR = '#CCCCCC';
+const DEAD_COLOR = '#FFFFFF';
+const ALIVE_COLOR = '#000000';
 
 // 这些必须匹配 `Cell::Alive` 和 `Cell::Dead` in `src/lib.rs`.
 const DEAD = 0;
 const ALIVE = 1;
 </code></pre>
-<p>现在,让我们重写当前的 JS代码 (导入除外) ,不再写入<code>&lt;pre&gt;</code>而是专注在<code>&lt;canvas&gt;</code>:</p>
+<p>现在,让我们重写当前的 JS 代码 (导入除外) ,不再写入<code>&lt;pre&gt;</code>而是专注在<code>&lt;canvas&gt;</code>:</p>
 <pre><code class="language-js">// 构造 the universe, and get its width and height.
 const universe = Universe.new();
 const width = universe.width();
@@ -633,7 +633,7 @@ const height = universe.height();
 
 // Give the canvas room for all of our cells and a 1px border
 // around each of them.
-const canvas = document.getElementById(&quot;game-of-life-canvas&quot;);
+const canvas = document.getElementById('game-of-life-canvas');
 canvas.height = (CELL_SIZE + 1) * height + 1;
 canvas.width = (CELL_SIZE + 1) * width + 1;
 
@@ -662,16 +662,16 @@ const renderLoop = () =&gt; {
 
   // Horizontal lines.
   for (let j = 0; j &lt;= height; j++) {
-    ctx.moveTo(0,                           j * (CELL_SIZE + 1) + 1);
+    ctx.moveTo(0, j * (CELL_SIZE + 1) + 1);
     ctx.lineTo((CELL_SIZE + 1) * width + 1, j * (CELL_SIZE + 1) + 1);
   }
 
   ctx.stroke();
 };
 </code></pre>
-<p>我们可以直接通过<code>memory</code>拿到WebAssembly 的 线性内存, 而这个<code>memory</code>有原生wasm模块<code>wasm_game_of_life_bg</code>提供.为了绘制 细胞,我们从 <code>universe's cells</code> 拿到指针 ,构造一个覆盖细胞面积的<code>Uint8Array</code>缓冲区,迭代每个细胞,并分别根据 细胞是死还是活,绘制白色或黑色矩形. 通过使用 <code>idx</code> 和 覆盖,我们避免在每个<code>tick</code>上跨越边界复制单元格.</p>
+<p>我们可以直接通过<code>memory</code>拿到 WebAssembly 的 线性内存, 而这个<code>memory</code>有原生 wasm 模块<code>wasm_game_of_life_bg</code>提供.为了绘制 细胞,我们从 <code>universe's cells</code> 拿到指针 ,构造一个覆盖细胞面积的<code>Uint8Array</code>缓冲区,迭代每个细胞,并分别根据 细胞是死还是活,绘制白色或黑色矩形. 通过使用 <code>idx</code> 和 覆盖,我们避免在每个<code>tick</code>上跨越边界复制单元格.</p>
 <pre><code class="language-js">// Import the WebAssembly memory at the top of the file.
-import { memory } from &quot;./wasm_game_of_life_bg&quot;;
+import {memory} from './wasm_game_of_life_bg';
 
 // ...
 
@@ -689,9 +689,7 @@ const drawCells = () =&gt; {
     for (let col = 0; col &lt; width; col++) {
       const idx = getIndex(row, col);
 
-      ctx.fillStyle = cells[idx] === DEAD
-        ? DEAD_COLOR
-        : ALIVE_COLOR;
+      ctx.fillStyle = cells[idx] === DEAD ? DEAD_COLOR : ALIVE_COLOR;
 
       ctx.fillRect(
         col * (CELL_SIZE + 1) + 1,
@@ -718,7 +716,7 @@ const drawCells = () =&gt; {
 <p>如果你刷新<a href="http://localhost:8080/">http://localhost:8080/</a>,你应该受到令人兴奋的展示!</p>
 <p><a href="./images/game-of-life/initial-game-of-life.png"><img src="./images/game-of-life/initial-game-of-life.png" alt="Screenshot of the Game of Life implementation" /></a></p>
 <p>您可以 checkout <code>chapter-one</code> branch 找到完整代码.</p>
-<p>还有一个非常巧妙的算法,来实现生命游戏<a href="https://en.wikipedia.org/wiki/Hashlife">hashlife</a>. 它使用积极的记忆,实际上可以获得<em>指数级更快</em>计算后代的时间越长! 鉴于此,您可能想知道为什么我们在本教程中没有实现<code>hashlife</code>. 因为它超出了本文的范围,我们专注于 Rust和WebAssembly 集成,但我们强烈建议您自己去了解<code>hashlife</code>!</p>
+<p>还有一个非常巧妙的算法,来实现生命游戏<a href="https://en.wikipedia.org/wiki/Hashlife">hashlife</a>. 它使用积极的记忆,实际上可以获得<em>指数级更快</em>计算后代的时间越长! 鉴于此,您可能想知道为什么我们在本教程中没有实现<code>hashlife</code>. 因为它超出了本文的范围,我们专注于 Rust 和 WebAssembly 集成,但我们强烈建议您自己去了解<code>hashlife</code>!</p>
 <a class="header" href="print.html#a练习-2" id="a练习-2"><h2>练习</h2></a>
 <ul>
 <li>
@@ -726,7 +724,7 @@ const drawCells = () =&gt; {
 </li>
 <li>
 <p>不是硬编码最初的宇宙,而是生成一个随机的,有五十五个细胞活着或死亡的机会.</p>
-<p><em>提示: 使用<code>wasm_bindgen</code> import <code>Math.random</code> JavaScript函数:</em></p>
+<p><em>提示: 使用<code>wasm_bindgen</code> import <code>Math.random</code> JavaScript 函数:</em></p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -738,14 +736,14 @@ extern {
 #}</code></pre></pre>
 </li>
 <li>
-<p>用 一个字节 表示 每个单元格 可以很容易地迭代单元格,但这是以浪费内存为代价的. 每个字节是8位,但我们只需要 一个位 来表示每个单元 是活还是死. 重构数据表示,以便每个单元,仅使用一个空格位.</p>
+<p>用 一个字节 表示 每个单元格 可以很容易地迭代单元格,但这是以浪费内存为代价的. 每个字节是 8 位,但我们只需要 一个位 来表示每个单元 是活还是死. 重构数据表示,以便每个单元,仅使用一个空格位.</p>
 </li>
 </ul>
 <a class="header" href="print.html#a调试" id="a调试"><h1>调试</h1></a>
 <p>在我们编写更多代码之前,我们需要在出现问题时使用一些调试工具.</p>
 <a class="header" href="print.html#a使用调试符号构建" id="a使用调试符号构建"><h2>使用调试符号构建</h2></a>
 <blockquote>
-<p>⚡调试时,请务必确保使用调试符号构建!</p>
+<p>⚡ 调试时,请务必确保使用调试符号构建!</p>
 </blockquote>
 <p>如果您没有启用调试符号,那么<code>&quot;name&quot;</code>部分将不会出现在<code>.wasm</code>二进制编译中和堆栈跟踪将具有类似的函数名称<code>wasm[42]</code>而不是<code>wasm_game_of_life::Universe::live_neighbor_count</code>.</p>
 <p>使用&quot;debug&quot;版本时 (又称<code>npm run build-debug</code>) 默认情况下启用调试符号.</p>
@@ -770,7 +768,7 @@ macro_rules! log {
     ($($t:tt)*) =&gt; (log(&amp;format!($($t)*)))
 }
 #}</code></pre></pre>
-<p>然后,我们可以通过在Rust代码中,插入<code>log</code>调用将消息记录到控制台. 例如,要记录每个单元的状态,活动邻居数和下一个状态,我们可以像这样修改我们的代码:</p>
+<p>然后,我们可以通过在 Rust 代码中,插入<code>log</code>调用将消息记录到控制台. 例如,要记录每个单元的状态,活动邻居数和下一个状态,我们可以像这样修改我们的代码:</p>
 <pre><code class="language-diff">diff --git a/src/lib.rs b/src/lib.rs
 index f757641..a30e107 100755
 --- a/src/lib.rs
@@ -801,9 +799,9 @@ index f757641..a30e107 100755
 <a class="header" href="print.html#a参考" id="a参考"><h3>参考</h3></a>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console">该<code>console</code>对象</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Web_Console">Firefox开发人员工具 -  Web控制台</a></li>
-<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console">Microsoft Edge开发人员工具 - 控制台</a></li>
-<li><a href="https://developers.google.com/web/tools/chrome-devtools/console/get-started">开始使用Chrome DevTools控制台</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Web_Console">Firefox 开发人员工具 - Web 控制台</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console">Microsoft Edge 开发人员工具 - 控制台</a></li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/console/get-started">开始使用 Chrome DevTools 控制台</a></li>
 </ul>
 <a class="header" href="print.html#a崩溃日志" id="a崩溃日志"><h2>崩溃日志</h2></a>
 <p><a href="https://github.com/rustwasm/console_error_panic_hook">这 <code>console_error_panic_hook</code> 箱子 通过<code>console.error</code>为开发者记录了异常的崩溃</a> 而不是得到 怪异的,
@@ -829,17 +827,17 @@ pub fn init() {
 console_error_panic_hook::set_once();
 #}</code></pre></pre>
 <a class="header" href="print.html#a使用调试器" id="a使用调试器"><h2>使用调试器</h2></a>
-<p>不幸的是,WebAssembly 的调试仍然不成熟. 在大多数 Unix系统上,<a href="http://dwarfstd.org/">DWARF</a>用于编码调试器提供正在运行的程序的源级检查的信息. 在Windows 上有一种替代格式可以编码类似的信息. 目前, WebAssembly 没有等价物. 因此,调试器目前提供有限的实用程序,我们最终逐步执行编译器发出的原始 WebAssembly 指令,而不是我们编写的Rust源文本.</p>
-<p>尽管如此,调试器仍然可用于检查 与WebAssembly交互的JavaScript. 例如,我们可以使用调试器在我们的<code>renderLoop</code>函数每次迭代中暂停. 这为我们提供了一个方便的检查点,用于检查记录的消息,并将当前呈现的帧与前一帧进行比较.</p>
+<p>不幸的是,WebAssembly 的调试仍然不成熟. 在大多数 Unix 系统上,<a href="http://dwarfstd.org/">DWARF</a>用于编码调试器提供正在运行的程序的源级检查的信息. 在 Windows 上有一种替代格式可以编码类似的信息. 目前, WebAssembly 没有等价物. 因此,调试器目前提供有限的实用程序,我们最终逐步执行编译器发出的原始 WebAssembly 指令,而不是我们编写的 Rust 源文本.</p>
+<p>尽管如此,调试器仍然可用于检查 与 WebAssembly 交互的 JavaScript. 例如,我们可以使用调试器在我们的<code>renderLoop</code>函数每次迭代中暂停. 这为我们提供了一个方便的检查点,用于检查记录的消息,并将当前呈现的帧与前一帧进行比较.</p>
 <p><a href="./images/game-of-life/debugging.png"><img src="./images/game-of-life/debugging.png" alt="Screenshot of debugging the Game of Life" /></a></p>
 <a class="header" href="print.html#a参考-1" id="a参考-1"><h3>参考</h3></a>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger">Firefox开发者工具 - 调试器</a></li>
-<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/debugger">Microsoft Edge开发人员工具 - 调试器</a></li>
-<li><a href="https://developers.google.com/web/tools/chrome-devtools/javascript/">开始在Chrome DevTools中调试JavaScript</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger">Firefox 开发者工具 - 调试器</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/debugger">Microsoft Edge 开发人员工具 - 调试器</a></li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/javascript/">开始在 Chrome DevTools 中调试 JavaScript</a></li>
 </ul>
-<a class="header" href="print.html#a首先避免调试webassembly" id="a首先避免调试webassembly"><h2>首先避免调试WebAssembly</h2></a>
-<p>虽然一些错误特定于 JavaScript和WebAssembly 的接口,但经验表明大多数错误都没有. 尝试将 bug重现 通过正常的Rust<code>#[test]</code>函数,您可以在调试时利用操作系统的成熟工具. 使用测试箱子<a href="https://crates.io/crates/quickcheck"><code>quickcheck</code></a>练习您向JavaScript公开的接口. 最终,如果您可以在不需要与 JavaScript交互 的小测试用例中隔离它们,您将更容易找到并修复错误.</p>
+<a class="header" href="print.html#a首先避免调试-webassembly" id="a首先避免调试-webassembly"><h2>首先避免调试 WebAssembly</h2></a>
+<p>虽然一些错误特定于 JavaScript 和 WebAssembly 的接口,但经验表明大多数错误都没有. 尝试将 bug 重现 通过正常的 Rust<code>#[test]</code>函数,您可以在调试时利用操作系统的成熟工具. 使用测试箱子<a href="https://crates.io/crates/quickcheck"><code>quickcheck</code></a>练习您向 JavaScript 公开的接口. 最终,如果您可以在不需要与 JavaScript 交互 的小测试用例中隔离它们,您将更容易找到并修复错误.</p>
 <p>注意,为了运行<code>#[test]</code>没有编译器和链接器错误,你需要添加<code>#![wasm_bindgen]</code>注释和<code>crate-type = &quot;cdylib&quot;</code>.</p>
 <a class="header" href="print.html#a练习-3" id="a练习-3"><h2>练习</h2></a>
 <ul>
@@ -847,10 +845,10 @@ console_error_panic_hook::set_once();
 <p>添加日志记录到<code>tick</code>函数,记录每个单元格的行和列 - 状态从活动转换为死亡,反之亦然.</p>
 </li>
 <li>
-<p>介绍一个<code>panic!()</code>在<code>Universe::new</code>方法里面. 在 Web浏览器的JavaScript调试器 中检查恐慌的回溯. 禁用调试符号,重建并再次检查堆栈跟踪. 不是很有用,是吗?</p>
+<p>介绍一个<code>panic!()</code>在<code>Universe::new</code>方法里面. 在 Web 浏览器的 JavaScript 调试器 中检查恐慌的回溯. 禁用调试符号,重建并再次检查堆栈跟踪. 不是很有用,是吗?</p>
 </li>
 <li>
-<p>checkout <code>chapter-one-with-bug</code> branch. 重建并重新加载网页. 现在很明显, 这个分支的实现包含一个<code>bug</code>, 每个单元格显然都是活着的. 这是您的作者在最初创建示例代码时, 所犯的真实世界 (tm) 错误. 找到错误并修复它. *不要看提交历史! 那是作弊 ;-) *</p>
+<p>checkout <code>chapter-one-with-bug</code> branch. 重建并重新加载网页. 现在很明显, 这个分支的实现包含一个<code>bug</code>, 每个单元格显然都是活着的. 这是您的作者在最初创建示例代码时, 所犯的真实世界 (tm) 错误. 找到错误并修复它. _不要看提交历史! 那是作弊 ;-) _</p>
 </li>
 </ul>
 <a class="header" href="print.html#a增加交互性" id="a增加交互性"><h1>增加交互性</h1></a>
@@ -987,13 +985,13 @@ impl Universe {
 </li>
 </ul>
 <a class="header" href="print.html#a时间分析" id="a时间分析"><h1>时间分析</h1></a>
-<p>本章介绍如何使用 Rust和WebAssembly 来分析Web页面,其目标是提高吞吐量或降低延迟.</p>
+<p>本章介绍如何使用 Rust 和 WebAssembly 来分析 Web 页面,其目标是提高吞吐量或降低延迟.</p>
 <blockquote>
-<p>⚡始终确保使用的是<code>--release</code>分析! 使用我们的项目模板,这意味着使用<code>npm run build-release</code>代替<code>npm run build-debug</code>.</p>
+<p>⚡ 始终确保使用的是<code>--release</code>分析! 使用我们的项目模板,这意味着使用<code>npm run build-release</code>代替<code>npm run build-debug</code>.</p>
 </blockquote>
 <a class="header" href="print.html#a可用工具" id="a可用工具"><h2>可用工具</h2></a>
 <a class="header" href="print.html#a该performancenow计时器" id="a该performancenow计时器"><h3>该<code>performance.now()</code>计时器</h3></a>
-<p>该<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/now"><code>performance.now()</code></a>函数返回,自加载网页以来以毫秒为单位测量的单调时间戳. 我们可以使用它来计算各种操作的时间,我们可以通过以下方式 从Rust 访问它,通过<code>wasm_bindgen</code>导入申报:</p>
+<p>该<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/now"><code>performance.now()</code></a>函数返回,自加载网页以来以毫秒为单位测量的单调时间戳. 我们可以使用它来计算各种操作的时间,我们可以通过以下方式 从 Rust 访问它,通过<code>wasm_bindgen</code>导入申报:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -1008,7 +1006,7 @@ extern {
 <p>让我们开始在<code>index.js</code>添加一个<code>fps</code>对象</p>
 <pre><code class="language-js">const fps = new class {
   constructor() {
-    this.fps = document.getElementById(&quot;fps&quot;);
+    this.fps = document.getElementById('fps');
     this.frames = [];
     this.lastFrameTimeStamp = performance.now();
   }
@@ -1018,7 +1016,7 @@ extern {
     const now = performance.now();
     const delta = now - this.lastFrameTimeStamp;
     this.lastFrameTimeStamp = now;
-    const fps = 1 / delta * 1000;
+    const fps = (1 / delta) * 1000;
 
     // Save only the latest 100 timings.
     this.frames.push(fps);
@@ -1046,30 +1044,30 @@ min of last 100 = ${Math.round(min)}
 max of last 100 = ${Math.round(max)}
 `.trim();
   }
-};
+}();
 </code></pre>
 <p>接下来 我们运行 <code>fps</code> <code>render</code> 函数 ,在每次迭代<code>renderLoop</code>时更新:</p>
 <pre><code class="language-js">const renderLoop = () =&gt; {
-    fps.render(); //new
+  fps.render(); //new
 
-    universe.tick();
-    drawCells();
-    drawGrid();
+  universe.tick();
+  drawCells();
+  drawGrid();
 
-    animationId = requestAnimationFrame(renderLoop);
+  animationId = requestAnimationFrame(renderLoop);
 };
 </code></pre>
 <p>最后, 不要忘记添加 <code>fps</code> 元素 到 <code>index.html</code>:</p>
 <pre><code class="language-html">    &lt;div id=&quot;fps&quot;&gt;&lt;div&gt;
 </code></pre>
 <p>噢耶! 现在你有了一个 FPS 计数器!</p>
-<a class="header" href="print.html#a开发人员工具profilers" id="a开发人员工具profilers"><h3>开发人员工具Profilers</h3></a>
-<p>所有 Web浏览器 的内置开发人员工具都包含一个分析器. 这些分析器显示哪些函数花费最多时间的可视化,如调用树和火焰图. 如果你<a href="./game-of-life/debugging.html#building-with-debug-symbols">用调试符号构建</a>,然后这些分析器应该显示 Rust函数名称 而不是像<code>wasm-function[123]</code>. 请注意这些分析器<em>惯于</em>显示内联函数,由于 Rust和LLVM 依赖于如此大量的内联,结果可能会有点令人困惑.</p>
+<a class="header" href="print.html#a开发人员工具-profilers" id="a开发人员工具-profilers"><h3>开发人员工具 Profilers</h3></a>
+<p>所有 Web 浏览器 的内置开发人员工具都包含一个分析器. 这些分析器显示哪些函数花费最多时间的可视化,如调用树和火焰图. 如果你<a href="./game-of-life/debugging.html#building-with-debug-symbols">用调试符号构建</a>,然后这些分析器应该显示 Rust 函数名称 而不是像<code>wasm-function[123]</code>. 请注意这些分析器<em>惯于</em>显示内联函数,由于 Rust 和 LLVM 依赖于如此大量的内联,结果可能会有点令人困惑.</p>
 <p><a href="./images/game-of-life/profiler-with-rust-names.png"><img src="./images/game-of-life/profiler-with-rust-names.png" alt="Screenshot of profiler with Rust symbols" /></a></p>
 <a class="header" href="print.html#a资源" id="a资源"><h4>资源</h4></a>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Performance">Firefox开发者工具 - 性能</a></li>
-<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/performance">Microsoft Edge开发人员工具 - 性能</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Performance">Firefox 开发者工具 - 性能</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/performance">Microsoft Edge 开发人员工具 - 性能</a></li>
 <li><a href="https://developers.google.com/web/tools/chrome-devtools/rendering-tools/js-execution">Chrome DevTools JavaScript Profiler</a></li>
 </ul>
 <a class="header" href="print.html#consoletime和consoletimeend功能" id="consoletime和consoletimeend功能"><h3><code>console.time</code>和<code>console.timeEnd</code>功能</h3></a>
@@ -1119,28 +1117,26 @@ let _timer = Timer::new(&quot;Universe::tick&quot;);
 <p>另外,<code>console.time</code>和<code>console.timeEnd</code>对将显示在,浏览器的分析器的&quot;timeline&quot;或&quot;waterfall&quot;视图中:</p>
 <p><a href="./images/game-of-life/console-time-in-profiler.png"><img src="./images/game-of-life/console-time-in-profiler.png" alt="Screenshot of console.time logs" /></a></p>
 <a class="header" href="print.html#a运用bench与本地代码" id="a运用bench与本地代码"><h3>运用<code>#[bench]</code>与本地代码</h3></a>
-<p>我们通常也可以通过编写,来利用我们操作系统的本机代码调试工具<code>#[test]</code>而不是在Web上调试,我们也可以通过编写<code>#[bench]</code>功能.</p>
+<p>我们通常也可以通过编写,来利用我们操作系统的本机代码调试工具<code>#[test]</code>而不是在 Web 上调试,我们也可以通过编写<code>#[bench]</code>功能.</p>
 <p>然而!在为本机代码分析投入大量精力之前,请确保您知道瓶颈在 WebAssembly 中! 使用浏览器的分析器确认这一点,否则您可能会浪费时间来优化不热的代码.</p>
 <a class="header" href="print.html#a发展我们的生命博弈宇宙" id="a发展我们的生命博弈宇宙"><h2>发展我们的生命博弈宇宙</h2></a>
-<p>如果我们让我们的生命游戏世界更大,会发生什么? 使用 128 x 128 宇宙替换 64 x 64 宇宙导致FPS从 平滑的60 下降到 40-ish.</p>
-<p>如果我们记录一个配置文件并查看瀑布视图,我们会看到每个动画帧花费超过20毫秒. 回想一下,每秒60帧,每帧大概16毫秒. 16毫秒内不仅仅是有我们的 JavaScript和WebAssembly ,还有浏览器正在做的其他事情,比如绘制页面.</p>
+<p>如果我们让我们的生命游戏世界更大,会发生什么? 使用 128 x 128 宇宙替换 64 x 64 宇宙导致 FPS 从 平滑的 60 下降到 40-ish.</p>
+<p>如果我们记录一个配置文件并查看瀑布视图,我们会看到每个动画帧花费超过 20 毫秒. 回想一下,每秒 60 帧,每帧大概 16 毫秒. 16 毫秒内不仅仅是有我们的 JavaScript 和 WebAssembly ,还有浏览器正在做的其他事情,比如绘制页面.</p>
 <p><a href="./images/game-of-life/drawCells-before-waterfall.png"><img src="./images/game-of-life/drawCells-before-waterfall.png" alt="Screenshot of a waterfall view of rendering a frame" /></a></p>
 <p>如果我们看一下单个动画帧中发生的事情,我们就会看到<code>CanvasRenderingContext2D.fillStyle</code> 很长!</p>
 <p><a href="./images/game-of-life/drawCells-before-flamegraph.png"><img src="./images/game-of-life/drawCells-before-flamegraph.png" alt="Screenshot of a flamegraph view of rendering a frame" /></a></p>
 <p>我们可以通过查看调用树的多个帧的聚合来确认这不是异常:</p>
 <p><a href="./images/game-of-life/drawCells-before-calltree.png"><img src="./images/game-of-life/drawCells-before-calltree.png" alt="Screenshot of a flamegraph view of rendering a frame" /></a></p>
-<p>我们将近40%的时间都花在了这个函数身上!</p>
+<p>我们将近 40%的时间都花在了这个函数身上!</p>
 <blockquote>
-<p>⚡我们可能对此有所期待<code>tick</code>方法是性能瓶颈,但事实并非如此. 让分析引导您的注意力,而不是把时间花在您想当然的地方.</p>
+<p>⚡ 我们可能对此有所期待<code>tick</code>方法是性能瓶颈,但事实并非如此. 让分析引导您的注意力,而不是把时间花在您想当然的地方.</p>
 </blockquote>
 <p>在<code>drawCells</code>函数,在每个动画帧上,<code>fillStyle</code>为宇宙中的每个单元格设置一次:</p>
 <pre><code class="language-js">for (let row = 0; row &lt; height; row++) {
   for (let col = 0; col &lt; width; col++) {
     const idx = getIndex(row, col);
 
-    ctx.fillStyle = cells[idx] === DEAD
-      ? DEAD_COLOR
-      : ALIVE_COLOR;
+    ctx.fillStyle = cells[idx] === DEAD ? DEAD_COLOR : ALIVE_COLOR;
 
     ctx.fillRect(
       col * (CELL_SIZE + 1) + 1,
@@ -1188,18 +1184,18 @@ for (let row = 0; row &lt; height; row++) {
   }
 }
 </code></pre>
-<p>保存这些更改并刷新后<a href="http://localhost:8080/">http://localhost:8080/</a>,渲染回到平滑每秒60帧.</p>
-<p>如果我们采用另一个配置文件,我们可以看到现在每个动画帧只花费大约10毫秒.</p>
+<p>保存这些更改并刷新后<a href="http://localhost:8080/">http://localhost:8080/</a>,渲染回到平滑每秒 60 帧.</p>
+<p>如果我们采用另一个配置文件,我们可以看到现在每个动画帧只花费大约 10 毫秒.</p>
 <p><a href="./images/game-of-life/drawCells-after-waterfall.png"><img src="./images/game-of-life/drawCells-after-waterfall.png" alt="Screenshot of a waterfall view of rendering a frame after the drawCells changes" /></a></p>
 <p>打破了超时帧,我们看到了<code>fillStyle</code>昂贵的成本消失了,我们的大部分时间花在了内部<code>fillRect</code>,绘制每个单元格的矩形.</p>
 <p><a href="./images/game-of-life/drawCells-after-flamegraph.png"><img src="./images/game-of-life/drawCells-after-flamegraph.png" alt="Screenshot of a flamegraph view of rendering a frame after the drawCells changes" /></a></p>
 <a class="header" href="print.html#a让时间更快" id="a让时间更快"><h2>让时间更快</h2></a>
-<p>有些人不喜欢等待,认为每个动画帧是 9个 <code>tick</code>. 我们可以修改<code>renderLoop</code>函数,这很容易做到这一点:</p>
+<p>有些人不喜欢等待,认为每个动画帧是 9 个 <code>tick</code>. 我们可以修改<code>renderLoop</code>函数,这很容易做到这一点:</p>
 <pre><code class="language-js">for (let i = 0; i &lt; 9; i++) {
   universe.tick();
 }
 </code></pre>
-<p>在我的机器上,这使我们恢复到每秒35帧. 不好. 我们想要那个美丽的 <code>60!</code></p>
+<p>在我的机器上,这使我们恢复到每秒 35 帧. 不好. 我们想要那个美丽的 <code>60!</code></p>
 <p>现在我们知道时间花在了<code>Universe::tick</code>,让我们添加一些<code>Timer</code>,用它来包装,给予<code>console.time</code>和<code>console.timeEnd</code>运行,引导我们. 我的假设是,分配一个新的细胞载体,并在每个滴答上释放旧的是昂贵的成本,占用了我们时间预算的很大一部分.</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -1283,7 +1279,7 @@ test universe_ticks ... bench:     664,421 ns/iter (+/- 51,926)
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 1 measured; 0 filtered out
 </code></pre>
-<p>这也告诉我们二进制文件的位置,我们可以再次运行基准测试,但这次是在我们的操作系统的分析器下. 就我而言,我运行在Linux,所以<a href="https://perf.wiki.kernel.org/index.php/Main_Page"><code>perf</code></a>是我将使用的探查器:</p>
+<p>这也告诉我们二进制文件的位置,我们可以再次运行基准测试,但这次是在我们的操作系统的分析器下. 就我而言,我运行在 Linux,所以<a href="https://perf.wiki.kernel.org/index.php/Main_Page"><code>perf</code></a>是我将使用的探查器:</p>
 <pre><code>$ perf record -g target/release/deps/bench-8474091a05cfa2d9 --bench
 running 1 test
 test universe_ticks ... bench:     635,061 ns/iter (+/- 38,764)
@@ -1319,7 +1315,7 @@ fn live_neighbor_count(&amp;self, row: u32, column: u32) -&gt; u8 {
     count
 }
 #}</code></pre></pre>
-<p>我们使用 多条件 的原因是为了避免使代码混乱, 通过使用<code>if</code>,第一行或最后一行或列边缘情况的条件. 但我们付出的代价是<code>div</code>, 也就是最常见的情况,既不是<code>row</code>也不是<code>column</code>,而是在宇宙的边缘,他们不需要模数包裹处理. 相反,如果我们使用多个<code>if</code>为边缘情况,并展开此循环,CPU的分支预测器<em>应该</em>可以很好地预测它.</p>
+<p>我们使用 多条件 的原因是为了避免使代码混乱, 通过使用<code>if</code>,第一行或最后一行或列边缘情况的条件. 但我们付出的代价是<code>div</code>, 也就是最常见的情况,既不是<code>row</code>也不是<code>column</code>,而是在宇宙的边缘,他们不需要模数包裹处理. 相反,如果我们使用多个<code>if</code>为边缘情况,并展开此循环,CPU 的分支预测器<em>应该</em>可以很好地预测它.</p>
 <p>我们改写<code>live_neighbor_count</code>,像这样这个:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -1400,9 +1396,9 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 1 measured; 0 filtered out
  name            before.txt ns/iter  after.txt ns/iter  diff ns/iter   diff %  speedup
  universe_ticks  664,421             87,258                 -577,163  -86.87%   x 7.61
 </code></pre>
-<p>哇! 7.61倍加速!</p>
+<p>哇! 7.61 倍加速!</p>
 <p>WebAssembly 映射到常见的硬件架构,但我们确实需要为这个本机代码加速.</p>
-<p>让我们恢复所有<code>#[wasm_bindgen]</code>注释,重建<code>.wasm</code>同<code>npm run build-release</code>,并刷新<a href="http://localhost:8080/">http://localhost:8080/</a>. 在我的机器上,页面再次以每秒60帧的速度运行,并且使用浏览器的分析器记录,另一个配置文件显示每个动画帧大约需要10毫秒.</p>
+<p>让我们恢复所有<code>#[wasm_bindgen]</code>注释,重建<code>.wasm</code>同<code>npm run build-release</code>,并刷新<a href="http://localhost:8080/">http://localhost:8080/</a>. 在我的机器上,页面再次以每秒 60 帧的速度运行,并且使用浏览器的分析器记录,另一个配置文件显示每个动画帧大约需要 10 毫秒.</p>
 <p>成功!</p>
 <p><a href="./images/game-of-life/waterfall-after-branches-and-unrolling.png"><img src="./images/game-of-life/waterfall-after-branches-and-unrolling.png" alt="Screenshot of a waterfall view of rendering a frame after replacing modulos with branches" /></a></p>
 <a class="header" href="print.html#a练习-5" id="a练习-5"><h2>练习</h2></a>
@@ -1411,10 +1407,10 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 1 measured; 0 filtered out
 <p>在这一点上,下一个加速<code>Universe::tick</code>是删除分配和免费. 实现细胞的双缓冲,其中<code>Universe</code>维护两个向量,并且不释放它们中的任何一个,那么就永远不会分配新的缓冲区<code>tick</code>.</p>
 </li>
 <li>
-<p>从&quot;实现生命&quot;一章的实现是 基于delta 的设计,其中 Rust代码 返回 将状态更改为JavaScript 的单元格列表. 这会使渲染<code>&lt;canvas&gt;</code>更快? 你可以实现这个设计, 而不必在每个滴答上分配一个新的增量列表吗 ?</p>
+<p>从&quot;实现生命&quot;一章的实现是 基于 delta 的设计,其中 Rust 代码 返回 将状态更改为 JavaScript 的单元格列表. 这会使渲染<code>&lt;canvas&gt;</code>更快? 你可以实现这个设计, 而不必在每个滴答上分配一个新的增量列表吗 ?</p>
 </li>
 <li>
-<p>正如我们的分析向我们展示的那样,2D<code>&lt;canvas&gt;</code>渲染速度不是特别快. 用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL</a> 渲染器替换 2 canvas 渲染器. WebGL版本的速度有多快 ? 在WebGL渲染成为瓶颈之前,你能创造多大的宇宙 ?</p>
+<p>正如我们的分析向我们展示的那样,2D<code>&lt;canvas&gt;</code>渲染速度不是特别快. 用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL</a> 渲染器替换 2 canvas 渲染器. WebGL 版本的速度有多快 ? 在 WebGL 渲染成为瓶颈之前,你能创造多大的宇宙 ?</p>
 </li>
 </ul>
 <a class="header" href="print.html#a收缩wasm尺寸" id="a收缩wasm尺寸"><h1>收缩<code>.wasm</code>尺寸</h1></a>

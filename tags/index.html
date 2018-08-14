@@ -261,91 +261,99 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2014/04/02/hugo-template-primer/">
-      <div class="post-card-image" style="background-image: url(/img/writing.jpg)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2014/04/02/hugo-template-primer/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #go 
-              #golang 
-              #templates 
-              #themes 
-              #development  </span>
-              
-              <h2 class="post-card-title">(Hu)go Template Primer</h2>
-          </header>
-          <section class="post-card-excerpt">
-               
-                <p>This is a description. Hugo uses the <strong>excellent</strong> go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic.</p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #javascript  </span>
-              
-              <h2 class="post-card-title">js原型与构造</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>#对象／构造／原型
- 对象 &ndash; 原型  all 浏览器 获取原型方法
-var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// Object {}  a.constructor// function Object() { [native code] }   函数 &ndash; 构造 + 原型  var a = function(){}; //函数可以直接 prototype a.prototype// Object {};  a.constructor// function Function() { [native code] }   上面可以看出，构造都是函数
-  对象 &gt; 构造函数 &gt; 函数 。。  var b = {}; b// Object {} b. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/1/01/01/hello-world/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    <a class="post-card-image-link" href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/1/01/01/hello-world/">
+      <a class="post-card-content-link" href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #python  </span>
               
-              <h2 class="post-card-title">Hello World</h2>
+              <h2 class="post-card-title">让你的py优雅</h2>
+          </header>
+          <section class="post-card-excerpt">
+               
+                <p>在Python社区文化的浇灌下，演化出了一种独特的代码风格，去指导如何正确地使用Python，这就是常说的pythonic</p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #go 
+              #direnv  </span>
+              
+              <h2 class="post-card-title">目录环境加载 direnv</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick Start Create a new post $ hexo new &#34;My New Post&#34; More info: Writing
-Run server $ hexo server More info: Server
-Generate static files $ hexo generate More info: Generating
-Deploy to remote sites $ hexo deploy More info: Deployment </p>
+                <p> direnv 它可以让你明白一个目录的意思，
+简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
+比如我 zsh
+# Add direnv hook eval &#34;$(direnv hook zsh)&#34; 当然前提是要下载，在github 上就有很详细
+cd/my_project echo &#34;echo &#39;hello this is my project&#39;&#34; &gt;&gt; .envrc direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
+问题: 不需要 unloading or loading .envrc 之类的日志输出时。
+.zshrc
+# Add direnv hook eval &#34;$(direnv hook zsh)&#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
+direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。 </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
+      <div class="post-card-image" style="background-image: url(https://babeljs.io/images/logo.svg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #babel 
+              #Es5  </span>
+              
+              <h2 class="post-card-title">babel 继承 Es5</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>继承 复制下面代码 - 点击https://babeljs.io/repl/
+class b { constructor(c,d){ c = c+&#39;1111&#39;; console.log(c,d); } start(){ console.log(&#39;ba ba&#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&#39;222222&#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&#39;son&#39;); } } var o1 = new a(&#39;first&#39;, &#39;second&#39;); console.log(&#39;------------------&#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
+一个 ， 丑陋的 写法，构造，与原型，的，概念.
+增加，初学者的入门，难度, 不过，好在，
+TypeScript babel 语法实现
+ coffeeScript 太极端了， 一堆空格。
+有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
+ 让我们不在需要，对，继承, ...  </p>
               
           </section>
       </a>

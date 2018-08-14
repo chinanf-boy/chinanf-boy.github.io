@@ -137,7 +137,7 @@
 <p>在我们编写更多代码之前,我们需要在出现问题时使用一些调试工具.</p>
 <a class="header" href="game-of-life/debugging.zh.html#a使用调试符号构建" id="a使用调试符号构建"><h2>使用调试符号构建</h2></a>
 <blockquote>
-<p>⚡调试时,请务必确保使用调试符号构建!</p>
+<p>⚡ 调试时,请务必确保使用调试符号构建!</p>
 </blockquote>
 <p>如果您没有启用调试符号,那么<code>&quot;name&quot;</code>部分将不会出现在<code>.wasm</code>二进制编译中和堆栈跟踪将具有类似的函数名称<code>wasm[42]</code>而不是<code>wasm_game_of_life::Universe::live_neighbor_count</code>.</p>
 <p>使用&quot;debug&quot;版本时 (又称<code>npm run build-debug</code>) 默认情况下启用调试符号.</p>
@@ -162,7 +162,7 @@ macro_rules! log {
     ($($t:tt)*) =&gt; (log(&amp;format!($($t)*)))
 }
 #}</code></pre></pre>
-<p>然后,我们可以通过在Rust代码中,插入<code>log</code>调用将消息记录到控制台. 例如,要记录每个单元的状态,活动邻居数和下一个状态,我们可以像这样修改我们的代码:</p>
+<p>然后,我们可以通过在 Rust 代码中,插入<code>log</code>调用将消息记录到控制台. 例如,要记录每个单元的状态,活动邻居数和下一个状态,我们可以像这样修改我们的代码:</p>
 <pre><code class="language-diff">diff --git a/src/lib.rs b/src/lib.rs
 index f757641..a30e107 100755
 --- a/src/lib.rs
@@ -193,9 +193,9 @@ index f757641..a30e107 100755
 <a class="header" href="game-of-life/debugging.zh.html#a参考" id="a参考"><h3>参考</h3></a>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console">该<code>console</code>对象</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Web_Console">Firefox开发人员工具 -  Web控制台</a></li>
-<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console">Microsoft Edge开发人员工具 - 控制台</a></li>
-<li><a href="https://developers.google.com/web/tools/chrome-devtools/console/get-started">开始使用Chrome DevTools控制台</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Web_Console">Firefox 开发人员工具 - Web 控制台</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console">Microsoft Edge 开发人员工具 - 控制台</a></li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/console/get-started">开始使用 Chrome DevTools 控制台</a></li>
 </ul>
 <a class="header" href="game-of-life/debugging.zh.html#a崩溃日志" id="a崩溃日志"><h2>崩溃日志</h2></a>
 <p><a href="https://github.com/rustwasm/console_error_panic_hook">这 <code>console_error_panic_hook</code> 箱子 通过<code>console.error</code>为开发者记录了异常的崩溃</a> 而不是得到 怪异的,
@@ -221,17 +221,17 @@ pub fn init() {
 console_error_panic_hook::set_once();
 #}</code></pre></pre>
 <a class="header" href="game-of-life/debugging.zh.html#a使用调试器" id="a使用调试器"><h2>使用调试器</h2></a>
-<p>不幸的是,WebAssembly 的调试仍然不成熟. 在大多数 Unix系统上,<a href="http://dwarfstd.org/">DWARF</a>用于编码调试器提供正在运行的程序的源级检查的信息. 在Windows 上有一种替代格式可以编码类似的信息. 目前, WebAssembly 没有等价物. 因此,调试器目前提供有限的实用程序,我们最终逐步执行编译器发出的原始 WebAssembly 指令,而不是我们编写的Rust源文本.</p>
-<p>尽管如此,调试器仍然可用于检查 与WebAssembly交互的JavaScript. 例如,我们可以使用调试器在我们的<code>renderLoop</code>函数每次迭代中暂停. 这为我们提供了一个方便的检查点,用于检查记录的消息,并将当前呈现的帧与前一帧进行比较.</p>
+<p>不幸的是,WebAssembly 的调试仍然不成熟. 在大多数 Unix 系统上,<a href="http://dwarfstd.org/">DWARF</a>用于编码调试器提供正在运行的程序的源级检查的信息. 在 Windows 上有一种替代格式可以编码类似的信息. 目前, WebAssembly 没有等价物. 因此,调试器目前提供有限的实用程序,我们最终逐步执行编译器发出的原始 WebAssembly 指令,而不是我们编写的 Rust 源文本.</p>
+<p>尽管如此,调试器仍然可用于检查 与 WebAssembly 交互的 JavaScript. 例如,我们可以使用调试器在我们的<code>renderLoop</code>函数每次迭代中暂停. 这为我们提供了一个方便的检查点,用于检查记录的消息,并将当前呈现的帧与前一帧进行比较.</p>
 <p><a href="./images/game-of-life/debugging.png"><img src="./images/game-of-life/debugging.png" alt="Screenshot of debugging the Game of Life" /></a></p>
 <a class="header" href="game-of-life/debugging.zh.html#a参考-1" id="a参考-1"><h3>参考</h3></a>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger">Firefox开发者工具 - 调试器</a></li>
-<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/debugger">Microsoft Edge开发人员工具 - 调试器</a></li>
-<li><a href="https://developers.google.com/web/tools/chrome-devtools/javascript/">开始在Chrome DevTools中调试JavaScript</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger">Firefox 开发者工具 - 调试器</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/debugger">Microsoft Edge 开发人员工具 - 调试器</a></li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/javascript/">开始在 Chrome DevTools 中调试 JavaScript</a></li>
 </ul>
-<a class="header" href="game-of-life/debugging.zh.html#a首先避免调试webassembly" id="a首先避免调试webassembly"><h2>首先避免调试WebAssembly</h2></a>
-<p>虽然一些错误特定于 JavaScript和WebAssembly 的接口,但经验表明大多数错误都没有. 尝试将 bug重现 通过正常的Rust<code>#[test]</code>函数,您可以在调试时利用操作系统的成熟工具. 使用测试箱子<a href="https://crates.io/crates/quickcheck"><code>quickcheck</code></a>练习您向JavaScript公开的接口. 最终,如果您可以在不需要与 JavaScript交互 的小测试用例中隔离它们,您将更容易找到并修复错误.</p>
+<a class="header" href="game-of-life/debugging.zh.html#a首先避免调试-webassembly" id="a首先避免调试-webassembly"><h2>首先避免调试 WebAssembly</h2></a>
+<p>虽然一些错误特定于 JavaScript 和 WebAssembly 的接口,但经验表明大多数错误都没有. 尝试将 bug 重现 通过正常的 Rust<code>#[test]</code>函数,您可以在调试时利用操作系统的成熟工具. 使用测试箱子<a href="https://crates.io/crates/quickcheck"><code>quickcheck</code></a>练习您向 JavaScript 公开的接口. 最终,如果您可以在不需要与 JavaScript 交互 的小测试用例中隔离它们,您将更容易找到并修复错误.</p>
 <p>注意,为了运行<code>#[test]</code>没有编译器和链接器错误,你需要添加<code>#![wasm_bindgen]</code>注释和<code>crate-type = &quot;cdylib&quot;</code>.</p>
 <a class="header" href="game-of-life/debugging.zh.html#a练习" id="a练习"><h2>练习</h2></a>
 <ul>
@@ -239,10 +239,10 @@ console_error_panic_hook::set_once();
 <p>添加日志记录到<code>tick</code>函数,记录每个单元格的行和列 - 状态从活动转换为死亡,反之亦然.</p>
 </li>
 <li>
-<p>介绍一个<code>panic!()</code>在<code>Universe::new</code>方法里面. 在 Web浏览器的JavaScript调试器 中检查恐慌的回溯. 禁用调试符号,重建并再次检查堆栈跟踪. 不是很有用,是吗?</p>
+<p>介绍一个<code>panic!()</code>在<code>Universe::new</code>方法里面. 在 Web 浏览器的 JavaScript 调试器 中检查恐慌的回溯. 禁用调试符号,重建并再次检查堆栈跟踪. 不是很有用,是吗?</p>
 </li>
 <li>
-<p>checkout <code>chapter-one-with-bug</code> branch. 重建并重新加载网页. 现在很明显, 这个分支的实现包含一个<code>bug</code>, 每个单元格显然都是活着的. 这是您的作者在最初创建示例代码时, 所犯的真实世界 (tm) 错误. 找到错误并修复它. *不要看提交历史! 那是作弊 ;-) *</p>
+<p>checkout <code>chapter-one-with-bug</code> branch. 重建并重新加载网页. 现在很明显, 这个分支的实现包含一个<code>bug</code>, 每个单元格显然都是活着的. 这是您的作者在最初创建示例代码时, 所犯的真实世界 (tm) 错误. 找到错误并修复它. _不要看提交历史! 那是作弊 ;-) _</p>
 </li>
 </ul>
 

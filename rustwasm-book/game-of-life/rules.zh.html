@@ -149,13 +149,13 @@
 <p>可以把最初的细胞结构定义为种子，当所有在种子中的细胞同时被以上规则处理后, 可以得到第一代细胞图。按规则继续处理当前的细胞图，可以得到下一代的细胞图，周而复始。</p>
 </blockquote>
 <p>考虑以下初始 Universe:</p>
-<p><img src='../images/game-of-life/initial-universe.png' alt='Initial Universe' width="80" /></p>
+<p><img src='./images/game-of-life/initial-universe.png' alt='Initial Universe' width="80" /></p>
 <p>我们可以通过考虑每个单元来计算下一代. 左上角的单元格已经死了. 规则 (4) 是适用于死细胞的唯一转换规则. 但是,因为左上角的单元格没有正好三个活动邻居,所以转换规则不适用,并且它在下一代中仍然不存在. 对于 第一行 中的每个其他单元也是如此.</p>
 <p>当我们考虑第二列,第三列中的活细胞时,事情变得有趣. 对于活细胞,前三个规则中的任何一个都可能适用. 在这个黑单元的情况下,它只有下面一个活的邻居,因此规则 (1) 适用: 这个单元将在下一代中死亡. 同样的命运也对应着最下面的活黑细胞.</p>
 <p>中间活细胞有两个活的邻居: 顶部和底部活细胞. 这意味着规则 (2) 适用,并且它仍然存在于下一代.</p>
 <p>最后有趣的案例是中间活细胞左侧和右侧的死细胞. 这三个活细胞都是这些细胞的邻居,这意味着规则 (4) 适用,并且这些细胞将在下一代中存活.</p>
 <p>把它们放在一起,我们在下一个滴答之后得到这个宇宙:</p>
-<p><img src='../images/game-of-life/next-universe.png' alt='Next Universe' width=80 /></p>
+<p><img src='./images/game-of-life/next-universe.png' alt='Next Universe' width=80 /></p>
 <p>从这些简单的,确定性的规则出现,奇怪和令人兴奋的行为出现了:</p>
 <table><thead><tr><th> Gosper的滑翔机枪                                                                                        </th><th> 脉冲星                                                                                    </th><th> 太空飞船                                                                                                         </th></tr></thead><tbody>
 <tr><td> <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Gospers_glider_gun.gif" alt="Gosper's glider gun" /> </td><td> <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Game_of_life_pulsar.gif" alt="Pulsar" /> </td><td> <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Game_of_life_animated_LWSS.gif" alt="Lighweight space ship" /> </td></tr>
