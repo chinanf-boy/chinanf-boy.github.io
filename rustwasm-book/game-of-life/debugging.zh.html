@@ -223,7 +223,7 @@ console_error_panic_hook::set_once();
 <a class="header" href="game-of-life/debugging.zh.html#a使用调试器" id="a使用调试器"><h2>使用调试器</h2></a>
 <p>不幸的是,WebAssembly 的调试仍然不成熟. 在大多数 Unix系统上,<a href="http://dwarfstd.org/">DWARF</a>用于编码调试器提供正在运行的程序的源级检查的信息. 在Windows 上有一种替代格式可以编码类似的信息. 目前, WebAssembly 没有等价物. 因此,调试器目前提供有限的实用程序,我们最终逐步执行编译器发出的原始 WebAssembly 指令,而不是我们编写的Rust源文本.</p>
 <p>尽管如此,调试器仍然可用于检查 与WebAssembly交互的JavaScript. 例如,我们可以使用调试器在我们的<code>renderLoop</code>函数每次迭代中暂停. 这为我们提供了一个方便的检查点,用于检查记录的消息,并将当前呈现的帧与前一帧进行比较.</p>
-<p><a href="../images/game-of-life/debugging.png"><img src="../images/game-of-life/debugging.png" alt="Screenshot of debugging the Game of Life" /></a></p>
+<p><a href="./images/game-of-life/debugging.png"><img src="./images/game-of-life/debugging.png" alt="Screenshot of debugging the Game of Life" /></a></p>
 <a class="header" href="game-of-life/debugging.zh.html#a参考-1" id="a参考-1"><h3>参考</h3></a>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger">Firefox开发者工具 - 调试器</a></li>

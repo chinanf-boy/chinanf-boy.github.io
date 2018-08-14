@@ -82,37 +82,21 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
-      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/f63754b8412368e820601967af6dea84312b925b/68747470733a2f2f7265616374747261696e696e672e636f6d2f72656163742d726f757465722f616e64726f69642d6368726f6d652d313434783134342e706e67)"></div>
+    <a class="post-card-image-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
+      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/31415a8c001234dbf4875c2c5a44b646fb9338b4/68747470733a2f2f63646e2e7261776769742e636f6d2f646576656c6f7069742f62343431366435633932623734336462616563316536386263346332376364612f7261772f333233356463353038663765623833346562663438343138616561323132613035646631336462312f7072656163742d6c6f676f2d7472616e732e737667)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
+      <a class="post-card-content-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
           <header class="post-card-header">
-              <span class="post-card-tags">
-              #react 
-              #react-router  </span>
               
-              <h2 class="post-card-title">react-router v4 哎 路由</h2>
+              <h2 class="post-card-title">Preact 小React</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>react-router v4  react 的路由解决方案
- 而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
-&lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
-比如我的 域名 llever.com
-当应用直接放在 llever.com/ 的时候，会实用。
-但是 如果我想 放在 llever.com/about/
-也正是我想做的.
-但是，本地测试 在 ／ :localhost:3000
-而， 我要放的地方在 /about/,
-万一，我想放在 /user/ 又去改，源码。妖
-资源路径 · 请求- 资源- 的 路径
-确保，刷新网页后，
-要是，服务器渲染，资源要对上啊。
-用 绝对路径 ，当我没说, 那还是用吧。（不用服务器渲染，真的好慢-首页）
-有没有，谁能 告诉我， 代码放哪，路由跟哪 的方法 </p>
+                <p> Preact webSite
+See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { h, render, Component } from &#39;preact&#39;  </p>
               
           </section>
       </a>
@@ -127,30 +111,26 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    <a class="post-card-image-link" href="/2017/01/19/translate%E4%B8%8Erotate/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
+      <a class="post-card-content-link" href="/2017/01/19/translate%E4%B8%8Erotate/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #hexo  </span>
+              #canvas 
+              #html5  </span>
               
-              <h2 class="post-card-title">放原网页首页进来</h2>
+              <h2 class="post-card-title">translate与rotate</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>把完整的网页放进，hexo中  我做了一下步骤
- 在不影响，快捷命令
-hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
-所以，放source才能被 看到
- 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
- 3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
- 4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
- 提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
-... skip_render [floder/*, floder/**/*] 具体看这issue </p>
+                <p>translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
+一：translate  translate 在 canvas中定义了，画框的位置
+ 比如
+&lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt;; var c = document.getElementById(&#34;myCanvas&#34;); var ctx = c.getContext(&#34;2d&#34;); ctx.fillRect(10, 10, 100, 50); ctx.translate(150, 75); ctx.fillRect(10, 10, 100, 50); &lt;/script&gt;&lt;/canvas&gt;; &gt; 定义一个宽300px，高150px的画布  在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); translate(150,75)命令 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 此时，如果再画一个矩形，那么，位置，也会发生改变 画布并没有改变，但是，观察画布的位置发生了变化 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口 二：rotate &lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt; var c = document. ...  </p>
               
           </section>
       </a>
@@ -165,23 +145,28 @@ hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2018/03/11/vue-slot-scope-2.5.-example/">
-      <div class="post-card-image" style="background-image: url(https://vuejs.org/images/logo.png)"></div>
+    <a class="post-card-image-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/pythonlogo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/03/11/vue-slot-scope-2.5.-example/">
+      <a class="post-card-content-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #vue 
-              #slot-scope  </span>
+              #python  </span>
               
-              <h2 class="post-card-title">vue slot-scope 2.5.* example</h2>
+              <h2 class="post-card-title">Python核心编程第三版-第二章代码运行 问题解决</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>都写在这里了 jsfiddle 🌰 </p>
+                <p>当在windows和Mac上，练习对应的代码时
+非常明显的错误就在于 传输类型
+TypeError: a bytes-like object is required, not &#39;str&#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &#39;str self.wfile.write(b&#39;[%s] %s&#39; % (bytes(ctime(), &#39;utf-8&#39;), bytes(self.rfile.readline(), &#39;utf-8&#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
+所以需要使用
+ bytes() 函数
+ 以下是可以正常运行的代码
+from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &#34;&#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&#39;connect. ...  </p>
               
           </section>
       </a>

@@ -374,7 +374,7 @@ pub fn greet(name: &amp;str) {
 <p>让我们首先列举一些要避免的危险. 我们不希望在每个<code>tick</code>上将整个 Universe 复制到 WebAssembly线性内存 中. 我们不希望为宇宙中的每个单元分配对象,也不想强加函数调用来读写每个单元.</p>
 <p>这给我们留下了什么? 我们可以将 Universe 表示为位于 WebAssembly线性内存中的平面数组,并且每个单元格都有一个字节. <code>0</code>是一个死细胞,<code>1</code>是一个活细胞.</p>
 <p>以下是 4 x 4 宇宙在内存中的样子:</p>
-<p><img src="../images/game-of-life/universe.png" alt="Screenshot of a 4 by 4 universe" /></p>
+<p><img src="./images/game-of-life/universe.png" alt="Screenshot of a 4 by 4 universe" /></p>
 <p>要在 Universe 中的给定行和列中查找单元格的数组索引,我们可以使用以下公式:</p>
 <pre><code class="language-text">index(row, column, universe) = row * width(universe) + column
 </code></pre>
@@ -716,7 +716,7 @@ const drawCells = () =&gt; {
 <pre><code>npm run serve
 </code></pre>
 <p>如果你刷新<a href="http://localhost:8080/">http://localhost:8080/</a>,你应该受到令人兴奋的展示!</p>
-<p><a href="../images/game-of-life/initial-game-of-life.png"><img src="./images/game-of-life/initial-game-of-life.png" alt="Screenshot of the Game of Life implementation" /></a></p>
+<p><a href="./images/game-of-life/initial-game-of-life.png"><img src="./images/game-of-life/initial-game-of-life.png" alt="Screenshot of the Game of Life implementation" /></a></p>
 <p>您可以 checkout <code>chapter-one</code> branch 找到完整代码.</p>
 <p>还有一个非常巧妙的算法,来实现生命游戏<a href="https://en.wikipedia.org/wiki/Hashlife">hashlife</a>. 它使用积极的记忆,实际上可以获得<em>指数级更快</em>计算后代的时间越长! 鉴于此,您可能想知道为什么我们在本教程中没有实现<code>hashlife</code>. 因为它超出了本文的范围,我们专注于 Rust和WebAssembly 集成,但我们强烈建议您自己去了解<code>hashlife</code>!</p>
 <a class="header" href="print.html#a练习-2" id="a练习-2"><h2>练习</h2></a>
@@ -831,7 +831,7 @@ console_error_panic_hook::set_once();
 <a class="header" href="print.html#a使用调试器" id="a使用调试器"><h2>使用调试器</h2></a>
 <p>不幸的是,WebAssembly 的调试仍然不成熟. 在大多数 Unix系统上,<a href="http://dwarfstd.org/">DWARF</a>用于编码调试器提供正在运行的程序的源级检查的信息. 在Windows 上有一种替代格式可以编码类似的信息. 目前, WebAssembly 没有等价物. 因此,调试器目前提供有限的实用程序,我们最终逐步执行编译器发出的原始 WebAssembly 指令,而不是我们编写的Rust源文本.</p>
 <p>尽管如此,调试器仍然可用于检查 与WebAssembly交互的JavaScript. 例如,我们可以使用调试器在我们的<code>renderLoop</code>函数每次迭代中暂停. 这为我们提供了一个方便的检查点,用于检查记录的消息,并将当前呈现的帧与前一帧进行比较.</p>
-<p><a href="../images/game-of-life/debugging.png"><img src="../images/game-of-life/debugging.png" alt="Screenshot of debugging the Game of Life" /></a></p>
+<p><a href="./images/game-of-life/debugging.png"><img src="./images/game-of-life/debugging.png" alt="Screenshot of debugging the Game of Life" /></a></p>
 <a class="header" href="print.html#a参考-1" id="a参考-1"><h3>参考</h3></a>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger">Firefox开发者工具 - 调试器</a></li>
@@ -1065,7 +1065,7 @@ max of last 100 = ${Math.round(max)}
 <p>噢耶! 现在你有了一个 FPS 计数器!</p>
 <a class="header" href="print.html#a开发人员工具profilers" id="a开发人员工具profilers"><h3>开发人员工具Profilers</h3></a>
 <p>所有 Web浏览器 的内置开发人员工具都包含一个分析器. 这些分析器显示哪些函数花费最多时间的可视化,如调用树和火焰图. 如果你<a href="./game-of-life/debugging.html#building-with-debug-symbols">用调试符号构建</a>,然后这些分析器应该显示 Rust函数名称 而不是像<code>wasm-function[123]</code>. 请注意这些分析器<em>惯于</em>显示内联函数,由于 Rust和LLVM 依赖于如此大量的内联,结果可能会有点令人困惑.</p>
-<p><a href="../images/game-of-life/profiler-with-rust-names.png"><img src="../images/game-of-life/profiler-with-rust-names.png" alt="Screenshot of profiler with Rust symbols" /></a></p>
+<p><a href="./images/game-of-life/profiler-with-rust-names.png"><img src="./images/game-of-life/profiler-with-rust-names.png" alt="Screenshot of profiler with Rust symbols" /></a></p>
 <a class="header" href="print.html#a资源" id="a资源"><h4>资源</h4></a>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Performance">Firefox开发者工具 - 性能</a></li>
@@ -1115,20 +1115,20 @@ impl&lt;'a&gt; Drop for Timer&lt;'a&gt; {
 let _timer = Timer::new(&quot;Universe::tick&quot;);
 #}</code></pre></pre>
 <p>现在每次运行的时间<code>Universe::tick</code>都会记录了:</p>
-<p><a href="../images/game-of-life/console-time.png"><img src="../images/game-of-life/console-time.png" alt="Screenshot of console.time logs" /></a></p>
+<p><a href="./images/game-of-life/console-time.png"><img src="./images/game-of-life/console-time.png" alt="Screenshot of console.time logs" /></a></p>
 <p>另外,<code>console.time</code>和<code>console.timeEnd</code>对将显示在,浏览器的分析器的&quot;timeline&quot;或&quot;waterfall&quot;视图中:</p>
-<p><a href="../images/game-of-life/console-time-in-profiler.png"><img src="../images/game-of-life/console-time-in-profiler.png" alt="Screenshot of console.time logs" /></a></p>
+<p><a href="./images/game-of-life/console-time-in-profiler.png"><img src="./images/game-of-life/console-time-in-profiler.png" alt="Screenshot of console.time logs" /></a></p>
 <a class="header" href="print.html#a运用bench与本地代码" id="a运用bench与本地代码"><h3>运用<code>#[bench]</code>与本地代码</h3></a>
 <p>我们通常也可以通过编写,来利用我们操作系统的本机代码调试工具<code>#[test]</code>而不是在Web上调试,我们也可以通过编写<code>#[bench]</code>功能.</p>
 <p>然而!在为本机代码分析投入大量精力之前,请确保您知道瓶颈在 WebAssembly 中! 使用浏览器的分析器确认这一点,否则您可能会浪费时间来优化不热的代码.</p>
 <a class="header" href="print.html#a发展我们的生命博弈宇宙" id="a发展我们的生命博弈宇宙"><h2>发展我们的生命博弈宇宙</h2></a>
 <p>如果我们让我们的生命游戏世界更大,会发生什么? 使用 128 x 128 宇宙替换 64 x 64 宇宙导致FPS从 平滑的60 下降到 40-ish.</p>
 <p>如果我们记录一个配置文件并查看瀑布视图,我们会看到每个动画帧花费超过20毫秒. 回想一下,每秒60帧,每帧大概16毫秒. 16毫秒内不仅仅是有我们的 JavaScript和WebAssembly ,还有浏览器正在做的其他事情,比如绘制页面.</p>
-<p><a href="../images/game-of-life/drawCells-before-waterfall.png"><img src="../images/game-of-life/drawCells-before-waterfall.png" alt="Screenshot of a waterfall view of rendering a frame" /></a></p>
+<p><a href="./images/game-of-life/drawCells-before-waterfall.png"><img src="./images/game-of-life/drawCells-before-waterfall.png" alt="Screenshot of a waterfall view of rendering a frame" /></a></p>
 <p>如果我们看一下单个动画帧中发生的事情,我们就会看到<code>CanvasRenderingContext2D.fillStyle</code> 很长!</p>
-<p><a href="../images/game-of-life/drawCells-before-flamegraph.png"><img src="../images/game-of-life/drawCells-before-flamegraph.png" alt="Screenshot of a flamegraph view of rendering a frame" /></a></p>
+<p><a href="./images/game-of-life/drawCells-before-flamegraph.png"><img src="./images/game-of-life/drawCells-before-flamegraph.png" alt="Screenshot of a flamegraph view of rendering a frame" /></a></p>
 <p>我们可以通过查看调用树的多个帧的聚合来确认这不是异常:</p>
-<p><a href="../images/game-of-life/drawCells-before-calltree.png"><img src="../images/game-of-life/drawCells-before-calltree.png" alt="Screenshot of a flamegraph view of rendering a frame" /></a></p>
+<p><a href="./images/game-of-life/drawCells-before-calltree.png"><img src="./images/game-of-life/drawCells-before-calltree.png" alt="Screenshot of a flamegraph view of rendering a frame" /></a></p>
 <p>我们将近40%的时间都花在了这个函数身上!</p>
 <blockquote>
 <p>⚡我们可能对此有所期待<code>tick</code>方法是性能瓶颈,但事实并非如此. 让分析引导您的注意力,而不是把时间花在您想当然的地方.</p>
@@ -1190,9 +1190,9 @@ for (let row = 0; row &lt; height; row++) {
 </code></pre>
 <p>保存这些更改并刷新后<a href="http://localhost:8080/">http://localhost:8080/</a>,渲染回到平滑每秒60帧.</p>
 <p>如果我们采用另一个配置文件,我们可以看到现在每个动画帧只花费大约10毫秒.</p>
-<p><a href="../images/game-of-life/drawCells-after-waterfall.png"><img src="../images/game-of-life/drawCells-after-waterfall.png" alt="Screenshot of a waterfall view of rendering a frame after the drawCells changes" /></a></p>
+<p><a href="./images/game-of-life/drawCells-after-waterfall.png"><img src="./images/game-of-life/drawCells-after-waterfall.png" alt="Screenshot of a waterfall view of rendering a frame after the drawCells changes" /></a></p>
 <p>打破了超时帧,我们看到了<code>fillStyle</code>昂贵的成本消失了,我们的大部分时间花在了内部<code>fillRect</code>,绘制每个单元格的矩形.</p>
-<p><a href="../images/game-of-life/drawCells-after-flamegraph.png"><img src="../images/game-of-life/drawCells-after-flamegraph.png" alt="Screenshot of a flamegraph view of rendering a frame after the drawCells changes" /></a></p>
+<p><a href="./images/game-of-life/drawCells-after-flamegraph.png"><img src="./images/game-of-life/drawCells-after-flamegraph.png" alt="Screenshot of a flamegraph view of rendering a frame after the drawCells changes" /></a></p>
 <a class="header" href="print.html#a让时间更快" id="a让时间更快"><h2>让时间更快</h2></a>
 <p>有些人不喜欢等待,认为每个动画帧是 9个 <code>tick</code>. 我们可以修改<code>renderLoop</code>函数,这很容易做到这一点:</p>
 <pre><code class="language-js">for (let i = 0; i &lt; 9; i++) {
@@ -1247,7 +1247,7 @@ pub fn tick(&amp;mut self) {
 }
 #}</code></pre></pre>
 <p>看看时间,很明显我的假设是不正确的: 实际上绝大部分时间花在,计算下一代细胞上. 令人惊讶的是,在每个单元上分配和释放载体似乎具有可忽略的成本. 再一次告诉指导我们的分析工作!</p>
-<p><a href="../images/game-of-life/console-time-in-universe-tick.png"><img src="../images/game-of-life/console-time-in-universe-tick.png" alt="Screenshot of a Universe::tick timer results" /></a></p>
+<p><a href="./images/game-of-life/console-time-in-universe-tick.png"><img src="./images/game-of-life/console-time-in-universe-tick.png" alt="Screenshot of a Universe::tick timer results" /></a></p>
 <p>我们可以写一个本机代码<code>#[bench]</code>来做同样的事情 - 我们的 WebAssembly 正在做的, 但我们可以使用更成熟的分析工具. 这就是新的<code>benches/bench.rs</code>:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -1294,9 +1294,9 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 1 measured; 0 filtered out
 [ perf record: Captured and wrote 0.178 MB perf.data (2349 samples) ]
 </code></pre>
 <p>使用<code>perf report</code>加载配置文件后,表明我们所有的时间都花在了<code>Universe::tick</code>,如预期的那样:</p>
-<p><a href="../images/game-of-life/bench-perf-report.png"><img src="../images/game-of-life/bench-perf-report.png" alt="Screenshot of perf report" /></a></p>
+<p><a href="./images/game-of-life/bench-perf-report.png"><img src="./images/game-of-life/bench-perf-report.png" alt="Screenshot of perf report" /></a></p>
 <p><code>perf</code>注释说明函数的时间,通过指令<code>a</code>:</p>
-<p><a href="../images/game-of-life/bench-perf-annotate.png"><img src="../images/game-of-life/bench-perf-annotate.png" alt="Screenshot of perf's instruction annotation" /></a></p>
+<p><a href="./images/game-of-life/bench-perf-annotate.png"><img src="./images/game-of-life/bench-perf-annotate.png" alt="Screenshot of perf's instruction annotation" /></a></p>
 <p>这告诉我们 <code>26.67%</code> 的时间用于求和相邻单元格的值,<code>23.41%</code> 的时间用于获取邻居的列索引,另外 <code>15.42%</code> 的时间用于获取邻居的行索引. 在这三个最昂贵的指令中,第二个和第三个指令都很昂贵之于<code>div 说明</code>. <code>div</code>实现模数索引逻辑在<code>Universe::live_neighbor_count</code>.</p>
 <p>回想一下<code>live_neighbor_count</code>定义:</p>
 <pre><pre class="playpen"><code class="language-rust">
@@ -1404,7 +1404,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 1 measured; 0 filtered out
 <p>WebAssembly 映射到常见的硬件架构,但我们确实需要为这个本机代码加速.</p>
 <p>让我们恢复所有<code>#[wasm_bindgen]</code>注释,重建<code>.wasm</code>同<code>npm run build-release</code>,并刷新<a href="http://localhost:8080/">http://localhost:8080/</a>. 在我的机器上,页面再次以每秒60帧的速度运行,并且使用浏览器的分析器记录,另一个配置文件显示每个动画帧大约需要10毫秒.</p>
 <p>成功!</p>
-<p><a href="../images/game-of-life/waterfall-after-branches-and-unrolling.png"><img src="../images/game-of-life/waterfall-after-branches-and-unrolling.png" alt="Screenshot of a waterfall view of rendering a frame after replacing modulos with branches" /></a></p>
+<p><a href="./images/game-of-life/waterfall-after-branches-and-unrolling.png"><img src="./images/game-of-life/waterfall-after-branches-and-unrolling.png" alt="Screenshot of a waterfall view of rendering a frame after replacing modulos with branches" /></a></p>
 <a class="header" href="print.html#a练习-5" id="a练习-5"><h2>练习</h2></a>
 <ul>
 <li>

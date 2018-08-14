@@ -172,7 +172,7 @@
 <p>让我们首先列举一些要避免的危险. 我们不希望在每个<code>tick</code>上将整个 Universe 复制到 WebAssembly线性内存 中. 我们不希望为宇宙中的每个单元分配对象,也不想强加函数调用来读写每个单元.</p>
 <p>这给我们留下了什么? 我们可以将 Universe 表示为位于 WebAssembly线性内存中的平面数组,并且每个单元格都有一个字节. <code>0</code>是一个死细胞,<code>1</code>是一个活细胞.</p>
 <p>以下是 4 x 4 宇宙在内存中的样子:</p>
-<p><img src="../images/game-of-life/universe.png" alt="Screenshot of a 4 by 4 universe" /></p>
+<p><img src="./images/game-of-life/universe.png" alt="Screenshot of a 4 by 4 universe" /></p>
 <p>要在 Universe 中的给定行和列中查找单元格的数组索引,我们可以使用以下公式:</p>
 <pre><code class="language-text">index(row, column, universe) = row * width(universe) + column
 </code></pre>
@@ -514,7 +514,7 @@ const drawCells = () =&gt; {
 <pre><code>npm run serve
 </code></pre>
 <p>如果你刷新<a href="http://localhost:8080/">http://localhost:8080/</a>,你应该受到令人兴奋的展示!</p>
-<p><a href="../images/game-of-life/initial-game-of-life.png"><img src="./images/game-of-life/initial-game-of-life.png" alt="Screenshot of the Game of Life implementation" /></a></p>
+<p><a href="./images/game-of-life/initial-game-of-life.png"><img src="./images/game-of-life/initial-game-of-life.png" alt="Screenshot of the Game of Life implementation" /></a></p>
 <p>您可以 checkout <code>chapter-one</code> branch 找到完整代码.</p>
 <p>还有一个非常巧妙的算法,来实现生命游戏<a href="https://en.wikipedia.org/wiki/Hashlife">hashlife</a>. 它使用积极的记忆,实际上可以获得<em>指数级更快</em>计算后代的时间越长! 鉴于此,您可能想知道为什么我们在本教程中没有实现<code>hashlife</code>. 因为它超出了本文的范围,我们专注于 Rust和WebAssembly 集成,但我们强烈建议您自己去了解<code>hashlife</code>!</p>
 <a class="header" href="game-of-life/implementing.zh.html#a练习" id="a练习"><h2>练习</h2></a>
