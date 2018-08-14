@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="setup.zh.html"><strong aria-hidden="true">3.</strong> 安装准备</a></li><li><a href="hello-world.zh.html"><strong aria-hidden="true">4.</strong> 你好,世界</a></li><li><a href="tools.zh.html"><strong aria-hidden="true">5.</strong> 工具</a></li><li><a href="workflows.zh.html"><strong aria-hidden="true">6.</strong> 工作流程</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript互操作</a></li><li><a href="tutorials.zh.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li><a href="game-of-life/introduction.zh.html"><strong aria-hidden="true">8.1.</strong> 康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">8.1.1.</strong> 安装</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">8.1.2.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">8.1.3.</strong> 实现</a></li><li><a href="game-of-life/debugging.zh.html" class="active"><strong aria-hidden="true">8.1.4.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">8.1.5.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">8.1.6.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">8.1.7.</strong> 收缩.wasm尺寸</a></li><li><a href="game-of-life/publishing.zh.html"><strong aria-hidden="true">8.1.8.</strong> 发布</a></li></ol></li><li><a href="wasm-pack/introduction.zh.html"><strong aria-hidden="true">8.2.</strong> wasm-pack</a></li><li><ol class="section"><li><a href="wasm-pack/setup.zh.html"><strong aria-hidden="true">8.2.1.</strong> 安装</a></li><li><a href="wasm-pack/initialize.zh.html"><strong aria-hidden="true">8.2.2.</strong> 项目初始化</a></li><li><a href="wasm-pack/rust-code.zh.html"><strong aria-hidden="true">8.2.3.</strong> 锈编码</a></li><li><a href="wasm-pack/package-code.zh.html"><strong aria-hidden="true">8.2.4.</strong> 包裹代码为npm</a></li><li><a href="wasm-pack/run-the-code.zh.html"><strong aria-hidden="true">8.2.5.</strong> 从npm运行代码</a></li><li><a href="wasm-pack/next-steps.zh.html"><strong aria-hidden="true">8.2.6.</strong> 下一步做什么</a></li></ol></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="game-of-life/introduction.zh.html"><strong aria-hidden="true">3.</strong> 教程:康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">3.1.</strong> 安装</a></li><li><a href="game-of-life/hello-world.zh.html"><strong aria-hidden="true">3.2.</strong> Hello, World!</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">3.3.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">3.4.</strong> 实现 生命</a></li><li><a href="game-of-life/debugging.zh.html" class="active"><strong aria-hidden="true">3.5.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">3.6.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">3.7.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">3.8.</strong> 收缩 .wasm 尺寸</a></li><li><a href="game-of-life/production.zh.html"><strong aria-hidden="true">3.9.</strong> 生产 与 发布</a></li><li class="spacer"></li></ol></li><li><a href="crates.zh.html"><strong aria-hidden="true">5.</strong> 你应该知道的Crates箱子</a></li><li><a href="tools.zh.html"><strong aria-hidden="true">6.</strong> 你应该知道的工具</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript 互操作</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -197,10 +197,33 @@ index f757641..a30e107 100755
 <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console">Microsoft Edge开发人员工具 - 控制台</a></li>
 <li><a href="https://developers.google.com/web/tools/chrome-devtools/console/get-started">开始使用Chrome DevTools控制台</a></li>
 </ul>
+<a class="header" href="game-of-life/debugging.zh.html#a崩溃日志" id="a崩溃日志"><h2>崩溃日志</h2></a>
+<p><a href="https://github.com/rustwasm/console_error_panic_hook">这 <code>console_error_panic_hook</code> 箱子 通过<code>console.error</code>为开发者记录了异常的崩溃</a> 而不是得到 怪异的,
+难以调试的 <code>RuntimeError: unreachable executed</code> 错误信息, 它会给你格式化的崩溃信息.</p>
+<p>做到这些, 你只需要在初始化函数中载入钩子或者适应下面的通用代码:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+extern crate console_error_panic_hook;
+
+// Expose an `init` function to be called by JS after instantiating the wasm
+// module which installs the `console.error` panic hook.
+#[wasm_bindgen]
+pub fn init() {
+    use std::panic;
+    panic::set_hook(Box::new(console_error_panic_hook::hook));
+}
+
+// OR
+
+// Ensure the the panic hook is set on some common code path. Under the hood,
+// this makes sure that it is only installed once.
+console_error_panic_hook::set_once();
+#}</code></pre></pre>
 <a class="header" href="game-of-life/debugging.zh.html#a使用调试器" id="a使用调试器"><h2>使用调试器</h2></a>
 <p>不幸的是,WebAssembly 的调试仍然不成熟. 在大多数 Unix系统上,<a href="http://dwarfstd.org/">DWARF</a>用于编码调试器提供正在运行的程序的源级检查的信息. 在Windows 上有一种替代格式可以编码类似的信息. 目前, WebAssembly 没有等价物. 因此,调试器目前提供有限的实用程序,我们最终逐步执行编译器发出的原始 WebAssembly 指令,而不是我们编写的Rust源文本.</p>
 <p>尽管如此,调试器仍然可用于检查 与WebAssembly交互的JavaScript. 例如,我们可以使用调试器在我们的<code>renderLoop</code>函数每次迭代中暂停. 这为我们提供了一个方便的检查点,用于检查记录的消息,并将当前呈现的帧与前一帧进行比较.</p>
-<p><a href="./images/game-of-life/debugging.png"><img src="./images/game-of-life/debugging.png" alt="Screenshot of debugging the Game of Life" /></a></p>
+<p><a href="../images/game-of-life/debugging.png"><img src="../images/game-of-life/debugging.png" alt="Screenshot of debugging the Game of Life" /></a></p>
 <a class="header" href="game-of-life/debugging.zh.html#a参考-1" id="a参考-1"><h3>参考</h3></a>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger">Firefox开发者工具 - 调试器</a></li>

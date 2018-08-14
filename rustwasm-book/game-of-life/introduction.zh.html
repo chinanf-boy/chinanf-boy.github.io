@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>康威的生命游戏 - Rust and WebAssembly</title>
+        <title>教程:康威的生命游戏 - Rust and WebAssembly</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="setup.zh.html"><strong aria-hidden="true">3.</strong> 安装准备</a></li><li><a href="hello-world.zh.html"><strong aria-hidden="true">4.</strong> 你好,世界</a></li><li><a href="tools.zh.html"><strong aria-hidden="true">5.</strong> 工具</a></li><li><a href="workflows.zh.html"><strong aria-hidden="true">6.</strong> 工作流程</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript互操作</a></li><li><a href="tutorials.zh.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li><a href="game-of-life/introduction.zh.html" class="active"><strong aria-hidden="true">8.1.</strong> 康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">8.1.1.</strong> 安装</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">8.1.2.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">8.1.3.</strong> 实现</a></li><li><a href="game-of-life/debugging.zh.html"><strong aria-hidden="true">8.1.4.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">8.1.5.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">8.1.6.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">8.1.7.</strong> 收缩.wasm尺寸</a></li><li><a href="game-of-life/publishing.zh.html"><strong aria-hidden="true">8.1.8.</strong> 发布</a></li></ol></li><li><a href="wasm-pack/introduction.zh.html"><strong aria-hidden="true">8.2.</strong> wasm-pack</a></li><li><ol class="section"><li><a href="wasm-pack/setup.zh.html"><strong aria-hidden="true">8.2.1.</strong> 安装</a></li><li><a href="wasm-pack/initialize.zh.html"><strong aria-hidden="true">8.2.2.</strong> 项目初始化</a></li><li><a href="wasm-pack/rust-code.zh.html"><strong aria-hidden="true">8.2.3.</strong> 锈编码</a></li><li><a href="wasm-pack/package-code.zh.html"><strong aria-hidden="true">8.2.4.</strong> 包裹代码为npm</a></li><li><a href="wasm-pack/run-the-code.zh.html"><strong aria-hidden="true">8.2.5.</strong> 从npm运行代码</a></li><li><a href="wasm-pack/next-steps.zh.html"><strong aria-hidden="true">8.2.6.</strong> 下一步做什么</a></li></ol></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="game-of-life/introduction.zh.html" class="active"><strong aria-hidden="true">3.</strong> 教程:康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">3.1.</strong> 安装</a></li><li><a href="game-of-life/hello-world.zh.html"><strong aria-hidden="true">3.2.</strong> Hello, World!</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">3.3.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">3.4.</strong> 实现 生命</a></li><li><a href="game-of-life/debugging.zh.html"><strong aria-hidden="true">3.5.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">3.6.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">3.7.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">3.8.</strong> 收缩 .wasm 尺寸</a></li><li><a href="game-of-life/production.zh.html"><strong aria-hidden="true">3.9.</strong> 生产 与 发布</a></li><li class="spacer"></li></ol></li><li><a href="crates.zh.html"><strong aria-hidden="true">5.</strong> 你应该知道的Crates箱子</a></li><li><a href="tools.zh.html"><strong aria-hidden="true">6.</strong> 你应该知道的工具</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript 互操作</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,21 +133,43 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="game-of-life/introduction.zh.html#a康威的生命游戏" id="a康威的生命游戏"><h1>康威的生命游戏</h1></a>
-<p>这是一个在Rust和WebAssembly中增量实现的长篇教程<a href="https://zh.wikipedia.org/wiki/%E5%BA%B7%E5%A8%81%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F">康威的生命游戏</a>.</p>
+                        <a class="header" href="game-of-life/introduction.zh.html#a教程-康威的生命游戏" id="a教程-康威的生命游戏"><h1>教程: 康威的生命游戏</h1></a>
+<p>这是一个用Rust和WebAssembly实现的教程<a href="https://zh.wikipedia.org/wiki/%E5%BA%B7%E5%A8%81%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F">康威的生命游戏</a>.</p>
 <blockquote>
 <p>谁是 康威-ConWay 我怎么知道 ❓</p>
 </blockquote>
 <a class="header" href="game-of-life/introduction.zh.html#a本教程适合谁" id="a本教程适合谁"><h2>本教程适合谁?</h2></a>
-<p>本教程适用于具有基 本Rust和JavaScript经验 的任何人,并希望学习如何一起使用 Rust,WebAssembly和JavaScript.</p>
-<p>阅读和编写基本的 Rust,JavaScript和HTML 应该会很舒服. 你绝对不需要成为专家.</p>
+<p>本教程适用于 已经具有基本 Rust和JavaScript经验 的任何人,并希望学习如何一起使用 Rust,WebAssembly和JavaScript.</p>
+<p>阅读和编写基本的 Rust,JavaScript和HTML 应该会很舒服. 你绝对不需要成为专家才能懂.</p>
+<a class="header" href="game-of-life/introduction.zh.html#a我会学到什么" id="a我会学到什么"><h2>我会学到什么?</h2></a>
+<ul>
+<li>
+<p>怎样设置Rust工具链, 且将其编译为 WebAssembly</p>
+</li>
+<li>
+<p>用于由Rust, WebAssembly,
+JavaScript, HTML, 和 CSS开发的多语言程序工作流程</p>
+</li>
+<li>
+<p>怎样设计 让 Rust 和 WebAssembly 最优化的API, 当然还有JavaScript</p>
+</li>
+<li>
+<p>怎样调试从Rust编译而来的WebAssembly模块</p>
+</li>
+<li>
+<p>怎样对Rust和WebAssembly的程序进行时间分析, 让它变得更快</p>
+</li>
+<li>
+<p>怎样对Rust和WebAssembly的程序进行大小分析, 让它变小和网络下载速度更快</p>
+</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="tutorials.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="background-and-concepts.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
@@ -165,7 +187,7 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="tutorials.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="background-and-concepts.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 

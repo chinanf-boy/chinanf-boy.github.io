@@ -133,67 +133,59 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/">
-      <div class="post-card-image" style="background-image: url(https://github.com/zeit/art/raw/525bd1bb39d97dd3b91c976106a6d5cc5766b678/hyper/repo-banner.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #hyper  </span>
-              
-              <h2 class="post-card-title">Hyper open in finder and 服务</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> 美丽的终端 Hyper 下面是 在 mac 上的快速启动
-open in finder https://github.com/ealeksandrov/cdto/releases/tag/2_8_0
-添加服务 也就是 文件夹 右键
-https://github.com/zeit/hyper/files/1800038/New.Hyper.Tab.at.Folder.workflow.zip
-更改 默认 终端 可更改 mac 上 默认开启的服务与应用
-http://www.rubicode.com/Downloads/RCDefaultApp-2.1.X.dmg
- 官网 http://www.rubicode.com/Software/RCDefaultApp/
- Passed mac high serirra 10.13.2  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    <a class="post-card-image-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/">
+      <a class="post-card-content-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #github_changelog_generator  </span>
+              #npm 
+              #zsh  </span>
               
-              <h2 class="post-card-title">ChangeLog 生成器</h2>
+              <h2 class="post-card-title">zsh completion tab 补全提示</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>ChangeLog 生成器
-gem install github_changelog_generator 示例
-最好生成 github token 因为 github 限制了 每小时 50个请求 对于匿名用户
-快速token生成&ndash;点击
-然后 把 获得 token id 放进 .bashrc or .zshrc
-# Add ChangeLog github token export CHANGELOG_GITHUB_TOKEN=&#39;token id&#39; 使用 在你的项目中，
-github_changelog_generator or
-github_changelog_generator github_name/github_project 更多信息 github_changelog_generator --help 为什么 ChangeLog 重要 or 如何维护更新日志
-github库 </p>
+                <p>npm 和 git 补全噢😯 npm &lt;Tab&gt;  会补全命令
+npm实现代码 https://github.com/npm/npm/blob/master/lib/utils/completion.sh
+or
+npm completion git 实现代码
+分终端（zsh,bash..) 分实现文件 https://github.com/git/git/blob/master/contrib/completion/
+因为npm 的实现文件只有一个，懒为主。
+我的是 zsh
+首先定义一个可执行文件 sh
+test_completion.sh
+if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm 当你运行上面 什么都没有的 文件时
+or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
+之前npm &lt;Tab&gt; 的 提示就会没有
+## 代码分解
+ if type
+ 是为了判断 compdef 是否存在 这是 zsh 定义的 函数命令
+ &amp;&gt;/del/null
+ 应该是把 错误 文件化 放到 /dev/null
+ compdef _test_completion npm
+ 这里有三个变量
+ compdef 是 函数调用
+ _test_completion 是 compdef 的第一个变量，用来定义 补全规则
+  compdef(_test_completion)
+ npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
+只要把 npm 替换成 git 那么，
+git 的 补全命令 也会被替换 什么都没有。
+补全规则 _test_completion(){ }  zsh 实现了 简便的 命令添加-函数
+ compadd 源代码中主要
+compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
+ 源文档太大了，截掉什么看看区别
+ 当我把 npm completion -- &quot;${words[@]}&quot; \ 剪掉
+npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
+不过我们看了终点，不如回到原点。加加看
+ 示例
+ _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
+ 再试试
+ _test_completion() { echo &#34;${words[@]}&#34; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
+ ...  </p>
               
           </section>
       </a>
@@ -208,28 +200,62 @@ github库 </p>
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/herokulogo.png)"></div>
+    <a class="post-card-image-link" href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/nodelogo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
+      <a class="post-card-content-link" href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #heroku  </span>
+              #hexo 
+              #disqus 
+              #heroku 
+              #preact  </span>
               
-              <h2 class="post-card-title">heroku web  port 问题</h2>
+              <h2 class="post-card-title">hexo-disqus-proxy-heroku 发布 感觉一般般</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>本文说明，一点heroku疑问
-procfile heroku运行的命令文件
-web worker clock 本地项目可以 查看procfile
-heroku ps 可以使用 js的web框架express koa
-web: node index.js  但是 app.listen(port) 一定要是他们定下来的
-var port = process.env.PORT  同理 python
-import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就能看到了 </p>
+                <p> fork 别人项目 源地址
+改成heroku做服务端
+去掉 port fix 样式 bug react -&gt; preact 大小 从 400多k 到 100多K  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">
+      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/24/Redux-%E5%9F%BA%E7%A1%80/CPxwNCzSTOWdD4YprFIX_reduxblog.webp)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Redux 
+              #React  </span>
+              
+              <h2 class="post-card-title">Redux 基础</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>一个世界(store)  redux的中心思想，一直是共享数据的理念
+ 只有一个更改数据的接口dispatch
+ 一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
+  创造数据中心 import { createStore } from &#34;redux&#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
+ const reducer = function( state, action ) { if (action.type === &#34;Something&#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &#34;Another&#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在 ...  </p>
               
           </section>
       </a>

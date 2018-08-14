@@ -82,28 +82,37 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">
-      <div class="post-card-image" style="background-image: url(https://github.com/legomushroom/mojs/blob/master/motion-for-the-web-3.png?raw=true)"></div>
+    <a class="post-card-image-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
+      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/f63754b8412368e820601967af6dea84312b925b/68747470733a2f2f7265616374747261696e696e672e636f6d2f72656163742d726f757465722f616e64726f69642d6368726f6d652d313434783134342e706e67)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">
+      <a class="post-card-content-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #mo  </span>
+              #react 
+              #react-router  </span>
               
-              <h2 class="post-card-title">mo.js 专注动画</h2>
+              <h2 class="post-card-title">react-router v4 哎 路由</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>css-trick-介绍
- mo.js官网 github
- 专注 运动图形工具
-具有声明式命令
- See the Pen Geometric Mo.js Burst by braveyo (@china-boy) on CodePen.  也可以看看，点赞的优秀动画
- 还有个 medium 中型拍手 例子
- See the Pen Medium clap effect by braveyo (@china-boy) on CodePen.  所以的所有，去官网去找吧 </p>
+                <p>react-router v4  react 的路由解决方案
+ 而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
+&lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
+比如我的 域名 llever.com
+当应用直接放在 llever.com/ 的时候，会实用。
+但是 如果我想 放在 llever.com/about/
+也正是我想做的.
+但是，本地测试 在 ／ :localhost:3000
+而， 我要放的地方在 /about/,
+万一，我想放在 /user/ 又去改，源码。妖
+资源路径 · 请求- 资源- 的 路径
+确保，刷新网页后，
+要是，服务器渲染，资源要对上啊。
+用 绝对路径 ，当我没说, 那还是用吧。（不用服务器渲染，真的好慢-首页）
+有没有，谁能 告诉我， 代码放哪，路由跟哪 的方法 </p>
               
           </section>
       </a>
@@ -118,29 +127,30 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/04/21/react.component-use-class-or-classname/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/21/React-Component-use-class-or-className/logo_og.png)"></div>
-    </a>
+    <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/04/21/react.component-use-class-or-classname/">
+      <a class="post-card-content-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #react  </span>
+              #hexo  </span>
               
-              <h2 class="post-card-title">React.Component use class or className</h2>
+              <h2 class="post-card-title">放原网页首页进来</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>React 中 继承 React.Component react v15.4.1
-一般来说的做法是
-外层元素 用 className 里层元素 也用 className
-而在 fackbook文档-web Component 中
-例子中
-x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-class HelloMessage3 extends React.Component { render() { return &lt;div className=&#39;new&#39;&gt; className=&#39;new&#39; &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; class=&#39;new2&#39; &lt;/div&gt;; } } ReactDOM.render( &lt;HelloMessage name=&#39;1&#39; /&gt;, document.getElementById(&#39;root&#39;) );  Codepen Demo 参考 Codepen 参考
-.new{ color:red; } .new2{ color:blue; } 。。。。未完待续 </p>
+                <p>把完整的网页放进，hexo中  我做了一下步骤
+ 在不影响，快捷命令
+hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
+所以，放source才能被 看到
+ 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
+ 3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
+ 4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
+ 提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
+... skip_render [floder/*, floder/**/*] 具体看这issue </p>
               
           </section>
       </a>
@@ -155,28 +165,23 @@ class HelloMessage3 extends React.Component { render() { return &lt;div classNam
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
+    <a class="post-card-image-link" href="/2018/03/11/vue-slot-scope-2.5.-example/">
+      <div class="post-card-image" style="background-image: url(https://vuejs.org/images/logo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/">
+      <a class="post-card-content-link" href="/2018/03/11/vue-slot-scope-2.5.-example/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #go 
-              #hugo  </span>
+              #vue 
+              #slot-scope  </span>
               
-              <h2 class="post-card-title">hugo hexo 傻傻分不清出 GO实现</h2>
+              <h2 class="post-card-title">vue slot-scope 2.5.* example</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>hugo  像 hexo 一样的 静态网站生成
- 重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
- 不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
-三部走
- 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章
-hugo new posts/my-first-post. ...  </p>
+                <p>都写在这里了 jsfiddle 🌰 </p>
               
           </section>
       </a>

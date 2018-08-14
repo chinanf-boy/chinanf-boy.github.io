@@ -261,28 +261,66 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    <a class="post-card-image-link" href="/2017/10/09/slack-hubot-use-py-or-js/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/slacklogo.jpeg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/10/09/slack-hubot-use-py-or-js/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #slack 
+              #hubot 
+              #python 
+              #javascript  </span>
+              
+              <h2 class="post-card-title">Slack-Hubot-use-py-or-js</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> Slack 的机器人 和Slack上的机器人发命令
+在服务器布置的 接收 处理
+下面是两个，简单的构建示例
+1.用python SlackClient 简单构建 github代码
+2.用Hubot与Slack结合 js github代码
+区别是  使用语言不同
+ hubot是一个完备的框架
+   </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <a class="post-card-content-link" href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #pylint  </span>
+              #yarn  </span>
               
-              <h2 class="post-card-title">windows7 pylint ASCII 问题解决</h2>
+              <h2 class="post-card-title">yarn no sudo 设置</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>问题描述:
-UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
- 在python目录 Python27\Lib\site-packages 建一个文件
-sitecustomize.py
-内容写：
-import sys sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
-参考链接：https://www.v2ex.com/t/90659 </p>
+                <p> yarn 全局下载时不使用 sudo 方法如下
+yarn global bin // 默认全局下载目录 开始设置 新建目录
+mkdir ~/.yarn-global  设置目录
+yarn config set prefix ~/.yarn-global 写入 .zshrc / .bashrc
+export PATH=&#34;$PATH:$HOME/.yarn-global&#34; 内容地址  </p>
               
           </section>
       </a>
@@ -297,72 +335,28 @@ import sys sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/24/Redux-%E5%9F%BA%E7%A1%80/CPxwNCzSTOWdD4YprFIX_reduxblog.webp)"></div>
+    <a class="post-card-image-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/herokulogo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">
+      <a class="post-card-content-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #Redux 
-              #React  </span>
+              #heroku  </span>
               
-              <h2 class="post-card-title">Redux 基础</h2>
+              <h2 class="post-card-title">heroku web  port 问题</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>一个世界(store)  redux的中心思想，一直是共享数据的理念
- 只有一个更改数据的接口dispatch
- 一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 import { createStore } from &#34;redux&#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
- const reducer = function( state, action ) { if (action.type === &#34;Something&#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &#34;Another&#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在 ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/go-logo.jpeg)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #go 
-              #js 
-              #repl  </span>
-              
-              <h2 class="post-card-title">mac repl js go 大混杂</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>这是我 mac 上 repl 软件-「js, go」 大混杂
-Go 语言 官方并没有给出，repl 交互环境
-所以有 gore 这类-终端的
-用起来，就像 node
- 不过我想说得是   gophernotes jupyter Go 内核  没错，能在jupyter 上用内核，
- 不过 -mac- 上无法使用
- 但是你知道-docker 就十分方便了-也给出docker的入门中文
-docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
-当你想与容器-gophernotes- 互通数据文件
-docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes  -p 端口互通
- --mount 可以文件夹互通
- source 本地存在的文件夹 要自己新建
- target 容器的文件夹
-    用alias 命名一下，就好用了 ...  </p>
+                <p>本文说明，一点heroku疑问
+procfile heroku运行的命令文件
+web worker clock 本地项目可以 查看procfile
+heroku ps 可以使用 js的web框架express koa
+web: node index.js  但是 app.listen(port) 一定要是他们定下来的
+var port = process.env.PORT  同理 python
+import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就能看到了 </p>
               
           </section>
       </a>

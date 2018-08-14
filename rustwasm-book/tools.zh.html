@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>工具 - Rust and WebAssembly</title>
+        <title>你应该知道的工具 - Rust and WebAssembly</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="setup.zh.html"><strong aria-hidden="true">3.</strong> 安装准备</a></li><li><a href="hello-world.zh.html"><strong aria-hidden="true">4.</strong> 你好,世界</a></li><li><a href="tools.zh.html" class="active"><strong aria-hidden="true">5.</strong> 工具</a></li><li><a href="workflows.zh.html"><strong aria-hidden="true">6.</strong> 工作流程</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript互操作</a></li><li><a href="tutorials.zh.html"><strong aria-hidden="true">8.</strong> 教程</a></li><li><ol class="section"><li><a href="game-of-life/introduction.zh.html"><strong aria-hidden="true">8.1.</strong> 康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">8.1.1.</strong> 安装</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">8.1.2.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">8.1.3.</strong> 实现</a></li><li><a href="game-of-life/debugging.zh.html"><strong aria-hidden="true">8.1.4.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">8.1.5.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">8.1.6.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">8.1.7.</strong> 收缩.wasm尺寸</a></li><li><a href="game-of-life/publishing.zh.html"><strong aria-hidden="true">8.1.8.</strong> 发布</a></li></ol></li><li><a href="wasm-pack/introduction.zh.html"><strong aria-hidden="true">8.2.</strong> wasm-pack</a></li><li><ol class="section"><li><a href="wasm-pack/setup.zh.html"><strong aria-hidden="true">8.2.1.</strong> 安装</a></li><li><a href="wasm-pack/initialize.zh.html"><strong aria-hidden="true">8.2.2.</strong> 项目初始化</a></li><li><a href="wasm-pack/rust-code.zh.html"><strong aria-hidden="true">8.2.3.</strong> 锈编码</a></li><li><a href="wasm-pack/package-code.zh.html"><strong aria-hidden="true">8.2.4.</strong> 包裹代码为npm</a></li><li><a href="wasm-pack/run-the-code.zh.html"><strong aria-hidden="true">8.2.5.</strong> 从npm运行代码</a></li><li><a href="wasm-pack/next-steps.zh.html"><strong aria-hidden="true">8.2.6.</strong> 下一步做什么</a></li></ol></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="game-of-life/introduction.zh.html"><strong aria-hidden="true">3.</strong> 教程:康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">3.1.</strong> 安装</a></li><li><a href="game-of-life/hello-world.zh.html"><strong aria-hidden="true">3.2.</strong> Hello, World!</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">3.3.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">3.4.</strong> 实现 生命</a></li><li><a href="game-of-life/debugging.zh.html"><strong aria-hidden="true">3.5.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">3.6.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">3.7.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">3.8.</strong> 收缩 .wasm 尺寸</a></li><li><a href="game-of-life/production.zh.html"><strong aria-hidden="true">3.9.</strong> 生产 与 发布</a></li><li class="spacer"></li></ol></li><li><a href="crates.zh.html"><strong aria-hidden="true">5.</strong> 你应该知道的Crates箱子</a></li><li><a href="tools.zh.html" class="active"><strong aria-hidden="true">6.</strong> 你应该知道的工具</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript 互操作</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,49 +133,55 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="tools.zh.html#a工具" id="a工具"><h1>工具</h1></a>
-<p>现在我们已经学会了如何使用<code>Rust</code>生成我们的第一个<code>WebAssembly</code>&quot;Hello World&quot;,
-现在是时候检查该语言中可用的工具了.
-已经为 <code>WebAssembly</code> 编写了几个很棒的工具 (大多数都是用C ++编写的) .
-<a href="https://github.com/%60WebAssembly%60/wabt">Wabt</a>,是一套工具,可以作为操作<code>WebAssembly</code>文件的起点.</p>
-<p>但是,由于<code>Rust</code>也有用于<code>WebAssembly</code>的开发和工具,因此在其中编写了几个工具:</p>
+                        <a class="header" href="tools.zh.html#a你应该知道的工具" id="a你应该知道的工具"><h1>你应该知道的工具</h1></a>
+<p>这是在执行Rust和WebAssembly开发时,应该了解的精选工具列表.</p>
+<a class="header" href="tools.zh.html#a开发构建和工作流程编排" id="a开发构建和工作流程编排"><h2>开发,构建和工作流程编排</h2></a>
+<a class="header" href="tools.zh.html#wasm-packa-hrefhttpsgithubcomrustwasmwasm-packgithuba" id="wasm-packa-hrefhttpsgithubcomrustwasmwasm-packgithuba"><h3><code>wasm-pack</code>|<a href="https://github.com/rustwasm/wasm-pack">github</a></h3></a>
+<p><code>wasm-pack</code>欲成为构建和使用Rust生成的WebAssembly的一站式商店,这样你可以通过Web或Node.js与JavaScript进行相互操作. <code>wasm-pack</code>帮助您构建和发布Rust生成的WebAssembly到npm注册表,以便与您在工作流中已经使用的其他JavaScript包一起使用.</p>
+<a class="header" href="tools.zh.html#a优化和操作wasm二进制" id="a优化和操作wasm二进制"><h2>优化和操作<code>.wasm</code>二进制</h2></a>
+<a class="header" href="tools.zh.html#wasm-opta-hrefhttpsgithubcomwebassemblybinaryengithuba" id="wasm-opta-hrefhttpsgithubcomwebassemblybinaryengithuba"><h3><code>wasm-opt</code>|<a href="https://github.com/WebAssembly/binaryen">github</a></h3></a>
+<p>该<code>wasm-opt</code>工具将WebAssembly作为输入读取,在其上运行 转换,优化 和/或 检测,然后将转换后的WebAssembly作为输出发出. <code>rustc</code>会让它,与<code>.wasm</code>LLVM 合作生成二进制文件,通常这使得创造的<code>.wasm</code>二进制文件既小又执行得更快. 这个工具是<code>binaryen</code>项目的其中一部分.</p>
+<a class="header" href="tools.zh.html#wasm2asma-hrefhttpsgithubcomwebassemblybinaryengithuba" id="wasm2asma-hrefhttpsgithubcomwebassemblybinaryengithuba"><h3><code>wasm2asm</code>|<a href="https://github.com/WebAssembly/binaryen">github</a></h3></a>
+<p>该<code>wasm2asm</code>工具将WebAssembly编译为&quot;大多数 asm.js&quot;. 这非常适合支持没有WebAssembly实现的浏览器,例如Internet Explorer 11.此工具是<code>binaryen</code>项目的其中一部分.</p>
+<blockquote>
+<p>注意: 计划将此工具重命名为<code>wasm2js</code>但是,在撰写本文时,重命名仍未发生.</p>
+</blockquote>
+<a class="header" href="tools.zh.html#wasm-gca-hrefhttpsgithubcomalexcrichtonwasm-gcgithuba" id="wasm-gca-hrefhttpsgithubcomalexcrichtonwasm-gcgithuba"><h3><code>wasm-gc</code>|<a href="https://github.com/alexcrichton/wasm-gc">github</a></h3></a>
+<p>垃圾收集WebAssembly模块并删除所有不需要的导出,导入,函数等的小工具. 这实际上是一个WebAssembly的链接器标志<code>--gc-sections</code>.</p>
+<p>您通常不需要自己使用此工具,原因有两个:</p>
+<ol>
+<li><code>rustc</code>现在有一个<code>lld</code>足够新的版本,它支持<code>--gc-sections</code>WebAssembly的标志. LTO构建会自动启用此功能.</li>
+<li>该<code>wasm-bindgen</code>CLI工具为你自动运行<code>wasm-gc</code>.</li>
+</ol>
+<a class="header" href="tools.zh.html#wasm-snipa-hrefhttpsgithubcomrustwasmwasm-snipgithuba" id="wasm-snipa-hrefhttpsgithubcomrustwasmwasm-snipgithuba"><h3><code>wasm-snip</code>|<a href="https://github.com/rustwasm/wasm-snip">github</a></h3></a>
+<p><code>wasm-snip</code>替换WebAssembly函数的主体,通过用一个<code>unreachable</code>指令.</p>
+<p>也许您知道某些函数永远不会在运行时调用,但编译器无法在编译时证明这一点? 剪断它!然后再次运行<code>wasm-gc</code>,它传递调用的所有函数 (也可能永远不会在运行时调用) 也将被删除.</p>
+<p>这对于在非调试的生产版本中,强制删除Rust的恐慌基础结构非常有用.</p>
+<a class="header" href="tools.zh.html#a检查wasm二进制" id="a检查wasm二进制"><h2>检查<code>.wasm</code>二进制</h2></a>
+<a class="header" href="tools.zh.html#twiggya-hrefhttpsgithubcomrustwasmtwiggygithuba" id="twiggya-hrefhttpsgithubcomrustwasmtwiggygithuba"><h3><code>twiggy</code>|<a href="https://github.com/rustwasm/twiggy">github</a></h3></a>
+<p><code>twiggy</code>是一个对<code>.wasm</code>二进制文件代码大小分析器. 它分析二进制的调用图来回答如下问题:</p>
 <ul>
-<li><a href="https://github.com/alexcrichton/wasm-gc">wasm-gc</a>-  gc wasm模块的小命令,删除所有不需要的导出,导入,函数等.</li>
-<li><a href="https://github.com/fitzgen/wasm-nm">wasm-nm</a>- 列出wasm文件中的符号.</li>
-<li><a href="https://github.com/fitzgen/wasm-snip">wasm-snip</a>- 替换无法访问的 wasm 函数体</li>
-<li><a href="https://github.com/paritytech/parity-wasm">parity-wasm</a>-  <code>rust</code>中的 wasm 序列化</li>
-<li><a href="https://github.com/yurydelendik/wasmparser.rs">wasmparser</a>- 一个带有可选验证的wasm二进制解码器,在<code>rust</code>中</li>
-<li><a href="https://github.com/yurydelendik/wasmtext">wasmtext</a>- 在<code>rust</code>中以文本格式打印wasm模块</li>
-<li><a href="https://github.com/rustwasm/wasm-pack">wasm-pack</a>- 打包你的 wasm 以便在npm上分发</li>
+<li>为什么这个函数首先包含在二进制文件中? 即哪些导出的函数是可传递的呢?</li>
+<li>这个函数的保留大小是多少? 即如果删除它以及删除后成为死代码的所有函数,将节省多少空间.</li>
 </ul>
-<p>下面这些工具中包含一个旨在允许您在浏览器外运行 wasm 的集合:</p>
-<ul>
-<li><a href="https://github.com/joshuawarner32/rust-wasm">rustwasm</a>-  <code>rust</code>的一名解释器</li>
-<li><a href="https://github.com/paritytech/wasmi">wasmi</a>- 另一位来自 parity 的<code>rust</code>的解释器</li>
-<li><a href="https://github.com/sunfishcode/wasmstandalone">wasmstandalone</a>- 基于jit 的 wasm runner,使用 cretonne (相同的后端<a href="https://github.com/nebulet/nebulet">nebulet</a>使用). 在早期发展中.</li>
-<li><a href="https://github.com/losfair/wasm-core">wasm-core</a>- 一个带有两个 wasm 执行引擎 ( 解释器 和 jit ) 的<code>rust</code>库. 使用<a href="https://github.com/cervus-v/cervus">cervus</a>和<a href="https://github.com/losfair/IceCore">iceCore</a>.</li>
-</ul>
-<p>还有很多<em>在<code>Rust</code>中构建或重写工具的空间</em>与生态系统更好地协同. 其中一些包括:</p>
-<ul>
-<li><a href="https://github.com/rustwasm/team/issues/20">一个wasm大小的剖析器</a></li>
-<li>一个<a href="https://github.com/%60WebAssembly%60/wabt">Wabt</a>在<code>Rust</code>中重写</li>
-<li><a href="https://github.com/ewasm">ewasm项目</a>工具</li>
-</ul>
-<p>这个页面是一个活文档,所以请随时向我们发送一个拉取请求,添加我们可能错过的新的令人难以置信的<code>WebAssembly</code>工具
-或将来发布它们时!</p>
+<p>使用<code>twiggy</code>让你的二进制文件变得苗条!</p>
+<a class="header" href="tools.zh.html#wasm-objdumpa-hrefhttpsgithubcomwebassemblywabtgithuba" id="wasm-objdumpa-hrefhttpsgithubcomwebassemblywabtgithuba"><h3><code>wasm-objdump</code>|<a href="https://github.com/WebAssembly/wabt">github</a></h3></a>
+<p>打印关于<code>.wasm</code>二进制及其每个部分的基本详细信息. 还支持反汇编成 WAT文本格式. 就像是<code>objdump</code>,不同的是为WebAssembly服务的. 这是WABT项目的一部分.</p>
+<a class="header" href="tools.zh.html#wasm-nma-hrefhttpsgithubcomfitzgenwasm-nmgithuba" id="wasm-nma-hrefhttpsgithubcomfitzgenwasm-nmgithuba"><h3><code>wasm-nm</code>|<a href="https://github.com/fitzgen/wasm-nm">github</a></h3></a>
+<p>列出<code>.wasm</code>二进制文件中定义的导入,导出和私有函数符号. 就像是<code>nm</code>,不同的是为WebAssembly服务的.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="hello-world.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="crates.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="workflows.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="js-ffi.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -187,13 +193,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="hello-world.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="crates.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="workflows.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="js-ffi.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
