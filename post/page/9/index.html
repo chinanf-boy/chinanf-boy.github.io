@@ -109,8 +109,42 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/">
+      <div class="post-card-image" style="background-image: url(https://9l5lrtz8mj-flywheel.netdna-ssl.com/wp-content/uploads/2016/06/codepen-logo.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #codepen 
+              #动画  </span>
+              
+              <h2 class="post-card-title">codepen 代码嵌入</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>codepen 的 代码嵌入 功能 See the Pen Gravity Points by braveyo (@china-boy) on CodePen.  # 只要在 codepen 的 编辑器界面
+# 有个 右下角 Embed 的 功能
+# 复制 提供的 iframe 或 html 代码 就好
+# 上面的 点击 制造 黑洞 模仿黑洞引力哦 </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -282,42 +316,6 @@ typescript作为微软实现的js的超集.
 //.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &#34;Hello, &#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &#34;Hello, &#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
  上面是一个类，的，写法
  //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #javascript  </span>
-              
-              <h2 class="post-card-title">Js - Module模式 - 私有-公有-命名空间</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>在javascript中没有真正意义的‘私有’，因为不像传统语言- js 没有访问修饰符。从技术上来说，我们不能称变量为公有或私有.
- 因此我们需使用函数作用域来模拟这个概念。
- 由于闭包的存在，声明的变量和方法只在该模式内部可用，
-  但在返回对象上的定义的变量和方法，则对外部使用者都是可用的。
-var testModule = (function () { //私有变量 var myPrivateVar = 0; //记录所有参数的私有函数 var myPrivateMethod = function(bar){ console.log(bar); } return { //公有变量 myPublicVar : &#34;foo&#34;, //调用私有变量和方法的公有函数 myPublicFunction: function(bar){ //增加私有计数器值  myPrivateVar++; console.log(myPrivateVar); //传入bar调用私有方法  myPrivateMethod(bar); } }; })(); console.log(testModule); //用公有变量传值公有函数 testModule.myPublicFunction(testModule.myPublicVar);  输出
-{ myPublicVar: &#39;foo&#39;, myPublicFunction: [Function: myPublicFunction] } 1 foo  可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。
-却可以，通过两个函数来操控，myPrivateVar表现得就像一个私有变量。 </p>
               
           </section>
       </a>

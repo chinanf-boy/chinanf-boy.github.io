@@ -109,6 +109,42 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #pylint  </span>
+              
+              <h2 class="post-card-title">windows7 pylint ASCII 问题解决</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>问题描述:
+UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
+ 在python目录 Python27\Lib\site-packages 建一个文件
+sitecustomize.py
+内容写：
+import sys sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
+参考链接：https://www.v2ex.com/t/90659 </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
       <div class="post-card-image" style="background-image: url(/file_imgs/pythonlogo.png)"></div>
     </a>
@@ -146,7 +182,7 @@ from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from ti
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
@@ -262,41 +298,6 @@ const PropTypes = require(&#39;prop-types&#39;); class Button extends React.Comp
                 <p> 来源 Redux作者入门教程
 combineReducers  js 简单实现
  const combineReducers = (reducers) =&gt;{ return (state = {}, action) =&gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; };  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #中间件 
-              #javascript  </span>
-              
-              <h2 class="post-card-title">中间件js实现</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>中间件模式（middleware） 是一种很常见、也很强大的模式，被广泛应用在 Express、Koa、Redux 等类库和框架当中。
-如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
- 简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
- 数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
               
           </section>
       </a>

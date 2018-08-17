@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/</loc>
+    <lastmod>2018-08-17T09:37:54+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/</loc>
     <lastmod>2018-08-11T17:30:30+08:00</lastmod>
   </url>
@@ -348,6 +353,12 @@
   </url>
   
   <url>
+    <loc>/categories/bench/</loc>
+    <lastmod>2018-08-17T09:37:54+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/canvas/</loc>
     <lastmod>2017-01-19T21:46:00+00:00</lastmod>
     <priority>0</priority>
@@ -355,6 +366,7 @@
   
   <url>
     <loc>/categories/</loc>
+    <lastmod>2018-08-17T09:37:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -383,13 +395,13 @@
   </url>
   
   <url>
-    <loc>/tags/development/</loc>
+    <loc>/categories/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/development/</loc>
+    <loc>/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -455,13 +467,13 @@
   </url>
   
   <url>
-    <loc>/tags/golang/</loc>
+    <loc>/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/golang/</loc>
+    <loc>/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -501,13 +513,13 @@
   </url>
   
   <url>
-    <loc>/tags/hugo/</loc>
+    <loc>/categories/hugo/</loc>
     <lastmod>2018-08-01T18:48:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/hugo/</loc>
+    <loc>/tags/hugo/</loc>
     <lastmod>2018-08-01T18:48:39+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -538,7 +550,7 @@
   
   <url>
     <loc>/tags/js/</loc>
-    <lastmod>2018-01-24T15:53:30+00:00</lastmod>
+    <lastmod>2018-08-17T09:37:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -663,13 +675,13 @@
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
+    <loc>/categories/python/</loc>
     <lastmod>2018-08-01T19:14:03+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/python/</loc>
+    <loc>/tags/python/</loc>
     <lastmod>2018-08-01T19:14:03+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -825,13 +837,13 @@
   </url>
   
   <url>
-    <loc>/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-01-11T16:58:39+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-01-11T16:58:39+00:00</lastmod>
     <priority>0</priority>
   </url>

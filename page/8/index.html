@@ -109,6 +109,41 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #中间件 
+              #javascript  </span>
+              
+              <h2 class="post-card-title">中间件js实现</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>中间件模式（middleware） 是一种很常见、也很强大的模式，被广泛应用在 Express、Koa、Redux 等类库和框架当中。
+如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
+ 简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
+ 数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">
       <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/21/React-Component-use-class-or-className/logo_og.png)"></div>
     </a>
@@ -310,40 +345,6 @@ See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  �
   fire.html
 &lt;html&gt; &lt;head&gt; &lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;sketch.js&#34;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;/body&gt; &lt;/html&gt; sketch.js
 // Global variables function setup() { createCanvas(640, 480); } function draw() { if (mouseIsPressed) { fill(0); } else { fill(255); } ellipse(mouseX, mouseY, 80, 80); }  就这样 就是上 显示的 ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/">
-      <div class="post-card-image" style="background-image: url(https://9l5lrtz8mj-flywheel.netdna-ssl.com/wp-content/uploads/2016/06/codepen-logo.jpg)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #codepen 
-              #动画  </span>
-              
-              <h2 class="post-card-title">codepen 代码嵌入</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>codepen 的 代码嵌入 功能 See the Pen Gravity Points by braveyo (@china-boy) on CodePen.  # 只要在 codepen 的 编辑器界面
-# 有个 右下角 Embed 的 功能
-# 复制 提供的 iframe 或 html 代码 就好
-# 上面的 点击 制造 黑洞 模仿黑洞引力哦 </p>
               
           </section>
       </a>

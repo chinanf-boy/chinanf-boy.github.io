@@ -109,6 +109,44 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/ioniclogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #ionic 
+              #node-sass  </span>
+              
+              <h2 class="post-card-title">ionic 项目 npm问题解决</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> ionic项目 问题
+npm install 主要问题在于 node-sass node 版本 要求 我最后使用 8.0
+使用 n
+和
+python 版本要求 2.5&lt;x&lt;3.0
+使用 conda
+去改变 版本
+npm rebuild node-sass --force </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">
       <div class="post-card-image" style="background-image: url(/file_imgs/nodelogo.png)"></div>
     </a>
@@ -150,7 +188,7 @@ npm ls -g Package.json 属性说明  name - 包名。 version - 包的版本号�
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -188,7 +226,7 @@ Some questions that might come up </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
@@ -263,7 +301,7 @@ activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hell
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -285,42 +323,6 @@ npm config set registry https://registry.npm.taobao.org 3.通过cnpm
 npm install -g cnpm --registry=https://registry.npm.taobao.org 二、使用官方镜像
 npm config set registry https://registry.npmjs.org/ 三、查看npm源地址
 npm config get registry </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #pylint  </span>
-              
-              <h2 class="post-card-title">windows7 pylint ASCII 问题解决</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>问题描述:
-UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
- 在python目录 Python27\Lib\site-packages 建一个文件
-sitecustomize.py
-内容写：
-import sys sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
-参考链接：https://www.v2ex.com/t/90659 </p>
               
           </section>
       </a>

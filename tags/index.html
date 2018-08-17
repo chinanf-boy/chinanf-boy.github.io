@@ -158,7 +158,7 @@
           
           <a href="/tags/javascript"> javascript </a> (7)&nbsp;&#x2F;&nbsp;
           
-          <a href="/tags/js"> js </a> (1)&nbsp;&#x2F;&nbsp;
+          <a href="/tags/js"> js </a> (2)&nbsp;&#x2F;&nbsp;
           
           <a href="/tags/less"> less </a> (1)&nbsp;&#x2F;&nbsp;
           
@@ -261,22 +261,57 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">
+    <a class="post-card-image-link" href="/2017/04/21/react.component-use-class-or-classname/">
+      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/21/React-Component-use-class-or-className/logo_og.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/04/21/react.component-use-class-or-classname/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #react  </span>
+              
+              <h2 class="post-card-title">React.Component use class or className</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>React 中 继承 React.Component react v15.4.1
+一般来说的做法是
+外层元素 用 className 里层元素 也用 className
+而在 fackbook文档-web Component 中
+例子中
+x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
+class HelloMessage3 extends React.Component { render() { return &lt;div className=&#39;new&#39;&gt; className=&#39;new&#39; &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; class=&#39;new2&#39; &lt;/div&gt;; } } ReactDOM.render( &lt;HelloMessage name=&#39;1&#39; /&gt;, document.getElementById(&#39;root&#39;) );  Codepen Demo 参考 Codepen 参考
+.new{ color:red; } .new2{ color:blue; } 。。。。未完待续 </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/">
       <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">
+      <a class="post-card-content-link" href="/post/">
           <header class="post-card-header">
-              <span class="post-card-tags">
-              #python  </span>
               
-              <h2 class="post-card-title">让你的py优雅</h2>
+              <h2 class="post-card-title">Posts</h2>
           </header>
           <section class="post-card-excerpt">
-               
-                <p>在Python社区文化的浇灌下，演化出了一种独特的代码风格，去指导如何正确地使用Python，这就是常说的pythonic</p>
+              
+                <p> </p>
               
           </section>
       </a>
@@ -291,69 +326,32 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #go 
-              #direnv  </span>
-              
-              <h2 class="post-card-title">目录环境加载 direnv</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> direnv 它可以让你明白一个目录的意思，
-简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
-比如我 zsh
-# Add direnv hook eval &#34;$(direnv hook zsh)&#34; 当然前提是要下载，在github 上就有很详细
-cd/my_project echo &#34;echo &#39;hello this is my project&#39;&#34; &gt;&gt; .envrc direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
-问题: 不需要 unloading or loading .envrc 之类的日志输出时。
-.zshrc
-# Add direnv hook eval &#34;$(direnv hook zsh)&#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
-direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
-      <div class="post-card-image" style="background-image: url(https://babeljs.io/images/logo.svg)"></div>
+    <a class="post-card-image-link" href="/2017/03/15/webpack-less-autoprefixer/">
+      <div class="post-card-image" style="background-image: url(https://s3.amazonaws.com/codementor_content/2016-Sept/webpack.jpg)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
+      <a class="post-card-content-link" href="/2017/03/15/webpack-less-autoprefixer/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #babel 
-              #Es5  </span>
+              #webpack 
+              #less 
+              #Autoprefixer 
+              #postCss  </span>
               
-              <h2 class="post-card-title">babel 继承 Es5</h2>
+              <h2 class="post-card-title">webpack&#43;less&#43;Autoprefixer</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>继承 复制下面代码 - 点击https://babeljs.io/repl/
-class b { constructor(c,d){ c = c+&#39;1111&#39;; console.log(c,d); } start(){ console.log(&#39;ba ba&#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&#39;222222&#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&#39;son&#39;); } } var o1 = new a(&#39;first&#39;, &#39;second&#39;); console.log(&#39;------------------&#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
-一个 ， 丑陋的 写法，构造，与原型，的，概念.
-增加，初学者的入门，难度, 不过，好在，
-TypeScript babel 语法实现
- coffeeScript 太极端了， 一堆空格。
-有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
- 让我们不在需要，对，继承, ...  </p>
+                <p>webpack  前端打包工具
+ js css 图片 之类 压缩 生产化
+ 现在，配置其中一项，css文件的加载器，loader
+   不同的是，配置结果，是为了，把less &gt; css + 补全浏览器前缀
+还有 babel js 语法
+ postcss.config.js 启动补全前缀
+module.exports = { plugins: [ require(&#39;autoprefixer&#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
+var path = require(&#39;path&#39;); var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;); const webpack = require(&#39;webpack&#39;); module.exports = { entry: &#39;./app/index.js&#39;, output: { filename: &#39;bundle.js&#39;, path: path.resolve(__dirname, &#39;dist&#39;) }, module: { rules: [{ test: /\. ...  </p>
               
           </section>
       </a>

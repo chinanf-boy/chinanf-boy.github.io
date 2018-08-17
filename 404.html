@@ -82,37 +82,64 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
-      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/f63754b8412368e820601967af6dea84312b925b/68747470733a2f2f7265616374747261696e696e672e636f6d2f72656163742d726f757465722f616e64726f69642d6368726f6d652d313434783134342e706e67)"></div>
+    <a class="post-card-image-link" href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/nodelogo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
+      <a class="post-card-content-link" href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #react 
-              #react-router  </span>
+              #hexo 
+              #disqus 
+              #heroku 
+              #preact  </span>
               
-              <h2 class="post-card-title">react-router v4 哎 路由</h2>
+              <h2 class="post-card-title">hexo-disqus-proxy-heroku 发布 感觉一般般</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>react-router v4  react 的路由解决方案
- 而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
-&lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
-比如我的 域名 llever.com
-当应用直接放在 llever.com/ 的时候，会实用。
-但是 如果我想 放在 llever.com/about/
-也正是我想做的.
-但是，本地测试 在 ／ :localhost:3000
-而， 我要放的地方在 /about/,
-万一，我想放在 /user/ 又去改，源码。妖
-资源路径 · 请求- 资源- 的 路径
-确保，刷新网页后，
-要是，服务器渲染，资源要对上啊。
-用 绝对路径 ，当我没说, 那还是用吧。（不用服务器渲染，真的好慢-首页）
-有没有，谁能 告诉我， 代码放哪，路由跟哪 的方法 </p>
+                <p> fork 别人项目 源地址
+改成heroku做服务端
+去掉 port fix 样式 bug react -&gt; preact 大小 从 400多k 到 100多K  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #typescript 
+              #javascript  </span>
+              
+              <h2 class="post-card-title">Typescript类-转换学习</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>#TypeScript
+typescript作为微软实现的js的超集.
+在类的实现，有如传统语言一样简单，
+例子：官方
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &#34;Hello, &#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &#34;Hello, &#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console. ...  </p>
               
           </section>
       </a>
@@ -128,7 +155,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -146,42 +173,6 @@
                 <p> 问题: 批量修改文件名 解决: bash 好耶, 无得顶啊 https://www.zhihu.com/question/21294798/answer/62848985
 写个bash,用 for循环mv文件. 比如改扩展名,把 .c 改成 .cpp
 for f in *.c ; do mv &#34;$f&#34; &#34;${f/c/cpp}&#34; ; done </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #go 
-              #hugo  </span>
-              
-              <h2 class="post-card-title">hugo hexo 傻傻分不清出 GO实现</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>hugo  像 hexo 一样的 静态网站生成
- 重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
- 不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
-三部走
- 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章
-hugo new posts/my-first-post. ...  </p>
               
           </section>
       </a>
