@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -109,6 +114,39 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">
+      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/24/Redux-%E5%9F%BA%E7%A1%80/CPxwNCzSTOWdD4YprFIX_reduxblog.webp)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Redux 
+              #javascript  </span>
+              
+              <h2 class="post-card-title">Redux combineReducers js 作者简单实现</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> 来源 Redux作者入门教程
+combineReducers  js 简单实现
+ const combineReducers = (reducers) =&gt;{ return (state = {}, action) =&gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; };  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">
       <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
     </a>
@@ -129,7 +167,7 @@
 如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
  简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
  数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = 'Lucy' next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
               
           </section>
       </a>
@@ -290,7 +328,7 @@ TypeScript babel 语法实现
               
                 <p>react-router v4  react 的路由解决方案
  而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
-&lt;Route path=&#34;/&#34; component={App} /&gt; 注意这个 ／
+ &lt;Route path=&quot;/&quot; component={App} /&gt;  注意这个 ／
 比如我的 域名 llever.com
 当应用直接放在 llever.com/ 的时候，会实用。
 但是 如果我想 放在 llever.com/about/
@@ -303,48 +341,6 @@ TypeScript babel 语法实现
 要是，服务器渲染，资源要对上啊。
 用 绝对路径 ，当我没说, 那还是用吧。（不用服务器渲染，真的好慢-首页）
 有没有，谁能 告诉我， 代码放哪，路由跟哪 的方法 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/">
-      <div class="post-card-image" style="background-image: url(http://processingjs.org/images/header.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #javascript 
-              #动画 
-              #processing 
-              #p5  </span>
-              
-              <h2 class="post-card-title">processing p5 js 动画与游戏制造</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>改 2017 6.13
-processing 动画转换 转向 js客户  这意味着 我可以 在 codepen 上展示
- 减少一下，js加载流量
-如何使用 Processing 有自己的 动画规则语言 较为易懂易用
-See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  现在 你只需要一个
- p5.js
- fire.html
-  fire.html
-&lt;html&gt; &lt;head&gt; &lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;sketch.js&#34;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;/body&gt; &lt;/html&gt; sketch.js
-// Global variables function setup() { createCanvas(640, 480); } function draw() { if (mouseIsPressed) { fill(0); } else { fill(255); } ellipse(mouseX, mouseY, 80, 80); }  就这样 就是上 显示的 ...  </p>
               
           </section>
       </a>

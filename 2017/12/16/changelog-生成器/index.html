@@ -52,6 +52,11 @@ gem install github_changelog_generator 示例
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -125,7 +130,7 @@ gem install github_changelog_generator 示例
         <h1 class="post-full-title">ChangeLog 生成器</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -150,11 +155,20 @@ gem install github_changelog_generator 示例
 <h2 id="使用">使用</h2>
 
 <p>在你的项目中，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">github_changelog_generator</pre></div>
+
+<pre><code>github_changelog_generator
+</code></pre>
+
 <p>or</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">github_changelog_generator github_name/github_project</pre></div>
+
+<pre><code>github_changelog_generator github_name/github_project
+</code></pre>
+
 <h3 id="更多信息">更多信息</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">github_changelog_generator --help</pre></div>
+
+<pre><code>github_changelog_generator --help
+</code></pre>
+
 <p><a href="http://keepachangelog.com/zh-CN/1.0.0/">为什么 ChangeLog 重要 or 如何维护更新日志</a></p>
 
 <p><a href="https://github.com/skywinder/github-changelog-generato">github库</a></p>
@@ -200,13 +214,13 @@ gem install github_changelog_generator 示例
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/12/04/mrm-%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%A4%9A%E4%B8%AAjson/">mrm 管理你的多个json</a></li>            
+          <li><a href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">Typescript类-转换学习</a></li>            
         
-          <li><a href="/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/">Anaconda conda command not found : 解决</a></li>            
+          <li><a href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">批量修改文件名-cmd:bash</a></li>            
         
-          <li><a href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">node 命令行应用 与 npm 包发布</a></li>            
+          <li><a href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">让你的py优雅</a></li>            
         
-          <li><a href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">windows7 pylint ASCII 问题解决</a></li>            
+          <li><a href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">hugo templete 语法</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -239,11 +253,11 @@ gem install github_changelog_generator 示例
 简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
 比如我 zsh
 # Add direnv hook eval &#34;$(direnv hook zsh)&#34; 当然前提是要下载，在github 上就有很详细
-cd/my_project echo &#34;echo &#39;hello this is my project&#39;&#34; &gt;&gt; .envrc direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
+cd/my_project echo &quot;echo 'hello this is my project'&quot; &gt;&gt; .envrc direnv allow  那么再你再进入这个目录时，自动运行 echo hello this is my project
 问题: 不需要 unloading or loading .envrc 之类的日志输出时。
 .zshrc
 # Add direnv hook eval &#34;$(direnv hook zsh)&#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
-direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。 </p>
+direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。   </p>
               
           </section>
       </a>
@@ -259,7 +273,7 @@ direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 

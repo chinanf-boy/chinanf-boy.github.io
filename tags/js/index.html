@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -114,8 +119,8 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
-    </a>    
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
+    </a>
     
 
     <div class="post-card-content">
@@ -169,7 +174,7 @@ Go 语言 官方并没有给出，repl 交互环境
  但是你知道-docker 就十分方便了-也给出docker的入门中文
 docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
 当你想与容器-gophernotes- 互通数据文件
-docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes  -p 端口互通
+docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes   -p 端口互通
  --mount 可以文件夹互通
  source 本地存在的文件夹 要自己新建
  target 容器的文件夹

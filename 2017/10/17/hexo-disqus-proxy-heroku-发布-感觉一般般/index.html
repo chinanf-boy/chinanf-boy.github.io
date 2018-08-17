@@ -48,6 +48,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -183,13 +188,13 @@
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">mo.js 专注动画</a></li>            
+          <li><a href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">Mac 使用 NTFS </a></li>            
         
-          <li><a href="/1/01/01/hello-world/">Hello World</a></li>            
+          <li><a href="/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/">Macbook屏幕修理记</a></li>            
         
-          <li><a href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">Js - Module模式 - 私有-公有-命名空间</a></li>            
+          <li><a href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">pipenv 快速构建虚拟python环境</a></li>            
         
-          <li><a href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">React事件与原生事件</a></li>            
+          <li><a href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">highlight-css样式列表</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -203,7 +208,7 @@
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
@@ -227,7 +232,7 @@ npm completion git 实现代码
 我的是 zsh
 首先定义一个可执行文件 sh
 test_completion.sh
-if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm 当你运行上面 什么都没有的 文件时
+if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm  当你运行上面 什么都没有的 文件时
 or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
 之前npm &lt;Tab&gt; 的 提示就会没有
 ## 代码分解
@@ -243,7 +248,7 @@ or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
  npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
 只要把 npm 替换成 git 那么，
 git 的 补全命令 也会被替换 什么都没有。
-补全规则 _test_completion(){ }  zsh 实现了 简便的 命令添加-函数
+补全规则 _test_completion(){ }   zsh 实现了 简便的 命令添加-函数
  compadd 源代码中主要
 compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
  源文档太大了，截掉什么看看区别
@@ -253,7 +258,7 @@ npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
  示例
  _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
  再试试
- _test_completion() { echo &#34;${words[@]}&#34; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
+  _test_completion() { echo &quot;${words[@]}&quot; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
  ...  </p>
               
           </section>
@@ -286,8 +291,8 @@ npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
               
                 <p>本文说明，一点heroku疑问
 procfile heroku运行的命令文件
-web worker clock 本地项目可以 查看procfile
-heroku ps 可以使用 js的web框架express koa
+web worker clock  本地项目可以 查看procfile
+heroku ps  可以使用 js的web框架express koa
 web: node index.js  但是 app.listen(port) 一定要是他们定下来的
 var port = process.env.PORT  同理 python
 import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就能看到了 </p>

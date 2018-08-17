@@ -56,11 +56,11 @@
       <guid>/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/</guid>
       <description>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
 安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
-yo code 更多详情 创建扩展的文件夹
-扩展API流程 的介绍 扩展清单： package.json contributes &amp;#34;contributes&amp;#34;: { &amp;#34;commands&amp;#34;: [{ &amp;#34;command&amp;#34;: &amp;#34;extension.sayHello&amp;#34;, &amp;#34;title&amp;#34;: &amp;#34;Hello World&amp;#34; }] } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&amp;rdquo;Hello world&amp;rdquo;调用命令&amp;rdquo;extension.sayHello&amp;rdquo;
+yo code  更多详情 创建扩展的文件夹
+扩展API流程 的介绍 扩展清单： package.json contributes &amp;quot;contributes&amp;quot;: { &amp;quot;commands&amp;quot;: [{ &amp;quot;command&amp;quot;: &amp;quot;extension.sayHello&amp;quot;, &amp;quot;title&amp;quot;: &amp;quot;Hello World&amp;quot; }] }  调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&amp;rdquo;Hello world&amp;rdquo;调用命令&amp;rdquo;extension.sayHello&amp;rdquo;
 activationEvents 启动事件—通过命令也就是 contributes 中 &amp;quot;Hello World&amp;quot;
-&amp;#34;activationEvents&amp;#34;: [ &amp;#34;onCommand:extension.sayHello&amp;#34; ] 启动事件—当语言为markdown
-&amp;#34;activationEvents&amp;#34;: [ &amp;#34;onLanguage:markdown&amp;#34; ] 示例 extension.ts 你好世界 import * as vscode from &amp;#39;vscode&amp;#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console.</description>
+&amp;quot;activationEvents&amp;quot;: [ &amp;quot;onCommand:extension.sayHello&amp;quot; ]  启动事件—当语言为markdown
+&amp;quot;activationEvents&amp;quot;: [ &amp;quot;onLanguage:markdown&amp;quot; ]  示例 extension.ts 你好世界 import * as vscode from &amp;#39;vscode&amp;#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console.</description>
     </item>
     
   </channel>

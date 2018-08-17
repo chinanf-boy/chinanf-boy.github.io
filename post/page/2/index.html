@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -109,8 +114,39 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #hugo 
+              #full folder  </span>
+              
+              <h2 class="post-card-title">如何将完整的文件夹放进hugo</h2>
+          </header>
+          <section class="post-card-excerpt">
+               
+                <p>关于将外部和自动生成的html页面（及其相关资源）保存到我的hugo博客中的位置。</p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -236,7 +272,7 @@ Go 语言 官方并没有给出，repl 交互环境
  但是你知道-docker 就十分方便了-也给出docker的入门中文
 docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
 当你想与容器-gophernotes- 互通数据文件
-docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes  -p 端口互通
+docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes   -p 端口互通
  --mount 可以文件夹互通
  source 本地存在的文件夹 要自己新建
  target 容器的文件夹
@@ -256,7 +292,7 @@ docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-fi
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
@@ -273,41 +309,6 @@ docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-fi
               
                 <p> pm2 startup 开机启动 不支持 window 使用 pm2-windows-startup
 npm install pm2 -g npm install pm2-windows-startup -g pm2-startup install pm2 start myApp.js --name mySuperApp pm2 save # 重启电脑 pm2 ls 完成，就这么简单， tips 开机会有终端运行  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #css  </span>
-              
-              <h2 class="post-card-title">position sticky 粘连定位</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> position css 的 position 定位
-一般我们使用
-static relative absolute fixed 这四个
-现在有个实验的 粘连定位 position: sticky
- 可以让我们 一边固定 一边滚动 出范围就不固定, 滚动查看 A-C-D.. 标签的位置
- See the Pen 粘性定位 by braveyo (@china-boy) on CodePen.   </p>
               
           </section>
       </a>

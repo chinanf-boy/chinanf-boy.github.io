@@ -61,6 +61,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -133,7 +138,7 @@
         <h1 class="post-full-title">highlight-css样式列表</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -214,13 +219,13 @@ CSs<code>darcula</code>风格<a href="https://highlightjs.org/static/demo/styles
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">pipenv 快速构建虚拟python环境</a></li>            
+          <li><a href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">js原型与构造</a></li>            
         
-          <li><a href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ionic 项目 npm问题解决</a></li>            
+          <li><a href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/">mac repl js go 大混杂</a></li>            
         
-          <li><a href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">pip npm conda 换下载源</a></li>            
+          <li><a href="/1/01/01/hello-world/">Hello World</a></li>            
         
-          <li><a href="/2017/04/21/react.component-use-class-or-classname/">React.Component use class or className</a></li>            
+          <li><a href="/2014/09/25/wonderful/">Wonderful</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -233,7 +238,7 @@ CSs<code>darcula</code>风格<a href="https://highlightjs.org/static/demo/styles
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -255,7 +260,7 @@ brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件�
 请确保U盘之类： 正确-推出 ✅
 避免： 直接拔出 ❌
 不正确的操作，会导致BUG,和一定后果 可看官网 下拉 到下面标题
-Some questions that might come up </p>
+Some questions that might come up   </p>
               
           </section>
       </a>
@@ -271,7 +276,7 @@ Some questions that might come up </p>
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -287,11 +292,11 @@ Some questions that might come up </p>
               
                 <p>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
 安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
-yo code 更多详情 创建扩展的文件夹
-扩展API流程 的介绍 扩展清单： package.json contributes &#34;contributes&#34;: { &#34;commands&#34;: [{ &#34;command&#34;: &#34;extension.sayHello&#34;, &#34;title&#34;: &#34;Hello World&#34; }] } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
+yo code  更多详情 创建扩展的文件夹
+扩展API流程 的介绍 扩展清单： package.json contributes &quot;contributes&quot;: { &quot;commands&quot;: [{ &quot;command&quot;: &quot;extension.sayHello&quot;, &quot;title&quot;: &quot;Hello World&quot; }] }  调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
 activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hello World&quot;
-&#34;activationEvents&#34;: [ &#34;onCommand:extension.sayHello&#34; ] 启动事件—当语言为markdown
-&#34;activationEvents&#34;: [ &#34;onLanguage:markdown&#34; ] 示例 extension.ts 你好世界 import * as vscode from &#39;vscode&#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console. ...  </p>
+&quot;activationEvents&quot;: [ &quot;onCommand:extension.sayHello&quot; ]  启动事件—当语言为markdown
+&quot;activationEvents&quot;: [ &quot;onLanguage:markdown&quot; ]  示例 extension.ts 你好世界 import * as vscode from &#39;vscode&#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console. ...  </p>
               
           </section>
       </a>

@@ -61,6 +61,11 @@ brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件�
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -133,7 +138,7 @@ brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件�
         <h1 class="post-full-title">Mac 使用 NTFS </h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -169,7 +174,10 @@ Mounty：1.6(9)</p>
 
 <p>不正确的操作，会导致<code>BUG</code>,和一定后果
  可看官网 下拉 到下面标题</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Some questions that might come up</pre></div>    
+
+<pre><code>Some questions that might come up
+</code></pre>
+    
         </div>
     </section>
 
@@ -210,13 +218,13 @@ Mounty：1.6(9)</p>
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">让你的py优雅</a></li>            
+          <li><a href="/1/01/01/hello-world/">Hello World</a></li>            
         
-          <li><a href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">React事件与原生事件</a></li>            
+          <li><a href="/2017/10/06/ionic-going/">ionic Going</a></li>            
         
-          <li><a href="/2017/06/16/preact-%E5%B0%8Freact/">Preact 小React</a></li>            
+          <li><a href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ionic 项目 npm问题解决</a></li>            
         
-          <li><a href="/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/">pm2 window 开机启动</a></li>            
+          <li><a href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">sublime text 插件：color Highlighter</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -248,12 +256,12 @@ Mounty：1.6(9)</p>
 NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
 让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
 安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
-npm -v 更新NPM版本的命令: sudo npm install npm -g 使用 npm安装nodejs模块语法格式:
+npm -v  更新NPM版本的命令: sudo npm install npm -g  使用 npm安装nodejs模块语法格式:
 npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
-npm install express //本地安装 npm install express -g //全局安装 两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+npm install express //本地安装 npm install express -g //全局安装  两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
 全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
 可以用以下命令来查看所有全局安装的模块:
-npm ls -g Package.json 属性说明  name - 包名。 version - 包的版本号。 description - 包的描述。 homepage - 包的官网 url 。 author - 包的作者姓名。 contributors - 包的其他贡献者姓名。 dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。 repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。 main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&ldquo;express&rdquo;)。 keywords - 关键字  官网属性列表 中文——属性解释 ...  </p>
+npm ls -g  Package. ...  </p>
               
           </section>
       </a>

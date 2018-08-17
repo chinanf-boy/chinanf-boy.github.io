@@ -52,6 +52,11 @@ cd/my_project echo &amp;" />
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -125,7 +130,7 @@ cd/my_project echo &amp;" />
         <h1 class="post-full-title">目录环境加载 direnv</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -142,9 +147,12 @@ cd/my_project echo &amp;" />
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#6272a4"># Add direnv hook
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">eval</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>direnv hook zsh<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span></code></pre></div>
 <p><a href="https://github.com/direnv/direnv">当然前提是要下载，在github 上就有很详细</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd/my_project
-echo &#34;echo &#39;hello this is my project&#39;&#34; &gt;&gt; .envrc
-direnv allow</pre></div>
+
+<pre><code>cd/my_project
+echo &quot;echo 'hello this is my project'&quot; &gt;&gt; .envrc
+direnv allow
+</code></pre>
+
 <p>那么再你再进入这个目录时，自动运行 <code>echo hello this is my project</code></p>
 
 <hr />
@@ -157,11 +165,14 @@ direnv allow</pre></div>
 <span style="color:#6272a4"># remove direnv log loading
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">DIRENV_LOG_FORMAT</span><span style="color:#ff79c6">=</span></code></pre></div>
 <p>原文，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。
+
+<pre><code>direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。
 
 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。
 
-因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。</pre></div>    
+因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。
+</code></pre>
+    
         </div>
     </section>
 
@@ -203,13 +214,13 @@ direnv allow</pre></div>
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">hugo templete 语法</a></li>            
+          <li><a href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">mo.js 专注动画</a></li>            
         
-          <li><a href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">pipenv 快速构建虚拟python环境</a></li>            
+          <li><a href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">npx 不用下载全局包啦</a></li>            
         
-          <li><a href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">google 备份与同步 mac版无法登录问题</a></li>            
+          <li><a href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">highlight-css样式列表</a></li>            
         
-          <li><a href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">中间件js实现</a></li>            
+          <li><a href="/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/">ory-editer 网页编辑器-基于react</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -223,7 +234,7 @@ direnv allow</pre></div>
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -238,10 +249,10 @@ direnv allow</pre></div>
           <section class="post-card-excerpt">
               
                 <p> yarn 全局下载时不使用 sudo 方法如下
-yarn global bin // 默认全局下载目录 开始设置 新建目录
+yarn global bin // 默认全局下载目录  开始设置 新建目录
 mkdir ~/.yarn-global  设置目录
-yarn config set prefix ~/.yarn-global 写入 .zshrc / .bashrc
-export PATH=&#34;$PATH:$HOME/.yarn-global&#34; 内容地址  </p>
+yarn config set prefix ~/.yarn-global  写入 .zshrc / .bashrc
+export PATH=&quot;$PATH:$HOME/.yarn-global&quot;  内容地址  </p>
               
           </section>
       </a>
@@ -257,7 +268,7 @@ export PATH=&#34;$PATH:$HOME/.yarn-global&#34; 内容地址  </p>
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -277,8 +288,8 @@ gem install github_changelog_generator 示例
 快速token生成&ndash;点击
 然后 把 获得 token id 放进 .bashrc or .zshrc
 # Add ChangeLog github token export CHANGELOG_GITHUB_TOKEN=&#39;token id&#39; 使用 在你的项目中，
-github_changelog_generator or
-github_changelog_generator github_name/github_project 更多信息 github_changelog_generator --help 为什么 ChangeLog 重要 or 如何维护更新日志
+github_changelog_generator  or
+github_changelog_generator github_name/github_project  更多信息 github_changelog_generator --help  为什么 ChangeLog 重要 or 如何维护更新日志
 github库 </p>
               
           </section>

@@ -40,6 +40,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -113,7 +118,7 @@
         <h1 class="post-full-title">pip npm conda 换下载源</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/4.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -134,15 +139,30 @@ conda config --set show_channel_urls yes</code></pre></div>
 
 <p>一、使用淘宝镜像
 1.临时使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm --registry https://registry.npm.taobao.org install express</pre></div>
+
+<pre><code>npm --registry https://registry.npm.taobao.org install express
+</code></pre>
+
 <p>2.持久使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm config set registry https://registry.npm.taobao.org</pre></div>
+
+<pre><code>npm config set registry https://registry.npm.taobao.org
+</code></pre>
+
 <p>3.通过cnpm</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm install -g cnpm --registry=https://registry.npm.taobao.org</pre></div>
+
+<pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre>
+
 <p>二、使用官方镜像</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm config set registry https://registry.npmjs.org/</pre></div>
+
+<pre><code>npm config set registry https://registry.npmjs.org/
+</code></pre>
+
 <p>三、查看npm源地址</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm config get registry</pre></div>    
+
+<pre><code>npm config get registry
+</code></pre>
+    
         </div>
     </section>
 
@@ -184,13 +204,13 @@ conda config --set show_channel_urls yes</code></pre></div>
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/12/04/mrm-%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%A4%9A%E4%B8%AAjson/">mrm 管理你的多个json</a></li>            
+          <li><a href="/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/">pm2 window 开机启动</a></li>            
         
-          <li><a href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">npx 不用下载全局包啦</a></li>            
+          <li><a href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">zsh completion tab 补全提示</a></li>            
         
-          <li><a href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">让你的py优雅</a></li>            
+          <li><a href="/2015/09/28/colenak/">Colenak</a></li>            
         
-          <li><a href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">React-Redux 父-Provider 子-connect</a></li>            
+          <li><a href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">js原型与构造</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -220,11 +240,11 @@ conda config --set show_channel_urls yes</code></pre></div>
               
                 <p>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
 安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
-yo code 更多详情 创建扩展的文件夹
-扩展API流程 的介绍 扩展清单： package.json contributes &#34;contributes&#34;: { &#34;commands&#34;: [{ &#34;command&#34;: &#34;extension.sayHello&#34;, &#34;title&#34;: &#34;Hello World&#34; }] } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
+yo code  更多详情 创建扩展的文件夹
+扩展API流程 的介绍 扩展清单： package.json contributes &quot;contributes&quot;: { &quot;commands&quot;: [{ &quot;command&quot;: &quot;extension.sayHello&quot;, &quot;title&quot;: &quot;Hello World&quot; }] }  调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
 activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hello World&quot;
-&#34;activationEvents&#34;: [ &#34;onCommand:extension.sayHello&#34; ] 启动事件—当语言为markdown
-&#34;activationEvents&#34;: [ &#34;onLanguage:markdown&#34; ] 示例 extension.ts 你好世界 import * as vscode from &#39;vscode&#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console. ...  </p>
+&quot;activationEvents&quot;: [ &quot;onCommand:extension.sayHello&quot; ]  启动事件—当语言为markdown
+&quot;activationEvents&quot;: [ &quot;onLanguage:markdown&quot; ]  示例 extension.ts 你好世界 import * as vscode from &#39;vscode&#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console. ...  </p>
               
           </section>
       </a>

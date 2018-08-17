@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -109,8 +114,42 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #npm 
+              #npx  </span>
+              
+              <h2 class="post-card-title">npx 不用下载全局包啦</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> 从 npm@5.2.0 开始 npx 被集合在了 npm
+ npx 让我们免于下载众多的全局包
+ cd you-project
+npx create-react-app my-react-app  Done! 不需要 npm i -g create-react-app   </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/12/04/mrm-%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%A4%9A%E4%B8%AAjson/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -148,7 +187,7 @@ mkdir ~/dotfiles || cd ~/dotfiles &amp;&amp; mkdir mrm || cd mrm npm init -y npm
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -163,7 +202,7 @@ mkdir ~/dotfiles || cd ~/dotfiles &amp;&amp; mkdir mrm || cd mrm npm init -y npm
                 <p> translate-js 在我的 项目发布问题上
 ISSUE3
 主要问题 在于 travis CI 识别 Npm-version-标签的 提交
-git push --tags 进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
+git push --tags  进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
 在我提交多个标签
 到 github
 v2.1 v2.2 v2.3
@@ -204,15 +243,15 @@ v2.1 可以看  </p>
  有两种方式
  在项目根目录  创建 i18n 文件夹
 i18n
-en.toml/yaml zh.toml/yaml en.toml
-[home] other = &#34;home&#34; zh.toml
-[home] other = &#34;主页&#34; 上面的设置好后，在 模版主题中使用
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &quot;home&quot;  zh.toml
+[home] other = &quot;主页&quot;  上面的设置好后，在 模版主题中使用
 *.html
-{{ i18n &#34;home&#34; }} 这样在
+{{ i18n &quot;home&quot; }}  这样在
 html 头的带领下 呈现 en/zh.toml
 &lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
  config.toml
-defaultContentLanguage = &#34;en&#34; # 这里是 默认网址 https://example.com # 如果是 true https://example.com/en defaultContentLanguageInSubdir = false [languages. ...  </p>
+defaultContentLanguage = &quot;en&quot; # 这里是 默认网址 https://example.com # 如果是 true https://example. ...  </p>
               
           </section>
       </a>
@@ -242,15 +281,15 @@ defaultContentLanguage = &#34;en&#34; # 这里是 默认网址 https://example.c
           </header>
           <section class="post-card-excerpt">
               
-                <p>--- title: &#34;Hugo Template&#34; date: 2017-11-14T15:39:48+08:00 description: &#34;a hugo template example&#34; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg --- hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
-{{ block &#34;main&#34; . }}{{ end }}  定义 区域块
+                <p>--- title: &quot;Hugo Template&quot; date: 2017-11-14T15:39:48+08:00 description: &quot;a hugo template example&quot; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg ---  hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
+{{ block &quot;main&quot; . }}{{ end }}   定义 区域块
  其他 html themes/youthemes/layouts/_default/list.html
-{{ define &#34;main&#34; }} {{ end }}  注意⚠️ themes/youthemes/layouts/_default/single.html
+{{ define &quot;main&quot; }} {{ end }}   注意⚠️ themes/youthemes/layouts/_default/single.html
 themes/youthemes/layouts/_default/list.html
  对于，Hugo 来说，网站分为 index.html list.html single.html
  根目录文件夹中
  在 content 文件夹下 就是 路由
-content about // list.html me. ...  </p>
+content about // list. ...  </p>
               
           </section>
       </a>
@@ -266,7 +305,7 @@ content about // list.html me. ...  </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/11/14/vscode-git-lens/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -284,42 +323,6 @@ content about // list.html me. ...  </p>
                 <p>安利安利 git lens
 加强 git 文件之间 改动
 细分到 每一行由谁改 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #go 
-              #hugo  </span>
-              
-              <h2 class="post-card-title">hugo hexo 傻傻分不清出 GO实现</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>hugo  像 hexo 一样的 静态网站生成
- 重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
- 不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
-三部走
- 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章
-hugo new posts/my-first-post. ...  </p>
               
           </section>
       </a>
@@ -372,4 +375,5 @@ hugo new posts/my-first-post. ...  </p>
 
 
 </script>
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=0ln0epsrlwd&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
 </body></html>

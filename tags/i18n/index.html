@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -133,15 +138,15 @@
  有两种方式
  在项目根目录  创建 i18n 文件夹
 i18n
-en.toml/yaml zh.toml/yaml en.toml
-[home] other = &#34;home&#34; zh.toml
-[home] other = &#34;主页&#34; 上面的设置好后，在 模版主题中使用
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &quot;home&quot;  zh.toml
+[home] other = &quot;主页&quot;  上面的设置好后，在 模版主题中使用
 *.html
-{{ i18n &#34;home&#34; }} 这样在
+{{ i18n &quot;home&quot; }}  这样在
 html 头的带领下 呈现 en/zh.toml
 &lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
  config.toml
-defaultContentLanguage = &#34;en&#34; # 这里是 默认网址 https://example.com # 如果是 true https://example.com/en defaultContentLanguageInSubdir = false [languages. ...  </p>
+defaultContentLanguage = &quot;en&quot; # 这里是 默认网址 https://example.com # 如果是 true https://example. ...  </p>
               
           </section>
       </a>

@@ -17,8 +17,8 @@
  有两种方式
  在项目根目录  创建 i18n 文件夹
 i18n
-en.toml/yaml zh.toml/yaml en.toml
-[home] other = &amp;#34;home&amp;#34; zh.toml" /> 
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &amp;quot;home&amp;quot;  zh." /> 
 
      
     
@@ -32,8 +32,8 @@ en.toml/yaml zh.toml/yaml en.toml
  有两种方式
  在项目根目录  创建 i18n 文件夹
 i18n
-en.toml/yaml zh.toml/yaml en.toml
-[home] other = &amp;#34;home&amp;#34; zh.toml"/>
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &amp;quot;home&amp;quot;  zh."/>
     <meta name="twitter:url" content="/2017/11/15/hugo-i18n/" />
     <meta name="twitter:site" content="@"/>
 
@@ -48,8 +48,8 @@ en.toml/yaml zh.toml/yaml en.toml
  有两种方式
  在项目根目录  创建 i18n 文件夹
 i18n
-en.toml/yaml zh.toml/yaml en.toml
-[home] other = &amp;#34;home&amp;#34; zh.toml" />
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &amp;quot;home&amp;quot;  zh." />
 
     <meta property="article:published_time" content="2017-11-15T23:31:55Z" />
     <meta property="article:tag" content="hugo" /><meta property="article:tag" content="i18n" />
@@ -60,6 +60,11 @@ en.toml/yaml zh.toml/yaml en.toml
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -161,18 +166,30 @@ en.toml/yaml zh.toml/yaml en.toml
 <p>创建 <code>i18n</code> 文件夹</p>
 
 <p>i18n</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">en.toml/yaml
-zh.toml/yaml</pre></div>
+
+<pre><code>en.toml/yaml
+zh.toml/yaml
+</code></pre>
+
 <p>en.toml</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">[home]
-  other = &#34;home&#34;</pre></div>
+
+<pre><code>[home]
+  other = &quot;home&quot;
+</code></pre>
+
 <p>zh.toml</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">[home]
-  other = &#34;主页&#34;</pre></div>
+
+<pre><code>[home]
+  other = &quot;主页&quot;
+</code></pre>
+
 <p>上面的设置好后，在 模版主题中使用</p>
 
 <p>*.html</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{{ i18n &#34;home&#34; }}</pre></div>
+
+<pre><code>{{ i18n &quot;home&quot; }}
+</code></pre>
+
 <p>这样在</p>
 
 <p>html 头的带领下 呈现 en/zh.toml</p>
@@ -186,27 +203,31 @@ zh.toml/yaml</pre></div>
 </blockquote>
 
 <p><code>config.toml</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">defaultContentLanguage = &#34;en&#34;
+
+<pre><code>defaultContentLanguage = &quot;en&quot;
 # 这里是 默认网址 https://example.com
 
 # 如果是 true https://example.com/en
 defaultContentLanguageInSubdir = false 
 
 [languages.en]
-  languageCode = &#34;en-us&#34;
+  languageCode = &quot;en-us&quot;
 
 [languages.zh]
-  languageCode = &#34;zh-cn&#34;
+  languageCode = &quot;zh-cn&quot;
 
 [[menu.main]]
-  name = &#34;Home&#34;
-  url = &#34;#about&#34;
+  name = &quot;Home&quot;
+  url = &quot;#about&quot;
   weight = 1
 
 [[Languages.zh.menu.main]]
-  name = &#34;主页&#34;
-  url = &#34;#about&#34;
-  weight = 1</pre></div>
+  name = &quot;主页&quot;
+  url = &quot;#about&quot;
+  weight = 1
+
+</code></pre>
+
 <p>这里有个 第二种的 <a href="http://www.pzhao.org/zh/post/hugo-multilingual/">例子</a></p>
 
 <p>总结一下：</p>
@@ -236,13 +257,16 @@ defaultContentLanguageInSubdir = false
 <p>根据官方文档，文章的翻译在配置好后</p>
 
 <p>会变成</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">content
+
+<pre><code>content
       about
           me.md  // me.en.md
           me.zh.md
       doc
           start.md //start.en.md
-          start.zh.md</pre></div>
+          start.zh.md
+</code></pre>
+
 <p>在 <code>content</code> 文章文件夹，存在着<code>后缀名</code>-有关<code>国家简写</code></p>
 
 <p>在网站 <code>URL</code> 体现</p>
@@ -252,27 +276,32 @@ https://example.com/zh/about
 <hr />
 
 <p>config.toml</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">DefaultContentLanguage = &#34;en&#34;
-copyright = &#34;Everything is mine&#34;
+
+<pre><code>
+DefaultContentLanguage = &quot;en&quot;
+copyright = &quot;Everything is mine&quot;
 
 [params.navigation]
-help  = &#34;Help&#34;
+help  = &quot;Help&quot;
 
 [Languages]
 [Languages.en]  #这
-title = &#34;My blog&#34;
+title = &quot;My blog&quot;
 weight = 1
 [Languages.en.params]
-linkedin = &#34;english-link&#34;
+linkedin = &quot;english-link&quot;
 
 [Languages.zh] #和这个是关键
-copyright = &#34;都是我的&#34;
-title = &#34;我的博客&#34;
+copyright = &quot;都是我的&quot;
+title = &quot;我的博客&quot;
 weight = 2
 [Languages.zh.params]
-linkedin = &#34;lien-francais&#34;
+linkedin = &quot;lien-francais&quot;
 [Languages.fr.navigation]
-help  = &#34;Aide&#34;</pre></div>
+help  = &quot;Aide&quot;
+
+</code></pre>
+
 <p>不过 如果 <code>hugo server -v</code> 出来的页面有时 页面呈现不正确</p>
 
 <p>请给予多点耐心，Cao 怎么 <code>英文直接变中文了</code></p>
@@ -330,13 +359,13 @@ help  = &#34;Aide&#34;</pre></div>
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/">中间件js实现</a></li>            
+          <li><a href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">google 备份与同步 mac版无法登录问题</a></li>            
         
-          <li><a href="/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/">ChangeLog 生成器</a></li>            
+          <li><a href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">hugo templete 语法</a></li>            
         
-          <li><a href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">vscode 扩展Api实践</a></li>            
+          <li><a href="/2017/04/21/react.component-use-class-or-classname/">React.Component use class or className</a></li>            
         
-          <li><a href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/">hugo hexo 傻傻分不清出 GO实现</a></li>            
+          <li><a href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">node 命令行应用 与 npm 包发布</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -350,7 +379,7 @@ help  = &#34;Aide&#34;</pre></div>
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -365,7 +394,7 @@ help  = &#34;Aide&#34;</pre></div>
                 <p> translate-js 在我的 项目发布问题上
 ISSUE3
 主要问题 在于 travis CI 识别 Npm-version-标签的 提交
-git push --tags 进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
+git push --tags  进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
 在我提交多个标签
 到 github
 v2.1 v2.2 v2.3
@@ -400,15 +429,15 @@ v2.1 可以看  </p>
           </header>
           <section class="post-card-excerpt">
               
-                <p>--- title: &#34;Hugo Template&#34; date: 2017-11-14T15:39:48+08:00 description: &#34;a hugo template example&#34; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg --- hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
-{{ block &#34;main&#34; . }}{{ end }}  定义 区域块
+                <p>--- title: &quot;Hugo Template&quot; date: 2017-11-14T15:39:48+08:00 description: &quot;a hugo template example&quot; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg ---  hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
+{{ block &quot;main&quot; . }}{{ end }}   定义 区域块
  其他 html themes/youthemes/layouts/_default/list.html
-{{ define &#34;main&#34; }} {{ end }}  注意⚠️ themes/youthemes/layouts/_default/single.html
+{{ define &quot;main&quot; }} {{ end }}   注意⚠️ themes/youthemes/layouts/_default/single.html
 themes/youthemes/layouts/_default/list.html
  对于，Hugo 来说，网站分为 index.html list.html single.html
  根目录文件夹中
  在 content 文件夹下 就是 路由
-content about // list.html me. ...  </p>
+content about // list. ...  </p>
               
           </section>
       </a>

@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -129,7 +134,7 @@
           <section class="post-card-excerpt">
               
                 <p>区别 浏览器   Chrome + Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 == this ? console.log(a) : console.log(0);  输出结果：
-2 7 7  也就是说，浏览器，认为 local 函数返回的 this
+2 7 7   也就是说，浏览器，认为 local 函数返回的 this
  和 window，总this 是相同的！
   node v6.9.2
  对于同样的代码

@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -109,6 +114,47 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/10/06/ionic-going/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/ioniclogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/10/06/ionic-going/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #ionic  </span>
+              
+              <h2 class="post-card-title">ionic Going</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>似流程，不是流程 下载问题可看上一篇文章
+ionic 是一套使用 javascript html css 技术构建 手机原生应用的 框架 从这里就可以看出，困难的地方就是，如何转换，原生应用，这点上 ionic 帮我们做了，
+不仅如此，还做了分享平台，测试应用的快速教程和应用，不可谓不大大的良心
+命令行下载 npm install -g cordova ionic   cordova 是 为了 神不知鬼不觉 的 构建原生应用 后续
+ 主要网站 官网：http://ionicframework.com/
+分享部署平台和主要代码管理和测试：https://dashboard.ionicjs.com/
+网上编辑器可拖拉搞定：https://creator.ionic.io/app/dashboard
+手机应用—— ionic view 与分享平台结合
+官方文档真的很棒，不过要翻墙，上面大部分 使用 Angular 与 sass 和 TypeScript 作为 编写条件 不过可以试试第一个官方应用 ionic start myApp tabs  服务器
+ionic serve  链接平台,要有账号,在这一步通过与本身项目链接 自动 git remote add ionic [你的项目.git]
+这个过程还会配合ssh
+ionic link [可选项 项目唯一id]  部署功能与Ionic Pro Git工作流配合使用，可在生产（或测试）应用程序中部署新的代码更新。 ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
       <div class="post-card-image" style="background-image: url(/file_imgs/ioniclogo.png)"></div>
     </a>
@@ -126,13 +172,13 @@
           <section class="post-card-excerpt">
               
                 <p> ionic项目 问题
-npm install 主要问题在于 node-sass node 版本 要求 我最后使用 8.0
+npm install  主要问题在于 node-sass node 版本 要求 我最后使用 8.0
 使用 n
 和
 python 版本要求 2.5&lt;x&lt;3.0
 使用 conda
 去改变 版本
-npm rebuild node-sass --force </p>
+npm rebuild node-sass --force   </p>
               
           </section>
       </a>
@@ -167,12 +213,12 @@ npm rebuild node-sass --force </p>
 NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
 让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
 安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
-npm -v 更新NPM版本的命令: sudo npm install npm -g 使用 npm安装nodejs模块语法格式:
+npm -v  更新NPM版本的命令: sudo npm install npm -g  使用 npm安装nodejs模块语法格式:
 npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
-npm install express //本地安装 npm install express -g //全局安装 两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+npm install express //本地安装 npm install express -g //全局安装  两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
 全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
 可以用以下命令来查看所有全局安装的模块:
-npm ls -g Package.json 属性说明  name - 包名。 version - 包的版本号。 description - 包的描述。 homepage - 包的官网 url 。 author - 包的作者姓名。 contributors - 包的其他贡献者姓名。 dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。 repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。 main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&ldquo;express&rdquo;)。 keywords - 关键字  官网属性列表 中文——属性解释 ...  </p>
+npm ls -g  Package. ...  </p>
               
           </section>
       </a>
@@ -210,7 +256,7 @@ brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件�
 请确保U盘之类： 正确-推出 ✅
 避免： 直接拔出 ❌
 不正确的操作，会导致BUG,和一定后果 可看官网 下拉 到下面标题
-Some questions that might come up </p>
+Some questions that might come up   </p>
               
           </section>
       </a>
@@ -226,7 +272,7 @@ Some questions that might come up </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
@@ -265,7 +311,7 @@ See the Pen highlight_无本地例子 by braveyo (@china-boy) on CodePen.   </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -281,48 +327,11 @@ See the Pen highlight_无本地例子 by braveyo (@china-boy) on CodePen.   </p>
               
                 <p>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
 安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
-yo code 更多详情 创建扩展的文件夹
-扩展API流程 的介绍 扩展清单： package.json contributes &#34;contributes&#34;: { &#34;commands&#34;: [{ &#34;command&#34;: &#34;extension.sayHello&#34;, &#34;title&#34;: &#34;Hello World&#34; }] } 调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
+yo code  更多详情 创建扩展的文件夹
+扩展API流程 的介绍 扩展清单： package.json contributes &quot;contributes&quot;: { &quot;commands&quot;: [{ &quot;command&quot;: &quot;extension.sayHello&quot;, &quot;title&quot;: &quot;Hello World&quot; }] }  调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
 activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hello World&quot;
-&#34;activationEvents&#34;: [ &#34;onCommand:extension.sayHello&#34; ] 启动事件—当语言为markdown
-&#34;activationEvents&#34;: [ &#34;onLanguage:markdown&#34; ] 示例 extension.ts 你好世界 import * as vscode from &#39;vscode&#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #pip 
-              #npm 
-              #conda  </span>
-              
-              <h2 class="post-card-title">pip npm conda 换下载源</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
-npm --registry https://registry.npm.taobao.org install express 2.持久使用
-npm config set registry https://registry.npm.taobao.org 3.通过cnpm
-npm install -g cnpm --registry=https://registry.npm.taobao.org 二、使用官方镜像
-npm config set registry https://registry.npmjs.org/ 三、查看npm源地址
-npm config get registry </p>
+&quot;activationEvents&quot;: [ &quot;onCommand:extension.sayHello&quot; ]  启动事件—当语言为markdown
+&quot;activationEvents&quot;: [ &quot;onLanguage:markdown&quot; ]  示例 extension.ts 你好世界 import * as vscode from &#39;vscode&#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console. ...  </p>
               
           </section>
       </a>

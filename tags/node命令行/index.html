@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -132,12 +137,12 @@
 NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
 让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
 安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
-npm -v 更新NPM版本的命令: sudo npm install npm -g 使用 npm安装nodejs模块语法格式:
+npm -v  更新NPM版本的命令: sudo npm install npm -g  使用 npm安装nodejs模块语法格式:
 npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
-npm install express //本地安装 npm install express -g //全局安装 两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+npm install express //本地安装 npm install express -g //全局安装  两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
 全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
 可以用以下命令来查看所有全局安装的模块:
-npm ls -g Package.json 属性说明  name - 包名。 version - 包的版本号。 description - 包的描述。 homepage - 包的官网 url 。 author - 包的作者姓名。 contributors - 包的其他贡献者姓名。 dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。 repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。 main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&ldquo;express&rdquo;)。 keywords - 关键字  官网属性列表 中文——属性解释 ...  </p>
+npm ls -g  Package. ...  </p>
               
           </section>
       </a>

@@ -54,6 +54,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -178,7 +183,10 @@ $ hugo version</code></pre></div>
 <ul>
 <li>哦还有，服务器运行</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo server -D</pre></div>
+
+<pre><code>hugo server -D
+</code></pre>
+
 <blockquote>
 <p>注意⚠️</p>
 </blockquote>
@@ -190,7 +198,10 @@ $ hugo version</code></pre></div>
 <ul>
 <li>生成静态</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo</pre></div>
+
+<pre><code>hugo
+</code></pre>
+
 <p>注意⚠️ 每篇文章 起草</p>
 
 <p>draft: true</p>
@@ -240,13 +251,13 @@ $ hugo version</code></pre></div>
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">babel 继承 Es5</a></li>            
+          <li><a href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/">Hyper open in finder and 服务</a></li>            
         
-          <li><a href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">google 备份与同步 mac版无法登录问题</a></li>            
+          <li><a href="/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/">Macbook屏幕修理记</a></li>            
         
-          <li><a href="/2014/09/25/wonderful/">Wonderful</a></li>            
+          <li><a href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">react-router v4 哎 路由</a></li>            
         
-          <li><a href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/">如何比较不同js库的相同功能的性能</a></li>            
+          <li><a href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">npx 不用下载全局包啦</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -260,7 +271,7 @@ $ hugo version</code></pre></div>
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/11/14/vscode-git-lens/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -293,7 +304,7 @@ $ hugo version</code></pre></div>
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
@@ -317,7 +328,7 @@ npm completion git 实现代码
 我的是 zsh
 首先定义一个可执行文件 sh
 test_completion.sh
-if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm 当你运行上面 什么都没有的 文件时
+if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm  当你运行上面 什么都没有的 文件时
 or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
 之前npm &lt;Tab&gt; 的 提示就会没有
 ## 代码分解
@@ -333,7 +344,7 @@ or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
  npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
 只要把 npm 替换成 git 那么，
 git 的 补全命令 也会被替换 什么都没有。
-补全规则 _test_completion(){ }  zsh 实现了 简便的 命令添加-函数
+补全规则 _test_completion(){ }   zsh 实现了 简便的 命令添加-函数
  compadd 源代码中主要
 compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
  源文档太大了，截掉什么看看区别
@@ -343,7 +354,7 @@ npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
  示例
  _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
  再试试
- _test_completion() { echo &#34;${words[@]}&#34; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
+  _test_completion() { echo &quot;${words[@]}&quot; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
  ...  </p>
               
           </section>

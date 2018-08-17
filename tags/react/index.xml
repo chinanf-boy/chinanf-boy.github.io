@@ -63,7 +63,7 @@ export default [ { &amp;#34;id&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;cells&amp
       <guid>/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/</guid>
       <description>react-router v4  react 的路由解决方案
  而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
-&amp;lt;Route path=&amp;#34;/&amp;#34; component={App} /&amp;gt; 注意这个 ／
+ &amp;lt;Route path=&amp;quot;/&amp;quot; component={App} /&amp;gt;  注意这个 ／
 比如我的 域名 llever.com
 当应用直接放在 llever.com/ 的时候，会实用。
 但是 如果我想 放在 llever.com/about/

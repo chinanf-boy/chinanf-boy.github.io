@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -109,8 +114,43 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #css  </span>
+              
+              <h2 class="post-card-title">position sticky 粘连定位</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> position css 的 position 定位
+一般我们使用
+static relative absolute fixed 这四个
+现在有个实验的 粘连定位 position: sticky
+ 可以让我们 一边固定 一边滚动 出范围就不固定, 滚动查看 A-C-D.. 标签的位置
+ See the Pen 粘性定位 by braveyo (@china-boy) on CodePen.   </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
@@ -125,10 +165,10 @@
           <section class="post-card-excerpt">
               
                 <p> yarn 全局下载时不使用 sudo 方法如下
-yarn global bin // 默认全局下载目录 开始设置 新建目录
+yarn global bin // 默认全局下载目录  开始设置 新建目录
 mkdir ~/.yarn-global  设置目录
-yarn config set prefix ~/.yarn-global 写入 .zshrc / .bashrc
-export PATH=&#34;$PATH:$HOME/.yarn-global&#34; 内容地址  </p>
+yarn config set prefix ~/.yarn-global  写入 .zshrc / .bashrc
+export PATH=&quot;$PATH:$HOME/.yarn-global&quot;  内容地址  </p>
               
           </section>
       </a>
@@ -144,7 +184,7 @@ export PATH=&#34;$PATH:$HOME/.yarn-global&#34; 内容地址  </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
@@ -163,11 +203,11 @@ export PATH=&#34;$PATH:$HOME/.yarn-global&#34; 内容地址  </p>
 简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
 比如我 zsh
 # Add direnv hook eval &#34;$(direnv hook zsh)&#34; 当然前提是要下载，在github 上就有很详细
-cd/my_project echo &#34;echo &#39;hello this is my project&#39;&#34; &gt;&gt; .envrc direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
+cd/my_project echo &quot;echo 'hello this is my project'&quot; &gt;&gt; .envrc direnv allow  那么再你再进入这个目录时，自动运行 echo hello this is my project
 问题: 不需要 unloading or loading .envrc 之类的日志输出时。
 .zshrc
 # Add direnv hook eval &#34;$(direnv hook zsh)&#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
-direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。 </p>
+direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。   </p>
               
           </section>
       </a>
@@ -183,7 +223,7 @@ direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -203,8 +243,8 @@ gem install github_changelog_generator 示例
 快速token生成&ndash;点击
 然后 把 获得 token id 放进 .bashrc or .zshrc
 # Add ChangeLog github token export CHANGELOG_GITHUB_TOKEN=&#39;token id&#39; 使用 在你的项目中，
-github_changelog_generator or
-github_changelog_generator github_name/github_project 更多信息 github_changelog_generator --help 为什么 ChangeLog 重要 or 如何维护更新日志
+github_changelog_generator  or
+github_changelog_generator github_name/github_project  更多信息 github_changelog_generator --help  为什么 ChangeLog 重要 or 如何维护更新日志
 github库 </p>
               
           </section>
@@ -221,7 +261,7 @@ github库 </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -276,40 +316,6 @@ github库 </p>
  See the Pen Geometric Mo.js Burst by braveyo (@china-boy) on CodePen.  也可以看看，点赞的优秀动画
  还有个 medium 中型拍手 例子
  See the Pen Medium clap effect by braveyo (@china-boy) on CodePen.  所以的所有，去官网去找吧 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #npm 
-              #npx  </span>
-              
-              <h2 class="post-card-title">npx 不用下载全局包啦</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> 从 npm@5.2.0 开始 npx 被集合在了 npm
- npx 让我们免于下载众多的全局包
- cd you-project
-npx create-react-app my-react-app Done! 不需要 npm i -g create-react-app </p>
               
           </section>
       </a>

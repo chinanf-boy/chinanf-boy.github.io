@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -114,7 +119,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -138,7 +143,7 @@ npm completion git 实现代码
 我的是 zsh
 首先定义一个可执行文件 sh
 test_completion.sh
-if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm 当你运行上面 什么都没有的 文件时
+if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm  当你运行上面 什么都没有的 文件时
 or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
 之前npm &lt;Tab&gt; 的 提示就会没有
 ## 代码分解
@@ -154,7 +159,7 @@ or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
  npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
 只要把 npm 替换成 git 那么，
 git 的 补全命令 也会被替换 什么都没有。
-补全规则 _test_completion(){ }  zsh 实现了 简便的 命令添加-函数
+补全规则 _test_completion(){ }   zsh 实现了 简便的 命令添加-函数
  compadd 源代码中主要
 compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
  源文档太大了，截掉什么看看区别
@@ -164,7 +169,7 @@ npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
  示例
  _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
  再试试
- _test_completion() { echo &#34;${words[@]}&#34; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
+  _test_completion() { echo &quot;${words[@]}&quot; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
  ...  </p>
               
           </section>
@@ -181,7 +186,7 @@ npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -200,7 +205,7 @@ npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
                 <p>conda  是 Anaconda 的 命令行
  因为使用zsh终端后，conda路径失去了
 ohmyzsh
-$ conda conda command not found 解决 export PATH=&#34;/home/username/miniconda/bin:$PATH&#34; source ~/.zshrc  zsh中 .zshrc
+$ conda conda command not found 解决 export PATH=&quot;/home/username/miniconda/bin:$PATH&quot; source ~/.zshrc   zsh中 .zshrc
 //error: export PATH = &#34;/home/username/miniconda/bin:$PATH&#34; //right export PATH=&#34;/home/username/miniconda/bin:$PATH&#34;  不要保持良好的代码格式,会出错
  参考 stackoverflow .zshrc保持不空格 </p>
               

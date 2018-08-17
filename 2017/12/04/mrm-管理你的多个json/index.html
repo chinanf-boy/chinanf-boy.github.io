@@ -46,6 +46,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -119,7 +124,7 @@
         <h1 class="post-full-title">mrm 管理你的多个json</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/7.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -179,11 +184,17 @@ npm i --save mrm-core </code></pre></div>
 
 task.description <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Adds .gitignore&#39;</span>;
 module.exports <span style="color:#ff79c6">=</span> task;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd you-project
-npx mrm gitignore</pre></div>
+</code></pre></div>
+<pre><code>cd you-project
+npx mrm gitignore
+</code></pre>
+
 <p>.gitignore 就被创建，并以 ～/dotfiles/mrm/gitignore/index.js</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">node_modules/
-.DS_Store%</pre></div>
+
+<pre><code>node_modules/
+.DS_Store%
+</code></pre>
+
 <p>更具体，需要参考<a href="https://github.com/sapegin/mrm#writing-your-own-tasks">项目write-you-own-task</a></p>
     
         </div>
@@ -227,13 +238,13 @@ npx mrm gitignore</pre></div>
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">sublime text 插件：color Highlighter</a></li>            
+          <li><a href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">React-Redux 父-Provider 子-connect</a></li>            
         
-          <li><a href="/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/">Anaconda conda command not found : 解决</a></li>            
+          <li><a href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">js原型与构造</a></li>            
         
-          <li><a href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ionic 项目 npm问题解决</a></li>            
+          <li><a href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">pipenv 快速构建虚拟python环境</a></li>            
         
-          <li><a href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/">如何比较不同js库的相同功能的性能</a></li>            
+          <li><a href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/">yarn no sudo 设置</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -247,7 +258,7 @@ npx mrm gitignore</pre></div>
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
@@ -265,7 +276,7 @@ npx mrm gitignore</pre></div>
                 <p> 从 npm@5.2.0 开始 npx 被集合在了 npm
  npx 让我们免于下载众多的全局包
  cd you-project
-npx create-react-app my-react-app Done! 不需要 npm i -g create-react-app </p>
+npx create-react-app my-react-app  Done! 不需要 npm i -g create-react-app   </p>
               
           </section>
       </a>
@@ -296,7 +307,7 @@ npx create-react-app my-react-app Done! 不需要 npm i -g create-react-app </p>
                 <p> translate-js 在我的 项目发布问题上
 ISSUE3
 主要问题 在于 travis CI 识别 Npm-version-标签的 提交
-git push --tags 进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
+git push --tags  进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
 在我提交多个标签
 到 github
 v2.1 v2.2 v2.3

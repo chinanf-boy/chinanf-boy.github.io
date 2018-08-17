@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -109,8 +114,44 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #go 
+              #hugo  </span>
+              
+              <h2 class="post-card-title">hugo hexo 傻傻分不清出 GO实现</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>hugo  像 hexo 一样的 静态网站生成
+ 重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
+ 不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
+三部走
+ 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml 噢不止三步, 那四部 - 加文章
+hugo new posts/my-first-post. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
@@ -134,7 +175,7 @@ npm completion git 实现代码
 我的是 zsh
 首先定义一个可执行文件 sh
 test_completion.sh
-if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm 当你运行上面 什么都没有的 文件时
+if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm  当你运行上面 什么都没有的 文件时
 or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
 之前npm &lt;Tab&gt; 的 提示就会没有
 ## 代码分解
@@ -150,7 +191,7 @@ or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
  npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
 只要把 npm 替换成 git 那么，
 git 的 补全命令 也会被替换 什么都没有。
-补全规则 _test_completion(){ }  zsh 实现了 简便的 命令添加-函数
+补全规则 _test_completion(){ }   zsh 实现了 简便的 命令添加-函数
  compadd 源代码中主要
 compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
  源文档太大了，截掉什么看看区别
@@ -160,7 +201,7 @@ npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
  示例
  _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
  再试试
- _test_completion() { echo &#34;${words[@]}&#34; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
+  _test_completion() { echo &quot;${words[@]}&quot; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
  ...  </p>
               
           </section>
@@ -228,8 +269,8 @@ npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
               
                 <p>本文说明，一点heroku疑问
 procfile heroku运行的命令文件
-web worker clock 本地项目可以 查看procfile
-heroku ps 可以使用 js的web框架express koa
+web worker clock  本地项目可以 查看procfile
+heroku ps  可以使用 js的web框架express koa
 web: node index.js  但是 app.listen(port) 一定要是他们定下来的
 var port = process.env.PORT  同理 python
 import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就能看到了 </p>
@@ -303,52 +344,11 @@ import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就�
           </header>
           <section class="post-card-excerpt">
               
-                <p>pipenv python的快速构建虚拟环境 使用 pip install pipenv 搭建 pipenv --three pipenv --two  &ndash;three 3.x版本 &ndash;two 2.x版本
+                <p>pipenv python的快速构建虚拟环境 使用 pip install pipenv  搭建 pipenv --three pipenv --two   &ndash;three 3.x版本 &ndash;two 2.x版本
  主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境共用 必须保证，下载 pipenv的pip，是纯净的python 2. 运行 pipenv &ndash;three ，如果出现错误，像我 因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建， 但是之前说了，为了纯净，这就会发生错误。
-$ pipenv --three error $ which python anaconda/bin/python ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
+$ pipenv --three error $ which python anaconda/bin/python  ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
 Mac oX 系统
-$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 更多 Github 官网 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/10/06/ionic-going/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/ioniclogo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/10/06/ionic-going/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #ionic  </span>
-              
-              <h2 class="post-card-title">ionic Going</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>似流程，不是流程 下载问题可看上一篇文章
-ionic 是一套使用 javascript html css 技术构建 手机原生应用的 框架 从这里就可以看出，困难的地方就是，如何转换，原生应用，这点上 ionic 帮我们做了，
-不仅如此，还做了分享平台，测试应用的快速教程和应用，不可谓不大大的良心
-命令行下载 npm install -g cordova ionic  cordova 是 为了 神不知鬼不觉 的 构建原生应用 后续
- 主要网站 官网：http://ionicframework.com/
-分享部署平台和主要代码管理和测试：https://dashboard.ionicjs.com/
-网上编辑器可拖拉搞定：https://creator.ionic.io/app/dashboard
-手机应用—— ionic view 与分享平台结合
-官方文档真的很棒，不过要翻墙，上面大部分 使用 Angular 与 sass 和 TypeScript 作为 编写条件 不过可以试试第一个官方应用 ionic start myApp tabs 服务器
-ionic serve 链接平台,要有账号,在这一步通过与本身项目链接 自动 git remote add ionic [你的项目.git]
-这个过程还会配合ssh
-ionic link [可选项 项目唯一id] 部署功能与Ionic Pro Git工作流配合使用，可在生产（或测试）应用程序中部署新的代码更新。 ...  </p>
+$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6  更多 Github 官网 </p>
               
           </section>
       </a>
@@ -401,4 +401,5 @@ ionic link [可选项 项目唯一id] 部署功能与Ionic Pro Git工作流配�
 
 
 </script>
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=0ln0epsrlwd&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
 </body></html>

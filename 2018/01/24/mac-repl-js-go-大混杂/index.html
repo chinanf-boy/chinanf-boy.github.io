@@ -60,6 +60,11 @@ Go 语言 官方并没有给出，repl 交互环境
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -169,7 +174,10 @@ Go 语言 官方并没有给出，repl 交互环境
 <p>这条命令，是下载与运行</p>
 
 <p>当你想与容器-gophernotes- 互通数据文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes</pre></div>
+
+<pre><code>docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes
+</code></pre>
+
 <ul>
 <li><p><code>-p</code> 端口互通</p></li>
 
@@ -249,13 +257,13 @@ Go 语言 官方并没有给出，repl 交互环境
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">google 备份与同步 mac版无法登录问题</a></li>            
+          <li><a href="/2014/04/02/hugo-template-primer/">(Hu)go Template Primer</a></li>            
         
-          <li><a href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">让你的py优雅</a></li>            
+          <li><a href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">sublime text 插件：color Highlighter</a></li>            
         
-          <li><a href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/">如何将完整的文件夹放进hugo</a></li>            
+          <li><a href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/">Hyper open in finder and 服务</a></li>            
         
-          <li><a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">hexo-disqus-proxy-heroku 发布 感觉一般般</a></li>            
+          <li><a href="/2017/01/11/tensorflow-by-google/">TensorFlow by Google</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -300,7 +308,7 @@ Go 语言 官方并没有给出，repl 交互环境
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 

@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -105,6 +110,43 @@
   <div class="inner">
     <div class="post-feed">
       
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #typescript 
+              #javascript  </span>
+              
+              <h2 class="post-card-title">Typescript类-转换学习</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>#TypeScript
+typescript作为微软实现的js的超集.
+在类的实现，有如传统语言一样简单，
+例子：官方
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &#34;Hello, &#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &#34;Hello, &#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
 
 
 <article class="post-card post"> 
@@ -195,7 +237,7 @@ var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// O
           <section class="post-card-excerpt">
               
                 <p>区别 浏览器   Chrome + Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 == this ? console.log(a) : console.log(0);  输出结果：
-2 7 7  也就是说，浏览器，认为 local 函数返回的 this
+2 7 7   也就是说，浏览器，认为 local 函数返回的 this
  和 window，总this 是相同的！
   node v6.9.2
  对于同样的代码
@@ -215,7 +257,7 @@ var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// O
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/01/19/translate%E4%B8%8Erotate/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
@@ -233,7 +275,7 @@ var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// O
                 <p>translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
 一：translate  translate 在 canvas中定义了，画框的位置
  比如
-&lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt;; var c = document.getElementById(&#34;myCanvas&#34;); var ctx = c.getContext(&#34;2d&#34;); ctx.fillRect(10, 10, 100, 50); ctx.translate(150, 75); ctx.fillRect(10, 10, 100, 50); &lt;/script&gt;&lt;/canvas&gt;; &gt; 定义一个宽300px，高150px的画布  在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); translate(150,75)命令 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 此时，如果再画一个矩形，那么，位置，也会发生改变 画布并没有改变，但是，观察画布的位置发生了变化 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口 二：rotate &lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt; var c = document. ...  </p>
+&lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt;; var c = document.getElementById(&#34;myCanvas&#34;); var ctx = c.getContext(&#34;2d&#34;); ctx.fillRect(10, 10, 100, 50); ctx.translate(150, 75); ctx.fillRect(10, 10, 100, 50); &lt;/script&gt;&lt;/canvas&gt;;  &gt; 定义一个宽300px，高150px的画布    在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); translate(150,75)命令 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 此时，如果再画一个矩形，那么，位置，也会发生改变 画布并没有改变，但是，观察画布的位置发生了变化 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口   二：rotate &lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt; var c = document. ...  </p>
               
           </section>
       </a>
@@ -249,7 +291,7 @@ var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// O
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -269,78 +311,6 @@ var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// O
  prefernces &gt;&gt; Package Settings &gt;&gt; Color Highlighter &gt;&gt; Setting -User
 &ldquo;ha_style&rdquo;: &ldquo;filled&rdquo;
   &nbsp; </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/01/11/tensorflow-by-google/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/01/11/tensorflow-by-google/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #机器学习 
-              #图像识别  </span>
-              
-              <h2 class="post-card-title">TensorFlow by Google</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>So ,开始吧！
-这份学习来自于Google 在 Github上的开源项目 TensorFlow
-要知道，当今，如果，你想，实现一个机器人的 “大脑”。
-😯，那么你要做得事情，会很多很多，难度说到这里。
-正题：
-机器学习的概念，定义一长串？！
-所以，通俗的说。
-1.输入
-2.TensorFlow
-3.输出
- 从 1⃣️ 开始：TensorFlow具有简单的运行公式，即便它本身的函数名看起来是那么那么的繁杂
- 输入:(=训练数据=)； 我的标题是 《图像识别》，那么，也就是
-官方的例子，#如何识别图片是什么花#。
-虽然说是机器学习，但是完成一项识别工作，是繁重的。
-就如每个动物出生，要别——动物 ^ _ ^ 告诉他／她／它
-哦，这是爸爸，哦，这是妈妈。。。
-那么前期的工作就是，花的图片，大量大量的，越多越好||😢
- 像五年高考，三年模拟，的题海战术，不想回忆
-  这是红菊
-这是黄菊
- 但还是菊，科科
-收集起来，放一起，这就是需要训练的数据。
-2⃣️：TensorFlow
-在前一步，完成图片的收集后，是时候，入厂了喔。
- 我现在不放代码，只是单纯从，非专业人士的角度。
-概su，毕竟，猫🐱总是好奇的嘛
- 好了，现在，手握大量图片，再然后事情就不归我们管了
-ps：代码就是看起来很厉害的，一串东东
-图片库路径=&gt;(代码)
-代码里面有(TensorFlow的各种算法) 什么样的算法？不用管
-像选 商品一样，想用哪个用哪个
-总结下&gt;&gt;&gt; 图片库，_写入&gt;代码，代码里含有（算法）。
-然后，很重要的一点，就是，就是，哦，告诉代码，对
-告诉代码，这个图片库路径是什么花🌹。哪个是什么花
-ok👌。是不是很简单
- 3⃣️：输入
-为什么，我们要使用机器学习，来完成图片识别，
-或者说
-未来，机器人大脑数据的构成。
-因为，我们想要一台 不断成长的 机器人。后果另算
- 重新说回，输入
- 这个时候，大手大脚，的，测试吧， ...  </p>
               
           </section>
       </a>
@@ -393,4 +363,5 @@ ok👌。是不是很简单
 
 
 </script>
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=0ln0epsrlwd&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
 </body></html>

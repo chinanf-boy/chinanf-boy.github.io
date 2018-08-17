@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Hugo 语法高亮与md序列显示问题 &middot; </title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" />
+
+     <meta name="description" content="现在普遍有三种hugo高亮的解决 1. 内置 2. hightlight 3. 自定义css, 还有一个 hugo markdown 解析器的问题" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="/file_imgs/hugologo.png"/>
+    
+ 
+    <meta name="twitter:title" content="Hugo 语法高亮与md序列显示问题"/>
+    <meta name="twitter:description" content="现在普遍有三种hugo高亮的解决 1. 内置 2. hightlight 3. 自定义css, 还有一个 hugo markdown 解析器的问题"/>
+    <meta name="twitter:url" content="/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="Hugo 语法高亮与md序列显示问题 &middot; Same like,Same guy" />
+    <meta property="og:url" content="/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="现在普遍有三种hugo高亮的解决 1. 内置 2. hightlight 3. 自定义css, 还有一个 hugo markdown 解析器的问题" />
+
+    <meta property="article:published_time" content="2018-08-17T14:52:33&#43;08:00" />
+    <meta property="article:tag" content="hugo" /><meta property="article:tag" content="hightlight" />
+
+    <meta property="og:image" content="/file_imgs/hugologo.png"/>
+
+
+    <meta name="generator" content="Hugo 0.45.1" />
+
+    <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="Same like,Same guy" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about/">Projects me</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/">分类</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/tags">标签</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/chinanf-boy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2018-08-17">17 August 2018</time>
+                <span class="date-divider">/</span> <a href="/tags/hugo/">#hugo</a>&nbsp;<a href="/tags/hightlight/">#hightlight</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">Hugo 语法高亮与md序列显示问题</h1>
+    </header>
+    
+    <figure class="post-full-image" style="background-image: url(/file_imgs/hugologo.png)">
+    </figure>
+
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        
+
+<h2 id="1-hugo-内置-工具">1. hugo 内置 工具</h2>
+
+<p>Hugo在官方文档中 有 <code>Pygments</code>{python 写的}与<code>Chroma</code>{go 写的}（从0.30版本开始，集成了Chroma作为替代。）</p>
+
+<h2 id="2-引入-hightlight-类的库到-head">2. 引入 hightlight 类的库到 <code>&lt;head&gt;</code></h2>
+
+<p>两种做法, 可看</p>
+
+<p>具体看 <a href="http://note.qidong.name/2017/06/24/hugo-highlight/">http://note.qidong.name/2017/06/24/hugo-highlight/</a></p>
+
+<h2 id="3-自定义css-这一点其实不如上两种的通用-这个方法更倾向-语法显示的修复">3. 自定义css, 这一点其实不如上两种的通用, 这个方法更倾向 语法显示的修复</h2>
+
+<h2 id="我的hugo语法高亮">我的hugo语法高亮</h2>
+
+<p>我的 <code>config.toml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">pygmentsCodeFences = <span style="color:#ff79c6">true</span>
+pygmentsCodefencesGuessSyntax = <span style="color:#ff79c6">false</span>
+pygmentsStyle = <span style="color:#f1fa8c">&#34;dracula&#34;</span>
+pygmentsOptions = [<span style="color:#f1fa8c">&#39;linenos&#39;</span>]</code></pre></div>
+<h3 id="这个语法的显示有问题-代码块的宽度被代码撑大了">这个语法的显示有问题: 代码块的宽度被代码撑大了</h3>
+
+<p>答: 在 <code>theme</code> 下 <code>/casper-two/layouts/partials/head.html</code> 模版上,加 <code>css</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    &lt;<span style="color:#ff79c6">style</span>&gt;
+    <span style="color:#ff79c6">div</span>.<span style="color:#50fa7b">highlight</span> {
+        <span style="color:#ff79c6">width</span>:<span style="color:#bd93f9">100</span><span style="color:#8be9fd">%</span>;
+    }
+    &lt;/<span style="color:#ff79c6">style</span>&gt;</code></pre></div>
+<h2 id="相关问题">相关问题</h2>
+
+<h3 id="vue语法显示问题">vue语法显示问题</h3>
+
+<p>答: 自定义css <a href="http://www.shawpo.me/post/hugo-markdown-code-style/">http://www.shawpo.me/post/hugo-markdown-code-style/</a></p>
+
+<h3 id="hugo-的-markdown-解析器对">hugo 的 markdown 解析器对</h3>
+
+<pre><code>1.  第一
+
+中间有东西的话
+
+2.  第二
+
+这个`2.`会变回`1.`
+
+3.  第三
+
+同上
+</code></pre>
+
+<blockquote>
+<p>的解析出现错误</p>
+</blockquote>
+
+<p><details>
+<summary> 错误用咧请看 </summary></p>
+
+<ol>
+<li>第一</li>
+</ol>
+
+<p>中间有东西的话</p>
+
+<ol>
+<li>第二</li>
+</ol>
+
+<p>这个<code>2.</code>会变回<code>1.</code></p>
+
+<ol>
+<li>第三</li>
+</ol>
+
+<p>同上</p>
+
+<p></details></p>
+
+<p>答: 不得已<code>&lt;b&gt; *. &lt;/b&gt;</code> 代替吧</p>
+    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="/">yobrave</a></h4>
+                <p>I - explain/translate/code &lt; er </p>
+        </section>
+      </section>
+    </footer>
+</article>
+    
+    
+    
+
+  </div>
+
+
+
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+<article class="read-next-card" 
+            style="background-image: url(/img/blog-cover.jpg);" >
+    <header class="read-next-card-header">
+        <small class="read-next-card-header-sitetitle">&mdash; Same like,Same guy &mdash;</small>
+        
+        <h3 class="read-next-card-header-title"><a href="/tags/hugo/">#hugo</a></h3>
+    </header>
+    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+    </div>
+
+    <div class="read-next-card-content">
+      
+        <ul>
+          <li><a href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">hugo templete 语法</a></li>            
+        
+          <li><a href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">node 命令行应用 与 npm 包发布</a></li>            
+        
+          <li><a href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">Js - Module模式 - 私有-公有-命名空间</a></li>            
+        
+          <li><a href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">sublime text 插件：color Highlighter</a></li>            
+        </ul>
+    </div>
+    <footer class="read-next-card-footer">
+      
+        <a href="/tags/hugo/">See all related posts →</a>
+    </footer>
+</article>
+
+
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2014/09/25/wonderful/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2014/09/25/wonderful/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #go  </span>
+              
+              <h2 class="post-card-title">Wonderful</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.
+We&rsquo;ll start with creating a new site with a very basic template. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/hugo-logo.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #js  </span>
+              
+              <h2 class="post-card-title">如何比较不同js库的相同功能的性能</h2>
+          </header>
+          <section class="post-card-excerpt">
+               
+                <p>当不同的npm库,提供相同的功能函数时, 一般都是选择最快的. 哪个是最快的? 那首先是建立基准比较的文件运行一下,以 turbocolor 为例</p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="/">
+      <img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="" />
+      <span></span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">Hugo 语法高亮与md序列显示问题</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Hugo%20%e8%af%ad%e6%b3%95%e9%ab%98%e4%ba%ae%e4%b8%8emd%e5%ba%8f%e5%88%97%e6%98%be%e7%a4%ba%e9%97%ae%e9%a2%98&amp;url=%2f2018%2f08%2f17%2fhugo-%25E8%25AF%25AD%25E6%25B3%2595%25E9%25AB%2598%25E4%25BA%25AE%25E4%25B8%258Emd%25E5%25BA%258F%25E5%2588%2597%25E6%2598%25BE%25E7%25A4%25BA%25E9%2597%25AE%25E9%25A2%2598%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2f2018%2f08%2f17%2fhugo-%25E8%25AF%25AD%25E6%25B3%2595%25E9%25AB%2598%25E4%25BA%25AE%25E4%25B8%258Emd%25E5%25BA%258F%25E5%2588%2597%25E6%2598%25BE%25E7%25A4%25BA%25E9%2597%25AE%25E9%25A2%2598%2f"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/">yobrave</a> © 2018 <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/chinanf-boy" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+
+</body></html>

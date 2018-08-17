@@ -18,7 +18,10 @@
       
       <guid>/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/</guid>
       <description>&lt;h1 id=&#34;npm-和-git-补全噢&#34;&gt;npm 和 git 补全噢😯&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;npm &amp;lt;Tab&amp;gt; &lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;npm &amp;lt;Tab&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;会补全命令&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;npm&lt;/code&gt;实现代码
@@ -42,12 +45,15 @@
 &lt;p&gt;首先定义一个&lt;code&gt;可执行文件 sh&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;test_completion.sh&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;if type compdef &amp;amp;&amp;gt;/dev/null; then
+
+&lt;pre&gt;&lt;code&gt;if type compdef &amp;amp;&amp;gt;/dev/null; then
 
     _test_completion() {
     }
 
-    compdef _test_completion npm&lt;/pre&gt;&lt;/div&gt;
+    compdef _test_completion npm
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;当你运行上面 什么都没有的 文件时&lt;/p&gt;
 
 &lt;p&gt;or 复制 &lt;code&gt;then&lt;/code&gt; 后面那段代码，粘贴到 命令行运行也可以。&lt;/p&gt;
@@ -95,9 +101,12 @@
 &lt;hr /&gt;
 
 &lt;h2 id=&#34;补全规则&#34;&gt;补全规则&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;_test_completion(){
 
-}&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;_test_completion(){
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;blockquote&gt;
 &lt;p&gt;zsh 实现了 简便的 命令添加-函数&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -136,13 +145,16 @@ $ npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;再试试&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;    _test_completion() {
-        echo &amp;#34;${words[@]}&amp;#34; 
+
+&lt;pre&gt;&lt;code&gt;    _test_completion() {
+        echo &amp;quot;${words[@]}&amp;quot; 
         echo $CURRENT
         echo $BUFFER
         compadd -- install up
     }
-    compdef _test_completion npm &lt;/pre&gt;&lt;/div&gt;
+    compdef _test_completion npm 
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
@@ -155,7 +167,7 @@ $ npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       <description>conda  是 Anaconda 的 命令行
  因为使用zsh终端后，conda路径失去了
 ohmyzsh
-$ conda conda command not found 解决 export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; source ~/.zshrc  zsh中 .zshrc
+$ conda conda command not found 解决 export PATH=&amp;quot;/home/username/miniconda/bin:$PATH&amp;quot; source ~/.zshrc   zsh中 .zshrc
 //error: export PATH = &amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; //right export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34;  不要保持良好的代码格式,会出错
  参考 stackoverflow .zshrc保持不空格</description>
     </item>

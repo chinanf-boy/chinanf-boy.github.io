@@ -23,7 +23,7 @@ chalk 无疑是 过大了
 它们的速度  当然这里主要是讲它们的速度比较
  我们用turbocolor 的基准比较, 作为我们例子
 作者这样做的目的, 当然是为了表明它的快
-# turbocolor bench 包结构 readme.md # 说明如何运行,与结果报告 index.js # 基准-bench文件 ❤️ package.json # 建立独立的包依赖const { Suite } = require(&amp;#34;benchmark&amp;#34;) // 基准测试的库  console.log(&amp;#34;# Load Time&amp;#34;) console.time(&amp;#34;chalk&amp;#34;) const chalk = require(&amp;#34;chalk&amp;#34;) console.timeEnd(&amp;#34;chalk&amp;#34;) console.time(&amp;#34;kleur&amp;#34;) const kleur = require(&amp;#34;kleur&amp;#34;) console.timeEnd(&amp;#34;kleur&amp;#34;) console.time(&amp;#34;ansi-colors&amp;#34;) const ansi = require(&amp;#34;ansi-colors&amp;#34;) console.timeEnd(&amp;#34;ansi-colors&amp;#34;) console.time(&amp;#34;turbocolor&amp;#34;) const turbocolor = require(&amp;#34;.</description>
+# turbocolor bench 包结构 readme.md # 说明如何运行,与结果报告 index.js # 基准-bench文件 ❤️ package.json # 建立独立的包依赖  const { Suite } = require(&amp;#34;benchmark&amp;#34;) // 基准测试的库  console.log(&amp;#34;# Load Time&amp;#34;) console.time(&amp;#34;chalk&amp;#34;) const chalk = require(&amp;#34;chalk&amp;#34;) console.timeEnd(&amp;#34;chalk&amp;#34;) console.time(&amp;#34;kleur&amp;#34;) const kleur = require(&amp;#34;kleur&amp;#34;) console.timeEnd(&amp;#34;kleur&amp;#34;) console.time(&amp;#34;ansi-colors&amp;#34;) const ansi = require(&amp;#34;ansi-colors&amp;#34;) console.timeEnd(&amp;#34;ansi-colors&amp;#34;) console.time(&amp;#34;turbocolor&amp;#34;) const turbocolor = require(&amp;#34;.</description>
     </item>
     
   </channel>

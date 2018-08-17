@@ -22,15 +22,15 @@
  有两种方式
  在项目根目录  创建 i18n 文件夹
 i18n
-en.toml/yaml zh.toml/yaml en.toml
-[home] other = &amp;#34;home&amp;#34; zh.toml
-[home] other = &amp;#34;主页&amp;#34; 上面的设置好后，在 模版主题中使用
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &amp;quot;home&amp;quot;  zh.toml
+[home] other = &amp;quot;主页&amp;quot;  上面的设置好后，在 模版主题中使用
 *.html
-{{ i18n &amp;#34;home&amp;#34; }} 这样在
+{{ i18n &amp;quot;home&amp;quot; }}  这样在
 html 头的带领下 呈现 en/zh.toml
 &amp;lt;html lang=&amp;#39;en&amp;#39;&amp;gt;  第二种   根目录中
  config.toml
-defaultContentLanguage = &amp;#34;en&amp;#34; # 这里是 默认网址 https://example.com # 如果是 true https://example.com/en defaultContentLanguageInSubdir = false [languages.</description>
+defaultContentLanguage = &amp;quot;en&amp;quot; # 这里是 默认网址 https://example.com # 如果是 true https://example.</description>
     </item>
     
   </channel>

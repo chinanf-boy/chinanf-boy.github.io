@@ -51,6 +51,11 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -146,9 +151,15 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
 <h2 id="安装">安装</h2>
 
 <p>新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm -v</pre></div>
+
+<pre><code>npm -v
+</code></pre>
+
 <h2 id="更新npm版本的命令">更新NPM版本的命令:</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo npm install npm -g</pre></div>
+
+<pre><code>sudo npm install npm -g
+</code></pre>
+
 <h2 id="使用">使用</h2>
 
 <p>npm安装nodejs模块语法格式:</p>
@@ -158,8 +169,11 @@ NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署�
 <h2 id="全局安装与本地安装">全局安装与本地安装</h2>
 
 <p>npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm install express //本地安装
-npm install express -g //全局安装</pre></div>
+
+<pre><code>npm install express //本地安装
+npm install express -g //全局安装
+</code></pre>
+
 <h3 id="两者的区别">两者的区别</h3>
 
 <h4 id="本地安装">本地安装:</h4>
@@ -174,7 +188,10 @@ npm install express -g //全局安装</pre></div>
 不能通过 require() 来引入本地安装的包。</p>
 
 <p>可以用以下命令来查看所有全局安装的模块:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm ls -g</pre></div>
+
+<pre><code>npm ls -g
+</code></pre>
+
 <h3 id="package-json-属性说明">Package.json 属性说明</h3>
 
 <ul>
@@ -194,22 +211,37 @@ npm install express -g //全局安装</pre></div>
 <a href="http://www.cnblogs.com/tzyy/p/5193811.html">中文——属性解释</a></p>
 
 <h3 id="卸载模块-可以使用以下命令来卸载nodejs">卸载模块 可以使用以下命令来卸载Nodejs</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm uninstall express //卸载该express模块
-npm ls // 查看是否成功卸载</pre></div>
+
+<pre><code>npm uninstall express //卸载该express模块
+npm ls // 查看是否成功卸载
+</code></pre>
+
 <h3 id="更新模块-可以使用以下命令来更新模块">更新模块 可以使用以下命令来更新模块</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm update express</pre></div>
+
+<pre><code>npm update express
+</code></pre>
+
 <h3 id="搜索模块-使用以下命令来搜索模块">搜索模块 使用以下命令来搜索模块</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm search express</pre></div>
+
+<pre><code>npm search express
+</code></pre>
+
 <h3 id="创建模块-生成package-json">创建模块 生成package.json</h3>
 
 <p>注册一个npm账户</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm adduser
+
+<pre><code>npm adduser
 
 Username :
 Password:
-Email:</pre></div>
+Email:
+</code></pre>
+
 <p>发布模块</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm publish</pre></div>
+
+<pre><code>npm publish
+</code></pre>
+
 <h3 id="版本号-使用npm下载和发布代码时都会接触到版本号-npm使用语义版本号来管理代码-语义版本号分为x-y-z三位-分别代表主版本号-次版本号和补丁版本号-当代码变更时-版本号按以下原则更新">版本号 使用NPM下载和发布代码时都会接触到版本号。NPM使用语义版本号来管理代码, 语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。</h3>
 
 <p>如果只是修复bug，需要更新Z位。
@@ -266,7 +298,10 @@ wifiPassword(cli.input[<span style="color:#bd93f9">0</span>])
 <h3 id="wifi-password-cli的使用">wifi-password-cli的使用</h3>
 
 <p>安装</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">npm install -g wifi-password-cli</pre></div>
+
+<pre><code>npm install -g wifi-password-cli
+</code></pre>
+
 <p>使用</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wifi-password --help
 
@@ -333,13 +368,15 @@ wifiPassword(cli.input[<span style="color:#bd93f9">0</span>])
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">Travis Ci 测试以及 发布 npm</a></li>            
+          <li><a href="/2017/11/14/vscode-git-lens/">vscode git lens</a></li>            
         
-          <li><a href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">放原网页首页进来</a></li>            
+          <li><a href="/2014/09/25/wonderful/">Wonderful</a></li>            
         
-          <li><a href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/">js原型与构造</a></li>            
+                      
         
-          <li><a href="/2017/01/11/tensorflow-by-google/">TensorFlow by Google</a></li>            
+          <li><a href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">React事件与原生事件</a></li>            
+        
+          <li><a href="/1/01/01/hello-world/">Hello World</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -369,13 +406,13 @@ wifiPassword(cli.input[<span style="color:#bd93f9">0</span>])
           <section class="post-card-excerpt">
               
                 <p> ionic项目 问题
-npm install 主要问题在于 node-sass node 版本 要求 我最后使用 8.0
+npm install  主要问题在于 node-sass node 版本 要求 我最后使用 8.0
 使用 n
 和
 python 版本要求 2.5&lt;x&lt;3.0
 使用 conda
 去改变 版本
-npm rebuild node-sass --force </p>
+npm rebuild node-sass --force   </p>
               
           </section>
       </a>
@@ -391,7 +428,7 @@ npm rebuild node-sass --force </p>
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -413,7 +450,7 @@ brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件�
 请确保U盘之类： 正确-推出 ✅
 避免： 直接拔出 ❌
 不正确的操作，会导致BUG,和一定后果 可看官网 下拉 到下面标题
-Some questions that might come up </p>
+Some questions that might come up   </p>
               
           </section>
       </a>

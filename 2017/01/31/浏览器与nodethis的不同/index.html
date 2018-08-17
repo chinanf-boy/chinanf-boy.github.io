@@ -42,6 +42,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -143,9 +148,12 @@ console.log(a);
 local1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">this</span> <span style="color:#ff79c6">?</span> console.log(a) <span style="color:#ff79c6">:</span> console.log(<span style="color:#bd93f9">0</span>);
 </code></pre></div>
 <p>输出结果：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">2
+
+<pre><code>2
 7
-7</pre></div>
+7
+</code></pre>
+
 <ul>
 <li><p>也就是说，浏览器，认为 <code>local</code> 函数返回的 <code>this</code></p></li>
 
@@ -171,10 +179,13 @@ console.log(a);
 local1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">this</span> <span style="color:#ff79c6">?</span> console.log(a) <span style="color:#ff79c6">:</span> console.log(<span style="color:#bd93f9">0</span>);
 </code></pre></div>
 <p>输出结果:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">2
+
+<pre><code>2
 7
 0
-[Finished in 0.7s]</pre></div>
+[Finished in 0.7s]
+</code></pre>
+
 <ul>
 <li><p>也就是说，浏览器，认为 <code>local</code> 函数返回的 <code>this</code></p></li>
 
@@ -226,13 +237,13 @@ local1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">this</s
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/01/11/tensorflow-by-google/">TensorFlow by Google</a></li>            
+          <li><a href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">heroku web  port 问题</a></li>            
         
-          <li><a href="/2017/11/15/hugo-i18n/">hugo i18n </a></li>            
+          <li><a href="/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/">ory-editer 网页编辑器-基于react</a></li>            
         
-          <li><a href="/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/">Anaconda conda command not found : 解决</a></li>            
+          <li><a href="/2017/06/16/preact-%E5%B0%8Freact/">Preact 小React</a></li>            
         
-          <li><a href="/2014/04/02/hugo-template-primer/">(Hu)go Template Primer</a></li>            
+          <li><a href="/1/01/01/hello-world/">Hello World</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -279,7 +290,7 @@ var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// O
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/01/19/translate%E4%B8%8Erotate/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -297,7 +308,7 @@ var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// O
                 <p>translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
 一：translate  translate 在 canvas中定义了，画框的位置
  比如
-&lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt;; var c = document.getElementById(&#34;myCanvas&#34;); var ctx = c.getContext(&#34;2d&#34;); ctx.fillRect(10, 10, 100, 50); ctx.translate(150, 75); ctx.fillRect(10, 10, 100, 50); &lt;/script&gt;&lt;/canvas&gt;; &gt; 定义一个宽300px，高150px的画布  在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); translate(150,75)命令 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 此时，如果再画一个矩形，那么，位置，也会发生改变 画布并没有改变，但是，观察画布的位置发生了变化 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口 二：rotate &lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt; var c = document. ...  </p>
+&lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt;; var c = document.getElementById(&#34;myCanvas&#34;); var ctx = c.getContext(&#34;2d&#34;); ctx.fillRect(10, 10, 100, 50); ctx.translate(150, 75); ctx.fillRect(10, 10, 100, 50); &lt;/script&gt;&lt;/canvas&gt;;  &gt; 定义一个宽300px，高150px的画布    在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); translate(150,75)命令 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 此时，如果再画一个矩形，那么，位置，也会发生改变 画布并没有改变，但是，观察画布的位置发生了变化 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口   二：rotate &lt;canvas id=&#34;myCanvas&#34; style=&#34;border: 1px solid #d3d3d3;&#34; width=&#34;300&#34; height=&#34;150&#34;&gt; &lt;script&gt; var c = document. ...  </p>
               
           </section>
       </a>

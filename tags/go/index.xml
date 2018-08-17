@@ -36,7 +36,7 @@ Go 语言 官方并没有给出，repl 交互环境
  但是你知道-docker 就十分方便了-也给出docker的入门中文
 docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
 当你想与容器-gophernotes- 互通数据文件
-docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes  -p 端口互通
+docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes   -p 端口互通
  --mount 可以文件夹互通
  source 本地存在的文件夹 要自己新建
  target 容器的文件夹
@@ -53,11 +53,11 @@ docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-fi
 简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
 比如我 zsh
 # Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; 当然前提是要下载，在github 上就有很详细
-cd/my_project echo &amp;#34;echo &amp;#39;hello this is my project&amp;#39;&amp;#34; &amp;gt;&amp;gt; .envrc direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
+cd/my_project echo &amp;quot;echo &#39;hello this is my project&#39;&amp;quot; &amp;gt;&amp;gt; .envrc direnv allow  那么再你再进入这个目录时，自动运行 echo hello this is my project
 问题: 不需要 unloading or loading .envrc 之类的日志输出时。
 .zshrc
 # Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
-direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。</description>
+direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。  </description>
     </item>
     
     <item>

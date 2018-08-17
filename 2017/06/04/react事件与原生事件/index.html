@@ -48,6 +48,11 @@ JS Bin on jsbin.com
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -272,13 +277,13 @@ JS Bin on jsbin.com
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/">pm2 window 开机启动</a></li>            
+          <li><a href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">Mac 使用 NTFS </a></li>            
         
-          <li><a href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ionic 项目 npm问题解决</a></li>            
+          <li><a href="/2018/03/11/vue-slot-scope-2.5.-example/">vue slot-scope 2.5.* example</a></li>            
         
-          <li><a href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">hugo templete 语法</a></li>            
+          <li><a href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">Js - Module模式 - 私有-公有-命名空间</a></li>            
         
-          <li><a href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">node 命令行应用 与 npm 包发布</a></li>            
+          <li><a href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">babel 继承 Es5</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -311,7 +316,7 @@ JS Bin on jsbin.com
 如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
  简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
  数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = 'Lucy' next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
               
           </section>
       </a>

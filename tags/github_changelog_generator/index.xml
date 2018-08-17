@@ -23,8 +23,8 @@ gem install github_changelog_generator 示例
 快速token生成&amp;ndash;点击
 然后 把 获得 token id 放进 .bashrc or .zshrc
 # Add ChangeLog github token export CHANGELOG_GITHUB_TOKEN=&amp;#39;token id&amp;#39; 使用 在你的项目中，
-github_changelog_generator or
-github_changelog_generator github_name/github_project 更多信息 github_changelog_generator --help 为什么 ChangeLog 重要 or 如何维护更新日志
+github_changelog_generator  or
+github_changelog_generator github_name/github_project  更多信息 github_changelog_generator --help  为什么 ChangeLog 重要 or 如何维护更新日志
 github库</description>
     </item>
     

@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -144,11 +149,13 @@
           
           <a href="/tags/hexo"> hexo </a> (2)&nbsp;&#x2F;&nbsp;
           
+          <a href="/tags/hightlight"> hightlight </a> (1)&nbsp;&#x2F;&nbsp;
+          
           <a href="/tags/html5"> html5 </a> (1)&nbsp;&#x2F;&nbsp;
           
           <a href="/tags/hubot"> hubot </a> (1)&nbsp;&#x2F;&nbsp;
           
-          <a href="/tags/hugo"> hugo </a> (4)&nbsp;&#x2F;&nbsp;
+          <a href="/tags/hugo"> hugo </a> (5)&nbsp;&#x2F;&nbsp;
           
           <a href="/tags/hyper"> hyper </a> (1)&nbsp;&#x2F;&nbsp;
           
@@ -261,57 +268,24 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/04/21/react.component-use-class-or-classname/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/21/React-Component-use-class-or-className/logo_og.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/04/21/react.component-use-class-or-classname/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #react  </span>
-              
-              <h2 class="post-card-title">React.Component use class or className</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>React 中 继承 React.Component react v15.4.1
-一般来说的做法是
-外层元素 用 className 里层元素 也用 className
-而在 fackbook文档-web Component 中
-例子中
-x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
-class HelloMessage3 extends React.Component { render() { return &lt;div className=&#39;new&#39;&gt; className=&#39;new&#39; &lt;x-search class=&#39;new2&#39; &gt;{this.props.name}&lt;/x-search&gt; &lt;span className=&#39;new2&#39;&gt;好&lt;/span&gt; class=&#39;new2&#39; &lt;/div&gt;; } } ReactDOM.render( &lt;HelloMessage name=&#39;1&#39; /&gt;, document.getElementById(&#39;root&#39;) );  Codepen Demo 参考 Codepen 参考
-.new{ color:red; } .new2{ color:blue; } 。。。。未完待续 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/post/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    <a class="post-card-image-link" href="/1/01/01/hello-world/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/">
+      <a class="post-card-content-link" href="/1/01/01/hello-world/">
           <header class="post-card-header">
               
-              <h2 class="post-card-title">Posts</h2>
+              <h2 class="post-card-title">Hello World</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> </p>
+                <p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick Start Create a new post $ hexo new &#34;My New Post&#34; More info: Writing
+Run server $ hexo server More info: Server
+Generate static files $ hexo generate More info: Generating
+Deploy to remote sites $ hexo deploy More info: Deployment </p>
               
           </section>
       </a>
@@ -326,32 +300,68 @@ class HelloMessage3 extends React.Component { render() { return &lt;div classNam
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/03/15/webpack-less-autoprefixer/">
-      <div class="post-card-image" style="background-image: url(https://s3.amazonaws.com/codementor_content/2016-Sept/webpack.jpg)"></div>
+    <a class="post-card-image-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/herokulogo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/03/15/webpack-less-autoprefixer/">
+      <a class="post-card-content-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #webpack 
-              #less 
-              #Autoprefixer 
-              #postCss  </span>
+              #heroku  </span>
               
-              <h2 class="post-card-title">webpack&#43;less&#43;Autoprefixer</h2>
+              <h2 class="post-card-title">heroku web  port 问题</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>webpack  前端打包工具
- js css 图片 之类 压缩 生产化
- 现在，配置其中一项，css文件的加载器，loader
-   不同的是，配置结果，是为了，把less &gt; css + 补全浏览器前缀
-还有 babel js 语法
- postcss.config.js 启动补全前缀
-module.exports = { plugins: [ require(&#39;autoprefixer&#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
-var path = require(&#39;path&#39;); var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;); const webpack = require(&#39;webpack&#39;); module.exports = { entry: &#39;./app/index.js&#39;, output: { filename: &#39;bundle.js&#39;, path: path.resolve(__dirname, &#39;dist&#39;) }, module: { rules: [{ test: /\. ...  </p>
+                <p>本文说明，一点heroku疑问
+procfile heroku运行的命令文件
+web worker clock  本地项目可以 查看procfile
+heroku ps  可以使用 js的web框架express koa
+web: node index.js  但是 app.listen(port) 一定要是他们定下来的
+var port = process.env.PORT  同理 python
+import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就能看到了 </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/nodelogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #npm 
+              #node命令行  </span>
+              
+              <h2 class="post-card-title">node 命令行应用 与 npm 包发布</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>先讲讲 Npm
+NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
+让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
+安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
+npm -v  更新NPM版本的命令: sudo npm install npm -g  使用 npm安装nodejs模块语法格式:
+npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
+npm install express //本地安装 npm install express -g //全局安装  两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
+可以用以下命令来查看所有全局安装的模块:
+npm ls -g  Package. ...  </p>
               
           </section>
       </a>

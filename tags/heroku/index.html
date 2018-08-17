@@ -37,6 +37,11 @@
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -165,8 +170,8 @@
               
                 <p>本文说明，一点heroku疑问
 procfile heroku运行的命令文件
-web worker clock 本地项目可以 查看procfile
-heroku ps 可以使用 js的web框架express koa
+web worker clock  本地项目可以 查看procfile
+heroku ps  可以使用 js的web框架express koa
 web: node index.js  但是 app.listen(port) 一定要是他们定下来的
 var port = process.env.PORT  同理 python
 import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就能看到了 </p>

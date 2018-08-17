@@ -48,6 +48,11 @@ var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// O
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -227,13 +232,13 @@ b<span style="color:#6272a4">// Object {}
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">vscode 扩展Api实践</a></li>            
-        
-          <li><a href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">node 命令行应用 与 npm 包发布</a></li>            
-        
-          <li><a href="/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/">processing p5 js 动画与游戏制造</a></li>            
-        
           <li><a href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">批量修改文件名-cmd:bash</a></li>            
+        
+          <li><a href="/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">github hand fun vscode 用户自定义代码片段</a></li>            
+        
+          <li><a href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">mo.js 专注动画</a></li>            
+        
+          <li><a href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">Typescript类-转换学习</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -299,7 +304,7 @@ var testModule = (function () { //私有变量 var myPrivateVar = 0; //记录所
           <section class="post-card-excerpt">
               
                 <p>区别 浏览器   Chrome + Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 == this ? console.log(a) : console.log(0);  输出结果：
-2 7 7  也就是说，浏览器，认为 local 函数返回的 this
+2 7 7   也就是说，浏览器，认为 local 函数返回的 this
  和 window，总this 是相同的！
   node v6.9.2
  对于同样的代码

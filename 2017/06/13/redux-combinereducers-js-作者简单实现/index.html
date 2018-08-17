@@ -48,6 +48,11 @@ combineReducers  js 简单实现
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -192,13 +197,13 @@ combineReducers  js 简单实现
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">mo.js 专注动画</a></li>            
+          <li><a href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">放原网页首页进来</a></li>            
         
-          <li><a href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">zsh completion tab 补全提示</a></li>            
+          <li><a href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">node 命令行应用 与 npm 包发布</a></li>            
         
-          <li><a href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">windows7 pylint ASCII 问题解决</a></li>            
+          <li><a href="/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/">processing p5 js 动画与游戏制造</a></li>            
         
-          <li><a href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">pip npm conda 换下载源</a></li>            
+          <li><a href="/2017/12/04/mrm-%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%A4%9A%E4%B8%AAjson/">mrm 管理你的多个json</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -212,7 +217,7 @@ combineReducers  js 简单实现
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
@@ -263,7 +268,7 @@ const PropTypes = require(&#39;prop-types&#39;); class Button extends React.Comp
 如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
  简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
  数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
-const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&gt; { ctx.name = 'Lucy' next() }) app.use((ctx, next) =&gt; { ctx.age = 12 next() }) app.use((ctx, next) =&gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&gt; Lucy is 12 years old. next() }) // . ...  </p>
               
           </section>
       </a>

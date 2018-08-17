@@ -13,10 +13,10 @@
     <link rel="canonical" href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/" />
 
      <meta name="description" content=" yarn 全局下载时不使用 sudo 方法如下
-yarn global bin // 默认全局下载目录 开始设置 新建目录
+yarn global bin // 默认全局下载目录  开始设置 新建目录
 mkdir ~/.yarn-global  设置目录
-yarn config set prefix ~/.yarn-global 写入 .zshrc / .bashrc
-export PATH=" /> 
+yarn config set prefix ~/.yarn-global  写入 .zshrc / .bashrc
+export PAT" /> 
 
      
     
@@ -25,10 +25,10 @@ export PATH=" />
  
     <meta name="twitter:title" content="yarn no sudo 设置"/>
     <meta name="twitter:description" content=" yarn 全局下载时不使用 sudo 方法如下
-yarn global bin // 默认全局下载目录 开始设置 新建目录
+yarn global bin // 默认全局下载目录  开始设置 新建目录
 mkdir ~/.yarn-global  设置目录
-yarn config set prefix ~/.yarn-global 写入 .zshrc / .bashrc
-export PATH="/>
+yarn config set prefix ~/.yarn-global  写入 .zshrc / .bashrc
+export PAT"/>
     <meta name="twitter:url" content="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/" />
     <meta name="twitter:site" content="@"/>
 
@@ -39,10 +39,10 @@ export PATH="/>
 
     <meta property="og:type" content="article" />
     <meta property="og:description" content=" yarn 全局下载时不使用 sudo 方法如下
-yarn global bin // 默认全局下载目录 开始设置 新建目录
+yarn global bin // 默认全局下载目录  开始设置 新建目录
 mkdir ~/.yarn-global  设置目录
-yarn config set prefix ~/.yarn-global 写入 .zshrc / .bashrc
-export PATH=" />
+yarn config set prefix ~/.yarn-global  写入 .zshrc / .bashrc
+export PAT" />
 
     <meta property="article:published_time" content="2017-12-22T20:43:06Z" />
     <meta property="article:tag" content="yarn" />
@@ -52,6 +52,11 @@ export PATH=" />
     <meta name="generator" content="Hugo 0.45.1" />
 
     <!-- Stylesheets -->
+    <style>
+    div.highlight {
+        width:100%;
+    }
+    </style>
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
     <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
@@ -125,7 +130,7 @@ export PATH=" />
         <h1 class="post-full-title">yarn no sudo 设置</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
     </figure>
 
     <section class="post-full-content">
@@ -135,15 +140,27 @@ export PATH=" />
 <h1 id="yarn-全局下载时不使用-sudo">yarn 全局下载时不使用 sudo</h1>
 
 <p>方法如下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">yarn global bin // 默认全局下载目录</pre></div>
+
+<pre><code>yarn global bin // 默认全局下载目录
+</code></pre>
+
 <h2 id="开始设置">开始设置</h2>
 
 <p>新建目录</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mkdir ~/.yarn-global </pre></div>
+
+<pre><code>mkdir ~/.yarn-global 
+</code></pre>
+
 <p>设置目录</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">yarn config set prefix ~/.yarn-global</pre></div>
+
+<pre><code>yarn config set prefix ~/.yarn-global
+</code></pre>
+
 <p>写入 .zshrc / .bashrc</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">export PATH=&#34;$PATH:$HOME/.yarn-global&#34;</pre></div>
+
+<pre><code>export PATH=&quot;$PATH:$HOME/.yarn-global&quot;
+</code></pre>
+
 <h2 id="内容地址-https-github-com-yarnpkg-yarn-issues-2108"><a href="https://github.com/yarnpkg/yarn/issues/2108">内容地址</a></h2>
     
         </div>
@@ -187,13 +204,13 @@ export PATH=" />
     <div class="read-next-card-content">
       
         <ul>
-          <li><a href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">Mac 使用 NTFS </a></li>            
+          <li><a href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">hugo templete 语法</a></li>            
         
-          <li><a href="/2017/01/11/tensorflow-by-google/">TensorFlow by Google</a></li>            
+          <li><a href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">windows7 pylint ASCII 问题解决</a></li>            
         
-          <li><a href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">google 备份与同步 mac版无法登录问题</a></li>            
+          <li><a href="/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/">FiraCode 使用在 Vscode 的问题</a></li>            
         
-          <li><a href="/2017/06/16/preact-%E5%B0%8Freact/">Preact 小React</a></li>            
+          <li><a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">hexo-disqus-proxy-heroku 发布 感觉一般般</a></li>            
         </ul>
     </div>
     <footer class="read-next-card-footer">
@@ -207,7 +224,7 @@ export PATH=" />
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
@@ -242,7 +259,7 @@ static relative absolute fixed 这四个
       <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -261,11 +278,11 @@ static relative absolute fixed 这四个
 简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
 比如我 zsh
 # Add direnv hook eval &#34;$(direnv hook zsh)&#34; 当然前提是要下载，在github 上就有很详细
-cd/my_project echo &#34;echo &#39;hello this is my project&#39;&#34; &gt;&gt; .envrc direnv allow 那么再你再进入这个目录时，自动运行 echo hello this is my project
+cd/my_project echo &quot;echo 'hello this is my project'&quot; &gt;&gt; .envrc direnv allow  那么再你再进入这个目录时，自动运行 echo hello this is my project
 问题: 不需要 unloading or loading .envrc 之类的日志输出时。
 .zshrc
 # Add direnv hook eval &#34;$(direnv hook zsh)&#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
-direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。 </p>
+direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。   </p>
               
           </section>
       </a>
