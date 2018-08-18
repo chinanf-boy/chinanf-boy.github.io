@@ -87,138 +87,93 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #css  </span>
-              
-              <h2 class="post-card-title">position sticky 粘连定位</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> position css 的 position 定位
-一般我们使用
-static relative absolute fixed 这四个
-现在有个实验的 粘连定位 position: sticky
- 可以让我们 一边固定 一边滚动 出范围就不固定, 滚动查看 A-C-D.. 标签的位置
- See the Pen 粘性定位 by braveyo (@china-boy) on CodePen.   </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #npm 
-              #zsh  </span>
-              
-              <h2 class="post-card-title">zsh completion tab 补全提示</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>npm 和 git 补全噢😯 npm &lt;Tab&gt;  会补全命令
-npm实现代码 https://github.com/npm/npm/blob/master/lib/utils/completion.sh
-or
-npm completion git 实现代码
-分终端（zsh,bash..) 分实现文件 https://github.com/git/git/blob/master/contrib/completion/
-因为npm 的实现文件只有一个，懒为主。
-我的是 zsh
-首先定义一个可执行文件 sh
-test_completion.sh
-if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm  当你运行上面 什么都没有的 文件时
-or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
-之前npm &lt;Tab&gt; 的 提示就会没有
-## 代码分解
- if type
- 是为了判断 compdef 是否存在 这是 zsh 定义的 函数命令
- &amp;&gt;/del/null
- 应该是把 错误 文件化 放到 /dev/null
- compdef _test_completion npm
- 这里有三个变量
- compdef 是 函数调用
- _test_completion 是 compdef 的第一个变量，用来定义 补全规则
-  compdef(_test_completion)
- npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
-只要把 npm 替换成 git 那么，
-git 的 补全命令 也会被替换 什么都没有。
-补全规则 _test_completion(){ }   zsh 实现了 简便的 命令添加-函数
- compadd 源代码中主要
-compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
- 源文档太大了，截掉什么看看区别
- 当我把 npm completion -- &quot;${words[@]}&quot; \ 剪掉
-npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
-不过我们看了终点，不如回到原点。加加看
- 示例
- _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
- 再试试
-  _test_completion() { echo &quot;${words[@]}&quot; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
- ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/11/15/hugo-i18n/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
+    <a class="post-card-image-link" href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/pipenvlogo.jpg)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/15/hugo-i18n/">
+      <a class="post-card-content-link" href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #hugo 
-              #i18n  </span>
+              #python 
+              #pipenv  </span>
               
-              <h2 class="post-card-title">hugo i18n </h2>
+              <h2 class="post-card-title">pipenv 快速构建虚拟python环境</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>双语 hugo的国际化 由源于 内置 go-i18n
-方式 一: 翻译 string  类似与 菜单栏 nav
- 有两种方式
- 在项目根目录  创建 i18n 文件夹
-i18n
-en.toml/yaml zh.toml/yaml  en.toml
-[home] other = &quot;home&quot;  zh.toml
-[home] other = &quot;主页&quot;  上面的设置好后，在 模版主题中使用
-*.html
-{{ i18n &quot;home&quot; }}  这样在
-html 头的带领下 呈现 en/zh.toml
-&lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
- config.toml
-defaultContentLanguage = &quot;en&quot; # 这里是 默认网址 https://example.com # 如果是 true https://example. ...  </p>
+                <p>pipenv python的快速构建虚拟环境 使用 pip install pipenv  搭建 pipenv --three pipenv --two   &ndash;three 3.x版本 &ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境共用 必须保证，下载 pipenv的pip，是纯净的python 2. 运行 pipenv &ndash;three ，如果出现错误，像我 因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建， 但是之前说了，为了纯净，这就会发生错误。
+$ pipenv --three error $ which python anaconda/bin/python  ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
+Mac oX 系统
+$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6  更多 Github 官网 </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
+      <div class="post-card-image" style="background-image: url(https://babeljs.io/images/logo.svg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #babel 
+              #Es5  </span>
+              
+              <h2 class="post-card-title">babel 继承 Es5</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>继承 复制下面代码 - 点击https://babeljs.io/repl/
+class b { constructor(c,d){ c = c+&#39;1111&#39;; console.log(c,d); } start(){ console.log(&#39;ba ba&#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&#39;222222&#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&#39;son&#39;); } } var o1 = new a(&#39;first&#39;, &#39;second&#39;); console.log(&#39;------------------&#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
+一个 ， 丑陋的 写法，构造，与原型，的，概念.
+增加，初学者的入门，难度, 不过，好在，
+TypeScript babel 语法实现
+ coffeeScript 太极端了， 一堆空格。
+有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
+ 让我们不在需要，对，继承, ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Posts</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> </p>
               
           </section>
       </a>
