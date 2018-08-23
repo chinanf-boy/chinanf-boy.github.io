@@ -140,135 +140,100 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
+    <a class="post-card-image-link" href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">
       <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
+      <a class="post-card-content-link" href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Travis Ci 测试以及 发布 npm</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> translate-js 在我的 项目发布问题上
+ISSUE3
+主要问题 在于 travis CI 识别 Npm-version-标签的 提交
+git push --tags  进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
+在我提交多个标签
+到 github
+v2.1 v2.2 v2.3
+但是 Travis Ci 的测试顺序 是反过来的，也就是说，我Npm的版本变成了
+v2.1 可以看  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">
+      <div class="post-card-image" style="background-image: url(https://www.gstatic.com/images/branding/product/1x/drive_512dp.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #google drive  </span>
+              
+              <h2 class="post-card-title">google 备份与同步 mac版无法登录问题</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>在中国
+问题1: 即便代理开了, 登录 google 备份与同步 应用 , 也登录不了 解决1: 可以试试 mac 切到 http 代理 解决2: 浏览器登录 如果也是错误的, 请把 代理扩展 - 代理协议 换成 http
+{% asset_img fix-2.png This is an image %} </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/nodelogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">
           <header class="post-card-header">
               <span class="post-card-tags">
               #npm 
-              #zsh  </span>
+              #node命令行  </span>
               
-              <h2 class="post-card-title">zsh completion tab 补全提示</h2>
+              <h2 class="post-card-title">node 命令行应用 与 npm 包发布</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>npm 和 git 补全噢😯 npm &lt;Tab&gt;  会补全命令
-npm实现代码 https://github.com/npm/npm/blob/master/lib/utils/completion.sh
-or
-npm completion git 实现代码
-分终端（zsh,bash..) 分实现文件 https://github.com/git/git/blob/master/contrib/completion/
-因为npm 的实现文件只有一个，懒为主。
-我的是 zsh
-首先定义一个可执行文件 sh
-test_completion.sh
-if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm  当你运行上面 什么都没有的 文件时
-or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
-之前npm &lt;Tab&gt; 的 提示就会没有
-## 代码分解
- if type
- 是为了判断 compdef 是否存在 这是 zsh 定义的 函数命令
- &amp;&gt;/del/null
- 应该是把 错误 文件化 放到 /dev/null
- compdef _test_completion npm
- 这里有三个变量
- compdef 是 函数调用
- _test_completion 是 compdef 的第一个变量，用来定义 补全规则
-  compdef(_test_completion)
- npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
-只要把 npm 替换成 git 那么，
-git 的 补全命令 也会被替换 什么都没有。
-补全规则 _test_completion(){ }   zsh 实现了 简便的 命令添加-函数
- compadd 源代码中主要
-compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
- 源文档太大了，截掉什么看看区别
- 当我把 npm completion -- &quot;${words[@]}&quot; \ 剪掉
-npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
-不过我们看了终点，不如回到原点。加加看
- 示例
- _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
- 再试试
-  _test_completion() { echo &quot;${words[@]}&quot; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
- ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/">
-          <header class="post-card-header">
-              
-              <h2 class="post-card-title">Mac 使用 NTFS </h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> 本机：10.12.4版本 Mounty：1.6(9)
-介绍 Mac 使用 NTFS 方法 直接下载 安装包或查看官网
-官方网址
-下载链接
- 或
- 你有 Homebrew , 你可以
-brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件复制／粘贴
-请确保U盘之类： 正确-推出 ✅
-避免： 直接拔出 ❌
-不正确的操作，会导致BUG,和一定后果 可看官网 下拉 到下面标题
-Some questions that might come up   </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #hexo  </span>
-              
-              <h2 class="post-card-title">放原网页首页进来</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>把完整的网页放进，hexo中  我做了一下步骤
- 在不影响，快捷命令
-hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
-所以，放source才能被 看到
- 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
- 3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
- 4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
- 提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
-... skip_render [floder/*, floder/**/*] 具体看这issue </p>
+                <p>先讲讲 Npm
+NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
+让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
+安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
+npm -v  更新NPM版本的命令: sudo npm install npm -g  使用 npm安装nodejs模块语法格式:
+npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
+npm install express //本地安装 npm install express -g //全局安装  两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
+可以用以下命令来查看所有全局安装的模块:
+npm ls -g  Package. ...  </p>
               
           </section>
       </a>

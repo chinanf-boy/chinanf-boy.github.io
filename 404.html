@@ -87,21 +87,30 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
-      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/31415a8c001234dbf4875c2c5a44b646fb9338b4/68747470733a2f2f63646e2e7261776769742e636f6d2f646576656c6f7069742f62343431366435633932623734336462616563316536386263346332376364612f7261772f333233356463353038663765623833346562663438343138616561323132613035646631336462312f7072656163742d6c6f676f2d7472616e732e737667)"></div>
-    </a>
+    <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
+      <a class="post-card-content-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #hexo  </span>
               
-              <h2 class="post-card-title">Preact 小React</h2>
+              <h2 class="post-card-title">放原网页首页进来</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> Preact webSite
-See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { h, render, Component } from &#39;preact&#39;  </p>
+                <p>把完整的网页放进，hexo中  我做了一下步骤
+ 在不影响，快捷命令
+hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
+所以，放source才能被 看到
+ 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
+ 3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
+ 4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
+ 提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
+... skip_render [floder/*, floder/**/*] 具体看这issue </p>
               
           </section>
       </a>
@@ -116,27 +125,28 @@ See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { 
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/24/Redux-%E5%9F%BA%E7%A1%80/CPxwNCzSTOWdD4YprFIX_reduxblog.webp)"></div>
+    <a class="post-card-image-link" href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">
+      <div class="post-card-image" style="background-image: url(https://github.com/legomushroom/mojs/blob/master/motion-for-the-web-3.png?raw=true)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">
+      <a class="post-card-content-link" href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #Redux 
-              #React  </span>
+              #mo  </span>
               
-              <h2 class="post-card-title">Redux 基础</h2>
+              <h2 class="post-card-title">mo.js 专注动画</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>一个世界(store)  redux的中心思想，一直是共享数据的理念
- 只有一个更改数据的接口dispatch
- 一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 import { createStore } from &#34;redux&#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
- const reducer = function( state, action ) { if (action.type === &#34;Something&#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &#34;Another&#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在 ...  </p>
+                <p>css-trick-介绍
+ mo.js官网 github
+ 专注 运动图形工具
+具有声明式命令
+ See the Pen Geometric Mo.js Burst by braveyo (@china-boy) on CodePen.  也可以看看，点赞的优秀动画
+ 还有个 medium 中型拍手 例子
+ See the Pen Medium clap effect by braveyo (@china-boy) on CodePen.  所以的所有，去官网去找吧 </p>
               
           </section>
       </a>
@@ -151,37 +161,64 @@ See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { 
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/go-logo.jpeg)"></div>
-    </a>
+    <a class="post-card-image-link" href="/2017/01/11/tensorflow-by-google/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/">
+      <a class="post-card-content-link" href="/2017/01/11/tensorflow-by-google/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #go 
-              #js 
-              #repl  </span>
+              #机器学习 
+              #图像识别  </span>
               
-              <h2 class="post-card-title">mac repl js go 大混杂</h2>
+              <h2 class="post-card-title">TensorFlow by Google</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>这是我 mac 上 repl 软件-「js, go」 大混杂
-Go 语言 官方并没有给出，repl 交互环境
-所以有 gore 这类-终端的
-用起来，就像 node
- 不过我想说得是   gophernotes jupyter Go 内核  没错，能在jupyter 上用内核，
- 不过 -mac- 上无法使用
- 但是你知道-docker 就十分方便了-也给出docker的入门中文
-docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
-当你想与容器-gophernotes- 互通数据文件
-docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes   -p 端口互通
- --mount 可以文件夹互通
- source 本地存在的文件夹 要自己新建
- target 容器的文件夹
-    用alias 命名一下，就好用了 ...  </p>
+                <p>So ,开始吧！
+这份学习来自于Google 在 Github上的开源项目 TensorFlow
+要知道，当今，如果，你想，实现一个机器人的 “大脑”。
+😯，那么你要做得事情，会很多很多，难度说到这里。
+正题：
+机器学习的概念，定义一长串？！
+所以，通俗的说。
+1.输入
+2.TensorFlow
+3.输出
+ 从 1⃣️ 开始：TensorFlow具有简单的运行公式，即便它本身的函数名看起来是那么那么的繁杂
+ 输入:(=训练数据=)； 我的标题是 《图像识别》，那么，也就是
+官方的例子，#如何识别图片是什么花#。
+虽然说是机器学习，但是完成一项识别工作，是繁重的。
+就如每个动物出生，要别——动物 ^ _ ^ 告诉他／她／它
+哦，这是爸爸，哦，这是妈妈。。。
+那么前期的工作就是，花的图片，大量大量的，越多越好||😢
+ 像五年高考，三年模拟，的题海战术，不想回忆
+  这是红菊
+这是黄菊
+ 但还是菊，科科
+收集起来，放一起，这就是需要训练的数据。
+2⃣️：TensorFlow
+在前一步，完成图片的收集后，是时候，入厂了喔。
+ 我现在不放代码，只是单纯从，非专业人士的角度。
+概su，毕竟，猫🐱总是好奇的嘛
+ 好了，现在，手握大量图片，再然后事情就不归我们管了
+ps：代码就是看起来很厉害的，一串东东
+图片库路径=&gt;(代码)
+代码里面有(TensorFlow的各种算法) 什么样的算法？不用管
+像选 商品一样，想用哪个用哪个
+总结下&gt;&gt;&gt; 图片库，_写入&gt;代码，代码里含有（算法）。
+然后，很重要的一点，就是，就是，哦，告诉代码，对
+告诉代码，这个图片库路径是什么花🌹。哪个是什么花
+ok👌。是不是很简单
+ 3⃣️：输入
+为什么，我们要使用机器学习，来完成图片识别，
+或者说
+未来，机器人大脑数据的构成。
+因为，我们想要一台 不断成长的 机器人。后果另算
+ 重新说回，输入
+ 这个时候，大手大脚，的，测试吧， ...  </p>
               
           </section>
       </a>
