@@ -140,28 +140,30 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
-    </a>    
+    <a class="post-card-image-link" href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
+    </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/">
+      <a class="post-card-content-link" href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #hugo  </span>
               
-              <h2 class="post-card-title">Travis Ci 测试以及 发布 npm</h2>
+              <h2 class="post-card-title">hugo templete 语法</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> translate-js 在我的 项目发布问题上
-ISSUE3
-主要问题 在于 travis CI 识别 Npm-version-标签的 提交
-git push --tags  进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
-在我提交多个标签
-到 github
-v2.1 v2.2 v2.3
-但是 Travis Ci 的测试顺序 是反过来的，也就是说，我Npm的版本变成了
-v2.1 可以看  </p>
+                <p>--- title: &quot;Hugo Template&quot; date: 2017-11-14T15:39:48+08:00 description: &quot;a hugo template example&quot; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg ---  hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
+{{ block &quot;main&quot; . }}{{ end }}   定义 区域块
+ 其他 html themes/youthemes/layouts/_default/list.html
+{{ define &quot;main&quot; }} {{ end }}   注意⚠️ themes/youthemes/layouts/_default/single.html
+themes/youthemes/layouts/_default/list.html
+ 对于，Hugo 来说，网站分为 index.html list.html single.html
+ 根目录文件夹中
+ 在 content 文件夹下 就是 路由
+content about // list. ...  </p>
               
           </section>
       </a>
@@ -176,24 +178,25 @@ v2.1 可以看  </p>
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">
-      <div class="post-card-image" style="background-image: url(https://www.gstatic.com/images/branding/product/1x/drive_512dp.png)"></div>
+    <a class="post-card-image-link" href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">
+      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/24/Redux-%E5%9F%BA%E7%A1%80/CPxwNCzSTOWdD4YprFIX_reduxblog.webp)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">
+      <a class="post-card-content-link" href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #google drive  </span>
+              #Redux 
+              #javascript  </span>
               
-              <h2 class="post-card-title">google 备份与同步 mac版无法登录问题</h2>
+              <h2 class="post-card-title">Redux combineReducers js 作者简单实现</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>在中国
-问题1: 即便代理开了, 登录 google 备份与同步 应用 , 也登录不了 解决1: 可以试试 mac 切到 http 代理 解决2: 浏览器登录 如果也是错误的, 请把 代理扩展 - 代理协议 换成 http
-{% asset_img fix-2.png This is an image %} </p>
+                <p> 来源 Redux作者入门教程
+combineReducers  js 简单实现
+ const combineReducers = (reducers) =&gt;{ return (state = {}, action) =&gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; };  </p>
               
           </section>
       </a>
@@ -208,32 +211,37 @@ v2.1 可以看  </p>
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/nodelogo.png)"></div>
+    <a class="post-card-image-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
+      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/f63754b8412368e820601967af6dea84312b925b/68747470733a2f2f7265616374747261696e696e672e636f6d2f72656163742d726f757465722f616e64726f69642d6368726f6d652d313434783134342e706e67)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/">
+      <a class="post-card-content-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #npm 
-              #node命令行  </span>
+              #react 
+              #react-router  </span>
               
-              <h2 class="post-card-title">node 命令行应用 与 npm 包发布</h2>
+              <h2 class="post-card-title">react-router v4 哎 路由</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>先讲讲 Npm
-NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
-让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
-安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
-npm -v  更新NPM版本的命令: sudo npm install npm -g  使用 npm安装nodejs模块语法格式:
-npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
-npm install express //本地安装 npm install express -g //全局安装  两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
-全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
-可以用以下命令来查看所有全局安装的模块:
-npm ls -g  Package. ...  </p>
+                <p>react-router v4  react 的路由解决方案
+ 而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
+ &lt;Route path=&quot;/&quot; component={App} /&gt;  注意这个 ／
+比如我的 域名 llever.com
+当应用直接放在 llever.com/ 的时候，会实用。
+但是 如果我想 放在 llever.com/about/
+也正是我想做的.
+但是，本地测试 在 ／ :localhost:3000
+而， 我要放的地方在 /about/,
+万一，我想放在 /user/ 又去改，源码。妖
+资源路径 · 请求- 资源- 的 路径
+确保，刷新网页后，
+要是，服务器渲染，资源要对上啊。
+用 绝对路径 ，当我没说, 那还是用吧。（不用服务器渲染，真的好慢-首页）
+有没有，谁能 告诉我， 代码放哪，路由跟哪 的方法 </p>
               
           </section>
       </a>
