@@ -268,94 +268,104 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/24/Redux-%E5%9F%BA%E7%A1%80/CPxwNCzSTOWdD4YprFIX_reduxblog.webp)"></div>
+    <a class="post-card-image-link" href="/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">
+      <a class="post-card-content-link" href="/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #Redux 
-              #javascript  </span>
+              #hugo 
+              #hightlight  </span>
               
-              <h2 class="post-card-title">Redux combineReducers js 作者简单实现</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> 来源 Redux作者入门教程
-combineReducers  js 简单实现
- const combineReducers = (reducers) =&gt;{ return (state = {}, action) =&gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; };  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/24/Redux-%E5%9F%BA%E7%A1%80/CPxwNCzSTOWdD4YprFIX_reduxblog.webp)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Redux 
-              #React  </span>
-              
-              <h2 class="post-card-title">Redux 基础</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>一个世界(store)  redux的中心思想，一直是共享数据的理念
- 只有一个更改数据的接口dispatch
- 一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
-  创造数据中心 import { createStore } from &#34;redux&#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
- const reducer = function( state, action ) { if (action.type === &#34;Something&#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &#34;Another&#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在 ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2014/04/02/hugo-template-primer/">
-      <div class="post-card-image" style="background-image: url(/img/writing.jpg)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2014/04/02/hugo-template-primer/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #go 
-              #golang 
-              #templates 
-              #themes 
-              #development  </span>
-              
-              <h2 class="post-card-title">(Hu)go Template Primer</h2>
+              <h2 class="post-card-title">Hugo 语法高亮与md序列显示问题</h2>
           </header>
           <section class="post-card-excerpt">
                
-                <p>This is a description. Hugo uses the <strong>excellent</strong> go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic.</p>
+                <p>现在普遍有三种hugo高亮的解决 1. 内置 2. hightlight 3. 自定义css, 还有一个 hugo markdown 解析器的问题</p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #javascript  </span>
+              
+              <h2 class="post-card-title">Js - Module模式 - 私有-公有-命名空间</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>在javascript中没有真正意义的‘私有’，因为不像传统语言- js 没有访问修饰符。从技术上来说，我们不能称变量为公有或私有.
+ 因此我们需使用函数作用域来模拟这个概念。
+ 由于闭包的存在，声明的变量和方法只在该模式内部可用，
+  但在返回对象上的定义的变量和方法，则对外部使用者都是可用的。
+var testModule = (function () { //私有变量 var myPrivateVar = 0; //记录所有参数的私有函数 var myPrivateMethod = function(bar){ console.log(bar); } return { //公有变量 myPublicVar : &#34;foo&#34;, //调用私有变量和方法的公有函数 myPublicFunction: function(bar){ //增加私有计数器值  myPrivateVar++; console.log(myPrivateVar); //传入bar调用私有方法  myPrivateMethod(bar); } }; })(); console.log(testModule); //用公有变量传值公有函数 testModule.myPublicFunction(testModule.myPublicVar);  输出
+{ myPublicVar: &#39;foo&#39;, myPublicFunction: [Function: myPublicFunction] } 1 foo  可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。
+却可以，通过两个函数来操控，myPrivateVar表现得就像一个私有变量。 </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/">
+      <div class="post-card-image" style="background-image: url(https://github.com/ory/editor/raw/master/logo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #react 
+              #typescript 
+              #material-ui 
+              #redux，bootstrap  </span>
+              
+              <h2 class="post-card-title">ory-editer 网页编辑器-基于react</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>ory 的 editer 用于网页的编辑器，Online 应该说，这是高级应用了  我的目标，也就是这极限了。
+看了下源码，真的看晕了
+react, typescript, material-ui, redux, bootstrap
+单独一二项，看的明白，混在一起的. 科科
+ 虽然说，用react框架省去了些，步骤，redux做全局，meterial-ui 做 UI ，bootstrap 做 布局 部分，代码文件，后缀名是，.js 但是，应该是，用工具转代码的， 因为，变量数据格式，太凸显 ， 还是说用了其他的方式。
+editor/packages/renderer/src/index.js v0.2.10 line-8
+const gridClass = (size: number = 12): string =&gt; `ory-cell-sm-${size}ory-cell-xs-12`   eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
+ 作者造搞了，自己的数据格式，主要通过 cells Raws
+状态是一个规范的JSON对象，不涉及HTML。
+也是为了，免xss威胁。
+行 列 去区分，显示
+editor/examples/src/content.js
+export default [ { &#34;id&#34;: &#34;1&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12, &#34;rows&#34;: [ { &#34;id&#34;: &#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;, &#34;cells&#34;: [ { &#34;id&#34;: &#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;, &#34;inline&#34;: null, &#34;size&#34;: 12,  用来对，服务器渲染，静态 ...  </p>
               
           </section>
       </a>

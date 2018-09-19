@@ -140,30 +140,25 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
-    </a>
+    <a class="post-card-image-link" href="/2017/11/14/vscode-git-lens/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">
+      <a class="post-card-content-link" href="/2017/11/14/vscode-git-lens/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #hugo  </span>
+              #vscode 
+              #git-lens  </span>
               
-              <h2 class="post-card-title">hugo templete 语法</h2>
+              <h2 class="post-card-title">vscode git lens</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>--- title: &quot;Hugo Template&quot; date: 2017-11-14T15:39:48+08:00 description: &quot;a hugo template example&quot; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg ---  hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
-{{ block &quot;main&quot; . }}{{ end }}   定义 区域块
- 其他 html themes/youthemes/layouts/_default/list.html
-{{ define &quot;main&quot; }} {{ end }}   注意⚠️ themes/youthemes/layouts/_default/single.html
-themes/youthemes/layouts/_default/list.html
- 对于，Hugo 来说，网站分为 index.html list.html single.html
- 根目录文件夹中
- 在 content 文件夹下 就是 路由
-content about // list. ...  </p>
+                <p>安利安利 git lens
+加强 git 文件之间 改动
+细分到 每一行由谁改 </p>
               
           </section>
       </a>
@@ -178,25 +173,29 @@ content about // list. ...  </p>
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/24/Redux-%E5%9F%BA%E7%A1%80/CPxwNCzSTOWdD4YprFIX_reduxblog.webp)"></div>
+    <a class="post-card-image-link" href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">
+      <a class="post-card-content-link" href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #Redux 
+              #typescript 
               #javascript  </span>
               
-              <h2 class="post-card-title">Redux combineReducers js 作者简单实现</h2>
+              <h2 class="post-card-title">Typescript类-转换学习</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> 来源 Redux作者入门教程
-combineReducers  js 简单实现
- const combineReducers = (reducers) =&gt;{ return (state = {}, action) =&gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; };  </p>
+                <p>#TypeScript
+typescript作为微软实现的js的超集.
+在类的实现，有如传统语言一样简单，
+例子：官方
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &#34;Hello, &#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &#34;Hello, &#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console. ...  </p>
               
           </section>
       </a>
@@ -211,37 +210,59 @@ combineReducers  js 简单实现
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
-      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/f63754b8412368e820601967af6dea84312b925b/68747470733a2f2f7265616374747261696e696e672e636f6d2f72656163742d726f757465722f616e64726f69642d6368726f6d652d313434783134342e706e67)"></div>
-    </a>
+    <a class="post-card-image-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
+      <a class="post-card-content-link" href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #react 
-              #react-router  </span>
+              #npm 
+              #zsh  </span>
               
-              <h2 class="post-card-title">react-router v4 哎 路由</h2>
+              <h2 class="post-card-title">zsh completion tab 补全提示</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>react-router v4  react 的路由解决方案
- 而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
- &lt;Route path=&quot;/&quot; component={App} /&gt;  注意这个 ／
-比如我的 域名 llever.com
-当应用直接放在 llever.com/ 的时候，会实用。
-但是 如果我想 放在 llever.com/about/
-也正是我想做的.
-但是，本地测试 在 ／ :localhost:3000
-而， 我要放的地方在 /about/,
-万一，我想放在 /user/ 又去改，源码。妖
-资源路径 · 请求- 资源- 的 路径
-确保，刷新网页后，
-要是，服务器渲染，资源要对上啊。
-用 绝对路径 ，当我没说, 那还是用吧。（不用服务器渲染，真的好慢-首页）
-有没有，谁能 告诉我， 代码放哪，路由跟哪 的方法 </p>
+                <p>npm 和 git 补全噢😯 npm &lt;Tab&gt;  会补全命令
+npm实现代码 https://github.com/npm/npm/blob/master/lib/utils/completion.sh
+or
+npm completion git 实现代码
+分终端（zsh,bash..) 分实现文件 https://github.com/git/git/blob/master/contrib/completion/
+因为npm 的实现文件只有一个，懒为主。
+我的是 zsh
+首先定义一个可执行文件 sh
+test_completion.sh
+if type compdef &amp;&gt;/dev/null; then _test_completion() { } compdef _test_completion npm  当你运行上面 什么都没有的 文件时
+or 复制 then 后面那段代码，粘贴到 命令行运行也可以。
+之前npm &lt;Tab&gt; 的 提示就会没有
+## 代码分解
+ if type
+ 是为了判断 compdef 是否存在 这是 zsh 定义的 函数命令
+ &amp;&gt;/del/null
+ 应该是把 错误 文件化 放到 /dev/null
+ compdef _test_completion npm
+ 这里有三个变量
+ compdef 是 函数调用
+ _test_completion 是 compdef 的第一个变量，用来定义 补全规则
+  compdef(_test_completion)
+ npm 是 compdef 的第二个变量。补全对象  compdef( _test_completion, npm )
+只要把 npm 替换成 git 那么，
+git 的 补全命令 也会被替换 什么都没有。
+补全规则 _test_completion(){ }   zsh 实现了 简便的 命令添加-函数
+ compadd 源代码中主要
+compadd -- $(COMP_CWORD=$((CURRENT-1)) \  COMP_LINE=$BUFFER \  COMP_POINT=0 \  npm completion -- &#34;${words[@]}&#34; \  2&gt;/dev/null) 这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义
+ 源文档太大了，截掉什么看看区别
+ 当我把 npm completion -- &quot;${words[@]}&quot; \ 剪掉
+npm &lt;Tab&gt;什么提示都没有了，看来这就是秘密。
+不过我们看了终点，不如回到原点。加加看
+ 示例
+ _test_completion() { compadd -- install } compdef _test_completion npm $ npm &lt;tab&gt; $ npm install 噢 那么就会提示 install
+ 再试试
+  _test_completion() { echo &quot;${words[@]}&quot; echo $CURRENT echo $BUFFER compadd -- install up } compdef _test_completion npm  
+ ...  </p>
               
           </section>
       </a>
