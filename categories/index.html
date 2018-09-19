@@ -140,98 +140,97 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/21/React-Component-use-class-or-className/logo_og.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #react 
-              #事件  </span>
-              
-              <h2 class="post-card-title">React事件与原生事件</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>实例 我们用一个实例，发现，原生与 react事件 冲突
-JS Bin on jsbin.com
-原生事件 document.body.addEventListener(&#39;click&#39;, e =&gt;{ this.setState({s1:!this.state.s1}) alert(&#39;body&#39;,e.target.alt,e.target.value) console.log(&#39;body&#39;,e.target.alt,e.target.value) })  react事件 onSubmit(e){ alert(&#39;onsubmit&#39;, e.target.value) this.setState({s1:!this.state.s1}) } //... &lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt;  点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
-实例的功能是
-点击二维码按钮，可以显示／隐藏，照片
- 在，照片显示时
- 1.点击非照片区域，可以隐藏，
-2.点击照片，没有变化
-  但是 可以看到，点击，显示照片，事件顺序
-body -&gt; div.code -&gt; div.root
-由此说来，body,的优先级很大啊
-但是 可以看到console面板，我留在，body事件的输出语句
-二维码 是 div.qr 的 value 值。
- img 是 div.code的 alt 值。
- 以此可以看出，原生body事件是，触发了， 而 e.target 是 二维码按钮的实例. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/03/11/vue-slot-scope-2.5.-example/">
-      <div class="post-card-image" style="background-image: url(https://vuejs.org/images/logo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/03/11/vue-slot-scope-2.5.-example/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #vue 
-              #slot-scope  </span>
-              
-              <h2 class="post-card-title">vue slot-scope 2.5.* example</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>都写在这里了 jsfiddle 🌰 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/">
+      <a class="post-card-content-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #mac Fix  </span>
+              #hexo  </span>
               
-              <h2 class="post-card-title">Macbook屏幕修理记</h2>
+              <h2 class="post-card-title">放原网页首页进来</h2>
           </header>
           <section class="post-card-excerpt">
-               
-                <p>macbook屏幕黑条问题-保修-维修记</p>
+              
+                <p>把完整的网页放进，hexo中  我做了一下步骤
+ 在不影响，快捷命令
+hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
+所以，放source才能被 看到
+ 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
+ 3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
+ 4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
+ 提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
+... skip_render [floder/*, floder/**/*] 具体看这issue </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">React-Redux 父-Provider 子-connect</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>来源 Redux作者
+React-Redux  两个主要 Api Provider connect
+ 先放一边
+React 的 context context 实现了，一个全局变量
+const PropTypes = require(&#39;prop-types&#39;); class Button extends React.Component { render() { return ( //################ &lt;button style={{background: this.context.color}}&gt; {this.props.children} &lt;/button&gt; ); } } //################ Button.contextTypes = { color: PropTypes.string }; class Message extends React.Component { render() { return ( &lt;div&gt; {this.props.text} &lt;Button&gt;Delete&lt;/Button&gt; &lt;/div&gt; ); } } class MessageList extends React.Component { //################  getChildContext() { return {color: &#34;purple&#34;}; } render() { const children = this. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #css  </span>
+              
+              <h2 class="post-card-title">position sticky 粘连定位</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> position css 的 position 定位
+一般我们使用
+static relative absolute fixed 这四个
+现在有个实验的 粘连定位 position: sticky
+ 可以让我们 一边固定 一边滚动 出范围就不固定, 滚动查看 A-C-D.. 标签的位置
+ See the Pen 粘性定位 by braveyo (@china-boy) on CodePen.   </p>
               
           </section>
       </a>
