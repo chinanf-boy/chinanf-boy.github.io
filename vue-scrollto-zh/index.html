@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title>vue-scrollto</title>
+    <link rel="stylesheet" href="https://unpkg.com/docute@2/dist/docute.css">
+</head>
+<body>
+<div id="app"></div>
+<script src="https://unpkg.com/docute@2/dist/docute.js"></script>
+<script src="https://unpkg.com/vue-scrollto@2.6.1"></script>
+<script src="landing.js"></script>
+<script>
+    docute.init({
+        repo: 'chinanf-boy/vue-scrollto-zh',
+
+        landing: true,
+
+        debug: true,
+
+        plugins: [
+            landing()
+        ],
+
+        nav: [
+            {title: 'Home', path: '/'},
+            {title: 'Docs', path: '/docs', source: 'https://raw.githubusercontent.com/chinanf-boy/vue-scrollto-zh/master/readme.md'},
+            {title: 'Examples', path: '/examples.zh', $source: 'examples.html'},
+            {title: 'Changelog', path: '/changelog.zh'},
+        ]
+    })
+</script>
+<!-- Google Analytics -->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-93972714-1', 'auto');
+    ga('send', 'pageview');
+    docute.router.afterEach(function (to) {
+        ga('set', 'page', to.fullPath);
+        ga('send', 'pageview');
+    });
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+</body>
+</html>

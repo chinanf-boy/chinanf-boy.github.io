@@ -140,30 +140,30 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
+    <a class="post-card-image-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
+      <div class="post-card-image" style="background-image: url(https://babeljs.io/images/logo.svg)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">
+      <a class="post-card-content-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #hugo  </span>
+              #babel 
+              #Es5  </span>
               
-              <h2 class="post-card-title">hugo templete 语法</h2>
+              <h2 class="post-card-title">babel 继承 Es5</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>--- title: &quot;Hugo Template&quot; date: 2017-11-14T15:39:48+08:00 description: &quot;a hugo template example&quot; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg ---  hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
-{{ block &quot;main&quot; . }}{{ end }}   定义 区域块
- 其他 html themes/youthemes/layouts/_default/list.html
-{{ define &quot;main&quot; }} {{ end }}   注意⚠️ themes/youthemes/layouts/_default/single.html
-themes/youthemes/layouts/_default/list.html
- 对于，Hugo 来说，网站分为 index.html list.html single.html
- 根目录文件夹中
- 在 content 文件夹下 就是 路由
-content about // list. ...  </p>
+                <p>继承 复制下面代码 - 点击https://babeljs.io/repl/
+class b { constructor(c,d){ c = c+&#39;1111&#39;; console.log(c,d); } start(){ console.log(&#39;ba ba&#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&#39;222222&#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&#39;son&#39;); } } var o1 = new a(&#39;first&#39;, &#39;second&#39;); console.log(&#39;------------------&#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
+一个 ， 丑陋的 写法，构造，与原型，的，概念.
+增加，初学者的入门，难度, 不过，好在，
+TypeScript babel 语法实现
+ coffeeScript 太极端了， 一堆空格。
+有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
+ 让我们不在需要，对，继承, ...  </p>
               
           </section>
       </a>
@@ -178,28 +178,24 @@ content about // list. ...  </p>
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/pythonlogo.png)"></div>
-    </a>
+    <a class="post-card-image-link" href="/1/01/01/hello-world/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <a class="post-card-content-link" href="/1/01/01/hello-world/">
           <header class="post-card-header">
-              <span class="post-card-tags">
-              #python  </span>
               
-              <h2 class="post-card-title">Python核心编程第三版-第二章代码运行 问题解决</h2>
+              <h2 class="post-card-title">Hello World</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>当在windows和Mac上，练习对应的代码时
-非常明显的错误就在于 传输类型
-TypeError: a bytes-like object is required, not &#39;str&#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &#39;str self.wfile.write(b&#39;[%s] %s&#39; % (bytes(ctime(), &#39;utf-8&#39;), bytes(self.rfile.readline(), &#39;utf-8&#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
-所以需要使用
- bytes() 函数
- 以下是可以正常运行的代码
-from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &#34;&#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&#39;connect. ...  </p>
+                <p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick Start Create a new post $ hexo new &#34;My New Post&#34; More info: Writing
+Run server $ hexo server More info: Server
+Generate static files $ hexo generate More info: Generating
+Deploy to remote sites $ hexo deploy More info: Deployment </p>
               
           </section>
       </a>
@@ -214,37 +210,26 @@ from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from ti
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">
-      <div class="post-card-image" style="background-image: url(https://chinanf-boy.github.io/2017/04/21/React-Component-use-class-or-className/logo_og.png)"></div>
-    </a>
+    <a class="post-card-image-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/">
+      <a class="post-card-content-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #react 
-              #事件  </span>
+              #npm 
+              #npx  </span>
               
-              <h2 class="post-card-title">React事件与原生事件</h2>
+              <h2 class="post-card-title">npx 不用下载全局包啦</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>实例 我们用一个实例，发现，原生与 react事件 冲突
-JS Bin on jsbin.com
-原生事件 document.body.addEventListener(&#39;click&#39;, e =&gt;{ this.setState({s1:!this.state.s1}) alert(&#39;body&#39;,e.target.alt,e.target.value) console.log(&#39;body&#39;,e.target.alt,e.target.value) })  react事件 onSubmit(e){ alert(&#39;onsubmit&#39;, e.target.value) this.setState({s1:!this.state.s1}) } //... &lt;input id=&#39;qr&#39; value=&#39;二维码&#39; type=&#34;button&#34; onClick={this.onSubmit} /&gt;  点击二维码 可以看到，事件从body开始，div.qr -&gt;div.root
-实例的功能是
-点击二维码按钮，可以显示／隐藏，照片
- 在，照片显示时
- 1.点击非照片区域，可以隐藏，
-2.点击照片，没有变化
-  但是 可以看到，点击，显示照片，事件顺序
-body -&gt; div.code -&gt; div.root
-由此说来，body,的优先级很大啊
-但是 可以看到console面板，我留在，body事件的输出语句
-二维码 是 div.qr 的 value 值。
- img 是 div.code的 alt 值。
- 以此可以看出，原生body事件是，触发了， 而 e.target 是 二维码按钮的实例. ...  </p>
+                <p> 从 npm@5.2.0 开始 npx 被集合在了 npm
+ npx 让我们免于下载众多的全局包
+ cd you-project
+npx create-react-app my-react-app  Done! 不需要 npm i -g create-react-app   </p>
               
           </section>
       </a>
