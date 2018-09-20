@@ -140,30 +140,25 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    <a class="post-card-image-link" href="/2017/11/14/vscode-git-lens/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/">
+      <a class="post-card-content-link" href="/2017/11/14/vscode-git-lens/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #hexo  </span>
+              #vscode 
+              #git-lens  </span>
               
-              <h2 class="post-card-title">放原网页首页进来</h2>
+              <h2 class="post-card-title">vscode git lens</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>把完整的网页放进，hexo中  我做了一下步骤
- 在不影响，快捷命令
-hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
-所以，放source才能被 看到
- 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
- 3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
- 4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
- 提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
-... skip_render [floder/*, floder/**/*] 具体看这issue </p>
+                <p>安利安利 git lens
+加强 git 文件之间 改动
+细分到 每一行由谁改 </p>
               
           </section>
       </a>
@@ -178,24 +173,22 @@ hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
-    </a>    
+    <a class="post-card-image-link" href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
+    </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/">
+      <a class="post-card-content-link" href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #js  </span>
               
-              <h2 class="post-card-title">React-Redux 父-Provider 子-connect</h2>
+              <h2 class="post-card-title">如何比较不同js库的相同功能的性能</h2>
           </header>
           <section class="post-card-excerpt">
-              
-                <p>来源 Redux作者
-React-Redux  两个主要 Api Provider connect
- 先放一边
-React 的 context context 实现了，一个全局变量
-const PropTypes = require(&#39;prop-types&#39;); class Button extends React.Component { render() { return ( //################ &lt;button style={{background: this.context.color}}&gt; {this.props.children} &lt;/button&gt; ); } } //################ Button.contextTypes = { color: PropTypes.string }; class Message extends React.Component { render() { return ( &lt;div&gt; {this.props.text} &lt;Button&gt;Delete&lt;/Button&gt; &lt;/div&gt; ); } } class MessageList extends React.Component { //################  getChildContext() { return {color: &#34;purple&#34;}; } render() { const children = this. ...  </p>
+               
+                <p>当不同的npm库,提供相同的功能函数时, 一般都是选择最快的. 哪个是最快的? 那首先是建立基准比较的文件运行一下,以 turbocolor 为例</p>
               
           </section>
       </a>
@@ -210,27 +203,21 @@ const PropTypes = require(&#39;prop-types&#39;); class Button extends React.Comp
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
-    </a>    
+    <a class="post-card-image-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
+      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/31415a8c001234dbf4875c2c5a44b646fb9338b4/68747470733a2f2f63646e2e7261776769742e636f6d2f646576656c6f7069742f62343431366435633932623734336462616563316536386263346332376364612f7261772f333233356463353038663765623833346562663438343138616561323132613035646631336462312f7072656163742d6c6f676f2d7472616e732e737667)"></div>
+    </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
+      <a class="post-card-content-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
           <header class="post-card-header">
-              <span class="post-card-tags">
-              #css  </span>
               
-              <h2 class="post-card-title">position sticky 粘连定位</h2>
+              <h2 class="post-card-title">Preact 小React</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> position css 的 position 定位
-一般我们使用
-static relative absolute fixed 这四个
-现在有个实验的 粘连定位 position: sticky
- 可以让我们 一边固定 一边滚动 出范围就不固定, 滚动查看 A-C-D.. 标签的位置
- See the Pen 粘性定位 by braveyo (@china-boy) on CodePen.   </p>
+                <p> Preact webSite
+See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { h, render, Component } from &#39;preact&#39;  </p>
               
           </section>
       </a>
