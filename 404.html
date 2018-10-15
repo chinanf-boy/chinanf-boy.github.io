@@ -87,98 +87,90 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">
+    <a class="post-card-image-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
+      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/31415a8c001234dbf4875c2c5a44b646fb9338b4/68747470733a2f2f63646e2e7261776769742e636f6d2f646576656c6f7069742f62343431366435633932623734336462616563316536386263346332376364612f7261772f333233356463353038663765623833346562663438343138616561323132613035646631336462312f7072656163742d6c6f676f2d7472616e732e737667)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Preact 小React</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p> Preact webSite
+See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { h, render, Component } from &#39;preact&#39;  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/pythonlogo.png)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #python  </span>
+              
+              <h2 class="post-card-title">Python核心编程第三版-第二章代码运行 问题解决</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>当在windows和Mac上，练习对应的代码时
+非常明显的错误就在于 传输类型
+TypeError: a bytes-like object is required, not &#39;str&#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &#39;str self.wfile.write(b&#39;[%s] %s&#39; % (bytes(ctime(), &#39;utf-8&#39;), bytes(self.rfile.readline(), &#39;utf-8&#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
+所以需要使用
+ bytes() 函数
+ 以下是可以正常运行的代码
+from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &#34;&#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&#39;connect. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
+          <span class="post-card-author"><a href="/">yobrave</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">
       <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/">
+      <a class="post-card-content-link" href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #pip 
-              #npm 
-              #conda  </span>
+              #bash 
+              #rename  </span>
               
-              <h2 class="post-card-title">pip npm conda 换下载源</h2>
+              <h2 class="post-card-title">批量修改文件名-cmd:bash</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
-npm --registry https://registry.npm.taobao.org install express  2.持久使用
-npm config set registry https://registry.npm.taobao.org  3.通过cnpm
-npm install -g cnpm --registry=https://registry.npm.taobao.org  二、使用官方镜像
-npm config set registry https://registry.npmjs.org/  三、查看npm源地址
-npm config get registry   </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/pipenvlogo.jpg)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #python 
-              #pipenv  </span>
-              
-              <h2 class="post-card-title">pipenv 快速构建虚拟python环境</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>pipenv python的快速构建虚拟环境 使用 pip install pipenv  搭建 pipenv --three pipenv --two   &ndash;three 3.x版本 &ndash;two 2.x版本
- 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境共用 必须保证，下载 pipenv的pip，是纯净的python 2. 运行 pipenv &ndash;three ，如果出现错误，像我 因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建， 但是之前说了，为了纯净，这就会发生错误。
-$ pipenv --three error $ which python anaconda/bin/python  ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
-Mac oX 系统
-$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6  更多 Github 官网 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #vscode 
-              #github  </span>
-              
-              <h2 class="post-card-title">github hand fun vscode 用户自定义代码片段</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>github 连接动画 小手摆摆 See the Pen githubLink by braveyo (@china-boy) on CodePen.  vscode 用户自定义代码片段 快速添加 github 动画连接
- vscode软件 -&gt; 首选项 -&gt; 用户代码片段 -&gt; 选择对应 HTML
- 有个模版，你可以自己看看，或者 复制
-&#34;Print github link&#34;: { &#34;prefix&#34;: &#34;ghand&#34;, &#34;body&#34;: [ &#34;&lt;style&gt;svg{fill:#fff;color:#151513;position:absolute;border:0;right:0}foreignObject,image,marker,pattern,svg:not(:root),symbol{overflow:hidden}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}.github-corner .octo-arm{-webkit-transform-origin:130px 106px;transform-origin:130px 106px}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}&lt;/style&gt;&#34;, &#34;&lt;a class=\&#34;github-corner\&#34; href=\&#34;$1\&#34; aria-label=\&#34;View source on Github\&#34;&gt;&#34;, &#34;&lt;svg width=\&#34;80\&#34; height=\&#34;80\&#34; viewBox=\&#34;0 0 250 250\&#34; aria-hidden=\&#34;true\&#34;&gt;&lt;path d=\&#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\&#34;&gt;&lt;/path&gt;&lt;path class=\&#34;octo-arm\&#34; d=\&#34;M128. ...  </p>
+                <p> 问题: 批量修改文件名 解决: bash 好耶, 无得顶啊 https://www.zhihu.com/question/21294798/answer/62848985
+写个bash,用 for循环mv文件. 比如改扩展名,把 .c 改成 .cpp
+for f in *.c ; do mv &#34;$f&#34; &#34;${f/c/cpp}&#34; ; done </p>
               
           </section>
       </a>
