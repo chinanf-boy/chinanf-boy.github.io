@@ -140,30 +140,28 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
-      <div class="post-card-image" style="background-image: url(https://babeljs.io/images/logo.svg)"></div>
-    </a>
+    <a class="post-card-image-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/">
+      <a class="post-card-content-link" href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #babel 
-              #Es5  </span>
+              #pylint  </span>
               
-              <h2 class="post-card-title">babel 继承 Es5</h2>
+              <h2 class="post-card-title">windows7 pylint ASCII 问题解决</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>继承 复制下面代码 - 点击https://babeljs.io/repl/
-class b { constructor(c,d){ c = c+&#39;1111&#39;; console.log(c,d); } start(){ console.log(&#39;ba ba&#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&#39;222222&#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&#39;son&#39;); } } var o1 = new a(&#39;first&#39;, &#39;second&#39;); console.log(&#39;------------------&#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
-一个 ， 丑陋的 写法，构造，与原型，的，概念.
-增加，初学者的入门，难度, 不过，好在，
-TypeScript babel 语法实现
- coffeeScript 太极端了， 一堆空格。
-有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
- 让我们不在需要，对，继承, ...  </p>
+                <p>问题描述:
+UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
+ 在python目录 Python27\Lib\site-packages 建一个文件
+sitecustomize.py
+内容写：
+import sys sys.setdefaultencoding(&#39;gbk&#39;)  python会自动运行这个文件。
+参考链接：https://www.v2ex.com/t/90659 </p>
               
           </section>
       </a>
@@ -178,24 +176,27 @@ TypeScript babel 语法实现
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/1/01/01/hello-world/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    <a class="post-card-image-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/1/01/01/hello-world/">
+      <a class="post-card-content-link" href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #css  </span>
               
-              <h2 class="post-card-title">Hello World</h2>
+              <h2 class="post-card-title">position sticky 粘连定位</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick Start Create a new post $ hexo new &#34;My New Post&#34; More info: Writing
-Run server $ hexo server More info: Server
-Generate static files $ hexo generate More info: Generating
-Deploy to remote sites $ hexo deploy More info: Deployment </p>
+                <p> position css 的 position 定位
+一般我们使用
+static relative absolute fixed 这四个
+现在有个实验的 粘连定位 position: sticky
+ 可以让我们 一边固定 一边滚动 出范围就不固定, 滚动查看 A-C-D.. 标签的位置
+ See the Pen 粘性定位 by braveyo (@china-boy) on CodePen.   </p>
               
           </section>
       </a>
@@ -210,26 +211,27 @@ Deploy to remote sites $ hexo deploy More info: Deployment </p>
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    <a class="post-card-image-link" href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/">
+      <a class="post-card-content-link" href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #npm 
-              #npx  </span>
+              #sublime  </span>
               
-              <h2 class="post-card-title">npx 不用下载全局包啦</h2>
+              <h2 class="post-card-title">sublime text 插件：color Highlighter</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> 从 npm@5.2.0 开始 npx 被集合在了 npm
- npx 让我们免于下载众多的全局包
- cd you-project
-npx create-react-app my-react-app  Done! 不需要 npm i -g create-react-app   </p>
+                <p>sublime text css 文件上的颜色，啊 ，好烦啊，看不到对应的颜色，现在不用担心
+1.用 color Highlighter ,使用Package Control下载
+2.重启 or not
+ prefernces &gt;&gt; Package Settings &gt;&gt; Color Highlighter &gt;&gt; Setting -User
+&ldquo;ha_style&rdquo;: &ldquo;filled&rdquo;
+  &nbsp; </p>
               
           </section>
       </a>

@@ -268,23 +268,26 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2018/03/11/vue-slot-scope-2.5.-example/">
-      <div class="post-card-image" style="background-image: url(https://vuejs.org/images/logo.png)"></div>
+    <a class="post-card-image-link" href="/2014/04/02/hugo-template-primer/">
+      <div class="post-card-image" style="background-image: url(/img/writing.jpg)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/03/11/vue-slot-scope-2.5.-example/">
+      <a class="post-card-content-link" href="/2014/04/02/hugo-template-primer/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #vue 
-              #slot-scope  </span>
+              #go 
+              #golang 
+              #templates 
+              #themes 
+              #development  </span>
               
-              <h2 class="post-card-title">vue slot-scope 2.5.* example</h2>
+              <h2 class="post-card-title">(Hu)go Template Primer</h2>
           </header>
           <section class="post-card-excerpt">
-              
-                <p>都写在这里了 jsfiddle 🌰 </p>
+               
+                <p>This is a description. Hugo uses the <strong>excellent</strong> go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic.</p>
               
           </section>
       </a>
@@ -299,24 +302,27 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/1/01/01/hello-world/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
-    </a>    
+    <a class="post-card-image-link" href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/pipenvlogo.jpg)"></div>
+    </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/1/01/01/hello-world/">
+      <a class="post-card-content-link" href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #python 
+              #pipenv  </span>
               
-              <h2 class="post-card-title">Hello World</h2>
+              <h2 class="post-card-title">pipenv 快速构建虚拟python环境</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick Start Create a new post $ hexo new &#34;My New Post&#34; More info: Writing
-Run server $ hexo server More info: Server
-Generate static files $ hexo generate More info: Generating
-Deploy to remote sites $ hexo deploy More info: Deployment </p>
+                <p>pipenv python的快速构建虚拟环境 使用 pip install pipenv  搭建 pipenv --three pipenv --two   &ndash;three 3.x版本 &ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境共用 必须保证，下载 pipenv的pip，是纯净的python 2. 运行 pipenv &ndash;three ，如果出现错误，像我 因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建， 但是之前说了，为了纯净，这就会发生错误。
+$ pipenv --three error $ which python anaconda/bin/python  ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
+Mac oX 系统
+$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6  更多 Github 官网 </p>
               
           </section>
       </a>
@@ -331,32 +337,36 @@ Deploy to remote sites $ hexo deploy More info: Deployment </p>
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/03/15/webpack-less-autoprefixer/">
-      <div class="post-card-image" style="background-image: url(https://s3.amazonaws.com/codementor_content/2016-Sept/webpack.jpg)"></div>
+    <a class="post-card-image-link" href="/2017/11/15/hugo-i18n/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/03/15/webpack-less-autoprefixer/">
+      <a class="post-card-content-link" href="/2017/11/15/hugo-i18n/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #webpack 
-              #less 
-              #Autoprefixer 
-              #postCss  </span>
+              #hugo 
+              #i18n  </span>
               
-              <h2 class="post-card-title">webpack&#43;less&#43;Autoprefixer</h2>
+              <h2 class="post-card-title">hugo i18n </h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>webpack  前端打包工具
- js css 图片 之类 压缩 生产化
- 现在，配置其中一项，css文件的加载器，loader
-   不同的是，配置结果，是为了，把less &gt; css + 补全浏览器前缀
-还有 babel js 语法
- postcss.config.js 启动补全前缀
-module.exports = { plugins: [ require(&#39;autoprefixer&#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
-var path = require(&#39;path&#39;); var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;); const webpack = require(&#39;webpack&#39;); module.exports = { entry: &#39;./app/index.js&#39;, output: { filename: &#39;bundle.js&#39;, path: path.resolve(__dirname, &#39;dist&#39;) }, module: { rules: [{ test: /\. ...  </p>
+                <p>双语 hugo的国际化 由源于 内置 go-i18n
+方式 一: 翻译 string  类似与 菜单栏 nav
+ 有两种方式
+ 在项目根目录  创建 i18n 文件夹
+i18n
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &quot;home&quot;  zh.toml
+[home] other = &quot;主页&quot;  上面的设置好后，在 模版主题中使用
+*.html
+{{ i18n &quot;home&quot; }}  这样在
+html 头的带领下 呈现 en/zh.toml
+&lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
+ config.toml
+defaultContentLanguage = &quot;en&quot; # 这里是 默认网址 https://example.com # 如果是 true https://example. ...  </p>
               
           </section>
       </a>
