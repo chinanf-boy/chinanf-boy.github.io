@@ -87,21 +87,28 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
-      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/31415a8c001234dbf4875c2c5a44b646fb9338b4/68747470733a2f2f63646e2e7261776769742e636f6d2f646576656c6f7069742f62343431366435633932623734336462616563316536386263346332376364612f7261772f333233356463353038663765623833346562663438343138616561323132613035646631336462312f7072656163742d6c6f676f2d7472616e732e737667)"></div>
+    <a class="post-card-image-link" href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/06/16/preact-%E5%B0%8Freact/">
+      <a class="post-card-content-link" href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #javascript  </span>
               
-              <h2 class="post-card-title">Preact 小React</h2>
+              <h2 class="post-card-title">Js - Module模式 - 私有-公有-命名空间</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> Preact webSite
-See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { h, render, Component } from &#39;preact&#39;  </p>
+                <p>在javascript中没有真正意义的‘私有’，因为不像传统语言- js 没有访问修饰符。从技术上来说，我们不能称变量为公有或私有.
+ 因此我们需使用函数作用域来模拟这个概念。
+ 由于闭包的存在，声明的变量和方法只在该模式内部可用，
+  但在返回对象上的定义的变量和方法，则对外部使用者都是可用的。
+var testModule = (function () { //私有变量 var myPrivateVar = 0; //记录所有参数的私有函数 var myPrivateMethod = function(bar){ console.log(bar); } return { //公有变量 myPublicVar : &#34;foo&#34;, //调用私有变量和方法的公有函数 myPublicFunction: function(bar){ //增加私有计数器值  myPrivateVar++; console.log(myPrivateVar); //传入bar调用私有方法  myPrivateMethod(bar); } }; })(); console.log(testModule); //用公有变量传值公有函数 testModule.myPublicFunction(testModule.myPublicVar);  输出
+{ myPublicVar: &#39;foo&#39;, myPublicFunction: [Function: myPublicFunction] } 1 foo  可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。
+却可以，通过两个函数来操控，myPrivateVar表现得就像一个私有变量。 </p>
               
           </section>
       </a>
@@ -116,28 +123,37 @@ See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { 
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/pythonlogo.png)"></div>
+    <a class="post-card-image-link" href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/go-logo.jpeg)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <a class="post-card-content-link" href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #python  </span>
+              #go 
+              #js 
+              #repl  </span>
               
-              <h2 class="post-card-title">Python核心编程第三版-第二章代码运行 问题解决</h2>
+              <h2 class="post-card-title">mac repl js go 大混杂</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>当在windows和Mac上，练习对应的代码时
-非常明显的错误就在于 传输类型
-TypeError: a bytes-like object is required, not &#39;str&#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &#39;str self.wfile.write(b&#39;[%s] %s&#39; % (bytes(ctime(), &#39;utf-8&#39;), bytes(self.rfile.readline(), &#39;utf-8&#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
-所以需要使用
- bytes() 函数
- 以下是可以正常运行的代码
-from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &#34;&#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&#39;connect. ...  </p>
+                <p>这是我 mac 上 repl 软件-「js, go」 大混杂
+Go 语言 官方并没有给出，repl 交互环境
+所以有 gore 这类-终端的
+用起来，就像 node
+ 不过我想说得是   gophernotes jupyter Go 内核  没错，能在jupyter 上用内核，
+ 不过 -mac- 上无法使用
+ 但是你知道-docker 就十分方便了-也给出docker的入门中文
+docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
+当你想与容器-gophernotes- 互通数据文件
+docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes   -p 端口互通
+ --mount 可以文件夹互通
+ source 本地存在的文件夹 要自己新建
+ target 容器的文件夹
+    用alias 命名一下，就好用了 ...  </p>
               
           </section>
       </a>
@@ -152,25 +168,36 @@ from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from ti
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
-    </a>    
+    <a class="post-card-image-link" href="/2017/11/15/hugo-i18n/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
+    </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/">
+      <a class="post-card-content-link" href="/2017/11/15/hugo-i18n/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #bash 
-              #rename  </span>
+              #hugo 
+              #i18n  </span>
               
-              <h2 class="post-card-title">批量修改文件名-cmd:bash</h2>
+              <h2 class="post-card-title">hugo i18n </h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> 问题: 批量修改文件名 解决: bash 好耶, 无得顶啊 https://www.zhihu.com/question/21294798/answer/62848985
-写个bash,用 for循环mv文件. 比如改扩展名,把 .c 改成 .cpp
-for f in *.c ; do mv &#34;$f&#34; &#34;${f/c/cpp}&#34; ; done </p>
+                <p>双语 hugo的国际化 由源于 内置 go-i18n
+方式 一: 翻译 string  类似与 菜单栏 nav
+ 有两种方式
+ 在项目根目录  创建 i18n 文件夹
+i18n
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &quot;home&quot;  zh.toml
+[home] other = &quot;主页&quot;  上面的设置好后，在 模版主题中使用
+*.html
+{{ i18n &quot;home&quot; }}  这样在
+html 头的带领下 呈现 en/zh.toml
+&lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
+ config.toml
+defaultContentLanguage = &quot;en&quot; # 这里是 默认网址 https://example.com # 如果是 true https://example. ...  </p>
               
           </section>
       </a>

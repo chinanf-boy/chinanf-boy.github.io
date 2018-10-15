@@ -268,36 +268,28 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/11/15/hugo-i18n/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
+    <a class="post-card-image-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/pythonlogo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/15/hugo-i18n/">
+      <a class="post-card-content-link" href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #hugo 
-              #i18n  </span>
+              #python  </span>
               
-              <h2 class="post-card-title">hugo i18n </h2>
+              <h2 class="post-card-title">Python核心编程第三版-第二章代码运行 问题解决</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>双语 hugo的国际化 由源于 内置 go-i18n
-方式 一: 翻译 string  类似与 菜单栏 nav
- 有两种方式
- 在项目根目录  创建 i18n 文件夹
-i18n
-en.toml/yaml zh.toml/yaml  en.toml
-[home] other = &quot;home&quot;  zh.toml
-[home] other = &quot;主页&quot;  上面的设置好后，在 模版主题中使用
-*.html
-{{ i18n &quot;home&quot; }}  这样在
-html 头的带领下 呈现 en/zh.toml
-&lt;html lang=&#39;en&#39;&gt;  第二种   根目录中
- config.toml
-defaultContentLanguage = &quot;en&quot; # 这里是 默认网址 https://example.com # 如果是 true https://example. ...  </p>
+                <p>当在windows和Mac上，练习对应的代码时
+非常明显的错误就在于 传输类型
+TypeError: a bytes-like object is required, not &#39;str&#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &#39;str self.wfile.write(b&#39;[%s] %s&#39; % (bytes(ctime(), &#39;utf-8&#39;), bytes(self.rfile.readline(), &#39;utf-8&#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
+所以需要使用
+ bytes() 函数
+ 以下是可以正常运行的代码
+from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &#34;&#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&#39;connect. ...  </p>
               
           </section>
       </a>
@@ -312,28 +304,29 @@ defaultContentLanguage = &quot;en&quot; # 这里是 默认网址 https://example
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/herokulogo.png)"></div>
+    <a class="post-card-image-link" href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">
+      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
     </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
+      <a class="post-card-content-link" href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #heroku  </span>
+              #typescript 
+              #javascript  </span>
               
-              <h2 class="post-card-title">heroku web  port 问题</h2>
+              <h2 class="post-card-title">Typescript类-转换学习</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>本文说明，一点heroku疑问
-procfile heroku运行的命令文件
-web worker clock  本地项目可以 查看procfile
-heroku ps  可以使用 js的web框架express koa
-web: node index.js  但是 app.listen(port) 一定要是他们定下来的
-var port = process.env.PORT  同理 python
-import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就能看到了 </p>
+                <p>#TypeScript
+typescript作为微软实现的js的超集.
+在类的实现，有如传统语言一样简单，
+例子：官方
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &#34;Hello, &#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &#34;Hello, &#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console. ...  </p>
               
           </section>
       </a>
@@ -348,31 +341,29 @@ import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就�
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
-    </a>    
+    <a class="post-card-image-link" href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/">
+      <div class="post-card-image" style="background-image: url(https://github.com/zeit/art/raw/525bd1bb39d97dd3b91c976106a6d5cc5766b678/hyper/repo-banner.png)"></div>
+    </a>
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/">
+      <a class="post-card-content-link" href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/">
           <header class="post-card-header">
               <span class="post-card-tags">
-              #go 
-              #direnv  </span>
+              #hyper  </span>
               
-              <h2 class="post-card-title">目录环境加载 direnv</h2>
+              <h2 class="post-card-title">Hyper open in finder and 服务</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p> direnv 它可以让你明白一个目录的意思，
-简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
-比如我 zsh
-# Add direnv hook eval &#34;$(direnv hook zsh)&#34; 当然前提是要下载，在github 上就有很详细
-cd/my_project echo &quot;echo 'hello this is my project'&quot; &gt;&gt; .envrc direnv allow  那么再你再进入这个目录时，自动运行 echo hello this is my project
-问题: 不需要 unloading or loading .envrc 之类的日志输出时。
-.zshrc
-# Add direnv hook eval &#34;$(direnv hook zsh)&#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
-direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。   </p>
+                <p> 美丽的终端 Hyper 下面是 在 mac 上的快速启动
+open in finder https://github.com/ealeksandrov/cdto/releases/tag/2_8_0
+添加服务 也就是 文件夹 右键
+https://github.com/zeit/hyper/files/1800038/New.Hyper.Tab.at.Folder.workflow.zip
+更改 默认 终端 可更改 mac 上 默认开启的服务与应用
+http://www.rubicode.com/Downloads/RCDefaultApp-2.1.X.dmg
+ 官网 http://www.rubicode.com/Software/RCDefaultApp/
+ Passed mac high serirra 10.13.2  </p>
               
           </section>
       </a>
