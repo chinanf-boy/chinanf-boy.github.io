@@ -1,224 +1,99 @@
 <!DOCTYPE html>
-<html lang="zh-CN" />
+<html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <title>Heroku &middot; </title>
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="canonical" href="/tags/heroku/" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Heroku</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
 
     
-    <meta name="description" content="blog with world" /> 
-
     
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:image" content="/img/blog-cover.jpg"/>
- 
-    <meta name="twitter:title" content="Heroku"/>
-    <meta name="twitter:description" content="js/rust/go/py tips"/>
-    <meta name="twitter:url" content="/tags/heroku/" />
-    <meta name="twitter:site" content="@"/>
-
-    <meta property="og:site_name" content="" />
-    <meta property="og:title" content="Heroku &middot; Same like,Same guy" />
-    <meta property="og:url" content="/tags/heroku/" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" rel="stylesheet">
     
-
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="js/rust/go/py tips" />
-
-    <meta property="og:image" content="/img/blog-cover.jpg"/>
-
-    <meta name="generator" content="Hugo 0.49.2" />
-
-    <!-- Stylesheets -->
-    <style>
-    div.highlight {
-        width:100%;
-    }
-    </style>
-    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
-    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     
-
-     
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="/css/main.css">
+    
 
 </head>
 
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
 
-
-  <body class="tag-template"><div class="site-wrapper">
-  <header class="site-header outer">
-  <div class="inner">
-    <nav class="site-nav">
-      <div class="site-nav-left">
-        <a class="site-nav-logo" href="#"><img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="Same like,Same guy" /></a>
-
-        <ul class="nav" role="menu">
+        var resizeTimeout;
+        function resizeThrottler() {
         
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
         
-        
-            <li class="" role="menuitem">
-              <a href="/">Home</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/about/">Projects me</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/categories/">分类</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/tags">标签</a>
-            </li>
-        
-      </ul></div>
-
-      <div class="site-nav-right">
-        <div class="social-links">
-                    
-
-                    
-
-                    <a class="social-link" href="https://github.com/chinanf-boy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-
-                    
-
-                    
-        </div>  
             
-      </div>
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
 
-    </nav>  
 
-    <div class="site-header-content">
-        <h1 class="site-title">Heroku</h1>
-        <h2 class="site-description">
-                A collection of 2 posts
-                
-        </h2>
-    </div>
-  </div>
-</header>
+    
 
 
-<main id="site-main" class="site-main outer" role="main">
-  <div class="inner">
-    <div class="post-feed">
+
+  <div class="outer">
+  <ul class="list-group">
+    
+    <li class="list-group-item title">
       
-
-
-<article class="post-card post"> 
+         
+        
+        
+          <a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/"><time style="color:black;">2017-10-17</time>  / hexo-disqus-proxy-heroku 发布 感觉一般般 </a>
+        
+      
+    </li>
     
-    <a class="post-card-image-link" href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/nodelogo.png)"></div>
-    </a>
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/"><time style="color:black;">2017-10-17</time>  / heroku web  port 问题 </a>
+        
+      
+    </li>
     
+  </ul>
 
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #hexo 
-              #disqus 
-              #heroku 
-              #preact  </span>
-              
-              <h2 class="post-card-title">hexo-disqus-proxy-heroku 发布 感觉一般般</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> fork 别人项目 源地址
-改成heroku做服务端
-去掉 port fix 样式 bug react -&gt; preact 大小 从 400多k 到 100多K  </p>
-              
-          </section>
-      </a>
 
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
+      <footer>
+        <hr>
+        <small style="font-size:16px;">
+            &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a> 
+          
+        </small>
       </footer>
-    </div>
-</article>
+    </div> 
 
-
-<article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/herokulogo.png)"></div>
-    </a>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
 
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #heroku  </span>
-              
-              <h2 class="post-card-title">heroku web  port 问题</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>本文说明，一点heroku疑问
-procfile heroku运行的命令文件
-web worker clock  本地项目可以 查看procfile
-heroku ps  可以使用 js的web框架express koa
-web: node index.js  但是 app.listen(port) 一定要是他们定下来的
-var port = process.env.PORT  同理 python
-import os os.environ[&#39;POST&#39;] 这样，heroku转路由 直接网址-就能看到了 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-    </div>
-
-    <nav class="pagination" role="navigation">
-      
-      <span class="page-number"><span class="hide">Page 1 of 1</span>&nbsp;</span>
-      
-    </nav>
-  </div>
-</main>
-
-<footer class="site-footer outer">
-  <div class="site-footer-content inner">
-    <section class="copyright" style="line-height: 1.3em;">
-      <a href="/">yobrave</a> © 2018 <br>
-      
-    </section>
-    <nav class="site-footer-nav">
-        <a href="/">Latest Posts</a>
-        
-        
-        <a href="https://github.com/chinanf-boy" target="_blank" rel="noopener">Github</a>
-        
-        
-    </nav>  
-  </div>
-</footer>
-
-</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-
-<script>hljs.initHighlightingOnLoad();</script>
-
-
-</body></html>

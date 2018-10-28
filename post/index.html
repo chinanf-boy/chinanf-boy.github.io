@@ -1,340 +1,729 @@
 <!DOCTYPE html>
-<html lang="zh-CN" />
+<html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <title>Posts &middot; </title>
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="canonical" href="/post/" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Posts</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
 
     
-    <meta name="description" content="blog with world" /> 
-
     
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:image" content="/img/blog-cover.jpg"/>
- 
-    <meta name="twitter:title" content="Posts"/>
-    <meta name="twitter:description" content="js/rust/go/py tips"/>
-    <meta name="twitter:url" content="/post/" />
-    <meta name="twitter:site" content="@"/>
-
-    <meta property="og:site_name" content="" />
-    <meta property="og:title" content="Posts &middot; Same like,Same guy" />
-    <meta property="og:url" content="/post/" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" rel="stylesheet">
     
-
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="js/rust/go/py tips" />
-
-    <meta property="og:image" content="/img/blog-cover.jpg"/>
-
-    <meta name="generator" content="Hugo 0.49.2" />
-
-    <!-- Stylesheets -->
-    <style>
-    div.highlight {
-        width:100%;
-    }
-    </style>
-    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
-    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     
-
-     
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="/css/main.css">
+    
 
 </head>
 
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
 
-<body class="home-template"><div class="site-wrapper">
-
-<header class="site-header outer "  style="background-image: url(/img/blog-cover.jpg)"  >
-  <div class="inner">
-    <div class="site-header-content">
-      <h1 class="site-title">
-        <img class="site-logo" src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="Same like,Same guy" />
-       </h1>
-        <h2 class="site-description">explain translate code  er </h2>
-    </div>
-
-    <nav class="site-nav">
-      <div class="site-nav-left"><ul class="nav" role="menu">
+        var resizeTimeout;
+        function resizeThrottler() {
         
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
         
-        
-            <li class="" role="menuitem">
-              <a href="/">Home</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/about/">Projects me</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/categories/">分类</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/tags">标签</a>
-            </li>
-        
-      </ul></div>
-
-      <div class="site-nav-right">
-        <div class="social-links">
-                    
-
-                    
-
-                    <a class="social-link" href="https://github.com/chinanf-boy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-
-                    
-
-                    
-        </div>  
             
-      </div>
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
 
-    </nav>  
 
-  </div>
-</header>
+    
 
-<main id="site-main" class="site-main outer" role="main">
-  <div class="inner">
-    <div class="post-feed">
+
+
+  <div class="outer">
+  <ul class="list-group">
+    
+    <li class="list-group-item title">
       
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/hugologo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #hugo 
-              #hightlight  </span>
-              
-              <h2 class="post-card-title">Hugo 语法高亮与md序列显示问题</h2>
-          </header>
-          <section class="post-card-excerpt">
-               
-                <p>现在普遍有三种hugo高亮的解决 1. 内置 2. hightlight 3. 自定义css, 还有一个 hugo markdown 解析器的问题</p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/">
-      <div class="post-card-image" style="background-image: url(/file_imgs/javascriptlogo.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #js  </span>
-              
-              <h2 class="post-card-title">如何比较不同js库的相同功能的性能</h2>
-          </header>
-          <section class="post-card-excerpt">
-               
-                <p>当不同的npm库,提供相同的功能函数时, 一般都是选择最快的. 哪个是最快的? 那首先是建立基准比较的文件运行一下,以 turbocolor 为例</p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #mac Fix  </span>
-              
-              <h2 class="post-card-title">Macbook屏幕修理记</h2>
-          </header>
-          <section class="post-card-excerpt">
-               
-                <p>macbook屏幕黑条问题-保修-维修记</p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/">
-      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/3a8948f34284f378ead7af5846aa432035c687ad/687474703a2f2f732e746f6e736b792e6d652f696d67732f666972615f636f64655f6c6f676f2e737667)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #vscode 
-              #font  </span>
-              
-              <h2 class="post-card-title">FiraCode 使用在 Vscode 的问题</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> 如果你使用官方的办法 https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions
-成功, 将箭头改变了, 那就好了
-如果无法 请到 https://github.com/tonsky/FiraCode/releases 下载 压缩
-对应每个平台的系统字体应用, 将 下载的 字体文件夹 添加
- macOS Windows Linux/Unix-based systems  比如: macOS
-记得把 Vscode 的配置 写好 &#34;editor.fontFamily&#34;:&#34;&#39;Fira Code&#39;, Source Code Pro&#34;, &#34;editor.fontSize&#34;: 13, &#34;editor.fontLigatures&#34;: true,  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #python  </span>
-              
-              <h2 class="post-card-title">让你的py优雅</h2>
-          </header>
-          <section class="post-card-excerpt">
-               
-                <p>在Python社区文化的浇灌下，演化出了一种独特的代码风格，去指导如何正确地使用Python，这就是常说的pythonic</p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">
-      <div class="post-card-image" style="background-image: url(https://www.gstatic.com/images/branding/product/1x/drive_512dp.png)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #google drive  </span>
-              
-              <h2 class="post-card-title">google 备份与同步 mac版无法登录问题</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>在中国
-问题1: 即便代理开了, 登录 google 备份与同步 应用 , 也登录不了 解决1: 可以试试 mac 切到 http 代理 解决2: 浏览器登录 如果也是错误的, 请把 代理扩展 - 代理协议 换成 http
-{% asset_img fix-2.png This is an image %} </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-    </div>
-
-    <nav class="pagination" role="navigation">
-      
-      <span class="page-number"><span class="hide">Page 1 of 11</span>&nbsp;</span>
-      
-          <a class="older-posts" href="/post/page/2/"><span class="hide">Previous Posts</span> &rarr;</a>
-      
-    </nav>
-  </div>
-</main>
-
-<footer class="site-footer outer">
-  <div class="site-footer-content inner">
-    <section class="copyright" style="line-height: 1.3em;">
-      <a href="/">yobrave</a> © 2018 <br>
-      
-    </section>
-    <nav class="site-footer-nav">
-        <a href="/">Latest Posts</a>
+         
         
         
-        <a href="https://github.com/chinanf-boy" target="_blank" rel="noopener">Github</a>
+          <a href="/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/"><time style="color:black;">2018-08-17</time>  / Hugo 语法高亮与md序列显示问题 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
         
         
-    </nav>  
-  </div>
-</footer>
+          <a href="/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/"><time style="color:black;">2018-08-17</time>  / 如何比较不同js库的相同功能的性能 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/"><time style="color:black;">2018-08-11</time>  / Macbook屏幕修理记 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/"><time style="color:black;">2018-08-01</time>  / FiraCode 使用在 Vscode 的问题 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/"><time style="color:black;">2018-08-01</time>  / 让你的py优雅 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/"><time style="color:black;">2018-08-01</time>  / google 备份与同步 mac版无法登录问题 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/"><time style="color:black;">2018-08-01</time>  / 如何将完整的文件夹放进hugo </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/"><time style="color:black;">2018-07-19</time>  / 批量修改文件名-cmd:bash </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/"><time style="color:black;">2018-06-01</time>  / Hyper open in finder and 服务 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/03/11/vue-slot-scope-2.5.-example/"><time style="color:black;">2018-03-11</time>  / vue slot-scope 2.5.* example </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/"><time style="color:black;">2018-01-24</time>  / mac repl js go 大混杂 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/"><time style="color:black;">2018-01-22</time>  / pm2 window 开机启动 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/"><time style="color:black;">2018-01-20</time>  / position sticky 粘连定位 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/"><time style="color:black;">2017-12-22</time>  / yarn no sudo 设置 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/"><time style="color:black;">2017-12-17</time>  / 目录环境加载 direnv </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/"><time style="color:black;">2017-12-16</time>  / ChangeLog 生成器 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"><time style="color:black;">2017-12-06</time>  / github hand fun vscode 用户自定义代码片段 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/"><time style="color:black;">2017-12-05</time>  / mo.js 专注动画 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/"><time style="color:black;">2017-12-04</time>  / npx 不用下载全局包啦 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/12/04/mrm-%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%A4%9A%E4%B8%AAjson/"><time style="color:black;">2017-12-04</time>  / mrm 管理你的多个json </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/"><time style="color:black;">2017-11-21</time>  / Travis Ci 测试以及 发布 npm </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/11/15/hugo-i18n/"><time style="color:black;">2017-11-15</time>  / hugo i18n  </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/"><time style="color:black;">2017-11-14</time>  / hugo templete 语法 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/11/14/vscode-git-lens/"><time style="color:black;">2017-11-14</time>  / vscode git lens </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/"><time style="color:black;">2017-11-14</time>  / hugo hexo 傻傻分不清出 GO实现 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/"><time style="color:black;">2017-11-14</time>  / zsh completion tab 补全提示 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/"><time style="color:black;">2017-10-17</time>  / hexo-disqus-proxy-heroku 发布 感觉一般般 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/"><time style="color:black;">2017-10-17</time>  / heroku web  port 问题 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/10/09/slack-hubot-use-py-or-js/"><time style="color:black;">2017-10-09</time>  / Slack-Hubot-use-py-or-js </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/"><time style="color:black;">2017-10-09</time>  / pipenv 快速构建虚拟python环境 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/10/06/ionic-going/"><time style="color:black;">2017-10-06</time>  / ionic Going </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"><time style="color:black;">2017-10-06</time>  / ionic 项目 npm问题解决 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/"><time style="color:black;">2017-10-01</time>  / node 命令行应用 与 npm 包发布 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/"><time style="color:black;">2017-09-26</time>  / Mac 使用 NTFS  </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/"><time style="color:black;">2017-09-22</time>  / highlight-css样式列表 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/"><time style="color:black;">2017-09-13</time>  / vscode 扩展Api实践 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/"><time style="color:black;">2017-09-12</time>  / pip npm conda 换下载源 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"><time style="color:black;">2017-09-08</time>  / windows7 pylint ASCII 问题解决 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"><time style="color:black;">2017-09-08</time>  / Python核心编程第三版-第二章代码运行 问题解决 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/"><time style="color:black;">2017-08-12</time>  / Anaconda conda command not found : 解决 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/06/16/preact-%E5%B0%8Freact/"><time style="color:black;">2017-06-16</time>  / Preact 小React </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/"><time style="color:black;">2017-06-14</time>  / React-Redux 父-Provider 子-connect </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/"><time style="color:black;">2017-06-13</time>  / Redux combineReducers js 作者简单实现 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/"><time style="color:black;">2017-06-13</time>  / 中间件js实现 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/"><time style="color:black;">2017-06-04</time>  / React事件与原生事件 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/"><time style="color:black;">2017-05-28</time>  / ory-editer 网页编辑器-基于react </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/"><time style="color:black;">2017-05-27</time>  / babel 继承 Es5 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/"><time style="color:black;">2017-05-19</time>  / react-router v4 哎 路由 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/"><time style="color:black;">2017-05-17</time>  / processing p5 js 动画与游戏制造 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/"><time style="color:black;">2017-05-17</time>  / codepen 代码嵌入 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/"><time style="color:black;">2017-04-30</time>  / 放原网页首页进来 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/04/24/redux-%E5%9F%BA%E7%A1%80/"><time style="color:black;">2017-04-24</time>  / Redux 基础 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/04/21/react.component-use-class-or-classname/"><time style="color:black;">2017-04-21</time>  / React.Component use class or className </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/03/15/webpack-less-autoprefixer/"><time style="color:black;">2017-03-15</time>  / webpack&#43;less&#43;Autoprefixer </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/"><time style="color:black;">2017-02-08</time>  / Typescript类-转换学习 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/"><time style="color:black;">2017-02-06</time>  / Js - Module模式 - 私有-公有-命名空间 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/"><time style="color:black;">2017-01-31</time>  / js原型与构造 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/"><time style="color:black;">2017-01-31</time>  / 浏览器与node，this，的不同 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/01/19/translate%E4%B8%8Erotate/"><time style="color:black;">2017-01-19</time>  / translate与rotate </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/"><time style="color:black;">2017-01-14</time>  / sublime text 插件：color Highlighter </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/01/11/tensorflow-by-google/"><time style="color:black;">2017-01-11</time>  / TensorFlow by Google </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2015/09/28/colenak/"><time style="color:black;">2015-09-28</time>  / Colenak </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2014/09/25/wonderful/"><time style="color:black;">2014-09-25</time>  / Wonderful </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2014/04/02/hugo-template-primer/"><time style="color:black;">2014-04-02</time>  / (Hu)go Template Primer </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/1/01/01/hello-world/"><time style="color:black;">0001-01-01</time>  / Hello World </a>
+        
+      
+    </li>
+    
+  </ul>
 
-</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
 
-<script>hljs.initHighlightingOnLoad();</script>
+      <footer>
+        <hr>
+        <small style="font-size:16px;">
+            &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a> 
+          
+        </small>
+      </footer>
+    </div> 
 
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
 
-</body></html>

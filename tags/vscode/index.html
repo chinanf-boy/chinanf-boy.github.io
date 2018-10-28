@@ -1,292 +1,119 @@
 <!DOCTYPE html>
-<html lang="zh-CN" />
+<html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <title>Vscode &middot; </title>
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="canonical" href="/tags/vscode/" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Vscode</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
 
     
-    <meta name="description" content="blog with world" /> 
-
     
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:image" content="/img/blog-cover.jpg"/>
- 
-    <meta name="twitter:title" content="Vscode"/>
-    <meta name="twitter:description" content="js/rust/go/py tips"/>
-    <meta name="twitter:url" content="/tags/vscode/" />
-    <meta name="twitter:site" content="@"/>
-
-    <meta property="og:site_name" content="" />
-    <meta property="og:title" content="Vscode &middot; Same like,Same guy" />
-    <meta property="og:url" content="/tags/vscode/" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" rel="stylesheet">
     
-
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="js/rust/go/py tips" />
-
-    <meta property="og:image" content="/img/blog-cover.jpg"/>
-
-    <meta name="generator" content="Hugo 0.49.2" />
-
-    <!-- Stylesheets -->
-    <style>
-    div.highlight {
-        width:100%;
-    }
-    </style>
-    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
-    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     
-
-     
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="/css/main.css">
+    
 
 </head>
 
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
 
-
-  <body class="tag-template"><div class="site-wrapper">
-  <header class="site-header outer">
-  <div class="inner">
-    <nav class="site-nav">
-      <div class="site-nav-left">
-        <a class="site-nav-logo" href="#"><img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="Same like,Same guy" /></a>
-
-        <ul class="nav" role="menu">
+        var resizeTimeout;
+        function resizeThrottler() {
         
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
         
-        
-            <li class="" role="menuitem">
-              <a href="/">Home</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/about/">Projects me</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/categories/">分类</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/tags">标签</a>
-            </li>
-        
-      </ul></div>
-
-      <div class="site-nav-right">
-        <div class="social-links">
-                    
-
-                    
-
-                    <a class="social-link" href="https://github.com/chinanf-boy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-
-                    
-
-                    
-        </div>  
             
-      </div>
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
 
-    </nav>  
 
-    <div class="site-header-content">
-        <h1 class="site-title">Vscode</h1>
-        <h2 class="site-description">
-                A collection of 4 posts
-                
-        </h2>
-    </div>
-  </div>
-</header>
+    
 
 
-<main id="site-main" class="site-main outer" role="main">
-  <div class="inner">
-    <div class="post-feed">
+
+  <div class="outer">
+  <ul class="list-group">
+    
+    <li class="list-group-item title">
       
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/">
-      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/3a8948f34284f378ead7af5846aa432035c687ad/687474703a2f2f732e746f6e736b792e6d652f696d67732f666972615f636f64655f6c6f676f2e737667)"></div>
-    </a>
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #vscode 
-              #font  </span>
-              
-              <h2 class="post-card-title">FiraCode 使用在 Vscode 的问题</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> 如果你使用官方的办法 https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions
-成功, 将箭头改变了, 那就好了
-如果无法 请到 https://github.com/tonsky/FiraCode/releases 下载 压缩
-对应每个平台的系统字体应用, 将 下载的 字体文件夹 添加
- macOS Windows Linux/Unix-based systems  比如: macOS
-记得把 Vscode 的配置 写好 &#34;editor.fontFamily&#34;:&#34;&#39;Fira Code&#39;, Source Code Pro&#34;, &#34;editor.fontSize&#34;: 13, &#34;editor.fontLigatures&#34;: true,  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #vscode 
-              #github  </span>
-              
-              <h2 class="post-card-title">github hand fun vscode 用户自定义代码片段</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>github 连接动画 小手摆摆 See the Pen githubLink by braveyo (@china-boy) on CodePen.  vscode 用户自定义代码片段 快速添加 github 动画连接
- vscode软件 -&gt; 首选项 -&gt; 用户代码片段 -&gt; 选择对应 HTML
- 有个模版，你可以自己看看，或者 复制
-&#34;Print github link&#34;: { &#34;prefix&#34;: &#34;ghand&#34;, &#34;body&#34;: [ &#34;&lt;style&gt;svg{fill:#fff;color:#151513;position:absolute;border:0;right:0}foreignObject,image,marker,pattern,svg:not(:root),symbol{overflow:hidden}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}.github-corner .octo-arm{-webkit-transform-origin:130px 106px;transform-origin:130px 106px}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}&lt;/style&gt;&#34;, &#34;&lt;a class=\&#34;github-corner\&#34; href=\&#34;$1\&#34; aria-label=\&#34;View source on Github\&#34;&gt;&#34;, &#34;&lt;svg width=\&#34;80\&#34; height=\&#34;80\&#34; viewBox=\&#34;0 0 250 250\&#34; aria-hidden=\&#34;true\&#34;&gt;&lt;path d=\&#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\&#34;&gt;&lt;/path&gt;&lt;path class=\&#34;octo-arm\&#34; d=\&#34;M128. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/11/14/vscode-git-lens/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/11/14/vscode-git-lens/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #vscode 
-              #git-lens  </span>
-              
-              <h2 class="post-card-title">vscode git lens</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>安利安利 git lens
-加强 git 文件之间 改动
-细分到 每一行由谁改 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #vscode  </span>
-              
-              <h2 class="post-card-title">vscode 扩展Api实践</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
-安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
-yo code  更多详情 创建扩展的文件夹
-扩展API流程 的介绍 扩展清单： package.json contributes &quot;contributes&quot;: { &quot;commands&quot;: [{ &quot;command&quot;: &quot;extension.sayHello&quot;, &quot;title&quot;: &quot;Hello World&quot; }] }  调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&rdquo;Hello world&rdquo;调用命令&rdquo;extension.sayHello&rdquo;
-activationEvents 启动事件—通过命令也就是 contributes 中 &quot;Hello World&quot;
-&quot;activationEvents&quot;: [ &quot;onCommand:extension.sayHello&quot; ]  启动事件—当语言为markdown
-&quot;activationEvents&quot;: [ &quot;onLanguage:markdown&quot; ]  示例 extension.ts 你好世界 import * as vscode from &#39;vscode&#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-    </div>
-
-    <nav class="pagination" role="navigation">
-      
-      <span class="page-number"><span class="hide">Page 1 of 1</span>&nbsp;</span>
-      
-    </nav>
-  </div>
-</main>
-
-<footer class="site-footer outer">
-  <div class="site-footer-content inner">
-    <section class="copyright" style="line-height: 1.3em;">
-      <a href="/">yobrave</a> © 2018 <br>
-      
-    </section>
-    <nav class="site-footer-nav">
-        <a href="/">Latest Posts</a>
+         
         
         
-        <a href="https://github.com/chinanf-boy" target="_blank" rel="noopener">Github</a>
+          <a href="/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/"><time style="color:black;">2018-08-01</time>  / FiraCode 使用在 Vscode 的问题 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
         
         
-    </nav>  
-  </div>
-</footer>
+          <a href="/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"><time style="color:black;">2017-12-06</time>  / github hand fun vscode 用户自定义代码片段 </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/11/14/vscode-git-lens/"><time style="color:black;">2017-11-14</time>  / vscode git lens </a>
+        
+      
+    </li>
+    
+    <li class="list-group-item title">
+      
+         
+        
+        
+          <a href="/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/"><time style="color:black;">2017-09-13</time>  / vscode 扩展Api实践 </a>
+        
+      
+    </li>
+    
+  </ul>
 
-</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
 
-<script>hljs.initHighlightingOnLoad();</script>
+      <footer>
+        <hr>
+        <small style="font-size:16px;">
+            &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a> 
+          
+        </small>
+      </footer>
+    </div> 
 
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
 
-</body></html>

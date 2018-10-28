@@ -1,197 +1,89 @@
 <!DOCTYPE html>
-<html lang="zh-CN" />
+<html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <title>React Router &middot; </title>
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="canonical" href="/tags/react-router/" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>React Router</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
 
     
-    <meta name="description" content="blog with world" /> 
-
     
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:image" content="/img/blog-cover.jpg"/>
- 
-    <meta name="twitter:title" content="React Router"/>
-    <meta name="twitter:description" content="js/rust/go/py tips"/>
-    <meta name="twitter:url" content="/tags/react-router/" />
-    <meta name="twitter:site" content="@"/>
-
-    <meta property="og:site_name" content="" />
-    <meta property="og:title" content="React Router &middot; Same like,Same guy" />
-    <meta property="og:url" content="/tags/react-router/" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" rel="stylesheet">
     
-
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="js/rust/go/py tips" />
-
-    <meta property="og:image" content="/img/blog-cover.jpg"/>
-
-    <meta name="generator" content="Hugo 0.49.2" />
-
-    <!-- Stylesheets -->
-    <style>
-    div.highlight {
-        width:100%;
-    }
-    </style>
-    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
-    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     
-
-     
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="/css/main.css">
+    
 
 </head>
 
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
 
-
-  <body class="tag-template"><div class="site-wrapper">
-  <header class="site-header outer">
-  <div class="inner">
-    <nav class="site-nav">
-      <div class="site-nav-left">
-        <a class="site-nav-logo" href="#"><img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="Same like,Same guy" /></a>
-
-        <ul class="nav" role="menu">
+        var resizeTimeout;
+        function resizeThrottler() {
         
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
         
-        
-            <li class="" role="menuitem">
-              <a href="/">Home</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/about/">Projects me</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/categories/">分类</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/tags">标签</a>
-            </li>
-        
-      </ul></div>
-
-      <div class="site-nav-right">
-        <div class="social-links">
-                    
-
-                    
-
-                    <a class="social-link" href="https://github.com/chinanf-boy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-
-                    
-
-                    
-        </div>  
             
-      </div>
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
 
-    </nav>  
 
-    <div class="site-header-content">
-        <h1 class="site-title">React Router</h1>
-        <h2 class="site-description">
-                1 post
-        </h2>
-    </div>
-  </div>
-</header>
+    
 
 
-<main id="site-main" class="site-main outer" role="main">
-  <div class="inner">
-    <div class="post-feed">
+
+  <div class="outer">
+  <ul class="list-group">
+    
+    <li class="list-group-item title">
       
-
-
-<article class="post-card post"> 
+         
+        
+        
+          <a href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/"><time style="color:black;">2017-05-19</time>  / react-router v4 哎 路由 </a>
+        
+      
+    </li>
     
-    <a class="post-card-image-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
-      <div class="post-card-image" style="background-image: url(https://camo.githubusercontent.com/f63754b8412368e820601967af6dea84312b925b/68747470733a2f2f7265616374747261696e696e672e636f6d2f72656163742d726f757465722f616e64726f69642d6368726f6d652d313434783134342e706e67)"></div>
-    </a>
-    
+  </ul>
 
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #react 
-              #react-router  </span>
-              
-              <h2 class="post-card-title">react-router v4 哎 路由</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>react-router v4  react 的路由解决方案
- 而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
- &lt;Route path=&quot;/&quot; component={App} /&gt;  注意这个 ／
-比如我的 域名 llever.com
-当应用直接放在 llever.com/ 的时候，会实用。
-但是 如果我想 放在 llever.com/about/
-也正是我想做的.
-但是，本地测试 在 ／ :localhost:3000
-而， 我要放的地方在 /about/,
-万一，我想放在 /user/ 又去改，源码。妖
-资源路径 · 请求- 资源- 的 路径
-确保，刷新网页后，
-要是，服务器渲染，资源要对上啊。
-用 绝对路径 ，当我没说, 那还是用吧。（不用服务器渲染，真的好慢-首页）
-有没有，谁能 告诉我， 代码放哪，路由跟哪 的方法 </p>
-              
-          </section>
-      </a>
 
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
+      <footer>
+        <hr>
+        <small style="font-size:16px;">
+            &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a> 
+          
+        </small>
       </footer>
-    </div>
-</article>
+    </div> 
 
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
 
-    </div>
-
-    <nav class="pagination" role="navigation">
-      
-      <span class="page-number"><span class="hide">Page 1 of 1</span>&nbsp;</span>
-      
-    </nav>
-  </div>
-</main>
-
-<footer class="site-footer outer">
-  <div class="site-footer-content inner">
-    <section class="copyright" style="line-height: 1.3em;">
-      <a href="/">yobrave</a> © 2018 <br>
-      
-    </section>
-    <nav class="site-footer-nav">
-        <a href="/">Latest Posts</a>
-        
-        
-        <a href="https://github.com/chinanf-boy" target="_blank" rel="noopener">Github</a>
-        
-        
-    </nav>  
-  </div>
-</footer>
-
-</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-
-<script>hljs.initHighlightingOnLoad();</script>
-
-
-</body></html>

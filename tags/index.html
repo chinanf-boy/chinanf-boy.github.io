@@ -1,441 +1,79 @@
 <!DOCTYPE html>
-<html lang="zh-CN" />
+<html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <title>Tags &middot; </title>
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="canonical" href="/tags/" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Tags</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
 
     
-    <meta name="description" content="blog with world" /> 
-
     
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:image" content="/img/blog-cover.jpg"/>
- 
-    <meta name="twitter:title" content="Tags"/>
-    <meta name="twitter:description" content="js/rust/go/py tips"/>
-    <meta name="twitter:url" content="/tags/" />
-    <meta name="twitter:site" content="@"/>
-
-    <meta property="og:site_name" content="" />
-    <meta property="og:title" content="Tags &middot; Same like,Same guy" />
-    <meta property="og:url" content="/tags/" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" rel="stylesheet">
     
-
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="js/rust/go/py tips" />
-
-    <meta property="og:image" content="/img/blog-cover.jpg"/>
-
-    <meta name="generator" content="Hugo 0.49.2" />
-
-    <!-- Stylesheets -->
-    <style>
-    div.highlight {
-        width:100%;
-    }
-    </style>
-    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
-    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     
-
-     
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="/css/main.css">
+    
 
 </head>
 
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
 
-
-  <body class="tag-template"><div class="site-wrapper">
-  <header class="site-header outer">
-  <div class="inner">
-    <nav class="site-nav">
-      <div class="site-nav-left">
-        <a class="site-nav-logo" href="#"><img src="https://avatars2.githubusercontent.com/u/20272484?s=460&amp;v=4" alt="Same like,Same guy" /></a>
-
-        <ul class="nav" role="menu">
+        var resizeTimeout;
+        function resizeThrottler() {
         
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
         
-        
-            <li class="" role="menuitem">
-              <a href="/">Home</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/about/">Projects me</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/categories/">分类</a>
-            </li>
-        
-            <li class="" role="menuitem">
-              <a href="/tags">标签</a>
-            </li>
-        
-      </ul></div>
-
-      <div class="site-nav-right">
-        <div class="social-links">
-                    
-
-                    
-
-                    <a class="social-link" href="https://github.com/chinanf-boy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-
-                    
-
-                    
-        </div>  
             
-      </div>
-
-    </nav>  
-
-    <div class="site-header-content">
-        <h1 class="site-title">Tags</h1>
-
-        <h2 class="site-description">&#x2F;&nbsp;
-          
-          
-          <a href="/tags/anaconda"> anaconda </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/autoprefixer"> autoprefixer </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/babel"> babel </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/bash"> bash </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/canvas"> canvas </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/codepen"> codepen </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/conda"> conda </a> (2)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/css"> css </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/development"> development </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/direnv"> direnv </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/disqus"> disqus </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/es5"> es5 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/font"> font </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/full-folder"> full-folder </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/git-lens"> git-lens </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/github"> github </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/github_changelog_generator"> github_changelog_generator </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/go"> go </a> (6)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/golang"> golang </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/google-drive"> google-drive </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/heroku"> heroku </a> (2)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/hexo"> hexo </a> (2)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/hightlight"> hightlight </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/html5"> html5 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/hubot"> hubot </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/hugo"> hugo </a> (5)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/hyper"> hyper </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/i18n"> i18n </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/ionic"> ionic </a> (2)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/javascript"> javascript </a> (7)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/js"> js </a> (2)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/less"> less </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/mac-fix"> mac-fix </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/material-ui"> material-ui </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/mo"> mo </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/mrm"> mrm </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/node"> node </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/node-sass"> node-sass </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/node%E5%91%BD%E4%BB%A4%E8%A1%8C"> node命令行 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/npm"> npm </a> (4)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/npx"> npx </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/p5"> p5 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/pip"> pip </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/pipenv"> pipenv </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/pm2"> pm2 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/postcss"> postcss </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/preact"> preact </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/processing"> processing </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/pylint"> pylint </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/python"> python </a> (4)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/react"> react </a> (5)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/react-router"> react-router </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/redux"> redux </a> (2)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/reduxbootstrap"> reduxbootstrap </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/rename"> rename </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/repl"> repl </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/slack"> slack </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/slot-scope"> slot-scope </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/sublime"> sublime </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/templates"> templates </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/themes"> themes </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/typescript"> typescript </a> (2)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/vscode"> vscode </a> (4)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/vue"> vue </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/webpack"> webpack </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/window"> window </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/yarn"> yarn </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/zsh"> zsh </a> (2)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6"> 中间件 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/%E4%BA%8B%E4%BB%B6"> 事件 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/%E5%87%BD%E6%95%B0"> 函数 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/%E5%8A%A8%E7%94%BB"> 动画 </a> (2)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB"> 图像识别 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-          <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"> 机器学习 </a> (1)&nbsp;&#x2F;&nbsp;
-          
-        </h2>
-    </div>
-  </div>
-</header>
-
-
-<main id="site-main" class="site-main outer" role="main">
-  <div class="inner">
-    
-    <div class="post-feed">
-      
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/">
-      <div class="post-card-image" style="background-image: url(https://github.com/zeit/art/raw/525bd1bb39d97dd3b91c976106a6d5cc5766b678/hyper/repo-banner.png)"></div>
-    </a>
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
     
 
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #hyper  </span>
-              
-              <h2 class="post-card-title">Hyper open in finder and 服务</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p> 美丽的终端 Hyper 下面是 在 mac 上的快速启动
-open in finder https://github.com/ealeksandrov/cdto/releases/tag/2_8_0
-添加服务 也就是 文件夹 右键
-https://github.com/zeit/hyper/files/1800038/New.Hyper.Tab.at.Folder.workflow.zip
-更改 默认 终端 可更改 mac 上 默认开启的服务与应用
-http://www.rubicode.com/Downloads/RCDefaultApp-2.1.X.dmg
- 官网 http://www.rubicode.com/Software/RCDefaultApp/
- Passed mac high serirra 10.13.2  </p>
-              
-          </section>
-      </a>
 
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
+    
+
+
+
+  <div class="outer">
+  <ul class="list-group">
+    
+  </ul>
+
+
+      <footer>
+        <hr>
+        <small style="font-size:16px;">
+            &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a> 
+          
+        </small>
       </footer>
-    </div>
-</article>
- 
+    </div> 
 
-<article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/">
-      <div class="post-card-image" style="background-image: url(https://9l5lrtz8mj-flywheel.netdna-ssl.com/wp-content/uploads/2016/06/codepen-logo.jpg)"></div>
-    </a>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
 
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #codepen 
-              #动画  </span>
-              
-              <h2 class="post-card-title">codepen 代码嵌入</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>codepen 的 代码嵌入 功能 See the Pen Gravity Points by braveyo (@china-boy) on CodePen.  # 只要在 codepen 的 编辑器界面
-# 有个 右下角 Embed 的 功能
-# 复制 提供的 iframe 或 html 代码 就好
-# 上面的 点击 制造 黑洞 模仿黑洞引力哦 </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/2017/01/11/tensorflow-by-google/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/2017/01/11/tensorflow-by-google/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #机器学习 
-              #图像识别  </span>
-              
-              <h2 class="post-card-title">TensorFlow by Google</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>So ,开始吧！
-这份学习来自于Google 在 Github上的开源项目 TensorFlow
-要知道，当今，如果，你想，实现一个机器人的 “大脑”。
-😯，那么你要做得事情，会很多很多，难度说到这里。
-正题：
-机器学习的概念，定义一长串？！
-所以，通俗的说。
-1.输入
-2.TensorFlow
-3.输出
- 从 1⃣️ 开始：TensorFlow具有简单的运行公式，即便它本身的函数名看起来是那么那么的繁杂
- 输入:(=训练数据=)； 我的标题是 《图像识别》，那么，也就是
-官方的例子，#如何识别图片是什么花#。
-虽然说是机器学习，但是完成一项识别工作，是繁重的。
-就如每个动物出生，要别——动物 ^ _ ^ 告诉他／她／它
-哦，这是爸爸，哦，这是妈妈。。。
-那么前期的工作就是，花的图片，大量大量的，越多越好||😢
- 像五年高考，三年模拟，的题海战术，不想回忆
-  这是红菊
-这是黄菊
- 但还是菊，科科
-收集起来，放一起，这就是需要训练的数据。
-2⃣️：TensorFlow
-在前一步，完成图片的收集后，是时候，入厂了喔。
- 我现在不放代码，只是单纯从，非专业人士的角度。
-概su，毕竟，猫🐱总是好奇的嘛
- 好了，现在，手握大量图片，再然后事情就不归我们管了
-ps：代码就是看起来很厉害的，一串东东
-图片库路径=&gt;(代码)
-代码里面有(TensorFlow的各种算法) 什么样的算法？不用管
-像选 商品一样，想用哪个用哪个
-总结下&gt;&gt;&gt; 图片库，_写入&gt;代码，代码里含有（算法）。
-然后，很重要的一点，就是，就是，哦，告诉代码，对
-告诉代码，这个图片库路径是什么花🌹。哪个是什么花
-ok👌。是不是很简单
- 3⃣️：输入
-为什么，我们要使用机器学习，来完成图片识别，
-或者说
-未来，机器人大脑数据的构成。
-因为，我们想要一台 不断成长的 机器人。后果另算
- 重新说回，输入
- 这个时候，大手大脚，的，测试吧， ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/ghost-icon.png" alt="Author" />
-          <span class="post-card-author"><a href="/">yobrave</a></span>
-      </footer>
-    </div>
-</article>
-
-
-    </div>   
-    
-  </div>
-</main>
-
-<footer class="site-footer outer">
-  <div class="site-footer-content inner">
-    <section class="copyright" style="line-height: 1.3em;">
-      <a href="/">yobrave</a> © 2018 <br>
-      
-    </section>
-    <nav class="site-footer-nav">
-        <a href="/">Latest Posts</a>
-        
-        
-        <a href="https://github.com/chinanf-boy" target="_blank" rel="noopener">Github</a>
-        
-        
-    </nav>  
-  </div>
-</footer>
-
-</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-
-<script>hljs.initHighlightingOnLoad();</script>
-
-
-</body></html>
