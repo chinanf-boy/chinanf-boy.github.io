@@ -22,6 +22,18 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
+      <title>Golang Chroma 使用例子</title>
+      <link>/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</link>
+      <pubDate>Thu, 01 Nov 2018 10:30:33 +0800</pubDate>
+      
+      <guid>/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</guid>
+      <description>Chroma 通用语法高亮库    源码 翻译     github repo 中文    简略说一下，三点  要是屁话，不想听，直接上例子，或看中文翻译
+  1: lexers 词法分析器  主要是为了，知道你用的那串字符，是什么语言  2: styles 主题/样式  
+ 查看-&amp;gt;主题名称 
+[ abap, algol, algol_nu, arduino, autumn, borland, bw, colorful, dracula, emacs, friendly, fruity, github, igor, lovelace, manni, monokai, monokailight, murphy, native, paraiso-dark, paraiso-light, pastie, perldoc, pygments, rainbow_dash, rrt, solarized-dark, solarized-dark256, solarized-light, swapoff, tango, trac, vim, vsxcode ]</description>
+    </item>
+    
+    <item>
       <title>mac repl js go 大混杂</title>
       <link>/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/</link>
       <pubDate>Wed, 24 Jan 2018 15:53:30 +0000</pubDate>
