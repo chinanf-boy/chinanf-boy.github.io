@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Example on Code &gt; Explain &gt; Transalte 的人</title>
-    <link>/categories/example/</link>
-    <description>Recent content in Example on Code &gt; Explain &gt; Transalte 的人</description>
+    <title>Sync on Code &gt; Explain &gt; Transalte 的人</title>
+    <link>/tags/sync/</link>
+    <description>Recent content in Sync on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sun, 04 Nov 2018 12:34:22 +0800</lastBuildDate>
     
-	<atom:link href="/categories/example/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/sync/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,18 +18,6 @@
       
       <guid>/2018/11/04/go-%E5%A4%9A%E4%B8%AA%E5%B9%B6%E5%8F%91%E7%AD%89%E5%BE%85-url%E8%AF%B7%E6%B1%82-%E7%A4%BA%E4%BE%8B/</guid>
       <description>Code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;sync&amp;#34; ) func main() { urls := []string{ &amp;#34;http://llever.com&amp;#34;, &amp;#34;http://llever.com/goreleaser-zh&amp;#34;, &amp;#34;http://llever.com/about/&amp;#34;, } jsonResponses := make(chan int) var wg sync.WaitGroup all := 0 for _, url := range urls { wg.Add(1) all++ go func(url string) { defer wg.Done() fmt.Println(url) res, err := http.Get(url) if err != nil { log.Fatal(err) } else { defer res.Body.Close() body, err := ioutil.ReadAll(res.Body) if err != nil { log.</description>
-    </item>
-    
-    <item>
-      <title>Golang Chroma 使用例子</title>
-      <link>/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</link>
-      <pubDate>Thu, 01 Nov 2018 10:30:33 +0800</pubDate>
-      
-      <guid>/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</guid>
-      <description>Chroma 通用语法高亮库    源码 翻译     github repo 中文    简略说一下，三点  要是屁话，不想听，直接上例子，或看中文翻译
-  1: lexers 词法分析器  主要是为了，知道你用的那串字符，是什么语言  2: styles 主题/样式  
- 查看-&amp;gt;主题名称 
-[ abap, algol, algol_nu, arduino, autumn, borland, bw, colorful, dracula, emacs, friendly, fruity, github, igor, lovelace, manni, monokai, monokailight, murphy, native, paraiso-dark, paraiso-light, pastie, perldoc, pygments, rainbow_dash, rrt, solarized-dark, solarized-dark256, solarized-light, swapoff, tango, trac, vim, vsxcode ]</description>
     </item>
     
   </channel>
