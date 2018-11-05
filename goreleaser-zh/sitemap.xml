@@ -3,137 +3,137 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://goreleaser.com/introduction/</loc>
+    <loc>/introduction/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/quick-start/</loc>
+    <loc>/quick-start/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/project/</loc>
+    <loc>/project/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/semver/</loc>
+    <loc>/semver/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/cgo/</loc>
+    <loc>/cgo/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/hooks/</loc>
+    <loc>/hooks/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/environment/</loc>
+    <loc>/environment/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/templates/</loc>
+    <loc>/templates/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/build/</loc>
+    <loc>/build/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/customization/</loc>
+    <loc>/customization/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/archive/</loc>
+    <loc>/archive/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/checksum/</loc>
+    <loc>/checksum/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/sign/</loc>
+    <loc>/sign/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/snapshots/</loc>
+    <loc>/snapshots/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/nfpm/</loc>
+    <loc>/nfpm/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/snapcraft/</loc>
+    <loc>/snapcraft/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/homebrew/</loc>
+    <loc>/homebrew/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/scoop/</loc>
+    <loc>/scoop/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/release/</loc>
+    <loc>/release/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/s3/</loc>
+    <loc>/s3/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/artifactory/</loc>
+    <loc>/artifactory/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/bintray/</loc>
+    <loc>/bintray/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/put/</loc>
+    <loc>/put/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/docker/</loc>
+    <loc>/docker/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/ci/</loc>
+    <loc>/ci/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/deprecations/</loc>
+    <loc>/deprecations/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/sponsors/</loc>
+    <loc>/sponsors/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/tutorials/</loc>
+    <loc>/tutorials/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/contrib/</loc>
+    <loc>/contrib/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/links/</loc>
+    <loc>/links/</loc>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/</loc>
+    <loc>/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://goreleaser.com/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
