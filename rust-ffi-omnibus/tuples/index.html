@@ -91,7 +91,7 @@ extern tuple_t flip_things_around(tuple_t);
 int main(void) {
   tuple_t initial = { .x = 10, .y = 20 };
   tuple_t new = flip_things_around(initial);
-  printf(&quot;(%d,%d)\n&quot;, new.x, new.y);
+  printf(&quot;(%u,%u)\n&quot;, new.x, new.y);
   return 0;
 }
 </code></pre>
@@ -222,6 +222,37 @@ class Tuples
 </code></pre>
 
 <p>为了镜像 元组结构定义,我们创建了一个<code class="highlighter-rouge">struct</code>,使用<code class="highlighter-rouge">StructLayout</code>属性并将 布局定义为顺序. 我们还提供了一些 implicit-隐式转换 运算符,使类型之间的转换相当无缝.</p>
+
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;tuples&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+lib = Libdl.dlopen(libname)
+flipthingsaround_sym = Libdl.dlsym(lib, :flip_things_around)
+
+struct Tuple
+    x::UInt32
+    y::UInt32
+end
+
+flipthingsaround(t:: Tuple) = ccall(
+    flipthingsaround_sym,
+    Tuple, (Tuple,),
+    t)
+
+initial = Tuple(10, 20)
+newtuple = flipthingsaround(initial)
+println(&quot;($(newtuple.x),$(newtuple.y))&quot;)
+</code></pre>
+
+<p>使用完全相同的字段布局定义的Julia结构类型，已与C的数据数组兼容。 由于所有字段都是<a href="https://docs.julialang.org/en/v1/base/base/#Base.isbits"><code class="highlighter-rouge">isbits</code></a>，因此Tuple类型也是如此。这是因为，它存储每个内联内容，并将按值传递给原生函数。</p>
+
 
       </main>
 

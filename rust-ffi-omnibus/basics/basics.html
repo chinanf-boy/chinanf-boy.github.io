@@ -48,7 +48,7 @@ libc = &quot;*&quot;
 crate-type = [&quot;cdylib&quot;]
 </code></pre>
 
-<p><code class="highlighter-rouge">crate-type=["cdylib"]</code> creates a dynamically linked library.
+<p><code class="highlighter-rouge">crate-type = ["cdylib"]</code> creates a dynamically linked library.
 Check out the Cargo documentation for
 <a href="http://doc.crates.io/manifest.html#building-dynamic-or-static-libraries">dynamic or static libraries</a> for more information.</p>
 
@@ -72,33 +72,39 @@ larger project.</p>
 
 <h2 id="ruby">Ruby</h2>
 
-<p>All Ruby examples will use Ruby 2.4 and the <a href="https://github.com/ffi/ffi">FFI gem</a>.</p>
+<p>All Ruby examples will use Ruby 2.5 and the <a href="https://github.com/ffi/ffi">FFI gem</a>.</p>
 
 <h2 id="python">Python</h2>
 
-<p>All Python examples will use Python 3.4 and the <a href="https://docs.python.org/3/library/ctypes.html">ctypes library</a>.</p>
+<p>All Python examples will use Python 3.7 and the <a href="https://docs.python.org/3/library/ctypes.html">ctypes library</a>.</p>
 
 <h2 id="haskell">Haskell</h2>
 
-<p>All Haskell examples will use GHC 7.6 with the <code class="highlighter-rouge">ForeignFunctionInterface</code>
+<p>All Haskell examples will use GHC 8.4 with the <code class="highlighter-rouge">ForeignFunctionInterface</code>
 language extension and only the <code class="highlighter-rouge">base</code> library which comes with GHC.</p>
 
 <h2 id="nodejs">Node.js</h2>
 
-<p>All Node.js examples will use Node.js 8.7 and the <a href="https://www.npmjs.com/package/node-ffi">ffi package</a>.</p>
+<p>All Node.js examples will use Node.js 8.12 and the <a href="https://www.npmjs.com/package/node-ffi">ffi package</a>.</p>
 
 <h2 id="c-1">C#</h2>
 
-<p>All C# examples will compile with Mono 5.10. It is assumed that this
+<p>All C# examples will compile with Mono 5.14. It is assumed that this
 code will work with the Microsoft CLR frameworks, but this is
 untested.</p>
+
+<h2 id="julia">Julia</h2>
+
+<p>All Julia examples will use Julia 1.0, and rely on the language’s
+built-in <a href="https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code">C function calling capabilities</a>. They might also
+work on v0.7, but this version is untested.</p>
 
 <h2 id="running-examples">Running Examples</h2>
 
 <p>When running examples, you need to ensure the Rust dynamic library
 can be located by the system.</p>
 
-<p>With most shells on Mac OS X and Linux, this can be done by prefixing
+<p>With most shells on macOS and Linux, this can be done by prefixing
 commands with <code class="highlighter-rouge">LD_LIBRARY_PATH=target/debug</code>.  For example, to run a
 Python example, you might use
 <code class="highlighter-rouge">LD_LIBRARY_PATH=target/debug python src/main.py</code> from the example

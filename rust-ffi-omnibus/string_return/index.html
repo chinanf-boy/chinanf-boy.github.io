@@ -273,6 +273,45 @@ public class ThemeSong : IDisposable
 
 <p>不幸的是,没有简单的方法将 指针 读作 UTF-8字符串. C#有 ANSI字符串和”Unicode”字符串 (实际上是UCS-2) 的情况,但没有UTF-8. 我们需要自己写.</p>
 
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;string_return&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+lib = Libdl.dlopen(libname)
+themesonggenerator_sym = Libdl.dlsym(lib, :theme_song_generate)
+themesongfree_sym = Libdl.dlsym(lib, :theme_song_free)
+
+function generatethemesong(n::Int)
+    s = ccall(
+        themesonggenerator_sym,
+        Cstring, (UInt8,),
+        n)
+    out = unsafe_string(s)
+    ccall(
+        themesongfree_sym,
+        Cvoid, (Cstring,),
+        s
+    )
+    out
+end
+
+song = generatethemesong(5)
+println(song)
+</code></pre>
+
+<p>我们使用 <code class="highlighter-rouge">Cstring</code> 数据类型 表示为一个 NUL-终止 字符。
+而不是用Julia空间已分配的字符表示, 这个例子
+用<code class="highlighter-rouge">unsafe_string</code>建立了字符的副本 , 由Julia自身管理, 并在之后传回Rust字符串。该
+<a href="../objects#julia">objects</a>部分提供了一个
+在Julia语言,资源仍然存在的例子。</p>
+
+
       </main>
 
       <nav class="content-navigation">

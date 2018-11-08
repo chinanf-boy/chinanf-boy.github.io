@@ -82,7 +82,7 @@ extern uint32_t addition(uint32_t, uint32_t);
 
 int main(void) {
   uint32_t sum = addition(1, 2);
-  printf(&quot;%d\n&quot;, sum);
+  printf(&quot;%u\n&quot;, sum);
   return 0;
 }
 </code></pre>
@@ -92,7 +92,7 @@ int main(void) {
 Rust库 使用<code class="highlighter-rouge">gcc --std=c11 -o c-example src/main.c -L
 target/debug/-lintegers</code>.</p>
 
-<p>如 基础部分 所述，这可以在 Mac OS X和Linux上 运行
+<p>如 基础部分 所述，这可以在 mac OS X和Linux上 运行
 使用</p>
 
 <p><code class="highlighter-rouge">
@@ -139,7 +139,7 @@ lib.addition.restype = c_uint32
 print(lib.addition(1, 2))
 </code></pre>
 
-<p>如基础部分所述，这可以在Mac OS X和Linux上运行
+<p>如基础部分所述，这可以在mac OS X和Linux上运行
 使用
 `
 LD_LIBRARY_PATH=target/debug/python src/main.py
@@ -222,6 +222,44 @@ class Integers
 <p>这可以用<code class="highlighter-rouge">mcs -out：csharp-example src/main.cs</code>编译</p>
 
 <p>和用<code class="highlighter-rouge">LD_LIBRARY_PATH=target/debug mono csharp-example</code>执行.</p>
+
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;integers&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+libintegers = Libdl.dlopen(libname)
+addition_sym = Libdl.dlsym(libintegers, :addition)
+
+addition(a, b) = ccall(
+    addition_sym,
+    UInt32, (UInt32, UInt32), 
+    a, b)
+
+println(addition(1, 2))
+</code></pre>
+
+<p>使用原生 <a href="https://docs.julialang.org/en/v1/base/c/#ccall"><code class="highlighter-rouge">ccall</code></a> 调用外部函数. 如果提前只知道函数名, 我们也可以跳过通过<code class="highlighter-rouge">dlsym</code>获取函数指针的步骤, 改为传递一个
+<code class="highlighter-rouge">(func, lib)</code> literal 元祖:</p>
+
+<div class="language-julia highlighter-rouge"><pre class="highlight"><code><span class="n">addition</span><span class="x">(</span><span class="n">a</span><span class="x">,</span> <span class="n">b</span><span class="x">)</span> <span class="o">=</span> <span class="n">ccall</span><span class="x">(</span>
+    <span class="x">(:</span><span class="n">addition</span><span class="x">,</span> <span class="s">"libintegers"</span><span class="x">),</span> <span class="c"># ← must be a constant expression!</span>
+    <span class="kt">UInt32</span><span class="x">,</span>
+    <span class="x">(</span><span class="kt">UInt32</span><span class="x">,</span> <span class="kt">UInt32</span><span class="x">),</span> 
+    <span class="n">a</span><span class="x">,</span> <span class="n">b</span><span class="x">)</span>
+</code></pre>
+</div>
+
+<p>如基础部分所述，这可以在macOS和Linux上运行
+，使用 <code class="highlighter-rouge">LD_LIBRARY_PATH=target/debug/ julia src/main.jl</code>,和在
+Windows通过将<code class="highlighter-rouge">target\debug\integers.dll</code> 复制到当前
+目录并运行<code class="highlighter-rouge">julia src\main.jl</code>.</p>
+
 
       </main>
 

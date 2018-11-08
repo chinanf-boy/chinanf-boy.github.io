@@ -298,6 +298,46 @@ string. C# has cases for ANSI strings and for “Unicode” strings
 (really UCS-2), but nothing for UTF-8. We need to write that
 ourselves.</p>
 
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;string_return&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+lib = Libdl.dlopen(libname)
+themesonggenerator_sym = Libdl.dlsym(lib, :theme_song_generate)
+themesongfree_sym = Libdl.dlsym(lib, :theme_song_free)
+
+function generatethemesong(n::Int)
+    s = ccall(
+        themesonggenerator_sym,
+        Cstring, (UInt8,),
+        n)
+    out = unsafe_string(s)
+    ccall(
+        themesongfree_sym,
+        Cvoid, (Cstring,),
+        s
+    )
+    out
+end
+
+song = generatethemesong(5)
+println(song)
+</code></pre>
+
+<p>We use the <code class="highlighter-rouge">Cstring</code> data type to represent a NUL-terminated string.
+Rather than holding the allocated string in Julia space, this example
+constructs a copy of the string with <code class="highlighter-rouge">unsafe_string</code>, to be managed
+by Julia, and transfers the Rust string back afterwards. The 
+<a href="../objects#julia">objects</a> section provides an example where the
+resource is kept alive in Julia.</p>
+
+
       </main>
 
       <nav class="content-navigation">

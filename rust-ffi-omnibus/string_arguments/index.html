@@ -84,7 +84,7 @@ extern uint32_t how_many_characters(const char *str);
 
 int main(void) {
   uint32_t count = how_many_characters(&quot;göes to élevên&quot;);
-  printf(&quot;%d\n&quot;, count);
+  printf(&quot;%u\n&quot;, count);
   return 0;
 }
 </code></pre>
@@ -177,6 +177,30 @@ class StringArguments
 </code></pre>
 
 <p>原生字符串 会自动编组为 与C兼容的字符串.</p>
+
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;string_arguments&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+libstring_arguments = Libdl.dlopen(libname)
+howmanycharacters_sym = Libdl.dlsym(libstring_arguments, :how_many_characters)
+
+howmanycharacters(s:: AbstractString) = ccall(
+    howmanycharacters_sym,
+    UInt32, (Cstring,),
+    s)
+
+println(howmanycharacters(&quot;göes to élevên&quot;))
+</code></pre>
+
+<p>Julia strings (<code class="highlighter-rouge">AbstractString</code>的基础类型) 自动转换为 C strings。 这个来自Julia 的 <code class="highlighter-rouge">Cstring</code> 类型与 Rust 的<code class="highlighter-rouge">CStr</code>类型兼容, 因为它也假设一个<code class="highlighter-rouge">NUL</code>的终结符字节
+且不允许 <code class="highlighter-rouge">NUL</code> 字节 被嵌入 字符串.</p>
 
       </main>
 

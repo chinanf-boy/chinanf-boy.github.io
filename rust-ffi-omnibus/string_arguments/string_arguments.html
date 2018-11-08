@@ -101,7 +101,7 @@ extern uint32_t how_many_characters(const char *str);
 
 int main(void) {
   uint32_t count = how_many_characters(&quot;göes to élevên&quot;);
-  printf(&quot;%d\n&quot;, count);
+  printf(&quot;%u\n&quot;, count);
   return 0;
 }
 </code></pre>
@@ -202,6 +202,32 @@ class StringArguments
 </code></pre>
 
 <p>Native strings are automatically marshalled to C-compatible strings.</p>
+
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;string_arguments&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+libstring_arguments = Libdl.dlopen(libname)
+howmanycharacters_sym = Libdl.dlsym(libstring_arguments, :how_many_characters)
+
+howmanycharacters(s:: AbstractString) = ccall(
+    howmanycharacters_sym,
+    UInt32, (Cstring,),
+    s)
+
+println(howmanycharacters(&quot;göes to élevên&quot;))
+</code></pre>
+
+<p>Julia strings (of base type <code class="highlighter-rouge">AbstractString</code>) are automatically
+converted to C strings. The <code class="highlighter-rouge">Cstring</code> type from Julia is compatible
+with the Rust type <code class="highlighter-rouge">CStr</code>, as it also assumes a <code class="highlighter-rouge">NUL</code> terminator byte
+and does not allow <code class="highlighter-rouge">NUL</code> bytes embedded in the string.</p>
 
       </main>
 

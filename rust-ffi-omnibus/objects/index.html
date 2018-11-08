@@ -36,7 +36,6 @@
 <pre><code class="rust">extern crate libc;
 
 use libc::{c_char, uint32_t};
-use std::str;
 use std::collections::HashMap;
 use std::ffi::CStr;
 
@@ -136,7 +135,7 @@ int main(void) {
 
   zip_code_database_free(database);
 
-  printf(&quot;%d\n&quot;, pop1 - pop2);
+  printf(&quot;%d\n&quot;, (int32_t)pop1 - (int32_t)pop2);
 }
 </code></pre>
 
@@ -424,6 +423,75 @@ public class ZipCodeDatabase : IDisposable
 
 <p>我们也允许<code class="highlighter-rouge">ZipCodeDatabase</code>参与<code class="highlighter-rouge">IDisposable</code>协议,转发到 安全包装器.</p>
 
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;objects&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+lib = Libdl.dlopen(libname)
+
+zipcodedatabase_new_sym = Libdl.dlsym(lib, :zip_code_database_new)
+zipcodedatabase_free_sym = Libdl.dlsym(lib, :zip_code_database_free)
+zipcodedatabase_populate_sym = Libdl.dlsym(lib, :zip_code_database_populate)
+zipcodedatabase_populationof_sym = Libdl.dlsym(lib, :zip_code_database_population_of)
+
+struct ZipCodeDatabase
+    handle::Ptr{Nothing}
+
+    function ZipCodeDatabase()
+        handle = ccall(zipcodedatabase_new_sym, Ptr{Cvoid}, ())
+        new(handle)
+    end
+
+    function ZipCodeDatabase(f::Function)
+        database = ZipCodeDatabase()
+        out = f(database)
+        close(database)
+        out
+    end
+end
+
+close(database:: ZipCodeDatabase) = ccall(
+    zipcodedatabase_free_sym,
+    Cvoid, (Ptr{Cvoid},),
+    database.handle
+)
+
+populate!(database:: ZipCodeDatabase) = ccall(
+    zipcodedatabase_populate_sym,
+    Cvoid, (Ptr{Cvoid},),
+    database.handle
+)
+
+populationof(database:: ZipCodeDatabase, zipcode:: AbstractString) = ccall(
+    zipcodedatabase_populationof_sym,
+    UInt32, (Ptr{Cvoid}, Cstring),
+    database.handle, zipcode
+)
+
+ZipCodeDatabase() do database
+    populate!(database)
+    pop1 = populationof(database, &quot;90210&quot;)
+    pop2 = populationof(database, &quot;20500&quot;)
+    println(pop1 - pop2)
+end
+</code></pre>
+
+<p>与其他语言一样，我们将控制指针隐藏在新数据类型后面。 填充数据库的方法称为<code class="highlighter-rouge">populate!</code>，遵循Julia修改值方法的惯例，会加上<code class="highlighter-rouge">!</code>的后缀。</p>
+
+<p>目前尚未就Julia应如何处理原生资源达成共识。 虽然用于分配<code class="highlighter-rouge">ZipCodeDatabase</code>的内部构造函数模式，在这里是合适的，但我们也可以想到许多方法让Julia随后释放它。在这个例子中，我们展示了释放对象的两种方法：</p>
+
+<ul>
+  <li>(1)用<code class="highlighter-rouge">do</code>语法的map构造函数，以及</li>
+  <li>(2)用于手动释放对象的close重载。</li>
+</ul>
+
+<p>内部构造函数<code class="highlighter-rouge">ZipCodeDatabase(f)</code>负责创建和释放对象。 使用do语法，用户代码变得类似使用Python语法<code class="highlighter-rouge">with</code> 。或者，程序员可以使用其他构造，并在不再需要时，调用<code class="highlighter-rouge">close</code>方法。</p>
 
       </main>
 

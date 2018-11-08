@@ -75,7 +75,7 @@ extern uint32_t sum_of_even(const uint32_t *numbers, size_t length);
 int main(void) {
   uint32_t numbers[6] = {1,2,3,4,5,6};
   uint32_t sum = sum_of_even(numbers, 6);
-  printf(&quot;%d\n&quot;, sum);
+  printf(&quot;%u\n&quot;, sum);
   return 0;
 }
 </code></pre>
@@ -197,6 +197,49 @@ class SliceArguments
 <p>传递数组很复杂,因为我们需要传递 指向数据的指针 以及 数组的长度. 与前面的例子不同,我们引入了非惯用语<code class="highlighter-rouge">snake_case</code>作为私人方法. 然后我们可以添加一个公共方法,它包装 私有方法 并提供 预期的接口.</p>
 
 <p>C代码使用了<code class="highlighter-rouge">size_t</code>,一种大小 根据平台而变化 的类型. 为了反映这一点,我们使用了一个<code class="highlighter-rouge">UIntPtr</code>.</p>
+
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;slice_arguments&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+lib = Libdl.dlopen(libname)
+sumofeven_sym = Libdl.dlsym(lib, :sum_of_even)
+
+sumofeven(a:: Array{UInt32}) = ccall(
+    sumofeven_sym,
+    UInt32,
+    (Ptr{UInt32}, Csize_t),
+    a,
+    length(a))
+
+println(sumofeven(UInt32[1, 2, 3, 4, 5, 6]))
+</code></pre>
+
+<p>传递需要指针和数组的长度的数组。
+该数组被隐式转换为指向第一个元素的指针，
+类型为<code class="highlighter-rouge">Ptr{UInt32}</code>。<code class="highlighter-rouge">Csize</code>类型是Julia的对<code class="highlighter-rouge">size_t</code>的等价物
+。我们还强制执行函数参数类型
+<code class="highlighter-rouge">Array{UInt32}</code>，这是原生函数有效兼容的特定数组类型。</p>
+
+<p>这个例子有点复杂，因为在Julia中有两个
+的原始指针类型。 <a href="julia-Ptr"><code class="highlighter-rouge">Ptr{T}</code></a>是一个原始
+内存地址为<code class="highlighter-rouge">T</code>类型的值，而<a href="julia-Ref"><code class="highlighter-rouge">Ref{T}</code></a>
+是一个托管指针，指向Julia垃圾收集器不会放手的数据
+只要这个<code class="highlighter-rouge">Ref</code>还引用。这些类型将是
+在任何一种情况下都转换为<code class="highlighter-rouge">ccall</code>中的C兼容指针类型。</p>
+
+<p>虽然, 在传递指向原生函数的参数时，<a href="https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/#When-to-use-T,-Ptr{T}-and-Ref{T}-1">首选</a>使用<code class="highlighter-rouge">Ref</code>
+，甚至可
+通过可变指针传递它们(可让原生函数
+修改指向的对象），C风格的数组是一个例外
+规则，应该用原始的’Ptr`和其长度传递。</p>
+
 
       </main>
 

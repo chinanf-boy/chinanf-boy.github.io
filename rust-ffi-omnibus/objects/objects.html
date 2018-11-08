@@ -41,7 +41,6 @@ often referred to as an <em>opaque object</em> or an <em>opaque pointer</em>.</p
 <pre><code class="rust">extern crate libc;
 
 use libc::{c_char, uint32_t};
-use std::str;
 use std::collections::HashMap;
 use std::ffi::CStr;
 
@@ -162,7 +161,7 @@ int main(void) {
 
   zip_code_database_free(database);
 
-  printf(&quot;%d\n&quot;, pop1 - pop2);
+  printf(&quot;%d\n&quot;, (int32_t)pop1 - (int32_t)pop2);
 }
 </code></pre>
 
@@ -484,6 +483,79 @@ automatically marshalled to and from the wrapper.</p>
 <p>We also allow the <code class="highlighter-rouge">ZipCodeDatabase</code> to participate in the
 <code class="highlighter-rouge">IDisposable</code> protocol, forwarding to the safe wrapper.</p>
 
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;objects&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+lib = Libdl.dlopen(libname)
+
+zipcodedatabase_new_sym = Libdl.dlsym(lib, :zip_code_database_new)
+zipcodedatabase_free_sym = Libdl.dlsym(lib, :zip_code_database_free)
+zipcodedatabase_populate_sym = Libdl.dlsym(lib, :zip_code_database_populate)
+zipcodedatabase_populationof_sym = Libdl.dlsym(lib, :zip_code_database_population_of)
+
+struct ZipCodeDatabase
+    handle::Ptr{Nothing}
+
+    function ZipCodeDatabase()
+        handle = ccall(zipcodedatabase_new_sym, Ptr{Cvoid}, ())
+        new(handle)
+    end
+
+    function ZipCodeDatabase(f::Function)
+        database = ZipCodeDatabase()
+        out = f(database)
+        close(database)
+        out
+    end
+end
+
+close(database:: ZipCodeDatabase) = ccall(
+    zipcodedatabase_free_sym,
+    Cvoid, (Ptr{Cvoid},),
+    database.handle
+)
+
+populate!(database:: ZipCodeDatabase) = ccall(
+    zipcodedatabase_populate_sym,
+    Cvoid, (Ptr{Cvoid},),
+    database.handle
+)
+
+populationof(database:: ZipCodeDatabase, zipcode:: AbstractString) = ccall(
+    zipcodedatabase_populationof_sym,
+    UInt32, (Ptr{Cvoid}, Cstring),
+    database.handle, zipcode
+)
+
+ZipCodeDatabase() do database
+    populate!(database)
+    pop1 = populationof(database, &quot;90210&quot;)
+    pop2 = populationof(database, &quot;20500&quot;)
+    println(pop1 - pop2)
+end
+</code></pre>
+
+<p>As in other languages, we hide a handler pointer behind a new data type. The method which populates the database is called <code class="highlighter-rouge">populate!</code> to follow the Julia convention of having the <code class="highlighter-rouge">!</code> suffix on methods which modify the value.</p>
+
+<p>There is currently no consensus on how Julia should handle native 
+resources. While the inner constructor pattern for allocating the 
+<code class="highlighter-rouge">ZipCodeDatabase</code> is suitable here, we can think of many ways to let
+Julia free it afterwards. In this example, we show two means of freeing 
+the object: (1) a mapping constructor for use with the <code class="highlighter-rouge">do</code> syntax, and
+(2) a <code class="highlighter-rouge">close</code> overload for manually freeing the object.</p>
+
+<p>The inner constructor <code class="highlighter-rouge">ZipCodeDatabase(f)</code>, is both in charge of
+creating and freeing the object. With the <code class="highlighter-rouge">do</code> syntax, the user code
+becomes similar to one using Python’s <code class="highlighter-rouge">with</code> syntax. Alternatively,
+the programmer can use the other constructor and call the method
+<code class="highlighter-rouge">close</code> when it is no longer needed.</p>
 
       </main>
 

@@ -82,7 +82,7 @@ extern uint32_t addition(uint32_t, uint32_t);
 
 int main(void) {
   uint32_t sum = addition(1, 2);
-  printf(&quot;%d\n&quot;, sum);
+  printf(&quot;%u\n&quot;, sum);
   return 0;
 }
 </code></pre>
@@ -92,7 +92,7 @@ and return types. This can then be compiled and linked against the
 Rust library using <code class="highlighter-rouge">gcc --std=c11 -o c-example src/main.c -L
 target/debug/ -lintegers</code>.</p>
 
-<p>As noted in the basics section, this can be run on Mac OS X and Linux
+<p>As noted in the basics section, this can be run on macOS and Linux
 with <code class="highlighter-rouge">LD_LIBRARY_PATH=target/debug/ ./c-example</code>, and on Windows by
 copying <code class="highlighter-rouge">target\debug\integers.dll</code> to the current directory and
 running <code class="highlighter-rouge">.\c-example</code>.</p>
@@ -130,7 +130,7 @@ lib.addition.restype = c_uint32
 print(lib.addition(1, 2))
 </code></pre>
 
-<p>As noted in the basics section, this can be run on Mac OS X and Linux
+<p>As noted in the basics section, this can be run on macOS and Linux
 with <code class="highlighter-rouge">LD_LIBRARY_PATH=target/debug/ python src/main.py</code>, and on
 Windows by copying <code class="highlighter-rouge">target\debug\integers.dll</code> to the current
 directory and running <code class="highlighter-rouge">py src\main.py</code>.</p>
@@ -205,6 +205,46 @@ for the exposed function.</p>
 
 <p>This can be compiled with <code class="highlighter-rouge">mcs -out:csharp-example src/main.cs</code> and
 executed with <code class="highlighter-rouge">LD_LIBRARY_PATH=target/debug mono csharp-example</code>.</p>
+
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;integers&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+libintegers = Libdl.dlopen(libname)
+addition_sym = Libdl.dlsym(libintegers, :addition)
+
+addition(a, b) = ccall(
+    addition_sym,
+    UInt32, (UInt32, UInt32), 
+    a, b)
+
+println(addition(1, 2))
+</code></pre>
+
+<p>Foreign function calls are made with the <a href="https://docs.julialang.org/en/v1/base/c/#ccall"><code class="highlighter-rouge">ccall</code></a>
+primitive. If the library’s name is known in advance, we can also
+skip fetching the function pointer through <code class="highlighter-rouge">dlsym</code>, by passing a
+<code class="highlighter-rouge">(func, lib)</code> literal tuple:</p>
+
+<div class="language-julia highlighter-rouge"><pre class="highlight"><code><span class="n">addition</span><span class="x">(</span><span class="n">a</span><span class="x">,</span> <span class="n">b</span><span class="x">)</span> <span class="o">=</span> <span class="n">ccall</span><span class="x">(</span>
+    <span class="x">(:</span><span class="n">addition</span><span class="x">,</span> <span class="s">"libintegers"</span><span class="x">),</span> <span class="c"># ← must be a constant expression!</span>
+    <span class="kt">UInt32</span><span class="x">,</span>
+    <span class="x">(</span><span class="kt">UInt32</span><span class="x">,</span> <span class="kt">UInt32</span><span class="x">),</span> 
+    <span class="n">a</span><span class="x">,</span> <span class="n">b</span><span class="x">)</span>
+</code></pre>
+</div>
+
+<p>As noted in the basics section, this can be run on macOS and Linux
+with <code class="highlighter-rouge">LD_LIBRARY_PATH=target/debug/ julia src/main.jl</code>, and on
+Windows by copying <code class="highlighter-rouge">target\debug\integers.dll</code> to the current
+directory and running <code class="highlighter-rouge">julia src\main.jl</code>.</p>
+
 
       </main>
 

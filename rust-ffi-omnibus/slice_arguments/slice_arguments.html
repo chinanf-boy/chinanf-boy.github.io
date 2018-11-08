@@ -81,7 +81,7 @@ extern uint32_t sum_of_even(const uint32_t *numbers, size_t length);
 int main(void) {
   uint32_t numbers[6] = {1,2,3,4,5,6};
   uint32_t sum = sum_of_even(numbers, 6);
-  printf(&quot;%d\n&quot;, sum);
+  printf(&quot;%u\n&quot;, sum);
   return 0;
 }
 </code></pre>
@@ -221,6 +221,50 @@ private one and provides the expected interface.</p>
 
 <p>The C code uses a <code class="highlighter-rouge">size_t</code>, a type whose size changes depending on
 the platform. To mirror that, we use a <code class="highlighter-rouge">UIntPtr</code>.</p>
+
+<h2 id="julia">Julia</h2>
+
+<pre><code class="">#!/usr/bin/env julia
+using Libdl
+
+libname = &quot;slice_arguments&quot;
+if !Sys.iswindows()
+    libname = &quot;lib$(libname)&quot;
+end
+
+lib = Libdl.dlopen(libname)
+sumofeven_sym = Libdl.dlsym(lib, :sum_of_even)
+
+sumofeven(a:: Array{UInt32}) = ccall(
+    sumofeven_sym,
+    UInt32,
+    (Ptr{UInt32}, Csize_t),
+    a,
+    length(a))
+
+println(sumofeven(UInt32[1, 2, 3, 4, 5, 6]))
+</code></pre>
+
+<p>Passing an array requires both a pointer and the length of the array.
+The array is implicitly converted to a pointer to the first element,
+of type <code class="highlighter-rouge">Ptr{UInt32}</code>. The type <code class="highlighter-rouge">Csize</code> is the Julia equivalent of
+<code class="highlighter-rouge">size_t</code>. We also enforce the function argument type to
+<code class="highlighter-rouge">Array{UInt32}</code>, which is the specific array type for which the native
+function is effectively compatible with.</p>
+
+<p>This example gets a bit more complicated because there are two
+primitive pointer types in Julia. <a href="julia-Ptr"><code class="highlighter-rouge">Ptr{T}</code></a> is a plain
+memory address to a value of type <code class="highlighter-rouge">T</code>, whereas <a href="julia-Ref"><code class="highlighter-rouge">Ref{T}</code></a>
+is a managed pointer to data that the Julia garbage collector will not
+free for as long as this <code class="highlighter-rouge">Ref</code> is referenced. These types will be
+converted to a C compatible pointer type in <code class="highlighter-rouge">ccall</code> in either case.</p>
+
+<p>While <a href="https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/#When-to-use-T,-Ptr{T}-and-Ref{T}-1">it is preferred</a> to use <code class="highlighter-rouge">Ref</code> when passing
+arguments by pointer to native functions, and even more so when
+passing them via mutable pointers (so that the native function may
+modify the pointed object), C-style arrays are an exception
+to the rule, and should be passed with a plain <code class="highlighter-rouge">Ptr</code> and length.</p>
+
 
       </main>
 
