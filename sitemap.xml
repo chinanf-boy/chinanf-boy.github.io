@@ -432,13 +432,13 @@
   </url>
   
   <url>
-    <loc>/categories/development/</loc>
+    <loc>/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/development/</loc>
+    <loc>/categories/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -504,25 +504,25 @@
   </url>
   
   <url>
-    <loc>/categories/go/</loc>
-    <lastmod>2018-10-29T16:02:30+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/go/</loc>
     <lastmod>2014-09-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>/categories/go/</loc>
+    <lastmod>2018-10-29T16:02:30+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/golang/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -568,13 +568,13 @@
   </url>
   
   <url>
-    <loc>/categories/hugo/</loc>
+    <loc>/tags/hugo/</loc>
     <lastmod>2018-08-17T14:52:33+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/hugo/</loc>
+    <loc>/categories/hugo/</loc>
     <lastmod>2018-08-17T14:52:33+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -730,13 +730,13 @@
   </url>
   
   <url>
-    <loc>/categories/python/</loc>
+    <loc>/tags/python/</loc>
     <lastmod>2018-08-01T19:14:03+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
+    <loc>/categories/python/</loc>
     <lastmod>2018-08-01T19:14:03+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -838,14 +838,14 @@
   </url>
   
   <url>
-    <loc>/categories/vscode/</loc>
-    <lastmod>2018-10-29T16:02:30+08:00</lastmod>
+    <loc>/tags/vscode/</loc>
+    <lastmod>2018-08-01T13:09:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/vscode/</loc>
-    <lastmod>2018-08-01T13:09:07+00:00</lastmod>
+    <loc>/categories/vscode/</loc>
+    <lastmod>2018-10-29T16:02:30+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -910,13 +910,13 @@
   </url>
   
   <url>
-    <loc>/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-01-11T16:58:39+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-01-11T16:58:39+00:00</lastmod>
     <priority>0</priority>
   </url>
