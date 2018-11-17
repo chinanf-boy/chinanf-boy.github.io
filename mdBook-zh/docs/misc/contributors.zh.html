@@ -4,38 +4,41 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>book.toml 配置 - mdbook 模范 例子</title>
+    <title>贡献者 - mdBook 中文文档</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta name="description" content="mdbook nice 例子.">
+    <meta name="description" content="mdbook :) markdown生成记. 就像Gitbook, 但专为Rust设计">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="shortcut icon" href="favicon.png">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/chrome.css">
-    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
         rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
 
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="highlight.css">
-    <link rel="stylesheet" href="tomorrow-night.css">
-    <link rel="stylesheet" href="ayu-highlight.css">
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
 
     <!-- Custom theme stylesheets -->
     
 
     
+    <!-- MathJax -->
+    <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 </head>
 
 <body class="light">
     <!-- Provide site root to javascript -->
-    <script type="text/javascript">var path_to_root = "";</script>
+    <script type="text/javascript">var path_to_root = "../";</script>
 
     <!-- Work around some values being stored in localStorage wrapped in quotes -->
     <script type="text/javascript">
@@ -75,7 +78,7 @@
     </script>
 
     <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-        <ol class="chapter"><li><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> book.toml 配置</a></li><li><ol class="section"><li><a href="include.html"><strong aria-hidden="true">1.1.</strong> 关于导入其他文件</a></li></ol></li></ol>
+        <ol class="chapter"><li><a href="../README.zh.html"><strong aria-hidden="true">1.</strong> mdbook</a></li><li><a href="../cli/README.zh.html"><strong aria-hidden="true">2.</strong> 命令行工具</a></li><li><ol class="section"><li><a href="../cli/init.zh.html"><strong aria-hidden="true">2.1.</strong> init</a></li><li><a href="../cli/build.zh.html"><strong aria-hidden="true">2.2.</strong> build</a></li><li><a href="../cli/watch.zh.html"><strong aria-hidden="true">2.3.</strong> watch</a></li><li><a href="../cli/serve.zh.html"><strong aria-hidden="true">2.4.</strong> serve</a></li><li><a href="../cli/test.zh.html"><strong aria-hidden="true">2.5.</strong> test</a></li><li><a href="../cli/clean.zh.html"><strong aria-hidden="true">2.6.</strong> clean</a></li></ol></li><li><a href="../format/README.zh.html"><strong aria-hidden="true">3.</strong> 格式</a></li><li><ol class="section"><li><a href="../format/summary.zh.html"><strong aria-hidden="true">3.1.</strong> SUMMARY.md</a></li><li><a href="../format/config.zh.html"><strong aria-hidden="true">3.2.</strong> 配置</a></li><li><a href="../format/theme/README.zh.html"><strong aria-hidden="true">3.3.</strong> Theme-主题</a></li><li><ol class="section"><li><a href="../format/theme/index-hbs.zh.html"><strong aria-hidden="true">3.3.1.</strong> index.hbs</a></li><li><a href="../format/theme/syntax-highlighting.zh.html"><strong aria-hidden="true">3.3.2.</strong> 语法高亮显示</a></li><li><a href="../format/theme/editor.zh.html"><strong aria-hidden="true">3.3.3.</strong> 编辑器</a></li></ol></li><li><a href="../format/mathjax.zh.html"><strong aria-hidden="true">3.4.</strong> MathJax 支持</a></li><li><a href="../format/mdbook.zh.html"><strong aria-hidden="true">3.5.</strong> mdBook 特殊功能</a></li></ol></li><li><a href="../continuous-integration.zh.html"><strong aria-hidden="true">4.</strong> 持续集成</a></li><li><a href="../for_developers/README.zh.html"><strong aria-hidden="true">5.</strong> 对开发者说</a></li><li><ol class="section"><li><a href="../for_developers/preprocessors.zh.html"><strong aria-hidden="true">5.1.</strong> 预处理程序</a></li><li><a href="../for_developers/backends.zh.html"><strong aria-hidden="true">5.2.</strong> 备用后端</a></li><li class="spacer"></li></ol></li><li><a href="../misc/contributors.zh.html" class="active">贡献者</a></li></ol>
     </nav>
 
     <div id="page-wrapper" class="page-wrapper">
@@ -114,10 +117,10 @@
                         
                     </div>
 
-                    <h1 class="menu-title">mdbook 模范 例子</h1>
+                    <h1 class="menu-title">mdBook 中文文档</h1>
                     
                         <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
                             
@@ -151,86 +154,40 @@
             <!-- // START - Rust Cookbook customization -->
             <script>
                 document.getElementById("edit-button").addEventListener("click", function () {
-                    var editWindow = window.open("https://github.com/chinanf-boy/mdbook-nice-example/edit/master/src/index.html");
+                    var editWindow = window.open("https://github.com/chinanf-boy/mdbook-zh/edit/master/src/misc/contributors.zh.md");
                 });</script>
             <!-- // END - Rust Cookbook customization -->
 
             <div id="content" class="content">
                 <main>
-                    <a class="header" href="#chapter-1" id="chapter-1"><h1>Chapter 1</h1></a>
-<a class="header" href="#booktoml" id="booktoml"><h3>book.toml</h3></a>
-<p>示例</p>
-<pre><code class="language-toml">[book]
-title = &quot;mdbook 模范 例子&quot;
-authors = [&quot;yobrave&quot;]
-description = &quot;mdbook nice 例子.&quot;
-language = &quot;zh-CN&quot;
-
-[build]
-build-dir = &quot;docs&quot;
-create-missing = true
-preprocess = [&quot;links&quot;, &quot;index&quot;]
-
-[output.html]
-mathjax-support = false
-theme = &quot;theme&quot;
-curly-quotes = true
-google-analytics = &quot;UA-128555056-1&quot;
-# additional-css = [&quot;theme/custom.css&quot;]
-git_repository_url = &quot;https://github.com/chinanf-boy/mdbook-nice-example&quot;
-git_repository_icon = &quot;fa-github&quot;
-# additional-js = [&quot;theme/custom.js&quot;]
-
-[output.html.playpen]
-# editor = &quot;./path/to/editor&quot;
-editable = false
-
-[output.html.search]
-enable = true
-# searcher = &quot;./path/to/searcher&quot;
-limit-results = 30
-teaser-word-count = 30
-use-boolean-and = true
-boost-title = 2
-boost-hierarchy = 1
-boost-paragraph = 1
-expand = true
-heading-split-level = 3
-# copy-js = true
-</code></pre>
-<a class="header" href="#a关于导入其他文件的两种方式" id="a关于导入其他文件的两种方式"><h2>关于导入其他文件的两种方式</h2></a>
-<a class="header" href="#playpen" id="playpen"><h3>playpen</h3></a>
-<p>我是这样写的<code>{{ #playpen ***}}</code></p>
-<blockquote>
-<p><code>***</code> == <code>./SUMMARY.md</code></p>
-</blockquote>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-# Summary
-
-- [book.toml 配置](./chapter_1.md)
-    - [关于导入其他文件](./include.md)
-#}</code></pre></pre>
-<a class="header" href="#include" id="include"><h3>include</h3></a>
-<p>我是这样写的<code>{{ #include ***}}</code></p>
-<blockquote>
-<p><code>***</code> == <code>./SUMMARY.md</code></p>
-</blockquote>
-<a class="header" href="#summary" id="summary"><h1>Summary</h1></a>
+                    <a class="header" href="#contributors" id="contributors"><h1>Contributors</h1></a>
+<p>以下列出了帮助改进mdBook的贡献者。为他们欢呼!</p>
 <ul>
-<li><a href="./chapter_1.html">book.toml 配置</a>
-<ul>
-<li><a href="./include.html">关于导入其他文件</a></li>
+<li><a href="https://github.com/mdinger">mdinger</a></li>
+<li>Kevin (<a href="https://github.com/kbknapp">kbknapp</a>)</li>
+<li>Steve Klabnik (<a href="https://github.com/steveklabnik">steveklabnik</a>)</li>
+<li>Adam Solove (<a href="https://github.com/asolove">asolove</a>)</li>
+<li>Wayne Nilsen (<a href="https://github.com/waynenilsen">waynenilsen</a>)</li>
+<li><a href="https://github.com/funkill">funnkill</a></li>
+<li>Fu Gangqiang (<a href="https://github.com/FuGangqiang">FuGangqiang</a>)</li>
+<li><a href="https://github.com/Michael-F-Bryan">Michael-F-Bryan</a></li>
+<li>Chris Spiegel (<a href="https://github.com/cspiegel">cspiegel</a>)</li>
+<li><a href="https://github.com/projektir">projektir</a></li>
+<li><a href="https://github.com/Phaiax">Phaiax</a></li>
+<li>Matt Ickstadt (<a href="https://github.com/mattico">mattico</a>)</li>
+<li>Weihang Lo (<a href="https://github.com/weihanglo">@weihanglo</a>)</li>
 </ul>
-</li>
-</ul>
-<p>下一节，是rust文件的导入，看看有什么不同</p>
+<p>如果您觉得自己在此列表中遗漏了,请随意添加PR.</p>
 
                 </main>
 
                 <nav class="nav-wrapper" aria-label="Page navigation">
                     <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="../for_developers/backends.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                     
 
                     
@@ -241,6 +198,11 @@ heading-split-level = 3
         </div>
 
         <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a href="../for_developers/backends.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
             
 
             
@@ -267,16 +229,22 @@ heading-split-level = 3
     
 
     
+    <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+    
 
     
-    <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
     
 
-    <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-    <script src="book.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- Custom JS scripts -->
     

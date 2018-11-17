@@ -4,9 +4,9 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>book.toml 配置 - mdbook 模范 例子</title>
+    <title>mdbook - mdBook 中文文档</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta name="description" content="mdbook nice 例子.">
+    <meta name="description" content="mdbook :) markdown生成记. 就像Gitbook, 但专为Rust设计">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -30,6 +30,9 @@
     <!-- Custom theme stylesheets -->
     
 
+    
+    <!-- MathJax -->
+    <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 </head>
 
@@ -75,7 +78,7 @@
     </script>
 
     <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-        <ol class="chapter"><li><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> book.toml 配置</a></li><li><ol class="section"><li><a href="include.html"><strong aria-hidden="true">1.1.</strong> 关于导入其他文件</a></li></ol></li></ol>
+        <ol class="chapter"><li><a href="README.zh.html" class="active"><strong aria-hidden="true">1.</strong> mdbook</a></li><li><a href="cli/README.zh.html"><strong aria-hidden="true">2.</strong> 命令行工具</a></li><li><ol class="section"><li><a href="cli/init.zh.html"><strong aria-hidden="true">2.1.</strong> init</a></li><li><a href="cli/build.zh.html"><strong aria-hidden="true">2.2.</strong> build</a></li><li><a href="cli/watch.zh.html"><strong aria-hidden="true">2.3.</strong> watch</a></li><li><a href="cli/serve.zh.html"><strong aria-hidden="true">2.4.</strong> serve</a></li><li><a href="cli/test.zh.html"><strong aria-hidden="true">2.5.</strong> test</a></li><li><a href="cli/clean.zh.html"><strong aria-hidden="true">2.6.</strong> clean</a></li></ol></li><li><a href="format/README.zh.html"><strong aria-hidden="true">3.</strong> 格式</a></li><li><ol class="section"><li><a href="format/summary.zh.html"><strong aria-hidden="true">3.1.</strong> SUMMARY.md</a></li><li><a href="format/config.zh.html"><strong aria-hidden="true">3.2.</strong> 配置</a></li><li><a href="format/theme/README.zh.html"><strong aria-hidden="true">3.3.</strong> Theme-主题</a></li><li><ol class="section"><li><a href="format/theme/index-hbs.zh.html"><strong aria-hidden="true">3.3.1.</strong> index.hbs</a></li><li><a href="format/theme/syntax-highlighting.zh.html"><strong aria-hidden="true">3.3.2.</strong> 语法高亮显示</a></li><li><a href="format/theme/editor.zh.html"><strong aria-hidden="true">3.3.3.</strong> 编辑器</a></li></ol></li><li><a href="format/mathjax.zh.html"><strong aria-hidden="true">3.4.</strong> MathJax 支持</a></li><li><a href="format/mdbook.zh.html"><strong aria-hidden="true">3.5.</strong> mdBook 特殊功能</a></li></ol></li><li><a href="continuous-integration.zh.html"><strong aria-hidden="true">4.</strong> 持续集成</a></li><li><a href="for_developers/README.zh.html"><strong aria-hidden="true">5.</strong> 对开发者说</a></li><li><ol class="section"><li><a href="for_developers/preprocessors.zh.html"><strong aria-hidden="true">5.1.</strong> 预处理程序</a></li><li><a href="for_developers/backends.zh.html"><strong aria-hidden="true">5.2.</strong> 备用后端</a></li><li class="spacer"></li></ol></li><li><a href="misc/contributors.zh.html">贡献者</a></li></ol>
     </nav>
 
     <div id="page-wrapper" class="page-wrapper">
@@ -114,7 +117,7 @@
                         
                     </div>
 
-                    <h1 class="menu-title">mdbook 模范 例子</h1>
+                    <h1 class="menu-title">mdBook 中文文档</h1>
                     
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -151,81 +154,21 @@
             <!-- // START - Rust Cookbook customization -->
             <script>
                 document.getElementById("edit-button").addEventListener("click", function () {
-                    var editWindow = window.open("https://github.com/chinanf-boy/mdbook-nice-example/edit/master/src/index.html");
+                    var editWindow = window.open("https://github.com/chinanf-boy/mdbook-zh/edit/master/src/README.zh.md");
                 });</script>
             <!-- // END - Rust Cookbook customization -->
 
             <div id="content" class="content">
                 <main>
-                    <a class="header" href="#chapter-1" id="chapter-1"><h1>Chapter 1</h1></a>
-<a class="header" href="#booktoml" id="booktoml"><h3>book.toml</h3></a>
-<p>示例</p>
-<pre><code class="language-toml">[book]
-title = &quot;mdbook 模范 例子&quot;
-authors = [&quot;yobrave&quot;]
-description = &quot;mdbook nice 例子.&quot;
-language = &quot;zh-CN&quot;
-
-[build]
-build-dir = &quot;docs&quot;
-create-missing = true
-preprocess = [&quot;links&quot;, &quot;index&quot;]
-
-[output.html]
-mathjax-support = false
-theme = &quot;theme&quot;
-curly-quotes = true
-google-analytics = &quot;UA-128555056-1&quot;
-# additional-css = [&quot;theme/custom.css&quot;]
-git_repository_url = &quot;https://github.com/chinanf-boy/mdbook-nice-example&quot;
-git_repository_icon = &quot;fa-github&quot;
-# additional-js = [&quot;theme/custom.js&quot;]
-
-[output.html.playpen]
-# editor = &quot;./path/to/editor&quot;
-editable = false
-
-[output.html.search]
-enable = true
-# searcher = &quot;./path/to/searcher&quot;
-limit-results = 30
-teaser-word-count = 30
-use-boolean-and = true
-boost-title = 2
-boost-hierarchy = 1
-boost-paragraph = 1
-expand = true
-heading-split-level = 3
-# copy-js = true
-</code></pre>
-<a class="header" href="#a关于导入其他文件的两种方式" id="a关于导入其他文件的两种方式"><h2>关于导入其他文件的两种方式</h2></a>
-<a class="header" href="#playpen" id="playpen"><h3>playpen</h3></a>
-<p>我是这样写的<code>{{ #playpen ***}}</code></p>
-<blockquote>
-<p><code>***</code> == <code>./SUMMARY.md</code></p>
-</blockquote>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-# Summary
-
-- [book.toml 配置](./chapter_1.md)
-    - [关于导入其他文件](./include.md)
-#}</code></pre></pre>
-<a class="header" href="#include" id="include"><h3>include</h3></a>
-<p>我是这样写的<code>{{ #include ***}}</code></p>
-<blockquote>
-<p><code>***</code> == <code>./SUMMARY.md</code></p>
-</blockquote>
-<a class="header" href="#summary" id="summary"><h1>Summary</h1></a>
-<ul>
-<li><a href="./chapter_1.html">book.toml 配置</a>
-<ul>
-<li><a href="./include.html">关于导入其他文件</a></li>
-</ul>
-</li>
-</ul>
-<p>下一节，是rust文件的导入，看看有什么不同</p>
+                    <a class="header" href="#mdbook" id="mdbook"><h1>mdBook</h1></a>
+<p><strong>mdBook</strong>是一个命令行工具和Rust crate。可将Markdown文件创建为书籍。它与Gitbook非常相似,但用<a href="http://www.rust-lang.org">Rust</a>编写.</p>
+<p>您正在阅读的内容，是mdBook输出的一个示例,同时也是一个高级文档.</p>
+<p>mdBook是免费的开源,你可以在<a href="https://github.com/rust-lang-nursery/mdBook">GitHub</a>找到源代码。问题和功能请求可以发布在<a href="https://github.com/rust-lang-nursery/mdBook/issues">GitHub issue tracker</a>.</p>
+<a class="header" href="#api-docs" id="api-docs"><h2>API docs</h2></a>
+<p>除了这本书,你还可以阅读Rustdoc生成的<a href="https://docs.rs/mdbook/*/mdbook/">API 文档</a>。如果您想将mdBook用作包或者编写新的渲染器，并需要浏览底层代码.</p>
+<a class="header" href="#license" id="license"><h2>License</h2></a>
+<p>mdBook,所有源代码,都是在<a href="https://www.mozilla.org/MPL/2.0/">Mozilla Public License
+v2.0</a>下发布的.</p>
 
                 </main>
 
@@ -233,6 +176,11 @@ heading-split-level = 3
                     <!-- Mobile navigation buttons -->
                     
 
+                    
+                    <a rel="next" href="cli/README.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                     
 
                     <div style="clear: both"></div>
@@ -243,6 +191,11 @@ heading-split-level = 3
         <nav class="nav-wide-wrapper" aria-label="Page navigation">
             
 
+            
+            <a href="cli/README.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
             
         </nav>
 
@@ -266,6 +219,12 @@ heading-split-level = 3
     </script>
     
 
+    
+    <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+    <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+    <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
     
 
     

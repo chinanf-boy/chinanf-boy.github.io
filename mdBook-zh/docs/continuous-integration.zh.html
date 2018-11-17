@@ -4,9 +4,9 @@
 <head>
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>book.toml 配置 - mdbook 模范 例子</title>
+    <title>持续集成 - mdBook 中文文档</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta name="description" content="mdbook nice 例子.">
+    <meta name="description" content="mdbook :) markdown生成记. 就像Gitbook, 但专为Rust设计">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -30,6 +30,9 @@
     <!-- Custom theme stylesheets -->
     
 
+    
+    <!-- MathJax -->
+    <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 </head>
 
@@ -75,7 +78,7 @@
     </script>
 
     <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-        <ol class="chapter"><li><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> book.toml 配置</a></li><li><ol class="section"><li><a href="include.html"><strong aria-hidden="true">1.1.</strong> 关于导入其他文件</a></li></ol></li></ol>
+        <ol class="chapter"><li><a href="README.zh.html"><strong aria-hidden="true">1.</strong> mdbook</a></li><li><a href="cli/README.zh.html"><strong aria-hidden="true">2.</strong> 命令行工具</a></li><li><ol class="section"><li><a href="cli/init.zh.html"><strong aria-hidden="true">2.1.</strong> init</a></li><li><a href="cli/build.zh.html"><strong aria-hidden="true">2.2.</strong> build</a></li><li><a href="cli/watch.zh.html"><strong aria-hidden="true">2.3.</strong> watch</a></li><li><a href="cli/serve.zh.html"><strong aria-hidden="true">2.4.</strong> serve</a></li><li><a href="cli/test.zh.html"><strong aria-hidden="true">2.5.</strong> test</a></li><li><a href="cli/clean.zh.html"><strong aria-hidden="true">2.6.</strong> clean</a></li></ol></li><li><a href="format/README.zh.html"><strong aria-hidden="true">3.</strong> 格式</a></li><li><ol class="section"><li><a href="format/summary.zh.html"><strong aria-hidden="true">3.1.</strong> SUMMARY.md</a></li><li><a href="format/config.zh.html"><strong aria-hidden="true">3.2.</strong> 配置</a></li><li><a href="format/theme/README.zh.html"><strong aria-hidden="true">3.3.</strong> Theme-主题</a></li><li><ol class="section"><li><a href="format/theme/index-hbs.zh.html"><strong aria-hidden="true">3.3.1.</strong> index.hbs</a></li><li><a href="format/theme/syntax-highlighting.zh.html"><strong aria-hidden="true">3.3.2.</strong> 语法高亮显示</a></li><li><a href="format/theme/editor.zh.html"><strong aria-hidden="true">3.3.3.</strong> 编辑器</a></li></ol></li><li><a href="format/mathjax.zh.html"><strong aria-hidden="true">3.4.</strong> MathJax 支持</a></li><li><a href="format/mdbook.zh.html"><strong aria-hidden="true">3.5.</strong> mdBook 特殊功能</a></li></ol></li><li><a href="continuous-integration.zh.html" class="active"><strong aria-hidden="true">4.</strong> 持续集成</a></li><li><a href="for_developers/README.zh.html"><strong aria-hidden="true">5.</strong> 对开发者说</a></li><li><ol class="section"><li><a href="for_developers/preprocessors.zh.html"><strong aria-hidden="true">5.1.</strong> 预处理程序</a></li><li><a href="for_developers/backends.zh.html"><strong aria-hidden="true">5.2.</strong> 备用后端</a></li><li class="spacer"></li></ol></li><li><a href="misc/contributors.zh.html">贡献者</a></li></ol>
     </nav>
 
     <div id="page-wrapper" class="page-wrapper">
@@ -114,7 +117,7 @@
                         
                     </div>
 
-                    <h1 class="menu-title">mdbook 模范 例子</h1>
+                    <h1 class="menu-title">mdBook 中文文档</h1>
                     
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -151,88 +154,67 @@
             <!-- // START - Rust Cookbook customization -->
             <script>
                 document.getElementById("edit-button").addEventListener("click", function () {
-                    var editWindow = window.open("https://github.com/chinanf-boy/mdbook-nice-example/edit/master/src/index.html");
+                    var editWindow = window.open("https://github.com/chinanf-boy/mdbook-zh/edit/master/src/continuous-integration.zh.md");
                 });</script>
             <!-- // END - Rust Cookbook customization -->
 
             <div id="content" class="content">
                 <main>
-                    <a class="header" href="#chapter-1" id="chapter-1"><h1>Chapter 1</h1></a>
-<a class="header" href="#booktoml" id="booktoml"><h3>book.toml</h3></a>
-<p>示例</p>
-<pre><code class="language-toml">[book]
-title = &quot;mdbook 模范 例子&quot;
-authors = [&quot;yobrave&quot;]
-description = &quot;mdbook nice 例子.&quot;
-language = &quot;zh-CN&quot;
+                    <a class="header" href="#a在持续集成中运行-mdbook" id="a在持续集成中运行-mdbook"><h1>在持续集成中运行 <code>mdbook</code></h1></a>
+<p>虽然以下示例中使用在Travis CI,但原则上应该，也可以直接转移到其他持续集成提供商.</p>
+<a class="header" href="#a确保mdbook的构建与测试成功" id="a确保mdbook的构建与测试成功"><h2>确保mdbook的构建与测试成功</h2></a>
+<p>以下是Travis CI的<code>.travis.yml</code>示例，确保配置了<code>mdbook build</code>和<code>mdbook test</code>运行成功。加快CI运转时间的关键是缓存<code>mdbook</code>的安装,以便您可以不用每次CI运行就编译一次<code>mdbook</code>。</p>
+<pre><code class="language-yaml">language: rust
+sudo: false
 
-[build]
-build-dir = &quot;docs&quot;
-create-missing = true
-preprocess = [&quot;links&quot;, &quot;index&quot;]
+cache:
+  - cargo
 
-[output.html]
-mathjax-support = false
-theme = &quot;theme&quot;
-curly-quotes = true
-google-analytics = &quot;UA-128555056-1&quot;
-# additional-css = [&quot;theme/custom.css&quot;]
-git_repository_url = &quot;https://github.com/chinanf-boy/mdbook-nice-example&quot;
-git_repository_icon = &quot;fa-github&quot;
-# additional-js = [&quot;theme/custom.js&quot;]
+rust:
+  - stable
 
-[output.html.playpen]
-# editor = &quot;./path/to/editor&quot;
-editable = false
+before_script:
+  - (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
+  - (test -x $HOME/.cargo/bin/mdbook || cargo install --vers &quot;^0.1&quot; mdbook)
+  - cargo install-update -a
 
-[output.html.search]
-enable = true
-# searcher = &quot;./path/to/searcher&quot;
-limit-results = 30
-teaser-word-count = 30
-use-boolean-and = true
-boost-title = 2
-boost-hierarchy = 1
-boost-paragraph = 1
-expand = true
-heading-split-level = 3
-# copy-js = true
+script:
+  - mdbook build path/to/mybook &amp;&amp; mdbook test path/to/mybook
 </code></pre>
-<a class="header" href="#a关于导入其他文件的两种方式" id="a关于导入其他文件的两种方式"><h2>关于导入其他文件的两种方式</h2></a>
-<a class="header" href="#playpen" id="playpen"><h3>playpen</h3></a>
-<p>我是这样写的<code>{{ #playpen ***}}</code></p>
+<a class="header" href="#a发布你的图书到-github-pages" id="a发布你的图书到-github-pages"><h2>发布你的图书到 GitHub Pages</h2></a>
+<p>遵循这些命令的结果是，在您的存储库运行CI成功后,您的图书将发布到GitHub页面的<code>master</code>分支.</p>
+<p>首先,创建一个新的GitHub的”Personal Access Token”，保证”public_repo”权限(或私有存储库的”repo”)。转到Travis CI网站的该库设置页面，并添加一个名为<code>GITHUB_TOKEN</code>的环境变量，该变量能保证安全和<em>不</em>显示在日志中.</p>
+<p>然后,将此代码段附加到您的<code>.travis.yml</code>，并更新为<code>book</code>目录路径:</p>
 <blockquote>
-<p><code>***</code> == <code>./SUMMARY.md</code></p>
+<p><code>book</code>目录是<code>mdbook build</code>的默认输出目录，请根据你的构建目录填写</p>
 </blockquote>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-# Summary
-
-- [book.toml 配置](./chapter_1.md)
-    - [关于导入其他文件](./include.md)
-#}</code></pre></pre>
-<a class="header" href="#include" id="include"><h3>include</h3></a>
-<p>我是这样写的<code>{{ #include ***}}</code></p>
-<blockquote>
-<p><code>***</code> == <code>./SUMMARY.md</code></p>
-</blockquote>
-<a class="header" href="#summary" id="summary"><h1>Summary</h1></a>
-<ul>
-<li><a href="./chapter_1.html">book.toml 配置</a>
-<ul>
-<li><a href="./include.html">关于导入其他文件</a></li>
-</ul>
-</li>
-</ul>
-<p>下一节，是rust文件的导入，看看有什么不同</p>
+<pre><code class="language-yaml">deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: path/to/mybook/book
+  keep-history: false
+  on:
+    branch: master
+</code></pre>
+<p>就这样!</p>
 
                 </main>
 
                 <nav class="nav-wrapper" aria-label="Page navigation">
                     <!-- Mobile navigation buttons -->
                     
+                    <a rel="prev" href="format/mdbook.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
 
+                    
+                    <a rel="next" href="for_developers/README.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                     
 
                     <div style="clear: both"></div>
@@ -242,7 +224,17 @@ heading-split-level = 3
 
         <nav class="nav-wide-wrapper" aria-label="Page navigation">
             
+            <a href="format/mdbook.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
 
+            
+            <a href="for_developers/README.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
             
         </nav>
 
@@ -266,6 +258,12 @@ heading-split-level = 3
     </script>
     
 
+    
+    <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+    <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+    <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
     
 
     
