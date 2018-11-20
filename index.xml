@@ -22,6 +22,18 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
+      <title>(译) GoAWK，一个用Go编写的AWK解释器</title>
+      <link>/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/</link>
+      <pubDate>Mon, 19 Nov 2018 13:07:34 +0800</pubDate>
+      
+      <guid>/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/</guid>
+      <description>原文 时间 原作者同意翻译     benhoyt blog 2018 年 11 月 github Issue    GoAWK，一个用 Go 编写的 AWK 解释器  简介：阅读 AWK 编程语言之后 我受到启发，用 Go 语言 为 AWK 编写了一个解释器。本文向你概述了什么是 AWK，描述了 GoAWK 的工作原理，我是如何进行测试的，以及我如何衡量和改进其性能。
+转至： AWK 概述 | 代码演练 | 测试 | 性能
+ 大目录 
+ AWK 概述 代码演练  词法分析器 解析器 分解器 解释器 主程序  我是如何测试它的  Lexer 测试 解析测试 解释器测试 命令行测试 AWK 测试套件 模糊测试  提高性能  我是如何分析的 性能改进 性能表现  从哪里来？</description>
+    </item>
+    
+    <item>
       <title>Go 多并发 只要最快的一个正确返回 示例</title>
       <link>/2018/11/07/go-%E5%A4%9A%E5%B9%B6%E5%8F%91-%E5%8F%AA%E8%A6%81%E6%9C%80%E5%BF%AB%E7%9A%84%E4%B8%80%E4%B8%AA%E6%AD%A3%E7%A1%AE%E8%BF%94%E5%9B%9E-%E7%A4%BA%E4%BE%8B/</link>
       <pubDate>Wed, 07 Nov 2018 11:06:59 +0800</pubDate>
