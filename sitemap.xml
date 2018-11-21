@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2018/11/21/%E8%AD%A6%E5%91%8A-find%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E6%98%AF%E4%B8%8D%E5%90%8C%E7%9A%84/</loc>
+    <lastmod>2018-11-21T14:47:31+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/</loc>
     <lastmod>2018-11-19T13:07:34+08:00</lastmod>
   </url>
@@ -479,6 +484,12 @@
   </url>
   
   <url>
+    <loc>/tags/find/</loc>
+    <lastmod>2018-11-21T14:47:31+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/font/</loc>
     <lastmod>2018-08-01T13:09:07+00:00</lastmod>
     <priority>0</priority>
@@ -795,6 +806,12 @@
   </url>
   
   <url>
+    <loc>/categories/shell/</loc>
+    <lastmod>2018-11-21T14:47:31+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/slack/</loc>
     <lastmod>2017-10-09T20:17:57+00:00</lastmod>
     <priority>0</priority>
@@ -869,6 +886,12 @@
   <url>
     <loc>/tags/vue/</loc>
     <lastmod>2018-03-11T13:21:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/warn/</loc>
+    <lastmod>2018-11-21T14:47:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
