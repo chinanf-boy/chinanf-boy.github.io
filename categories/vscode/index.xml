@@ -6,10 +6,25 @@
     <description>Recent content in Vscode on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 29 Oct 2018 16:02:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 21 Nov 2018 17:24:09 +0800</lastBuildDate>
     
 	<atom:link href="/categories/vscode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Power Mode与HackerTyper一VSCode扩展</title>
+      <link>/2018/11/21/power-mode%E4%B8%8Ehackertyper%E4%B8%80vscode%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Wed, 21 Nov 2018 17:24:09 +0800</pubDate>
+      
+      <guid>/2018/11/21/power-mode%E4%B8%8Ehackertyper%E4%B8%80vscode%E6%89%A9%E5%B1%95/</guid>
+      <description>有趣的VSCode扩展 Power Mode 编码力量的体现
+ 个人觉得太抖了，最好的效果应该是Flames
+ 好了就这样，介绍完毕，
+HackerTyper 为了更好的，关于代码展示的效果
+更好的选择是VSCode扩展:vscode-hacker-typer
+它能记录，你的文字动向(精心)，保存下来，在有需要的时候，play这段文字记录(你乱打就好了)
+作者的扩展演讲youtube，就是个经典例子,太有趣了</description>
+    </item>
     
     <item>
       <title>(译)如何在VScode中使用Delve调试代码</title>
