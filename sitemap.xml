@@ -8,6 +8,16 @@
   </url>
   
   <url>
+    <loc>/2018/11/22/%E8%AF%91conda-install-%E6%90%AD%E9%85%8D-requirements.txt/</loc>
+    <lastmod>2018-11-22T17:49:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/11/22/wechat%E8%B7%B3%E4%B8%80%E8%B7%B3%E8%87%AA%E5%8A%A8%E8%B7%B3-%E6%89%8B%E6%9C%BA%E6%B5%8B%E8%AF%95%E7%9A%84%E9%83%A8%E5%88%86%E8%83%BD%E5%8A%9B/</loc>
+    <lastmod>2018-11-22T14:27:52+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/11/21/power-mode%E4%B8%8Ehackertyper%E4%B8%80vscode%E6%89%A9%E5%B1%95/</loc>
     <lastmod>2018-11-21T17:24:09+08:00</lastmod>
   </url>
@@ -369,6 +379,12 @@
   </url>
   
   <url>
+    <loc>/categories/autoplay/</loc>
+    <lastmod>2018-11-22T14:27:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/autoprefixer/</loc>
     <lastmod>2017-03-15T11:56:59+00:00</lastmod>
     <priority>0</priority>
@@ -406,7 +422,7 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2018-08-17T09:37:54+08:00</lastmod>
+    <lastmod>2018-11-22T14:27:52+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -436,7 +452,7 @@
   
   <url>
     <loc>/tags/conda/</loc>
-    <lastmod>2017-09-12T10:09:44+00:00</lastmod>
+    <lastmod>2018-11-22T17:49:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -453,13 +469,13 @@
   </url>
   
   <url>
-    <loc>/categories/development/</loc>
+    <loc>/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/development/</loc>
+    <loc>/categories/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -531,14 +547,14 @@
   </url>
   
   <url>
-    <loc>/categories/go/</loc>
-    <lastmod>2018-10-29T16:02:30+08:00</lastmod>
+    <loc>/tags/go/</loc>
+    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/go/</loc>
-    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
+    <loc>/categories/go/</loc>
+    <lastmod>2018-10-29T16:02:30+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -549,13 +565,13 @@
   </url>
   
   <url>
-    <loc>/categories/golang/</loc>
+    <loc>/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/golang/</loc>
+    <loc>/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -601,13 +617,13 @@
   </url>
   
   <url>
-    <loc>/categories/hugo/</loc>
+    <loc>/tags/hugo/</loc>
     <lastmod>2018-08-17T14:52:33+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/hugo/</loc>
+    <loc>/categories/hugo/</loc>
     <lastmod>2018-08-17T14:52:33+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -763,14 +779,14 @@
   </url>
   
   <url>
-    <loc>/categories/python/</loc>
-    <lastmod>2018-08-01T19:14:03+08:00</lastmod>
+    <loc>/tags/python/</loc>
+    <lastmod>2018-11-22T14:27:52+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
-    <lastmod>2018-08-01T19:14:03+08:00</lastmod>
+    <loc>/categories/python/</loc>
+    <lastmod>2018-11-22T17:49:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -877,14 +893,14 @@
   </url>
   
   <url>
-    <loc>/categories/vscode/</loc>
-    <lastmod>2018-11-21T17:24:09+08:00</lastmod>
+    <loc>/tags/vscode/</loc>
+    <lastmod>2018-08-01T13:09:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/vscode/</loc>
-    <lastmod>2018-08-01T13:09:07+00:00</lastmod>
+    <loc>/categories/vscode/</loc>
+    <lastmod>2018-11-21T17:24:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -903,6 +919,12 @@
   <url>
     <loc>/tags/webpack/</loc>
     <lastmod>2017-03-15T11:56:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/wechat/</loc>
+    <lastmod>2018-11-22T14:27:52+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -961,13 +983,13 @@
   </url>
   
   <url>
-    <loc>/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-01-11T16:58:39+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-01-11T16:58:39+00:00</lastmod>
     <priority>0</priority>
   </url>

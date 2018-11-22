@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Aug 2018 09:37:54 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 22 Nov 2018 14:27:52 +0800</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Autoplay</title>
+      <link>/categories/autoplay/</link>
+      <pubDate>Thu, 22 Nov 2018 14:27:52 +0800</pubDate>
+      
+      <guid>/categories/autoplay/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Bench</title>
@@ -104,7 +113,7 @@
     <item>
       <title>Python</title>
       <link>/categories/python/</link>
-      <pubDate>Wed, 01 Aug 2018 19:14:03 +0800</pubDate>
+      <pubDate>Thu, 22 Nov 2018 17:49:39 +0800</pubDate>
       
       <guid>/categories/python/</guid>
       <description></description>

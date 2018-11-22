@@ -6,10 +6,20 @@
     <description>Recent content in Python on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 01 Aug 2018 19:14:03 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 22 Nov 2018 17:49:39 +0800</lastBuildDate>
     
 	<atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>（译）Conda Install 搭配 Requirements.txt</title>
+      <link>/2018/11/22/%E8%AF%91conda-install-%E6%90%AD%E9%85%8D-requirements.txt/</link>
+      <pubDate>Thu, 22 Nov 2018 17:49:39 +0800</pubDate>
+      
+      <guid>/2018/11/22/%E8%AF%91conda-install-%E6%90%AD%E9%85%8D-requirements.txt/</guid>
+      <description> 原文 | 2016-03-04
+问: 使用conda install --yes --file requirements.txt安装仅可用的包，没有错误  答:   第一个命令只是，遍历文件中的每行  $ while read requirement; do conda install --yes $requirement; done &amp;lt; requirements.txt   修改后: 如果你想，在conda install不可用的情况下，使用pip:  $ while read requirement; do conda install --yes $requirement || pip install $requirement; done &amp;lt; requirements.txt   可用于 Windows (来自 @Clay):  $ FOR /F &amp;quot;delims=~&amp;quot; %f in (requirements.txt) DO conda install --yes &amp;quot;%f&amp;quot; || pip install &amp;quot;%f&amp;quot;  </description>
+    </item>
     
     <item>
       <title>让你的py优雅</title>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     
     
-    <title>Categories</title>
+    <title>（译）Conda Install 搭配 Requirements.txt</title>
     <link rel="stylesheet" href="/css/stylesheet.css">
 
     
@@ -62,47 +62,50 @@
 
     
 
-<div class="site-header-content">
-  <div style="font-size:2.3rem; " ><a href="/" class="back" style="color:#2f6f6f;">Home </a></div>
-  <h1 class="site-title">Categories</h1>
-    
-    <h2 class="site-description">&#x2F;&nbsp;
-      
-      
-      <a href="/categories/autoplay"> autoplay </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/bench"> bench </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/csshtml"> csshtml </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/development"> development </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/example"> example </a> (3)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/food"> food </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/go"> go </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/go-repo"> go-repo </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/golang"> golang </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/hugo"> hugo </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/pro"> pro </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/python"> python </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/shell"> shell </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/sublimetext"> sublimetext </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/vscode"> vscode </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"> 机器学习 </a> (1)&nbsp;&#x2F;&nbsp;
-      
-    </h2>
-</div>
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>（译）Conda Install 搭配 Requirements.txt</h2>
+        
+
+<p><a href="https://stackoverflow.com/questions/35802939/install-only-available-packages-using-conda-install-yes-file-requirements-t">原文</a> | 2016-03-04</p>
+
+<h2 id="问-使用-conda-install-yes-file-requirements-txt-安装仅可用的包-没有错误">问: 使用<code>conda install --yes --file requirements.txt</code>安装仅可用的包，没有错误</h2>
+
+<ul>
+<li>答:</li>
+</ul>
+
+<ol>
+<li>第一个命令只是，遍历文件中的每行</li>
+</ol>
+
+<pre><code>$ while read requirement; do conda install --yes $requirement; done &lt; requirements.txt
+</code></pre>
+
+<ol>
+<li>修改后: 如果你想，在<code>conda install</code>不可用的情况下，使用<code>pip</code>:</li>
+</ol>
+
+<pre><code>$ while read requirement; do conda install --yes $requirement || pip install $requirement; done &lt; requirements.txt
+</code></pre>
+
+<ol>
+<li>可用于 Windows (来自 @Clay):</li>
+</ol>
+
+<pre><code>$ FOR /F &quot;delims=~&quot; %f in (requirements.txt) DO conda install --yes &quot;%f&quot; || pip install &quot;%f&quot;
+</code></pre>
+
+<br />
+<br />
+<br />
+<br />
+  </div>
+
 <footer>
   <hr>
   <small style="font-size:16px;">

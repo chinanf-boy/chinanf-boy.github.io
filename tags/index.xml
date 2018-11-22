@@ -95,7 +95,7 @@
     <item>
       <title>Conda</title>
       <link>/tags/conda/</link>
-      <pubDate>Tue, 12 Sep 2017 10:09:44 +0000</pubDate>
+      <pubDate>Thu, 22 Nov 2018 17:49:39 +0800</pubDate>
       
       <guid>/tags/conda/</guid>
       <description></description>
@@ -491,7 +491,7 @@
     <item>
       <title>Python</title>
       <link>/tags/python/</link>
-      <pubDate>Wed, 01 Aug 2018 19:14:03 +0800</pubDate>
+      <pubDate>Thu, 22 Nov 2018 14:27:52 +0800</pubDate>
       
       <guid>/tags/python/</guid>
       <description></description>
@@ -656,6 +656,15 @@
       <pubDate>Wed, 15 Mar 2017 11:56:59 +0000</pubDate>
       
       <guid>/tags/webpack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wechat</title>
+      <link>/tags/wechat/</link>
+      <pubDate>Thu, 22 Nov 2018 14:27:52 +0800</pubDate>
+      
+      <guid>/tags/wechat/</guid>
       <description></description>
     </item>
     
