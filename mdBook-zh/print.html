@@ -29,8 +29,6 @@
 
     <!-- Custom theme stylesheets -->
     
-    <link rel="stylesheet" href="src/theme/custom.css">
-    
 
     
     <!-- MathJax -->
@@ -463,10 +461,12 @@ command = &quot;python random.py&quot;
 <tr><td><strong>git_repository_url</strong> </td><td> 这本书的 git 存储库的 URL。如果提供,将在书的菜单栏中，输出图标链接.</td></tr>
 <tr><td><strong>git_repository_icon</strong> </td><td> 用于 git 存储库链接的 FontAwesome 图标类。默认为<code>fa-github</code>.</td></tr>
 </tbody></table>
+<hr />
 <table><thead><tr><th><code>[output.html.playpen]</code>可用的配置选项表: </th><th> 描述</th></tr></thead><tbody>
 <tr><td><strong>editable</strong> </td><td> 允许编辑源代码。默认为<code>false</code>.</td></tr>
 <tr><td><strong>copy-js</strong> </td><td> 将编辑器的 JavaScript 文件，复制到输出目录。默认为<code>true</code>.</td></tr>
 </tbody></table>
+<hr />
 <table><thead><tr><th><code>[output.html.search]</code>可用的配置选项表: </th><th> 描述</th></tr></thead><tbody>
 <tr><td><strong>enable</strong> </td><td> 启用搜索功能.默认为<code>true</code>.</td></tr>
 <tr><td><strong>limit-results</strong> </td><td> 搜索结果的最大数量.默认为<code>30</code>.</td></tr>
@@ -561,19 +561,19 @@ $ mdbook build
 <p>大量数据通过”上下文”暴露给hbs模板.在hbs模板中,您可以使用以下方式访问此信息</p>
 <pre><code class="language-handlebars">{{name_of_property}}
 </code></pre>
-<table><thead><tr><th>以下是公开的属性列表: </th><th> 描述</th></tr></thead><tbody>
-<tr><td><strong>language</strong> </td><td> 书的语言<code>en</code>。例如<code>&lt;code class=&quot;language-html&quot;&gt;\\&lt;html lang=&quot;{{ language }}&quot;&gt;&lt;/code&gt;</code>。目前它是硬编码的.</td></tr>
-<tr><td><strong>title</strong> </td><td> 该书的标题,如<code>book.toml</code>中所述</td></tr>
-<tr><td><strong>chapter_title</strong> </td><td> 本章的标题,如<code>SUMMARY.md</code>下所列</td></tr>
-<tr><td><strong>path</strong> </td><td> 源目录中原始markdown文件的相对路径</td></tr>
-<tr><td><strong>content</strong> </td><td> 这是渲染的markdown.</td></tr>
-<tr><td><strong>path_to_root</strong> </td><td> 这是一条完全包含<code>../</code>的路径，这会是从当前文件指向书的根。由于维护了原始目录结构,因此使用此前缀相对链接很有用.</td></tr>
-<tr><td><strong>chapters</strong> </td><td> 是一个字典数组</td></tr>
-<tr><td>```json</td></tr>
-<tr><td>{”section”: “1.2.1”, “name”: “name of this chapter”, “path”: “dir/markdown.md”}</td></tr>
-<tr><td>```</td></tr>
-<tr><td>包含本书的所有章节.它用于例如构建目录(侧边栏).</td></tr>
-</tbody></table>
+<p>以下是公开的属性列表:</p>
+<ul>
+<li><strong>language</strong> |&gt; 书的语言<code>en</code>。例如<code>&lt;code class=&quot;language-html&quot;&gt;\\&lt;html lang=&quot;{{ language }}&quot;&gt;&lt;/code&gt;</code>。目前它是硬编码的.</li>
+<li><strong>title</strong> |&gt; 该书的标题,如<code>book.toml</code>中所述</li>
+<li><strong>chapter_title</strong> |&gt; 本章的标题,如<code>SUMMARY.md</code>下所列</li>
+<li><strong>path</strong> |&gt; 源目录中原始markdown文件的相对路径</li>
+<li><strong>content</strong> |&gt; 这是渲染的markdown.</li>
+<li><strong>path_to_root</strong> |&gt; 这是一条完全包含<code>../</code>的路径，这会是从当前文件指向书的根。由于维护了原始目录结构,因此使用此前缀相对链接很有用.</li>
+<li><strong>chapters</strong> |&gt; 是一个字典数组</li>
+</ul>
+<pre><code class="language-json">{&quot;section&quot;: &quot;1.2.1&quot;, &quot;name&quot;: &quot;name of this chapter&quot;, &quot;path&quot;: &quot;dir/markdown.md&quot;}
+</code></pre>
+<p>包含本书的所有章节.它用于例如构建目录(侧边栏).</p>
 <a class="header" href="#handlebars-帮手" id="handlebars-帮手"><h2>Handlebars 帮手</h2></a>
 <p>除了您可以访问的属性外,您还可以使用一些hbs帮手.</p>
 <a class="header" href="#a1-toc" id="a1-toc"><h3>1. toc</h3></a>
@@ -764,6 +764,17 @@ mathjax-support = true
 <blockquote>
 <p>试试 点击 播放箭头</p>
 </blockquote>
+<a class="header" href="#a要可编辑请添加" id="a要可编辑请添加"><h3>要可编辑，请添加</h3></a>
+<pre><code class="language-hbs">{{#playpen example.rs editable}}
+</code></pre>
+<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+    println!(&quot;Hello World!&quot;);
+#
+#    // You can even hide lines! :D
+#   println!(&quot;I am hidden! Expand the code snippet to see me&quot;);
+}
+
+</code></pre></pre>
 <a class="header" href="#a在持续集成中运行-mdbook" id="a在持续集成中运行-mdbook"><h1>在持续集成中运行 <code>mdbook</code></h1></a>
 <p>虽然以下示例中使用在Travis CI,但原则上应该，也可以直接转移到其他持续集成提供商.</p>
 <a class="header" href="#a确保mdbook的构建与测试成功" id="a确保mdbook的构建与测试成功"><h2>确保mdbook的构建与测试成功</h2></a>
