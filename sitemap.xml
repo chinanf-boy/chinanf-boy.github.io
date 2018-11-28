@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2018/11/28/%E4%B8%8B%E8%BD%BD-github%E9%A1%B9%E7%9B%AE%E5%AD%90%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E5%BC%8F/</loc>
+    <lastmod>2018-11-28T12:45:40+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/11/22/%E8%AF%91conda-install-%E6%90%AD%E9%85%8D-requirements.txt/</loc>
     <lastmod>2018-11-22T17:49:39+08:00</lastmod>
   </url>
@@ -541,6 +546,12 @@
   </url>
   
   <url>
+    <loc>/categories/github/</loc>
+    <lastmod>2018-11-28T12:45:40+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/github_changelog_generator/</loc>
     <lastmod>2017-12-16T15:42:49+00:00</lastmod>
     <priority>0</priority>
@@ -791,6 +802,12 @@
   </url>
   
   <url>
+    <loc>/tags/question/</loc>
+    <lastmod>2018-11-28T12:45:40+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/react/</loc>
     <lastmod>2017-06-04T16:03:08+00:00</lastmod>
     <priority>0</priority>
@@ -841,6 +858,12 @@
   <url>
     <loc>/tags/slot-scope/</loc>
     <lastmod>2018-03-11T13:21:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/subdir/</loc>
+    <lastmod>2018-11-28T12:45:40+08:00</lastmod>
     <priority>0</priority>
   </url>
   
