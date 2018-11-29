@@ -6,10 +6,26 @@
     <description>Recent content in Python on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 22 Nov 2018 17:49:39 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Nov 2018 10:03:56 +0800</lastBuildDate>
     
 	<atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>你应该使用pipenv啦</title>
+      <link>/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/</link>
+      <pubDate>Thu, 29 Nov 2018 10:03:56 +0800</pubDate>
+      
+      <guid>/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/</guid>
+      <description>我选择放弃所有的 Conda 构建 正如我一年前的博文:pipenv-快速构建虚拟 python 环境所叙述
+当时，pipenv 还只是一个选择，现在我爱它(python 虚拟的唯一选择)，谢谢所有贡献者
+如何删除 Ana(conda),基本就是删删删
+ 1 删. conda 主目录  where conda # 删掉  2 删. 应用目录下/Ana***.App(Mac) 3 删. Shell 配置 .bashrc之类的文件中，conda 主目录的 PATH 环境变量  Pipenv python 的多项目环境，在于项目与项目之间的requirements.txt列表，存在多版本的可能(基本可以认为是 100%的不同)。为了应对这种环境，就需要拆分 python 的关系库(包库)。
+入正题之前:
+确保纯净的 python 在pip install pipenv之前，使用where python确定，你使用的 python 是由官网下载的，不是系统自带的
+where pip pip: aliased to pip3 /Library/Frameworks/Python.framework/Versions/3.6/bin/pip /Library/Frameworks/Python.framework/Versions/3.6/bin/pip /usr/local/bin/pip # 系统的 正如你看到的，我是将pip别名(alias)为pip3，对python也做了python3的别名
+where python python: aliased to python3 /usr/bin/python # 系统的  alias  alias python=&amp;#34;python3&amp;#34; alias pip=&amp;#34;pip3&amp;#34; 安装  pip install pipenv pip install --upgrade pipenv升级  使用 主要也就那几个命令</description>
+    </item>
     
     <item>
       <title>（译）Conda Install 搭配 Requirements.txt</title>
