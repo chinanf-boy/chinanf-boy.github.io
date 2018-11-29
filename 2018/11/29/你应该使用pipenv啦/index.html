@@ -140,11 +140,11 @@ python: aliased to python3
 
 <p>答:</p>
 
-<ol>
-<li><p>使用 <code>pipenv install --skip-lock</code>(首选)</p></li>
+<ul>
+<li><p><strong>方法1.</strong> 使用 <code>pipenv install --skip-lock</code>(首选)，跳过lock过程</p></li>
 
-<li><p>进入子 shell<code>pipenv shell</code>，使用<code>pip install -r requirements.txt</code>(适用于初次转换)</p></li>
-</ol>
+<li><p><strong>方法2.</strong> 使用<code>pipenv shell</code>进入子 shell，再使用<code>pip install -r requirements.txt</code>(适用于初次转换)，也可以跳过lock过程</p></li>
+</ul>
 
 <blockquote>
 <p><strong>提示</strong>， 再加点 pip 下载源换成国内的，就可以‘吃’啦</p>
