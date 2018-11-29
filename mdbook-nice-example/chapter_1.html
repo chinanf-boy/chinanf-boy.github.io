@@ -160,7 +160,46 @@
                     <a class="header" href="#chapter-1" id="chapter-1"><h1>Chapter 1</h1></a>
 <a class="header" href="#booktoml" id="booktoml"><h3>book.toml</h3></a>
 <p>示例</p>
-<pre><code class="language-toml">{{ #include ../book.toml}}
+<pre><code class="language-toml">[book]
+title = &quot;mdbook 模范 例子&quot;
+authors = [&quot;yobrave&quot;]
+description = &quot;mdbook nice 例子.&quot;
+language = &quot;zh-CN&quot;
+
+[build]
+build-dir = &quot;docs&quot;
+create-missing = true
+use-default-preprocessors = false
+
+[preprocessor.links]
+# renderers = [&quot;html&quot;]
+
+[output.html]
+mathjax-support = false
+theme = &quot;theme&quot;
+curly-quotes = true
+google-analytics = &quot;UA-128555056-1&quot;
+# additional-css = [&quot;theme/custom.css&quot;]
+git_repository_url = &quot;https://github.com/chinanf-boy/mdbook-nice-example&quot;
+git_repository_icon = &quot;fa-github&quot;
+# additional-js = [&quot;theme/custom.js&quot;]
+
+[output.html.playpen]
+# editor = &quot;./path/to/editor&quot;
+editable = false
+
+[output.html.search]
+enable = true
+# searcher = &quot;./path/to/searcher&quot;
+limit-results = 30
+teaser-word-count = 30
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 3
+# copy-js = true
 </code></pre>
 <a class="header" href="#a关于导入其他文件的两种方式" id="a关于导入其他文件的两种方式"><h2>关于导入其他文件的两种方式</h2></a>
 <a class="header" href="#playpen" id="playpen"><h3>playpen</h3></a>
@@ -168,13 +207,29 @@
 <blockquote>
 <p><code>***</code> == <code>./SUMMARY.md</code></p>
 </blockquote>
-<p>{{ #playpen ./SUMMARY.md}}</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+# Summary
+
+- [book.toml 配置](./chapter_1.md)
+    - [关于导入其他文件](./include.md)
+    - [01-readme](./01/README.md)
+#}</code></pre></pre>
 <a class="header" href="#include" id="include"><h3>include</h3></a>
 <p>我是这样写的<code>{{ #include ***}}</code></p>
 <blockquote>
 <p><code>***</code> == <code>./SUMMARY.md</code></p>
 </blockquote>
-<p>{{ #include ./SUMMARY.md}}</p>
+<a class="header" href="#summary" id="summary"><h1>Summary</h1></a>
+<ul>
+<li><a href="./chapter_1.html">book.toml 配置</a>
+<ul>
+<li><a href="./include.html">关于导入其他文件</a></li>
+<li><a href="./01/README.html">01-readme</a></li>
+</ul>
+</li>
+</ul>
 <p>下一节，是rust文件的导入，看看有什么不同</p>
 
                 </main>
