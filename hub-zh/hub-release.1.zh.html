@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>hub-release - hub 中文文档</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="git + hub = github">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li><a href="hub.1.zh.html"><strong aria-hidden="true">1.</strong> hub</a></li><li><ol class="section"><li><a href="hub-alias.1.zh.html"><strong aria-hidden="true">1.1.</strong> hub-alias</a></li><li><a href="hub-am.1.zh.html"><strong aria-hidden="true">1.2.</strong> hub-am</a></li><li><a href="hub-apply.1.zh.html"><strong aria-hidden="true">1.3.</strong> hub-apply</a></li><li><a href="hub-browse.1.zh.html"><strong aria-hidden="true">1.4.</strong> hub-browse</a></li><li><a href="hub-checkout.1.zh.html"><strong aria-hidden="true">1.5.</strong> hub-checkout</a></li><li><a href="hub-cherry-pick.1.zh.html"><strong aria-hidden="true">1.6.</strong> hub-cherry-pick</a></li><li><a href="hub-ci-status.1.zh.html"><strong aria-hidden="true">1.7.</strong> hub-ci-status</a></li><li><a href="hub-clone.1.zh.html"><strong aria-hidden="true">1.8.</strong> hub-clone</a></li><li><a href="hub-compare.1.zh.html"><strong aria-hidden="true">1.9.</strong> hub-compare</a></li><li><a href="hub-create.1.zh.html"><strong aria-hidden="true">1.10.</strong> hub-create</a></li><li><a href="hub-delete.1.zh.html"><strong aria-hidden="true">1.11.</strong> hub-delete</a></li><li><a href="hub-fetch.1.zh.html"><strong aria-hidden="true">1.12.</strong> hub-fetch</a></li><li><a href="hub-fork.1.zh.html"><strong aria-hidden="true">1.13.</strong> hub-fork</a></li><li><a href="hub-help.1.zh.html"><strong aria-hidden="true">1.14.</strong> hub-help</a></li><li><a href="hub-init.1.zh.html"><strong aria-hidden="true">1.15.</strong> hub-init</a></li><li><a href="hub-issue.1.zh.html"><strong aria-hidden="true">1.16.</strong> hub-issue</a></li><li><a href="hub-merge.1.zh.html"><strong aria-hidden="true">1.17.</strong> hub-merge</a></li><li><a href="hub-pr.1.zh.html"><strong aria-hidden="true">1.18.</strong> hub-pr</a></li><li><a href="hub-pull-request.1.zh.html"><strong aria-hidden="true">1.19.</strong> hub-pull-request</a></li><li><a href="hub-push.1.zh.html"><strong aria-hidden="true">1.20.</strong> hub-push</a></li><li><a href="hub-release.1.zh.html" class="active"><strong aria-hidden="true">1.21.</strong> hub-release</a></li><li><a href="hub-remote.1.zh.html"><strong aria-hidden="true">1.22.</strong> hub-remote</a></li><li><a href="hub-submodule.1.zh.html"><strong aria-hidden="true">1.23.</strong> hub-submodule</a></li><li><a href="hub-sync.1.zh.html"><strong aria-hidden="true">1.24.</strong> hub-sync</a></li></ol></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">hub 中文文档</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/mdbook-nice-example/edit/master/src/hub-release.1.zh.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#hub-release1----列出并创建-github-版本" id="hub-release1----列出并创建-github-版本"><h1>hub-release(1) -- 列出,并创建 Github 版本.</h1></a>
+<a class="header" href="#a命令简介" id="a命令简介"><h2>命令简介</h2></a>
+<ul>
+<li><strong>hub release</strong> <code>[--include-drafts][--exclude-prereleases] [-L &lt;LIMIT&gt;]</code></li>
+<li><strong>hub release</strong> <code>show &lt;TAG&gt;</code></li>
+<li><strong>hub release</strong> <code>create [-dpoc][-a &lt;file&gt;] [-m &lt;MESSAGE&gt;|-F &lt;FILE&gt;][-t &lt;target&gt;] &lt;TAG&gt;</code></li>
+<li><strong>hub release</strong> <code>edit [&lt;options&gt;] &lt;TAG&gt;</code></li>
+<li><strong>hub release</strong> <code>download &lt;TAG&gt;</code></li>
+<li><strong>hub release</strong> <code>delete &lt;TAG&gt;</code></li>
+</ul>
+<a class="header" href="#a命令" id="a命令"><h2>命令</h2></a>
+<p>在没有参数的情况下,显示现有版本的列表.</p>
+<p>有”--include-drafts”,会包括草案版本.使用”--exclude-prereleases”,从列表中排除非稳定版本.</p>
+<ul>
+<li><em>show</em>:用<TAG>显示 Github 发行说明.</li>
+</ul>
+<p>使用”--show-downloads”,包括”下载”部分.</p>
+<ul>
+<li>
+<p><em>create</em>:用指定的<TAG>名创建 Github 版本.如果 Git 标签<TAG>不存在,它将在<TARGET>创建(默认:当前分支).</p>
+</li>
+<li>
+<p><em>edit</em>:用指定的<TAG>名编辑 Github 版本.接受<em>创建</em>命令相同的选项.用”--draft=false”发布草稿.</p>
+</li>
+</ul>
+<p>当 <code>&lt;MESSAGE&gt;</code> 或 <code>&lt;FILE&gt;</code> 没有指定, 编辑器将开放前填充当前发行的标题和身体.重新使用现有的标题和身体不变,通过”m”.</p>
+<ul>
+<li>
+<p><em>doenload</em>:下载指定版本<TAG>的附加资产</p>
+</li>
+<li>
+<p><em>delete</em>:删除指定<TAG>的发行版和相关资产.</p>
+</li>
+</ul>
+<a class="header" href="#a选项" id="a选项"><h2>选项</h2></a>
+<p><code>- -L, --limit</code>:
+只显示第一个<LIMIT>版本.</p>
+<p><code>- -d, --draft</code>:
+创建一个草案发布.</p>
+<p><code>- -p, --prerelease</code>:
+创建预发布.</p>
+<p><code>- -a, --attach &lt;FILE&gt;</code>:
+在这个版本中附加一个文件作为一个资产.</p>
+<p>若 <code>&lt;FILE&gt;</code> 在 <code>&lt;filename&gt;#&lt;text&gt;</code> 格式, 这 text 会作为资产标签.</p>
+<p><code>- -m, --message &lt;MESSAGE&gt;</code>:
+使用第一行<code>&lt;MESSAGE&gt;</code>作为发布标题,其余的作为发布说明.</p>
+<p><code>- -F, --file &lt;FILE&gt;</code>:
+请阅读发布的标题和描述<code>&lt;FILE&gt;</code>.</p>
+<p><code>- -e, --edit</code>:
+进一步编辑内容<code>&lt;FILE&gt;</code>在提交之前的文本编辑器中.</p>
+<p><code>- -o, --browse</code>:
+在 Web 浏览器中打开新版本.</p>
+<p><code>- -c, --copy</code>:
+把新版本的 URL 放在剪贴板上,而不是打印它.</p>
+<p><code>- -t, --commitish &lt;TARGET&gt;</code>:
+一个提交 SHAN 或分支名称来附加释放,仅用于<TAG>还不存在(默认:主分支).</p>
+<p><code>- -f, --format &lt;FORMAT&gt;</code>:
+格式打印提交请求列表,通过使用<FORMAT>(默认值:”%sC%&gt;(8)%i%Creset %t% l%n”).请参阅 git 日志手册的”PRETTY FORMATS”部分,了解有关占位符如何以格式使用的更多细节.可用占位符是:</p>
+<pre><code>%I: pull request 数量
+
+%i: pull request 数量, 前缀是&quot;#&quot;
+
+%U: pull request的URL
+
+%S: 状态 (例如. &quot;open&quot;, &quot;closed&quot;)
+
+%sC: 设置颜色 red 或 green,  取决于pull  request状态.
+
+%t: 标题
+
+%l: 颜色标签
+
+%L: 原生, 逗号分隔标签
+
+%b: 主体
+
+%B: 基础 branch
+
+%H: head branch
+
+%au: 作者登录名
+
+%as: 分配的逗号分隔列表
+
+%Mn: 里程碑 数量
+
+%Mt: 里程碑 标题
+
+%NC: 评论数量
+
+%Nc:  评论数量, 包裹进圆括号, 或 若零则是空字符串
+
+%cD: 创建了的 仅数据 (没有一天的时间)
+
+%cr: 创建了的 数据, 相对
+
+%ct: 创建了的 数据, UNIX 时间戳
+
+%cI: 创建了的 数据, ISO 8601 格式
+
+%uD: 更新了的 仅数据 (没有一天的时间)
+
+%ur: 更新了的 数据, 相对
+
+%ut: 更新了的 数据, UNIX 时间戳
+
+%uI: 更新了的 数据, ISO 8601 格式
+</code></pre>
+<ul>
+<li><TAG>: 这个版本的 Git 标签名.</li>
+</ul>
+<a class="header" href="#a更多" id="a更多"><h2>更多</h2></a>
+<p><a href="hub.1.zh.html">hub(1)</a>, git-tag(1)</p>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="hub-push.1.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="hub-remote.1.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a href="hub-push.1.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a href="hub-remote.1.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>

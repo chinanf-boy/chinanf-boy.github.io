@@ -1,0 +1,1185 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>hub 中文文档</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="git + hub = github">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li><a href="hub.1.zh.html"><strong aria-hidden="true">1.</strong> hub</a></li><li><ol class="section"><li><a href="hub-alias.1.zh.html"><strong aria-hidden="true">1.1.</strong> hub-alias</a></li><li><a href="hub-am.1.zh.html"><strong aria-hidden="true">1.2.</strong> hub-am</a></li><li><a href="hub-apply.1.zh.html"><strong aria-hidden="true">1.3.</strong> hub-apply</a></li><li><a href="hub-browse.1.zh.html"><strong aria-hidden="true">1.4.</strong> hub-browse</a></li><li><a href="hub-checkout.1.zh.html"><strong aria-hidden="true">1.5.</strong> hub-checkout</a></li><li><a href="hub-cherry-pick.1.zh.html"><strong aria-hidden="true">1.6.</strong> hub-cherry-pick</a></li><li><a href="hub-ci-status.1.zh.html"><strong aria-hidden="true">1.7.</strong> hub-ci-status</a></li><li><a href="hub-clone.1.zh.html"><strong aria-hidden="true">1.8.</strong> hub-clone</a></li><li><a href="hub-compare.1.zh.html"><strong aria-hidden="true">1.9.</strong> hub-compare</a></li><li><a href="hub-create.1.zh.html"><strong aria-hidden="true">1.10.</strong> hub-create</a></li><li><a href="hub-delete.1.zh.html"><strong aria-hidden="true">1.11.</strong> hub-delete</a></li><li><a href="hub-fetch.1.zh.html"><strong aria-hidden="true">1.12.</strong> hub-fetch</a></li><li><a href="hub-fork.1.zh.html"><strong aria-hidden="true">1.13.</strong> hub-fork</a></li><li><a href="hub-help.1.zh.html"><strong aria-hidden="true">1.14.</strong> hub-help</a></li><li><a href="hub-init.1.zh.html"><strong aria-hidden="true">1.15.</strong> hub-init</a></li><li><a href="hub-issue.1.zh.html"><strong aria-hidden="true">1.16.</strong> hub-issue</a></li><li><a href="hub-merge.1.zh.html"><strong aria-hidden="true">1.17.</strong> hub-merge</a></li><li><a href="hub-pr.1.zh.html"><strong aria-hidden="true">1.18.</strong> hub-pr</a></li><li><a href="hub-pull-request.1.zh.html"><strong aria-hidden="true">1.19.</strong> hub-pull-request</a></li><li><a href="hub-push.1.zh.html"><strong aria-hidden="true">1.20.</strong> hub-push</a></li><li><a href="hub-release.1.zh.html"><strong aria-hidden="true">1.21.</strong> hub-release</a></li><li><a href="hub-remote.1.zh.html"><strong aria-hidden="true">1.22.</strong> hub-remote</a></li><li><a href="hub-submodule.1.zh.html"><strong aria-hidden="true">1.23.</strong> hub-submodule</a></li><li><a href="hub-sync.1.zh.html"><strong aria-hidden="true">1.24.</strong> hub-sync</a></li></ol></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">hub 中文文档</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/mdbook-nice-example/edit/master/src/print.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#hub1---让-git-与-github-更容易合作" id="hub1---让-git-与-github-更容易合作"><h1>hub(1) - 让 git 与 github 更容易合作</h1></a>
+<a class="header" href="#a命令简介" id="a命令简介"><h2>命令简介</h2></a>
+<ul>
+<li><strong>hub</strong> <code>[-noop] &lt;COMMAND&gt; [&lt;OPTIONS&gt;]</code></li>
+<li><strong>hub alias</strong> <code>[-s][&lt;shell&gt;]</code></li>
+<li><a href="hub-help.1.zh.html">hub-help</a> - <code>&lt;COMMAND&gt;</code></li>
+</ul>
+<a class="header" href="#description" id="description"><h2>DESCRIPTION</h2></a>
+<p>hub 是一个 Git 包装工具, 扩展与带有额外的功能,让它更好的在 GitHub 工作.</p>
+<a class="header" href="#a命令" id="a命令"><h2>命令</h2></a>
+<p>可分为两组:</p>
+<ul>
+<li>扩展: 所有这些都是在 Git 现成的,</li>
+<li>新增: hub 扩展了和 hub 提供的是 cus-.</li>
+</ul>
+<a class="header" href="#a扩展的-git-命令" id="a扩展的-git-命令"><h3>扩展的 git 命令</h3></a>
+<ul>
+<li>
+<p><a href="./hub-am.1.zh.html">hub-am(1)</a>:从 Github 的(pull request)提交请求复制 commit 到本地.</p>
+</li>
+<li>
+<p><a href="./hub-apply.1.zh.html">hub-apply(1)</a>: 从 GitHub 下载补丁和本地应用.</p>
+</li>
+<li>
+<p><a href="./hub-checkout.1.zh.html">hub-checkout(1)</a>: 签到-Checkout 提交请求的 head 作为一个本地分支.</p>
+</li>
+<li>
+<p><a href="./hub-cherry-pick.1.zh.html">hub-cherry-pick(1)</a>: 从 Github 的一个 Fork 选择一个 commit.</p>
+</li>
+<li>
+<p><a href="./hub-clone.1.zh.html">hub-clone(1)</a>:从 GitHub 克隆-clone 库.</p>
+</li>
+<li>
+<p><a href="./hub-fetch.1.zh.html">hub-fetch(1)</a>:在执行 Git 获取之前,添加错过的 remote.</p>
+</li>
+<li>
+<p><a href="./hub-init.1.zh.html">hub-init(1)</a>:初始化 Git 存储库,并向 Github 添加远程 remote.</p>
+</li>
+<li>
+<p><a href="./hub-merge.1.zh.html">hub-merge(1)</a>:将 一个本地带信息的提交请求合并,就像在 Github 的 Merge 按钮.</p>
+</li>
+<li>
+<p><a href="./hub-push.1.zh.html">hub-push(1)</a>:将 Git 分支推到每个远程-remote 列表上.</p>
+</li>
+<li>
+<p><a href="./hub-remote.1.zh.html">hub-remote(1)</a>:为 Github 存储库添加 Git 远程-remote.</p>
+</li>
+<li>
+<p><a href="./hub-submodule.1.zh.html">hub-submodule(1)</a>:为 Github 存储库添加 Git 子模块.</p>
+</li>
+</ul>
+<a class="header" href="#hub-提供的新命令" id="hub-提供的新命令"><h3>hub 提供的新命令</h3></a>
+<ul>
+<li>
+<p><a href="./hub-alias.1.zh.html">hub-alias(1)</a>:显示用于包装 Git 的 shell 指令.</p>
+</li>
+<li>
+<p><a href="./hub-browse.1.zh.html">hub-browse(1)</a>:在 Web 浏览器中打开 Github 存储库.</p>
+</li>
+<li>
+<p><a href="./hub-ci-status.1.zh.html">hub-ci-status(1)</a>:显示提交-commit 的 Github 状态信息.</p>
+</li>
+<li>
+<p><a href="./hub-compare.1.zh.html">hub-compare(1)</a>:在 Web 浏览器中打开 Github 比较页.</p>
+</li>
+<li>
+<p><a href="./hub-create.1.zh.html">hub-create(1)</a>:在 Github 上创建一个新的存储库,并为其添加 Git 远程.</p>
+</li>
+<li>
+<p><a href="./hub-delete.1.zh.html">hub-delete(1)</a>:删除 Github 上的存储库.</p>
+</li>
+<li>
+<p><a href="./hub-fork.1.zh.html">hub-fork(1)</a>:在 Github 上 Fork 当前项目,并为其添加 Git 远程.</p>
+</li>
+<li>
+<p><a href="./hub-pull-request.1.zh.html">hub-pull-request(1)</a>:创建 Github 提交请求.</p>
+</li>
+<li>
+<p><a href="./hub-pr.1.zh.html">hub-pr(1)</a>:列出和签到-checkout Github 提交请求.</p>
+</li>
+<li>
+<p><a href="./hub-issue.1.zh.html">hub-issue(1)</a>:列出和创建 Github 问题.</p>
+</li>
+<li>
+<p><a href="./hub-release.1.zh.html">hub-release(1)</a>:列出,并创建 Github 版本.</p>
+</li>
+<li>
+<p><a href="./hub-sync.1.zh.html">hub-sync(1)</a>:从上游获取,并更新本地分支.</p>
+</li>
+</ul>
+<a class="header" href="#a配置" id="a配置"><h2>配置</h2></a>
+<a class="header" href="#github-oauth-安全验证" id="github-oauth-安全验证"><h3>GitHub OAuth 安全验证</h3></a>
+<p>Hub 在第一次需要访问 API 时,将按照提示输入 GitHub 用户名和密码,并将其交换为 OAuth 令牌,并将其保存在<code>~/.config/hub</code>中.</p>
+<p>为了避免被提示,使用”GITHUB_USER”和”GITHUB_PASSWORD”环境变量.</p>
+<p>或者,您可以提供”GITHUB_TOKEN”,一个访问令牌.<strong>存储库</strong>权限.这将不会写到”~/.config/hub”.</p>
+<a class="header" href="#a用-https-替换-git-协议" id="a用-https-替换-git-协议"><h3>用 HTTPS 替换 git 协议</h3></a>
+<p>如果您更喜欢 HTTPS 协议用于 git 操作,那么您可以通过配置 hub 来生成<code>https\:-URLs</code>,而不是”git:”或”ssh:”:</p>
+<pre><code>$ git config -global hub.protocol https
+</code></pre>
+<p>这将影响”clone”、”fork”、”remote add”和其他对 GitHub 库的 URL 引用的 hub 扩展命令.</p>
+<a class="header" href="#github-enterprise-企业" id="github-enterprise-企业"><h3>GitHub Enterprise-企业</h3></a>
+<p>默认情况下,hub 只与具有指向”github.com”的存储库一起工作.Github 企业主机需要用白名单配置 hub ,处理与 github.com 相同的远程服务器:</p>
+<pre><code>$ git config -global -add hub.host MY.GIT.ORG
+</code></pre>
+<p>诸如”init”和”clone”等命令的默认主机仍然是”github.com”,但这可受到”GITHUB_HOST”环境变量的影响:</p>
+<pre><code>$ GITHUB_HOST=my.git.org git clone myproject
+</code></pre>
+<a class="header" href="#a环境变量" id="a环境变量"><h3>环境变量</h3></a>
+<ul>
+<li>
+<p><code>HUB_VERBOSE</code>: hub 命令启用 verbose 的输出.</p>
+</li>
+<li>
+<p><code>HUB_CONFIG</code>:读取和存储 hub 配置的文件路径.如果存在”XDG_CONFIG_HOME”,则默认值为”$XDG_CONFIG_HOME/hub”; 否则为”$HOME/.config/hub”.每个 XDG 基础目录规范,也可在”XDG_CONFIG_DIRS”中搜索配置文件.</p>
+</li>
+<li>
+<p><code>HUB_PROTOCOL</code>:使用其中一个”https|ssh|git” 作为 git clone/push 的首选协议.</p>
+</li>
+<li>
+<p><code>GITHUB_TOKEN</code>:用于 Github API 请求的 OAuth 令牌.</p>
+</li>
+</ul>
+<a class="header" href="#bugs" id="bugs"><h2>BUGS</h2></a>
+<p><a href="https://github.com/github/hub/issues">https://github.com/github/hub/问题</a></p>
+<a class="header" href="#a作者" id="a作者"><h2>作者</h2></a>
+<p><a href="https://github.com/github/hub/contributors">https://github.com/github/hub/贡献者</a></p>
+<a class="header" href="#a更多" id="a更多"><h2>更多</h2></a>
+<p>git(1), git-clone(1), git-remote(1), git-init(1),
+https://github.com/github/hub</p>
+<a class="header" href="#hub-alias1----显示用于包装-git-的-shell-指令" id="hub-alias1----显示用于包装-git-的-shell-指令"><h1>hub-alias(1) -- 显示用于包装 Git 的 shell 指令.</h1></a>
+<a class="header" href="#a命令简介-1" id="a命令简介-1"><h2>命令简介</h2></a>
+<p><strong>hub alias</strong> <code>[-s][&lt;shell&gt;]</code></p>
+<a class="header" href="#a选项" id="a选项"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-s</code>: 适用于”eval”的输出外壳脚本.</p>
+</li>
+<li>
+<p><code>&lt;SHELL&gt;</code>: 指定 shell 的类型(默认值为”$shell”环境变量).</p>
+</li>
+</ul>
+<a class="header" href="#a更多-1" id="a更多-1"><h2>更多</h2></a>
+<p><a href="hub.1.zh.html">hub(1)</a></p>
+<a class="header" href="#hub-am1----从-github-的pull-request提交请求复制-commit-到本地" id="hub-am1----从-github-的pull-request提交请求复制-commit-到本地"><h1>hub-am(1) -- 从 Github 的(pull request)提交请求复制 commit 到本地.</h1></a>
+<a class="header" href="#a命令简介-2" id="a命令简介-2"><h2>命令简介</h2></a>
+<p><strong>hub am</strong> <code>[-3] &lt;GITHUB-URL&gt;</code></p>
+<a class="header" href="#a选项-1" id="a选项-1"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-3</code>: (推荐)见 git-am(1).</p>
+</li>
+<li>
+<p><code>&lt;GITHUB-URL&gt;</code>:一个在 GUTHUB 上的提交请求-pull-request 或 commit 的 URL.</p>
+</li>
+</ul>
+<a class="header" href="#a例子" id="a例子"><h2>例子</h2></a>
+<pre><code>$ hub am -3 https://github.com/jingweno/gh/pull/55
+&gt;	curl   https://github.com/jingweno/gh/pull/55.patch    -o
+/tmp/55.patch
+&gt; git am -3 /tmp/55.patch
+</code></pre>
+<a class="header" href="#a更多-2" id="a更多-2"><h2>更多</h2></a>
+<p><a href="hub-apply.1.zh.html">hub-apply(1)</a>, <a href="hub-cherry-pick.1.zh.html">hub-cherry-pick(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-am(1)</p>
+<a class="header" href="#hub-apply1----从-github-下载补丁和本地应用" id="hub-apply1----从-github-下载补丁和本地应用"><h1>hub-apply(1) -- 从 GitHub 下载补丁和本地应用.</h1></a>
+<a class="header" href="#a命令简介-3" id="a命令简介-3"><h2>命令简介</h2></a>
+<p><strong>hub apply</strong> <code>&lt;GITHUB-URL&gt;</code></p>
+<a class="header" href="#a选项-2" id="a选项-2"><h2>选项</h2></a>
+<ul>
+<li><code>&lt;GITHUB-URL&gt;</code>:一个在 GUTHUB 上的提交请求-pull-request 或 commit 的 URL.</li>
+</ul>
+<a class="header" href="#a例子-1" id="a例子-1"><h2>例子</h2></a>
+<pre><code>$ hub apply https://github.com/jingweno/gh/pull/55
+&gt;	curl   https://github.com/jingweno/gh/pull/55.patch    -o
+/tmp/55.patch
+&gt; git apply /tmp/55.patch
+</code></pre>
+<a class="header" href="#a更多-3" id="a更多-3"><h2>更多</h2></a>
+<p><a href="hub-am.1.zh.html">hub-am(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-apply(1)</p>
+<a class="header" href="#hub-browse1----在-web-浏览器中打开-github-存储库" id="hub-browse1----在-web-浏览器中打开-github-存储库"><h1>hub-browse(1) -- 在 Web 浏览器中打开 Github 存储库.</h1></a>
+<a class="header" href="#a命令简介-4" id="a命令简介-4"><h2>命令简介</h2></a>
+<p><strong>hub browse</strong> <code>[-uc][&lt;USER&gt;/]&lt;REPOSITORY&gt;|--] [&lt;SUBPAGE&gt;]</code></p>
+<a class="header" href="#a选项-3" id="a选项-3"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-u</code>: 打印 URL ,而不是打开它.</p>
+</li>
+<li>
+<p><code>-c</code>: 把 URL 放在剪贴板中,而不是打开它.</p>
+</li>
+<li>
+<p><code>[&lt;USER&gt;/]&lt;REPOSITORY&gt;</code>:默认为当前工作目录中的存储库.</p>
+</li>
+<li>
+<p><code>&lt;SUBPAGE&gt;</code>:”wiki”,”commits”,”issues”其中一个,或其他(默认:”tree”).</p>
+</li>
+</ul>
+<a class="header" href="#a例子-2" id="a例子-2"><h2>例子</h2></a>
+<pre><code>$ hub browse
+&gt; open https://github.com/REPO
+
+$ hub browse -- issues
+&gt; open https://github.com/REPO/issues
+
+$ hub browse jingweno/gh
+&gt; open https://github.com/jingweno/gh
+
+$ hub browse gh wiki
+&gt; open https://github.com/USER/gh/wiki
+</code></pre>
+<a class="header" href="#a更多-4" id="a更多-4"><h2>更多</h2></a>
+<p><a href="hub-compare.1.zh.html">hub-compare(1)</a>, <a href="hub.1.zh.html">hub(1)</a></p>
+<a class="header" href="#hub-checkout1----签到-checkout-提交请求的-head-作为一个本地分支" id="hub-checkout1----签到-checkout-提交请求的-head-作为一个本地分支"><h1>hub-checkout(1) -- 签到-Checkout 提交请求的 head 作为一个本地分支</h1></a>
+<a class="header" href="#a命令简介-5" id="a命令简介-5"><h2>命令简介</h2></a>
+<p><strong>hub checkout</strong> <code>&lt;PULLREQ-URL&gt; [&lt;BRANCH&gt;]</code></p>
+<a class="header" href="#a例子-3" id="a例子-3"><h2>例子</h2></a>
+<pre><code>$ hub checkout https://github.com/jingweno/gh/pull/73
+&gt; git fetch origin pull/73/head:jingweno-feature
+&gt; git checkout jingweno-feature
+</code></pre>
+<a class="header" href="#a更多-5" id="a更多-5"><h2>更多</h2></a>
+<p><a href="hub-merge.1.zh.html">hub-merge(1)</a>, <a href="hub-am.1.zh.html">hub-am(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-checkout(1)</p>
+<a class="header" href="#hub-cherry-pick1----从-github-的一个-fork-选择一个-commit" id="hub-cherry-pick1----从-github-的一个-fork-选择一个-commit"><h1>hub-cherry-pick(1) -- 从 Github 的一个 Fork 选择一个 commit</h1></a>
+<a class="header" href="#a命令简介-6" id="a命令简介-6"><h2>命令简介</h2></a>
+<ul>
+<li><strong>hub cherry-pick</strong> <code>&lt;COMMIT-URL&gt;</code></li>
+<li><strong>hub cherry-pick</strong> <code>&lt;USER&gt;@&lt;SHA&gt;</code></li>
+</ul>
+<a class="header" href="#a更多-6" id="a更多-6"><h2>更多</h2></a>
+<p><a href="hub-am.1.zh.html">hub-am(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-cherry-pick(1)</p>
+<a class="header" href="#hub-ci-status1----显示提交-commit-的-github-状态信息" id="hub-ci-status1----显示提交-commit-的-github-状态信息"><h1>hub-ci-status(1) -- 显示提交-commit 的 Github 状态信息.</h1></a>
+<a class="header" href="#a命令简介-7" id="a命令简介-7"><h2>命令简介</h2></a>
+<p><strong>hub ci-status</strong> <code>[-v][\&lt;COMMIT\&gt;]</code></p>
+<a class="header" href="#a选项-4" id="a选项-4"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-v</code>:打印所有状态检查和 URL 的详细报告.</p>
+</li>
+<li>
+<p><code>&lt;COMMIT&gt;</code>: 一个提交或分支名称(默认:”HEAD”).</p>
+</li>
+</ul>
+<p>可能的输出和退出状态:</p>
+<ul>
+<li>成功,默认:0</li>
+<li>失败,错误,行动需要,超时:1</li>
+<li>等待:2</li>
+</ul>
+<a class="header" href="#a更多-7" id="a更多-7"><h2>更多</h2></a>
+<p><a href="hub-pull-request.1.zh.html">hub-pull-request(1)</a>, <a href="hub.1.zh.html">hub(1)</a></p>
+<a class="header" href="#hub-clone1----从-github-克隆-clone-库" id="hub-clone1----从-github-克隆-clone-库"><h1>hub-clone(1) -- 从 GitHub 克隆-clone 库.</h1></a>
+<a class="header" href="#a命令简介-8" id="a命令简介-8"><h2>命令简介</h2></a>
+<p><strong>hub clone</strong> <code>[-p][&lt;options&gt;] [&lt;USER&gt;/]&lt;REPOSITORY&gt; [&lt;DESTINA- TION&gt;]</code></p>
+<a class="header" href="#a选项-5" id="a选项-5"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-p</code>:(已弃用)克隆 SSH 的私人储存库.</p>
+</li>
+<li>
+<p><code>[&lt;USER&gt;/]&lt;REPOSITORY&gt;</code>: <code>&lt;USER&gt;</code>默认为您自己的 Github 用户名.</p>
+</li>
+<li>
+<p><code>&lt;DESTINATION&gt;</code>: 要克隆的目录名(默认:<REPOSITORY>)</p>
+</li>
+</ul>
+<a class="header" href="#a复制时的协议" id="a复制时的协议"><h2>复制时的协议</h2></a>
+<p>“git:”协议将用于克隆公共存储库,而 SSH 协议将用于私有存储库以及,您有访问权限的存储库.另外,hub 可以配置为使用 HTTPS 协议.参见 <a href="hub.1.zh.html">hub(1)</a> 的 “HTTPS 代替 Git 协议”和”HUB_PROTOCOL”.</p>
+<a class="header" href="#a例子-4" id="a例子-4"><h2>例子</h2></a>
+<pre><code>$ hub clone rtomayko/ronn
+&gt; git clone git://github.com/rtomayko/ronn.git
+</code></pre>
+<a class="header" href="#a更多-8" id="a更多-8"><h2>更多</h2></a>
+<p><a href="hub-fork.1.zh.html">hub-fork(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-clone(1)</p>
+<a class="header" href="#hub-compare1----在-web-浏览器中打开-github-比较页" id="hub-compare1----在-web-浏览器中打开-github-比较页"><h1>hub-compare(1) -- 在 Web 浏览器中打开 Github 比较页.</h1></a>
+<a class="header" href="#a命令简介-9" id="a命令简介-9"><h2>命令简介</h2></a>
+<p><strong>hub compare</strong> <code>[-u][-b &lt;base&gt;] [&lt;USER&gt;][&lt;start&gt;...]&lt;END&gt;]</code></p>
+<a class="header" href="#a选项-6" id="a选项-6"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-u</code>: 打印 URL ,而不是打开它.</p>
+</li>
+<li>
+<p><code>-c --copy</code>: 把 URL 放在剪贴板上,而不是打开它.</p>
+</li>
+<li>
+<p><code>-b &lt;BASE&gt;</code>: 进行比较的基础分支.</p>
+</li>
+<li>
+<p><code>[&lt;START&gt;...]&lt;END&gt;</code>:指定要比较的分支名称、标签名或提交 SHAs 的范围.</p>
+</li>
+</ul>
+<pre><code>&lt;END&gt;默认为当前分支名称.
+如果获得的是二个点(`A..B`), 会形成一个有三个点的范围.
+</code></pre>
+<a class="header" href="#a例子-5" id="a例子-5"><h2>例子</h2></a>
+<pre><code>$ hub compare refactor
+&gt; open https://github.com/USER/REPO/compare/refactor
+
+$ hub compare v1.0..v1.1
+&gt; open https://github.com/USER/REPO/compare/v1.0...v1.1
+
+$ hub compare -u jingweno feature
+&gt; echo https://github.com/jingweno/REPO/compare/feature
+</code></pre>
+<a class="header" href="#a更多-9" id="a更多-9"><h2>更多</h2></a>
+<p><a href="hub-browse.1.zh.html">hub-browse(1)</a>, <a href="hub.1.zh.html">hub(1)</a></p>
+<a class="header" href="#hub-create1----在-github-上创建一个新的存储库并为其添加-git-远程" id="hub-create1----在-github-上创建一个新的存储库并为其添加-git-远程"><h1>hub-create(1) -- 在 Github 上创建一个新的存储库,并为其添加 Git 远程.</h1></a>
+<a class="header" href="#a命令简介-10" id="a命令简介-10"><h2>命令简介</h2></a>
+<p><strong>hub create</strong> <code>[-poc][-d &lt;description&gt;] [-h &lt;HOMEPAGE&gt;][&lt;ORGANI- ZATION&gt;/]&lt;NAME&gt;]</code></p>
+<a class="header" href="#a选项-7" id="a选项-7"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-p</code>:创建一个私有存储库.</p>
+</li>
+<li>
+<p><code>-d &lt;DESCRIPTION&gt;</code>: 使用此文本作为 Github 存储库的说明.</p>
+</li>
+<li>
+<p><code>-h &lt;HOMEPAGE&gt;</code>: 使用此文本作为 Github 存储库的 URL.</p>
+</li>
+<li>
+<p><code>-o, --browse</code>:在 Web 浏览器中打开新的存储库.</p>
+</li>
+<li>
+<p><code>-c ,--copy</code>:将新存储库的 URL 放在剪贴板上,而不是打印它.</p>
+</li>
+<li>
+<p><code>[&lt;ORGANIZATION&gt;/]&lt;NAME&gt;</code>: Github 上的存储库的名称(默认值:当前工作目录的名称).</p>
+</li>
+</ul>
+<pre><code>很显然, 在&lt;ORGANIZATION&gt;下创建存储库.
+</code></pre>
+<a class="header" href="#a例子-6" id="a例子-6"><h2>例子</h2></a>
+<pre><code>$ hub create
+[ repo created on GitHub ]
+&gt; git remote add -f origin git@github.com:USER/REPO.git
+
+$ hub create sinatra/recipes
+[ repo created in GitHub organization ]
+&gt; git remote add -f origin git@github.com:sinatra/recipes.git
+</code></pre>
+<a class="header" href="#a更多-10" id="a更多-10"><h2>更多</h2></a>
+<p><a href="hub-init.1.zh.html">hub-init(1)</a>, <a href="hub.1.zh.html">hub(1)</a></p>
+<a class="header" href="#hub-delete1----删除-github-上的存储库" id="hub-delete1----删除-github-上的存储库"><h1>hub-delete(1) -- 删除 Github 上的存储库.</h1></a>
+<a class="header" href="#a命令简介-11" id="a命令简介-11"><h2>命令简介</h2></a>
+<p><strong>hub delete</strong> <code>[-y][&lt;organization&gt;/]&lt;NAME&gt;</code></p>
+<a class="header" href="#a选项-8" id="a选项-8"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-y, --yes</code>:跳过确认提示，并立即删除存储库.</p>
+</li>
+<li>
+<p><code>[&lt;ORGANIZATION&gt;/]&lt;NAME&gt;</code>: Github 上存储库的名称.</p>
+</li>
+</ul>
+<a class="header" href="#a例子-7" id="a例子-7"><h2>例子</h2></a>
+<pre><code>$ hub delete recipes
+[ personal repo deleted on GitHub ]
+
+$ hub delete sinatra/recipes
+[ repo deleted in GitHub organization ]
+</code></pre>
+<a class="header" href="#a更多-11" id="a更多-11"><h2>更多</h2></a>
+<p><a href="hub-init.1.zh.html">hub-init(1)</a>, <a href="hub.1.zh.html">hub(1)</a></p>
+<a class="header" href="#hub-fetch1----在执行-git-获取之前添加错过的-remote" id="hub-fetch1----在执行-git-获取之前添加错过的-remote"><h1>hub-fetch(1) -- 在执行 Git 获取之前,添加错过的 remote</h1></a>
+<a class="header" href="#a命令简介-12" id="a命令简介-12"><h2>命令简介</h2></a>
+<p><strong>hub fetch</strong> <code>&lt;USER&gt;[,&lt;USER2&gt;...]</code></p>
+<a class="header" href="#a例子-8" id="a例子-8"><h2>例子</h2></a>
+<pre><code>$ hub fetch --multiple jingweno mislav
+&gt; git remote add jingweno git://github.com/jingweno/REPO.git
+&gt; git remote add mislav git://github.com/mislav/REPO.git
+&gt; git fetch jingweno
+&gt; git fetch mislav
+</code></pre>
+<a class="header" href="#a更多-12" id="a更多-12"><h2>更多</h2></a>
+<p><a href="hub-remote.1.zh.html">hub-remote(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-fetch(1)</p>
+<a class="header" href="#hub-fork1----在-github-上-fork-当前项目并为其添加-git-远程" id="hub-fork1----在-github-上-fork-当前项目并为其添加-git-远程"><h1>hub-fork(1) -- 在 Github 上 Fork 当前项目,并为其添加 Git 远程.</h1></a>
+<a class="header" href="#a命令简介-13" id="a命令简介-13"><h2>命令简介</h2></a>
+<p><strong>hub fork</strong> <code>[--no-remote][--remote-name=&lt;remote&gt;] [--org=&lt;ORGANI- ZATION&gt;]</code></p>
+<a class="header" href="#a选项-9" id="a选项-9"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>--no-remote</code>: Fork 后跳过添加一个 Git 远程.</p>
+</li>
+<li>
+<p><code>--org=&lt;ORGANIZATION&gt;</code>: 在这个组织中 Fork 存储库.</p>
+</li>
+</ul>
+<a class="header" href="#a例子-9" id="a例子-9"><h2>例子</h2></a>
+<pre><code>$ hub fork
+[ repo forked on GitHub ]
+&gt; git remote add -f USER git@github.com:USER/REPO.git
+
+$ hub fork --org=ORGANIZATION
+[ repo forked on Github into the ORGANIZATION organization]
+&gt;  git  remote  add  -f ORGANIZATION git@github.com:ORGANIZATION/REPO.git
+</code></pre>
+<a class="header" href="#a更多-13" id="a更多-13"><h2>更多</h2></a>
+<p><a href="hub-clone.1.zh.html">hub-clone(1)</a>, <a href="hub.1.zh.html">hub(1)</a></p>
+<a class="header" href="#hub-help1----显示命令的帮助页" id="hub-help1----显示命令的帮助页"><h1>hub-help(1) -- 显示命令的帮助页</h1></a>
+<a class="header" href="#a命令简介-14" id="a命令简介-14"><h2>命令简介</h2></a>
+<ul>
+<li><strong>hub help</strong> <code>hub</code></li>
+<li><strong>hub help</strong> <code>&lt;COMMAND&gt;</code></li>
+<li><strong>hub help</strong> <code>hub-&lt;COMMAND&gt; [--plain-text]</code></li>
+</ul>
+<a class="header" href="#a选项-10" id="a选项-10"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>hub-&lt;COMMAND&gt;</code>:
+使用此格式查看对存在的 Git 命令的 hub 扩展的帮助.</p>
+</li>
+<li>
+<p><code>--plain-text</code>:
+跳过 man 页查找机制并,显示普通帮助文本.</p>
+</li>
+</ul>
+<a class="header" href="#man-查看机制" id="man-查看机制"><h2>MAN 查看机制</h2></a>
+<p>在具有”man”的系统中,帮助页面安装相对于”hub”前缀,可在这些双字串中查找:</p>
+<ul>
+<li>‘man/<command>.1‘</li>
+<li>‘share/man/man1/<command>.1‘</li>
+</ul>
+<p>在没有”man”的系统中,相同的帮助页用”.txt”后缀查找.</p>
+<a class="header" href="#a更多-14" id="a更多-14"><h2>更多</h2></a>
+<p>hub(1), git-help(1)</p>
+<a class="header" href="#hub-init1----初始化-git-存储库并向-github-添加远程-remote" id="hub-init1----初始化-git-存储库并向-github-添加远程-remote"><h1>hub-init(1) -- 初始化 Git 存储库,并向 Github 添加远程 remote.</h1></a>
+<a class="header" href="#a命令简介-15" id="a命令简介-15"><h2>命令简介</h2></a>
+<p><strong><strong>hub init</strong></strong> <code>-g</code></p>
+<a class="header" href="#a选项-11" id="a选项-11"><h2>选项</h2></a>
+<ul>
+<li><code>-g</code>:在本地初始化存储库后,添加”origin”远程指向 Github 上的”<USER>/<REPO>“存储库.</li>
+</ul>
+<pre><code>&lt;USER&gt;  是你的 GitHub 用户名, 而 &lt;REPO&gt;则是当前工作目录的名称.
+</code></pre>
+<a class="header" href="#a例子-10" id="a例子-10"><h2>例子</h2></a>
+<pre><code>$ hub init -g
+&gt; git init
+&gt; git remote add origin git@github.com:USER/REPO.git
+</code></pre>
+<a class="header" href="#a更多-15" id="a更多-15"><h2>更多</h2></a>
+<p><a href="hub-create.1.zh.html">hub-create(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-init(1)</p>
+<a class="header" href="#hub-issue1----列出和创建-github-问题" id="hub-issue1----列出和创建-github-问题"><h1>hub-issue(1) -- 列出和创建 Github 问题.</h1></a>
+<a class="header" href="#a命令简介-16" id="a命令简介-16"><h2>命令简介</h2></a>
+<ul>
+<li><strong>hub issue</strong> <code>[-a &lt;ASSIGNEE&gt;][-c &lt;creator&gt;] [-@ &lt;USER&gt;][-s &lt;state&gt;] [-f &lt;FORMAT&gt;][-m &lt;milestone&gt;] [-l &lt;LABELS&gt;][-d &lt;date&gt;] [-o &lt;SORT_KEY&gt; [-^]][-l &lt;limit&gt;]</code></li>
+<li><strong>hub issue create</strong> <code>[-oc][-m &lt;message&gt;|-f &lt;file&gt;] [--edit][-a &lt;users&gt;] [-M &lt;MILESTONE&gt;][-l &lt;labels&gt;]</code></li>
+<li><strong>hub issue labels</strong> <code>[--color]</code></li>
+</ul>
+<a class="header" href="#a命令-1" id="a命令-1"><h2>命令</h2></a>
+<p>没有参数,显示一个公开问题的列表.</p>
+<ul>
+<li>
+<p><em>create</em>:打开当前项目中的一个问题.</p>
+</li>
+<li>
+<p><em>labels</em>:列出这个存储库中可用的标签.</p>
+</li>
+</ul>
+<a class="header" href="#a选项-12" id="a选项-12"><h2>选项</h2></a>
+<ul>
+<li><code>-a, --assignee &lt;ASSIGNEE&gt;:</code>
+只显示<ASSIGNEE>的问题.</li>
+</ul>
+<p>打开问题时，这可以是以逗号分隔的人们分配给新的问题列表.</p>
+<ul>
+<li>
+<p><code>-c, --creator &lt;CREATOR&gt;</code>:
+只显示<CREATOR>的问题</p>
+</li>
+<li>
+<p><code>-@, --mentioned &lt;USER&gt;</code>:
+只显示<USER>问题.</p>
+</li>
+<li>
+<p><code>-s, --state &lt;STATE&gt;</code>:
+显示状态问题<STATE>(默认:”打开”).</p>
+</li>
+<li>
+<p><code>-f, --format &lt;FORMAT&gt;</code>:
+格式打印提交请求列表,通过使用<code>&lt;FORMAT&gt;</code>(默认值:<code>%sC%&gt;(8)%i%Creset %t% l%n</code>).请参阅 git 日志手册的”PRETTY FORMATS”部分,了解有关占位符如何以格式使用的更多细节.可用占位符是:</p>
+</li>
+</ul>
+<pre><code>%I: pull request 数量
+
+%i: pull request 数量, 前缀是&quot;#&quot;
+
+%U: pull request的URL
+
+%S: 状态 (例如. &quot;open&quot;, &quot;closed&quot;)
+
+%sC: 设置颜色 red 或 green,  取决于pull  request状态.
+
+%t: 标题
+
+%l: 颜色标签
+
+%L: 原生, 逗号分隔标签
+
+%b: 主体
+
+%B: 基础 branch
+
+%H: head branch
+
+%au: 作者登录名
+
+%as: 分配的逗号分隔列表
+
+%Mn: 里程碑 数量
+
+%Mt: 里程碑 标题
+
+%NC: 评论数量
+
+%Nc:  评论数量, 包裹进圆括号, 或 若零则是空字符串
+
+%cD: 创建了的 仅数据 (没有一天的时间)
+
+%cr: 创建了的 数据, 相对
+
+%ct: 创建了的 数据, UNIX 时间戳
+
+%cI: 创建了的 数据, ISO 8601 格式
+
+%uD: 更新了的 仅数据 (没有一天的时间)
+
+%ur: 更新了的 数据, 相对
+
+%ut: 更新了的 数据, UNIX 时间戳
+
+%uI: 更新了的 数据, ISO 8601 格式
+</code></pre>
+<ul>
+<li>
+<p><code>-m, --message &lt;MESSAGE&gt;</code>:
+使用第一行<code>&lt;MESSAGE&gt;</code>作为标题,其余的作为问题描述.</p>
+</li>
+<li>
+<p><code>-F, --file &lt;FILE&gt;</code>:
+阅读问题标题和描述<code>&lt;FILE&gt;</code>.</p>
+</li>
+<li>
+<p><code>-e, --edit</code>:
+在提交之前的文本编辑器中,进一步编辑内容<code>&lt;FILE&gt;</code>.</p>
+</li>
+<li>
+<p><code>-o, --browse</code>:
+在 Web 浏览器中打开新的问题.</p>
+</li>
+<li>
+<p><code>-c, --copy</code>:
+把新问题的 URL 放在剪贴板上,而不是打印它.</p>
+</li>
+<li>
+<p><code>-M, --milestone &lt;ID&gt;</code>:
+只显示带有 GID 的 Github 里程碑的问题<ID>.</p>
+</li>
+</ul>
+<p>当打开 issue, 为 issue 添加 GitHub 里程碑<ID>.</p>
+<ul>
+<li><code>-l, --labels &lt;LABELS&gt;</code>:
+只显示带有某些标签的问题.</li>
+</ul>
+<p>当打开 issue, 添加对此标签问题的逗号列表.</p>
+<ul>
+<li>
+<p><code>-d, --since &lt;DATE&gt;</code>:
+只显示更新后或更新后的问题<DATE>采用 ISO 8601 格式.</p>
+</li>
+<li>
+<p><code>-o, --sort &lt;SORT_KEY&gt;</code>:
+按”created”(默认)、”updated”或”comments”排序问题.</p>
+</li>
+<li>
+<p><code>-^ --sort-ascending</code>:
+按升序排序,而不是降序排序.</p>
+</li>
+<li>
+<p><code>-L, --limit &lt;LIMIT&gt;</code>:
+只显示第一个<LIMIT>问题.</p>
+</li>
+<li>
+<p><code>--include-pulls</code>:
+包括提交请求以及问题.</p>
+</li>
+<li>
+<p><code>--color</code>:
+为标签列表启用彩色输出.</p>
+</li>
+</ul>
+<a class="header" href="#hub-merge1----将-一个本地带信息的提交请求合并就像在-github-的-merge-按钮" id="hub-merge1----将-一个本地带信息的提交请求合并就像在-github-的-merge-按钮"><h1>hub-merge(1) -- 将 一个本地带信息的提交请求合并,就像在 Github 的 Merge 按钮.</h1></a>
+<a class="header" href="#a命令简介-17" id="a命令简介-17"><h2>命令简介</h2></a>
+<p><strong>hub merge</strong> <code>&lt;PULLREQ-URL&gt;</code></p>
+<p>这在当前分支中创建了本地合并提交,但实际上没有改变提交请求的状态.但是,当新创建的合并提交被推送到远程存储库的默认分支时,提交请求将自动关闭并标记为”合并”.</p>
+<a class="header" href="#a例子-11" id="a例子-11"><h2>例子</h2></a>
+<pre><code>$ hub merge https://github.com/jingweno/gh/pull/73
+&gt; git fetch origin refs/pull/73/head
+&gt; git merge FETCH_HEAD --no-ff -m  &quot;Merge  pull  request  #73
+</code></pre>
+<p>来自京文/特写…</p>
+<a class="header" href="#a更多-16" id="a更多-16"><h2>更多</h2></a>
+<p><a href="hub-checkout.1.zh.html">hub-checkout(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-merge(1)</p>
+<a class="header" href="#hub-pr1----列出和签到-checkout-github-提交请求" id="hub-pr1----列出和签到-checkout-github-提交请求"><h1>hub-pr(1) -- 列出和签到-checkout Github 提交请求.</h1></a>
+<a class="header" href="#a命令简介-18" id="a命令简介-18"><h2>命令简介</h2></a>
+<ul>
+<li><strong>hub pr list</strong> <code>[-s &lt;STATE&gt;][-h &lt;head&gt;] [-b &lt;BASE&gt;]-o &lt;SORT_KEY&gt; [-^]] [-f &lt;FORMAT&gt;][-l &lt;limit&gt;]</code></li>
+<li><strong>hub pr checkout</strong> <code>&lt;PR-NUMBER&gt; [&lt;BRANCH&gt;]</code></li>
+</ul>
+<a class="header" href="#a命令-2" id="a命令-2"><h2>命令</h2></a>
+<ul>
+<li>
+<p><em>list</em>:列出当前项目中的提交请求.</p>
+</li>
+<li>
+<p><em>checkout</em>:在一个新的分支中检查提交请求的头部.</p>
+</li>
+</ul>
+<a class="header" href="#a选项-13" id="a选项-13"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-s, --state &lt;STATE&gt;</code>:
+用<STATE>过滤提交请求(默认:”打开”).</p>
+</li>
+<li>
+<p><code>-h, --head [&lt;OWNER&gt;:]&lt;BRANCH&gt;</code>:
+显示指定的首个<BRANCH>开始的提交请求. 默认值为<OWNER>从当前存储库中获取.</p>
+</li>
+<li>
+<p><code>-b, --base &lt;BRANCH&gt;</code>:
+显示提交请求,基于指定的<BRANCH>.</p>
+</li>
+<li>
+<p><code>-f, --format &lt;FORMAT&gt;</code>:
+格式打印提交请求列表,通过使用<FORMAT>(默认值:”%sC%&gt;(8)%i%Creset %t% l%n”).请参阅 git 日志手册的”PRETTY FORMATS”部分,了解有关占位符如何以格式使用的更多细节.可用占位符是:</p>
+</li>
+</ul>
+<pre><code>%I: pull request 数量
+
+%i: pull request 数量, 前缀是&quot;#&quot;
+
+%U: pull request的URL
+
+%S: 状态 (例如. &quot;open&quot;, &quot;closed&quot;)
+
+%sC: 设置颜色 red 或 green,  取决于pull  request状态.
+
+%t: 标题
+
+%l: 颜色标签
+
+%L: 原生, 逗号分隔标签
+
+%b: 主体
+
+%B: 基础 branch
+
+%H: head branch
+
+%au: 作者登录名
+
+%as: 分配的逗号分隔列表
+
+%Mn: 里程碑 数量
+
+%Mt: 里程碑 标题
+
+%NC: 评论数量
+
+%Nc:  评论数量, 包裹进圆括号, 或 若零则是空字符串
+
+%cD: 创建了的 仅数据 (没有一天的时间)
+
+%cr: 创建了的 数据, 相对
+
+%ct: 创建了的 数据, UNIX 时间戳
+
+%cI: 创建了的 数据, ISO 8601 格式
+
+%uD: 更新了的 仅数据 (没有一天的时间)
+
+%ur: 更新了的 数据, 相对
+
+%ut: 更新了的 数据, UNIX 时间戳
+
+%uI: 更新了的 数据, ISO 8601 格式
+</code></pre>
+<ul>
+<li>
+<p><code>-o, --sort &lt;SORT_KEY&gt;:</code>按”created”(默认)、”updated”、”popularity”或”long-running”排序显示 issues.</p>
+</li>
+<li>
+<p><code>-^ --sort-ascending:</code>:按升序排序,而不是降序排序.</p>
+</li>
+<li>
+<p><code>-L, --limit &lt;LIMIT&gt;</code>:只显示第一个<LIMIT>问题.</p>
+</li>
+</ul>
+<a class="header" href="#a更多-17" id="a更多-17"><h2>更多</h2></a>
+<p><a href="hub-issue.1.zh.html">hub-issue(1)</a>, <a href="hub-pull-request.1.zh.html">hub-pull-request(1)</a>, <a href="hub.1.zh.html">hub(1)</a></p>
+<a class="header" href="#hub-pull-request1-----创建-github-提交请求" id="hub-pull-request1-----创建-github-提交请求"><h1>hub-pull-request(1) -- -创建 Github 提交请求</h1></a>
+<a class="header" href="#a命令简介-19" id="a命令简介-19"><h2>命令简介</h2></a>
+<ul>
+<li><strong>hub pull-request</strong> <code>[-focp][-b &lt;base&gt;] [-h &lt;HEAD&gt;][-r &lt;review- ers&gt; ] [-a &lt;ASSIGNEES&gt;][-m &lt;milestone&gt;] [-l &lt;LABELS&gt;]</code></li>
+<li><strong>hub pull- request</strong> <code>-m &lt;MESSAGE&gt; [--edit]</code></li>
+<li><strong>hub pull-request</strong> <code>-F &lt;FILE&gt;</code>
+[--edit]</li>
+<li><strong>hub pull-request</strong> <code>-i &lt;ISSUE&gt;</code></li>
+</ul>
+<a class="header" href="#a选项-14" id="a选项-14"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-f, --force</code>: 跳过未提交 commits 的检查.</p>
+</li>
+<li>
+<p><code>-m, --message &lt;MESSAGE&gt;</code>: 使用第一行<code>&lt;MESSAGE&gt;</code>作为提交请求标题,其余作为提交请求描述.</p>
+</li>
+<li>
+<p><code>--no-edit</code>: 使用分支上第一次提交的消息作为提交请求标题和描述,而不是打开文本编辑器.</p>
+</li>
+<li>
+<p><code>-F, --file &lt;FILE&gt;</code>: 从<code>&lt;FILE&gt;</code>读取提交请求标题和描述.</p>
+</li>
+<li>
+<p><code>-e, --edit</code>: 在提交之前,进一步于文本编辑器中编辑<code>&lt;FILE&gt;</code>内容.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>-i, --issue &lt;ISSUE&gt;, &lt;ISSUE-URL&gt;</code>:(已弃用) 转换<code>&lt;ISSUE&gt;</code>到一个提交请求.</p>
+</li>
+<li>
+<p><code>-o, --browse</code>:
+在 Web 浏览器中打开新的拉取请求.</p>
+</li>
+<li>
+<p><code>-c, --copy</code>:
+将新提交请求的 URL 放在剪贴板上,而不是打印它.</p>
+</li>
+<li>
+<p><code>-p, --push</code>:
+在创建提交请求之前,将当前分支推到<code>&lt;HEAD&gt;</code>.</p>
+</li>
+<li>
+<p><code>-b, --base &lt;BASE&gt;</code>:
+基础分支<code>&quot;[OWNER:]BRANCH&quot;格式</code>.默认的分支(通常为”master”).</p>
+</li>
+<li>
+<p><code>-h, --head &lt;HEAD&gt;</code>:
+首个分支<code>&quot;[OWNER:]BRANCH&quot;格式</code>.默认为当前分支.</p>
+</li>
+<li>
+<p><code>-r, --reviewer &lt;USERS&gt;</code>:
+一个 Github 的逗号分隔列表控制, 用于查看请求的表格.</p>
+</li>
+<li>
+<p><code>-a, --assign &lt;USERS&gt;</code>:
+一个 Github 的逗号分隔列表控制, 用于查看提交请求分配的表格.</p>
+</li>
+<li>
+<p><code>-M, --milestone &lt;NAME&gt;</code>:
+要添加到这个提交请求的里程碑名称.里程碑号码被弃用.</p>
+</li>
+<li>
+<p><code>-l, --labels &lt;LABELS&gt;</code>:
+在这个提交请求中添加一个逗号分隔的标签列表.</p>
+</li>
+</ul>
+<a class="header" href="#a例子-12" id="a例子-12"><h2>例子</h2></a>
+<pre><code>$ hub pull-request
+</code></pre>
+<p>[ 打开编辑器,编辑标题和信息 ][ 为当前分支创建pull request ]</p>
+<pre><code>$ hub  pull-request  --base  OWNER:master  --head  MYUSER:mybranch
+</code></pre>
+<p>[创建具有明确基础和分支的提交请求]</p>
+<pre><code>$ hub pull-request --browse -m &quot;My title&quot;
+</code></pre>
+<p>[ 创建带 title 的 pull request 和 浏览器打开]</p>
+<pre><code>$ hub pull-request -F - ---edit &lt; path/to/message-template.md
+</code></pre>
+<p>[ 一定程度编辑 来自标准输入的 标题 和 信息 ]</p>
+<a class="header" href="#a配置-1" id="a配置-1"><h2>配置</h2></a>
+<p><code>HUB_RETRY_TIMEOUT=&lt;SECONDS&gt;</code></p>
+<p>最大时间重试若 HTTP 422 <code>--push</code>
+(default: 9).</p>
+<a class="header" href="#a更多-18" id="a更多-18"><h2>更多</h2></a>
+<p><a href="hub.1.zh.html">hub(1)</a>, <a href="hub-merge.1.zh.html">hub-merge(1)</a>, <a href="hub-checkout.1.zh.html">hub-checkout(1</a>)</p>
+<a class="header" href="#hub-push1----将-git-分支推到每个远程-remote-列表上" id="hub-push1----将-git-分支推到每个远程-remote-列表上"><h1>hub-push(1) -- 将 Git 分支推到每个远程-remote 列表上.</h1></a>
+<a class="header" href="#a命令简介-20" id="a命令简介-20"><h2>命令简介</h2></a>
+<p><strong>hub push</strong> <code>&lt;REMOTE&gt;[,&lt;REMOTE2&gt;...][&lt;ref&gt;]</code></p>
+<a class="header" href="#a例子-13" id="a例子-13"><h2>例子</h2></a>
+<pre><code>$ hub push origin,staging,qa bert_timeout
+&gt; git push origin bert_timeout
+&gt; git push staging bert_timeout
+&gt; git push qa bert_timeout
+
+$ hub push origin
+&gt; git push origin HEAD
+</code></pre>
+<a class="header" href="#a更多-19" id="a更多-19"><h2>更多</h2></a>
+<p><a href="hub.1.zh.html">hub(1)</a>, git-push(1)</p>
+<a class="header" href="#hub-release1----列出并创建-github-版本" id="hub-release1----列出并创建-github-版本"><h1>hub-release(1) -- 列出,并创建 Github 版本.</h1></a>
+<a class="header" href="#a命令简介-21" id="a命令简介-21"><h2>命令简介</h2></a>
+<ul>
+<li><strong>hub release</strong> <code>[--include-drafts][--exclude-prereleases] [-L &lt;LIMIT&gt;]</code></li>
+<li><strong>hub release</strong> <code>show &lt;TAG&gt;</code></li>
+<li><strong>hub release</strong> <code>create [-dpoc][-a &lt;file&gt;] [-m &lt;MESSAGE&gt;|-F &lt;FILE&gt;][-t &lt;target&gt;] &lt;TAG&gt;</code></li>
+<li><strong>hub release</strong> <code>edit [&lt;options&gt;] &lt;TAG&gt;</code></li>
+<li><strong>hub release</strong> <code>download &lt;TAG&gt;</code></li>
+<li><strong>hub release</strong> <code>delete &lt;TAG&gt;</code></li>
+</ul>
+<a class="header" href="#a命令-3" id="a命令-3"><h2>命令</h2></a>
+<p>在没有参数的情况下,显示现有版本的列表.</p>
+<p>有”--include-drafts”,会包括草案版本.使用”--exclude-prereleases”,从列表中排除非稳定版本.</p>
+<ul>
+<li><em>show</em>:用<TAG>显示 Github 发行说明.</li>
+</ul>
+<p>使用”--show-downloads”,包括”下载”部分.</p>
+<ul>
+<li>
+<p><em>create</em>:用指定的<TAG>名创建 Github 版本.如果 Git 标签<TAG>不存在,它将在<TARGET>创建(默认:当前分支).</p>
+</li>
+<li>
+<p><em>edit</em>:用指定的<TAG>名编辑 Github 版本.接受<em>创建</em>命令相同的选项.用”--draft=false”发布草稿.</p>
+</li>
+</ul>
+<p>当 <code>&lt;MESSAGE&gt;</code> 或 <code>&lt;FILE&gt;</code> 没有指定, 编辑器将开放前填充当前发行的标题和身体.重新使用现有的标题和身体不变,通过”m”.</p>
+<ul>
+<li>
+<p><em>doenload</em>:下载指定版本<TAG>的附加资产</p>
+</li>
+<li>
+<p><em>delete</em>:删除指定<TAG>的发行版和相关资产.</p>
+</li>
+</ul>
+<a class="header" href="#a选项-15" id="a选项-15"><h2>选项</h2></a>
+<p><code>- -L, --limit</code>:
+只显示第一个<LIMIT>版本.</p>
+<p><code>- -d, --draft</code>:
+创建一个草案发布.</p>
+<p><code>- -p, --prerelease</code>:
+创建预发布.</p>
+<p><code>- -a, --attach &lt;FILE&gt;</code>:
+在这个版本中附加一个文件作为一个资产.</p>
+<p>若 <code>&lt;FILE&gt;</code> 在 <code>&lt;filename&gt;#&lt;text&gt;</code> 格式, 这 text 会作为资产标签.</p>
+<p><code>- -m, --message &lt;MESSAGE&gt;</code>:
+使用第一行<code>&lt;MESSAGE&gt;</code>作为发布标题,其余的作为发布说明.</p>
+<p><code>- -F, --file &lt;FILE&gt;</code>:
+请阅读发布的标题和描述<code>&lt;FILE&gt;</code>.</p>
+<p><code>- -e, --edit</code>:
+进一步编辑内容<code>&lt;FILE&gt;</code>在提交之前的文本编辑器中.</p>
+<p><code>- -o, --browse</code>:
+在 Web 浏览器中打开新版本.</p>
+<p><code>- -c, --copy</code>:
+把新版本的 URL 放在剪贴板上,而不是打印它.</p>
+<p><code>- -t, --commitish &lt;TARGET&gt;</code>:
+一个提交 SHAN 或分支名称来附加释放,仅用于<TAG>还不存在(默认:主分支).</p>
+<p><code>- -f, --format &lt;FORMAT&gt;</code>:
+格式打印提交请求列表,通过使用<FORMAT>(默认值:”%sC%&gt;(8)%i%Creset %t% l%n”).请参阅 git 日志手册的”PRETTY FORMATS”部分,了解有关占位符如何以格式使用的更多细节.可用占位符是:</p>
+<pre><code>%I: pull request 数量
+
+%i: pull request 数量, 前缀是&quot;#&quot;
+
+%U: pull request的URL
+
+%S: 状态 (例如. &quot;open&quot;, &quot;closed&quot;)
+
+%sC: 设置颜色 red 或 green,  取决于pull  request状态.
+
+%t: 标题
+
+%l: 颜色标签
+
+%L: 原生, 逗号分隔标签
+
+%b: 主体
+
+%B: 基础 branch
+
+%H: head branch
+
+%au: 作者登录名
+
+%as: 分配的逗号分隔列表
+
+%Mn: 里程碑 数量
+
+%Mt: 里程碑 标题
+
+%NC: 评论数量
+
+%Nc:  评论数量, 包裹进圆括号, 或 若零则是空字符串
+
+%cD: 创建了的 仅数据 (没有一天的时间)
+
+%cr: 创建了的 数据, 相对
+
+%ct: 创建了的 数据, UNIX 时间戳
+
+%cI: 创建了的 数据, ISO 8601 格式
+
+%uD: 更新了的 仅数据 (没有一天的时间)
+
+%ur: 更新了的 数据, 相对
+
+%ut: 更新了的 数据, UNIX 时间戳
+
+%uI: 更新了的 数据, ISO 8601 格式
+</code></pre>
+<ul>
+<li><TAG>: 这个版本的 Git 标签名.</li>
+</ul>
+<a class="header" href="#a更多-20" id="a更多-20"><h2>更多</h2></a>
+<p><a href="hub.1.zh.html">hub(1)</a>, git-tag(1)</p>
+<a class="header" href="#hub-remote1----为-github-存储库添加-git-远程-remote" id="hub-remote1----为-github-存储库添加-git-远程-remote"><h1>hub-remote(1) -- 为 Github 存储库添加 Git 远程-remote.</h1></a>
+<a class="header" href="#a命令简介-22" id="a命令简介-22"><h2>命令简介</h2></a>
+<ul>
+<li><strong>hub remote add</strong>  <code>[-p][&lt;options&gt;] &lt;USER&gt;[/&lt;REPOSITORY&gt;]</code></li>
+<li><strong>hub remote set-url</strong>  <code>[-p][&lt;options&gt;] &lt;NAME&gt; &lt;USER&gt;[/&lt;REPOSITORY&gt;]</code></li>
+</ul>
+<a class="header" href="#a选项-16" id="a选项-16"><h2>选项</h2></a>
+<ul>
+<li>
+<p><code>-p</code>:(已弃用)) 使用”SSH:”协议.远程 URL</p>
+</li>
+<li>
+<p><code>&lt;USER&gt;[/&lt;REPOSITORY&gt;]</code>: 如果<code>&lt;USER&gt;</code>是”origin”,那个值将是你的 Github 用户名.<code>&lt;REPOSITORY&gt;</code>默认为当前工作目录的名称.</p>
+</li>
+</ul>
+<a class="header" href="#a例子-14" id="a例子-14"><h2>例子</h2></a>
+<pre><code>$ hub remote add jingweno
+&gt; git remote add jingweno git://github.com/jingweno/REPO.git
+
+$ hub remote add origin
+&gt; git remote add origin git://github.com/USER/REPO.git
+</code></pre>
+<a class="header" href="#a更多-21" id="a更多-21"><h2>更多</h2></a>
+<p><a href="hub-fork.1.zh.html">hub-fork(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-remote(1)</p>
+<a class="header" href="#hub-submodule1----为-github-存储库添加-git-子模块" id="hub-submodule1----为-github-存储库添加-git-子模块"><h1>hub-submodule(1) -- 为 Github 存储库添加 Git 子模块.</h1></a>
+<a class="header" href="#a命令简介-23" id="a命令简介-23"><h2>命令简介</h2></a>
+<p><strong>hub submodule add</strong> <code>[-p][&lt;options&gt;] [&lt;USER&gt;/]&lt;REPOSITORY&gt; &lt;DES- TINATION&gt;</code></p>
+<a class="header" href="#a例子-15" id="a例子-15"><h2>例子</h2></a>
+<pre><code>$ hub submodule add jingweno/gh vendor/gh
+&gt;  git  submodule  add  git://github.com/jingweno/gh.git vendor/gh
+</code></pre>
+<p>vendor/gn</p>
+<a class="header" href="#a更多-22" id="a更多-22"><h2>更多</h2></a>
+<p><a href="hub-remote.1.zh.html">hub-remote(1)</a>, <a href="hub.1.zh.html">hub(1)</a>, git-submodule(1)</p>
+<a class="header" href="#hub-sync1----从上游获取并更新本地分支" id="hub-sync1----从上游获取并更新本地分支"><h1>hub-sync(1) -- 从上游获取,并更新本地分支.</h1></a>
+<a class="header" href="#a命令简介-24" id="a命令简介-24"><h2>命令简介</h2></a>
+<p><strong>hub sync</strong></p>
+<ul>
+<li>如果本地分支过时,则快速运转;</li>
+<li>如果本地分支包含未推送的工作,则警告它;</li>
+<li>如果分支似乎合并,其上游分支被删除,则删除它.</li>
+</ul>
+<p>如果本地分支没有任何上游配置,但是在远程上具有相同的命名分支,则将其视为其上游分支.</p>
+<a class="header" href="#a更多-23" id="a更多-23"><h2>更多</h2></a>
+<p>hub(1), git-fetch(1)</p>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+    
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            window.setTimeout(window.print, 100);
+        });
+    </script>
+    
+    
+
+</body>
+
+</html>
