@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>NES.css 任天堂风格css框架 Yummy</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+
+
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+         <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="https://unpkg.com/nes.css@0.0.2/css/nes.min.css"></link>
+    
+
+    
+    
+    <style>
+        body {
+            background-color: #fbf6ec;
+            }
+    </style>
+    
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
+
+
+    
+
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>NES.css 任天堂风格css框架 Yummy</h2>
+        
+
+<h2 id="nes-任天堂-css-框架">NES(任天堂) css 框架</h2>
+
+<table>
+<thead>
+<tr>
+<th>Github 库</th>
+<th>Demo 页</th>
+<th>中文</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://github.com/BcRikko/NES.css">github</a></td>
+<td><a href="https://bcrikko.github.io/NES.css/">demo</a></td>
+<td><a href="https://github.com/chinanf-boy/NES.css-zh">readme-zh</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="reaction">Reaction</h3>
+
+<p><i class="icon heart"></i>
+<i class="icon heart is-medium"></i>
+<i class="icon heart is-large"></i>
+<i class="icon heart is-empty"></i></p>
+
+<p><i class="icon star"></i>
+<i class="icon star is-medium"></i>
+<i class="icon star is-large"></i>
+<i class="icon star is-empty"></i></p>
+
+<p><i class="icon like"></i>
+<i class="icon like is-medium"></i>
+<i class="icon like is-large"></i>
+<i class="icon like is-empty"></i></p>
+
+<h3 id="sns">SNS</h3>
+
+<p><i class="icon twitter"></i>
+<i class="icon twitter is-medium"></i>
+<i class="icon twitter is-large"></i></p>
+
+<p><i class="icon facebook"></i>
+<i class="icon facebook is-medium"></i>
+<i class="icon facebook is-large"></i></p>
+
+<p><i class="icon github"></i>
+<i class="icon github is-medium"></i>
+<i class="icon github is-large"></i></p>
+
+<p><i class="icon youtube"></i>
+<i class="icon youtube is-medium"></i>
+<i class="icon youtube is-large"></i></p>
+
+<h3 id="others">Others</h3>
+
+<p><i class="icon close"></i>
+<i class="icon close is-medium"></i>
+<i class="icon close is-large"></i>
+<i class="octocat animate"></i>
+<i class="icon trophy"></i>
+<i class="icon trophy is-medium"></i>
+<i class="icon trophy is-large"></i></p>
+
+<h3 id="controllers">Controllers</h3>
+
+<p><i class="nes-logo"></i>
+<i class="nes-jp-logo"></i>
+<i class="snes-logo"></i>
+<i class="snes-jp-logo"></i></p>
+
+<h2 id="yinwang-css-格式添加说明">yinwang-css 格式添加说明</h2>
+
+<p>此文件的头是这样的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">---
+title: <span style="color:#f1fa8c">&#39;NES.css 任天堂风格css框架 Yummy&#39;</span>
+date: <span style="color:#bd93f9">2018</span>-12-06T12:23:36+08:00
+categories: <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;css&#39;</span><span style="color:#ff79c6">]</span>
+tags: <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;NES&#39;</span><span style="color:#ff79c6">]</span>
+description: <span style="color:#f1fa8c">&#39;NES.css 任天堂风格css框架&#39;</span>
+css: <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;/css/main.css&#39;</span>, <span style="color:#f1fa8c">&#39;https://unpkg.com/nes.css@0.0.2/css/nes.min.css&#39;</span><span style="color:#ff79c6">]</span>
+---</code></pre></div>
+<br />
+<br />
+<br />
+<br />
+  </div>
+
+<footer>
+  <hr>
+  <small style="font-size:16px;">
+    &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a>
+    
+  </small>
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+</body>
+
+</html>

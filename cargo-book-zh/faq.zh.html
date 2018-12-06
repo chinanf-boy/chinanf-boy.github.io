@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>常问问题 - Rust Cargo 官书（非官方翻译)</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="Cargo ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li class="affix"><a href="index.zh.html">介绍</a></li><li><a href="getting-started/index.zh.html"><strong aria-hidden="true">1.</strong> 入门</a></li><li><ol class="section"><li><a href="getting-started/installation.zh.html"><strong aria-hidden="true">1.1.</strong> 安装</a></li><li><a href="getting-started/first-steps.zh.html"><strong aria-hidden="true">1.2.</strong> Cargo 的第一步</a></li></ol></li><li><a href="guide/index.zh.html"><strong aria-hidden="true">2.</strong> Cargo 指南</a></li><li><ol class="section"><li><a href="guide/why-cargo-exists.zh.html"><strong aria-hidden="true">2.1.</strong> 为什么 Cargo 存在</a></li><li><a href="guide/creating-a-new-project.zh.html"><strong aria-hidden="true">2.2.</strong> 创建一个新包</a></li><li><a href="guide/working-on-an-existing-project.zh.html"><strong aria-hidden="true">2.3.</strong> 处理现有包</a></li><li><a href="guide/dependencies.zh.html"><strong aria-hidden="true">2.4.</strong> 依赖</a></li><li><a href="guide/project-layout.zh.html"><strong aria-hidden="true">2.5.</strong> 包装布局</a></li><li><a href="guide/cargo-toml-vs-cargo-lock.zh.html"><strong aria-hidden="true">2.6.</strong> Cargo.toml 与 Cargo.lock</a></li><li><a href="guide/tests.zh.html"><strong aria-hidden="true">2.7.</strong> 测试</a></li><li><a href="guide/continuous-integration.zh.html"><strong aria-hidden="true">2.8.</strong> 持续集成</a></li><li><a href="guide/build-cache.zh.html"><strong aria-hidden="true">2.9.</strong> 构建缓存</a></li></ol></li><li><a href="reference/index.zh.html"><strong aria-hidden="true">3.</strong> Cargo 参考</a></li><li><ol class="section"><li><a href="reference/specifying-dependencies.zh.html"><strong aria-hidden="true">3.1.</strong> 指定依赖项</a></li><li><a href="reference/manifest.zh.html"><strong aria-hidden="true">3.2.</strong> 清单格式</a></li><li><a href="reference/config.zh.html"><strong aria-hidden="true">3.3.</strong> 组态</a></li><li><a href="reference/environment-variables.zh.html"><strong aria-hidden="true">3.4.</strong> 环境变量</a></li><li><a href="reference/build-scripts.zh.html"><strong aria-hidden="true">3.5.</strong> 构建脚本</a></li><li><a href="reference/publishing.zh.html"><strong aria-hidden="true">3.6.</strong> 在 crates.io 上发布</a></li><li><a href="reference/pkgid-spec.zh.html"><strong aria-hidden="true">3.7.</strong> 包 ID 规格</a></li><li><a href="reference/source-replacement.zh.html"><strong aria-hidden="true">3.8.</strong> 来源更换</a></li><li><a href="reference/external-tools.zh.html"><strong aria-hidden="true">3.9.</strong> 外部工具</a></li><li><a href="reference/unstable.zh.html"><strong aria-hidden="true">3.10.</strong> 不稳定的功能</a></li></ol></li><li><a href="faq.zh.html" class="active"><strong aria-hidden="true">4.</strong> 常问问题</a></li><li><a href="appendix/glossary.zh.html"><strong aria-hidden="true">5.</strong> 附录:词汇表</a></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Rust Cargo 官书（非官方翻译)</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/cargo-book-zh/edit/master/src/faq.zh.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#frequently-asked-questions" id="frequently-asked-questions"><h2>Frequently Asked Questions</h2></a>
+<a class="header" href="#is-the-plan-to-use-github-as-a-package-repository" id="is-the-plan-to-use-github-as-a-package-repository"><h3>Is the plan to use GitHub as a package repository?</h3></a>
+<p>不,Cargo的计划是使用.[克拉西奥.]像NPM或RuuGuMes和NPMJS.org和RuuGeMy.org一起使用.</p>
+<p>我们计划永远支持git存储库作为包的来源,因为它们可以用于早期开发和临时补丁,即使人们使用注册表作为包的主要来源.</p>
+<a class="header" href="#why-build-cratesio-rather-than-use-github-as-a-registry" id="why-build-cratesio-rather-than-use-github-as-a-registry"><h3>Why build crates.io rather than use GitHub as a registry?</h3></a>
+<p>我们认为支持多种下载包的方式非常重要,包括从GitHub下载包并将包复制到包本身.</p>
+<p>也就是说,我们认为[克拉西奥.]提供了许多重要的好处,并且可能成为人们在Cargo中下载包的主要方式.</p>
+<p>对于前例,节点.js<a href="https://www.npmjs.org">npm</a>露比的<a href="https://bundler.io">捆扎机</a>支持中央注册中心模型和基于Git的模型,并且大多数包都是通过这些生态系统中的注册中心下载的,其中重要的少数包使用基于git的包.</p>
+<p>使中央注册中心在其他语言中流行的一些优点包括:</p>
+<ul>
+<li><strong>可发现性</strong>. 中央注册表提供了查找现有包的简单位置.结合标记,这也使得注册中心能够提供生态系统范围的信息,例如最流行或最依赖的包的列表.</li>
+<li><strong>速度</strong>. 中心注册中心使得可以快速有效地只获取包的元数据,然后只高效地下载已发布的包,而不会出现在存储库中的其他膨胀.这大大提高了依赖性解析和获取的速度.随着依赖关系图的扩展,下载所有的git存储库会陷入困境.还要记住,并不是每个人都有高速、低延迟的互联网连接.</li>
+</ul>
+<a class="header" href="#will-cargo-work-with-c-code-or-other-languages" id="will-cargo-work-with-c-code-or-other-languages"><h3>Will Cargo work with C code (or other languages)?</h3></a>
+<p>对!</p>
+<p>Cargo处理编译Rust代码,但我们知道许多Rust包与C代码链接.我们还知道,在编译除Rust之外的语言方面,已经建立了数十年的工具.</p>
+<p>我们的解决方案:Cargo允许包装<a href="reference/build-scripts.html">指定脚本</a>(生锈)在调用之前运行<code>rustc</code>. Rust用于实现特定于平台的配置和重构包之间的常见构建功能.</p>
+<a class="header" href="#can-cargo-be-used-inside-of-make-or-ninja-or-" id="can-cargo-be-used-inside-of-make-or-ninja-or-"><h3>Can Cargo be used inside of <code>make</code> (or <code>ninja</code>, or ...)</h3></a>
+<p>的确.尽管我们希望Cargo作为在顶级编译Rust包的独立方式有用,但我们知道有些人希望从其他构建工具调用Cargo.</p>
+<p>我们已将Cargo设计成在这些环境中工作良好,并注意错误代码和机器可读输出模式等事项.在这些方面我们还有一些工作要做,但是在传统脚本上下文中使用Cargo是我们从一开始就设计的,并且将继续优先考虑.</p>
+<a class="header" href="#does-cargo-handle-multi-platform-packages-or-cross-compilation" id="does-cargo-handle-multi-platform-packages-or-cross-compilation"><h3>Does Cargo handle multi-platform packages or cross-compilation?</h3></a>
+<p>Rust本身提供了基于平台配置代码段的工具.Cargo也支持<a href="reference/specifying-dependencies.html#platform-specific-dependencies">特定平台依赖关系</a>,我们计划支持更多的每个平台配置<code>Cargo.toml</code>未来.</p>
+<p>从长远来看,我们正在寻找使用Cargo方便地交叉编译包的方法.</p>
+<a class="header" href="#does-cargo-support-environments-like-production-or-test" id="does-cargo-support-environments-like-production-or-test"><h3>Does Cargo support environments, like <code>production</code> or <code>test</code>?</h3></a>
+<p>我们通过使用环境来支持环境.<a href="reference/manifest.html#the-profile-sections">轮廓</a>支持:</p>
+<ul>
+<li>环境特定标志(类)<code>-g --opt-level=0</code>为了发展和<code>--opt-level=3</code>用于生产).</li>
+<li>环境特定依赖性(类)<code>hamcrest</code>对于测试断言).</li>
+<li>特定环境<code>#[cfg]</code></li>
+<li>一<code>cargo test</code>命令</li>
+</ul>
+<a class="header" href="#does-cargo-work-on-windows" id="does-cargo-work-on-windows"><h3>Does Cargo work on Windows?</h3></a>
+<p>对!</p>
+<p>所有提交的Cargo都需要通过Windows上的本地测试套件.但是,如果你发现一个Windows问题,我们认为它是一个bug,所以<a href="https://github.com/rust-lang/cargo/issues">请提出一个问题</a>.</p>
+<a class="header" href="#why-do-binaries-have-cargolock-in-version-control-but-not-libraries" id="why-do-binaries-have-cargolock-in-version-control-but-not-libraries"><h3>Why do binaries have <code>Cargo.lock</code> in version control, but not libraries?</h3></a>
+<p>A的目的<code>Cargo.lock</code>是在成功建造时描述世界的状态.然后,它通过确保编译完全相同的依赖项来提供跨构建包的任何机器的确定性构建.</p>
+<p>这个属性对于处于依赖链(二进制文件)末端的应用程序和包是最理想的.因此,建议所有二进制文件都在其内部进行检查.<code>Cargo.lock</code>.</p>
+<p>对于图书馆来说,情况有些不同.库不仅被库开发人员使用,而且被库的任何下游消费者使用.依赖图书馆的用户不会检查图书馆<code>Cargo.lock</code>(即使它存在).这正是因为图书馆应该<strong>不</strong>对库的所有用户进行确定性地重新编译.</p>
+<p>如果一个库最终被多个依赖项传递使用,那么很可能只需要该库的一个副本(基于semver兼容性).如果Cargo使用了所有的依赖项<code>Cargo.lock</code>文件,然后可以使用库的多个副本,甚至可能存在版本冲突.</p>
+<p>换句话说,库为它们的依赖项指定了semver需求,但是无法看到全部情况.只有像二进制文件这样的最终产品才有完整的图来决定应该使用什么版本的依赖性.</p>
+<a class="header" href="#can-libraries-use--as-a-version-for-their-dependencies" id="can-libraries-use--as-a-version-for-their-dependencies"><h3>Can libraries use <code>*</code> as a version for their dependencies?</h3></a>
+<p><strong>截至2016年1月22日,[克拉西奥.]拒绝通配符依赖约束的所有包(不只是库).</strong></p>
+<p>当图书馆<em>可以</em>严格来说,他们不应该这样做.版本要求<code>*</code>说”这将适用于任何版本”,这永远不会是真的.库应该总是指定它们工作的范围,即使它和”每1.x.y版本”一样一般.</p>
+<a class="header" href="#why-cargotoml" id="why-cargotoml"><h3>Why <code>Cargo.toml</code>?</h3></a>
+<p>作为与Cargo最频繁的交互之一,为什么要命名配置文件的问题是<code>Cargo.toml</code>不时出现.领先的资本——<code>C</code>选择清单是为了确保清单与目录清单中的其他类似配置文件分组.对文件进行排序时,通常将大写字母放在小写字母之前,确保文件如下<code>Makefile</code>和<code>Cargo.toml</code>放在一起.拖尾<code>.toml</code>选择强调文件是在<a href="https://github.com/toml-lang/toml">配置文件格式</a>.</p>
+<p>Cargo不允许其他名称,如<code>cargo.toml</code>或<code>Cargofile</code>强调如何容易识别Cargo仓库.在历史上,许多可能的名称的选择都导致混乱,其中一个案例被处理,而其他案例被意外地遗忘.</p>
+<a class="header" href="#how-can-cargo-work-offline" id="how-can-cargo-work-offline"><h3>How can Cargo work offline?</h3></a>
+<p>Cargo通常用于网络访问有限或没有网络访问的情况,如飞机、CI环境或嵌入大型生产部署中.当Cargo试图从网络获取资源时,用户常常感到惊讶,因此频繁出现Cargo离线工作的请求.</p>
+<p>Cargo的核心是不会试图访问网络,除非被告知这样做.也就是说,如果没有来自.es.io、git存储库或其他网络位置的板条箱,则Cargo永远不会尝试进行网络连接.因此,如果Cargo试图接触网络,那是因为它需要获取所需的资源.</p>
+<p>Cargo还非常积极地缓存信息,以最小化网络活动量.例如,它将保证<code>cargo build</code>(或等效)运行到完成,然后是下一个.<code>cargo build</code>保证不接触网络,只要<code>Cargo.toml</code>在此期间还没有被修改.网络的这种回避归结为<code>Cargo.lock</code>现有的和在锁文件中反映的板条箱的填充缓存.如果这些组件中的任何一个丢失,那么构建成功就需要它们,并且必须远程获取它们.</p>
+<p>至于锈迹,1.110Cargo可以看到新的旗帜,<code>--frozen</code>这是它不应该接触网络的断言.当通过时,如果Cargo试图进行网络请求,它将立即返回一个错误.错误应该包括关于为什么首先进行网络请求以帮助调试的上下文信息.注意这个标志<em>不改变Cargo的行为</em>它只是断言Cargo不应该触摸网络,因为前面的命令已经被运行以确保网络活动不应该是必要的.</p>
+<p>有关版本管理的详细信息,请参阅文档<a href="reference/source-replacement.html">源置换</a>.</p>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="reference/unstable.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="appendix/glossary.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a href="reference/unstable.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a href="appendix/glossary.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>

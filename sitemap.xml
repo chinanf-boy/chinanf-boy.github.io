@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2018/12/06/nes.css-%E4%BB%BB%E5%A4%A9%E5%A0%82%E9%A3%8E%E6%A0%BCcss%E6%A1%86%E6%9E%B6-yummy/</loc>
+    <lastmod>2018-12-06T12:23:36+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/</loc>
     <lastmod>2018-11-29T10:03:56+08:00</lastmod>
   </url>
@@ -473,6 +478,12 @@
   </url>
   
   <url>
+    <loc>/categories/css/</loc>
+    <lastmod>2018-12-06T12:23:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/csshtml/</loc>
     <lastmod>2017-01-19T21:46:00+00:00</lastmod>
     <priority>0</priority>
@@ -701,6 +712,12 @@
   <url>
     <loc>/tags/mrm/</loc>
     <lastmod>2017-12-04T20:05:58+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/nes/</loc>
+    <lastmod>2018-12-06T12:23:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>环境变量 - Rust Cargo 官书（非官方翻译)</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="Cargo ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "../";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li class="affix"><a href="../index.zh.html">介绍</a></li><li><a href="../getting-started/index.zh.html"><strong aria-hidden="true">1.</strong> 入门</a></li><li><ol class="section"><li><a href="../getting-started/installation.zh.html"><strong aria-hidden="true">1.1.</strong> 安装</a></li><li><a href="../getting-started/first-steps.zh.html"><strong aria-hidden="true">1.2.</strong> Cargo 的第一步</a></li></ol></li><li><a href="../guide/index.zh.html"><strong aria-hidden="true">2.</strong> Cargo 指南</a></li><li><ol class="section"><li><a href="../guide/why-cargo-exists.zh.html"><strong aria-hidden="true">2.1.</strong> 为什么 Cargo 存在</a></li><li><a href="../guide/creating-a-new-project.zh.html"><strong aria-hidden="true">2.2.</strong> 创建一个新包</a></li><li><a href="../guide/working-on-an-existing-project.zh.html"><strong aria-hidden="true">2.3.</strong> 处理现有包</a></li><li><a href="../guide/dependencies.zh.html"><strong aria-hidden="true">2.4.</strong> 依赖</a></li><li><a href="../guide/project-layout.zh.html"><strong aria-hidden="true">2.5.</strong> 包装布局</a></li><li><a href="../guide/cargo-toml-vs-cargo-lock.zh.html"><strong aria-hidden="true">2.6.</strong> Cargo.toml 与 Cargo.lock</a></li><li><a href="../guide/tests.zh.html"><strong aria-hidden="true">2.7.</strong> 测试</a></li><li><a href="../guide/continuous-integration.zh.html"><strong aria-hidden="true">2.8.</strong> 持续集成</a></li><li><a href="../guide/build-cache.zh.html"><strong aria-hidden="true">2.9.</strong> 构建缓存</a></li></ol></li><li><a href="../reference/index.zh.html"><strong aria-hidden="true">3.</strong> Cargo 参考</a></li><li><ol class="section"><li><a href="../reference/specifying-dependencies.zh.html"><strong aria-hidden="true">3.1.</strong> 指定依赖项</a></li><li><a href="../reference/manifest.zh.html"><strong aria-hidden="true">3.2.</strong> 清单格式</a></li><li><a href="../reference/config.zh.html"><strong aria-hidden="true">3.3.</strong> 组态</a></li><li><a href="../reference/environment-variables.zh.html" class="active"><strong aria-hidden="true">3.4.</strong> 环境变量</a></li><li><a href="../reference/build-scripts.zh.html"><strong aria-hidden="true">3.5.</strong> 构建脚本</a></li><li><a href="../reference/publishing.zh.html"><strong aria-hidden="true">3.6.</strong> 在 crates.io 上发布</a></li><li><a href="../reference/pkgid-spec.zh.html"><strong aria-hidden="true">3.7.</strong> 包 ID 规格</a></li><li><a href="../reference/source-replacement.zh.html"><strong aria-hidden="true">3.8.</strong> 来源更换</a></li><li><a href="../reference/external-tools.zh.html"><strong aria-hidden="true">3.9.</strong> 外部工具</a></li><li><a href="../reference/unstable.zh.html"><strong aria-hidden="true">3.10.</strong> 不稳定的功能</a></li></ol></li><li><a href="../faq.zh.html"><strong aria-hidden="true">4.</strong> 常问问题</a></li><li><a href="../appendix/glossary.zh.html"><strong aria-hidden="true">5.</strong> 附录:词汇表</a></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Rust Cargo 官书（非官方翻译)</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/cargo-book-zh/edit/master/src/reference/environment-variables.zh.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#environment-variables" id="environment-variables"><h2>Environment Variables</h2></a>
+<p>Cargo设置并读取许多环境变量,代码可以检测或覆盖这些环境变量.以下是Cargo集与它们交互时组织的变量列表:</p>
+<a class="header" href="#environment-variables-cargo-reads" id="environment-variables-cargo-reads"><h3>Environment variables Cargo reads</h3></a>
+<p>您可以重写这些环境变量来更改Cargo在系统中的行为:</p>
+<ul>
+<li><code>CARGO_HOME</code>-Cargo在本地缓存注册表索引和箱子的git结账.默认情况下,这些存储在<code>$HOME/.cargo</code>但是这个变量重写了这个目录的位置.一旦机箱被缓存,它就不会被清除命令删除.</li>
+<li><code>CARGO_TARGET_DIR</code>-相对于当前工作目录,放置所有生成的工件的位置.</li>
+<li><code>RUSTC</code>代替跑步<code>rustc</code>Cargo将执行指定的编译器.</li>
+<li><code>RUSTC_WRAPPER</code>-而不是简单地运行<code>rustc</code>Cargo将执行这个指定的包装器,将rustc调用作为其命令行参数传递,第一个参数是rustc.</li>
+<li><code>RUSTDOC</code>代替跑步<code>rustdoc</code>Cargo将执行此规定<code>rustdoc</code>实例代替.</li>
+<li><code>RUSTDOCFLAGS</code>-空间分隔的自定义标志列表,以传递给所有<code>rustdoc</code>Cargo执行的调用.与之相反<code>cargo rustdoc</code>这对于传递一个标志是有用的.<em>全部的</em> <code>rustdoc</code>实例.</li>
+<li><code>RUSTFLAGS</code>-要传递给Cargo执行的所有编译器调用的自定义标记的空间分隔列表.与之相反<code>cargo rustc</code>这对于传递一个标志是有用的.<em>全部的</em>编译实例.</li>
+<li><code>CARGO_INCREMENTAL</code>-如果设置为1,则Cargo将强制在当前编译中启用增量编译,而当设置为0,则强制禁用增量编译.如果这个EV VAR不存在,否则将使用Cargo默认值.</li>
+<li><code>CARGO_CACHE_RUSTC_INFO</code>-如果这个设置为0,那么Cargo将不尝试缓存编译器版本信息.</li>
+</ul>
+<p>注意,Cargo也会读取环境变量.<code>.cargo/config</code>配置值,如<a href="reference/config.html#environment-variables">那份文件</a></p>
+<a class="header" href="#environment-variables-cargo-sets-for-crates" id="environment-variables-cargo-sets-for-crates"><h3>Environment variables Cargo sets for crates</h3></a>
+<p>Cargo在编译时会将这些环境变量暴露在箱子中.请注意,这也适用于测试二进制文件.要在RIST程序中获得这些变量中的任何一个变量的值,请执行以下操作:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let version = env!(&quot;CARGO_PKG_VERSION&quot;);
+#}</code></pre></pre>
+<p><code>version</code>现在将包含的价值<code>CARGO_PKG_VERSION</code>.</p>
+<ul>
+<li><code>CARGO</code>的路径<code>cargo</code>二进制执行构建.</li>
+<li><code>CARGO_MANIFEST_DIR</code>-包含包的清单的目录.</li>
+<li><code>CARGO_PKG_VERSION</code>-您的包的完整版本.</li>
+<li><code>CARGO_PKG_VERSION_MAJOR</code>-你的软件包的主要版本.</li>
+<li><code>CARGO_PKG_VERSION_MINOR</code>-您的包的次要版本.</li>
+<li><code>CARGO_PKG_VERSION_PATCH</code>-包的补丁版本.</li>
+<li><code>CARGO_PKG_VERSION_PRE</code>-包的预发布版本.</li>
+<li><code>CARGO_PKG_AUTHORS</code>-冒号从程序包的清单中分离出作者列表.</li>
+<li><code>CARGO_PKG_NAME</code>-你的包裹的名字.</li>
+<li><code>CARGO_PKG_DESCRIPTION</code>-从包的清单中描述.</li>
+<li><code>CARGO_PKG_HOMEPAGE</code>-从包的清单中的主页.</li>
+<li><code>CARGO_PKG_REPOSITORY</code>-从包的清单中存储库.</li>
+<li><code>OUT_DIR</code>-如果包具有构建脚本,则将其设置为构建脚本应该在其中放置其输出的文件夹.更多信息见下文.</li>
+</ul>
+<a class="header" href="#environment-variables-cargo-sets-for-build-scripts" id="environment-variables-cargo-sets-for-build-scripts"><h3>Environment variables Cargo sets for build scripts</h3></a>
+<p>当运行构建脚本时,Cargo设置多个环境变量.因为编译生成脚本时还没有设置这些变量,所以上面的示例使用<code>env!</code>无法工作,而是在运行构建脚本时需要检索值:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::env;
+let out_dir = env::var(&quot;OUT_DIR&quot;).unwrap();
+#}</code></pre></pre>
+<p><code>out_dir</code>现在将包含的价值<code>OUT_DIR</code>.</p>
+<ul>
+<li><code>CARGO</code>的路径<code>cargo</code>二进制执行构建.</li>
+<li><code>CARGO_MANIFEST_DIR</code>-包含正在构建的包的清单的目录(包含构建脚本的包).还要注意,这是生成脚本启动时当前工作目录的值.</li>
+<li><code>CARGO_MANIFEST_LINKS</code>-舱单<code>links</code>价值.</li>
+<li><code>CARGO_FEATURE_&lt;name&gt;</code>-对于正在构建的包的每个激活特性,此环境变量将显示在<code>&lt;name&gt;</code>上面的名称的名称是<code>-</code>翻译成<code>_</code>.</li>
+<li><code>CARGO_CFG_&lt;cfg&gt;</code>-为每个<a href="https://doc.rust-lang.org/reference/attributes.md#conditional-compilation">配置选项</a>对于正在构建的包,此环境变量将包含配置的值,其中<code>&lt;cfg&gt;</code>配置的名称为上列并具有<code>-</code>翻译成<code>_</code>.                     如果设置了布尔配置,则存在布尔配置,否则不存在布尔配置.具有多个值的配置被连接到单个变量,该变量的值以<code>,</code>.</li>
+<li><code>OUT_DIR</code>-所有输出都应该放在其中的文件夹.此文件夹位于正在构建的包的构建目录中,并且对于所讨论的包是唯一的.</li>
+<li><code>TARGET</code>-正在编译的目标三元组.应该为这个三元组编译本机代码.关于目标三元组的更多信息可以在<a href="http://clang.llvm.org/docs/CrossCompilation.md#target-triple">克朗自己的文档</a>.</li>
+<li><code>HOST</code>-锈编译器的主机三元组.</li>
+<li><code>NUM_JOBS</code>-指定为顶层并行的并行性.这可以通过一个<code>-j</code>参数到系统<code>make</code>. 注意,在解释这个环境变量时应该小心.出于历史目的,仍然提供此功能,但是例如,最新版本的Cargo不需要运行<code>make -j</code>因为它会自动发生.Cargo自行实现[JooServer]并且允许构建脚本继承这些信息,因此与GNU兼容的程序将使作业服务器已经具有适当配置的并行性.</li>
+<li><code>OPT_LEVEL</code>,<code>DEBUG</code>-当前正在构建的配置文件的相应变量的值.</li>
+<li><code>PROFILE</code> - <code>release</code>对于发布版本,<code>debug</code>用于其他构建.</li>
+<li><code>DEP_&lt;name&gt;_&lt;key&gt;</code>-有关此组环境变量的更多信息,请参阅<a href="reference/build-scripts.html#the-links-manifest-key"><code>links</code></a>.</li>
+<li><code>RUSTC</code>,<code>RUSTDOC</code>- Cargo已经决定使用的编译器和文档生成器,传递给构建脚本,以便它也可以使用它.</li>
+<li><code>RUSTC_LINKER</code>-指向链接器二进制文件的路径,如果指定,则Cargo已解析为将链接器二进制文件用于当前目标.链接器可以通过编辑更改.<code>.cargo/config</code>请参阅有关文档<a href="reference/config.html">Cargo配置</a>欲了解更多信息.</li>
+</ul>
+<a class="header" href="#environment-variables-cargo-sets-for-3rd-party-subcommands" id="environment-variables-cargo-sets-for-3rd-party-subcommands"><h3>Environment variables Cargo sets for 3rd party subcommands</h3></a>
+<p>Cargo将这个环境变量公开给第三方子命令(即,名为<code>cargo-foobar</code>放置在<code>$PATH</code>):</p>
+<ul>
+<li><code>CARGO</code>的路径<code>cargo</code>二进制执行构建.</li>
+</ul>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="../reference/config.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="../reference/build-scripts.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a href="../reference/config.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a href="../reference/build-scripts.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>
