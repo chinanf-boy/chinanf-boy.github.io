@@ -22,6 +22,21 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
+      <title>Goreleaser : 为多个平台构建Go二进制文件</title>
+      <link>/2018/12/09/goreleaser--%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Sun, 09 Dec 2018 09:54:07 +0800</pubDate>
+      
+      <guid>/2018/12/09/goreleaser--%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</guid>
+      <description>GoReleaser GoReleaser 为多个平台构建 Go 二进制文件，也可将 Homebrew 公式推送到 tap 存储库。所有这些都包含在你最喜欢的 CI 中。
+使用 GoReleaser 能自动，为生成 Github 项目的 release 页面的，可供下载的二进制文件
+ 下面是我的 howdoi(Golang)项目的发布页面   三个平台(MacOS,Linux,Windows)都有
+ 行列    官方文档 非官方中文翻译     https://goreleaser.com/ goreleaser-zh    用例 最好的基础例子，莫过于自己常用的东西，也就是我的 howdoi 项目
+ 这个例子，是让 travis 与 goreleaser 合作，的例子
+ 当然，前提是你要安装好-&amp;gt;
+.travis.yml # .travis.yml language: go addons: apt: packages: # needed for the nfpm pipe: # - rpm # needed for the snap pipe: # - snapcraft env: # needed for the snap pipe: # - PATH=/snap/bin:$PATH install: # needed for the snap pipe: # - sudo snap install snapcraft --classic # needed for the docker pipe services: - docker after_success: # docker login is required if you want to push docker images.</description>
+    </item>
+    
+    <item>
       <title>NES.css 任天堂风格css框架 Yummy</title>
       <link>/2018/12/06/nes.css-%E4%BB%BB%E5%A4%A9%E5%A0%82%E9%A3%8E%E6%A0%BCcss%E6%A1%86%E6%9E%B6-yummy/</link>
       <pubDate>Thu, 06 Dec 2018 12:23:36 +0800</pubDate>
@@ -1281,8 +1296,13 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <pubDate>Tue, 14 Apr 2015 22:17:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description> 项目 oh my ever first example  example w3 blog template  vue  getnoabsbooks read book no-abs china liaoAliao jsonstore axios sample  react  react-from-zero examples transalte React hacknews example  js  side-content sider  rust  gentle-intro book translate rust-ffi-omnibus book translate rustwasm-book book translate wasm-bindgen book translate  中文翻译列表  chinese translate  Source explain  源码解释 关于 js/py/go
-  Source explain  </description>
+      <description>项目 Oh my ,第一个例子(很久很久以前)  example w3 blog template  Vue  getnoabsbooks read book no-abs china liaoAliao jsonstore axios sample
+ vue-scrollto docs translate scroll
+  React  react-from-zero examples transalte React hacknews example  Js  translate-mds 所有 md 翻译项目的起点工具 translate tool doc-templite md 文件的模版工具 templite tool
+ side-content sider
+ lerna-website lerna translate
+ codelabs 出品的:first pwa pwa example transalte
+  Rust  gentle-intro book translate rust-ffi-omnibus book translate rustwasm-book book translate wasm-bindgen book translate Cargo Book book translate</description>
     </item>
     
     <item>
