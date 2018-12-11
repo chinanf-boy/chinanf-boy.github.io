@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2018/12/11/%E8%AF%91%E6%90%9C%E7%B4%A2%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83/</loc>
+    <lastmod>2018-12-11T11:54:27+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/12/09/goreleaser--%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2018-12-09T09:54:07+08:00</lastmod>
   </url>
@@ -877,6 +882,12 @@
   </url>
   
   <url>
+    <loc>/tags/searcher/</loc>
+    <lastmod>2018-12-11T11:54:27+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/shell/</loc>
     <lastmod>2018-11-21T14:47:31+08:00</lastmod>
     <priority>0</priority>
@@ -999,6 +1010,12 @@
   <url>
     <loc>/tags/zsh/</loc>
     <lastmod>2017-11-14T14:17:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2018-12-11T11:54:27+08:00</lastmod>
     <priority>0</priority>
   </url>
   

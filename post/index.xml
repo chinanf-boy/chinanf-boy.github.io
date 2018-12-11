@@ -22,6 +22,19 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
+      <title>(译)搜索工具的功能比较</title>
+      <link>/2018/12/11/%E8%AF%91%E6%90%9C%E7%B4%A2%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83/</link>
+      <pubDate>Tue, 11 Dec 2018 11:54:27 +0800</pubDate>
+      
+      <guid>/2018/12/11/%E8%AF%91%E6%90%9C%E7%B4%A2%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83/</guid>
+      <description>div.inner { margin: 0 4%; } tr td:nth-child(2n){ background-color: #ffdfac; } tr td:not(:first-child) code { background-color: #ffdfac; font-size: 14px; margin: 1px; display: block; padding: 5px; text-align: center; } tr th:not(:first-child) { width:14%; } th { position: static; } 
+返回 原文 | Github 存储库 |
+ack，ag，git-grep，GNU grep 和 ripgrep 的功能比较 如果您对图表有更新，请提交一个 issue。
+如果您发现此图表有用，请考虑为您运行的项目制作一个，即使它包含&amp;rdquo;竞争&amp;rdquo;项目。最好的项目可能不是你的项目，而这并没有错.
+   工具 ack ag git grep GNU grep rg     名称 ack 银色搜索者(The Silver Searcher) git grep GNU grep ripgrep   项目页面 https://beyondgrep.</description>
+    </item>
+    
+    <item>
       <title>Goreleaser : 为多个平台构建Go二进制文件</title>
       <link>/2018/12/09/goreleaser--%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</link>
       <pubDate>Sun, 09 Dec 2018 09:54:07 +0800</pubDate>
