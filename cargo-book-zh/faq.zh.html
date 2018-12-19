@@ -158,57 +158,91 @@
             <div id="content" class="content">
                 <main>
                     <a class="header" href="#frequently-asked-questions" id="frequently-asked-questions"><h2>Frequently Asked Questions</h2></a>
+<p>常问问题</p>
 <a class="header" href="#is-the-plan-to-use-github-as-a-package-repository" id="is-the-plan-to-use-github-as-a-package-repository"><h3>Is the plan to use GitHub as a package repository?</h3></a>
-<p>不,Cargo的计划是使用.[克拉西奥.]像NPM或RuuGuMes和NPMJS.org和RuuGeMy.org一起使用.</p>
-<p>我们计划永远支持git存储库作为包的来源,因为它们可以用于早期开发和临时补丁,即使人们使用注册表作为包的主要来源.</p>
+<blockquote>
+<p>是否有计划，使用 Github 作为一个包库 ？</p>
+</blockquote>
+<p>不,Cargo 的计划是使用<a href="https://crates.io/">crates.io</a>，像 NPM 或 RuuGuMes 对应 npmjs.org 和 rubygems.org。</p>
+<p>我们计划永远（通过些配置）支持 git 存储库作为包的来源，因为它们可以用于早期开发和临时补丁（加了点灵活性），即便人们使用主要使用注册表作为包的来源。</p>
 <a class="header" href="#why-build-cratesio-rather-than-use-github-as-a-registry" id="why-build-cratesio-rather-than-use-github-as-a-registry"><h3>Why build crates.io rather than use GitHub as a registry?</h3></a>
-<p>我们认为支持多种下载包的方式非常重要,包括从GitHub下载包并将包复制到包本身.</p>
-<p>也就是说,我们认为[克拉西奥.]提供了许多重要的好处,并且可能成为人们在Cargo中下载包的主要方式.</p>
-<p>对于前例,节点.js<a href="https://www.npmjs.org">npm</a>露比的<a href="https://bundler.io">捆扎机</a>支持中央注册中心模型和基于Git的模型,并且大多数包都是通过这些生态系统中的注册中心下载的,其中重要的少数包使用基于git的包.</p>
-<p>使中央注册中心在其他语言中流行的一些优点包括:</p>
+<blockquote>
+<p>为啥，选 crates.io，而不是使用 Github 作为 注册表 ？</p>
+</blockquote>
+<p>我们认为支持多种下载包的方式非常重要,包括从 GitHub 下载包,并将包复制到包本身.</p>
+<p>也就是说,我们认为<a href="https://crates.io/">crates.io</a>提供了许多重要的好处，并且预计其会成为人们在 Cargo 中，下载包的主要方式。</p>
+<p>前车之鉴，Node.js 的<a href="https://www.npmjs.org">npm</a>和 Ruby 的<a href="https://bundler.io">bundler</a>都支持中央注册中心模式，和基于 Git 的模式，而大多数包都是通过生态系统中的注册中心下载的，其中重要的少数包是使用基于 git 的包。</p>
+<p>使中央注册中心，在其他语言中流行的一些优点包括:</p>
 <ul>
-<li><strong>可发现性</strong>. 中央注册表提供了查找现有包的简单位置.结合标记,这也使得注册中心能够提供生态系统范围的信息,例如最流行或最依赖的包的列表.</li>
-<li><strong>速度</strong>. 中心注册中心使得可以快速有效地只获取包的元数据,然后只高效地下载已发布的包,而不会出现在存储库中的其他膨胀.这大大提高了依赖性解析和获取的速度.随着依赖关系图的扩展,下载所有的git存储库会陷入困境.还要记住,并不是每个人都有高速、低延迟的互联网连接.</li>
+<li><strong>可发现性</strong>. 中央注册表提供了查找现有包的简单方式。结合标记(版本),这也使得注册中心能够提供生态系统的范围信息，例如最流行或最依赖的包的列表.</li>
+<li><strong>速度</strong>. 中心注册中心使得可以快速有效地只获取包的元数据，然后只高效地下载已发布的包，而不会出现在存储库中的其他膨胀。这大大提高了依赖性解析和获取的速度。要知道随着依赖关系图的扩展，下载所有的 git 存储库会陷入困境。还要记住的是，并不是每个人都有高速、低延迟的互联网连接.</li>
 </ul>
 <a class="header" href="#will-cargo-work-with-c-code-or-other-languages" id="will-cargo-work-with-c-code-or-other-languages"><h3>Will Cargo work with C code (or other languages)?</h3></a>
-<p>对!</p>
-<p>Cargo处理编译Rust代码,但我们知道许多Rust包与C代码链接.我们还知道,在编译除Rust之外的语言方面,已经建立了数十年的工具.</p>
-<p>我们的解决方案:Cargo允许包装<a href="reference/build-scripts.html">指定脚本</a>(生锈)在调用之前运行<code>rustc</code>. Rust用于实现特定于平台的配置和重构包之间的常见构建功能.</p>
+<blockquote>
+<p>Cargo 可与 C 语言代码(或其他语言)一起工作吗?</p>
+</blockquote>
+<p>可以的!</p>
+<p>Cargo 处理编译 Rust 代码，但我们知道许多 Rust 包与 C 代码都有链接。我们还知道除 Rust 之外，在编译语言方面的工具，已建立了数十年。</p>
+<p>我们的解决方案:Cargo 允许一个包可以<a href="./build-scripts.zh.html">指定脚本</a>(用 Rust 编写)，其在调用<code>rustc</code>之前运行。 利用 Rust 实现特定于平台的配置和重构包之间的常见构建功能。</p>
 <a class="header" href="#can-cargo-be-used-inside-of-make-or-ninja-or-" id="can-cargo-be-used-inside-of-make-or-ninja-or-"><h3>Can Cargo be used inside of <code>make</code> (or <code>ninja</code>, or ...)</h3></a>
-<p>的确.尽管我们希望Cargo作为在顶级编译Rust包的独立方式有用,但我们知道有些人希望从其他构建工具调用Cargo.</p>
-<p>我们已将Cargo设计成在这些环境中工作良好,并注意错误代码和机器可读输出模式等事项.在这些方面我们还有一些工作要做,但是在传统脚本上下文中使用Cargo是我们从一开始就设计的,并且将继续优先考虑.</p>
+<blockquote>
+<p>Cargo 能被用在 <code>make</code>(或 <code>ninja</code>或...) 中吗 ?</p>
+</blockquote>
+<p>当然能。尽管我们希望， Cargo 是作为顶级编译 Rust 包的独立方式，但我们知道有些人希望从其他构建工具调用 Cargo。</p>
+<p>我们已将 Cargo 设计成在这些环境中工作良好，并注意错误代码和机器可读输出模式等事项。在这些方面我们还有一些工作要做，但是在传统脚本上下文中使用 Cargo 是我们从一开始就设计的，并且将继续优先考虑。</p>
 <a class="header" href="#does-cargo-handle-multi-platform-packages-or-cross-compilation" id="does-cargo-handle-multi-platform-packages-or-cross-compilation"><h3>Does Cargo handle multi-platform packages or cross-compilation?</h3></a>
-<p>Rust本身提供了基于平台配置代码段的工具.Cargo也支持<a href="reference/specifying-dependencies.html#platform-specific-dependencies">特定平台依赖关系</a>,我们计划支持更多的每个平台配置<code>Cargo.toml</code>未来.</p>
-<p>从长远来看,我们正在寻找使用Cargo方便地交叉编译包的方法.</p>
+<blockquote>
+<p>Cargo 是怎么平衡 多平台或跨平台的包的？</p>
+</blockquote>
+<p>Rust 本身提供了基于平台，配置代码段的工具。Cargo 也支持<a href="reference/specifying-dependencies.html#platform-specific-dependencies">特定平台依赖关系</a>，未来，我们计划为每个平台<code>Cargo.toml</code>支持更多的配置.</p>
+<p>从长远来看,我们正在寻找使用 Cargo 方便地跨编译包的方法.</p>
 <a class="header" href="#does-cargo-support-environments-like-production-or-test" id="does-cargo-support-environments-like-production-or-test"><h3>Does Cargo support environments, like <code>production</code> or <code>test</code>?</h3></a>
-<p>我们通过使用环境来支持环境.<a href="reference/manifest.html#the-profile-sections">轮廓</a>支持:</p>
+<blockquote>
+<p>Cargo 有没支持像<code>production</code> 或 <code>test</code>这样的环境？</p>
+</blockquote>
+<p>我们通过使用<a href="./manifest.zh.html#the-profile-sections">profiles</a>来支持这样的环境:</p>
 <ul>
-<li>环境特定标志(类)<code>-g --opt-level=0</code>为了发展和<code>--opt-level=3</code>用于生产).</li>
-<li>环境特定依赖性(类)<code>hamcrest</code>对于测试断言).</li>
-<li>特定环境<code>#[cfg]</code></li>
-<li>一<code>cargo test</code>命令</li>
+<li>特定环境标志(像 开发环境的 <code>-g --opt-level=0</code>和生产环境的<code>--opt-level=3</code>)。</li>
+<li>特定环境依赖性(像 测试断言 的<code>hamcrest</code>).</li>
+<li>特定环境变量 <code>#[cfg]</code></li>
+<li>一个<code>cargo test</code>命令</li>
 </ul>
 <a class="header" href="#does-cargo-work-on-windows" id="does-cargo-work-on-windows"><h3>Does Cargo work on Windows?</h3></a>
-<p>对!</p>
-<p>所有提交的Cargo都需要通过Windows上的本地测试套件.但是,如果你发现一个Windows问题,我们认为它是一个bug,所以<a href="https://github.com/rust-lang/cargo/issues">请提出一个问题</a>.</p>
+<blockquote>
+<p>Windows 系统 呢，Cargo 能搞吗？</p>
+</blockquote>
+<p>没问题!</p>
+<p>所有提交的 Cargo 都需要通过 Windows 上的本地测试套件。但是,如果你发现一个 Windows 问题，我们认为它就是一个 bug,所以<a href="https://github.com/rust-lang/cargo/issues">请提出一个问题</a>.</p>
 <a class="header" href="#why-do-binaries-have-cargolock-in-version-control-but-not-libraries" id="why-do-binaries-have-cargolock-in-version-control-but-not-libraries"><h3>Why do binaries have <code>Cargo.lock</code> in version control, but not libraries?</h3></a>
-<p>A的目的<code>Cargo.lock</code>是在成功建造时描述世界的状态.然后,它通过确保编译完全相同的依赖项来提供跨构建包的任何机器的确定性构建.</p>
-<p>这个属性对于处于依赖链(二进制文件)末端的应用程序和包是最理想的.因此,建议所有二进制文件都在其内部进行检查.<code>Cargo.lock</code>.</p>
-<p>对于图书馆来说,情况有些不同.库不仅被库开发人员使用,而且被库的任何下游消费者使用.依赖图书馆的用户不会检查图书馆<code>Cargo.lock</code>(即使它存在).这正是因为图书馆应该<strong>不</strong>对库的所有用户进行确定性地重新编译.</p>
-<p>如果一个库最终被多个依赖项传递使用,那么很可能只需要该库的一个副本(基于semver兼容性).如果Cargo使用了所有的依赖项<code>Cargo.lock</code>文件,然后可以使用库的多个副本,甚至可能存在版本冲突.</p>
-<p>换句话说,库为它们的依赖项指定了semver需求,但是无法看到全部情况.只有像二进制文件这样的最终产品才有完整的图来决定应该使用什么版本的依赖性.</p>
+<blockquote>
+<p>为啥，输出二进制的 Cargo 项目具有<code>Cargo.lock</code>，而单输出库的，就没有？</p>
+</blockquote>
+<p>一个<code>Cargo.lock</code>文件的目的，是在于成功构建，能描述’世界’的状态。然后，它就能用来，通过确保编译完全相同的依赖项，就能跨任何机器上构建确定性的包。</p>
+<p>这个属性对于，处在依赖链末端的应用程序和包(二进制文件)是最理想的。因此，建议所有二进制文件都在其<code>Cargo.lock</code>内部进行检查.</p>
+<p>对于单库来说,情况有些不同。库不仅被库开发人员使用,而且被库的任何下游消费者使用。依赖库的用户不会检查库的<code>Cargo.lock</code>(即使它存在)。正是如此，库<strong>不</strong>应该对库的所有用户进行确定性地重新编译。</p>
+<p>如果一个库最终被多个依赖项传递使用，那么很可能只需要该库的一个副本(基于 semver 兼容性的版本)。如果 Cargo 使用了所有的 <strong>依赖项的<code>Cargo.lock</code>文件</strong>，那结果就是，使用库的多个副本，甚至可能存在版本冲突。</p>
+<p>换句话说,库为它们的依赖项指定了 semver 版本，但是不用(无法)看到全部内容。只有像二进制文件这样的最终产品才需要有完整的图，来决定应该使用什么版本的依赖。</p>
 <a class="header" href="#can-libraries-use--as-a-version-for-their-dependencies" id="can-libraries-use--as-a-version-for-their-dependencies"><h3>Can libraries use <code>*</code> as a version for their dependencies?</h3></a>
-<p><strong>截至2016年1月22日,[克拉西奥.]拒绝通配符依赖约束的所有包(不只是库).</strong></p>
-<p>当图书馆<em>可以</em>严格来说,他们不应该这样做.版本要求<code>*</code>说”这将适用于任何版本”,这永远不会是真的.库应该总是指定它们工作的范围,即使它和”每1.x.y版本”一样一般.</p>
+<blockquote>
+<p>作为库的项目，可以使用<code>*</code>作为它们的依赖的版本号吗?</p>
+</blockquote>
+<p><strong>截至 2016 年 1 月 22 日,<a href="https://crates.io/">crates.io</a>拒绝通配符<code>*</code>依赖约束的所有包(不只是库).</strong></p>
+<p>库是<em>可以</em>，但严格来说，他们不应该这样做。<code>*</code>版本要求，说明了”这将适用于任何版本”，而这永远不会是真的。库应该总是指定它们工作的范围,即使它和”每个 1.x.y 版本”一样。</p>
 <a class="header" href="#why-cargotoml" id="why-cargotoml"><h3>Why <code>Cargo.toml</code>?</h3></a>
-<p>作为与Cargo最频繁的交互之一,为什么要命名配置文件的问题是<code>Cargo.toml</code>不时出现.领先的资本——<code>C</code>选择清单是为了确保清单与目录清单中的其他类似配置文件分组.对文件进行排序时,通常将大写字母放在小写字母之前,确保文件如下<code>Makefile</code>和<code>Cargo.toml</code>放在一起.拖尾<code>.toml</code>选择强调文件是在<a href="https://github.com/toml-lang/toml">配置文件格式</a>.</p>
-<p>Cargo不允许其他名称,如<code>cargo.toml</code>或<code>Cargofile</code>强调如何容易识别Cargo仓库.在历史上,许多可能的名称的选择都导致混乱,其中一个案例被处理,而其他案例被意外地遗忘.</p>
+<p>作为与 Cargo 最频繁的交互之一，为什么要命名配置文件叫<code>Cargo.toml</code>的问题不时出现。选择领先的大写—<code>C</code>，是为了确保清单与目录清单中的其他类似配置文件组合排序。对文件进行排序时,通常将大写字母放在小写字母之前，确保<code>Makefile</code>和<code>Cargo.toml</code>文件会放在一起。选择<code>.toml</code>结尾是强调文件是<a href="https://github.com/toml-lang/toml">特定的配置文件格式</a>.</p>
+<p>Cargo 不允许其他名称(如<code>cargo.toml</code>或<code>Cargofile</code>)，来强调如何如何容易识别 Cargo 仓库。在历史上,许多可能的名称选择都导致了混乱,其中一个选项被选择了，而其他选项就被自然而然地遗忘。</p>
 <a class="header" href="#how-can-cargo-work-offline" id="how-can-cargo-work-offline"><h3>How can Cargo work offline?</h3></a>
-<p>Cargo通常用于网络访问有限或没有网络访问的情况,如飞机、CI环境或嵌入大型生产部署中.当Cargo试图从网络获取资源时,用户常常感到惊讶,因此频繁出现Cargo离线工作的请求.</p>
-<p>Cargo的核心是不会试图访问网络,除非被告知这样做.也就是说,如果没有来自.es.io、git存储库或其他网络位置的板条箱,则Cargo永远不会尝试进行网络连接.因此,如果Cargo试图接触网络,那是因为它需要获取所需的资源.</p>
-<p>Cargo还非常积极地缓存信息,以最小化网络活动量.例如,它将保证<code>cargo build</code>(或等效)运行到完成,然后是下一个.<code>cargo build</code>保证不接触网络,只要<code>Cargo.toml</code>在此期间还没有被修改.网络的这种回避归结为<code>Cargo.lock</code>现有的和在锁文件中反映的板条箱的填充缓存.如果这些组件中的任何一个丢失,那么构建成功就需要它们,并且必须远程获取它们.</p>
-<p>至于锈迹,1.110Cargo可以看到新的旗帜,<code>--frozen</code>这是它不应该接触网络的断言.当通过时,如果Cargo试图进行网络请求,它将立即返回一个错误.错误应该包括关于为什么首先进行网络请求以帮助调试的上下文信息.注意这个标志<em>不改变Cargo的行为</em>它只是断言Cargo不应该触摸网络,因为前面的命令已经被运行以确保网络活动不应该是必要的.</p>
-<p>有关版本管理的详细信息,请参阅文档<a href="reference/source-replacement.html">源置换</a>.</p>
+<blockquote>
+<p>Cargo 能 离线 工作吗？</p>
+</blockquote>
+<p>Cargo 通常用于网络访问有限，或没有网络访问的情况,如飞机、CI 环境或嵌入大型生产部署中。当 Cargo 试图从网络获取资源时，用户常常感到惊讶,因频繁出现 Cargo 离线工作的请求。</p>
+<p>Cargo 的核心是不会试图访问网络，除非被告知这样做。也就是说,如果没有来自 crates.io、git 存储库或其他网络位置的箱，则 Cargo 永远不会尝试进行网络连接。因此,如果 Cargo 试图接触网络,那是因为它需要获取所需的资源。</p>
+<p>Cargo 还非常积极地缓存信息,保持最小化的网络活动量。例如,它将保证<code>cargo build</code>(或类似的)运行到完成，那下一次<code>cargo build</code>保证不接触网络，只要<code>Cargo.toml</code>在此期间还没有被修改。网络的这种回避归结为，已存在<code>Cargo.lock</code>，和在 lock 文件中反映了，箱子的充分缓存。如果这些组件中的任何一个丢失,那么构建的成功就需要它们,并且必须远程获取它们。</p>
+<p>对 Rust 1.11.0 打后的 Cargo ，可以看到新的(标志)参数<code>--frozen</code>，这是它不应该接触网络的断言。当传递给 Cargo，如果 Cargo 试图进行网络请求,它将立即返回一个错误。错误应该包括关于为什么进行网络请求(第一个地方），以帮助调试的上下文信息。注意这个标志是<em>不改变 Cargo 的行为</em>，它只是断言 Cargo 不应该触摸网络，这作为上一个命令已完成的保证，可以相同的网络活动是不必的。</p>
+<blockquote>
+<p>上一个命令，如<code>cargo build</code></p>
+</blockquote>
+<p>有关版本管理的详细信息,请参阅文档<a href="./source-replacement.zh.html">来源更换</a>.</p>
 
                 </main>
 

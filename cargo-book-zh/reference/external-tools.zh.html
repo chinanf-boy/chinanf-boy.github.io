@@ -158,28 +158,30 @@
             <div id="content" class="content">
                 <main>
                     <a class="header" href="#external-tools" id="external-tools"><h2>External tools</h2></a>
-<p>Cargo的目标之一是与第三方工具(如IDE和其他构建系统)的简单集成.为了简化集成,Cargo有几个设施:</p>
+<p>外部工具</p>
+<p>Cargo 的目标之一是与第三方工具(如 IDE 和其他构建系统)的简单集成。为了简化集成,Cargo 有几个设施:</p>
 <ul>
 <li>
-<p>一个<code>cargo metadata</code>命令,以JSON格式输出包结构和依赖关系信息,</p>
+<p>一个<code>cargo metadata</code>命令,以 JSON 格式输出包结构和依赖关系信息,</p>
 </li>
 <li>
-<p>一个<code>--message-format</code>flag,输出有关特定构建的信息,以及</p>
+<p>一个<code>--message-format</code>标志,输出有关特定构建的信息,以及</p>
 </li>
 <li>
 <p>支持自定义子命令.</p>
 </li>
 </ul>
 <a class="header" href="#information-about-package-structure" id="information-about-package-structure"><h3>Information about package structure</h3></a>
-<p>您可以使用<code>cargo metadata</code>命令以获取有关包结构和依赖关系的信息.命令的输出如下所示:</p>
+<p>包结构的资料</p>
+<p>您可以使用<code>cargo metadata</code>命令，以获取有关包结构和依赖关系的信息。命令的输出如下所示:</p>
 <pre><code class="language-text">{
-  // Integer version number of the format.
+  // Integer 版本格式数字.
   &quot;version&quot;: integer,
 
-  // List of packages for this workspace, including dependencies.
+  // 工作区包的列表, 包括 依赖项.
   &quot;packages&quot;: [
     {
-      // Opaque package identifier.
+      // 包 识别id 队列.
       &quot;id&quot;: PackageId,
 
       &quot;name&quot;: string,
@@ -188,19 +190,19 @@
 
       &quot;source&quot;: SourceId,
 
-      // A list of declared dependencies, see `resolve` field for actual dependencies.
+      // 确认依赖的一个列表, 可看 `resolve` 字段中的真实依赖.
       &quot;dependencies&quot;: [ Dependency ],
 
       &quot;targets: [ Target ],
 
-      // Path to Cargo.toml
+      //  Cargo.toml 路径
       &quot;manifest_path&quot;: string,
     }
   ],
 
   &quot;workspace_members&quot;: [ PackageId ],
 
-  // Dependencies graph.
+  // 依赖 关系图.
   &quot;resolve&quot;: {
      &quot;nodes&quot;: [
        {
@@ -211,34 +213,36 @@
   }
 }
 </code></pre>
-<p>格式稳定且版本.打电话时<code>cargo metadata</code>你应该通过<code>--format-version</code>明确标记以避免前向不兼容的危险.</p>
-<p>如果你正在使用Rust,那就有了<a href="https://crates.io/crates/cargo_metadata">cargo_metadata</a>箱.</p>
+<p>格式稳定且有版本化。调用<code>cargo metadata</code>时，你应该通过<code>--format-version</code>明确标记，以避免向前不兼容的危险。</p>
+<p>如果你正在使用 Rust,这有个<a href="https://crates.io/crates/cargo_metadata">cargo_metadata</a>箱.</p>
 <a class="header" href="#information-about-build" id="information-about-build"><h3>Information about build</h3></a>
-<p>路过时<code>--message-format=json</code>,Cargo将在构建期间输出以下信息:</p>
+<p>关于构建的资料</p>
+<p>传递<code>--message-format=json</code>给，Cargo， 将在构建期间输出以下信息:</p>
 <ul>
 <li>
 <p>编译器错误和警告,</p>
 </li>
 <li>
-<p>制作的文物,</p>
+<p>制作的工件,</p>
 </li>
 <li>
 <p>构建脚本的结果(例如,本机依赖项).</p>
 </li>
 </ul>
-<p>输出以每行格式的JSON对象转到stdout.该<code>reason</code>字段区分不同类型的消息.</p>
-<p>有关Makefile兼容格式的依赖关系的信息存储在<code>.d</code>文件旁边的文件.</p>
+<p>输出以每行格式的 JSON 对象转到 stdout。<code>reason</code>字段区分不同类型的消息.</p>
+<p>有关 Makefile 兼容格式的依赖关系的信息存储在工件旁的<code>.d</code>文件中。</p>
 <a class="header" href="#custom-subcommands" id="custom-subcommands"><h3>Custom subcommands</h3></a>
-<p>Cargo设计为可以使用新的子命令进行扩展,而无需修改Cargo本身.这是通过翻译Cargo的Cargo调用来实现的<code>(?&lt;command&gt;[^ ]+)</code>调用外部工具<code>cargo-${command}</code>.外部工具必须存在于其中一个用户中<code>$PATH</code>目录.</p>
-<p>当Cargo调用自定义子命令时,子命令的第一个参数将像往常一样是自定义子命令的文件名.第二个参数将是子命令名称本身.例如,第二个参数是<code>${command}</code>在调用时<code>cargo-${command}</code>.命令行上的任何其他参数将保持不变.</p>
-<p>Cargo还可以显示自定义子命令的帮助输出<code>cargo help ${command}</code>.Cargo假定子命令将在第三个参数出现时打印帮助消息<code>--help</code>.所以,<code>cargo help ${command}</code>会调用<code>cargo-${command} ${command} --help</code>.</p>
-<p>自定义子命令可以使用<code>CARGO</code>环境变量回叫Cargo.或者,它可以链接到<code>cargo</code>作为一个库,但这种方法有缺点:</p>
+<p>自定义的子命令</p>
+<p>Cargo 设计为，可以使用新的子命令进行扩展，而无需修改 Cargo 本身。这是通过转化一个 cargo <code>(?&lt;command&gt;[^ ]+)</code>的命令调用，变化为调用外部工具<code>cargo-${command}</code>来实现的。外部工具必须存在于用户其中一个<code>$PATH</code>目录中.</p>
+<p>当 Cargo 调用自定义子命令时，子命令的第一个参数将像往常一样是自定义子命令的文件名。第二个参数将是子命令名称本身。例如,在调用<code>cargo-${command}</code>时，第二个参数是<code>${command}</code>。命令行上的其他所有参数将保持不变.</p>
+<p>Cargo 还可以用<code>cargo help ${command}</code>显示自定义子命令的帮助输出。Cargo 假定子命令将在第三个参数出现时，打印帮助消息<code>--help</code>.所以,<code>cargo help ${command}</code>会调用<code>cargo-${command} ${command} --help</code>.</p>
+<p>自定义子命令可以使用<code>CARGO</code>环境变量回调 Cargo。或者,它可以链接到作为一个库的<code>cargo</code>箱,但这种方法有缺点:</p>
 <ul>
 <li>
-<p>Cargo作为库是不稳定的:API可能会更改而不会弃用</p>
+<p>Cargo 作为库是不稳定的:API 可能会更改，但不会弃用</p>
 </li>
 <li>
-<p>链接的Cargo库的版本可能与Cargo二进制文件不同</p>
+<p>链接的 Cargo 库的版本可能与 Cargo 二进制文件不同</p>
 </li>
 </ul>
 

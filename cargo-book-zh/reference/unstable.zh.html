@@ -158,24 +158,30 @@
             <div id="content" class="content">
                 <main>
                     <a class="header" href="#unstable-features" id="unstable-features"><h2>Unstable Features</h2></a>
-<p>实验Cargo功能仅适用于夜间通道.您通常使用其中一个<code>-Z</code>用于启用它们的标志.跑<code>cargo -Z help</code>查看可用的标志列表.</p>
-<p><code>-Z unstable-options</code>是用于启用其他不稳定命令行标志的通用标志.需要此选项的选项将在下面列出.</p>
-<p>某些不稳定的功能需要您指定<code>cargo-features</code>键入<code>Cargo.toml</code>.</p>
+<blockquote>
+<p>不稳定的特性</p>
+</blockquote>
+<p>实验性 Cargo 特性仅适用于夜间通道(Rust 的 nightly 版本)。您通常使用<code>-Z</code>带其中一个特性，以启用它们。运行<code>cargo -Z help</code>查看可用的标志列表。</p>
+<p><code>-Z unstable-options</code>是用于启用其他不稳定命令行标志的通用标志。需要的此选项将在下面列出。</p>
+<p>某些不稳定的特性需要您，在<code>Cargo.toml</code>指定<code>cargo-features</code>字段。</p>
 <a class="header" href="#alternate-registries" id="alternate-registries"><h3>Alternate Registries</h3></a>
+<blockquote>
+<p>替换(/备用)注册表</p>
+</blockquote>
 <ul>
 <li>RFC:<a href="https://github.com/rust-lang/rfcs/blob/master/text/2141-alternative-registries.md">#2141</a></li>
-<li>跟踪问题:<a href="https://github.com/rust-lang/rust/issues/44931">锈琅/锈#44931</a></li>
+<li>跟踪问题:<a href="https://github.com/rust-lang/rust/issues/44931">rust-lang/rust#44931</a></li>
 </ul>
-<p>备用注册表允许您使用crates.io以外的注册表.</p>
-<p>注册表的名称定义在<code>.cargo/config</code>在下面<code>registries</code>表:</p>
+<p>备用注册表，允许您使用 crates.io 以外的注册表。</p>
+<p>注册表的名称定义在<code>.cargo/config</code>中，<code>registries</code>表格的下面:</p>
 <pre><code class="language-toml">[registries]
 my-registry = { index = &quot;https://my-intranet:8080/git/index&quot; }
 </code></pre>
-<p>可以添加备用注册表的身份验证信息<code>.cargo/credentials</code>:</p>
+<p>可以在<code>.cargo/credentials</code>添加备用注册表的身份验证信息:</p>
 <pre><code class="language-toml">[registries.my-registry]
 token = &quot;api-token&quot;
 </code></pre>
-<p>内<code>Cargo.toml</code>您可以使用指定依赖项来自哪个注册表<code>registry</code>键.首先,您需要包含适当的<code>cargo-features</code>在文件的顶部:</p>
+<p>在<code>Cargo.toml</code>里面，您可以使用指定<code>registry</code>字段，让某个依赖项来自哪个注册表。但首先,您需要在文件的顶部包含适当的<code>cargo-features</code>:</p>
 <pre><code class="language-toml">cargo-features = [&quot;alternative-registries&quot;]
 
 [package]
@@ -184,21 +190,24 @@ token = &quot;api-token&quot;
 [dependencies]
 other-create = { version = &quot;1.0&quot;, registry = &quot;my-registry&quot;}
 </code></pre>
-<p>一个<code>--registry</code>flag已添加到与注册表交互的命令中<code>publish</code>,<code>login</code>等.示例:</p>
+<p>一个<code>--registry</code>标志 已添加到与注册表交互的<code>publish</code>,<code>login</code>等命令中。示例:</p>
 <pre><code>cargo +nightly publish -Z unstable-options --registry my-registry
 </code></pre>
-<p>该<code>publish</code>在<code>Cargo.toml</code>已扩展为接受将仅限制发布到这些注册表的注册表列表.</p>
+<p>在<code>Cargo.toml</code>的 <code>publish</code> 字段，已被扩展为接受限制为发布到这些注册表的注册表列表。</p>
 <pre><code class="language-toml">[package]
 ...
 publish = [&quot;my-registry&quot;]
 </code></pre>
 <a class="header" href="#publish-lockfile" id="publish-lockfile"><h3>publish-lockfile</h3></a>
+<blockquote>
+<p>发布-锁文件</p>
+</blockquote>
 <ul>
 <li>原始问题:<a href="https://github.com/rust-lang/cargo/issues/2263">#2263</a></li>
 <li>PR:<a href="https://github.com/rust-lang/cargo/pull/5093">#5093</a></li>
 <li>跟踪问题:<a href="https://github.com/rust-lang/cargo/issues/5654">#5654</a></li>
 </ul>
-<p>创建时<code>.crate</code>文件分发,Cargo历史上没有包括<code>Cargo.lock</code>文件.这可能会导致使用问题<code>cargo install</code>用二进制文件.您可以指定您的包应包含<code>Cargo.lock</code>使用时的文件<code>cargo package</code>要么<code>cargo publish</code>通过指定<code>publish-lockfile</code>键入<code>Cargo.toml</code>.这也需要适当的<code>cargo-features</code>:</p>
+<p>创建<code>.crate</code>文件分发时，Cargo 历史上不包括<code>Cargo.lock</code>文件。这可能会导致<code>cargo install</code>用于二进制文件的问题。您可以在<code>cargo package</code>要么<code>cargo publish</code>使用时，指定您的包应包含<code>Cargo.lock</code>，方法是在<code>Cargo.toml</code>中指定<code>publish-lockfile</code>字段。这也需要适当的<code>cargo-features</code>要求:</p>
 <pre><code class="language-toml">cargo-features = [&quot;publish-lockfile&quot;]
 
 [package]
@@ -206,43 +215,61 @@ publish = [&quot;my-registry&quot;]
 publish-lockfile = true
 </code></pre>
 <a class="header" href="#offline-mode" id="offline-mode"><h3>Offline Mode</h3></a>
+<blockquote>
+<p>离线模式</p>
+</blockquote>
 <ul>
 <li>原始问题:<a href="https://github.com/rust-lang/cargo/issues/4686">#4686</a></li>
 <li>跟踪问题:<a href="https://github.com/rust-lang/cargo/issues/5655">#5655</a></li>
 </ul>
-<p>该<code>-Z offline</code>flag可防止Cargo因任何原因尝试访问网络.通常情况下,如果Cargo要访问网络并且不可用,则会因错误而停止.</p>
-<p>请注意,这可能会导致与在线模式不同的依赖项解析.即使可能有索引的本地副本中指示的较​​新版本,Cargo也会将自己限制在本地可用的包装箱中.</p>
+<p><code>-Z offline</code>标志 可防止 Cargo 因任何原因尝试访问网络。通常情况下，如果 Cargo 要访问网络但它不可用,则会因错误而停止。</p>
+<p>请注意,这可能会导致与在线模式不同的依赖项解析。即使可能有索引的较新版本的本地副本，Cargo 也会将自己限制在本地可用的箱(crate)中。</p>
 <a class="header" href="#no-index-update" id="no-index-update"><h3>no-index-update</h3></a>
+<blockquote>
+<p>无索引更新</p>
+</blockquote>
 <ul>
 <li>原始问题:<a href="https://github.com/rust-lang/cargo/issues/3479">#3479</a></li>
 </ul>
-<p>该<code>-Z no-index-update</code>flag确保Cargo不会尝试更新注册表索引.这适用于发布许多Cargo命令的Crater等工具,并且您希望每次都避免更新索引的网络延迟.</p>
+<p><code>-Z no-index-update</code>标志 确保 Cargo 不会尝试更新注册表索引。这适用于测试(调制)许多 Cargo 命令的 Crater 等工具，并且您希望每次都避免更新索引的网络延迟。</p>
 <a class="header" href="#avoid-dev-deps" id="avoid-dev-deps"><h3>avoid-dev-deps</h3></a>
+<blockquote>
+<p>阻止 开发依赖项</p>
+</blockquote>
 <ul>
 <li>原始问题:<a href="https://github.com/rust-lang/cargo/issues/4988">#4988</a></li>
 <li>稳定问题:<a href="https://github.com/rust-lang/cargo/issues/5133">#5133</a></li>
 </ul>
-<p>运行命令时如<code>cargo install</code>要么<code>cargo build</code>,Cargo目前需要下载dev依赖项,即使它们未被使用.该<code>-Z avoid-dev-deps</code>flag允许Cargo避免在不需要时下载dev依赖项.该<code>Cargo.lock</code>如果跳过dev-dependencies,将不会生成文件.</p>
+<p>运行命令如<code>cargo install</code>要么<code>cargo build</code>时,Cargo 当前会需要下载 dev 依赖项，即使它们未被使用。而该<code>-Z avoid-dev-deps</code>标志 则让 Cargo 避免在不需要时下载 dev 依赖项。该<code>Cargo.lock</code>如果跳过了 dev-dependencies，将不会生成相关信息。</p>
 <a class="header" href="#minimal-versions" id="minimal-versions"><h3>minimal-versions</h3></a>
+<blockquote>
+<p>最小的版本</p>
+</blockquote>
 <ul>
 <li>原始问题:<a href="https://github.com/rust-lang/cargo/issues/4100">#4100</a></li>
 <li>跟踪问题:<a href="https://github.com/rust-lang/cargo/issues/5657">#5657</a></li>
 </ul>
-<p>当一个<code>Cargo.lock</code>生成文件,<code>-Z minimal-versions</code>flag将解析依赖关系到满足要求的最小semver版本(而不是最高版本).</p>
-<p>此标志的预期用例是在持续集成期间检查Cargo.toml中指定的版本是否是您实际使用的最低版本的正确反映.也就是说,如果Cargo.toml说<code>foo = &quot;1.0.0&quot;</code>您不会意外地依赖于仅添加的功能<code>foo 1.5.0</code>.</p>
+<p>当一个<code>Cargo.lock</code>文件被生成，<code>-Z minimal-versions</code>标志的使用， 将解析依赖关系为满足要求的最小 semver 版本(而不是最高版本)。</p>
+<p>此标志的预期用例，是在持续集成期间，检查 Cargo.toml 中指定的版本是否是您实际使用的最低版本的正确反映。也就是说,如果 Cargo.toml 有<code>foo = &quot;1.0.0&quot;</code>说明，那您依赖该特性，不会意外地添加<code>foo 1.5.0</code>。</p>
 <a class="header" href="#out-dir" id="out-dir"><h3>out-dir</h3></a>
+<blockquote>
+<p>输出目录</p>
+</blockquote>
 <ul>
 <li>原始问题:<a href="https://github.com/rust-lang/cargo/issues/4875">#4875</a></li>
 </ul>
-<p>此功能允许您指定构建工件后将复制到的目录.通常,工件只写入<code>target/release</code>要么<code>target/debug</code>目录.但是,确定确切的文件名可能很棘手,因为您需要解析JSON输出.该<code>--out-dir</code>flag可以更容易地预测访问工件.请注意,工件被复制,因此原件仍在<code>target</code>目录.例:</p>
+<p>此功能允许您指定,构建工件后，将复制到的目录。通常,工件只写入<code>target/release</code>要么<code>target/debug</code>目录。但是,确定明确的文件名可能很棘手，因为您需要解析 JSON 输出。而该<code>--out-dir</code>标志 可以更容易地预测访问工件。但是请注意,工件只是被复制,因此原件仍在<code>target</code>目录.例:</p>
 <pre><code>cargo +nightly build --out-dir=out -Z unstable-options
 </code></pre>
 <a class="header" href="#profile-overrides" id="profile-overrides"><h3>Profile Overrides</h3></a>
+<blockquote>
+<p>覆盖配置</p>
+</blockquote>
 <ul>
-<li>跟踪问题:<a href="https://github.com/rust-lang/rust/issues/48683">锈琅/锈#48683</a></li>
+<li>跟踪问题:<a href="https://github.com/rust-lang/rust/issues/48683">rust-lang/rust#48683</a></li>
 <li>RFC:<a href="https://github.com/rust-lang/rfcs/blob/master/text/2282-profile-dependencies.md">#2282</a></li>
 </ul>
-<p>可以为特定包和自定义生成脚本覆盖配置文件.一般格式如下:</p>
+<p>可以为特定包和自定义生成脚本覆盖配置文件。一般格式如下:</p>
 <pre><code class="language-toml">cargo-features = [&quot;profile-overrides&quot;]
 
 [package]
@@ -252,38 +279,45 @@ publish-lockfile = true
 opt-level = 0
 debug = true
 
-# the `image` crate will be compiled with -Copt-level=3
+# 这个 `image` 箱 会编译的等级 -Copt-level=3
 [profile.dev.overrides.image]
 opt-level = 3
 
-# All dependencies (but not this crate itself or any workspace member)
-# will be compiled with -Copt-level=2 . This includes build dependencies.
+# 所有 依赖项 (但 不是 箱本身 或 某些工作区成员)
+# 会编译的等级 -Copt-level=2 。 其中包括 构建依赖项.
 [profile.dev.overrides.&quot;*&quot;]
 opt-level = 2
 
-# Build scripts and their dependencies will be compiled with -Copt-level=3
-# By default, build scripts use the same rules as the rest of the profile
+# 构建 脚本和他们的 依赖项， 会编译的等级 -Copt-level=3
+# 默认情况, 构建 脚本 对剩下的配置使用相同的选择
 [profile.dev.build-override]
 opt-level = 3
 </code></pre>
-<p>只能为dev和release配置文件指定覆盖.</p>
+<p>能只为 dev 和 release 配置文件指定覆盖。</p>
 <a class="header" href="#config-profiles" id="config-profiles"><h3>Config Profiles</h3></a>
+<blockquote>
+<p>配置 配置文件 (第一个动词，第二个名词)</p>
+</blockquote>
 <ul>
-<li>跟踪问题:<a href="https://github.com/rust-lang/rust/issues/48683">锈琅/锈#48683</a></li>
+<li>跟踪问题:<a href="https://github.com/rust-lang/rust/issues/48683">rust-lang/rust#48683</a></li>
 <li>RFC:<a href="https://github.com/rust-lang/rfcs/blob/master/text/2282-profile-dependencies.md">#2282</a></li>
 </ul>
-<p>可以在中指定配置文件<code>.cargo/config</code>文件.该<code>-Z config-profile</code>命令行标志是使用此功能所必需的.格式与a中的格式相同<code>Cargo.toml</code>表现.如果在多个配置文件中找到,则将使用常规合并设置<a href="reference/config.html#hierarchical-structure">配置层次结构</a>.配置设置优先于清单设置.</p>
+<!-- HERE -->
+<p>可以在<code>.cargo/config</code>文件中指定配置文件。该<code>-Z config-profile</code>命令行标志是使用此功能所必需的。格式与一个 <code>Cargo.toml</code>清单格式相同。如果在多个文件中找到相同的配置，则通过使用常规设置<a href="./config.html#hierarchical-structure">配置层次结构</a>合并。配置设置优先于清单设置。</p>
 <pre><code class="language-toml">[profile.dev]
 opt-level = 3
 </code></pre>
 <pre><code>cargo +nightly build -Z config-profile
 </code></pre>
 <a class="header" href="#namespaced-features" id="namespaced-features"><h3>Namespaced features</h3></a>
+<blockquote>
+<p>特性的命名区间化</p>
+</blockquote>
 <ul>
 <li>原始问题:<a href="https://github.com/rust-lang/cargo/issues/1286">#1286</a></li>
-<li>跟踪问题:<a href="https://github.com/rust-lang/cargo/issues/5565">防锈琅/Cargo#5565</a></li>
+<li>跟踪问题:<a href="https://github.com/rust-lang/cargo/issues/5565">rust-lang/Cargo#5565</a></li>
 </ul>
-<p>目前,不可能在清单中具有相同名称的功能和依赖项.如果你设置<code>namespaced-features</code>至<code>true</code>,功能和依赖项的命名空间是分开的.这样做的结果是,在功能要求中,依赖关系必须以前缀为前缀<code>crate:</code>.像这样:</p>
+<p>目前,不可能在清单中具有相同名称的特性和依赖项。但如果你设置<code>namespaced-features</code>至<code>true</code>,功能和依赖项的命名空间就会是分开的。这样做的结果是,在特性请求中，依赖项必须以<code>crate:</code>为前缀。像这样:</p>
 <pre><code class="language-toml">[package]
 namespaced-features = true
 
@@ -294,29 +328,38 @@ foo = []
 [dependencies]
 baz = { version = &quot;0.1&quot;, optional = true }
 </code></pre>
-<p>为了防止不必要的样板必须显式声明每个可选依赖项的功能,将为任何未定义相同名称的功能的可选依赖项创建隐式功能.但是,如果定义了与依赖项同名的功能,则该功能必须将依赖项作为必需项包括在内<code>foo = [&quot;crate:foo&quot;]</code>.</p>
+<p>为了防止不必要的，必须为每个可选依赖项显式声明特性的模版，将为任何不是定义为相同名称的特性，的可选依赖项创建隐式特性。但是,如果定义了与依赖项同名的特性，则该特性必须将依赖项作为必需项，正如<code>foo = [&quot;crate:foo&quot;]</code>。</p>
 <a class="header" href="#build-plan" id="build-plan"><h3>Build-plan</h3></a>
+<blockquote>
+<p>构建计划</p>
+</blockquote>
 <ul>
-<li>跟踪问题:<a href="https://github.com/rust-lang/cargo/issues/5579">防锈琅/Cargo#5579</a></li>
+<li>跟踪问题:<a href="https://github.com/rust-lang/cargo/issues/5579">rust-lang/Cargo#5579</a></li>
 </ul>
-<p>该<code>--build-plan</code>争论的<code>build</code>命令将输出JSON,其中包含有关将运行哪些命令而不实际执行任何操作的信息.与其他构建工具集成时,这可能很有用.例:</p>
+<p><code>build</code>命令的<code>--build-plan</code>参数，将输出 JSON，其中包含有关将运行哪些命令，和不实际执行任何操作的信息。与其他构建工具集成时,这可能很有用。例:</p>
 <pre><code>cargo +nightly build --build-plan -Z unstable-options
 </code></pre>
 <a class="header" href="#default-run" id="default-run"><h3>default-run</h3></a>
+<blockquote>
+<p>默认运行</p>
+</blockquote>
 <ul>
 <li>原始问题:<a href="https://github.com/rust-lang/cargo/issues/2200">#2200</a></li>
 </ul>
-<p>该<code>default-run</code>选项<code>[package]</code>清单的一部分可用于指定选择的默认二进制文件<code>cargo run</code>.例如,当两者兼而有之时<code>src/bin/a.rs</code>和<code>src/bin/b.rs</code>:</p>
+<p>清单中<code>[package]</code>部分的该<code>default-run</code>选项，可用于指定<code>cargo run</code>选择的默认二进制文件。例如,当存在<code>src/bin/a.rs</code>和<code>src/bin/b.rs</code>两者时，选择前者:</p>
 <pre><code class="language-toml">[package]
 default-run = &quot;a&quot;
 </code></pre>
 <a class="header" href="#metabuild" id="metabuild"><h3>Metabuild</h3></a>
+<blockquote>
+<p>元构建</p>
+</blockquote>
 <ul>
-<li>跟踪问题:<a href="https://github.com/rust-lang/rust/issues/49803">锈琅/锈#49803</a></li>
+<li>跟踪问题:<a href="https://github.com/rust-lang/rust/issues/49803">rust-lang/rust#49803</a></li>
 <li>RFC:<a href="https://github.com/rust-lang/rfcs/blob/master/text/2196-metabuild.md">#2196</a></li>
 </ul>
-<p>Metabuild是一个具有声明性构建脚本的功能.而不是写一个<code>build.rs</code>脚本,您在中指定构建依赖项列表<code>metabuild</code>键入<code>Cargo.toml</code>.将自动生成一个构建脚本,该脚本按顺序运行每个构建依赖项.然后,Metabuild包可以从中读取元数据<code>Cargo.toml</code>指定他们的行为.</p>
-<p>包括<code>cargo-features</code>在顶部<code>Cargo.toml</code>, 一个<code>metadata</code>关键在于<code>package</code>,列出依赖项<code>build-dependencies</code>,并添加metabuild包所需的任何元数据.例:</p>
+<p>Metabuild 是一个具有声明性构建脚本的特性。作为不去写一个<code>build.rs</code>脚本，而是您在<code>Cargo.toml</code>中的<code>metabuild</code>字段，指定构建依赖项列表。其将自动生成一个构建脚本，该脚本按顺序运行每个构建依赖项。然后,Metabuild 包可以从<code>Cargo.toml</code>中读取元数据，执行他们的指定行为。</p>
+<p>需要包括<code>cargo-features</code>在<code>Cargo.toml</code>的顶部, 一个<code>metadata</code>字段在<code>package</code>下，列出<code>build-dependencies</code>依赖项,并添加 metabuild 包所需的任何元数据。例:</p>
 <pre><code class="language-toml">cargo-features = [&quot;metabuild&quot;]
 
 [package]
@@ -331,7 +374,7 @@ bar = &quot;1.0&quot;
 [package.metadata.foo]
 extra-info = &quot;qwerty&quot;
 </code></pre>
-<p>Metabuild包应该有一个名为的公共函数<code>metabuild</code>执行与常规操作相同的操作<code>build.rs</code>脚本会执行.</p>
+<p>Metabuild 包应该有一个名<code>metabuild</code>为的公共函数，它会执行与常规<code>build.rs</code>脚本一样，执行相同操作。</p>
 
                 </main>
 
