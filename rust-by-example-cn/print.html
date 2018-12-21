@@ -2724,10 +2724,7 @@ do <em>not</em> get compiled individually, only crates get compiled）。</p>
 <p>crate 可以编译成二进制可执行文件（binary）或库文件（library）。默认情况下，<code>rustc</code> 将从 crate 产生库文件。这种行为可以通过 <code>rustc</code> 的选项 <code>--crate-type</code> 覆盖。</p>
 <a class="header" href="#a库" id="a库"><h1>库</h1></a>
 <p>让我们创建一个库，然后看看如何把它链接到另一个 crate。</p>
-<pre><pre class="playpen"><code class="language-rust editable">
-# #![allow(unused_variables)]
-#fn main() {
-pub fn public_function() {
+<pre><pre class="playpen"><code class="language-rust editable">pub fn public_function() {
     println!(&quot;called rary's `public_function()`&quot;);
 }
 
@@ -2740,7 +2737,7 @@ pub fn indirect_access() {
 
     private_function();
 }
-#}</code></pre></pre>
+</code></pre></pre>
 <pre><code class="language-bash">$ rustc --crate-type=lib rary.rs
 $ ls lib*
 library.rlib
@@ -2804,10 +2801,7 @@ fn main() {
 <p>注意在实际程序中，需要将死代码清除掉。在这些例子中，我们是出于知识点讲解的需要才特意加上了一些死代码。</p>
 <a class="header" href="#crate-1" id="crate-1"><h1><code>crate</code></h1></a>
 <p><code>crate_type</code> 属性可以告知编译器  crate 是一个二进制的可执行文件还是一个库（甚至是哪种类型的库），<code>crate_time</code> 属性可以设定 crate 的名称。</p>
-<pre><pre class="playpen"><code class="language-rust editable">
-# #![allow(unused_variables)]
-#fn main() {
-// 这个 crate 是一个库文件
+<pre><pre class="playpen"><code class="language-rust editable">// 这个 crate 是一个库文件
 #![crate_type = &quot;lib&quot;]
 // 库的名称为 “rary”
 #![crate_name = &quot;rary&quot;]
@@ -2825,7 +2819,7 @@ pub fn indirect_access() {
 
     private_function();
 }
-#}</code></pre></pre>
+</code></pre></pre>
 <p>当用到 <code>crate_type</code> 属性时，就不再需要给 <code>rustc</code> 命令加上 <code>--crate-type</code> 标记。</p>
 <pre><code class="language-bash">$ rustc lib.rs
 $ ls lib*
@@ -4585,10 +4579,7 @@ fn main() {
 </code></pre></pre>
 <a class="header" href="#dry-不写重复代码" id="dry-不写重复代码"><h1>DRY (不写重复代码)</h1></a>
 <p>通过提取函数或测试单元的公共部分，宏允许编写 DRY 代码（DRY 是 Don’t Repeat Yourself 的缩写，意思为“不要写重复代码”）。这里给出一个例子，实现并测试了关于 <code>Vec&lt;T&gt;</code> 的 <code>+=</code>、<code>*=</code> 和 <code>-=</code> 等运算符。</p>
-<pre><pre class="playpen"><code class="language-rust editable">
-# #![allow(unused_variables)]
-#fn main() {
-use std::ops::{Add, Mul, Sub};
+<pre><pre class="playpen"><code class="language-rust editable">use std::ops::{Add, Mul, Sub};
 
 macro_rules! assert_equal_len {
     // `tt` （token tree，令牌树）指示符用于运算符和令牌。
@@ -4647,7 +4638,7 @@ mod test {
     test!(sub_assign, 3u32, 2u32, 1u32);
 }
 
-#}</code></pre></pre>
+</code></pre></pre>
 <pre><code class="language-bash">$ rustc --test dry.rs &amp;&amp; ./dry
 running 3 tests
 test test::mul_assign ... ok
@@ -6672,6 +6663,12 @@ If you see this, the tests were not compiled nor ran!
     </script>
     
 
+    
+    <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+    <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+    <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
     
 
     

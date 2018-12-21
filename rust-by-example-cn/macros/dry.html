@@ -161,10 +161,7 @@
                 <main>
                     <a class="header" href="#dry-不写重复代码" id="dry-不写重复代码"><h1>DRY (不写重复代码)</h1></a>
 <p>通过提取函数或测试单元的公共部分，宏允许编写 DRY 代码（DRY 是 Don’t Repeat Yourself 的缩写，意思为“不要写重复代码”）。这里给出一个例子，实现并测试了关于 <code>Vec&lt;T&gt;</code> 的 <code>+=</code>、<code>*=</code> 和 <code>-=</code> 等运算符。</p>
-<pre><pre class="playpen"><code class="language-rust editable">
-# #![allow(unused_variables)]
-#fn main() {
-use std::ops::{Add, Mul, Sub};
+<pre><pre class="playpen"><code class="language-rust editable">use std::ops::{Add, Mul, Sub};
 
 macro_rules! assert_equal_len {
     // `tt` （token tree，令牌树）指示符用于运算符和令牌。
@@ -223,7 +220,7 @@ mod test {
     test!(sub_assign, 3u32, 2u32, 1u32);
 }
 
-#}</code></pre></pre>
+</code></pre></pre>
 <pre><code class="language-bash">$ rustc --test dry.rs &amp;&amp; ./dry
 running 3 tests
 test test::mul_assign ... ok
@@ -292,6 +289,12 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured
     </script>
     
 
+    
+    <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
     
 
     

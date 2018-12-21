@@ -161,10 +161,7 @@
                 <main>
                     <a class="header" href="#crate" id="crate"><h1><code>crate</code></h1></a>
 <p><code>crate_type</code> 属性可以告知编译器  crate 是一个二进制的可执行文件还是一个库（甚至是哪种类型的库），<code>crate_time</code> 属性可以设定 crate 的名称。</p>
-<pre><pre class="playpen"><code class="language-rust editable">
-# #![allow(unused_variables)]
-#fn main() {
-// 这个 crate 是一个库文件
+<pre><pre class="playpen"><code class="language-rust editable">// 这个 crate 是一个库文件
 #![crate_type = &quot;lib&quot;]
 // 库的名称为 “rary”
 #![crate_name = &quot;rary&quot;]
@@ -182,7 +179,7 @@ pub fn indirect_access() {
 
     private_function();
 }
-#}</code></pre></pre>
+</code></pre></pre>
 <p>当用到 <code>crate_type</code> 属性时，就不再需要给 <code>rustc</code> 命令加上 <code>--crate-type</code> 标记。</p>
 <pre><code class="language-bash">$ rustc lib.rs
 $ ls lib*
@@ -248,6 +245,12 @@ library.rlib
     </script>
     
 
+    
+    <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
     
 
     
