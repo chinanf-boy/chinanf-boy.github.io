@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on Code &gt; Explain &gt; Transalte 的人</title>
+    <link>/categories/rust/</link>
+    <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 28 Dec 2018 20:13:43 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rust 官方学习索引(译&#43;Copy)</title>
+      <link>/2018/12/28/rust-%E5%AE%98%E6%96%B9%E5%AD%A6%E4%B9%A0%E7%B4%A2%E5%BC%95%E8%AF%91-copy/</link>
+      <pubDate>Fri, 28 Dec 2018 20:13:43 +0800</pubDate>
+      
+      <guid>/2018/12/28/rust-%E5%AE%98%E6%96%B9%E5%AD%A6%E4%B9%A0%E7%B4%A2%E5%BC%95%E8%AF%91-copy/</guid>
+      <description>div.blog-post &amp;gt; h2:first-child {display: none;}
+ &amp;gt 学习 Rust     Rust 从入门 到 **    让我们将 &amp;lt;&amp;lt;Rust 编程语言&amp;gt;&amp;gt;亲切地称为 “the book,” 它会从第一原理开始，给你描述该语言的一个整体。期间，它会教你构建一些项目, 到最后, 你会扎实地掌握了该语言
+开始 the Book! （中文)  如果孜孜不倦地阅读几百页关于一种语言的文章，不太符合你的风格, 那 Rust By Example 可能会合适你。 这本书会用许多单词来讨论代码, 其中RBE(编程实例) 会展示出了一段代码, 和代码注释+描述，会保持尽量简洁。 它还包括练习!
+来看看 Rust by example (中文)      Rust成长    领略核心文档 所有的这些文档都能通过 rustup doc 命令进行本地启用(相应的源码库), 这样就可以在浏览器上查看这些资源文档，而不需要网络!
+标准库 Rust 标准库 APIs - 全面指南.</description>
+    </item>
+    
+  </channel>
+</rss>

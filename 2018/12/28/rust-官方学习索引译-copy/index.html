@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Rust 官方学习索引(译&#43;Copy)</title>
+    
+
+
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+         <link rel="stylesheet" href="https://www.rust-lang.org/static/styles/vendor.css"></link> <link rel="stylesheet" href="https://www.rust-lang.org/static/styles/fonts.css"></link> <link rel="stylesheet" href="https://www.rust-lang.org/static/styles/app.css"></link>
+    
+
+    
+    
+    <style>
+        body {
+            background-color: #fbf6ec;
+            }
+    </style>
+    
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
+
+
+    
+
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Rust 官方学习索引(译&#43;Copy)</h2>
+        <hr />
+
+<p><rawhtml>
+<style>div.blog-post &gt; h2:first-child {display: none;}</style></p>
+
+<header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <h1> &gt 学习 Rust</h1>
+  </div>
+</header>
+
+<section id="learn-begin" class="green">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+<header>
+<h2> Rust 从入门 到 ** </h2>
+<div class="highlight"></div>
+</header>
+<div class="flex flex-column flex-row-l justify-between">
+<section class="pt0">
+<p>让我们将<cite> &lt;&lt;Rust 编程语言&gt;&gt;</cite>亲切地称为 “the book,” 它会从第一原理开始，给你描述该语言的一个整体。期间，它会教你构建一些项目, 到最后,
+你会扎实地掌握了该语言</p>
+<a class="button button-secondary" href="https://kaisery.github.io/trpl-zh-cn/">开始 the Book! （中文)</a>
+</section>
+<section class="pl5-l pt4 pt0-l">
+<p>如果孜孜不倦地阅读几百页关于一种语言的文章，不太符合你的风格,
+那 Rust By Example 可能会合适你。 这本书会用许多单词来讨论代码, 其中RBE(编程实例) 会展示出了一段代码, 和代码注释+描述，会保持尽量简洁。 它还包括练习!</p>
+<a class="button button-secondary" href="http://llever.com/rust-by-example-cn/">来看看 Rust by
+example (中文)</a>
+</section>
+</div>
+  </div>
+</section>
+
+<section id="learn-use" class="white">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <header>
+      <h2 class="black">
+        Rust成长
+      </h2>
+      <div class="highlight"></div>
+    </header>
+    <div class="row black">
+      <h3>领略核心文档</h3>
+      <p>所有的这些文档都能通过
+        <code>rustup doc</code> 命令进行本地启用(相应的源码库), 这样就可以在浏览器上查看这些资源文档，而不需要网络!</p>
+
+<section class="flex flex-column">
+<div class="pt3 flex flex-column flex-row-l">
+  <a href="https://doc.rust-lang.org/std/index.html" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">标准库</a>
+  <p class="pl4-l">
+    Rust 标准库 APIs - 全面指南.
+  </p>
+</div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l">
+  <a href="http://llever.com/cargo-book-zh" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">Cargo
+    书 （非官方中文）</a>
+  <p class="pl4-l">
+    一本关于 Rust’s 包管理器与构建系统的书.
+  </p>
+</div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l">
+  <a href="https://doc.rust-lang.org/rustdoc/index.html" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">rustdoc
+    书</a>
+  <p class="pl4-l">
+    学习如何为了你的箱子(crate)，搞起靓爆镜的文档.
+  </p>
+</div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l">
+  <a href="https://doc.rust-lang.org/rustc/index.html" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">rustc
+    书</a>
+  <p class="pl4-l">
+    熟悉Rust编译器中可用的'门把手'.
+  </p>
+</div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l">
+  <a href="https://doc.rust-lang.org/error-index.html" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">编译器错误索引</a>
+  <p class="pl4-l">
+    深入解释，Rust编译器中可能出现的错误.
+  </p>
+</div>
+</section>
+</div>
+<hr />
+<div class="row black">
+<h3>是时候，在应用领域，展示你的技术啦</h3>
+<section class="flex flex-column">
+<div class="pt3 flex flex-column flex-row-l">
+  <a href="https://rust-lang-nursery.github.io/cli-wg/" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">
+    命令行 书
+  </a>
+  <p class="pl4-l">
+    了解如何在Rust中，搞好有效的命令行应用程序。
+  </p>
+</div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l">
+  <a href="https://rustwasm.github.io/book/" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">
+    WebAssembly 书
+  </a>
+  <p class="pl4-l">
+    使用Rust，搞好浏览器的WebAssembly本地库。
+  </p>
+</div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l">
+  <a href="https://rust-embedded.github.io/book/" class="button button-secondary mw6-l w-100">
+    嵌入式 书
+  </a>
+  <p class="pl4-l">
+    熟练使用 Rust ，搞好微控制器和其他嵌入式系统
+  </p>
+</div>
+
+</section>
+</div>
+
+  </div>
+  </div>
+</section>
+
+<section id="learn-master" class="purple">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <header>
+      <h2>Rust大师</h2>
+      <div class="highlight"></div>
+    </header>
+    <p>对这语言，最黑暗的角落有好奇吗？ 在这里，您可以深入了解细节：</p>
+    <section class="flex flex-column flex-row-l pv0-l">
+      <div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pv4 pv5-m pv6-ns ph4-l">
+        <div class="v-top tc-l">
+          <img src="https://rust-lang.org/static/images/reference.svg" alt="A bookshelf icon" class="mw4 mw5-ns" />
+        </div>
+        <div class="v-top pl4 pl0-l pt0 pt3-l measure-wide-l flex-l flex-column-l flex-auto-l justify-between-l">
+          <p>“参考”书 不是一个正式的规范，但比"the book"更详细和全面</p>
+          <a class="button button-secondary" href="https://doc.rust-lang.org/reference/index.html">
+            进入 参考书
+          </a>
+        </div>
+      </div>
+
+<div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pv4 pv5-m pv6-ns ph4-l">
+  <div class="v-top tc-l">
+    <img src="https://rust-lang.org/static/images/nomicon.svg" alt="Two hands cradling fire" class="mw4 mw5-ns" />
+  </div>
+  <div class="v-top pl4 pl0-l pt0 pt3-l measure-wide-l flex-l flex-column-l flex-auto-l justify-between-l">
+    <p> Rustonomicon是你的指南,有关, 不安全Rust的黑暗艺术。 它有时也被称为“the ’nomicon”。</p>
+
+  <a class="button button-secondary" href="https://doc.rust-lang.org/nomicon/index.html">
+    拥抱 ’nomicon
+  </a>
+  </div>
+</div>
+
+<div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pv3 pv5-m pv6-ns ph4-l">
+  <div class="v-top tc-l">
+    <img src="https://rust-lang.org/static/images/unstable.svg" alt="A hand sharing sparkles" class="mw4 mw5-ns" />
+  </div>
+  <div class="v-top pl4 pl0-l pt0 pt3-l measure-wide-l flex-l flex-column-l flex-auto-l justify-between-l">
+    <p> &lt&lt不稳定 书&gt&gt 中有关于Rust不稳定特性的文档，这些文档只能与nightly版本的“Rust”一起使用。</p>
+    <a class="button button-secondary" href="https://doc.rust-lang.org/unstable-book/index.html">
+      吃吃 不稳定 书
+    </a>
+  </div>
+</div>
+
+</section>
+
+<p></div>
+</section></p>
+
+<br />
+<br />
+<br />
+<br />
+  </div>
+
+<footer>
+  <hr>
+  <small style="font-size:16px;">
+    &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a>
+    
+  </small>
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+</body>
+
+</html>
