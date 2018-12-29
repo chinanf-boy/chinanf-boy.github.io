@@ -85,20 +85,20 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sh <span style="color:#f1fa8c">&#34;find ./source/**/*.md&#34;</span>
 sh: find ./source/**/*.md: No such file or directory</code></pre></div>
 <p>or</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># find-md.sh
-</span><span style="color:#6272a4"></span><span style="color:#f1fa8c">&#34;find ./source/**/*.md&#34;</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ find-md.sh
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># find-md.sh</span>
+<span style="color:#f1fa8c">&#34;find ./source/**/*.md&#34;</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ find-md.sh
 sh: find ./source/**/*.md: No such file or directory</code></pre></div>
 <h2 id="解决-find">解决: <code>$(find )</code></h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># fix-find.sh
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">list</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>find ./source -type f -name <span style="color:#f1fa8c">\*</span>.md<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># fix-find.sh</span>
+<span style="color:#8be9fd;font-style:italic">list</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>find ./source -type f -name <span style="color:#f1fa8c">\*</span>.md<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
 <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$list</span><span style="color:#f1fa8c">\n&#34;</span>;</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ fix-find.sh
 ./source/README.md
 ./source/readme.zh.md</code></pre></div>
 <blockquote>
 <p>注意: 会有空行</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># fix-find.sh
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">list</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>find ./source -type f -name <span style="color:#f1fa8c">\*</span>.md<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># fix-find.sh</span>
+<span style="color:#8be9fd;font-style:italic">list</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>find ./source -type f -name <span style="color:#f1fa8c">\*</span>.md<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
 <span style="color:#ff79c6">for</span> file in <span style="color:#8be9fd;font-style:italic">$list</span>; <span style="color:#ff79c6">do</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> ! -f <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$file</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">]</span>; <span style="color:#ff79c6">then</span>
 <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;MISSING: </span><span style="color:#8be9fd;font-style:italic">$file</span><span style="color:#f1fa8c">&#34;</span>
 <span style="color:#ff79c6">else</span>
@@ -115,15 +115,11 @@ sh: find ./source/**/*.md: No such file or directory</code></pre></div>
 <li><a href="https://stackoverflow.com/questions/8509226/using-find-command-in-bash-script">stackoverflow.com</a></li>
 </ul>
 
-<br />
-<br />
-<br />
-<br />
   </div>
 
 <footer>
   <hr>
-  <small style="font-size:16px;">
+  <small style="font-size:16px;float:right;margin:1rem;">
     &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a>
     
   </small>

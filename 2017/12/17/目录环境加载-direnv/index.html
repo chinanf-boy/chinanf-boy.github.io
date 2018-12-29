@@ -82,8 +82,8 @@
 <p>简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中</p>
 
 <p>比如我 zsh</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#6272a4"># Add direnv hook
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">eval</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>direnv hook zsh<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#6272a4"># Add direnv hook</span>
+<span style="color:#8be9fd;font-style:italic">eval</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>direnv hook zsh<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span></code></pre></div>
 <p><a href="https://github.com/direnv/direnv">当然前提是要下载，在github 上就有很详细</a></p>
 
 <pre><code>cd/my_project
@@ -98,10 +98,10 @@ direnv allow
 <p>问题: 不需要 <code>unloading or loading .envrc</code> 之类的日志输出时。</p>
 
 <p>.zshrc</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#6272a4"># Add direnv hook
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">eval</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>direnv hook zsh<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
-<span style="color:#6272a4"># remove direnv log loading
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">DIRENV_LOG_FORMAT</span><span style="color:#ff79c6">=</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#6272a4"># Add direnv hook</span>
+<span style="color:#8be9fd;font-style:italic">eval</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>direnv hook zsh<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+<span style="color:#6272a4"># remove direnv log loading</span>
+<span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">DIRENV_LOG_FORMAT</span><span style="color:#ff79c6">=</span></code></pre></div>
 <p>原文，</p>
 
 <pre><code>direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。
@@ -111,15 +111,11 @@ direnv allow
 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。
 </code></pre>
 
-<br />
-<br />
-<br />
-<br />
   </div>
 
 <footer>
   <hr>
-  <small style="font-size:16px;">
+  <small style="font-size:16px;float:right;margin:1rem;">
     &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a>
     
   </small>

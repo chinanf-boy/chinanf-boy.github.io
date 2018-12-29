@@ -106,8 +106,8 @@ Error: Your Xcode <span style="color:#ff79c6">(</span><span style="color:#bd93f9
 
 <h3 id="ana-conda-运行手动版本失败">(Ana)Conda，运行手动版本失败</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ff79c6">(</span>虚拟环境名<span style="color:#ff79c6">)</span>$ conda install matplotlib
-<span style="color:#6272a4"># 之后，还是出错
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">(</span>虚拟环境名<span style="color:#ff79c6">)</span>$ python wechat_jump_iOS_py3.py
+<span style="color:#6272a4"># 之后，还是出错</span>
+<span style="color:#ff79c6">(</span>虚拟环境名<span style="color:#ff79c6">)</span>$ python wechat_jump_iOS_py3.py
 RuntimeError: Python is not installed as a framework. The Mac OS X backend will not be able to <span style="color:#ff79c6">function</span> correctly <span style="color:#ff79c6">if</span> Python is not installed as a framework. See the Python documentation <span style="color:#ff79c6">for</span> more information on installing Python as a framework on Mac OS X. Please either reinstall Python as a framework, or try one of the other backends. If you are using <span style="color:#ff79c6">(</span>Ana<span style="color:#ff79c6">)</span>Conda please install python.app and replace the use of <span style="color:#f1fa8c">&#39;python&#39;</span> with <span style="color:#f1fa8c">&#39;pythonw&#39;</span>. See <span style="color:#f1fa8c">&#39;Working with Matplotlib on OSX&#39;</span> in the Matplotlib FAQ <span style="color:#ff79c6">for</span> more information.</code></pre></div>
 <table>
 <thead>
@@ -132,19 +132,19 @@ RuntimeError: Python is not installed as a framework. The Mac OS X backend will 
 <ul>
 <li>1. 开手机调试测试</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># 解锁keychain，以便可以正常的签名应用，
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">PASSWORD</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$1</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># 解锁keychain，以便可以正常的签名应用，</span>
+<span style="color:#8be9fd;font-style:italic">PASSWORD</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$1</span>
 security unlock-keychain -p <span style="color:#8be9fd;font-style:italic">$PASSWORD</span> ~/Library/Keychains/login.keychain
 
-<span style="color:#6272a4"># 获取设备的UDID
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">UDID</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(</span>idevice_id -l | head -n1<span style="color:#ff79c6">)</span>
+<span style="color:#6272a4"># 获取设备的UDID</span>
+<span style="color:#8be9fd;font-style:italic">UDID</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(</span>idevice_id -l | head -n1<span style="color:#ff79c6">)</span>
 
 <span style="color:#8be9fd;font-style:italic">cd</span> /安装的位置/WebDriverAgent
 
-<span style="color:#6272a4"># 运行测试
-</span><span style="color:#6272a4"></span>xcodebuild -project WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination <span style="color:#f1fa8c">&#34;id=</span><span style="color:#8be9fd;font-style:italic">$UDID</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#8be9fd;font-style:italic">test</span> &amp;
-<span style="color:#6272a4"># 开启代理
-</span><span style="color:#6272a4"></span>iproxy <span style="color:#bd93f9">8100</span> <span style="color:#bd93f9">8100</span> &amp; </code></pre></div>
+<span style="color:#6272a4"># 运行测试</span>
+xcodebuild -project WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination <span style="color:#f1fa8c">&#34;id=</span><span style="color:#8be9fd;font-style:italic">$UDID</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#8be9fd;font-style:italic">test</span> &amp;
+<span style="color:#6272a4"># 开启代理</span>
+iproxy <span style="color:#bd93f9">8100</span> <span style="color:#bd93f9">8100</span> &amp; </code></pre></div>
 <p>另开终端，<em>有没有一个终端/或合在一起的方法呢?)</em></p>
 
 <ul>
@@ -158,15 +158,11 @@ security unlock-keychain -p <span style="color:#8be9fd;font-style:italic">$PASSW
 python wechat_jump_auto_iOS.py</code></pre></div>
 <p><a href="https://testerhome.com/topics/7220#%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%9B%BF%E4%BB%A3Xcode">参考</a> |</p>
 
-<br />
-<br />
-<br />
-<br />
   </div>
 
 <footer>
   <hr>
-  <small style="font-size:16px;">
+  <small style="font-size:16px;float:right;margin:1rem;">
     &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a>
     
   </small>

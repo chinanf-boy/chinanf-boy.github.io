@@ -24,10 +24,10 @@
     
     <item>
       <title>heroku web  port 问题</title>
-      <link>/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/</link>
+      <link>/2017/10/17/heroku-web-port-%E9%97%AE%E9%A2%98/</link>
       <pubDate>Tue, 17 Oct 2017 16:13:05 +0000</pubDate>
       
-      <guid>/2017/10/17/heroku-web--port-%E9%97%AE%E9%A2%98/</guid>
+      <guid>/2017/10/17/heroku-web-port-%E9%97%AE%E9%A2%98/</guid>
       <description>本文说明，一点heroku疑问
 procfile heroku运行的命令文件
 web worker clock  本地项目可以 查看procfile

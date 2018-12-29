@@ -276,10 +276,10 @@ HEAD <span style="color:#bd93f9">2</span></code></pre></div>
     <span style="color:#ff79c6">if</span> ch <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#39;.&#39;</span> {
         gotDigit = <span style="color:#ff79c6">true</span>
         <span style="color:#ff79c6">for</span> l.ch <span style="color:#ff79c6">&gt;=</span> <span style="color:#f1fa8c">&#39;0&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span> l.ch <span style="color:#ff79c6">&lt;=</span> <span style="color:#f1fa8c">&#39;9&#39;</span> {
-            l.next()
+            l.<span style="color:#50fa7b">next</span>()
         }
         <span style="color:#ff79c6">if</span> l.ch <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;.&#39;</span> {
-            l.next()
+            l.<span style="color:#50fa7b">next</span>()
         }
     }
     <span style="color:#6272a4">// ...
@@ -289,7 +289,7 @@ HEAD <span style="color:#bd93f9">2</span></code></pre></div>
 <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#39;}&#39;</span>:
     tok = RBRACE
 <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#39;=&#39;</span>:
-    tok = l.choice(<span style="color:#f1fa8c">&#39;=&#39;</span>, ASSIGN, EQUALS)
+    tok = l.<span style="color:#50fa7b">choice</span>(<span style="color:#f1fa8c">&#39;=&#39;</span>, ASSIGN, EQUALS)
 <span style="color:#ff79c6">//</span> <span style="color:#ff79c6">...</span></code></pre></div>
 <p>关于 AWK 语法的一个奇怪的事情是解析<code>/</code>和<code>/regex/</code>并不明确 - 你必须知道解析中的上下文，以便知道返回的是一个<code>DIV</code>还是一个<code>REGEX</code>的标记。因此，词法分析器暴露了一个针对普通标记的<code>Scan</code>方法和一个解析器调用正则标记时，所需的<code>ScanRegex</code>方法。</p>
 
@@ -312,19 +312,19 @@ BEGIN <span style="color:#ff79c6">{</span>
 </ul>
 
 <p>我无法想出一个更好的方式，来完成两种深度递归树的路径方法 - <code>expr()</code>和<code>printExpr()</code>在代码中：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>parser) expr() Expr      { <span style="color:#ff79c6">return</span> p.getLine() }
-<span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>parser) printExpr() Expr { <span style="color:#ff79c6">return</span> p._assign(p.printCond) }</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>parser) <span style="color:#50fa7b">expr</span>() Expr      { <span style="color:#ff79c6">return</span> p.<span style="color:#50fa7b">getLine</span>() }
+<span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>parser) <span style="color:#50fa7b">printExpr</span>() Expr { <span style="color:#ff79c6">return</span> p.<span style="color:#50fa7b">_assign</span>(p.printCond) }</code></pre></div>
 <p>内置的函数调用是需要指定解析类别的，这样在解析时，可检查参数的数量（在某些情况下是类型）。例如，在解析<code>match(str, regex)</code>时：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">case</span> F_MATCH:
-    p.next()
-    p.expect(LPAREN)
-    str <span style="color:#ff79c6">:=</span> p.expr()
-    p.commaNewlines()
-    regex <span style="color:#ff79c6">:=</span> p.regexStr(p.expr)
-    p.expect(RPAREN)
+    p.<span style="color:#50fa7b">next</span>()
+    p.<span style="color:#50fa7b">expect</span>(LPAREN)
+    str <span style="color:#ff79c6">:=</span> p.<span style="color:#50fa7b">expr</span>()
+    p.<span style="color:#50fa7b">commaNewlines</span>()
+    regex <span style="color:#ff79c6">:=</span> p.<span style="color:#50fa7b">regexStr</span>(p.expr)
+    p.<span style="color:#50fa7b">expect</span>(RPAREN)
     <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">&amp;</span>CallExpr{F_MATCH, []Expr{str, regex}}</code></pre></div>
 <p>许多解析函数会提出，无效语法或意外标记的错误。而我不会在每一步都检查这些错误，让生活更容易的方式是，在<code>panic</code>后，在顶层<code>recover(恢复)</code>制定的<code>ParseError</code>类型。这避免了深度递归代码中的大量重复错误处理。以下是顶层<code>ParseProgram</code>函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> ParseProgram(src []<span style="color:#8be9fd">byte</span>, config <span style="color:#ff79c6">*</span>ParserConfig) (
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">ParseProgram</span>(src []<span style="color:#8be9fd">byte</span>, config <span style="color:#ff79c6">*</span>ParserConfig) (
         prog <span style="color:#ff79c6">*</span>Program, err <span style="color:#8be9fd">error</span>) {
     <span style="color:#ff79c6">defer</span> <span style="color:#8be9fd;font-style:italic">func</span>() {
         <span style="color:#ff79c6">if</span> r <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">recover</span>(); r <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
@@ -343,9 +343,9 @@ BEGIN <span style="color:#ff79c6">{</span>
 <p>事实上，分解器是我写了一段时间的代码之一。这是我 对 GoAWK 不太满意的的一部分。它有效，但它很混乱，我仍然不确定我是否覆盖了所有边缘情况。</p>
 
 <p>复杂性来自这样一个事实，即在调用函数时，您不知道调用点上的参数是，标量还是数组。您必须仔细阅读被调用函数中的类型（并且可能在它调用的函数中）以确定它。考虑这个 AWK 程序：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">function g(b, y) { <span style="color:#ff79c6">return</span> f(b, y) }
-function f(a, x) { <span style="color:#ff79c6">return</span> a[x] }
-BEGIN { c[<span style="color:#bd93f9">1</span>]=<span style="color:#bd93f9">2</span>; print f(c, <span style="color:#bd93f9">1</span>); print g(c, <span style="color:#bd93f9">1</span>) }</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">function <span style="color:#50fa7b">g</span>(b, y) { <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">f</span>(b, y) }
+function <span style="color:#50fa7b">f</span>(a, x) { <span style="color:#ff79c6">return</span> a[x] }
+BEGIN { c[<span style="color:#bd93f9">1</span>]=<span style="color:#bd93f9">2</span>; print <span style="color:#50fa7b">f</span>(c, <span style="color:#bd93f9">1</span>); print <span style="color:#50fa7b">g</span>(c, <span style="color:#bd93f9">1</span>) }</code></pre></div>
 <p>该程序只打印<code>2</code>,两次。但是当我们在<code>g</code>里面调用<code>f</code>时，我们还不知道参数的类型。这是分解器工作的一部分，它用迭代的方式解决了这个问题。（参见<a href="https://github.com/benhoyt/goawk/blob/a75cecd04d8aa8829c04b97bf370c8afaf53a68e/parser/resolve.go#L223"><code>resolveVars</code></a>，在<code>resolve.go</code>）。</p>
 
 <p>找出未知参数类型后，解析器将整数索引，分配给所有的变量引用，全局和局部。</p>
@@ -365,17 +365,17 @@ BEGIN { c[<span style="color:#bd93f9">1</span>]=<span style="color:#bd93f9">2</s
 </ul>
 
 <p>大多数二进制表达式（除短路的<code>&amp;&amp;</code>和<code>||</code>）都可通过<code>evalBinary</code>进行求值，其中包含对运算符标记的进一步 switch，如下所示：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>interp) evalBinary(op Token, l, r value) (value, <span style="color:#8be9fd">error</span>) {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>interp) <span style="color:#50fa7b">evalBinary</span>(op Token, l, r value) (value, <span style="color:#8be9fd">error</span>) {
     <span style="color:#ff79c6">switch</span> op {
     <span style="color:#ff79c6">case</span> ADD:
-        <span style="color:#ff79c6">return</span> num(l.num() <span style="color:#ff79c6">+</span> r.num()), <span style="color:#ff79c6">nil</span>
+        <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">num</span>(l.<span style="color:#50fa7b">num</span>() <span style="color:#ff79c6">+</span> r.<span style="color:#50fa7b">num</span>()), <span style="color:#ff79c6">nil</span>
     <span style="color:#ff79c6">case</span> SUB:
-        <span style="color:#ff79c6">return</span> num(l.num() <span style="color:#ff79c6">-</span> r.num()), <span style="color:#ff79c6">nil</span>
+        <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">num</span>(l.<span style="color:#50fa7b">num</span>() <span style="color:#ff79c6">-</span> r.<span style="color:#50fa7b">num</span>()), <span style="color:#ff79c6">nil</span>
     <span style="color:#ff79c6">case</span> EQUALS:
-        <span style="color:#ff79c6">if</span> l.isTrueStr() <span style="color:#ff79c6">||</span> r.isTrueStr() {
-            <span style="color:#ff79c6">return</span> boolean(p.toString(l) <span style="color:#ff79c6">==</span> p.toString(r)), <span style="color:#ff79c6">nil</span>
+        <span style="color:#ff79c6">if</span> l.<span style="color:#50fa7b">isTrueStr</span>() <span style="color:#ff79c6">||</span> r.<span style="color:#50fa7b">isTrueStr</span>() {
+            <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">boolean</span>(p.<span style="color:#50fa7b">toString</span>(l) <span style="color:#ff79c6">==</span> p.<span style="color:#50fa7b">toString</span>(r)), <span style="color:#ff79c6">nil</span>
         } <span style="color:#ff79c6">else</span> {
-            <span style="color:#ff79c6">return</span> boolean(l.n <span style="color:#ff79c6">==</span> r.n), <span style="color:#ff79c6">nil</span>
+            <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">boolean</span>(l.n <span style="color:#ff79c6">==</span> r.n), <span style="color:#ff79c6">nil</span>
         }
     <span style="color:#6272a4">// ...
 </span><span style="color:#6272a4"></span>}</code></pre></div>
@@ -393,12 +393,12 @@ BEGIN { c[<span style="color:#bd93f9">1</span>]=<span style="color:#bd93f9">2</s
     sep <span style="color:#8be9fd">byte</span>
 }
 
-<span style="color:#8be9fd;font-style:italic">func</span> (s byteSplitter) scan(data []<span style="color:#8be9fd">byte</span>, atEOF <span style="color:#8be9fd">bool</span>)
+<span style="color:#8be9fd;font-style:italic">func</span> (s byteSplitter) <span style="color:#50fa7b">scan</span>(data []<span style="color:#8be9fd">byte</span>, atEOF <span style="color:#8be9fd">bool</span>)
         (advance <span style="color:#8be9fd">int</span>, token []<span style="color:#8be9fd">byte</span>, err <span style="color:#8be9fd">error</span>) {
     <span style="color:#ff79c6">if</span> atEOF <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">len</span>(data) <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span> {
         <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>, <span style="color:#ff79c6">nil</span>, <span style="color:#ff79c6">nil</span>
     }
-    <span style="color:#ff79c6">if</span> i <span style="color:#ff79c6">:=</span> bytes.IndexByte(data, s.sep); i <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">0</span> {
+    <span style="color:#ff79c6">if</span> i <span style="color:#ff79c6">:=</span> bytes.<span style="color:#50fa7b">IndexByte</span>(data, s.sep); i <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">0</span> {
         <span style="color:#6272a4">// 我们有一个完整的sep终止符记录
 </span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">return</span> i <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>, data[<span style="color:#bd93f9">0</span>:i], <span style="color:#ff79c6">nil</span>
     }
@@ -425,13 +425,13 @@ BEGIN { c[<span style="color:#bd93f9">1</span>]=<span style="color:#bd93f9">2</s
 
 <p>说到正则表达式，我使用简单的有界缓存，来缓存正则表达式的编译，这足以加速几乎所有的 AWK 脚本：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// 编译正则表达式字符串（或从正则表达式缓存中获取）
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>interp) compileRegex(regex <span style="color:#8be9fd">string</span>) (<span style="color:#ff79c6">*</span>regexp.Regexp, <span style="color:#8be9fd">error</span>) {
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>interp) <span style="color:#50fa7b">compileRegex</span>(regex <span style="color:#8be9fd">string</span>) (<span style="color:#ff79c6">*</span>regexp.Regexp, <span style="color:#8be9fd">error</span>) {
     <span style="color:#ff79c6">if</span> re, ok <span style="color:#ff79c6">:=</span> p.regexCache[regex]; ok {
         <span style="color:#ff79c6">return</span> re, <span style="color:#ff79c6">nil</span>
     }
-    re, err <span style="color:#ff79c6">:=</span> regexp.Compile(regex)
+    re, err <span style="color:#ff79c6">:=</span> regexp.<span style="color:#50fa7b">Compile</span>(regex)
     <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
-        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">nil</span>, newError(<span style="color:#f1fa8c">&#34;invalid regex %q: %s&#34;</span>, regex, err)
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">nil</span>, <span style="color:#50fa7b">newError</span>(<span style="color:#f1fa8c">&#34;invalid regex %q: %s&#34;</span>, regex, err)
     }
     <span style="color:#6272a4">// 哎呀，非LRU 缓存：只缓存前N个正则表达式
 </span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(p.regexCache) &lt; maxCachedRegexes {
@@ -481,7 +481,7 @@ parse error at <span style="color:#bd93f9">1</span>:21: expected <span style="co
 <h3 id="lexer-测试">Lexer 测试</h3>
 
 <p><a href="https://github.com/benhoyt/goawk/blob/master/lexer/lexer_test.go">词法分析器测试</a>使用了<a href="https://dave.cheney.net/2013/06/09/writing-table-driven-tests-in-go">表格驱动的测试</a>，比较源输入和词法分析器字符串化版本的输出。这包括检查标记位置（行：列）以及标记的字符串值（用于<code>NAME</code>，<code>NUMBER</code>，<code>STRING</code>，和<code>REGEX</code>标记）：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> TestLexer(t <span style="color:#ff79c6">*</span>testing.T) {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">TestLexer</span>(t <span style="color:#ff79c6">*</span>testing.T) {
     tests <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">struct</span> {
         input  <span style="color:#8be9fd">string</span>
         output <span style="color:#8be9fd">string</span>
@@ -512,7 +512,7 @@ parse error at <span style="color:#bd93f9">1</span>:21: expected <span style="co
 <p>有时<code>awk</code>和<code>gawk</code>都有不同的已知行为，或者不会捕获与 GoAWK 相同的错误，因此在一些测试中我必须按名称排除解释器 - 也就是在源字符串中使用特殊的<code>!awk</code>（“非 awk”）注释来完成的。。</p>
 
 <p>以下是解释器单元测试的样子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> TestInterp(t <span style="color:#ff79c6">*</span>testing.T) {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">TestInterp</span>(t <span style="color:#ff79c6">*</span>testing.T) {
     tests <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">struct</span> {
         src    <span style="color:#8be9fd">string</span>
         in     <span style="color:#8be9fd">string</span>
@@ -534,7 +534,7 @@ parse error at <span style="color:#bd93f9">1</span>:21: expected <span style="co
 <h3 id="命令行测试">命令行测试</h3>
 
 <p>我也想测试<code>goawk</code>命令行处理，所以在<a href="https://github.com/benhoyt/goawk/blob/master/goawk_test.go"><code>goawk_test.go</code></a>有，另一套测试的东西，表格驱动测试像<code>-f</code>，<code>-v</code>，<code>ARGV</code>，和相关的命令行其他的事情：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> TestCommandLine(t <span style="color:#ff79c6">*</span>testing.T) {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">TestCommandLine</span>(t <span style="color:#ff79c6">*</span>testing.T) {
     tests <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">struct</span> {
         args   []<span style="color:#8be9fd">string</span>
         stdin  <span style="color:#8be9fd">string</span>
@@ -563,9 +563,9 @@ parse error at <span style="color:#bd93f9">1</span>:21: expected <span style="co
 <p>我使用的最后一种测试是“模糊测试”。这是一种向解释器发送随机输入直到它中断的方法。我通过这种方式捕获了几次崩溃（panic），甚至 Go 编译器中的<a href="https://github.com/benhoyt/goawk/commit/89cf2a2c3958f2e602d553a9abc418aa0031a0f0">一个错误</a>导致了对 segfault 的越界切片访问（虽然我发现在 Go 1.11 中已经修复了）。</p>
 
 <p>为了驱动模糊测试，我简单使用了<a href="https://github.com/dvyukov/go-fuzz">go-fuzz</a>库的<code>Fuzz</code>函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> Fuzz(data []<span style="color:#8be9fd">byte</span>) <span style="color:#8be9fd">int</span> {
-    input <span style="color:#ff79c6">:=</span> bytes.NewReader([]<span style="color:#8be9fd;font-style:italic">byte</span>(<span style="color:#f1fa8c">&#34;foo bar\nbaz buz\n&#34;</span>))
-    err <span style="color:#ff79c6">:=</span> interp.Exec(<span style="color:#8be9fd;font-style:italic">string</span>(data), <span style="color:#f1fa8c">&#34; &#34;</span>, input, <span style="color:#ff79c6">&amp;</span>bytes.Buffer{})
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">Fuzz</span>(data []<span style="color:#8be9fd">byte</span>) <span style="color:#8be9fd">int</span> {
+    input <span style="color:#ff79c6">:=</span> bytes.<span style="color:#50fa7b">NewReader</span>([]<span style="color:#8be9fd;font-style:italic">byte</span>(<span style="color:#f1fa8c">&#34;foo bar\nbaz buz\n&#34;</span>))
+    err <span style="color:#ff79c6">:=</span> interp.<span style="color:#50fa7b">Exec</span>(<span style="color:#8be9fd;font-style:italic">string</span>(data), <span style="color:#f1fa8c">&#34; &#34;</span>, input, <span style="color:#ff79c6">&amp;</span>bytes.Buffer{})
     <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
         <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>
     }
@@ -610,17 +610,17 @@ parse error at <span style="color:#bd93f9">1</span>:21: expected <span style="co
 
 <p>首先，我添加了一个<code>-cpuprofile</code>命令行标志，若设置了这个，会启用 CPU 分析。下面是代码：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">*</span>cpuprofile <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;&#34;</span> {
-    f, err <span style="color:#ff79c6">:=</span> os.Create(<span style="color:#ff79c6">*</span>cpuprofile)
+    f, err <span style="color:#ff79c6">:=</span> os.<span style="color:#50fa7b">Create</span>(<span style="color:#ff79c6">*</span>cpuprofile)
     <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
-        errorExit(<span style="color:#f1fa8c">&#34;could not create CPU profile: %v&#34;</span>, err)
+        <span style="color:#50fa7b">errorExit</span>(<span style="color:#f1fa8c">&#34;could not create CPU profile: %v&#34;</span>, err)
     }
-    <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">:=</span> pprof.StartCPUProfile(f); err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
-        errorExit(<span style="color:#f1fa8c">&#34;could not start CPU profile: %v&#34;</span>, err)
+    <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">:=</span> pprof.<span style="color:#50fa7b">StartCPUProfile</span>(f); err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+        <span style="color:#50fa7b">errorExit</span>(<span style="color:#f1fa8c">&#34;could not start CPU profile: %v&#34;</span>, err)
     }
 }
 <span style="color:#6272a4">// ...运行 interp.Exec ...
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">*</span>cpuprofile <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;&#34;</span> {
-    pprof.StopCPUProfile()
+    pprof.<span style="color:#50fa7b">StopCPUProfile</span>()
 }</code></pre></div>
 <p>然后，您可以运行，要分析的 AWK 程序：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./goawk -cpuprofile<span style="color:#ff79c6">=</span>prof <span style="color:#f1fa8c">&#39;BEGIN { for (i=0; i&lt;100000000; i++) s++ }&#39;</span></code></pre></div>
@@ -893,15 +893,11 @@ real    0m0.983s</code></pre></div>
 
 <p>谢谢阅读！</p>
 
-<br />
-<br />
-<br />
-<br />
   </div>
 
 <footer>
   <hr>
-  <small style="font-size:16px;">
+  <small style="font-size:16px;float:right;margin:1rem;">
     &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a>
     
   </small>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Js - Module模式 - 私有-公有-命名空间</title>
+    
+
+
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+        <link rel="stylesheet" href="/css/main.css">
+    
+
+    
+    
+    <style>
+        body {
+            background-color: #fbf6ec;
+            }
+    </style>
+    
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
+
+
+    
+
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Js - Module模式 - 私有-公有-命名空间</h2>
+        <ol>
+<li>在javascript中没有真正意义的‘私有’，因为不像传统语言-                                                                   js 没有访问修饰符。从技术上来说，我们不能称变量为公有或私有.</p></li>
+
+<li><p>因此我们需使用函数作用域来模拟这个概念。</p></li>
+
+<li><p>由于闭包的存在，声明的变量和方法只在该模式内部可用，</p></li>
+</ol>
+
+<!-- more -->
+
+<p>但在返回对象上的定义的变量和方法，则对外部使用者都是可用的。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> testModule <span style="color:#ff79c6">=</span> (<span style="color:#8be9fd;font-style:italic">function</span> () {
+<span style="color:#6272a4">//私有变量
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> myPrivateVar <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+<span style="color:#6272a4">//记录所有参数的私有函数
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> myPrivateMethod <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(bar){
+console.log(bar);
+}
+<span style="color:#ff79c6">return</span> {
+<span style="color:#6272a4">//公有变量
+</span><span style="color:#6272a4"></span>myPublicVar <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;foo&#34;</span>,
+<span style="color:#6272a4">//调用私有变量和方法的公有函数
+</span><span style="color:#6272a4"></span>myPublicFunction<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">function</span>(bar){
+
+<span style="color:#6272a4">//增加私有计数器值
+</span><span style="color:#6272a4"></span>
+ myPrivateVar<span style="color:#ff79c6">++</span>;
+ console.log(myPrivateVar);
+<span style="color:#6272a4">//传入bar调用私有方法
+</span><span style="color:#6272a4"></span> myPrivateMethod(bar);
+}
+};
+})();
+console.log(testModule);
+<span style="color:#6272a4">//用公有变量传值公有函数
+</span><span style="color:#6272a4"></span>testModule.myPublicFunction(testModule.myPublicVar);
+</code></pre></div>
+<p><strong>输出</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{ myPublicVar<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;foo&#39;</span>,
+ myPublicFunction<span style="color:#ff79c6">:</span> [<span style="color:#8be9fd;font-style:italic">Function</span><span style="color:#ff79c6">:</span> myPublicFunction] }
+<span style="color:#bd93f9">1</span>
+foo
+</code></pre></div>
+<p>可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。</p>
+
+<p>却可以，通过两个函数来操控，myPrivateVar表现得就像一个私有变量。</p>
+
+  </div>
+
+<footer>
+  <hr>
+  <small style="font-size:16px;float:right;margin:1rem;">
+    &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a>
+    
+  </small>
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+</body>
+
+</html>

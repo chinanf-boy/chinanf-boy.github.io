@@ -152,7 +152,7 @@
 	<span style="color:#f1fa8c">&#34;github.com/alecthomas/chroma/styles&#34;</span>
 )
 
-<span style="color:#8be9fd;font-style:italic">func</span> main() {
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
     <span style="color:#6272a4">// 源码
 </span><span style="color:#6272a4"></span>	s <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">`package main
 </span><span style="color:#f1fa8c">
@@ -164,34 +164,34 @@
 </span><span style="color:#f1fa8c">	fmt.Println(&#34;Hello, playground&#34;)
 </span><span style="color:#f1fa8c">}
 </span><span style="color:#f1fa8c">`</span>
-	res <span style="color:#ff79c6">:=</span> colorCode(s) <span style="color:#6272a4">// example 返回，高亮字符
-</span><span style="color:#6272a4"></span>	fmt.Println(res)
+	res <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">colorCode</span>(s) <span style="color:#6272a4">// example 返回，高亮字符
+</span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(res)
 }
 <span style="color:#ff79c6">//</span> 接 下面的 example<span style="color:#ff79c6">-*</span></code></pre></div>
 <p><details open></p>
 
 <p><summary> <span>example-0，使用 <code>quick.Highlight</code> 输出</span> </summary></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> colorCode(s <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">string</span> {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">colorCode</span>(s <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">string</span> {
 	res <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">new</span>(bytes.Buffer) <span style="color:#6272a4">// 放 高亮的字符
 </span><span style="color:#6272a4"></span>
-	style <span style="color:#ff79c6">:=</span> styles.Get(<span style="color:#f1fa8c">&#34;dark&#34;</span>) <span style="color:#6272a4">// 主题设置
+	style <span style="color:#ff79c6">:=</span> styles.<span style="color:#50fa7b">Get</span>(<span style="color:#f1fa8c">&#34;dark&#34;</span>) <span style="color:#6272a4">// 主题设置
 </span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">if</span> style <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
-		fmt.Println(style)
+		fmt.<span style="color:#50fa7b">Println</span>(style)
 		style = styles.Fallback <span style="color:#6272a4">// 默认主题
 </span><span style="color:#6272a4"></span>	}
 
 	attr <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;terminal&#34;</span> <span style="color:#6272a4">// 终端
-</span><span style="color:#6272a4"></span>	formatter <span style="color:#ff79c6">:=</span> formatters.Get(attr) <span style="color:#6272a4">// 环境的变量，默认为`html`
+</span><span style="color:#6272a4"></span>	formatter <span style="color:#ff79c6">:=</span> formatters.<span style="color:#50fa7b">Get</span>(attr) <span style="color:#6272a4">// 环境的变量，默认为`html`
 </span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">if</span> formatter <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
 		formatter = formatters.Fallback <span style="color:#6272a4">// 默认格式化
 </span><span style="color:#6272a4"></span>	}
 
-    err <span style="color:#ff79c6">:=</span> quick.Highlight(res, s, <span style="color:#f1fa8c">&#34;go&#34;</span>, attr, style.Name) <span style="color:#6272a4">// 直接高亮
+    err <span style="color:#ff79c6">:=</span> quick.<span style="color:#50fa7b">Highlight</span>(res, s, <span style="color:#f1fa8c">&#34;go&#34;</span>, attr, style.Name) <span style="color:#6272a4">// 直接高亮
 </span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// 1. 放哪，2. 源码，3. 语言，4. 格式环境，5. 主题名
 </span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
-		log.Fatalln(err)
+		log.<span style="color:#50fa7b">Fatalln</span>(err)
 	}
-	<span style="color:#ff79c6">return</span> res.String()
+	<span style="color:#ff79c6">return</span> res.<span style="color:#50fa7b">String</span>()
 }</code></pre></div>
 <p></details></p>
 
@@ -200,31 +200,31 @@
 <p><details></p>
 
 <p><summary> <span>example-1，使用 <code>formatter.Format</code> 输出</span> </summary></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> colorCode(s <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">string</span> {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">colorCode</span>(s <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">string</span> {
 	res <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">new</span>(bytes.Buffer)
-	lexer <span style="color:#ff79c6">:=</span> lexers.Get(<span style="color:#f1fa8c">&#34;go&#34;</span>)
+	lexer <span style="color:#ff79c6">:=</span> lexers.<span style="color:#50fa7b">Get</span>(<span style="color:#f1fa8c">&#34;go&#34;</span>)
 	<span style="color:#ff79c6">if</span> lexer <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
 		lexer = lexers.Fallback
 	}
-	style <span style="color:#ff79c6">:=</span> styles.Get(<span style="color:#f1fa8c">&#34;dracula&#34;</span>)
+	style <span style="color:#ff79c6">:=</span> styles.<span style="color:#50fa7b">Get</span>(<span style="color:#f1fa8c">&#34;dracula&#34;</span>)
 	<span style="color:#ff79c6">if</span> style <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
 		style = styles.Fallback
 	}
 
 	<span style="color:#6272a4">// [html json noop terminal terminal16m terminal256 tokens]
-</span><span style="color:#6272a4"></span>	formatter <span style="color:#ff79c6">:=</span> formatters.Get(<span style="color:#f1fa8c">&#34;terminal&#34;</span>)
+</span><span style="color:#6272a4"></span>	formatter <span style="color:#ff79c6">:=</span> formatters.<span style="color:#50fa7b">Get</span>(<span style="color:#f1fa8c">&#34;terminal&#34;</span>)
 	<span style="color:#ff79c6">if</span> formatter <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
 		formatter = formatters.Fallback
 	}
-	iterator, err <span style="color:#ff79c6">:=</span> lexer.Tokenise(<span style="color:#ff79c6">nil</span>, s) <span style="color:#6272a4">// 拿到迭代器
+	iterator, err <span style="color:#ff79c6">:=</span> lexer.<span style="color:#50fa7b">Tokenise</span>(<span style="color:#ff79c6">nil</span>, s) <span style="color:#6272a4">// 拿到迭代器
 </span><span style="color:#6272a4"></span>
-	err = formatter.Format(res, style, iterator)
+	err = formatter.<span style="color:#50fa7b">Format</span>(res, style, iterator)
 
 	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
-		log.Fatalln(err)
+		log.<span style="color:#50fa7b">Fatalln</span>(err)
 	}
 
-	<span style="color:#ff79c6">return</span> res.String()
+	<span style="color:#ff79c6">return</span> res.<span style="color:#50fa7b">String</span>()
 }</code></pre></div>
 <p></details></p>
 
@@ -234,15 +234,11 @@
 <li><a href="https://github.com/chinanf-boy/howdoi/blob/master/pkg/colorCode.go#L20">howdoi, 彩色代码输出终端</a></li>
 </ul>
 
-<br />
-<br />
-<br />
-<br />
   </div>
 
 <footer>
   <hr>
-  <small style="font-size:16px;">
+  <small style="font-size:16px;float:right;margin:1rem;">
     &copy; 2018 <a href="https://github.com/chinanf-boy">yobrave.</a>
     
   </small>

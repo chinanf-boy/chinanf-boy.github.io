@@ -86,10 +86,10 @@ typescript作为微软实现的js的超集.
     
     <item>
       <title>Js - Module模式 - 私有-公有-命名空间</title>
-      <link>/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+      <link>/2017/02/06/js-module%E6%A8%A1%E5%BC%8F-%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
       <pubDate>Mon, 06 Feb 2017 15:42:53 +0000</pubDate>
       
-      <guid>/2017/02/06/js---module%E6%A8%A1%E5%BC%8F---%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+      <guid>/2017/02/06/js-module%E6%A8%A1%E5%BC%8F-%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
       <description>在javascript中没有真正意义的‘私有’，因为不像传统语言- js 没有访问修饰符。从技术上来说，我们不能称变量为公有或私有.
  因此我们需使用函数作用域来模拟这个概念。
  由于闭包的存在，声明的变量和方法只在该模式内部可用，

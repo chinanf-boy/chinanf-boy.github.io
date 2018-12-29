@@ -165,9 +165,7 @@ $ npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         compadd -- install up
     }
     compdef _test_completion npm 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>

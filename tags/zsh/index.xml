@@ -153,17 +153,15 @@ $ npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         compadd -- install up
     }
     compdef _test_completion npm 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
       <title>Anaconda conda command not found : 解决</title>
-      <link>/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/</link>
+      <link>/2017/08/12/anaconda-conda-command-not-found-%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Sat, 12 Aug 2017 09:58:18 +0000</pubDate>
       
-      <guid>/2017/08/12/anaconda-conda-command-not-found--%E8%A7%A3%E5%86%B3/</guid>
+      <guid>/2017/08/12/anaconda-conda-command-not-found-%E8%A7%A3%E5%86%B3/</guid>
       <description>conda  是 Anaconda 的 命令行
  因为使用zsh终端后，conda路径失去了
 ohmyzsh
