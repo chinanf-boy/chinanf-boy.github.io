@@ -1,0 +1,34 @@
+# Mutability
+[回去](toc/default.html)
+
+---
+
+Modern programming languages differ in their attitude towards data mutability.
+
+Where does Rust land?
+
+---
+
+## An Example
+
+<pre><code data-source="chapters/shared/code/mutability/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Correct
+
+<pre><code data-source="chapters/shared/code/mutability/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+In Rust data mutability must be declared.
+
+Mutability is always apparent from reading the code.
+
+---
+
+Mutability is fundamental to Rust and is a common consideration.
+
+---
+
+Mutability is a property of variables and bindings, not of the bound data!

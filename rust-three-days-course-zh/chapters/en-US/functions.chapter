@@ -1,0 +1,48 @@
+# Functions
+[回去](toc/default.html)
+
+---
+
+## Declaration
+
+<pre><code data-source="chapters/shared/code/functions/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Arguments
+
+<pre><code data-source="chapters/shared/code/functions/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Returning
+
+Returning is optional. Signatures must be complete.
+
+<pre><code data-source="chapters/shared/code/functions/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Generic Functions
+
+Generic functions have type parameters.
+
+<pre><code data-source="chapters/shared/code/functions/4.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## With Bounds
+
+Generic functions can also have bounds.
+
+These are equivalent:
+
+<pre><code data-source="chapters/shared/code/functions/5.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+# Remarks
+
+-   Types which do not have the `Copy` trait are consumed when passed by value.
+-   Returning references may involve clarifying lifetimes (discussed later.)
+
