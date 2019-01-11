@@ -70,42 +70,54 @@
   <div class="outer">
   <ul class="list-group">
     
+
     <li class="list-group-item title">
       
          
         
         
-          <a href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/"><time style="color:black;">2017-12-04</time>  / npx 不用下载全局包啦 </a>
+            
+                <a href="/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/"><time style="color:black;">2017-12-04</time>  / npx 不用下载全局包啦 </a>
+            
         
       
     </li>
     
+
     <li class="list-group-item title">
       
          
         
         
-          <a href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/"><time style="color:black;">2017-11-14</time>  / zsh completion tab 补全提示 </a>
+            
+                <a href="/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/"><time style="color:black;">2017-11-14</time>  / zsh completion tab 补全提示 </a>
+            
         
       
     </li>
     
+
     <li class="list-group-item title">
       
          
         
         
-          <a href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/"><time style="color:black;">2017-10-01</time>  / node 命令行应用 与 npm 包发布 </a>
+            
+                <a href="/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/"><time style="color:black;">2017-10-01</time>  / node 命令行应用 与 npm 包发布 </a>
+            
         
       
     </li>
     
+
     <li class="list-group-item title">
       
          
         
         
-          <a href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/"><time style="color:black;">2017-09-12</time>  / pip npm conda 换下载源 </a>
+            
+                <a href="/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/"><time style="color:black;">2017-09-12</time>  / pip npm conda 换下载源 </a>
+            
         
       
     </li>
@@ -115,7 +127,7 @@
 
 <footer>
   <hr>
-  <small style="font-size:16px;float:right;margin:1rem;">
+  <small style="font-size:16px;float:right;margin:0 1rem;">
     &copy; 2019 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
     
   </small>
@@ -138,6 +150,51 @@
   gtag('config', 'UA-128555056-1');
 </script>
 
+
+
+<script>
+ (function(){
+  var seriesA = document.getElementsByTagName("a");
+  seriesA = Array.from(seriesA).filter(x =>x.getAttribute("data-series"));
+  if(seriesA.length){
+    var nameSeries = {}
+    seriesA.forEach(x =>{
+      var xdata = x.getAttribute("data-series")
+      if(nameSeries[xdata]){
+        nameSeries[xdata].push(x)
+      }else{
+        nameSeries[xdata] = [x]
+      }
+    })
+  }
+
+  function createE(){
+    var detailsArr = [] 
+    var postPosArr = [] 
+    for(let i in nameSeries){
+      var dcreateE = document.createElement("details")
+      var screateE = document.createElement("summary")
+      screateE.textContent = i;
+      var inner = screateE.outerHTML + "<br >" 
+
+      nameSeries[i].forEach(x =>{
+        inner += x.outerHTML
+        x.parentElement.style.display = "none"
+      })
+      postPosArr.push(nameSeries[i][0])
+      dcreateE.innerHTML = inner
+      detailsArr.push(dcreateE)
+    }
+    console.info(postPosArr)
+    console.log(detailsArr[0])
+    postPosArr.forEach(a =>{
+      a.parentElement.style.display = "block"
+      a.outerHTML = detailsArr.shift().outerHTML
+    })
+  }
+  createE()
+ })()
+</script>
 
 
 </body>

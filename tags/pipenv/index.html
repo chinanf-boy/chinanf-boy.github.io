@@ -70,22 +70,28 @@
   <div class="outer">
   <ul class="list-group">
     
+
     <li class="list-group-item title">
       
          
         
         
-          <a href="/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/"><time style="color:black;">2018-11-29</time>  / 你应该使用pipenv啦 </a>
+            
+                <a href="/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/"><time style="color:black;">2018-11-29</time>  / 你应该使用pipenv啦 </a>
+            
         
       
     </li>
     
+
     <li class="list-group-item title">
       
          
         
         
-          <a href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/"><time style="color:black;">2017-10-09</time>  / pipenv 快速构建虚拟python环境 </a>
+            
+                <a href="/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/"><time style="color:black;">2017-10-09</time>  / pipenv 快速构建虚拟python环境 </a>
+            
         
       
     </li>
@@ -95,7 +101,7 @@
 
 <footer>
   <hr>
-  <small style="font-size:16px;float:right;margin:1rem;">
+  <small style="font-size:16px;float:right;margin:0 1rem;">
     &copy; 2019 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
     
   </small>
@@ -118,6 +124,51 @@
   gtag('config', 'UA-128555056-1');
 </script>
 
+
+
+<script>
+ (function(){
+  var seriesA = document.getElementsByTagName("a");
+  seriesA = Array.from(seriesA).filter(x =>x.getAttribute("data-series"));
+  if(seriesA.length){
+    var nameSeries = {}
+    seriesA.forEach(x =>{
+      var xdata = x.getAttribute("data-series")
+      if(nameSeries[xdata]){
+        nameSeries[xdata].push(x)
+      }else{
+        nameSeries[xdata] = [x]
+      }
+    })
+  }
+
+  function createE(){
+    var detailsArr = [] 
+    var postPosArr = [] 
+    for(let i in nameSeries){
+      var dcreateE = document.createElement("details")
+      var screateE = document.createElement("summary")
+      screateE.textContent = i;
+      var inner = screateE.outerHTML + "<br >" 
+
+      nameSeries[i].forEach(x =>{
+        inner += x.outerHTML
+        x.parentElement.style.display = "none"
+      })
+      postPosArr.push(nameSeries[i][0])
+      dcreateE.innerHTML = inner
+      detailsArr.push(dcreateE)
+    }
+    console.info(postPosArr)
+    console.log(detailsArr[0])
+    postPosArr.forEach(a =>{
+      a.parentElement.style.display = "block"
+      a.outerHTML = detailsArr.shift().outerHTML
+    })
+  }
+  createE()
+ })()
+</script>
 
 
 </body>
