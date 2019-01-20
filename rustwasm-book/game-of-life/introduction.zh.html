@@ -3,34 +3,37 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>教程:康威的生命游戏 - Rust and WebAssembly</title>
+        <title>教程 - Rust 和 WebAssembly</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="">
+        <meta name="description" content="立即开始学习如何一起使用 Rust 和 WebAssembly.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <base href="../">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
-        <link rel="stylesheet" href="book.css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
 
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
 
         
-
     </head>
     <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
@@ -69,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="background-and-concepts.zh.html"><strong aria-hidden="true">2.</strong> 背景和概念</a></li><li><a href="game-of-life/introduction.zh.html" class="active"><strong aria-hidden="true">3.</strong> 教程:康威的生命游戏</a></li><li><ol class="section"><li><a href="game-of-life/setup.zh.html"><strong aria-hidden="true">3.1.</strong> 安装</a></li><li><a href="game-of-life/hello-world.zh.html"><strong aria-hidden="true">3.2.</strong> Hello, World!</a></li><li><a href="game-of-life/rules.zh.html"><strong aria-hidden="true">3.3.</strong> 规则</a></li><li><a href="game-of-life/implementing.zh.html"><strong aria-hidden="true">3.4.</strong> 实现 生命</a></li><li><a href="game-of-life/debugging.zh.html"><strong aria-hidden="true">3.5.</strong> 调试</a></li><li><a href="game-of-life/interactivity.zh.html"><strong aria-hidden="true">3.6.</strong> 增加交互性</a></li><li><a href="game-of-life/time-profiling.zh.html"><strong aria-hidden="true">3.7.</strong> 时间分析</a></li><li><a href="game-of-life/code-size.zh.html"><strong aria-hidden="true">3.8.</strong> 收缩 .wasm 尺寸</a></li><li><a href="game-of-life/production.zh.html"><strong aria-hidden="true">3.9.</strong> 生产 与 发布</a></li><li class="spacer"></li></ol></li><li><a href="crates.zh.html"><strong aria-hidden="true">5.</strong> 你应该知道的Crates箱子</a></li><li><a href="tools.zh.html"><strong aria-hidden="true">6.</strong> 你应该知道的工具</a></li><li><a href="js-ffi.zh.html"><strong aria-hidden="true">7.</strong> JavaScript 互操作</a></li></ol>
+            <ol class="chapter"><li><a href="../introduction.zh.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="../why-rust-and-webassembly.zh.html"><strong aria-hidden="true">2.</strong> 为啥 Rust 要与 WebAssembly 合作?</a></li><li><a href="../background-and-concepts.zh.html"><strong aria-hidden="true">3.</strong> 背景和概念</a></li><li><ol class="section"><li><a href="../what-is-webassembly.zh.html"><strong aria-hidden="true">3.1.</strong> 什么是 WebAssembly?</a></li><li class="spacer"></li></ol></li><li><a href="../game-of-life/introduction.zh.html" class="active"><strong aria-hidden="true">4.</strong> 教程</a></li><li><ol class="section"><li><a href="../game-of-life/setup.zh.html"><strong aria-hidden="true">4.1.</strong> 安装</a></li><li><a href="../game-of-life/hello-world.zh.html"><strong aria-hidden="true">4.2.</strong> Hello, World!</a></li><li><a href="../game-of-life/rules.zh.html"><strong aria-hidden="true">4.3.</strong> 规则们</a></li><li><a href="../game-of-life/implementing.zh.html"><strong aria-hidden="true">4.4.</strong> 实现康威的生命游戏</a></li><li><a href="../game-of-life/testing.zh.html"><strong aria-hidden="true">4.5.</strong> 测试 生命</a></li><li><a href="../game-of-life/debugging.zh.html"><strong aria-hidden="true">4.6.</strong> 调试</a></li><li><a href="../game-of-life/interactivity.zh.html"><strong aria-hidden="true">4.7.</strong> 添加 交互性</a></li><li><a href="../game-of-life/time-profiling.zh.html"><strong aria-hidden="true">4.8.</strong> 时间 分析</a></li><li><a href="../game-of-life/code-size.zh.html"><strong aria-hidden="true">4.9.</strong> 收缩 .wasm 尺寸</a></li><li><a href="../game-of-life/publishing-to-npm.zh.html"><strong aria-hidden="true">4.10.</strong> 发布到 npm</a></li><li class="spacer"></li></ol></li><li><a href="../reference/index.zh.html"><strong aria-hidden="true">5.</strong> 参考</a></li><li><ol class="section"><li><a href="../reference/crates.zh.html"><strong aria-hidden="true">5.1.</strong> 你应该知道的 Crates(箱) </a></li><li><a href="../reference/tools.zh.html"><strong aria-hidden="true">5.2.</strong> 你应该知道的 工具 </a></li><li><a href="../reference/project-templates.zh.html"><strong aria-hidden="true">5.3.</strong> 项目模版 Templates</a></li><li><a href="../reference/debugging.zh.html"><strong aria-hidden="true">5.4.</strong> 调试</a></li><li><a href="../reference/time-profiling.zh.html"><strong aria-hidden="true">5.5.</strong> 时间 分析</a></li><li><a href="../reference/code-size.zh.html"><strong aria-hidden="true">5.6.</strong> 收缩 .wasm 尺寸</a></li><li><a href="../reference/js-ffi.zh.html"><strong aria-hidden="true">5.7.</strong> javascript 互操作</a></li><li><a href="../reference/which-crates-work-with-wasm.zh.html"><strong aria-hidden="true">5.8.</strong> 哪些 现成的(crates)箱能与 WebAssembly 合作？</a></li><li><a href="../reference/add-wasm-support-to-crate.zh.html"><strong aria-hidden="true">5.9.</strong> 如何向通用 箱 添加 WebAssembly 支持</a></li><li><a href="../reference/deploying-to-production.zh.html"><strong aria-hidden="true">5.10.</strong> 将 Rust 和 Webassembly 部署到生产中</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -99,10 +102,10 @@
                             
                         </div>
 
-                        <h1 class="menu-title">Rust and WebAssembly</h1> 
+                        <h1 class="menu-title">Rust 和 WebAssembly</h1> 
 
                         <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
                         </div>
@@ -133,34 +136,34 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="game-of-life/introduction.zh.html#a教程-康威的生命游戏" id="a教程-康威的生命游戏"><h1>教程: 康威的生命游戏</h1></a>
-<p>这是一个用Rust和WebAssembly实现的教程<a href="https://zh.wikipedia.org/wiki/%E5%BA%B7%E5%A8%81%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F">康威的生命游戏</a>.</p>
+                        <a class="header" href="#a教程-康威的生命游戏" id="a教程-康威的生命游戏"><h1>教程: 康威的生命游戏</h1></a>
+<p>这是一个用 Rust 和 WebAssembly 实现的教程<a href="https://zh.wikipedia.org/wiki/%E5%BA%B7%E5%A8%81%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F">康威的生命游戏</a>.</p>
 <blockquote>
 <p>谁是 康威-ConWay 我怎么知道 ❓</p>
 </blockquote>
-<a class="header" href="game-of-life/introduction.zh.html#a本教程适合谁" id="a本教程适合谁"><h2>本教程适合谁?</h2></a>
-<p>本教程适用于 已经具有基本 Rust和JavaScript经验 的任何人,并希望学习如何一起使用 Rust,WebAssembly和JavaScript.</p>
-<p>阅读和编写基本的 Rust,JavaScript和HTML 应该会很舒服. 你绝对不需要成为专家才能懂.</p>
-<a class="header" href="game-of-life/introduction.zh.html#a我会学到什么" id="a我会学到什么"><h2>我会学到什么?</h2></a>
+<a class="header" href="#a本教程适合谁" id="a本教程适合谁"><h2>本教程适合谁?</h2></a>
+<p>本教程适用于 已经具有基本 Rust 和 JavaScript 经验 的任何人,并希望学习如何一起使用 Rust,WebAssembly 和 JavaScript.</p>
+<p>阅读和编写基本的 Rust,JavaScript 和 HTML 应该会很舒服. 你绝对不需要成为专家才能懂.</p>
+<a class="header" href="#a我会学到什么" id="a我会学到什么"><h2>我会学到什么?</h2></a>
 <ul>
 <li>
-<p>怎样设置Rust工具链, 且将其编译为 WebAssembly</p>
+<p>怎样设置 Rust 工具链, 且将其编译为 WebAssembly</p>
 </li>
 <li>
-<p>用于由Rust, WebAssembly,
-JavaScript, HTML, 和 CSS开发的多语言程序工作流程</p>
+<p>用于由 Rust, WebAssembly,
+JavaScript, HTML, 和 CSS 开发的多语言程序工作流程</p>
 </li>
 <li>
-<p>怎样设计 让 Rust 和 WebAssembly 最优化的API, 当然还有JavaScript</p>
+<p>怎样设计 让 Rust 和 WebAssembly 最优化的 API, 当然还有 JavaScript</p>
 </li>
 <li>
-<p>怎样调试从Rust编译而来的WebAssembly模块</p>
+<p>怎样调试从 Rust 编译而来的 WebAssembly 模块</p>
 </li>
 <li>
-<p>怎样对Rust和WebAssembly的程序进行时间分析, 让它变得更快</p>
+<p>怎样对 Rust 和 WebAssembly 的程序进行时间分析, 让它变得更快</p>
 </li>
 <li>
-<p>怎样对Rust和WebAssembly的程序进行大小分析, 让它变小和网络下载速度更快</p>
+<p>怎样对 Rust 和 WebAssembly 的程序进行大小分析, 让它变小和网络下载速度更快</p>
 </li>
 </ul>
 
@@ -169,13 +172,13 @@ JavaScript, HTML, 和 CSS开发的多语言程序工作流程</p>
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="background-and-concepts.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../what-is-webassembly.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="game-of-life/setup.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../game-of-life/setup.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -187,13 +190,13 @@ JavaScript, HTML, 和 CSS开发的多语言程序工作流程</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="background-and-concepts.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../what-is-webassembly.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="game-of-life/setup.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../game-of-life/setup.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -204,25 +207,39 @@ JavaScript, HTML, 和 CSS开发的多语言程序工作流程</p>
         
 
         
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-128555056-1', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
 
         
 
         
-
-        
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
-        
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        
+
         
 
     </body>
