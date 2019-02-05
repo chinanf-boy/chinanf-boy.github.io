@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2019/02/05/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AF%87-%E8%B5%B7%E5%A7%8B/</loc>
+    <lastmod>2019-02-05T15:27:19+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019/01/11/%E7%B3%BB%E5%88%97-%E5%8A%9F%E8%83%BD%E6%B7%BB%E5%8A%A0-hugo-theme/</loc>
     <lastmod>2019-01-11T12:26:15+08:00</lastmod>
   </url>
@@ -975,6 +980,12 @@
   </url>
   
   <url>
+    <loc>/tags/talk/</loc>
+    <lastmod>2019-02-05T15:27:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/templates/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -995,6 +1006,12 @@
   <url>
     <loc>/tags/translate/</loc>
     <lastmod>2018-10-29T16:02:30+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/translate/</loc>
+    <lastmod>2019-02-05T15:27:19+08:00</lastmod>
     <priority>0</priority>
   </url>
   

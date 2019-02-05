@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>终端命令行篇-起始</title>
+    
+
+
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+        <link rel="stylesheet" href="/css/main.css">
+    
+
+    
+    
+    <style>
+        body {
+            background-color: #fbf6ec;
+            }
+    </style>
+    
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
+
+
+    
+
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>终端命令行篇-起始</h2>
+        
+
+<h2 id="终端命令脚本">终端命令脚本</h2>
+
+<p>为了，不一次次重复。集合工作流程为命令，是必要的。
+我所有的<a href="https://github.com/chinanf-boy?utf8=%E2%9C%93&amp;tab=repositories&amp;q=-zh&amp;type=source&amp;language=">*-zh 项目:中文翻译 和 *-explain:解释</a>都是从这里开始的。</p>
+
+<h3 id="开始中文翻译-zh">开始中文翻译(zh)</h3>
+
+<pre><code>$ init https://github.com/worrydream/Tangle.git es
+</code></pre>
+
+<h3 id="开始解释项目-explain">开始解释项目(explain)</h3>
+
+<pre><code>$ init https://github.com/worrydream/Tangle.git ex
+</code></pre>
+
+<h2 id="总览脚本">总览脚本</h2>
+
+<h3 id="此终端脚本思路">此终端脚本思路</h3>
+
+<ul>
+<li><strong>1.</strong> 获取 添加了 <code>zh</code>/<code>explain</code> 的 项目名称，并建立此名称目录</li>
+<li><strong>2.</strong> 初始化 <code>git</code> 存储库，放入目录 <code>source</code> 中(此处存在本地/远程的分支，由第三参数决定)</li>
+<li><strong>3.</strong> 得到 source 中，存储库的最新 <code>git</code> 信息(日期，commit 码)</li>
+<li><strong>4.</strong> 启用 <a href="https://github.com/sapegin/mrm">mrm</a> ，一个 <code>gitignore，readme</code>&hellip; 快速初始化的 js 工具。(运用之前获得的信息+参数)</li>
+<li><strong>5.</strong> 找出 source 中的所有 md 文件，并添加到上一目录层<code>.mds-list</code>文件(使用 find)</li>
+<li><strong>6.</strong> 复制本地脚本<a href="#sync-en.sh">sync-en.sh</a>到项目目录</li>
+<li><strong>7.</strong> 对 source 目录 执行[translate-mds]- js 翻译工具</li>
+<li><strong>8.</strong> 对 项目目录 执行 <a href="https://github.com/chinanf-boy/doc-templite">doc-templite</a> - js 模版工具</li>
+<li><strong>9.</strong> 添加 ，<a href="https://github.com/github/hub">hub</a> 的快速初始化项目，命令脚本文件(留待后来使用)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># init.sh</span>
+
+<span style="color:#8be9fd;font-style:italic">one</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">1</span>#*github.com<span style="color:#f1fa8c">\/</span><span style="color:#f1fa8c">}</span>
+<span style="color:#6272a4">#echo $one</span>
+<span style="color:#8be9fd;font-style:italic">two</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">one</span>//.git/<span style="color:#f1fa8c">}</span>
+<span style="color:#6272a4">#echo $two</span>
+<span style="color:#8be9fd;font-style:italic">repo</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">two</span>#*/<span style="color:#f1fa8c">}</span>
+<span style="color:#6272a4">#echo $repo</span>
+
+<span style="color:#6272a4"># https://github.com/worrydream/Tangle.git ==&gt; Tangle</span>
+
+<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$2</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ex&#34;</span> <span style="color:#ff79c6">]</span>;<span style="color:#ff79c6">then</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;explain &lt;-&gt;&lt;0&gt;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">repodir</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$repo</span><span style="color:#f1fa8c">&#39;-explain&#39;</span>
+<span style="color:#ff79c6">else</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;translate &lt;&gt;&lt;&gt;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">repodir</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$repo</span><span style="color:#f1fa8c">&#39;-zh&#39;</span>
+<span style="color:#ff79c6">fi</span>
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;1. </span><span style="color:#8be9fd;font-style:italic">$repodir</span><span style="color:#f1fa8c">&#34;</span>
+mkdir <span style="color:#8be9fd;font-style:italic">$repodir</span>
+<span style="color:#8be9fd;font-style:italic">cd</span> <span style="color:#8be9fd;font-style:italic">$repodir</span>
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n2. source dir&#34;</span>
+git init
+<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$3</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;no&#34;</span> <span style="color:#ff79c6">]</span>;<span style="color:#ff79c6">then</span>
+<span style="color:#6272a4"># es repo.git no local-path</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">`</span>ln -s <span style="color:#8be9fd;font-style:italic">$4</span> ./source<span style="color:#f1fa8c">`</span>
+<span style="color:#ff79c6">else</span>
+git clone <span style="color:#8be9fd;font-style:italic">$1</span> <span style="color:#f1fa8c">&#39;source&#39;</span>
+<span style="color:#ff79c6">fi</span>
+<span style="color:#8be9fd;font-style:italic">cd</span> <span style="color:#f1fa8c">&#39;source&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">COMMIT</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>git rev-parse HEAD<span style="color:#f1fa8c">`</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">DATE</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>git log -1 --date<span style="color:#ff79c6">=</span>short --format<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;%ad&#34;</span><span style="color:#f1fa8c">`</span>
+<span style="color:#8be9fd;font-style:italic">cd</span> -
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n3. git info&#34;</span>
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$1</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$COMMIT</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$DATE</span>
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n4. mrm ***&#34;</span>
+mrm readme --config:repos <span style="color:#8be9fd;font-style:italic">$2</span> --config:name <span style="color:#8be9fd;font-style:italic">$1</span> --config:commit <span style="color:#8be9fd;font-style:italic">$COMMIT</span> --config:date <span style="color:#8be9fd;font-style:italic">$DATE</span>
+mrm gitignore
+<span style="color:#8be9fd;font-style:italic">source</span> ~/.zshrc  &amp;&gt;/dev/null
+
+sleep .5
+
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;5. find *.md with source into .mds-list&#34;</span>
+<span style="color:#8be9fd;font-style:italic">list</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>find ./source -type f -name <span style="color:#f1fa8c">\*</span>.md<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;here &gt;&gt;&gt;&gt;&gt;&gt; </span><span style="color:#8be9fd;font-style:italic">$list</span><span style="color:#f1fa8c">\n&#34;</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$list</span><span style="color:#f1fa8c">\n&#34;</span> &gt; <span style="color:#f1fa8c">&#39;./.mds-list&#39;</span>;
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;6. add sync-en.sh to sync en:*.md with .mds-list &#34;</span>
+cat <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$HOME</span><span style="color:#f1fa8c">/sync-en.sh&#34;</span> &gt; ./sync-en.sh
+chmod +x ./sync-en.sh
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n7. use translate-mds, translate readme.md and move&#34;</span>
+translateMds source/readme.md -T <span style="color:#f1fa8c">&#39;inlineCode,link&#39;</span> -C
+cp source/readme.md ./en.md
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n8. doc-templite&#34;</span>
+<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$2</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ex&#34;</span> <span style="color:#ff79c6">]</span>;<span style="color:#ff79c6">then</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;explain&#34;</span>
+doc-templite-explain
+cat source/readme.zh.md &gt;&gt; ./zh.md
+<span style="color:#ff79c6">else</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;translate&#34;</span>
+doc-templite-translate
+cat source/readme.zh.md &gt;&gt; ./readme.md
+<span style="color:#ff79c6">fi</span>
+
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n9. &gt;&gt; hub cmd to hub-create.sh&#34;</span>
+<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$2</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ex&#34;</span> <span style="color:#ff79c6">]</span>;<span style="color:#ff79c6">then</span>
+
+<span style="color:#8be9fd;font-style:italic">huC</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;hub create -d &#34;explain:&lt;&#39;</span><span style="color:#8be9fd;font-style:italic">$two</span><span style="color:#f1fa8c">&#39;&gt; something :heart: explaining&#34; &#39;</span>
+
+<span style="color:#ff79c6">else</span>
+
+<span style="color:#8be9fd;font-style:italic">huC</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;hub create -d &#34;中文翻译:&lt;&#39;</span><span style="color:#8be9fd;font-style:italic">$two</span><span style="color:#f1fa8c">&#39;&gt; something :heart: working on&#34; &#39;</span>
+<span style="color:#ff79c6">fi</span>
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$huC</span> &gt;&gt; hub-create.sh</code></pre></div>
+<h3 id="sync-en-sh">sync-en.sh</h3>
+
+<p>主要是，对<code>.mds-list</code>的复制</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat <span style="color:#f1fa8c">&#39;./.mds-list&#39;</span> | <span style="color:#ff79c6">while</span> <span style="color:#8be9fd;font-style:italic">read</span> line <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">[[</span> -n <span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">line</span><span style="color:#f1fa8c">}</span> <span style="color:#ff79c6">]]</span>
+<span style="color:#ff79c6">do</span>
+    <span style="color:#8be9fd;font-style:italic">testseq</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;zh.md&#34;</span>
+    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[[</span> <span style="color:#8be9fd;font-style:italic">$line</span> <span style="color:#ff79c6">=</span>~ <span style="color:#8be9fd;font-style:italic">$testseq</span> <span style="color:#ff79c6">||</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$line</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#ff79c6">]]</span>; <span style="color:#ff79c6">then</span>
+        <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;skip </span><span style="color:#8be9fd;font-style:italic">$line</span><span style="color:#f1fa8c">&#34;</span>
+    <span style="color:#ff79c6">else</span>
+        <span style="color:#8be9fd;font-style:italic">lowline</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span><span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$line</span><span style="color:#f1fa8c">&#34;</span> | awk <span style="color:#f1fa8c">&#39;{print tolower($0)}&#39;</span><span style="color:#f1fa8c">`</span>
+        <span style="color:#6272a4"># lowwer string</span>
+        <span style="color:#8be9fd;font-style:italic">zh</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">line</span>//source<span style="color:#f1fa8c">\/</span>/<span style="color:#f1fa8c">}</span>
+        <span style="color:#8be9fd;font-style:italic">dir</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(</span>dirname <span style="color:#8be9fd;font-style:italic">$zh</span><span style="color:#ff79c6">)</span>
+
+        <span style="color:#8be9fd;font-style:italic">source_readme</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;./source/readme.md&#34;</span>
+        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[[</span> <span style="color:#8be9fd;font-style:italic">$lowline</span> <span style="color:#ff79c6">==</span> <span style="color:#8be9fd;font-style:italic">$source_readme</span> <span style="color:#ff79c6">]]</span>;<span style="color:#ff79c6">then</span>
+        <span style="color:#6272a4"># source/[readme|REAMDE].md =&gt; en.md</span>
+        <span style="color:#8be9fd;font-style:italic">filename</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en.md&#34;</span>
+        <span style="color:#ff79c6">else</span>
+        <span style="color:#6272a4"># source/other.md =&gt; ./other.md</span>
+        <span style="color:#8be9fd;font-style:italic">filename</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(</span>basename <span style="color:#8be9fd;font-style:italic">$zh</span><span style="color:#ff79c6">)</span>
+        <span style="color:#ff79c6">fi</span>
+        <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$line</span><span style="color:#f1fa8c"> &gt;&gt; </span><span style="color:#8be9fd;font-style:italic">$dir</span><span style="color:#f1fa8c">/</span><span style="color:#8be9fd;font-style:italic">$filename</span><span style="color:#f1fa8c">&#34;</span>
+        mkdir -p <span style="color:#8be9fd;font-style:italic">$dir</span> <span style="color:#ff79c6">&amp;&amp;</span> cp <span style="color:#8be9fd;font-style:italic">$line</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$_</span><span style="color:#f1fa8c">/</span><span style="color:#8be9fd;font-style:italic">$filename</span><span style="color:#f1fa8c">&#34;</span>
+    <span style="color:#ff79c6">fi</span>
+<span style="color:#ff79c6">done</span></code></pre></div>
+  </div>
+
+<footer>
+  <hr>
+  <small style="font-size:16px;float:right;margin:0 1rem;">
+    &copy; 2019 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
+    
+  </small>
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+<script>
+ (function(){
+  var seriesA = document.getElementsByTagName("a");
+  seriesA = Array.from(seriesA).filter(x =>x.getAttribute("data-series"));
+  if(seriesA.length){
+    var nameSeries = {}
+    seriesA.forEach(x =>{
+      var xdata = x.getAttribute("data-series")
+      if(nameSeries[xdata]){
+        nameSeries[xdata].push(x)
+      }else{
+        nameSeries[xdata] = [x]
+      }
+    })
+  }
+
+  function createE(){
+    var detailsArr = [] 
+    var postPosArr = [] 
+    for(let i in nameSeries){
+      var dcreateE = document.createElement("details")
+      var screateE = document.createElement("summary")
+      screateE.textContent = i;
+      var inner = screateE.outerHTML + "<br >" 
+
+      nameSeries[i].forEach(x =>{
+        inner += x.outerHTML
+        x.parentElement.style.display = "none"
+      })
+      postPosArr.push(nameSeries[i][0])
+      dcreateE.innerHTML = inner
+      detailsArr.push(dcreateE)
+    }
+    console.info(postPosArr)
+    console.log(detailsArr[0])
+    postPosArr.forEach(a =>{
+      a.parentElement.style.display = "block"
+      a.outerHTML = detailsArr.shift().outerHTML
+    })
+  }
+  createE()
+ })()
+</script>
+
+
+</body>
+
+</html>
