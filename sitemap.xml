@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2019/02/17/vue-getnoabsbooks-%E7%9C%8B%E4%B9%A6%E5%B7%B2%E4%B8%8D%E5%86%8D%E8%BF%85%E9%80%9F/</loc>
+    <lastmod>2019-02-17T14:38:18+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019/02/17/mrm-%E5%AE%9A%E5%88%B6%E4%BD%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6-js%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2019-02-17T14:11:05+08:00</lastmod>
   </url>
@@ -727,6 +732,12 @@
   </url>
   
   <url>
+    <loc>/categories/js/</loc>
+    <lastmod>2019-02-17T14:38:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/learn/</loc>
     <lastmod>2018-12-28T20:13:43+08:00</lastmod>
     <priority>0</priority>
@@ -963,6 +974,12 @@
   <url>
     <loc>/tags/slot-scope/</loc>
     <lastmod>2018-03-11T13:21:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/sorry/</loc>
+    <lastmod>2019-02-17T14:38:18+08:00</lastmod>
     <priority>0</priority>
   </url>
   
