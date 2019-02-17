@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2019/02/17/mrm-%E5%AE%9A%E5%88%B6%E4%BD%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6-js%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2019-02-17T14:11:05+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019/02/05/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AF%87-%E8%B5%B7%E5%A7%8B/</loc>
     <lastmod>2019-02-05T15:27:19+08:00</lastmod>
   </url>
@@ -502,6 +507,12 @@
   </url>
   
   <url>
+    <loc>/tags/config/</loc>
+    <lastmod>2019-02-17T14:11:05+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/css/</loc>
     <lastmod>2018-01-20T20:25:56+00:00</lastmod>
     <priority>0</priority>
@@ -758,6 +769,12 @@
   </url>
   
   <url>
+    <loc>/categories/mrm/</loc>
+    <lastmod>2019-02-17T14:11:05+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/nes/</loc>
     <lastmod>2018-12-06T12:23:36+08:00</lastmod>
     <priority>0</priority>
@@ -1004,14 +1021,14 @@
   </url>
   
   <url>
-    <loc>/tags/translate/</loc>
-    <lastmod>2018-10-29T16:02:30+08:00</lastmod>
+    <loc>/categories/tools/</loc>
+    <lastmod>2019-02-05T15:27:19+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/translate/</loc>
-    <lastmod>2019-02-05T15:27:19+08:00</lastmod>
+    <loc>/tags/translate/</loc>
+    <lastmod>2018-10-29T16:02:30+08:00</lastmod>
     <priority>0</priority>
   </url>
   

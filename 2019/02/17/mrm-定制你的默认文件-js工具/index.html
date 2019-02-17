@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Mrm 定制你的默认文件 Js工具</title>
+    
+
+
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+        <link rel="stylesheet" href="/css/main.css">
+    
+
+    
+    
+    <style>
+        body {
+            background-color: #fbf6ec;
+            }
+    </style>
+    
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
+
+
+    
+
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Mrm 定制你的默认文件 Js工具</h2>
+        
+
+<h2 id="入门">入门</h2>
+
+<p>之前<a href="http://llever.com/2017/12/04/mrm-%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%A4%9A%E4%B8%AAjson/">简单介绍了下 mrm</a></p>
+
+<p>，当然<a href="https://github.com/sapegin/mrm#writing-your-own-tasks">mrm 项目的 Github 页面也很适合入门</a></p>
+
+<blockquote>
+<p>或是看看<a href="https://github.com/chinanf-boy/mrm-zh">其 readme 的中文翻译</a></p>
+</blockquote>
+
+<h3 id="书接上回">书接上回</h3>
+
+<p><a href="http://llever.com/2019/02/05/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AF%87-%E8%B5%B7%E5%A7%8B/#%E6%80%BB%E8%A7%88%E8%84%9A%E6%9C%AC">init.sh 脚本中，有关 mrm 命令启动 的编写</a></p>
+
+<ul>
+<li><strong>4.</strong> 启用 [mrm] ，一个 <code>gitignore，readme</code>&hellip; 快速初始化的 js 工具。(运用之前获得的信息+参数)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n4. mrm ***&#34;</span>
+mrm readme --config:repos <span style="color:#8be9fd;font-style:italic">$2</span> --config:name <span style="color:#8be9fd;font-style:italic">$1</span> --config:commit <span style="color:#8be9fd;font-style:italic">$COMMIT</span> --config:date <span style="color:#8be9fd;font-style:italic">$DATE</span>
+mrm gitignore</code></pre></div>
+<h3 id="readme-的-配置文件-mrm-readme">Readme 的 配置文件（mrm readme &hellip;)</h3>
+
+<blockquote>
+<p>请查看入门，了解些知识，再继续</p>
+</blockquote>
+
+<ul>
+<li><code>~/dotfiles/mrm/readme/index.js</code></li>
+</ul>
+
+<p>大体思路，</p>
+
+<ol>
+<li>获得 命令参数<code>'name','repos','date','commit'</code></li>
+<li>分析<code>repos</code>是<strong>ex</strong>吗（这样此项目的模版就会是两个主分支：翻译/解释）</li>
+<li>添加各自分支的内容，填充上<code>doc-templite</code>工具的标记与参数。（*doc-templite*工具<a href="#下回分解">下回分解</a>)</li>
+<li>最后当然是，感谢与免责，以及一大串 md 链接格式简写。</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> {lines} <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;mrm-core&#39;</span>);
+
+<span style="color:#8be9fd;font-style:italic">function</span> task(config) {
+  <span style="color:#ff79c6">const</span> values <span style="color:#ff79c6">=</span> config.require(<span style="color:#f1fa8c">&#39;name&#39;</span>, <span style="color:#f1fa8c">&#39;repos&#39;</span>, <span style="color:#f1fa8c">&#39;date&#39;</span>, <span style="color:#f1fa8c">&#39;commit&#39;</span>).values();
+  console.log(values);
+  <span style="color:#8be9fd;font-style:italic">let</span> {name, repos, date, commit} <span style="color:#ff79c6">=</span> values;
+  <span style="color:#ff79c6">if</span> (name.endsWith(<span style="color:#f1fa8c">&#39;.git&#39;</span>)) {
+    <span style="color:#8be9fd;font-style:italic">let</span> origin <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;github.com/&#39;</span>;
+    name <span style="color:#ff79c6">=</span> name.slice(name.indexOf(origin) <span style="color:#ff79c6">+</span> origin.length, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">4</span>);
+  }
+
+  <span style="color:#8be9fd;font-style:italic">let</span> reposInfo <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+  <span style="color:#8be9fd;font-style:italic">let</span> enAzh <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+  <span style="color:#8be9fd;font-style:italic">let</span> other <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+  <span style="color:#ff79c6">if</span> (repos <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;ex&#39;</span>) {
+    <span style="color:#8be9fd;font-style:italic">let</span> sp <span style="color:#ff79c6">=</span> name.split(<span style="color:#f1fa8c">&#39;/&#39;</span>);
+
+    reposInfo <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">`## explain 🀄️
+</span><span style="color:#f1fa8c">&lt;!-- doc-templite START generated --&gt;
+</span><span style="color:#f1fa8c">&lt;!-- time = &#39;</span><span style="color:#f1fa8c">${</span>date<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39; --&gt;
+</span><span style="color:#f1fa8c">&lt;!-- name = &#39;</span><span style="color:#f1fa8c">${</span>sp[<span style="color:#bd93f9">0</span>]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39; --&gt;
+</span><span style="color:#f1fa8c">&lt;!-- repo = &#39;</span><span style="color:#f1fa8c">${</span>sp[<span style="color:#bd93f9">1</span>]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39; --&gt;
+</span><span style="color:#f1fa8c">&lt;!-- commit = &#39;</span><span style="color:#f1fa8c">${</span>commit<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39; --&gt;
+</span><span style="color:#f1fa8c">&lt;!-- doc-templite END generated --&gt;
+</span><span style="color:#f1fa8c">        `</span>;
+
+    other <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">`### 中文 Readme
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">[中文](zh.md)
+</span><span style="color:#f1fa8c">`</span>;
+  } <span style="color:#ff79c6">else</span> {
+    reposInfo <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">`## 校对 🀄️
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">&lt;!-- doc-templite START generated --&gt;
+</span><span style="color:#f1fa8c">&lt;!-- repo = &#39;</span><span style="color:#f1fa8c">${</span>name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39; --&gt;
+</span><span style="color:#f1fa8c">&lt;!-- commit = &#39;</span><span style="color:#f1fa8c">${</span>commit<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39; --&gt;
+</span><span style="color:#f1fa8c">&lt;!-- time = &#39;</span><span style="color:#f1fa8c">${</span>date<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39; --&gt;
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">&lt;!-- doc-templite END generated --&gt;
+</span><span style="color:#f1fa8c">`</span>;
+    enAzh <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">`[中文](./readme.md) | [english](https://github.com/</span><span style="color:#f1fa8c">${</span>name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">) `</span>;
+    other <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">`### 贡献
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">欢迎 👏 勘误/校对/更新贡献 😊 [具体贡献请看](https://github.com/chinanf-boy/chinese-translate-list#贡献)
+</span><span style="color:#f1fa8c">        `</span>;
+  }
+  <span style="color:#6272a4">// Read .gitignore if it exists
+</span><span style="color:#6272a4"></span>  lines(<span style="color:#f1fa8c">&#39;readme.md&#39;</span>)
+    <span style="color:#6272a4">// Add lines that do not exist in a file yet,
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// but keep all existing lines
+</span><span style="color:#6272a4"></span>    .add(
+      <span style="color:#f1fa8c">`# </span><span style="color:#f1fa8c">${</span>name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> [![explain]][source] [![translate-svg]][translate-list] 
+</span><span style="color:#f1fa8c">    
+</span><span style="color:#f1fa8c">&lt;!-- [![size-img]][size] --&gt;
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">[explain]: http://llever.com/explain.svg
+</span><span style="color:#f1fa8c">[source]: https://github.com/chinanf-boy/Source-Explain
+</span><span style="color:#f1fa8c">[translate-svg]: http://llever.com/translate.svg
+</span><span style="color:#f1fa8c">[translate-list]: https://github.com/chinanf-boy/chinese-translate-list
+</span><span style="color:#f1fa8c">[size-img]: https://packagephobia.now.sh/badge?p=Name
+</span><span style="color:#f1fa8c">[size]: https://packagephobia.now.sh/result?p=Name
+</span><span style="color:#f1fa8c">    `</span>
+    )
+    .add(
+      <span style="color:#f1fa8c">`</span>\<span style="color:#f1fa8c">n
+</span><span style="color:#f1fa8c">「 desc 」
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c"></span><span style="color:#f1fa8c">${</span>enAzh<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">---
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c"></span><span style="color:#f1fa8c">${</span>reposInfo<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c"></span><span style="color:#f1fa8c">${</span>other<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">## 生活
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">[help me live , live need money 💰](https://github.com/chinanf-boy/live-need-money)
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">---
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">### 目录
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">&lt;!-- START doctoc --&gt;
+</span><span style="color:#f1fa8c">&lt;!-- END doctoc --&gt;
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">`</span>
+    )
+    <span style="color:#6272a4">// Update or create a file
+</span><span style="color:#6272a4"></span>    .save();
+}
+
+task.description <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Adds readme Cool&#39;</span>;
+module.exports <span style="color:#ff79c6">=</span> task;
+</code></pre></div>
+<h3 id="gitignore-的-配置文件-mrm-gitignore">gitignore 的 配置文件(mrm gitignore)</h3>
+
+<ul>
+<li><code>~/dotfiles/mrm/gitignore/index.js</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> {lines} <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;mrm-core&#39;</span>);
+
+<span style="color:#8be9fd;font-style:italic">function</span> task() {
+  lines(<span style="color:#f1fa8c">&#39;.gitignore&#39;</span>)
+    .add([<span style="color:#f1fa8c">&#39;node_modules/&#39;</span>, <span style="color:#f1fa8c">&#39;.DS_Store&#39;</span>, <span style="color:#f1fa8c">&#39;fork&#39;</span>, <span style="color:#f1fa8c">&#39;source&#39;</span>, <span style="color:#f1fa8c">&#39;hub-create.sh&#39;</span>]) <span style="color:#6272a4">// ✨ 就这样
+</span><span style="color:#6272a4"></span>    .save();
+}
+
+task.description <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Adds .gitignore Cool&#39;</span>;
+module.exports <span style="color:#ff79c6">=</span> task;
+</code></pre></div>
+<h2 id="下回分解">下回分解</h2>
+
+<p><strong>doc-templite</strong> 作为轻量级的模版工具，引入多个项目的特点，专注重复与独特的良好性质。</p>
+
+<p><a href="https://github.com/chinanf-boy/doc-templite">可立即关注 其 Github 页面</a></p>
+
+  </div>
+
+<footer>
+  <hr>
+  <small style="font-size:16px;float:right;margin:0 1rem;">
+    &copy; 2019 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
+    
+  </small>
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+<script>
+ (function(){
+  var seriesA = document.getElementsByTagName("a");
+  seriesA = Array.from(seriesA).filter(x =>x.getAttribute("data-series"));
+  if(seriesA.length){
+    var nameSeries = {}
+    seriesA.forEach(x =>{
+      var xdata = x.getAttribute("data-series")
+      if(nameSeries[xdata]){
+        nameSeries[xdata].push(x)
+      }else{
+        nameSeries[xdata] = [x]
+      }
+    })
+  }
+
+  function createE(){
+    var detailsArr = [] 
+    var postPosArr = [] 
+    for(let i in nameSeries){
+      var dcreateE = document.createElement("details")
+      var screateE = document.createElement("summary")
+      screateE.textContent = i;
+      var inner = screateE.outerHTML + "<br >" 
+
+      nameSeries[i].forEach(x =>{
+        inner += x.outerHTML
+        x.parentElement.style.display = "none"
+      })
+      postPosArr.push(nameSeries[i][0])
+      dcreateE.innerHTML = inner
+      detailsArr.push(dcreateE)
+    }
+    console.info(postPosArr)
+    console.log(detailsArr[0])
+    postPosArr.forEach(a =>{
+      a.parentElement.style.display = "block"
+      a.outerHTML = detailsArr.shift().outerHTML
+    })
+  }
+  createE()
+ })()
+</script>
+
+
+</body>
+
+</html>

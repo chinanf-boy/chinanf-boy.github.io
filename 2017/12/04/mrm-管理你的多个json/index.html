@@ -81,40 +81,23 @@
 
 <p>就像下面这些</p>
 
-<p><code>
-codecov          
-contributing     
-editorconfig     
-eslint           
-gitignore        
-jest             
-license          
-lintstaged       
-package          
-prettier         
-readme           
-semantic-release 
-styleguidist     
-stylelint        
-travis           
-typescript       
-</code></p>
+<p><code>codecov contributing editorconfig eslint gitignore jest license lintstaged package prettier readme semantic-release styleguidist stylelint travis typescript</code></p>
 
-<p><a href="https://github.com/sapegin/mrm#writing-your-own-tasks">mrm项目</a></p>
+<p><a href="https://github.com/sapegin/mrm#writing-your-own-tasks">mrm 项目</a></p>
 
 <p>帮助你管理你的配置</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx mrm gitignore
 // 一个 .gitignore 就在运行目录</code></pre></div>
 <p>如何定义</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/dotfiles <span style="color:#ff79c6">||</span> <span style="color:#8be9fd;font-style:italic">cd</span> ~/dotfiles <span style="color:#ff79c6">&amp;&amp;</span> mkdir mrm <span style="color:#ff79c6">||</span> <span style="color:#8be9fd;font-style:italic">cd</span> mrm 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/dotfiles <span style="color:#ff79c6">||</span> <span style="color:#8be9fd;font-style:italic">cd</span> ~/dotfiles <span style="color:#ff79c6">&amp;&amp;</span> mkdir mrm <span style="color:#ff79c6">||</span> <span style="color:#8be9fd;font-style:italic">cd</span> mrm
 
 npm init -y
-npm i --save mrm-core </code></pre></div>
+npm i --save mrm-core</code></pre></div>
 <p>如 <Task> gitignore</p>
 
 <p><code>～/dotfiles/mrm/&lt;Task&gt;/index.js</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#6272a4">// Mrm module to work with new line separated text files
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> { lines } <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;mrm-core&#39;</span>);
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> {lines} <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;mrm-core&#39;</span>);
 
 <span style="color:#8be9fd;font-style:italic">function</span> task() {
   <span style="color:#6272a4">// Read .gitignore if it exists
@@ -139,7 +122,7 @@ npx mrm gitignore
 .DS_Store%
 </code></pre>
 
-<p>更具体，需要参考<a href="https://github.com/sapegin/mrm#writing-your-own-tasks">项目write-you-own-task</a></p>
+<p>更具体， 需要参考<a href="https://github.com/sapegin/mrm#writing-your-own-tasks">项目 write-you-own-task</a></p>
 
   </div>
 

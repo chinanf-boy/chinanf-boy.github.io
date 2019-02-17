@@ -19,13 +19,13 @@
       <guid>/2017/12/04/mrm-%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%A4%9A%E4%B8%AAjson/</guid>
       <description>mrm 对自己众多的配置文件，烦恼吗 ？！
 就像下面这些
- codecov contributing editorconfig eslint gitignore jest license lintstaged package prettier readme semantic-release styleguidist stylelint travis typescript 
-mrm项目
+codecov contributing editorconfig eslint gitignore jest license lintstaged package prettier readme semantic-release styleguidist stylelint travis typescript
+mrm 项目
 帮助你管理你的配置
 npx mrm gitignore // 一个 .gitignore 就在运行目录 如何定义
-mkdir ~/dotfiles || cd ~/dotfiles &amp;amp;&amp;amp; mkdir mrm || cd mrm npm init -y npm i --save mrm-core  如  gitignore
+mkdir ~/dotfiles || cd ~/dotfiles &amp;amp;&amp;amp; mkdir mrm || cd mrm npm init -y npm i --save mrm-core 如  gitignore
 ～/dotfiles/mrm/&amp;lt;Task&amp;gt;/index.js
-// Mrm module to work with new line separated text files const { lines } = require(&amp;#39;mrm-core&amp;#39;); function task() { // Read .</description>
+// Mrm module to work with new line separated text files const {lines} = require(&amp;#39;mrm-core&amp;#39;); function task() { // Read .</description>
     </item>
     
   </channel>

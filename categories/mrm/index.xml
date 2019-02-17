@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mrm on Code &gt; Explain &gt; Transalte 的人</title>
+    <link>/categories/mrm/</link>
+    <description>Recent content in Mrm on Code &gt; Explain &gt; Transalte 的人</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 17 Feb 2019 14:11:05 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/mrm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mrm 定制你的默认文件 Js工具</title>
+      <link>/2019/02/17/mrm-%E5%AE%9A%E5%88%B6%E4%BD%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6-js%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sun, 17 Feb 2019 14:11:05 +0800</pubDate>
+      
+      <guid>/2019/02/17/mrm-%E5%AE%9A%E5%88%B6%E4%BD%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6-js%E5%B7%A5%E5%85%B7/</guid>
+      <description>入门 之前简单介绍了下 mrm
+，当然mrm 项目的 Github 页面也很适合入门
+ 或是看看其 readme 的中文翻译
+ 书接上回 init.sh 脚本中，有关 mrm 命令启动 的编写
+ 4. 启用 [mrm] ，一个 gitignore，readme&amp;hellip; 快速初始化的 js 工具。(运用之前获得的信息+参数)  echo &amp;#34;\n4. mrm ***&amp;#34; mrm readme --config:repos $2 --config:name $1 --config:commit $COMMIT --config:date $DATE mrm gitignore Readme 的 配置文件（mrm readme &amp;hellip;)  请查看入门，了解些知识，再继续
+  ~/dotfiles/mrm/readme/index.js  大体思路，
+ 获得 命令参数&#39;name&#39;,&#39;repos&#39;,&#39;date&#39;,&#39;commit&#39; 分析repos是ex吗（这样此项目的模版就会是两个主分支：翻译/解释） 添加各自分支的内容，填充上doc-templite工具的标记与参数。（*doc-templite*工具下回分解) 最后当然是，感谢与免责，以及一大串 md 链接格式简写。  const {lines} = require(&amp;#39;mrm-core&amp;#39;); function task(config) { const values = config.</description>
+    </item>
+    
+  </channel>
+</rss>
