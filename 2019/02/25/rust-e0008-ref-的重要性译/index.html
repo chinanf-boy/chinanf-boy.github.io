@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Rust E0008 - ref 的重要性（译）</title>
+    
+
+
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+        <link rel="stylesheet" href="/css/main.css">
+    
+
+    
+    
+    <style>
+        body {
+            background-color: #fbf6ec;
+            }
+    </style>
+    
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
+
+
+    
+
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Rust E0008 - ref 的重要性（译）</h2>
+        
+
+<ul>
+<li><a href="https://doc.rust-lang.org/stable/error-index.html#E0008">官方原文</a></li>
+</ul>
+
+<h2 id="e0008-无法逾越的-ref-关键字">E0008，(无法逾越的 ref 关键字)</h2>
+
+<p>匹配条件语句中的绑定名称，在模式控制中保留了其类型。因此，若在一个模式中，这一名称是通过移动进行绑定的，那它也会被移动到在模式代码中的参考变量位置。这样做的话，会阻止原名称在匹配语句的主体中可用。</p>
+
+<p>考虑以下:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">match</span> <span style="color:#8be9fd;font-style:italic">Some</span>(<span style="color:#f1fa8c">&#34;hi&#34;</span>.to_string()) {
+    <span style="color:#8be9fd;font-style:italic">Some</span>(s) <span style="color:#ff79c6">if</span> s.len() <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">=&gt;</span> {}, <span style="color:#6272a4">// 使用 s.
+</span><span style="color:#6272a4"></span>    _ <span style="color:#ff79c6">=&gt;</span> {},
+}
+</code></pre></div>
+<p>变量 <code>s</code> 具有 <code>String</code> 类型，并且它在 匹配语句 中的用法是 <code>String</code> 类型的变量。 使用<code>s</code>变量的代码，在匹配语句主体的分离作用域内，执行有效，因此该值被移动到此匿名作用域内，结果就是在匹配语句的主体中变得不可用。</p>
+
+<p>上面的问题，可以通过使用 <code>ref</code> 关键字来解决。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">match</span> <span style="color:#8be9fd;font-style:italic">Some</span>(<span style="color:#f1fa8c">&#34;hi&#34;</span>.to_string()) {
+    <span style="color:#8be9fd;font-style:italic">Some</span>(<span style="color:#ff79c6">ref</span> s) <span style="color:#ff79c6">if</span> s.len() <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">=&gt;</span> {},
+    _ <span style="color:#ff79c6">=&gt;</span> {},
+}
+</code></pre></div>
+<p>虽然，这个例子似乎不怎么厉害且易于解决，但当它遇到消耗该值的函数时,问题就变得清晰了:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">A</span>{}
+
+<span style="color:#ff79c6">impl</span> A {
+    <span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">consume</span>(self) -&gt; <span style="color:#8be9fd">usize</span> {
+        <span style="color:#bd93f9">0</span>
+    }
+}
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> a <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Some</span>(A{});
+    <span style="color:#ff79c6">match</span> a {
+        <span style="color:#8be9fd;font-style:italic">Some</span>(y) <span style="color:#ff79c6">if</span> y.consume() <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">=&gt;</span> {}
+        _ <span style="color:#ff79c6">=&gt;</span> {}
+    }
+}
+</code></pre></div>
+<p>在这种情况下，即使 <code>ref</code> 关键字也无法解决，因为无法移动(引用/指针)借用的内容。这个问题一般无法解决。但，若该值可以克隆，那这有个不太具体的解决方案:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">#[derive(Clone)]</span>
+<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">A</span>{}
+
+<span style="color:#ff79c6">impl</span> A {
+    <span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">consume</span>(self) -&gt; <span style="color:#8be9fd">usize</span> {
+        <span style="color:#bd93f9">0</span>
+    }
+}
+
+<span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#8be9fd;font-style:italic">let</span> a <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Some</span>(A{});
+    <span style="color:#ff79c6">match</span> a{
+        <span style="color:#8be9fd;font-style:italic">Some</span>(<span style="color:#ff79c6">ref</span> y) <span style="color:#ff79c6">if</span> y.clone().consume() <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">=&gt;</span> {}
+        _ <span style="color:#ff79c6">=&gt;</span> {}
+    }
+}
+</code></pre></div>
+<p>如果该值在模式语句中要被消耗，那使用克隆，不会移动(消耗)原所有权，因此代码可以正常工作。</p>
+
+<blockquote>
+<p><code>ref</code>也不能省掉，否则，<code>y</code>就会移动到模式语句的作用域，一去不回头。</p>
+</blockquote>
+
+  </div>
+
+<footer>
+  <hr>
+  <small style="font-size:16px;float:right;margin:0 1rem;">
+    &copy; 2019 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
+    
+  </small>
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+<script>
+ (function(){
+  var seriesA = document.getElementsByTagName("a");
+  seriesA = Array.from(seriesA).filter(x =>x.getAttribute("data-series"));
+  if(seriesA.length){
+    var nameSeries = {}
+    seriesA.forEach(x =>{
+      var xdata = x.getAttribute("data-series")
+      if(nameSeries[xdata]){
+        nameSeries[xdata].push(x)
+      }else{
+        nameSeries[xdata] = [x]
+      }
+    })
+  }
+
+  function createE(){
+    var detailsArr = [] 
+    var postPosArr = [] 
+    for(let i in nameSeries){
+      var dcreateE = document.createElement("details")
+      var screateE = document.createElement("summary")
+      screateE.textContent = i;
+      var inner = screateE.outerHTML + "<br >" 
+
+      nameSeries[i].forEach(x =>{
+        inner += x.outerHTML
+        x.parentElement.style.display = "none"
+      })
+      postPosArr.push(nameSeries[i][0])
+      dcreateE.innerHTML = inner
+      detailsArr.push(dcreateE)
+    }
+    console.info(postPosArr)
+    console.log(detailsArr[0])
+    postPosArr.forEach(a =>{
+      a.parentElement.style.display = "block"
+      a.outerHTML = detailsArr.shift().outerHTML
+    })
+  }
+  createE()
+ })()
+</script>
+
+
+</body>
+
+</html>
