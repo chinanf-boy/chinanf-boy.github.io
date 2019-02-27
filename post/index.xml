@@ -22,6 +22,20 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
+      <title>Rust ? 语法糖 (译)</title>
+      <link>/2019/02/27/rust-%E8%AF%AD%E6%B3%95%E7%B3%96-%E8%AF%91/</link>
+      <pubDate>Wed, 27 Feb 2019 14:56:41 +0800</pubDate>
+      
+      <guid>/2019/02/27/rust-%E8%AF%AD%E6%B3%95%E7%B3%96-%E8%AF%91/</guid>
+      <description>宏 std::try macro_rules! try { ( $ expr : expr ) =&amp;gt; { ... }; ( $ expr : expr , ) =&amp;gt; { ... }; }  用于减少样板代码，以匹配Result以及转换下游错误的帮助宏。
+增加?运算符，以替换try!。简化。
+try!与给定Result匹配。对 Ok 变量，表达式为包装的值。
+如果是 Err 变量，则检索内部错误。try!！然后使用 From 执行转换。这提供了专用错误和更通用错误之间的自动转换。然后立即返回错误。
+因为提前返回，try!只能在返回Result的函数中使用。
+Examples use std::io; use std::fs::File; use std::io::prelude::*; enum MyError { FileWriteError } impl From&amp;lt;io::Error&amp;gt; for MyError { fn from(e: io::Error) -&amp;gt; MyError { MyError::FileWriteError } } // 快速返回错误的首选方法 fn write_to_file_question() -&amp;gt; Result&amp;lt;(), MyError&amp;gt; { let mut file = File::create(&amp;#34;my_best_friends.</description>
+    </item>
+    
+    <item>
       <title>Rust E0008 - ref 的重要性（译）</title>
       <link>/2019/02/25/rust-e0008-ref-%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E8%AF%91/</link>
       <pubDate>Mon, 25 Feb 2019 14:17:47 +0800</pubDate>

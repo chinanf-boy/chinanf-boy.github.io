@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Rust ? 语法糖 (译)</title>
+    
+
+
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+        <link rel="stylesheet" href="/css/main.css">
+    
+
+    
+    
+    <style>
+        body {
+            background-color: #fbf6ec;
+            }
+    </style>
+    
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+        }</script>
+    
+
+
+    
+
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Rust ? 语法糖 (译)</h2>
+        
+
+<h2 id="宏-std-try">宏 <code>std::try</code></h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">macro_rules<span style="color:#ff79c6">!</span> try {
+    ( <span style="color:#ff79c6">$</span> expr : <span style="color:#50fa7b">expr</span> ) <span style="color:#ff79c6">=&gt;</span> { ... };
+    ( <span style="color:#ff79c6">$</span> expr : <span style="color:#50fa7b">expr</span> , ) <span style="color:#ff79c6">=&gt;</span> { ... };
+}
+</code></pre></div>
+<p>用于减少样板代码，以匹配<code>Result</code>以及转换下游错误的帮助宏。</p>
+
+<p>增加<code>?</code>运算符，以替换<code>try!</code>。简化。</p>
+
+<p><code>try!</code>与给定<code>Result</code>匹配。对 <code>Ok</code> 变量，表达式为包装的值。</p>
+
+<p>如果是 <code>Err</code> 变量，则检索内部错误。<code>try!</code>！然后使用 From 执行转换。这提供了专用错误和更通用错误之间的自动转换。然后立即返回错误。</p>
+
+<p>因为提前返回，<code>try!</code>只能在返回<code>Result</code>的函数中使用。</p>
+
+<h3 id="examples">Examples</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">use</span> std::io;
+<span style="color:#ff79c6">use</span> std::fs::File;
+<span style="color:#ff79c6">use</span> std::io::prelude::<span style="color:#ff79c6">*</span>;
+
+<span style="color:#ff79c6">enum</span> <span style="color:#50fa7b">MyError</span> {
+    FileWriteError
+}
+
+<span style="color:#ff79c6">impl</span> <span style="color:#8be9fd;font-style:italic">From</span><span style="color:#ff79c6">&lt;</span>io::Error<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">for</span> MyError {
+    <span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">from</span>(e: <span style="color:#50fa7b">io</span>::Error) -&gt; <span style="color:#50fa7b">MyError</span> {
+        MyError::FileWriteError
+    }
+}
+
+<span style="color:#6272a4">// 快速返回错误的首选方法
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">write_to_file_question</span>() -&gt; <span style="color:#8be9fd;font-style:italic">Result</span><span style="color:#ff79c6">&lt;</span>(), MyError<span style="color:#ff79c6">&gt;</span> {
+    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">mut</span> file <span style="color:#ff79c6">=</span> File::create(<span style="color:#f1fa8c">&#34;my_best_friends.txt&#34;</span>)<span style="color:#ff79c6">?</span>;
+    file.write_all(<span style="color:#f1fa8c">b&#34;This is a list of my best friends.&#34;</span>)<span style="color:#ff79c6">?</span>;
+    <span style="color:#8be9fd;font-style:italic">Ok</span>(())
+}
+
+<span style="color:#6272a4">// 上一种快速返回错误的方法，的另一版本
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">write_to_file_using_try</span>() -&gt; <span style="color:#8be9fd;font-style:italic">Result</span><span style="color:#ff79c6">&lt;</span>(), MyError<span style="color:#ff79c6">&gt;</span> {
+    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">mut</span> file <span style="color:#ff79c6">=</span> r#try<span style="color:#ff79c6">!</span>(File::create(<span style="color:#f1fa8c">&#34;my_best_friends.txt&#34;</span>));
+    r#try<span style="color:#ff79c6">!</span>(file.write_all(<span style="color:#f1fa8c">b&#34;This is a list of my best friends.&#34;</span>));
+    <span style="color:#8be9fd;font-style:italic">Ok</span>(())
+}
+
+<span style="color:#6272a4">// 完整相当于：
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">write_to_file_using_match</span>() -&gt; <span style="color:#8be9fd;font-style:italic">Result</span><span style="color:#ff79c6">&lt;</span>(), MyError<span style="color:#ff79c6">&gt;</span> {
+    <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">mut</span> file <span style="color:#ff79c6">=</span> r#try<span style="color:#ff79c6">!</span>(File::create(<span style="color:#f1fa8c">&#34;my_best_friends.txt&#34;</span>));
+    <span style="color:#ff79c6">match</span> file.write_all(<span style="color:#f1fa8c">b&#34;This is a list of my best friends.&#34;</span>) {
+        <span style="color:#8be9fd;font-style:italic">Ok</span>(v) <span style="color:#ff79c6">=&gt;</span> v,
+        <span style="color:#8be9fd;font-style:italic">Err</span>(e) <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">Err</span>(<span style="color:#8be9fd;font-style:italic">From</span>::from(e)),
+    }
+    <span style="color:#8be9fd;font-style:italic">Ok</span>(())
+}
+</code></pre></div>
+  </div>
+
+<footer>
+  <hr>
+  <small style="font-size:16px;float:right;margin:0 1rem;">
+    &copy; 2019 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
+    
+  </small>
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+<script>
+ (function(){
+  var seriesA = document.getElementsByTagName("a");
+  seriesA = Array.from(seriesA).filter(x =>x.getAttribute("data-series"));
+  if(seriesA.length){
+    var nameSeries = {}
+    seriesA.forEach(x =>{
+      var xdata = x.getAttribute("data-series")
+      if(nameSeries[xdata]){
+        nameSeries[xdata].push(x)
+      }else{
+        nameSeries[xdata] = [x]
+      }
+    })
+  }
+
+  function createE(){
+    var detailsArr = [] 
+    var postPosArr = [] 
+    for(let i in nameSeries){
+      var dcreateE = document.createElement("details")
+      var screateE = document.createElement("summary")
+      screateE.textContent = i;
+      var inner = screateE.outerHTML + "<br >" 
+
+      nameSeries[i].forEach(x =>{
+        inner += x.outerHTML
+        x.parentElement.style.display = "none"
+      })
+      postPosArr.push(nameSeries[i][0])
+      dcreateE.innerHTML = inner
+      detailsArr.push(dcreateE)
+    }
+    console.info(postPosArr)
+    console.log(detailsArr[0])
+    postPosArr.forEach(a =>{
+      a.parentElement.style.display = "block"
+      a.outerHTML = detailsArr.shift().outerHTML
+    })
+  }
+  createE()
+ })()
+</script>
+
+
+</body>
+
+</html>

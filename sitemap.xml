@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/2019/02/27/rust-%E8%AF%AD%E6%B3%95%E7%B3%96-%E8%AF%91/</loc>
+    <lastmod>2019-02-27T14:56:41+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019/02/25/rust-e0008-ref-%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E8%AF%91/</loc>
     <lastmod>2019-02-25T14:17:47+08:00</lastmod>
   </url>
@@ -958,8 +963,14 @@
   </url>
   
   <url>
+    <loc>/tags/rust/</loc>
+    <lastmod>2019-02-27T14:56:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/rust/</loc>
-    <lastmod>2019-02-25T14:17:47+08:00</lastmod>
+    <lastmod>2019-02-27T14:56:41+08:00</lastmod>
     <priority>0</priority>
   </url>
   
