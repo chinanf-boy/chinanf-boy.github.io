@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>命令行参数 - The rustc book</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li><a href="what-is-rustc.zh.html"><strong aria-hidden="true">1.</strong> 什么是 rustc？</a></li><li><a href="command-line-arguments.zh.html" class="active"><strong aria-hidden="true">2.</strong> 命令行参数</a></li><li><a href="lints/index.zh.html"><strong aria-hidden="true">3.</strong> Lints</a></li><li><ol class="section"><li><a href="lints/levels.zh.html"><strong aria-hidden="true">3.1.</strong> Lint 水平</a></li><li><a href="lints/groups.zh.html"><strong aria-hidden="true">3.2.</strong> Lint 组</a></li><li><a href="lints/listing/index.zh.html"><strong aria-hidden="true">3.3.</strong> lint 列表</a></li><li><ol class="section"><li><a href="lints/listing/allowed-by-default.zh.html"><strong aria-hidden="true">3.3.1.</strong> 默认允许的 lints</a></li><li><a href="lints/listing/warn-by-default.zh.html"><strong aria-hidden="true">3.3.2.</strong> 默认发出警告的 lints</a></li><li><a href="lints/listing/deny-by-default.zh.html"><strong aria-hidden="true">3.3.3.</strong> 默认禁止 lints</a></li></ol></li></ol></li><li><a href="codegen-options/index.zh.html"><strong aria-hidden="true">4.</strong> 代码生成选项</a></li><li><a href="targets/index.zh.html"><strong aria-hidden="true">5.</strong> 生成目标</a></li><li><ol class="section"><li><a href="targets/built-in.zh.html"><strong aria-hidden="true">5.1.</strong> 内置目标</a></li><li><a href="targets/custom.zh.html"><strong aria-hidden="true">5.2.</strong> 自定义目标</a></li></ol></li><li><a href="linker-plugin-lto.zh.html"><strong aria-hidden="true">6.</strong> 基于 LTO 的链接器插件</a></li><li><a href="contributing.zh.html"><strong aria-hidden="true">7.</strong> 帮助rustc</a></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The rustc book</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/rustc-zh/edit/master/src/command-line-arguments.zh.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#a命令行参数" id="a命令行参数"><h1>命令行参数</h1></a>
+<p>这里是，<code>rustc</code>能做什么的命令行参数列表。</p>
+<a class="header" href="#a-h--help-帮助下" id="a-h--help-帮助下"><h2><code>-h</code>/<code>--help</code>： 帮助下</h2></a>
+<p>该标志将打印出<code>rustc</code>的帮助信息。</p>
+<a class="header" href="#a--cfg配置编译环境" id="a--cfg配置编译环境"><h2><code>--cfg</code>：配置编译环境</h2></a>
+<p>此标志可以打开或关闭各种<code>#[cfg]</code>设置。</p>
+<p>该值可以是单个标识符，也可以是由<code>=</code>分隔两个标识符。</p>
+<p>举些例子，<code>--cfg 'verbose'</code>要么<code>--cfg 'feature=&quot;serde&quot;'</code>。分别对应<code>#[cfg(verbose)]</code>和<code>#[cfg(feature = &quot;serde&quot;)]</code>。</p>
+<a class="header" href="#a-l将目录添加到库搜索路径" id="a-l将目录添加到库搜索路径"><h2><code>-L</code>：将目录添加到库搜索路径</h2></a>
+<p>要查找外部包时，就传递给此标志的目录，rustc 会搜索。</p>
+<a class="header" href="#a-l将生成的包链接到一个原生库" id="a-l将生成的包链接到一个原生库"><h2><code>-l</code>：将生成的包链接到一个原生库</h2></a>
+<p>此标志允许您在构建包时，指定一个特定原生库的链接。</p>
+<a class="header" href="#a--crate-type编译器要发出的包的类型列表" id="a--crate-type编译器要发出的包的类型列表"><h2><code>--crate-type</code>：编译器要发出的包的类型列表</h2></a>
+<p>这指示<code>rustc</code>构建哪种箱子类型。</p>
+<a class="header" href="#a--crate-name指定正在构建的包的名称" id="a--crate-name指定正在构建的包的名称"><h2><code>--crate-name</code>：指定正在构建的包的名称</h2></a>
+<p>这告诉<code>rustc</code>，您的箱子名称。</p>
+<a class="header" href="#a--emit发出除箱子以外的输出" id="a--emit发出除箱子以外的输出"><h2><code>--emit</code>：发出除箱子以外的输出</h2></a>
+<p>这个标志可以打印出装配或 LLVM-IR 之类的东西，而不是生成一个箱子。</p>
+<a class="header" href="#a--print打印编译器信息" id="a--print打印编译器信息"><h2><code>--print</code>：打印编译器信息</h2></a>
+<p>该标志打印出有，关编译器的各种信息。</p>
+<a class="header" href="#a-g包含调试信息" id="a-g包含调试信息"><h2><code>-g</code>：包含调试信息</h2></a>
+<p>与<code>-C debuginfo=2</code>同义，更多看<a href="codegen-options/index.zh.html#debuginfo">这里</a>。</p>
+<a class="header" href="#a-o优化您的代码" id="a-o优化您的代码"><h2><code>-O</code>：优化您的代码</h2></a>
+<p>与<code>-C opt-level=2</code>同义，更多看<a href="codegen-options/index.zh.html#opt-level">这里</a>。</p>
+<a class="header" href="#a-o输出的文件名" id="a-o输出的文件名"><h2><code>-o</code>：输出的文件名</h2></a>
+<p>此标志控制，输出的文件名。</p>
+<a class="header" href="#a--out-dir用于写入输出的目录" id="a--out-dir用于写入输出的目录"><h2><code>--out-dir</code>：用于写入输出的目录</h2></a>
+<p>输出包，被写入的目录。</p>
+<a class="header" href="#a--explain提供错误消息的详细说明" id="a--explain提供错误消息的详细说明"><h2><code>--explain</code>：提供错误消息的详细说明</h2></a>
+<p>每个错误，<code>rustc</code>附带一个错误代码;这将打印出给定错误的更详细解释。</p>
+<a class="header" href="#a--test构建测试工具" id="a--test构建测试工具"><h2><code>--test</code>：构建测试工具</h2></a>
+<p>编译这个箱子时，<code>rustc</code>会忽略你的<code>main</code>功能，而不是产生一个测试工具。</p>
+<a class="header" href="#a--target选择要构建的目标三元组" id="a--target选择要构建的目标三元组"><h2><code>--target</code>：选择要构建的目标三元组</h2></a>
+<p>控制了哪个生产<a href="targets/index.zh.html">目标</a>。</p>
+<a class="header" href="#a-w设置-lint-警告" id="a-w设置-lint-警告"><h2><code>-W</code>：设置 lint 警告</h2></a>
+<p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#warn">警告水平</a>。</p>
+<a class="header" href="#a-a设置-lint-允许" id="a-a设置-lint-允许"><h2><code>-A</code>：设置 lint 允许</h2></a>
+<p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#allow">允许水平</a>。</p>
+<a class="header" href="#a-d设置-lint-拒绝" id="a-d设置-lint-拒绝"><h2><code>-D</code>：设置 lint 拒绝</h2></a>
+<p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#deny">拒绝等级</a>。</p>
+<a class="header" href="#a-f设置-lint-禁止" id="a-f设置-lint-禁止"><h2><code>-F</code>：设置 lint 禁止</h2></a>
+<p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#forbid">禁止等级</a>。</p>
+<a class="header" href="#a--cap-lints设置最严格的-lint-级别" id="a--cap-lints设置最严格的-lint-级别"><h2><code>--cap-lints</code>：设置最严格的 lint 级别</h2></a>
+<p>这个标志让你’盖’lints，更多，<a href="lints/levels.zh.html#capping-lints">看这里</a>。</p>
+<a class="header" href="#a-c--codegen代码生成选项" id="a-c--codegen代码生成选项"><h2><code>-C</code>/<code>--codegen</code>：代码生成选项</h2></a>
+<p>此标志将允许您,设置<a href="codegen-options/index.zh.html">codegen 选项</a>。</p>
+<a class="header" href="#a-v--version打印版本" id="a-v--version打印版本"><h2><code>-V</code>/<code>--version</code>：打印版本</h2></a>
+<p>此标志将打印出来<code>rustc</code>的版本。</p>
+<a class="header" href="#a-v--verbose使用详细输出" id="a-v--verbose使用详细输出"><h2><code>-v</code>/<code>--verbose</code>：使用详细输出</h2></a>
+<p>该标志与其他标志组合使用时，会产生额外的输出。</p>
+<a class="header" href="#a--extern指定外部库的位置" id="a--extern指定外部库的位置"><h2><code>--extern</code>：指定外部库的位置</h2></a>
+<p>此标志允许您传递外部箱子的位置和名称，并链接该箱到您正在构建的箱子中。</p>
+<a class="header" href="#a--sysroot覆盖系统根目录" id="a--sysroot覆盖系统根目录"><h2><code>--sysroot</code>：覆盖系统根目录</h2></a>
+<p>“sysroot”就是<code>rustc</code>寻找 Rust安装附带的箱子;这个标志允许被覆盖。</p>
+<a class="header" href="#a--error-format控制错误的产生方式" id="a--error-format控制错误的产生方式"><h2><code>--error-format</code>：控制错误的产生方式</h2></a>
+<p>此标志允许您控制错误的格式。</p>
+<a class="header" href="#a--color配置输出的着色" id="a--color配置输出的着色"><h2><code>--color</code>：配置输出的着色</h2></a>
+<p>此标志可让您控制输出的颜色设置。</p>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="what-is-rustc.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="lints/index.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a href="what-is-rustc.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a href="lints/index.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>

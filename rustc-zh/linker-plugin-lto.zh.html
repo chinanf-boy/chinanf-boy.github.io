@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>基于 LTO 的链接器插件 - The rustc book</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li><a href="what-is-rustc.zh.html"><strong aria-hidden="true">1.</strong> 什么是 rustc？</a></li><li><a href="command-line-arguments.zh.html"><strong aria-hidden="true">2.</strong> 命令行参数</a></li><li><a href="lints/index.zh.html"><strong aria-hidden="true">3.</strong> Lints</a></li><li><ol class="section"><li><a href="lints/levels.zh.html"><strong aria-hidden="true">3.1.</strong> Lint 水平</a></li><li><a href="lints/groups.zh.html"><strong aria-hidden="true">3.2.</strong> Lint 组</a></li><li><a href="lints/listing/index.zh.html"><strong aria-hidden="true">3.3.</strong> lint 列表</a></li><li><ol class="section"><li><a href="lints/listing/allowed-by-default.zh.html"><strong aria-hidden="true">3.3.1.</strong> 默认允许的 lints</a></li><li><a href="lints/listing/warn-by-default.zh.html"><strong aria-hidden="true">3.3.2.</strong> 默认发出警告的 lints</a></li><li><a href="lints/listing/deny-by-default.zh.html"><strong aria-hidden="true">3.3.3.</strong> 默认禁止 lints</a></li></ol></li></ol></li><li><a href="codegen-options/index.zh.html"><strong aria-hidden="true">4.</strong> 代码生成选项</a></li><li><a href="targets/index.zh.html"><strong aria-hidden="true">5.</strong> 生成目标</a></li><li><ol class="section"><li><a href="targets/built-in.zh.html"><strong aria-hidden="true">5.1.</strong> 内置目标</a></li><li><a href="targets/custom.zh.html"><strong aria-hidden="true">5.2.</strong> 自定义目标</a></li></ol></li><li><a href="linker-plugin-lto.zh.html" class="active"><strong aria-hidden="true">6.</strong> 基于 LTO 的链接器插件</a></li><li><a href="contributing.zh.html"><strong aria-hidden="true">7.</strong> 帮助rustc</a></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The rustc book</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/rustc-zh/edit/master/src/linker-plugin-lto.zh.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#linker-plugin-lto" id="linker-plugin-lto"><h1>Linker-plugin-LTO</h1></a>
+<p><code>-C linker-plugin-lto</code>标志 允许将 LTO 优化推迟到实际链接步骤，如果链接的所有目标文件都是由基于 LLVM 的工具链创建的，则相应地允许跨编程语言，执行过程优化。这里的主要示例是将 Rust 代码与 Clang 编译的 C/C++代码链接在一起。</p>
+<a class="header" href="#a用法" id="a用法"><h2>用法</h2></a>
+<p>有两种主要情况，可以使用基于 LTO 的链接器插件：</p>
+<ul>
+<li>编译一个 Rust<code>staticlib</code>，用作一个 C ABI 依赖项</li>
+<li>编译一个 Rust 二进制文件，这里是<code>rustc</code>调用链接器</li>
+</ul>
+<p>在这两种情况下，Rust 代码都必须使用<code>-C linker-plugin-lto</code>和 C/C++代码要用<code>-flto</code>或<code>-flto=thin</code>，以便将目标文件作为 LLVM bitcode 发出。</p>
+<a class="header" href="#ruststaticlib作为-cc程序中的依赖" id="ruststaticlib作为-cc程序中的依赖"><h3>Rust<code>staticlib</code>作为 C/C++程序中的依赖</h3></a>
+<p>在这种情况下，Rust 编译器只需要确保<code>staticlib</code>的对象文件格式正确。对于链接，必须使用具有 LLVM 的链接器插件（例如 LLD）。</p>
+<p>直接用<code>rustc</code>：</p>
+<pre><code class="language-bash"># 编译 the Rust staticlib
+rustc --crate-type=staticlib -Clinker-plugin-lto -Copt-level=2 ./lib.rs
+# `-flto=thin`编译 C 代码
+clang -c -O2 -flto=thin -o main.o ./main.c
+# 链接 一切,确保 我们使用适当的链接器
+clang -flto=thin -fuse-ld=lld -L . -l&quot;name-of-your-rust-lib&quot; -o main -O2 ./cmain.o
+</code></pre>
+<p>运用<code>cargo</code>：</p>
+<pre><code class="language-bash"># 编译 the Rust staticlib
+RUSTFLAGS=&quot;-Clinker-plugin-lto&quot; cargo build --release
+# `-flto=thin`编译 C 代码
+clang -c -O2 -flto=thin -o main.o ./main.c
+# 链接 一切,确保 我们使用适当的链接器
+clang -flto=thin -fuse-ld=lld -L . -l&quot;name-of-your-rust-lib&quot; -o main -O2 ./cmain.o
+</code></pre>
+<a class="header" href="#cc代码作为-rust-中的依赖项" id="cc代码作为-rust-中的依赖项"><h3>C/C++代码作为 Rust 中的依赖项</h3></a>
+<p>在这种情况下，链接器将被<code>rustc</code>调用。我们必须再次确保使用适当的链接器。</p>
+<p>直接用<code>rustc</code>：</p>
+<pre><code class="language-bash"># 编译 C code with `-flto`
+clang ./clib.c -flto=thin -c -o ./clib.o -O2
+# 拿C 代码，创建一个静态库
+ar crus ./libxyz.a ./clib.o
+
+# 附加参数，调用 `rustc`
+rustc -Clinker-plugin-lto -L. -Copt-level=2 -Clinker=clang -Clink-arg=-fuse-ld=lld ./main.rs
+</code></pre>
+<p>直接用<code>cargo</code>：</p>
+<pre><code class="language-bash"># 编译 C code with `-flto`
+clang ./clib.c -flto=thin -c -o ./clib.o -O2
+# 拿C 代码，创建一个静态库
+ar crus ./libxyz.a ./clib.o
+
+# 通过 RUSTFLAGS，设链接的参数
+RUSTFLAGS=&quot;-Clinker-plugin-lto -Clinker=clang -Clink-arg=-fuse-ld=lld&quot; cargo build --release
+</code></pre>
+<a class="header" href="#rustc明确指定要使用的链接器插件" id="rustc明确指定要使用的链接器插件"><h3><code>rustc</code>明确指定要使用的链接器插件</h3></a>
+<p>如果想要使用 LLD 以外的链接器，则必须明确指定 LLVM 链接器插件。否则链接器无法读取目标文件。插件的路径作为参数传递给<code>-Clinker-plugin-lto</code>选项：</p>
+<pre><code class="language-bash">rustc -Clinker-plugin-lto=&quot;/path/to/LLVMgold.so&quot; -L. -Copt-level=2 ./main.rs
+</code></pre>
+<a class="header" href="#a工具链兼容性" id="a工具链兼容性"><h2>工具链兼容性</h2></a>
+<p>为了使这种 LTO 工作，LLVM 链接器插件必须能够处理由<code>rustc</code>和<code>clang</code>两者生成的 LLVM bitcode。</p>
+<p>使用一个<code>rustc</code>和<code>clang</code>可以获得最佳效果，它们基于完全相同的 LLVM 版本。可以使用<code>rustc -vV</code>，查看给定<code>rustc</code>版本的 LLVM。请注意，此处给出的版本号只是一个近似值，因为 Rust 有时会使用不稳定的 LLVM 修订版。但是，近似值通常是可靠的。</p>
+<p>下表，显示了工具链版本的已知良好组合。</p>
+<table><thead><tr><th>           </th><th> Clang 7 </th><th> Clang 8 </th></tr></thead><tbody>
+<tr><td> Rust 1.34 </td><td> ✗       </td><td> ✓       </td></tr>
+<tr><td> Rust 1.35 </td><td> ✗       </td><td> ✓（？） </td></tr>
+</tbody></table>
+<p>请注意，此功能的兼容性策略将来可能会更改。</p>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="targets/custom.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="contributing.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a href="targets/custom.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a href="contributing.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>

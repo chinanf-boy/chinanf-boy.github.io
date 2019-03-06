@@ -1,0 +1,581 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>默认允许的 lints - The rustc book</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/chrome.css">
+    <link rel="stylesheet" href="../../css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="../../highlight.css">
+    <link rel="stylesheet" href="../../tomorrow-night.css">
+    <link rel="stylesheet" href="../../ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "../../";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li><a href="../../what-is-rustc.zh.html"><strong aria-hidden="true">1.</strong> 什么是 rustc？</a></li><li><a href="../../command-line-arguments.zh.html"><strong aria-hidden="true">2.</strong> 命令行参数</a></li><li><a href="../../lints/index.zh.html"><strong aria-hidden="true">3.</strong> Lints</a></li><li><ol class="section"><li><a href="../../lints/levels.zh.html"><strong aria-hidden="true">3.1.</strong> Lint 水平</a></li><li><a href="../../lints/groups.zh.html"><strong aria-hidden="true">3.2.</strong> Lint 组</a></li><li><a href="../../lints/listing/index.zh.html"><strong aria-hidden="true">3.3.</strong> lint 列表</a></li><li><ol class="section"><li><a href="../../lints/listing/allowed-by-default.zh.html" class="active"><strong aria-hidden="true">3.3.1.</strong> 默认允许的 lints</a></li><li><a href="../../lints/listing/warn-by-default.zh.html"><strong aria-hidden="true">3.3.2.</strong> 默认发出警告的 lints</a></li><li><a href="../../lints/listing/deny-by-default.zh.html"><strong aria-hidden="true">3.3.3.</strong> 默认禁止 lints</a></li></ol></li></ol></li><li><a href="../../codegen-options/index.zh.html"><strong aria-hidden="true">4.</strong> 代码生成选项</a></li><li><a href="../../targets/index.zh.html"><strong aria-hidden="true">5.</strong> 生成目标</a></li><li><ol class="section"><li><a href="../../targets/built-in.zh.html"><strong aria-hidden="true">5.1.</strong> 内置目标</a></li><li><a href="../../targets/custom.zh.html"><strong aria-hidden="true">5.2.</strong> 自定义目标</a></li></ol></li><li><a href="../../linker-plugin-lto.zh.html"><strong aria-hidden="true">6.</strong> 基于 LTO 的链接器插件</a></li><li><a href="../../contributing.zh.html"><strong aria-hidden="true">7.</strong> 帮助rustc</a></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The rustc book</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/rustc-zh/edit/master/src/lints/listing/allowed-by-default.zh.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#a默认允许的-lints" id="a默认允许的-lints"><h1>默认允许的 lints</h1></a>
+<p>默认情况下，这些 lint 都设置为’allow’级别。因此，除非您使用标志或属性将它们设置为更高的 lint 级别，否则它们将不会显示。</p>
+<a class="header" href="#a匿名参数" id="a匿名参数"><h2>匿名参数</h2></a>
+<p>此 lint 检测匿名参数。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+trait Foo {
+    fn foo(usize);
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: use of deprecated anonymous parameter
+ --&gt; src/lib.rs:5:11
+  |
+5 |     fn foo(usize);
+  |           ^
+  |
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #41686 &lt;https://github.com/rust-lang/rust/issues/41686&gt;
+</code></pre>
+<p>这种语法大多是历史意外，可以很容易地解决：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+trait Foo {
+    fn foo(_: usize);
+}
+#}</code></pre></pre>
+<a class="header" href="#a裸-trait-对象" id="a裸-trait-对象"><h2>裸 trait 对象</h2></a>
+<p>这个 lint 暗示对 trait 对象，使用<code>dyn Trait</code>。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![feature(dyn_trait)]
+
+#fn main() {
+trait Trait { }
+
+fn takes_trait_object(_: Box&lt;Trait&gt;) {
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: trait objects without an explicit `dyn` are deprecated
+ --&gt; src/lib.rs:7:30
+  |
+7 | fn takes_trait_object(_: Box&lt;Trait&gt;) {
+  |                              ^^^^^ help: use `dyn`: `dyn Trait`
+  |
+</code></pre>
+<p>要解决此问题，请按照帮助消息的建议执行操作：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![feature(dyn_trait)]
+#![deny(bare_trait_objects)]
+
+#fn main() {
+trait Trait { }
+
+fn takes_trait_object(_: Box&lt;dyn Trait&gt;) {
+}
+#}</code></pre></pre>
+<a class="header" href="#box-指针" id="box-指针"><h2>box 指针</h2></a>
+<p>给 Box 类型使用的 lints。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Foo {
+    x: Box&lt;isize&gt;,
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: type uses owned (Box type) pointers: std::boxed::Box&lt;isize&gt;
+ --&gt; src/lib.rs:6:5
+  |
+6 |     x: Box&lt;isize&gt; //~ ERROR type uses owned
+  |     ^^^^^^^^^^^^^
+  |
+</code></pre>
+<p>这种 lint 主要是历史性的，并不是特别有用。以前，<code>Box&lt;T&gt;</code>是用于构建语言，以及进行堆分配的唯一方法。今天的 Rust 可以调用其他分配器等。</p>
+<a class="header" href="#elided-lifetime-in-path" id="elided-lifetime-in-path"><h2>elided-lifetime-in-path</h2></a>
+<p>此 lint 检测隐藏生命周期参数的使用。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Foo&lt;'a&gt; {
+    x: &amp;'a u32
+}
+
+fn foo(x: &amp;Foo) {
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: hidden lifetime parameters are deprecated, try `Foo&lt;'_&gt;`
+ --&gt; src/lib.rs:5:12
+  |
+5 | fn foo(x: &amp;Foo) {
+  |            ^^^
+  |
+</code></pre>
+<p>生命周期省略规则隐藏这个生命周期，但是这个被弃用了。</p>
+<a class="header" href="#a缺少-copy-的实现" id="a缺少-copy-的实现"><h2>缺少 Copy 的实现</h2></a>
+<p>这个 lint 检测到可能被遗忘的<code>Copy</code>实现。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub struct Foo {
+    pub field: i32
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: type could implement `Copy`; consider adding `impl Copy`
+ --&gt; src/main.rs:3:1
+  |
+3 | / pub struct Foo { //~ ERROR type could implement `Copy`; consider adding `impl Copy`
+4 | |     pub field: i32
+5 | | }
+  | |_^
+  |
+</code></pre>
+<p>您可以通过派生<code>Copy</code>，来修复 lint。</p>
+<p>这个 lint 被设置为’allow’，因为这个代码并不坏; 特别是常写一个类似这样的新类型，所以一个<code>Copy</code>类型不再是<code>Copy</code>（it’s common to write
+newtypes like this specifically so that a <code>Copy</code> type is no longer <code>Copy</code>）。</p>
+<a class="header" href="#a缺少-debug-的实现" id="a缺少-debug-的实现"><h2>缺少 Debug 的实现</h2></a>
+<p>此 lint 检测到缺少的<code>fmt::Debug</code>实现。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub struct Foo;
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: type does not implement `fmt::Debug`; consider adding #[derive(Debug)] or a manual implementation
+ --&gt; src/main.rs:3:1
+  |
+3 | pub struct Foo;
+  | ^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<p>您可以通过派生<code>Debug</code>来修复 lint。</p>
+<a class="header" href="#a缺乏文档" id="a缺乏文档"><h2>缺乏文档</h2></a>
+<p>此 lint 检测到公有项的缺乏文档。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn foo() {}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: missing documentation for crate
+ --&gt; src/main.rs:1:1
+  |
+1 | / #![deny(missing_docs)]
+2 | |
+3 | | pub fn foo() {}
+4 | |
+5 | | fn main() {}
+  | |____________^
+  |
+
+error: missing documentation for a function
+ --&gt; src/main.rs:3:1
+  |
+3 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+</code></pre>
+<p>要修复 lint，请为所有项添加文档。</p>
+<a class="header" href="#a使用一次的生命周期" id="a使用一次的生命周期"><h2>使用一次的生命周期</h2></a>
+<p>此 lint 检测仅使用一次的生命周期。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Foo&lt;'x&gt; {
+    x: &amp;'x u32
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: lifetime name `'x` only used once
+ --&gt; src/main.rs:3:12
+  |
+3 | struct Foo&lt;'x&gt; {
+  |            ^^
+  |
+</code></pre>
+<a class="header" href="#a琐碎成本" id="a琐碎成本"><h2>琐碎成本</h2></a>
+<p>这种 lint 可以检测到可以移除的琐碎成本。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let x: &amp;u32 = &amp;42;
+let _ = x as *const u32;
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: trivial cast: `&amp;u32` as `*const u32`. Cast can be replaced by coercion, this might require type ascription or a temporary variable
+ --&gt; src/main.rs:5:13
+  |
+5 |     let _ = x as *const u32;
+  |             ^^^^^^^^^^^^^^^
+  |
+note: lint level defined here
+ --&gt; src/main.rs:1:9
+  |
+1 | #![deny(trivial_casts)]
+  |         ^^^^^^^^^^^^^
+</code></pre>
+<a class="header" href="#a琐碎数字成本" id="a琐碎数字成本"><h2>琐碎数字成本</h2></a>
+<p>此 lint 检测可以删除的数字类型的简单转换。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let x = 42i32 as i32;
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: trivial numeric cast: `i32` as `i32`. Cast can be replaced by coercion, this might require type ascription or a temporary variable
+ --&gt; src/main.rs:4:13
+  |
+4 |     let x = 42i32 as i32;
+  |             ^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#a不可达-pub" id="a不可达-pub"><h2>不可达-pub</h2></a>
+<p>这个 lint 无法从箱子根触发了到达的<code>pub</code>项。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+mod foo {
+    pub mod bar {
+
+    }
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: unreachable `pub` item
+ --&gt; src/main.rs:4:5
+  |
+4 |     pub mod bar {
+  |     ---^^^^^^^^
+  |     |
+  |     help: consider restricting its visibility: `pub(crate)`
+  |
+</code></pre>
+<a class="header" href="#a不安全的代码" id="a不安全的代码"><h2>不安全的代码</h2></a>
+<p>这种 lint 可以使用<code>unsafe</code>码。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    unsafe {
+
+    }
+}
+</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: usage of an `unsafe` block
+ --&gt; src/main.rs:4:5
+  |
+4 | /     unsafe {
+5 | |
+6 | |     }
+  | |_____^
+  |
+</code></pre>
+<a class="header" href="#a不稳定的特性" id="a不稳定的特性"><h2>不稳定的特性</h2></a>
+<p>此 lint 已弃用，不再使用。</p>
+<a class="header" href="#unused-extern-crates" id="unused-extern-crates"><h2>unused-extern-crates</h2></a>
+<p>这种 lint 可以防止<code>extern crate</code>，从未使用过的箱。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">extern crate semver;
+</code></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: unused extern crate
+ --&gt; src/main.rs:3:1
+  |
+3 | extern crate semver;
+  | ^^^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unused-import-braces" id="unused-import-braces"><h2>unused-import-braces</h2></a>
+<p>此 lint 捕获导入项目周围，有不必要的括号。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">use test::{A};
+
+pub mod test {
+    pub struct A;
+}
+# fn main() {}
+</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: braces around A is unnecessary
+ --&gt; src/main.rs:3:1
+  |
+3 | use test::{A};
+  | ^^^^^^^^^^^^^^
+  |
+</code></pre>
+<p>要解决这个问题，<code>use test::A;</code></p>
+<a class="header" href="#unused-qualifications" id="unused-qualifications"><h2>unused-qualifications</h2></a>
+<p>此 lint 检测到不必要的限定名称。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">mod foo {
+    pub fn bar() {}
+}
+
+fn main() {
+    use foo::bar;
+    foo::bar();
+}
+</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: unnecessary qualification
+ --&gt; src/main.rs:9:5
+  |
+9 |     foo::bar();
+  |     ^^^^^^^^
+  |
+</code></pre>
+<p>你可以直接调用<code>bar()</code>，没有<code>foo::</code>。</p>
+<a class="header" href="#unused-results" id="unused-results"><h2>unused-results</h2></a>
+<p>此 lint 检查语句中表达式的未使用结果。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust no_run">fn foo&lt;T&gt;() -&gt; T { panic!() }
+
+fn main() {
+    foo::&lt;usize&gt;();
+}
+</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: unused result
+ --&gt; src/main.rs:6:5
+  |
+6 |     foo::&lt;usize&gt;();
+  |     ^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#variant-size-differences" id="variant-size-differences"><h2>variant-size-differences</h2></a>
+<p>此 lint 检测具有各种变体大小的枚举。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+enum En {
+    V0(u8),
+    VBig([u8; 1024]),
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: enum variant is more than three times larger (1024 bytes) than the next largest
+ --&gt; src/main.rs:5:5
+  |
+5 |     VBig([u8; 1024]),   //~ ERROR variant is more than three times larger
+  |     ^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="../../lints/listing/index.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="../../lints/listing/warn-by-default.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a href="../../lints/listing/index.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a href="../../lints/listing/warn-by-default.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>

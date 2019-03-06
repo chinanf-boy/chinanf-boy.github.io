@@ -1,0 +1,1978 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>The rustc book</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li><a href="what-is-rustc.zh.html"><strong aria-hidden="true">1.</strong> 什么是 rustc？</a></li><li><a href="command-line-arguments.zh.html"><strong aria-hidden="true">2.</strong> 命令行参数</a></li><li><a href="lints/index.zh.html"><strong aria-hidden="true">3.</strong> Lints</a></li><li><ol class="section"><li><a href="lints/levels.zh.html"><strong aria-hidden="true">3.1.</strong> Lint 水平</a></li><li><a href="lints/groups.zh.html"><strong aria-hidden="true">3.2.</strong> Lint 组</a></li><li><a href="lints/listing/index.zh.html"><strong aria-hidden="true">3.3.</strong> lint 列表</a></li><li><ol class="section"><li><a href="lints/listing/allowed-by-default.zh.html"><strong aria-hidden="true">3.3.1.</strong> 默认允许的 lints</a></li><li><a href="lints/listing/warn-by-default.zh.html"><strong aria-hidden="true">3.3.2.</strong> 默认发出警告的 lints</a></li><li><a href="lints/listing/deny-by-default.zh.html"><strong aria-hidden="true">3.3.3.</strong> 默认禁止 lints</a></li></ol></li></ol></li><li><a href="codegen-options/index.zh.html"><strong aria-hidden="true">4.</strong> 代码生成选项</a></li><li><a href="targets/index.zh.html"><strong aria-hidden="true">5.</strong> 生成目标</a></li><li><ol class="section"><li><a href="targets/built-in.zh.html"><strong aria-hidden="true">5.1.</strong> 内置目标</a></li><li><a href="targets/custom.zh.html"><strong aria-hidden="true">5.2.</strong> 自定义目标</a></li></ol></li><li><a href="linker-plugin-lto.zh.html"><strong aria-hidden="true">6.</strong> 基于 LTO 的链接器插件</a></li><li><a href="contributing.zh.html"><strong aria-hidden="true">7.</strong> 帮助rustc</a></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The rustc book</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/rustc-zh/edit/master/src/print.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#a什么是-rustc" id="a什么是-rustc"><h1>什么是 rustc？</h1></a>
+<p>欢迎来到“rustc 书”！<code>rustc</code>是 Rust 编程语言的编译器，由项目组开发提供。编译器将您的源代码和生产二进制代码，变成一个或可执行文件。</p>
+<p>大多数 Rust 程序员都不会直接调用<code>rustc</code>，而是通过<a href="../cargo/index.html">Cargo</a>来完成，虽然这一切都只是调用<code>rustc</code>流程！如果你想看看 Cargo 如何调用<code>rustc</code>， 您可以</p>
+<pre><code class="language-bash">$ cargo build --verbose
+</code></pre>
+<p>它会打印出每个<code>rustc</code>调用。本书可以帮助您了解每个选项的作用。此外，虽然大多数 Rustaceans 使用 Cargo，但并非所有人都这样做：有时，他们将<code>rustc</code>整合进其他构建系统。本书会提供您需要执行此操作的所有选项的指南。</p>
+<a class="header" href="#a基本用法" id="a基本用法"><h2>基本用法</h2></a>
+<p>假设你在文件中有一个小小的 hello world 程序，<code>hello.rs</code>：</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre></pre>
+<p>要将此源代码转换为可执行文件，您可以使用<code>rustc</code>：</p>
+<pre><code class="language-bash">$ rustc hello.rs
+$ ./hello # 在 *NIX
+$ .\hello.exe # 在 Windows
+</code></pre>
+<p>注意，通常我们只在使用<code>rustc</code>时，传递<em>crate 根文件</em>，不是(我们希望编译的)每个文件。例如，如果我们有一个<code>main.rs</code>，看起来像这样：</p>
+<pre><code class="language-rust ignore">mod foo;
+
+fn main() {
+    foo::hello();
+}
+</code></pre>
+<p>还有一个<code>foo.rs</code>，如下：</p>
+<pre><code class="language-rust ignore">pub fn hello() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre>
+<p>要编译它，我们将运行此命令：</p>
+<pre><code class="language-bash">$ rustc main.rs
+</code></pre>
+<p>没必要告诉<code>rustc</code>关于<code>foo.rs</code>文件; 该<code>mod</code>语句为<code>rusts</code>提供所需的一切。这与您使用 C 编译器的方式不同，在 C 编译器中，您要在每个文件上调用编译器，然后将所有内容链接在一起。换句话说，<em>crate</em>就是一个编译单位，而不是一个特定的模块组。</p>
+<a class="header" href="#a命令行参数" id="a命令行参数"><h1>命令行参数</h1></a>
+<p>这里是，<code>rustc</code>能做什么的命令行参数列表。</p>
+<a class="header" href="#a-h--help-帮助下" id="a-h--help-帮助下"><h2><code>-h</code>/<code>--help</code>： 帮助下</h2></a>
+<p>该标志将打印出<code>rustc</code>的帮助信息。</p>
+<a class="header" href="#a--cfg配置编译环境" id="a--cfg配置编译环境"><h2><code>--cfg</code>：配置编译环境</h2></a>
+<p>此标志可以打开或关闭各种<code>#[cfg]</code>设置。</p>
+<p>该值可以是单个标识符，也可以是由<code>=</code>分隔两个标识符。</p>
+<p>举些例子，<code>--cfg 'verbose'</code>要么<code>--cfg 'feature=&quot;serde&quot;'</code>。分别对应<code>#[cfg(verbose)]</code>和<code>#[cfg(feature = &quot;serde&quot;)]</code>。</p>
+<a class="header" href="#a-l将目录添加到库搜索路径" id="a-l将目录添加到库搜索路径"><h2><code>-L</code>：将目录添加到库搜索路径</h2></a>
+<p>要查找外部包时，就传递给此标志的目录，rustc 会搜索。</p>
+<a class="header" href="#a-l将生成的包链接到一个原生库" id="a-l将生成的包链接到一个原生库"><h2><code>-l</code>：将生成的包链接到一个原生库</h2></a>
+<p>此标志允许您在构建包时，指定一个特定原生库的链接。</p>
+<a class="header" href="#a--crate-type编译器要发出的包的类型列表" id="a--crate-type编译器要发出的包的类型列表"><h2><code>--crate-type</code>：编译器要发出的包的类型列表</h2></a>
+<p>这指示<code>rustc</code>构建哪种箱子类型。</p>
+<a class="header" href="#a--crate-name指定正在构建的包的名称" id="a--crate-name指定正在构建的包的名称"><h2><code>--crate-name</code>：指定正在构建的包的名称</h2></a>
+<p>这告诉<code>rustc</code>，您的箱子名称。</p>
+<a class="header" href="#a--emit发出除箱子以外的输出" id="a--emit发出除箱子以外的输出"><h2><code>--emit</code>：发出除箱子以外的输出</h2></a>
+<p>这个标志可以打印出装配或 LLVM-IR 之类的东西，而不是生成一个箱子。</p>
+<a class="header" href="#a--print打印编译器信息" id="a--print打印编译器信息"><h2><code>--print</code>：打印编译器信息</h2></a>
+<p>该标志打印出有，关编译器的各种信息。</p>
+<a class="header" href="#a-g包含调试信息" id="a-g包含调试信息"><h2><code>-g</code>：包含调试信息</h2></a>
+<p>与<code>-C debuginfo=2</code>同义，更多看<a href="codegen-options/index.zh.html#debuginfo">这里</a>。</p>
+<a class="header" href="#a-o优化您的代码" id="a-o优化您的代码"><h2><code>-O</code>：优化您的代码</h2></a>
+<p>与<code>-C opt-level=2</code>同义，更多看<a href="codegen-options/index.zh.html#opt-level">这里</a>。</p>
+<a class="header" href="#a-o输出的文件名" id="a-o输出的文件名"><h2><code>-o</code>：输出的文件名</h2></a>
+<p>此标志控制，输出的文件名。</p>
+<a class="header" href="#a--out-dir用于写入输出的目录" id="a--out-dir用于写入输出的目录"><h2><code>--out-dir</code>：用于写入输出的目录</h2></a>
+<p>输出包，被写入的目录。</p>
+<a class="header" href="#a--explain提供错误消息的详细说明" id="a--explain提供错误消息的详细说明"><h2><code>--explain</code>：提供错误消息的详细说明</h2></a>
+<p>每个错误，<code>rustc</code>附带一个错误代码;这将打印出给定错误的更详细解释。</p>
+<a class="header" href="#a--test构建测试工具" id="a--test构建测试工具"><h2><code>--test</code>：构建测试工具</h2></a>
+<p>编译这个箱子时，<code>rustc</code>会忽略你的<code>main</code>功能，而不是产生一个测试工具。</p>
+<a class="header" href="#a--target选择要构建的目标三元组" id="a--target选择要构建的目标三元组"><h2><code>--target</code>：选择要构建的目标三元组</h2></a>
+<p>控制了哪个生产<a href="targets/index.zh.html">目标</a>。</p>
+<a class="header" href="#a-w设置-lint-警告" id="a-w设置-lint-警告"><h2><code>-W</code>：设置 lint 警告</h2></a>
+<p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#warn">警告水平</a>。</p>
+<a class="header" href="#a-a设置-lint-允许" id="a-a设置-lint-允许"><h2><code>-A</code>：设置 lint 允许</h2></a>
+<p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#allow">允许水平</a>。</p>
+<a class="header" href="#a-d设置-lint-拒绝" id="a-d设置-lint-拒绝"><h2><code>-D</code>：设置 lint 拒绝</h2></a>
+<p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#deny">拒绝等级</a>。</p>
+<a class="header" href="#a-f设置-lint-禁止" id="a-f设置-lint-禁止"><h2><code>-F</code>：设置 lint 禁止</h2></a>
+<p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#forbid">禁止等级</a>。</p>
+<a class="header" href="#a--cap-lints设置最严格的-lint-级别" id="a--cap-lints设置最严格的-lint-级别"><h2><code>--cap-lints</code>：设置最严格的 lint 级别</h2></a>
+<p>这个标志让你’盖’lints，更多，<a href="lints/levels.zh.html#capping-lints">看这里</a>。</p>
+<a class="header" href="#a-c--codegen代码生成选项" id="a-c--codegen代码生成选项"><h2><code>-C</code>/<code>--codegen</code>：代码生成选项</h2></a>
+<p>此标志将允许您,设置<a href="codegen-options/index.zh.html">codegen 选项</a>。</p>
+<a class="header" href="#a-v--version打印版本" id="a-v--version打印版本"><h2><code>-V</code>/<code>--version</code>：打印版本</h2></a>
+<p>此标志将打印出来<code>rustc</code>的版本。</p>
+<a class="header" href="#a-v--verbose使用详细输出" id="a-v--verbose使用详细输出"><h2><code>-v</code>/<code>--verbose</code>：使用详细输出</h2></a>
+<p>该标志与其他标志组合使用时，会产生额外的输出。</p>
+<a class="header" href="#a--extern指定外部库的位置" id="a--extern指定外部库的位置"><h2><code>--extern</code>：指定外部库的位置</h2></a>
+<p>此标志允许您传递外部箱子的位置和名称，并链接该箱到您正在构建的箱子中。</p>
+<a class="header" href="#a--sysroot覆盖系统根目录" id="a--sysroot覆盖系统根目录"><h2><code>--sysroot</code>：覆盖系统根目录</h2></a>
+<p>“sysroot”就是<code>rustc</code>寻找 Rust安装附带的箱子;这个标志允许被覆盖。</p>
+<a class="header" href="#a--error-format控制错误的产生方式" id="a--error-format控制错误的产生方式"><h2><code>--error-format</code>：控制错误的产生方式</h2></a>
+<p>此标志允许您控制错误的格式。</p>
+<a class="header" href="#a--color配置输出的着色" id="a--color配置输出的着色"><h2><code>--color</code>：配置输出的着色</h2></a>
+<p>此标志可让您控制输出的颜色设置。</p>
+<a class="header" href="#lint" id="lint"><h1>Lint</h1></a>
+<p>在软件中，“lint”是用于帮助改进源代码的工具。Rust 编译器包含许多 lints，当它编译你的代码时，它也会运行 lints。根据您配置的方式，这些 lint 可能会产生警告，错误或根本没有任何内容。</p>
+<p>这是一个小例子：</p>
+<pre><code class="language-bash">$ cat main.rs
+fn main() {
+    let x = 5;
+}
+$ rustc main.rs
+warning: unused variable: `x`
+ --&gt; main.rs:2:9
+  |
+2 |     let x = 5;
+  |         ^
+  |
+  = note: #[warn(unused_variables)] on by default
+  = note: to avoid this warning, consider using `_x` instead
+</code></pre>
+<p>这是<code>unused_variables</code>lint，它告诉你，你已经引入了一个你不在代码中使用的变量。注意<code>warning: unused variable:</code>x``不是<em>错误</em>，所以这不是错误，但它可能是一个 bug，所以你得到一个警告。</p>
+<a class="header" href="#lint-等级" id="lint-等级"><h1>Lint 等级</h1></a>
+<p>在<code>rustc</code>，lints 分为四个<em>等级</em>：</p>
+<ol>
+<li>允许(allow)</li>
+<li>警告(warn)</li>
+<li>拒绝(deny)</li>
+<li>禁止(forbid)</li>
+</ol>
+<p>每个 lint 都有一个默认级别（在本章后面的 lint 列表中进行了解释），并且编译器具有默认警告级别。首先，让我们解释这些级别的含义，然后再讨论配置。</p>
+<a class="header" href="#a允许" id="a允许"><h2>允许</h2></a>
+<p>存在这些 lint，但默认情况下不执行任何操作。例如，请考虑以下源代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn foo() {}
+#}</code></pre></pre>
+<p>编译此文件不会产生警告：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib
+$
+</code></pre>
+<p>但是这段代码违反了<code>missing_docs</code>lint(缺乏说明文档)。</p>
+<p>这些 lint 主要由配置手动打开，我们将在本节后面讨论。</p>
+<a class="header" href="#a警告" id="a警告"><h2>警告</h2></a>
+<p>如果您违反“警告”等级的 lint，将发出警告。例如，这段代码与<code>unused_variable</code>lint 相违背：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn foo() {
+    let x = 5;
+}
+#}</code></pre></pre>
+<p>这将产生此警告：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib
+warning: unused variable: `x`
+ --&gt; lib.rs:2:9
+  |
+2 |     let x = 5;
+  |         ^
+  |
+  = note: #[warn(unused_variables)] on by default
+  = note: to avoid this warning, consider using `_x` instead
+</code></pre>
+<a class="header" href="#a拒绝" id="a拒绝"><h2>拒绝</h2></a>
+<p>如果您违反“拒绝”等级的 lint，将发出错误。例如，此代码违背<code>exceeding_bitshifts</code>lint。</p>
+<pre><code class="language-rust ignore">fn main() {
+    100u8 &lt;&lt; 10;
+}
+</code></pre>
+<pre><code class="language-bash">$ rustc main.rs
+error: bitshift exceeds the type's number of bits
+ --&gt; main.rs:2:13
+  |
+2 |     100u8 &lt;&lt; 10;
+  |     ^^^^^^^^^^^
+  |
+  = note: #[deny(exceeding_bitshifts)] on by default
+</code></pre>
+<p>lint 的错误和常规的传统错误有什么区别？Lints 可以通过级别进行配置，因此像“允许”lints 的方式，能让默认情况下“拒绝”的警告不再出现。同样，您若希望设置，让一个默认情况下<code>warn</code>lint 能产生错误。那 lint 等级能帮到你。</p>
+<a class="header" href="#a禁止" id="a禁止"><h2>禁止</h2></a>
+<p>‘禁止’是一种比’拒绝’更强的特殊 lint 等级。它与’deny’相同，因为此级别的 lint 会产生错误，但与’deny’级别不同，’禁止’级别不能被低于一个错误的信息所覆盖。但是，lint 等级仍可能受到<code>--cap-lints</code>限制（见下文），所以<code>rustc --cap-lints warn</code>将把 ‘禁止’lints 设置为警告。</p>
+<a class="header" href="#a配置警告级别" id="a配置警告级别"><h2>配置警告级别</h2></a>
+<p>记住我们的<code>missing_docs</code>，来自“允许”lint 级别的示例？</p>
+<pre><code class="language-bash">$ cat lib.rs
+pub fn foo() {}
+$ rustc lib.rs --crate-type=lib
+$
+</code></pre>
+<p>我们可以配置这个 lint ，升到更高的级别。可用编译器命令行标志，源代码中的属性也行。</p>
+<p>您还可以“cap”lints，以便编译器可以选择忽略某些 lint 级别。我们最后再谈。</p>
+<a class="header" href="#a通过编译器标志" id="a通过编译器标志"><h3>通过编译器标志</h3></a>
+<p>这个<code>-A</code>，<code>-W</code>，<code>-D</code>，和<code>-F</code>标志，允许您将一个或多个 lints 转换为允许、警告、拒绝或禁止级别，如下所示：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib -W missing-docs
+warning: missing documentation for crate
+ --&gt; lib.rs:1:1
+  |
+1 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+  |
+  = note: requested on the command line with `-W missing-docs`
+
+warning: missing documentation for a function
+ --&gt; lib.rs:1:1
+  |
+1 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+</code></pre>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib -D missing-docs
+error: missing documentation for crate
+ --&gt; lib.rs:1:1
+  |
+1 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+  |
+  = note: requested on the command line with `-D missing-docs`
+
+error: missing documentation for a function
+ --&gt; lib.rs:1:1
+  |
+1 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+
+error: aborting due to 2 previous errors
+</code></pre>
+<p>还可以多次传递每个标志，以更改多个 lints：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib -D missing-docs -D unused-variables
+</code></pre>
+<p>当然，您可以将这四个标志混合在一起：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib -D missing-docs -A unused-variables
+</code></pre>
+<a class="header" href="#a通过属性" id="a通过属性"><h3>通过属性</h3></a>
+<p>您还可以使用箱的宽度属性，修改 lints 级别：</p>
+<pre><code class="language-bash">$ cat lib.rs
+#![warn(missing_docs)]
+
+pub fn foo() {}
+$ rustc lib.rs --crate-type=lib
+warning: missing documentation for crate
+ --&gt; lib.rs:1:1
+  |
+1 | / #![warn(missing_docs)]
+2 | |
+3 | | pub fn foo() {}
+  | |_______________^
+  |
+note: lint level defined here
+ --&gt; lib.rs:1:9
+  |
+1 | #![warn(missing_docs)]
+  |         ^^^^^^^^^^^^
+
+warning: missing documentation for a function
+ --&gt; lib.rs:3:1
+  |
+3 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+</code></pre>
+<p>全部四个，<code>warn</code>，<code>allow</code>，<code>deny</code>，和<code>forbid</code>都是这样工作的。</p>
+<p>您还可以为每个属性，传递多个 lints：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![warn(missing_docs, unused_variables)]
+
+#fn main() {
+pub fn foo() {}
+#}</code></pre></pre>
+<p>同时使用多个属性：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![warn(missing_docs)]
+#![deny(unused_variables)]
+
+#fn main() {
+pub fn foo() {}
+#}</code></pre></pre>
+<a class="header" href="#capping-lint" id="capping-lint"><h3>Capping lint</h3></a>
+<p><code>rustc</code>支持一种标志，就是<code>--cap-lints LEVEL</code>，它设置“lint 天花板等级”。这是对所有 lint 的最大控制。例如，如果我们从上面的“拒绝”lint 级别，获取代码示例：</p>
+<pre><code class="language-rust ignore">fn main() {
+    100u8 &lt;&lt; 10;
+}
+</code></pre>
+<p>我们编译它，以 lint 警告等级作为天花板(封顶)：</p>
+<pre><code class="language-bash">$ rustc lib.rs --cap-lints warn
+warning: bitshift exceeds the type's number of bits
+ --&gt; lib.rs:2:5
+  |
+2 |     100u8 &lt;&lt; 10;
+  |     ^^^^^^^^^^^
+  |
+  = note: #[warn(exceeding_bitshifts)] on by default
+
+warning: this expression will panic at run-time
+ --&gt; lib.rs:2:5
+  |
+2 |     100u8 &lt;&lt; 10;
+  |     ^^^^^^^^^^^ attempt to shift left with overflow
+</code></pre>
+<p>它现在只发出警告，而不是错误。我们可以走得更远，允许所有的 lints：</p>
+<blockquote>
+<p>以‘允许’级别作为天花板，但允许级别默认不输出信息，整洁界面。</p>
+</blockquote>
+<pre><code class="language-bash">$ rustc lib.rs --cap-lints allow
+$
+</code></pre>
+<p>这个功能被 Cargo 大量使用；在编译依赖项时，传递<code>--cap-lints allow</code>，这样如果它们有任何警告，它们就不会污染构建的输出。</p>
+<a class="header" href="#lint-组" id="lint-组"><h1>Lint 组</h1></a>
+<p><code>rustc</code>具有“lint 组”的概念，您可以通过一个名称切换多个警告。</p>
+<p>例如，<code>nonstandard-style</code>lint 一次设置 <code>non-camel-case-types</code>，<code>non-snake-case</code>，和<code>non-upper-case-globals</code>全部。所以下面命令行是等价的：</p>
+<pre><code class="language-bash">$ rustc -D nonstandard-style
+$ rustc -D non-camel-case-types -D non-snake-case -D non-upper-case-globals
+</code></pre>
+<p>这是每个 lint 组的列表，以及它们由以下组成的 lint：</p>
+<table><thead><tr><th> 组                  </th><th> 描述                                 </th><th> lints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </th></tr></thead><tbody>
+<tr><td> nonstandard-style   </td><td> 违反标准命名约定                     </td><td> non-camel-case-types, non-snake-case, non-upper-case-globals                                                                                                                                                                                                                                                                                                                                                                                                                           </td></tr>
+<tr><td> warnings            </td><td> 所有会发出警告的 lints               </td><td> 所有会发出警告的 lints                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </td></tr>
+<tr><td> edition-2018        </td><td> 在 2018 Rust 时变为错误的 lints      </td><td> tyvar-behind-raw-pointer                                                                                                                                                                                                                                                                                                                                                                                                                                                               </td></tr>
+<tr><td> rust-2018-idioms    </td><td> 倾向 Rust 2018 的惯用功能的 lints    </td><td> bare-trait-object, unreachable-pub                                                                                                                                                                                                                                                                                                                                                                                                                                                     </td></tr>
+<tr><td> unused              </td><td> 这些 lints 检测到声明但未使用的东西  </td><td> unused-imports, unused-variables, unused-assignments, dead-code, unused-mut, unreachable-code, unreachable-patterns, unused-must-use, unused-unsafe, path-statements, unused-attributes, unused-macros, unused-allocation, unused-doc-comment, unused-extern-crates, unused-features, unused-parens                                                                                                                                                                                    </td></tr>
+<tr><td> future-incompatible </td><td> 检测具有功能兼容性问题的代码的 lints </td><td> private-in-public, pub-use-of-private-extern-crate, patterns-in-fns-without-body, safe-extern-statics, invalid-type-param-default, legacy-directory-ownership, legacy-imports, legacy-constructor-visibility, missing-fragment-specifier, illegal-floating-point-literal-pattern, anonymous-parameters, parenthesized-params-in-types-and-modules, late-bound-lifetime-arguments, safe-packed-borrows, incoherent-fundamental-impls, tyvar-behind-raw-pointer, unstable-name-collision </td></tr>
+</tbody></table>
+<p>此外，还有一个<code>bad-style</code>组 lint，它是不推荐使用的<code>nonstandard-style</code>别名。</p>
+<p>最后，您还可以通过调用<code>rustc -W help</code>。 给出已安装特有版本编译器的确切值。</p>
+<a class="header" href="#lint-列表" id="lint-列表"><h1>Lint 列表</h1></a>
+<p>此部分列出了所有 lint，按其默认的 lint 级别分组。</p>
+<p>您还可以通过运行<code>rustc -W help</code>，查看此列表。</p>
+<a class="header" href="#a默认允许的-lints" id="a默认允许的-lints"><h1>默认允许的 lints</h1></a>
+<p>默认情况下，这些 lint 都设置为’allow’级别。因此，除非您使用标志或属性将它们设置为更高的 lint 级别，否则它们将不会显示。</p>
+<a class="header" href="#a匿名参数" id="a匿名参数"><h2>匿名参数</h2></a>
+<p>此 lint 检测匿名参数。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+trait Foo {
+    fn foo(usize);
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: use of deprecated anonymous parameter
+ --&gt; src/lib.rs:5:11
+  |
+5 |     fn foo(usize);
+  |           ^
+  |
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #41686 &lt;https://github.com/rust-lang/rust/issues/41686&gt;
+</code></pre>
+<p>这种语法大多是历史意外，可以很容易地解决：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+trait Foo {
+    fn foo(_: usize);
+}
+#}</code></pre></pre>
+<a class="header" href="#a裸-trait-对象" id="a裸-trait-对象"><h2>裸 trait 对象</h2></a>
+<p>这个 lint 暗示对 trait 对象，使用<code>dyn Trait</code>。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![feature(dyn_trait)]
+
+#fn main() {
+trait Trait { }
+
+fn takes_trait_object(_: Box&lt;Trait&gt;) {
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: trait objects without an explicit `dyn` are deprecated
+ --&gt; src/lib.rs:7:30
+  |
+7 | fn takes_trait_object(_: Box&lt;Trait&gt;) {
+  |                              ^^^^^ help: use `dyn`: `dyn Trait`
+  |
+</code></pre>
+<p>要解决此问题，请按照帮助消息的建议执行操作：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![feature(dyn_trait)]
+#![deny(bare_trait_objects)]
+
+#fn main() {
+trait Trait { }
+
+fn takes_trait_object(_: Box&lt;dyn Trait&gt;) {
+}
+#}</code></pre></pre>
+<a class="header" href="#box-指针" id="box-指针"><h2>box 指针</h2></a>
+<p>给 Box 类型使用的 lints。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Foo {
+    x: Box&lt;isize&gt;,
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: type uses owned (Box type) pointers: std::boxed::Box&lt;isize&gt;
+ --&gt; src/lib.rs:6:5
+  |
+6 |     x: Box&lt;isize&gt; //~ ERROR type uses owned
+  |     ^^^^^^^^^^^^^
+  |
+</code></pre>
+<p>这种 lint 主要是历史性的，并不是特别有用。以前，<code>Box&lt;T&gt;</code>是用于构建语言，以及进行堆分配的唯一方法。今天的 Rust 可以调用其他分配器等。</p>
+<a class="header" href="#elided-lifetime-in-path" id="elided-lifetime-in-path"><h2>elided-lifetime-in-path</h2></a>
+<p>此 lint 检测隐藏生命周期参数的使用。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Foo&lt;'a&gt; {
+    x: &amp;'a u32
+}
+
+fn foo(x: &amp;Foo) {
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: hidden lifetime parameters are deprecated, try `Foo&lt;'_&gt;`
+ --&gt; src/lib.rs:5:12
+  |
+5 | fn foo(x: &amp;Foo) {
+  |            ^^^
+  |
+</code></pre>
+<p>生命周期省略规则隐藏这个生命周期，但是这个被弃用了。</p>
+<a class="header" href="#a缺少-copy-的实现" id="a缺少-copy-的实现"><h2>缺少 Copy 的实现</h2></a>
+<p>这个 lint 检测到可能被遗忘的<code>Copy</code>实现。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub struct Foo {
+    pub field: i32
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: type could implement `Copy`; consider adding `impl Copy`
+ --&gt; src/main.rs:3:1
+  |
+3 | / pub struct Foo { //~ ERROR type could implement `Copy`; consider adding `impl Copy`
+4 | |     pub field: i32
+5 | | }
+  | |_^
+  |
+</code></pre>
+<p>您可以通过派生<code>Copy</code>，来修复 lint。</p>
+<p>这个 lint 被设置为’allow’，因为这个代码并不坏; 特别是常写一个类似这样的新类型，所以一个<code>Copy</code>类型不再是<code>Copy</code>（it’s common to write
+newtypes like this specifically so that a <code>Copy</code> type is no longer <code>Copy</code>）。</p>
+<a class="header" href="#a缺少-debug-的实现" id="a缺少-debug-的实现"><h2>缺少 Debug 的实现</h2></a>
+<p>此 lint 检测到缺少的<code>fmt::Debug</code>实现。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub struct Foo;
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: type does not implement `fmt::Debug`; consider adding #[derive(Debug)] or a manual implementation
+ --&gt; src/main.rs:3:1
+  |
+3 | pub struct Foo;
+  | ^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<p>您可以通过派生<code>Debug</code>来修复 lint。</p>
+<a class="header" href="#a缺乏文档" id="a缺乏文档"><h2>缺乏文档</h2></a>
+<p>此 lint 检测到公有项的缺乏文档。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn foo() {}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: missing documentation for crate
+ --&gt; src/main.rs:1:1
+  |
+1 | / #![deny(missing_docs)]
+2 | |
+3 | | pub fn foo() {}
+4 | |
+5 | | fn main() {}
+  | |____________^
+  |
+
+error: missing documentation for a function
+ --&gt; src/main.rs:3:1
+  |
+3 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+</code></pre>
+<p>要修复 lint，请为所有项添加文档。</p>
+<a class="header" href="#a使用一次的生命周期" id="a使用一次的生命周期"><h2>使用一次的生命周期</h2></a>
+<p>此 lint 检测仅使用一次的生命周期。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Foo&lt;'x&gt; {
+    x: &amp;'x u32
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: lifetime name `'x` only used once
+ --&gt; src/main.rs:3:12
+  |
+3 | struct Foo&lt;'x&gt; {
+  |            ^^
+  |
+</code></pre>
+<a class="header" href="#a琐碎成本" id="a琐碎成本"><h2>琐碎成本</h2></a>
+<p>这种 lint 可以检测到可以移除的琐碎成本。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let x: &amp;u32 = &amp;42;
+let _ = x as *const u32;
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: trivial cast: `&amp;u32` as `*const u32`. Cast can be replaced by coercion, this might require type ascription or a temporary variable
+ --&gt; src/main.rs:5:13
+  |
+5 |     let _ = x as *const u32;
+  |             ^^^^^^^^^^^^^^^
+  |
+note: lint level defined here
+ --&gt; src/main.rs:1:9
+  |
+1 | #![deny(trivial_casts)]
+  |         ^^^^^^^^^^^^^
+</code></pre>
+<a class="header" href="#a琐碎数字成本" id="a琐碎数字成本"><h2>琐碎数字成本</h2></a>
+<p>此 lint 检测可以删除的数字类型的简单转换。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let x = 42i32 as i32;
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: trivial numeric cast: `i32` as `i32`. Cast can be replaced by coercion, this might require type ascription or a temporary variable
+ --&gt; src/main.rs:4:13
+  |
+4 |     let x = 42i32 as i32;
+  |             ^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#a不可达-pub" id="a不可达-pub"><h2>不可达-pub</h2></a>
+<p>这个 lint 无法从箱子根触发了到达的<code>pub</code>项。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+mod foo {
+    pub mod bar {
+
+    }
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: unreachable `pub` item
+ --&gt; src/main.rs:4:5
+  |
+4 |     pub mod bar {
+  |     ---^^^^^^^^
+  |     |
+  |     help: consider restricting its visibility: `pub(crate)`
+  |
+</code></pre>
+<a class="header" href="#a不安全的代码" id="a不安全的代码"><h2>不安全的代码</h2></a>
+<p>这种 lint 可以使用<code>unsafe</code>码。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    unsafe {
+
+    }
+}
+</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: usage of an `unsafe` block
+ --&gt; src/main.rs:4:5
+  |
+4 | /     unsafe {
+5 | |
+6 | |     }
+  | |_____^
+  |
+</code></pre>
+<a class="header" href="#a不稳定的特性" id="a不稳定的特性"><h2>不稳定的特性</h2></a>
+<p>此 lint 已弃用，不再使用。</p>
+<a class="header" href="#unused-extern-crates" id="unused-extern-crates"><h2>unused-extern-crates</h2></a>
+<p>这种 lint 可以防止<code>extern crate</code>，从未使用过的箱。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">extern crate semver;
+</code></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: unused extern crate
+ --&gt; src/main.rs:3:1
+  |
+3 | extern crate semver;
+  | ^^^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unused-import-braces" id="unused-import-braces"><h2>unused-import-braces</h2></a>
+<p>此 lint 捕获导入项目周围，有不必要的括号。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">use test::{A};
+
+pub mod test {
+    pub struct A;
+}
+# fn main() {}
+</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: braces around A is unnecessary
+ --&gt; src/main.rs:3:1
+  |
+3 | use test::{A};
+  | ^^^^^^^^^^^^^^
+  |
+</code></pre>
+<p>要解决这个问题，<code>use test::A;</code></p>
+<a class="header" href="#unused-qualifications" id="unused-qualifications"><h2>unused-qualifications</h2></a>
+<p>此 lint 检测到不必要的限定名称。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">mod foo {
+    pub fn bar() {}
+}
+
+fn main() {
+    use foo::bar;
+    foo::bar();
+}
+</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: unnecessary qualification
+ --&gt; src/main.rs:9:5
+  |
+9 |     foo::bar();
+  |     ^^^^^^^^
+  |
+</code></pre>
+<p>你可以直接调用<code>bar()</code>，没有<code>foo::</code>。</p>
+<a class="header" href="#unused-results" id="unused-results"><h2>unused-results</h2></a>
+<p>此 lint 检查语句中表达式的未使用结果。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust no_run">fn foo&lt;T&gt;() -&gt; T { panic!() }
+
+fn main() {
+    foo::&lt;usize&gt;();
+}
+</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: unused result
+ --&gt; src/main.rs:6:5
+  |
+6 |     foo::&lt;usize&gt;();
+  |     ^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#variant-size-differences" id="variant-size-differences"><h2>variant-size-differences</h2></a>
+<p>此 lint 检测具有各种变体大小的枚举。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+enum En {
+    V0(u8),
+    VBig([u8; 1024]),
+}
+#}</code></pre></pre>
+<p>当设置为’deny’时，这将产生：</p>
+<pre><code class="language-text">error: enum variant is more than three times larger (1024 bytes) than the next largest
+ --&gt; src/main.rs:5:5
+  |
+5 |     VBig([u8; 1024]),   //~ ERROR variant is more than three times larger
+  |     ^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#a默认警告" id="a默认警告"><h1>默认警告</h1></a>
+<p>默认情况下，这些 lint 都设置为“警告”级别。</p>
+<a class="header" href="#const-err" id="const-err"><h2>const-err</h2></a>
+<p>该 lint 在进行持续求值时，检测到一个错误的表达。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">let b = 200u8 + 200u8;
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: attempt to add with overflow
+ --&gt; src/main.rs:2:9
+  |
+2 | let b = 200u8 + 200u8;
+  |         ^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#dead-code" id="dead-code"><h2>dead-code</h2></a>
+<p>此 lint 检测未使用的，未导出的项。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn foo() {}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: function is never used: `foo`
+ --&gt; src/lib.rs:2:1
+  |
+2 | fn foo() {}
+  | ^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#deprecated" id="deprecated"><h2>deprecated</h2></a>
+<p>此 lint 检测使用已弃用的项目。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[deprecated]
+fn foo() {}
+
+fn bar() {
+    foo();
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: use of deprecated item 'foo'
+ --&gt; src/lib.rs:7:5
+  |
+7 |     foo();
+  |     ^^^
+  |
+</code></pre>
+<a class="header" href="#illegal-floating-point-literal-pattern" id="illegal-floating-point-literal-pattern"><h2>illegal-floating-point-literal-pattern</h2></a>
+<p>此 lint 检测模式中使用的浮点数字面量。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let x = 42.0;
+
+match x {
+    5.0 =&gt; {},
+    _ =&gt; {},
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: floating-point literals cannot be used in patterns
+ --&gt; src/main.rs:4:9
+  |
+4 |         5.0 =&gt; {},
+  |         ^^^
+  |
+  = note: #[warn(illegal_floating_point_literal_pattern)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #41620 &lt;https://github.com/rust-lang/rust/issues/41620&gt;
+</code></pre>
+<a class="header" href="#improper-ctypes" id="improper-ctypes"><h2>improper-ctypes</h2></a>
+<p>此 lint 检测到外部模块中， libc 类型的正确使用。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+extern &quot;C&quot; {
+    static STATIC: String;
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: found struct without foreign-function-safe representation annotation in foreign module, consider adding a #[repr(C)] attribute to the type
+ --&gt; src/main.rs:2:20
+  |
+2 |     static STATIC: String;
+  |                    ^^^^^^
+  |
+</code></pre>
+<a class="header" href="#late-bound-lifetime-arguments" id="late-bound-lifetime-arguments"><h2>late-bound-lifetime-arguments</h2></a>
+<blockquote>
+<p>???</p>
+</blockquote>
+<p>此 lint 使用后绑定生命周期参数，检测路径片段中的泛型生存周期参数。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">struct S;
+
+impl S {
+    fn late&lt;'a, 'b&gt;(self, _: &amp;'a u8, _: &amp;'b u8) {}
+}
+
+fn main() {
+    S.late::&lt;'static&gt;(&amp;0, &amp;0);
+}
+</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: cannot specify lifetime arguments explicitly if late bound lifetime parameters are present
+ --&gt; src/main.rs:8:14
+  |
+4 |     fn late&lt;'a, 'b&gt;(self, _: &amp;'a u8, _: &amp;'b u8) {}
+  |             -- the late bound lifetime parameter is introduced here
+...
+8 |     S.late::&lt;'static&gt;(&amp;0, &amp;0);
+  |              ^^^^^^^
+  |
+  = note: #[warn(late_bound_lifetime_arguments)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #42868 &lt;https://github.com/rust-lang/rust/issues/42868&gt;
+</code></pre>
+<a class="header" href="#non-camel-case-types" id="non-camel-case-types"><h2>non-camel-case-types</h2></a>
+<p>此 lint 检测没有驼峰形式名称的类型，变体，trait 和类型参数。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct s;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: type `s` should have a camel case name such as `S`
+ --&gt; src/main.rs:1:1
+  |
+1 | struct s;
+  | ^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#non-shorthand-field-patterns" id="non-shorthand-field-patterns"><h2>non-shorthand-field-patterns</h2></a>
+<p>此 lint 检测在一个模式中，使用<code>Struct { x: x }</code>能代替<code>Struct { x }</code>。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">struct Point {
+    x: i32,
+    y: i32,
+}
+
+
+fn main() {
+    let p = Point {
+        x: 5,
+        y: 5,
+    };
+
+    match p {
+        Point { x: x, y: y } =&gt; (),
+    }
+}
+</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: the `x:` in this pattern is redundant
+  --&gt; src/main.rs:14:17
+   |
+14 |         Point { x: x, y: y } =&gt; (),
+   |                 --^^
+   |                 |
+   |                 help: remove this
+   |
+
+warning: the `y:` in this pattern is redundant
+  --&gt; src/main.rs:14:23
+   |
+14 |         Point { x: x, y: y } =&gt; (),
+   |                       --^^
+   |                       |
+   |                       help: remove this
+</code></pre>
+<a class="header" href="#non-snake-case" id="non-snake-case"><h2>non-snake-case</h2></a>
+<p>此 lint 检测没有蛇形式名称的变量，方法，函数，生命周期参数和模块。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let X = 5;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: variable `X` should have a snake case name such as `x`
+ --&gt; src/main.rs:2:9
+  |
+2 |     let X = 5;
+  |         ^
+  |
+</code></pre>
+<a class="header" href="#non-upper-case-globals" id="non-upper-case-globals"><h2>non-upper-case-globals</h2></a>
+<p>此 lint 检测不大写的静态常量。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+static x: i32 = 5;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: static variable `x` should have an upper case name such as `X`
+ --&gt; src/main.rs:1:1
+  |
+1 | static x: i32 = 5;
+  | ^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#no-mangle-generic-items" id="no-mangle-generic-items"><h2>no-mangle-generic-items</h2></a>
+<p>此 lint 检测泛型项必须被修复(mangle)。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[no_mangle]
+fn foo&lt;T&gt;(t: T) {
+
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: functions generic over types must be mangled
+ --&gt; src/main.rs:2:1
+  |
+1 |   #[no_mangle]
+  |   ------------ help: remove this attribute
+2 | / fn foo&lt;T&gt;(t: T) {
+3 | |
+4 | | }
+  | |_^
+  |
+</code></pre>
+<a class="header" href="#path-statements" id="path-statements"><h2>path-statements</h2></a>
+<p>此 lint 检测路径语句无效。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let x = 42;
+
+x;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: path statement with no effect
+ --&gt; src/main.rs:3:5
+  |
+3 |     x;
+  |     ^^
+  |
+</code></pre>
+<a class="header" href="#patterns-in-fns-without-body" id="patterns-in-fns-without-body"><h2>patterns-in-fns-without-body</h2></a>
+<p>这个 lint 检测到以前的错误，就是没有身体的函数模式。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+trait Trait {
+    fn foo(mut arg: u8);
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: patterns aren't allowed in methods without bodies
+ --&gt; src/main.rs:2:12
+  |
+2 |     fn foo(mut arg: u8);
+  |            ^^^^^^^
+  |
+  = note: #[warn(patterns_in_fns_without_body)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #35203 &lt;https://github.com/rust-lang/rust/issues/35203&gt;
+</code></pre>
+<p>要解决此问题，请删除该模式; 它可以在实现中使用，而无需在定义中使用<code>mut</code>。那是：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+trait Trait {
+    fn foo(arg: u8);
+}
+
+impl Trait for i32 {
+    fn foo(mut arg: u8) {
+
+    }
+}
+#}</code></pre></pre>
+<a class="header" href="#plugin-as-library" id="plugin-as-library"><h2>plugin-as-library</h2></a>
+<p>此 lint 检测，当编译器插件用作非插件包中的普通库。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">#![feature(plugin)]
+#![plugin(macro_crate_test)]
+
+extern crate macro_crate_test;
+</code></pre>
+<a class="header" href="#private-in-public" id="private-in-public"><h2>private-in-public</h2></a>
+<p>此 lint 检测未被旧实现捕获的公有接口中的私有项。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">pub trait Trait {
+    type A;
+}
+
+pub struct S;
+
+mod foo {
+    struct Z;
+
+    impl ::Trait for ::S {
+        type A = Z;
+    }
+}
+# fn main() {}
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error[E0446]: private type `foo::Z` in public interface
+  --&gt; src/main.rs:11:9
+   |
+11 |         type A = Z;
+   |         ^^^^^^^^^^^ can't leak private type
+</code></pre>
+<a class="header" href="#private-no-mangle-fns" id="private-no-mangle-fns"><h2>private-no-mangle-fns</h2></a>
+<p>此 lint 检测标记<code>#[no_mangle]</code>的函数，这也是私有的。鉴于私有函数不公开，并且<code>#[no_mangle]</code>控制公有符号，这种组合是错误的。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[no_mangle]
+fn foo() {}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: function is marked #[no_mangle], but not exported
+ --&gt; src/main.rs:2:1
+  |
+2 | fn foo() {}
+  | -^^^^^^^^^^
+  | |
+  | help: try making it public: `pub`
+  |
+</code></pre>
+<p>要解决此问题，请将其公有或删除<code>#[no_mangle]</code>。</p>
+<a class="header" href="#private-no-mangle-statics" id="private-no-mangle-statics"><h2>private-no-mangle-statics</h2></a>
+<p>此 lint 检测到标记<code>#[no_mangle]</code>的任何静态是私有的。鉴于私有静态不公开，并且<code>#[no_mangle]</code>控制公共符号，这种组合是错误的。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[no_mangle]
+static X: i32 = 4;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: static is marked #[no_mangle], but not exported
+ --&gt; src/main.rs:2:1
+  |
+2 | static X: i32 = 4;
+  | -^^^^^^^^^^^^^^^^^
+  | |
+  | help: try making it public: `pub`
+  |
+</code></pre>
+<p>要解决此问题，请将其公开或删除<code>#[no_mangle]</code>。</p>
+<a class="header" href="#renamed-and-removed-lints" id="renamed-and-removed-lints"><h2>renamed-and-removed-lints</h2></a>
+<p>此 lint 检测已重命名或删除的 lint。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![deny(raw_pointer_derive)]
+#fn main() {
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: lint raw_pointer_derive has been removed: using derive with raw pointers is ok
+ --&gt; src/main.rs:1:9
+  |
+1 | #![deny(raw_pointer_derive)]
+  |         ^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<p>要解决此问题，请删除 lint 或使用新名称。</p>
+<a class="header" href="#safe-packed-borrows" id="safe-packed-borrows"><h2>safe-packed-borrows</h2></a>
+<p>此 lint 检测借用除 1 之外的压缩对齐结构内部的字段。触发此 lint 的一些示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">#[repr(packed)]
+pub struct Unaligned&lt;T&gt;(pub T);
+
+pub struct Foo {
+    start: u8,
+    data: Unaligned&lt;u32&gt;,
+}
+
+fn main() {
+    let x = Foo { start: 0, data: Unaligned(1) };
+    let y = &amp;x.data.0;
+}
+</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: borrow of packed field requires unsafe function or block (error E0133)
+  --&gt; src/main.rs:11:13
+   |
+11 |     let y = &amp;x.data.0;
+   |             ^^^^^^^^^
+   |
+   = note: #[warn(safe_packed_borrows)] on by default
+   = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+   = note: for more information, see issue #46043 &lt;https://github.com/rust-lang/rust/issues/46043&gt;
+</code></pre>
+<a class="header" href="#stable-features" id="stable-features"><h2>stable-features</h2></a>
+<p>此 lint 检测<code>#[feature]</code>的属性变得稳定了。一些触发此 lint 的示例代码：这将产生：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![feature(test_accepted_feature)]
+#fn main() {
+#}</code></pre></pre>
+<p>要修复，只需删除</p>
+<pre><code class="language-text">warning: this feature has been stable since 1.0.0. Attribute no longer needed
+ --&gt; src/main.rs:1:12
+  |
+1 | #![feature(test_accepted_feature)]
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<p>属性，因为它不再需要。<code>#![feature]</code>类型的别名边界</p>
+<a class="header" href="#type-alias-bounds" id="type-alias-bounds"><h2>type-alias-bounds</h2></a>
+<p>这 lint 检测类型别名的边界。目前未被执行。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+type SendVec&lt;T: Send&gt; = Vec&lt;T&gt;;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: type alias is never used: `SendVec`
+ --&gt; src/main.rs:1:1
+  |
+1 | type SendVec&lt;T: Send&gt; = Vec&lt;T&gt;;
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#tyvar-behind-raw-pointer" id="tyvar-behind-raw-pointer"><h2>tyvar-behind-raw-pointer</h2></a>
+<p>此 lint 检测指向一个推断变量的原始指针。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let data = std::ptr::null();
+let _ = &amp;data as *const *const ();
+
+if data.is_null() {}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: type annotations needed
+ --&gt; src/main.rs:4:13
+  |
+4 |     if data.is_null() {}
+  |             ^^^^^^^
+  |
+  = note: #[warn(tyvar_behind_raw_pointer)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in the 2018 edition!
+  = note: for more information, see issue #46906 &lt;https://github.com/rust-lang/rust/issues/46906&gt;
+</code></pre>
+<a class="header" href="#unconditional-recursion" id="unconditional-recursion"><h2>unconditional-recursion</h2></a>
+<p>此 lint 检测在不调用自身的情况下，无法返回的函数。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn foo() {
+    foo();
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: function cannot return without recursing
+ --&gt; src/main.rs:1:1
+  |
+1 | fn foo() {
+  | ^^^^^^^^ cannot return without recursing
+2 |     foo();
+  |     ----- recursive call site
+  |
+</code></pre>
+<a class="header" href="#unions-with-drop-fields" id="unions-with-drop-fields"><h2>unions-with-drop-fields</h2></a>
+<p>此 lint 检测联合的使用，其包含可能是重要丢弃代码的字段。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![feature(untagged_unions)]
+
+#fn main() {
+union U {
+    s: String,
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: union contains a field with possibly non-trivial drop code, drop code of union fields is ignored when dropping the union
+ --&gt; src/main.rs:4:5
+  |
+4 |     s: String,
+  |     ^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unknown-lints" id="unknown-lints"><h2>unknown-lints</h2></a>
+<p>此 lint 检测无法识别的 lint 属性。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">#[allow(not_a_real_lint)]
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unknown lint: `not_a_real_lint`
+ --&gt; src/main.rs:1:10
+  |
+1 | #![allow(not_a_real_lint)]
+  |          ^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unreachable-code" id="unreachable-code"><h2>unreachable-code</h2></a>
+<p>此 lint 检测无法访问的代码路径。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust no_run">
+# #![allow(unused_variables)]
+#fn main() {
+panic!(&quot;we never go past here!&quot;);
+
+let x = 5;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unreachable statement
+ --&gt; src/main.rs:4:5
+  |
+4 |     let x = 5;
+  |     ^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unreachable-patterns" id="unreachable-patterns"><h2>unreachable-patterns</h2></a>
+<p>此 lint 检测到无法访问的模式。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let x = 5;
+match x {
+    y =&gt; (),
+    5 =&gt; (),
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unreachable pattern
+ --&gt; src/main.rs:5:5
+  |
+5 |     5 =&gt; (),
+  |     ^
+  |
+</code></pre>
+<p>该<code>y</code>模式永远匹配，所以五个是不可能达到的。记住，匹配武器按顺序匹配，你可能想把它<code>5</code>上面的案例<code>y</code>案件。</p>
+<a class="header" href="#unstable-name-collision" id="unstable-name-collision"><h2>unstable-name-collision</h2></a>
+<p>此 lint 检测到您使用了标准库计划在将来添加的名称，这意味着将来如果没有其他类型注释，您的代码可能无法编译。请重命名，或立即添加这些注释。</p>
+<a class="header" href="#unused-allocation" id="unused-allocation"><h2>unused-allocation</h2></a>
+<p>此 lint 检测可以消除的不必要的内存分配。</p>
+<a class="header" href="#unused-assignments" id="unused-assignments"><h2>unused-assignments</h2></a>
+<p>此 lint 检测永远不会读取的内存分配。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let mut x = 5;
+x = 6;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: value assigned to `x` is never read
+ --&gt; src/main.rs:4:5
+  |
+4 |     x = 6;
+  |     ^
+  |
+</code></pre>
+<a class="header" href="#unused-attributes" id="unused-attributes"><h2>unused-attributes</h2></a>
+<p>此 lint 检测编译器未使用的属性。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![feature(custom_attribute)]
+
+#![mutable_doc]
+#fn main() {
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unused attribute
+ --&gt; src/main.rs:4:1
+  |
+4 | #![mutable_doc]
+  | ^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unused-comparisons" id="unused-comparisons"><h2>unused-comparisons</h2></a>
+<p>此 lint 检测到所涉及的类型限制使得 比较操作 变得无用。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn foo(x: u8) {
+    x &gt;= 0;
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: comparison is useless due to type limits
+ --&gt; src/main.rs:6:5
+  |
+6 |     x &gt;= 0;
+  |     ^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unused-doc-comment" id="unused-doc-comment"><h2>unused-doc-comment</h2></a>
+<p>此 lint 检测 rustdoc 未使用的 doc 注释。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+/// docs for x
+let x = 12;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: doc comment not used by rustdoc
+ --&gt; src/main.rs:2:5
+  |
+2 |     /// docs for x
+  |     ^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unused-features" id="unused-features"><h2>unused-features</h2></a>
+<p>此 lint 检测在 crate-level 的<code>#[feature]</code>指令 中，找到的未使用或未知功能。要解决此问题，只需删除功能标志即可。</p>
+<a class="header" href="#unused-imports" id="unused-imports"><h2>unused-imports</h2></a>
+<p>此 lint 检测从未使用过的导入。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::collections::HashMap;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unused import: `std::collections::HashMap`
+ --&gt; src/main.rs:1:5
+  |
+1 | use std::collections::HashMap;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unused-macros" id="unused-macros"><h2>unused-macros</h2></a>
+<p>此 lint 检测未使用的宏。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">macro_rules! unused {
+    () =&gt; {};
+}
+
+fn main() {
+}
+</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unused macro definition
+ --&gt; src/main.rs:1:1
+  |
+1 | / macro_rules! unused {
+2 | |     () =&gt; {};
+3 | | }
+  | |_^
+  |
+</code></pre>
+<a class="header" href="#unused-must-use" id="unused-must-use"><h2>unused-must-use</h2></a>
+<p>此 lint 检测标记为<code>＃[must_use]</code>的类型的未使用结果。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">fn returns_result() -&gt; Result&lt;(), ()&gt; {
+    Ok(())
+}
+
+fn main() {
+    returns_result();
+}
+</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unused `std::result::Result` that must be used
+ --&gt; src/main.rs:6:5
+  |
+6 |     returns_result();
+  |     ^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#unused-mut" id="unused-mut"><h2>unused-mut</h2></a>
+<p>此 lint 检测不需要可变的 mut 变量。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let mut x = 5;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: variable does not need to be mutable
+ --&gt; src/main.rs:2:9
+  |
+2 |     let mut x = 5;
+  |         ----^
+  |         |
+  |         help: remove this `mut`
+  |
+</code></pre>
+<a class="header" href="#unused-parens" id="unused-parens"><h2>unused-parens</h2></a>
+<p>这个棉绒检测到<code>if</code>，<code>match</code>，<code>while</code>和<code>return</code>括号;他们不需要他们。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+if(true) {}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unnecessary parentheses around `if` condition
+ --&gt; src/main.rs:2:7
+  |
+2 |     if(true) {}
+  |       ^^^^^^ help: remove these parentheses
+  |
+</code></pre>
+<a class="header" href="#unused-unsafe" id="unused-unsafe"><h2>unused-unsafe</h2></a>
+<p>这个 lint 检测到不必要的使用<code>unsafe</code>块。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+unsafe {}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unnecessary `unsafe` block
+ --&gt; src/main.rs:2:5
+  |
+2 |     unsafe {}
+  |     ^^^^^^ unnecessary `unsafe` block
+  |
+</code></pre>
+<a class="header" href="#unused-variables" id="unused-variables"><h2>unused-variables</h2></a>
+<p>此 lint 检测未以任何方式使用的变量。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let x = 5;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: unused variable: `x`
+ --&gt; src/main.rs:2:9
+  |
+2 |     let x = 5;
+  |         ^ help: consider using `_x` instead
+  |
+</code></pre>
+<a class="header" href="#warnings" id="warnings"><h2>warnings</h2></a>
+<p>这种 lint 有点特别;通过更改其级别，您可以更改每个其他警告，这些警告会对您想要的任何值产生警告：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![deny(warnings)]
+#fn main() {
+#}</code></pre></pre>
+<p>因此，您不会直接在代码中触发此 lint。</p>
+<a class="header" href="#while-true" id="while-true"><h2>while-true</h2></a>
+<p>这个 lint 检测到<code>while true { }</code>。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust no_run">
+# #![allow(unused_variables)]
+#fn main() {
+while true {
+
+}
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">warning: denote infinite loops with `loop { ... }`
+ --&gt; src/main.rs:2:5
+  |
+2 |     while true {
+  |     ^^^^^^^^^^ help: use `loop`
+  |
+</code></pre>
+<a class="header" href="#a默认拒绝的-lints" id="a默认拒绝的-lints"><h1>默认拒绝的 lints</h1></a>
+<p>默认情况下，这些 lint 都设置为’deny’级别。</p>
+<a class="header" href="#exceeding-bitshifts" id="exceeding-bitshifts"><h2>exceeding-bitshifts</h2></a>
+<p>此 lint 检测到移位超出了类型的位数。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">1_i32 &lt;&lt; 32;
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: bitshift exceeds the type's number of bits
+ --&gt; src/main.rs:2:5
+  |
+2 |     1_i32 &lt;&lt; 32;
+  |     ^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#invalid-type-param-default" id="invalid-type-param-default"><h2>invalid-type-param-default</h2></a>
+<p>此 lint 检测在无效位置中，允许的类型参数默认值错误。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">fn foo&lt;T=i32&gt;(t: T) {}
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: defaults for type parameters are only allowed in `struct`, `enum`, `type`, or `trait` definitions.
+ --&gt; src/main.rs:4:8
+  |
+4 | fn foo&lt;T=i32&gt;(t: T) {}
+  |        ^
+  |
+  = note: #[deny(invalid_type_param_default)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #36887 &lt;https://github.com/rust-lang/rust/issues/36887&gt;
+</code></pre>
+<a class="header" href="#legacy-constructor-visibility" id="legacy-constructor-visibility"><h2>legacy-constructor-visibility</h2></a>
+<p><a href="https://github.com/rust-lang/rfcs/blob/master/text/1506-adt-kinds.md">RFC 1506</a>修改了一些可见性规则，并改变了 struct 构造函数的可见性。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">mod m {
+    pub struct S(u8);
+
+    fn f() {
+        // this is trying to use S from the 'use' line, but because the `u8` is
+        // not pub, it is private
+        ::S;
+    }
+}
+
+use m::S;
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: private struct constructors are not usable through re-exports in outer modules
+ --&gt; src/main.rs:5:9
+  |
+5 |         ::S;
+  |         ^^^
+  |
+  = note: #[deny(legacy_constructor_visibility)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #39207 &lt;https://github.com/rust-lang/rust/issues/39207&gt;
+</code></pre>
+<a class="header" href="#legacy-directory-ownership" id="legacy-directory-ownership"><h2>legacy-directory-ownership</h2></a>
+<p>发出 <code>legacy_directory_ownership</code> 时发出</p>
+<ul>
+<li>有一个带有<code>＃[path]</code>属性的非内联模块（例如<code>#[path = &quot;foo.rs&quot;]</code>mod bar;），</li>
+<li>模块的文件（上例中的“foo.rs”）是未命名为“mod.rs”，并且</li>
+<li>模块的文件包含一个<code>＃[path]</code>属性的非内联模块。</li>
+</ul>
+<p>可以通过将父模块重命名为“mod.rs”，并将其移动到其自己的目录（如果合适的话）来修复警告。</p>
+<a class="header" href="#missing-fragment-specifier" id="missing-fragment-specifier"><h2>missing-fragment-specifier</h2></a>
+<p>当一个未使用的<code>macro_rules!</code>宏定义模式出现时，会发出 missing_fragment_specifier 警告，因其有一个元变量（例如<code>$e</code>）后面没有片段说明符（例如<code>:expr</code>）。</p>
+<p>通过删除未使用的<code>macro_rules!</code>宏定义模式，可以始终修复此警告。</p>
+<a class="header" href="#mutable-transmutes" id="mutable-transmutes"><h2>mutable-transmutes</h2></a>
+<p>这种 lint 抓取<code>&amp;T</code>到<code>&amp;mut T</code>的转化，因为它是未定义的行为。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">unsafe {
+    let y = std::mem::transmute::&lt;&amp;i32, &amp;mut i32&gt;(&amp;5);
+}
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: mutating transmuted &amp;mut T from &amp;T may cause undefined behavior, consider instead using an UnsafeCell
+ --&gt; src/main.rs:3:17
+  |
+3 |         let y = std::mem::transmute::&lt;&amp;i32, &amp;mut i32&gt;(&amp;5);
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#no-mangle-const-items" id="no-mangle-const-items"><h2>no-mangle-const-items</h2></a>
+<p>这个 lint 检测到任何带<code>#[no_mangle]</code>属性的<code>const</code>项。常量确实没有导出符号，因此，这可能意味着您打算使用<code>static</code>不是<code>const</code>。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">#[no_mangle]
+const FOO: i32 = 5;
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: const items should never be #[no_mangle]
+ --&gt; src/main.rs:3:1
+  |
+3 | const FOO: i32 = 5;
+  | -----^^^^^^^^^^^^^^
+  | |
+  | help: try a static value: `pub static`
+  |
+</code></pre>
+<a class="header" href="#overflowing-literals" id="overflowing-literals"><h2>overflowing-literals</h2></a>
+<p>此 lint 检测其类型的字面值超出范围。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust compile_fail">
+# #![allow(unused_variables)]
+#fn main() {
+let x: u8 = 1000;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: literal out of range for u8
+ --&gt; src/main.rs:2:17
+  |
+2 |     let x: u8 = 1000;
+  |                 ^^^^
+  |
+</code></pre>
+<a class="header" href="#parenthesized-params-in-types-and-modules" id="parenthesized-params-in-types-and-modules"><h2>parenthesized-params-in-types-and-modules</h2></a>
+<p>此 lint 检测到不正确的括号。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">let x = 5 as usize();
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: parenthesized parameters may only be used with a trait
+ --&gt; src/main.rs:2:21
+  |
+2 |   let x = 5 as usize();
+  |                     ^^
+  |
+  = note: #[deny(parenthesized_params_in_types_and_modules)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #42238 &lt;https://github.com/rust-lang/rust/issues/42238&gt;
+</code></pre>
+<p>要修复它，请删除多个<code>()</code>。</p>
+<a class="header" href="#pub-use-of-private-extern-crate" id="pub-use-of-private-extern-crate"><h2>pub-use-of-private-extern-crate</h2></a>
+<p>此 lint 检测重新导出一个私有<code>extern crate</code>的特定情况;</p>
+<a class="header" href="#safe-extern-statics" id="safe-extern-statics"><h2>safe-extern-statics</h2></a>
+<p>在旧版本的 Rust 中，允许<code>extern static</code>以安全代码访问，会存在安全问题。这个 lint 现在抓住并否认这种代码。</p>
+<a class="header" href="#unknown-crate-types" id="unknown-crate-types"><h2>unknown-crate-types</h2></a>
+<p>此 lint 检测到在一个<code>#[crate_type]</code>指示中，发现一个未知箱类型。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">#![crate_type=&quot;lol&quot;]
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: invalid `crate_type` value
+ --&gt; src/lib.rs:1:1
+  |
+1 | #![crate_type=&quot;lol&quot;]
+  | ^^^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#incoherent-fundamental-impls" id="incoherent-fundamental-impls"><h2>incoherent-fundamental-impls</h2></a>
+<p>此 lint 检测到错误允许的潜在冲突的 impl。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">pub trait Trait1&lt;X&gt; {
+    type Output;
+}
+
+pub trait Trait2&lt;X&gt; {}
+
+pub struct A;
+
+impl&lt;X, T&gt; Trait1&lt;X&gt; for T where T: Trait2&lt;X&gt; {
+    type Output = ();
+}
+
+impl&lt;X&gt; Trait1&lt;Box&lt;X&gt;&gt; for A {
+    type Output = i32;
+}
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: conflicting implementations of trait `Trait1&lt;std::boxed::Box&lt;_&gt;&gt;` for type `A`: (E0119)
+  --&gt; src/main.rs:13:1
+   |
+9  | impl&lt;X, T&gt; Trait1&lt;X&gt; for T where T: Trait2&lt;X&gt; {
+   | --------------------------------------------- first implementation here
+...
+13 | impl&lt;X&gt; Trait1&lt;Box&lt;X&gt;&gt; for A {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ conflicting implementation for `A`
+   |
+   = note: #[deny(incoherent_fundamental_impls)] on by default
+   = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+   = note: for more information, see issue #46205 &lt;https://github.com/rust-lang/rust/issues/46205&gt;
+   = note: downstream crates may implement trait `Trait2&lt;std::boxed::Box&lt;_&gt;&gt;` for type `A`
+</code></pre>
+<a class="header" href="#a代码生成选项" id="a代码生成选项"><h1>代码生成选项</h1></a>
+<p>所有这些选项都通过<code>-C</code>标志，传递给<code>rustc</code>，缩写“C = codegen”。通过运行<code>rustc -C help</code>，给出该版本的详细帮助列表。</p>
+<a class="header" href="#ar" id="ar"><h2>ar</h2></a>
+<p>此选项已弃用，不起任何作用。</p>
+<a class="header" href="#linker" id="linker"><h2>linker</h2></a>
+<p>此标志允许您控制，<code>rustc</code>调用哪个链接器来链接代码。</p>
+<a class="header" href="#link-argval" id="link-argval"><h2>link-arg=val</h2></a>
+<p>此标志允许您向调用的链接器，附加一个额外参数。</p>
+<p>重要“温馨提示”；您可以多次传递此标志，以添加多个参数。</p>
+<a class="header" href="#link-args" id="link-args"><h2>link-args</h2></a>
+<p>此标志允许您向调用的链接器，附加多个额外参数。选项应以空格分隔。</p>
+<a class="header" href="#linker-flavor" id="linker-flavor"><h2>linker-flavor</h2></a>
+<p>此标志允许您通过<code>rustc</code>控制链接器设置。如果提供的一个链接器与<code>-C linker</code>标志(上面描述的)，然后根据提供的值推断链接器风格。如果没有提供链接器，则链接器风格可用来确定哪个链接器。每个<code>rustc</code>生成目标默认为某种链接器风格。</p>
+<a class="header" href="#link-dead-code" id="link-dead-code"><h2>link-dead-code</h2></a>
+<p>通常，链接器会删除死代码。此标志禁用此行为。</p>
+<p>一个例子是，当试图构造代码覆盖率的衡量时，这个标志可能有用的。</p>
+<a class="header" href="#lto" id="lto"><h2>lto</h2></a>
+<p>此标志指示 LLVM 使用<a href="https://llvm.org/docs/LinkTimeOptimization.html">链接时间优化</a>。</p>
+<p>它需要<code>thin</code>和<code>fat</code>两个值中的一个，，’thin’的 LTO<a href="http://blog.llvm.org/2016/06/thinlto-scalable-and-incremental-lto.html">是 LLVM 的新功能</a>，“fat”指 LTO 的经典版本。</p>
+<a class="header" href="#target-cpu" id="target-cpu"><h2>target-cpu</h2></a>
+<p>这指示<code>rustc</code>为特定的处理器，生成专用代码。</p>
+<p>你可以<code>rustc --print target-cpus</code>，查看在此处传递的有效选项。此外，<code>native</code>可以传递，本主机的处理器。</p>
+<a class="header" href="#target-feature" id="target-feature"><h2>target-feature</h2></a>
+<p>单个目标将也支持不同的功能；此标志允许您控制启用或禁用功能。</p>
+<p>要查看有效选项和使用示例，请运行<code>rustc --print target-features</code>.</p>
+<a class="header" href="#passes" id="passes"><h2>passes</h2></a>
+<p>此标志可用于向编译器，添加额外的 LLVM 传递参数(passes)。</p>
+<p>该列表必须用空格分隔。</p>
+<a class="header" href="#llvm-args" id="llvm-args"><h2>llvm-args</h2></a>
+<p>此标志可用于将参数列表，直接传递给 LLVM。</p>
+<p>该列表必须用空格分隔。</p>
+<a class="header" href="#save-temps" id="save-temps"><h2>save-temps</h2></a>
+<p><code>rustc</code>将在编译期间生成临时文件；通常在完成工作后将其删除。此选项将使它们保留而不是删除。</p>
+<a class="header" href="#rpath" id="rpath"><h2>rpath</h2></a>
+<p>此选项允许您设置<a href="https://en.wikipedia.org/wiki/Rpath"><code>rpath</code></a>的值。</p>
+<a class="header" href="#overflow-checks" id="overflow-checks"><h2>overflow-checks</h2></a>
+<p>此标志允许您控制整数溢出的行为。此标志可以传递许多选项：</p>
+<ul>
+<li>打开溢出检查：<code>y</code>，<code>yes</code>，或<code>on</code>.</li>
+<li>关闭溢出检查：<code>n</code>，<code>no</code>或<code>off</code>.</li>
+</ul>
+<a class="header" href="#no-prepopulate-passes" id="no-prepopulate-passes"><h2>no-prepopulate-passes</h2></a>
+<p>传递参数管理器预先填充了传递列表；此标志会确保列表为空。</p>
+<a class="header" href="#no-vectorize-loops" id="no-vectorize-loops"><h2>no-vectorize-loops</h2></a>
+<p>默认情况下，<code>rustc</code>将尝试<a href="https://llvm.org/docs/Vectorizers.html#the-loop-vectorizer">向量化循环</a>。 此标志将关闭该行为。</p>
+<a class="header" href="#no-vectorize-slp" id="no-vectorize-slp"><h2>no-vectorize-slp</h2></a>
+<p>默认情况下，<code>rustc</code>将尝试使用<a href="https://llvm.org/docs/Vectorizers.html#the-slp-vectorizer">superword-level 并发</a>. 此标志将关闭该行为。</p>
+<a class="header" href="#soft-float" id="soft-float"><h2>soft-float</h2></a>
+<p>此选项让<code>rustc</code>使用“软浮动”生成代码。默认情况下，许多硬件支持浮点数指令，因此生成的代码将利用这一点。“软浮动”在软件中模拟浮点数指令。</p>
+<a class="header" href="#prefer-dynamic" id="prefer-dynamic"><h2>prefer-dynamic</h2></a>
+<p>默认情况下，<code>rustc</code>倾向于静态链接依赖项。此选项将使其改用动态链接。</p>
+<a class="header" href="#no-integrated-as" id="no-integrated-as"><h2>no-integrated-as</h2></a>
+<p>LLVM 附带一个内部汇编程序；此选项将允许您使用外部汇编程序。</p>
+<a class="header" href="#no-redzone" id="no-redzone"><h2>no-redzone</h2></a>
+<p>此标志允许您禁用<a href="https://en.wikipedia.org/wiki/Red_zone_(computing)">红色地带</a>。 此标志可以传递许多选项：</p>
+<ul>
+<li>启用：<code>y</code>，<code>yes</code>或<code>on</code>.</li>
+<li>禁用：<code>n</code>，<code>no</code>或<code>off</code>.</li>
+</ul>
+<a class="header" href="#relocation-model" id="relocation-model"><h2>relocation-model</h2></a>
+<p>此选项允许您选择要使用的重新定位模型。</p>
+<p>要查找此标志的有效选项，请运行<code>rustc --print relocation-models</code>.</p>
+<a class="header" href="#code-modelval" id="code-modelval"><h2>code-model=val</h2></a>
+<p>此选项允许您选择要使用的代码模型。</p>
+<p>要查找此标志的有效选项，请运行<code>rustc --print code-models</code>.</p>
+<a class="header" href="#metadata" id="metadata"><h2>metadata</h2></a>
+<p>此选项允许您控制用于符号管理的元数据。</p>
+<a class="header" href="#extra-filename" id="extra-filename"><h2>extra-filename</h2></a>
+<p>此选项允许您在每个输出文件名中，放置额外的数据。</p>
+<a class="header" href="#codegen-units" id="codegen-units"><h2>codegen-units</h2></a>
+<p>此标志允许您控制在执行代码生成时，使用的线程数。</p>
+<p>增加并行性可能会加快编译时间，但也可能产生较慢的运行代码。</p>
+<a class="header" href="#remark" id="remark"><h2>remark</h2></a>
+<p>此标志允许您为这些优化过程打印备注。</p>
+<p>传递参数列表应以空格分隔。</p>
+<p><code>all</code>：每个传递参数都要备注。</p>
+<a class="header" href="#no-stack-check" id="no-stack-check"><h2>no-stack-check</h2></a>
+<p>此选项已弃用，不起任何作用。</p>
+<a class="header" href="#debuginfo" id="debuginfo"><h2>debuginfo</h2></a>
+<p>此标志允许您控制调试信息：</p>
+<ul>
+<li><code>0</code>：完全没有调试信息</li>
+<li><code>1</code>：仅表格行</li>
+<li><code>2</code>：完整的调试信息</li>
+</ul>
+<a class="header" href="#opt-level" id="opt-level"><h2>opt-level</h2></a>
+<p>此标志允许您控制优化级别。</p>
+<ul>
+<li><code>0</code>：无优化，也打开<code>cfg(debug_assertions)</code>.</li>
+<li><code>1</code>：基本优化</li>
+<li><code>2</code>：一些优化</li>
+<li><code>3</code>：所有优化</li>
+<li><code>s</code>：优化二进制大小</li>
+<li><code>z</code>：优化二进制大小，但也关闭向量化循环。</li>
+</ul>
+<a class="header" href="#debug-assertions" id="debug-assertions"><h2>debug-assertions</h2></a>
+<p>这个标志让你，控制<code>cfg(debug_assertions)</code>打开或关闭。</p>
+<a class="header" href="#inline-threshold" id="inline-threshold"><h2>inline-threshold</h2></a>
+<p>此选项允许您设置内联一个函数的阈值。</p>
+<p>默认值为 225。</p>
+<a class="header" href="#panic" id="panic"><h2>panic</h2></a>
+<p>此选项允许您控制代码恐慌时，发生的情况。</p>
+<ul>
+<li><code>abort</code>：紧急终止进程</li>
+<li><code>unwind</code>：恐慌时打开堆栈</li>
+</ul>
+<a class="header" href="#incremental" id="incremental"><h2>incremental</h2></a>
+<p>此标志允许您启用强化编译。</p>
+<a class="header" href="#a生成目标" id="a生成目标"><h1>生成目标</h1></a>
+<p><code>rustc</code>默认情况下是跨平台编译器。这意味着，您可以用编译器来构建任何体系结构。<em>目标</em>列表是您可以构建的可能架构。</p>
+<p>要查看可以设置的，生成目标的所有选项，请参阅<a href="https://doc.rust-lang.org/nightly/nightly-rustc/rustc_target/spec/struct.Target.html">这里</a>的文档。</p>
+<p>要编译到特定目标，请使用<code>--target</code>标志：</p>
+<pre><code class="language-bash">$ rustc src/main.rs --target=wasm32-unknown-unknown
+</code></pre>
+<a class="header" href="#a内置目标" id="a内置目标"><h1>内置目标</h1></a>
+<p><code>rustc</code>能够自动编译到多个目标，我们称之为“内置”目标，它们通常对应团队直接支持的目标。</p>
+<p>要查看内置目标列表，您可以运行<code>rustc --print target-list</code>，或者看看<a href="https://doc.rust-lang.org/nightly/nightly-rustc/rustc_target/spec/index.html#modules">API 文档</a>。每个模块为特定目标，都定义了一个构建器。</p>
+<a class="header" href="#a自定义目标" id="a自定义目标"><h1>自定义目标</h1></a>
+<p>如果您想为尚未支持的目标构建<code>rustc</code>，您可以使用“自定义目标规范”来定义目标。这些目标规范文件是 JSON。要查看主机目标的 JSON，您可以运行：</p>
+<pre><code class="language-bash">$ rustc +nightly -Z unstable-options --print target-spec-json
+</code></pre>
+<p>要查看其他目标，请添加<code>--target</code>标志：</p>
+<pre><code class="language-bash">$ rustc +nightly -Z unstable-options --target=wasm32-unknown-unknown --print target-spec-json
+</code></pre>
+<p>要使用自定义目标，请参阅<a href="https://github.com/japaric/xargo"><code>xargo</code></a>。</p>
+<a class="header" href="#linker-plugin-lto" id="linker-plugin-lto"><h1>Linker-plugin-LTO</h1></a>
+<p><code>-C linker-plugin-lto</code>标志 允许将 LTO 优化推迟到实际链接步骤，如果链接的所有目标文件都是由基于 LLVM 的工具链创建的，则相应地允许跨编程语言，执行过程优化。这里的主要示例是将 Rust 代码与 Clang 编译的 C/C++代码链接在一起。</p>
+<a class="header" href="#a用法" id="a用法"><h2>用法</h2></a>
+<p>有两种主要情况，可以使用基于 LTO 的链接器插件：</p>
+<ul>
+<li>编译一个 Rust<code>staticlib</code>，用作一个 C ABI 依赖项</li>
+<li>编译一个 Rust 二进制文件，这里是<code>rustc</code>调用链接器</li>
+</ul>
+<p>在这两种情况下，Rust 代码都必须使用<code>-C linker-plugin-lto</code>和 C/C++代码要用<code>-flto</code>或<code>-flto=thin</code>，以便将目标文件作为 LLVM bitcode 发出。</p>
+<a class="header" href="#ruststaticlib作为-cc程序中的依赖" id="ruststaticlib作为-cc程序中的依赖"><h3>Rust<code>staticlib</code>作为 C/C++程序中的依赖</h3></a>
+<p>在这种情况下，Rust 编译器只需要确保<code>staticlib</code>的对象文件格式正确。对于链接，必须使用具有 LLVM 的链接器插件（例如 LLD）。</p>
+<p>直接用<code>rustc</code>：</p>
+<pre><code class="language-bash"># 编译 the Rust staticlib
+rustc --crate-type=staticlib -Clinker-plugin-lto -Copt-level=2 ./lib.rs
+# `-flto=thin`编译 C 代码
+clang -c -O2 -flto=thin -o main.o ./main.c
+# 链接 一切,确保 我们使用适当的链接器
+clang -flto=thin -fuse-ld=lld -L . -l&quot;name-of-your-rust-lib&quot; -o main -O2 ./cmain.o
+</code></pre>
+<p>运用<code>cargo</code>：</p>
+<pre><code class="language-bash"># 编译 the Rust staticlib
+RUSTFLAGS=&quot;-Clinker-plugin-lto&quot; cargo build --release
+# `-flto=thin`编译 C 代码
+clang -c -O2 -flto=thin -o main.o ./main.c
+# 链接 一切,确保 我们使用适当的链接器
+clang -flto=thin -fuse-ld=lld -L . -l&quot;name-of-your-rust-lib&quot; -o main -O2 ./cmain.o
+</code></pre>
+<a class="header" href="#cc代码作为-rust-中的依赖项" id="cc代码作为-rust-中的依赖项"><h3>C/C++代码作为 Rust 中的依赖项</h3></a>
+<p>在这种情况下，链接器将被<code>rustc</code>调用。我们必须再次确保使用适当的链接器。</p>
+<p>直接用<code>rustc</code>：</p>
+<pre><code class="language-bash"># 编译 C code with `-flto`
+clang ./clib.c -flto=thin -c -o ./clib.o -O2
+# 拿C 代码，创建一个静态库
+ar crus ./libxyz.a ./clib.o
+
+# 附加参数，调用 `rustc`
+rustc -Clinker-plugin-lto -L. -Copt-level=2 -Clinker=clang -Clink-arg=-fuse-ld=lld ./main.rs
+</code></pre>
+<p>直接用<code>cargo</code>：</p>
+<pre><code class="language-bash"># 编译 C code with `-flto`
+clang ./clib.c -flto=thin -c -o ./clib.o -O2
+# 拿C 代码，创建一个静态库
+ar crus ./libxyz.a ./clib.o
+
+# 通过 RUSTFLAGS，设链接的参数
+RUSTFLAGS=&quot;-Clinker-plugin-lto -Clinker=clang -Clink-arg=-fuse-ld=lld&quot; cargo build --release
+</code></pre>
+<a class="header" href="#rustc明确指定要使用的链接器插件" id="rustc明确指定要使用的链接器插件"><h3><code>rustc</code>明确指定要使用的链接器插件</h3></a>
+<p>如果想要使用 LLD 以外的链接器，则必须明确指定 LLVM 链接器插件。否则链接器无法读取目标文件。插件的路径作为参数传递给<code>-Clinker-plugin-lto</code>选项：</p>
+<pre><code class="language-bash">rustc -Clinker-plugin-lto=&quot;/path/to/LLVMgold.so&quot; -L. -Copt-level=2 ./main.rs
+</code></pre>
+<a class="header" href="#a工具链兼容性" id="a工具链兼容性"><h2>工具链兼容性</h2></a>
+<p>为了使这种 LTO 工作，LLVM 链接器插件必须能够处理由<code>rustc</code>和<code>clang</code>两者生成的 LLVM bitcode。</p>
+<p>使用一个<code>rustc</code>和<code>clang</code>可以获得最佳效果，它们基于完全相同的 LLVM 版本。可以使用<code>rustc -vV</code>，查看给定<code>rustc</code>版本的 LLVM。请注意，此处给出的版本号只是一个近似值，因为 Rust 有时会使用不稳定的 LLVM 修订版。但是，近似值通常是可靠的。</p>
+<p>下表，显示了工具链版本的已知良好组合。</p>
+<table><thead><tr><th>           </th><th> Clang 7 </th><th> Clang 8 </th></tr></thead><tbody>
+<tr><td> Rust 1.34 </td><td> ✗       </td><td> ✓       </td></tr>
+<tr><td> Rust 1.35 </td><td> ✗       </td><td> ✓（？） </td></tr>
+</tbody></table>
+<p>请注意，此功能的兼容性策略将来可能会更改。</p>
+<a class="header" href="#a帮助rustc" id="a帮助rustc"><h1>帮助rustc</h1></a>
+<p>很乐意有你帮助我们改善<code>rustc</code>！为此，我们写了<a href="https://rust-lang.github.io/rustc-guide/">本升级版</a>，关于它的内部，如何工作，以及如何与rustc搭配工作。要了解更多信息，您需要检查一下。</p>
+<p>如果你想帮助<em>这个</em>书，你可以在<a href="https://github.com/rust-lang/rust/tree/master/src/doc/rustc">src/doc/rustc</a>找到它。</p>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+    
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            window.setTimeout(window.print, 100);
+        });
+    </script>
+    
+    
+
+</body>
+
+</html>

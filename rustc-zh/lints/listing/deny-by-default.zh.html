@@ -1,0 +1,413 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>默认禁止 lints - The rustc book</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/chrome.css">
+    <link rel="stylesheet" href="../../css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="../../highlight.css">
+    <link rel="stylesheet" href="../../tomorrow-night.css">
+    <link rel="stylesheet" href="../../ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "../../";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li><a href="../../what-is-rustc.zh.html"><strong aria-hidden="true">1.</strong> 什么是 rustc？</a></li><li><a href="../../command-line-arguments.zh.html"><strong aria-hidden="true">2.</strong> 命令行参数</a></li><li><a href="../../lints/index.zh.html"><strong aria-hidden="true">3.</strong> Lints</a></li><li><ol class="section"><li><a href="../../lints/levels.zh.html"><strong aria-hidden="true">3.1.</strong> Lint 水平</a></li><li><a href="../../lints/groups.zh.html"><strong aria-hidden="true">3.2.</strong> Lint 组</a></li><li><a href="../../lints/listing/index.zh.html"><strong aria-hidden="true">3.3.</strong> lint 列表</a></li><li><ol class="section"><li><a href="../../lints/listing/allowed-by-default.zh.html"><strong aria-hidden="true">3.3.1.</strong> 默认允许的 lints</a></li><li><a href="../../lints/listing/warn-by-default.zh.html"><strong aria-hidden="true">3.3.2.</strong> 默认发出警告的 lints</a></li><li><a href="../../lints/listing/deny-by-default.zh.html" class="active"><strong aria-hidden="true">3.3.3.</strong> 默认禁止 lints</a></li></ol></li></ol></li><li><a href="../../codegen-options/index.zh.html"><strong aria-hidden="true">4.</strong> 代码生成选项</a></li><li><a href="../../targets/index.zh.html"><strong aria-hidden="true">5.</strong> 生成目标</a></li><li><ol class="section"><li><a href="../../targets/built-in.zh.html"><strong aria-hidden="true">5.1.</strong> 内置目标</a></li><li><a href="../../targets/custom.zh.html"><strong aria-hidden="true">5.2.</strong> 自定义目标</a></li></ol></li><li><a href="../../linker-plugin-lto.zh.html"><strong aria-hidden="true">6.</strong> 基于 LTO 的链接器插件</a></li><li><a href="../../contributing.zh.html"><strong aria-hidden="true">7.</strong> 帮助rustc</a></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The rustc book</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/rustc-zh/edit/master/src/lints/listing/deny-by-default.zh.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#a默认拒绝的-lints" id="a默认拒绝的-lints"><h1>默认拒绝的 lints</h1></a>
+<p>默认情况下，这些 lint 都设置为’deny’级别。</p>
+<a class="header" href="#exceeding-bitshifts" id="exceeding-bitshifts"><h2>exceeding-bitshifts</h2></a>
+<p>此 lint 检测到移位超出了类型的位数。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">1_i32 &lt;&lt; 32;
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: bitshift exceeds the type's number of bits
+ --&gt; src/main.rs:2:5
+  |
+2 |     1_i32 &lt;&lt; 32;
+  |     ^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#invalid-type-param-default" id="invalid-type-param-default"><h2>invalid-type-param-default</h2></a>
+<p>此 lint 检测在无效位置中，允许的类型参数默认值错误。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">fn foo&lt;T=i32&gt;(t: T) {}
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: defaults for type parameters are only allowed in `struct`, `enum`, `type`, or `trait` definitions.
+ --&gt; src/main.rs:4:8
+  |
+4 | fn foo&lt;T=i32&gt;(t: T) {}
+  |        ^
+  |
+  = note: #[deny(invalid_type_param_default)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #36887 &lt;https://github.com/rust-lang/rust/issues/36887&gt;
+</code></pre>
+<a class="header" href="#legacy-constructor-visibility" id="legacy-constructor-visibility"><h2>legacy-constructor-visibility</h2></a>
+<p><a href="https://github.com/rust-lang/rfcs/blob/master/text/1506-adt-kinds.md">RFC 1506</a>修改了一些可见性规则，并改变了 struct 构造函数的可见性。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">mod m {
+    pub struct S(u8);
+
+    fn f() {
+        // this is trying to use S from the 'use' line, but because the `u8` is
+        // not pub, it is private
+        ::S;
+    }
+}
+
+use m::S;
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: private struct constructors are not usable through re-exports in outer modules
+ --&gt; src/main.rs:5:9
+  |
+5 |         ::S;
+  |         ^^^
+  |
+  = note: #[deny(legacy_constructor_visibility)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #39207 &lt;https://github.com/rust-lang/rust/issues/39207&gt;
+</code></pre>
+<a class="header" href="#legacy-directory-ownership" id="legacy-directory-ownership"><h2>legacy-directory-ownership</h2></a>
+<p>发出 <code>legacy_directory_ownership</code> 时发出</p>
+<ul>
+<li>有一个带有<code>＃[path]</code>属性的非内联模块（例如<code>#[path = &quot;foo.rs&quot;]</code>mod bar;），</li>
+<li>模块的文件（上例中的“foo.rs”）是未命名为“mod.rs”，并且</li>
+<li>模块的文件包含一个<code>＃[path]</code>属性的非内联模块。</li>
+</ul>
+<p>可以通过将父模块重命名为“mod.rs”，并将其移动到其自己的目录（如果合适的话）来修复警告。</p>
+<a class="header" href="#missing-fragment-specifier" id="missing-fragment-specifier"><h2>missing-fragment-specifier</h2></a>
+<p>当一个未使用的<code>macro_rules!</code>宏定义模式出现时，会发出 missing_fragment_specifier 警告，因其有一个元变量（例如<code>$e</code>）后面没有片段说明符（例如<code>:expr</code>）。</p>
+<p>通过删除未使用的<code>macro_rules!</code>宏定义模式，可以始终修复此警告。</p>
+<a class="header" href="#mutable-transmutes" id="mutable-transmutes"><h2>mutable-transmutes</h2></a>
+<p>这种 lint 抓取<code>&amp;T</code>到<code>&amp;mut T</code>的转化，因为它是未定义的行为。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">unsafe {
+    let y = std::mem::transmute::&lt;&amp;i32, &amp;mut i32&gt;(&amp;5);
+}
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: mutating transmuted &amp;mut T from &amp;T may cause undefined behavior, consider instead using an UnsafeCell
+ --&gt; src/main.rs:3:17
+  |
+3 |         let y = std::mem::transmute::&lt;&amp;i32, &amp;mut i32&gt;(&amp;5);
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#no-mangle-const-items" id="no-mangle-const-items"><h2>no-mangle-const-items</h2></a>
+<p>这个 lint 检测到任何带<code>#[no_mangle]</code>属性的<code>const</code>项。常量确实没有导出符号，因此，这可能意味着您打算使用<code>static</code>不是<code>const</code>。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">#[no_mangle]
+const FOO: i32 = 5;
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: const items should never be #[no_mangle]
+ --&gt; src/main.rs:3:1
+  |
+3 | const FOO: i32 = 5;
+  | -----^^^^^^^^^^^^^^
+  | |
+  | help: try a static value: `pub static`
+  |
+</code></pre>
+<a class="header" href="#overflowing-literals" id="overflowing-literals"><h2>overflowing-literals</h2></a>
+<p>此 lint 检测其类型的字面值超出范围。一些触发此 lint 的示例代码：</p>
+<pre><pre class="playpen"><code class="language-rust compile_fail">
+# #![allow(unused_variables)]
+#fn main() {
+let x: u8 = 1000;
+#}</code></pre></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: literal out of range for u8
+ --&gt; src/main.rs:2:17
+  |
+2 |     let x: u8 = 1000;
+  |                 ^^^^
+  |
+</code></pre>
+<a class="header" href="#parenthesized-params-in-types-and-modules" id="parenthesized-params-in-types-and-modules"><h2>parenthesized-params-in-types-and-modules</h2></a>
+<p>此 lint 检测到不正确的括号。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">let x = 5 as usize();
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: parenthesized parameters may only be used with a trait
+ --&gt; src/main.rs:2:21
+  |
+2 |   let x = 5 as usize();
+  |                     ^^
+  |
+  = note: #[deny(parenthesized_params_in_types_and_modules)] on by default
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #42238 &lt;https://github.com/rust-lang/rust/issues/42238&gt;
+</code></pre>
+<p>要修复它，请删除多个<code>()</code>。</p>
+<a class="header" href="#pub-use-of-private-extern-crate" id="pub-use-of-private-extern-crate"><h2>pub-use-of-private-extern-crate</h2></a>
+<p>此 lint 检测重新导出一个私有<code>extern crate</code>的特定情况;</p>
+<a class="header" href="#safe-extern-statics" id="safe-extern-statics"><h2>safe-extern-statics</h2></a>
+<p>在旧版本的 Rust 中，允许<code>extern static</code>以安全代码访问，会存在安全问题。这个 lint 现在抓住并否认这种代码。</p>
+<a class="header" href="#unknown-crate-types" id="unknown-crate-types"><h2>unknown-crate-types</h2></a>
+<p>此 lint 检测到在一个<code>#[crate_type]</code>指示中，发现一个未知箱类型。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">#![crate_type=&quot;lol&quot;]
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: invalid `crate_type` value
+ --&gt; src/lib.rs:1:1
+  |
+1 | #![crate_type=&quot;lol&quot;]
+  | ^^^^^^^^^^^^^^^^^^^^
+  |
+</code></pre>
+<a class="header" href="#incoherent-fundamental-impls" id="incoherent-fundamental-impls"><h2>incoherent-fundamental-impls</h2></a>
+<p>此 lint 检测到错误允许的潜在冲突的 impl。一些触发此 lint 的示例代码：</p>
+<pre><code class="language-rust ignore">pub trait Trait1&lt;X&gt; {
+    type Output;
+}
+
+pub trait Trait2&lt;X&gt; {}
+
+pub struct A;
+
+impl&lt;X, T&gt; Trait1&lt;X&gt; for T where T: Trait2&lt;X&gt; {
+    type Output = ();
+}
+
+impl&lt;X&gt; Trait1&lt;Box&lt;X&gt;&gt; for A {
+    type Output = i32;
+}
+</code></pre>
+<p>这将产生：</p>
+<pre><code class="language-text">error: conflicting implementations of trait `Trait1&lt;std::boxed::Box&lt;_&gt;&gt;` for type `A`: (E0119)
+  --&gt; src/main.rs:13:1
+   |
+9  | impl&lt;X, T&gt; Trait1&lt;X&gt; for T where T: Trait2&lt;X&gt; {
+   | --------------------------------------------- first implementation here
+...
+13 | impl&lt;X&gt; Trait1&lt;Box&lt;X&gt;&gt; for A {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ conflicting implementation for `A`
+   |
+   = note: #[deny(incoherent_fundamental_impls)] on by default
+   = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+   = note: for more information, see issue #46205 &lt;https://github.com/rust-lang/rust/issues/46205&gt;
+   = note: downstream crates may implement trait `Trait2&lt;std::boxed::Box&lt;_&gt;&gt;` for type `A`
+</code></pre>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="../../lints/listing/warn-by-default.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="../../codegen-options/index.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a href="../../lints/listing/warn-by-default.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a href="../../codegen-options/index.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>

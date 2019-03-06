@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>Lint 水平 - The rustc book</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+
+    
+</head>
+
+<body class="light">
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">var path_to_root = "../";</script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = 'light'; }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <ol class="chapter"><li><a href="../what-is-rustc.zh.html"><strong aria-hidden="true">1.</strong> 什么是 rustc？</a></li><li><a href="../command-line-arguments.zh.html"><strong aria-hidden="true">2.</strong> 命令行参数</a></li><li><a href="../lints/index.zh.html"><strong aria-hidden="true">3.</strong> Lints</a></li><li><ol class="section"><li><a href="../lints/levels.zh.html" class="active"><strong aria-hidden="true">3.1.</strong> Lint 水平</a></li><li><a href="../lints/groups.zh.html"><strong aria-hidden="true">3.2.</strong> Lint 组</a></li><li><a href="../lints/listing/index.zh.html"><strong aria-hidden="true">3.3.</strong> lint 列表</a></li><li><ol class="section"><li><a href="../lints/listing/allowed-by-default.zh.html"><strong aria-hidden="true">3.3.1.</strong> 默认允许的 lints</a></li><li><a href="../lints/listing/warn-by-default.zh.html"><strong aria-hidden="true">3.3.2.</strong> 默认发出警告的 lints</a></li><li><a href="../lints/listing/deny-by-default.zh.html"><strong aria-hidden="true">3.3.3.</strong> 默认禁止 lints</a></li></ol></li></ol></li><li><a href="../codegen-options/index.zh.html"><strong aria-hidden="true">4.</strong> 代码生成选项</a></li><li><a href="../targets/index.zh.html"><strong aria-hidden="true">5.</strong> 生成目标</a></li><li><ol class="section"><li><a href="../targets/built-in.zh.html"><strong aria-hidden="true">5.1.</strong> 内置目标</a></li><li><a href="../targets/custom.zh.html"><strong aria-hidden="true">5.2.</strong> 自定义目标</a></li></ol></li><li><a href="../linker-plugin-lto.zh.html"><strong aria-hidden="true">6.</strong> 基于 LTO 的链接器插件</a></li><li><a href="../contributing.zh.html"><strong aria-hidden="true">7.</strong> 帮助rustc</a></li></ol>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- START - Rust Cookbook customization -->
+                        <button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+                            <i class="fa fa-edit">Edit</i>
+                        </button>
+                        <!-- END - Rust Cookbook customization -->
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The rustc book</h1>
+                    
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <!-- // START - Rust Cookbook customization -->
+            <script>
+                document.getElementById("edit-button").addEventListener("click", function () {
+                    var editWindow = window.open("https://github.com/chinanf-boy/rustc-zh/edit/master/src/lints/levels.zh.md");
+                });</script>
+            <!-- // END - Rust Cookbook customization -->
+
+            <div id="content" class="content">
+                <main>
+                    <a class="header" href="#lint-等级" id="lint-等级"><h1>Lint 等级</h1></a>
+<p>在<code>rustc</code>，lints 分为四个<em>等级</em>：</p>
+<ol>
+<li>允许(allow)</li>
+<li>警告(warn)</li>
+<li>拒绝(deny)</li>
+<li>禁止(forbid)</li>
+</ol>
+<p>每个 lint 都有一个默认级别（在本章后面的 lint 列表中进行了解释），并且编译器具有默认警告级别。首先，让我们解释这些级别的含义，然后再讨论配置。</p>
+<a class="header" href="#a允许" id="a允许"><h2>允许</h2></a>
+<p>存在这些 lint，但默认情况下不执行任何操作。例如，请考虑以下源代码：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn foo() {}
+#}</code></pre></pre>
+<p>编译此文件不会产生警告：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib
+$
+</code></pre>
+<p>但是这段代码违反了<code>missing_docs</code>lint(缺乏说明文档)。</p>
+<p>这些 lint 主要由配置手动打开，我们将在本节后面讨论。</p>
+<a class="header" href="#a警告" id="a警告"><h2>警告</h2></a>
+<p>如果您违反“警告”等级的 lint，将发出警告。例如，这段代码与<code>unused_variable</code>lint 相违背：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn foo() {
+    let x = 5;
+}
+#}</code></pre></pre>
+<p>这将产生此警告：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib
+warning: unused variable: `x`
+ --&gt; lib.rs:2:9
+  |
+2 |     let x = 5;
+  |         ^
+  |
+  = note: #[warn(unused_variables)] on by default
+  = note: to avoid this warning, consider using `_x` instead
+</code></pre>
+<a class="header" href="#a拒绝" id="a拒绝"><h2>拒绝</h2></a>
+<p>如果您违反“拒绝”等级的 lint，将发出错误。例如，此代码违背<code>exceeding_bitshifts</code>lint。</p>
+<pre><code class="language-rust ignore">fn main() {
+    100u8 &lt;&lt; 10;
+}
+</code></pre>
+<pre><code class="language-bash">$ rustc main.rs
+error: bitshift exceeds the type's number of bits
+ --&gt; main.rs:2:13
+  |
+2 |     100u8 &lt;&lt; 10;
+  |     ^^^^^^^^^^^
+  |
+  = note: #[deny(exceeding_bitshifts)] on by default
+</code></pre>
+<p>lint 的错误和常规的传统错误有什么区别？Lints 可以通过级别进行配置，因此像“允许”lints 的方式，能让默认情况下“拒绝”的警告不再出现。同样，您若希望设置，让一个默认情况下<code>warn</code>lint 能产生错误。那 lint 等级能帮到你。</p>
+<a class="header" href="#a禁止" id="a禁止"><h2>禁止</h2></a>
+<p>‘禁止’是一种比’拒绝’更强的特殊 lint 等级。它与’deny’相同，因为此级别的 lint 会产生错误，但与’deny’级别不同，’禁止’级别不能被低于一个错误的信息所覆盖。但是，lint 等级仍可能受到<code>--cap-lints</code>限制（见下文），所以<code>rustc --cap-lints warn</code>将把 ‘禁止’lints 设置为警告。</p>
+<a class="header" href="#a配置警告级别" id="a配置警告级别"><h2>配置警告级别</h2></a>
+<p>记住我们的<code>missing_docs</code>，来自“允许”lint 级别的示例？</p>
+<pre><code class="language-bash">$ cat lib.rs
+pub fn foo() {}
+$ rustc lib.rs --crate-type=lib
+$
+</code></pre>
+<p>我们可以配置这个 lint ，升到更高的级别。可用编译器命令行标志，源代码中的属性也行。</p>
+<p>您还可以“cap”lints，以便编译器可以选择忽略某些 lint 级别。我们最后再谈。</p>
+<a class="header" href="#a通过编译器标志" id="a通过编译器标志"><h3>通过编译器标志</h3></a>
+<p>这个<code>-A</code>，<code>-W</code>，<code>-D</code>，和<code>-F</code>标志，允许您将一个或多个 lints 转换为允许、警告、拒绝或禁止级别，如下所示：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib -W missing-docs
+warning: missing documentation for crate
+ --&gt; lib.rs:1:1
+  |
+1 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+  |
+  = note: requested on the command line with `-W missing-docs`
+
+warning: missing documentation for a function
+ --&gt; lib.rs:1:1
+  |
+1 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+</code></pre>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib -D missing-docs
+error: missing documentation for crate
+ --&gt; lib.rs:1:1
+  |
+1 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+  |
+  = note: requested on the command line with `-D missing-docs`
+
+error: missing documentation for a function
+ --&gt; lib.rs:1:1
+  |
+1 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+
+error: aborting due to 2 previous errors
+</code></pre>
+<p>还可以多次传递每个标志，以更改多个 lints：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib -D missing-docs -D unused-variables
+</code></pre>
+<p>当然，您可以将这四个标志混合在一起：</p>
+<pre><code class="language-bash">$ rustc lib.rs --crate-type=lib -D missing-docs -A unused-variables
+</code></pre>
+<a class="header" href="#a通过属性" id="a通过属性"><h3>通过属性</h3></a>
+<p>您还可以使用箱的宽度属性，修改 lints 级别：</p>
+<pre><code class="language-bash">$ cat lib.rs
+#![warn(missing_docs)]
+
+pub fn foo() {}
+$ rustc lib.rs --crate-type=lib
+warning: missing documentation for crate
+ --&gt; lib.rs:1:1
+  |
+1 | / #![warn(missing_docs)]
+2 | |
+3 | | pub fn foo() {}
+  | |_______________^
+  |
+note: lint level defined here
+ --&gt; lib.rs:1:9
+  |
+1 | #![warn(missing_docs)]
+  |         ^^^^^^^^^^^^
+
+warning: missing documentation for a function
+ --&gt; lib.rs:3:1
+  |
+3 | pub fn foo() {}
+  | ^^^^^^^^^^^^
+</code></pre>
+<p>全部四个，<code>warn</code>，<code>allow</code>，<code>deny</code>，和<code>forbid</code>都是这样工作的。</p>
+<p>您还可以为每个属性，传递多个 lints：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![warn(missing_docs, unused_variables)]
+
+#fn main() {
+pub fn foo() {}
+#}</code></pre></pre>
+<p>同时使用多个属性：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#![warn(missing_docs)]
+#![deny(unused_variables)]
+
+#fn main() {
+pub fn foo() {}
+#}</code></pre></pre>
+<a class="header" href="#capping-lint" id="capping-lint"><h3>Capping lint</h3></a>
+<p><code>rustc</code>支持一种标志，就是<code>--cap-lints LEVEL</code>，它设置“lint 天花板等级”。这是对所有 lint 的最大控制。例如，如果我们从上面的“拒绝”lint 级别，获取代码示例：</p>
+<pre><code class="language-rust ignore">fn main() {
+    100u8 &lt;&lt; 10;
+}
+</code></pre>
+<p>我们编译它，以 lint 警告等级作为天花板(封顶)：</p>
+<pre><code class="language-bash">$ rustc lib.rs --cap-lints warn
+warning: bitshift exceeds the type's number of bits
+ --&gt; lib.rs:2:5
+  |
+2 |     100u8 &lt;&lt; 10;
+  |     ^^^^^^^^^^^
+  |
+  = note: #[warn(exceeding_bitshifts)] on by default
+
+warning: this expression will panic at run-time
+ --&gt; lib.rs:2:5
+  |
+2 |     100u8 &lt;&lt; 10;
+  |     ^^^^^^^^^^^ attempt to shift left with overflow
+</code></pre>
+<p>它现在只发出警告，而不是错误。我们可以走得更远，允许所有的 lints：</p>
+<blockquote>
+<p>以‘允许’级别作为天花板，但允许级别默认不输出信息，整洁界面。</p>
+</blockquote>
+<pre><code class="language-bash">$ rustc lib.rs --cap-lints allow
+$
+</code></pre>
+<p>这个功能被 Cargo 大量使用；在编译依赖项时，传递<code>--cap-lints allow</code>，这样如果它们有任何警告，它们就不会污染构建的输出。</p>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="../lints/index.zh.html" class="mobile-nav-chapters previous" title="Previous chapter"
+                        aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="../lints/groups.zh.html" class="mobile-nav-chapters next" title="Next chapter"
+                        aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a href="../lints/index.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter"
+                aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a href="../lints/groups.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter"
+                aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+    
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-128555056-1');
+        }
+    </script>
+    
+
+    
+
+    
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>
