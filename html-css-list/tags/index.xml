@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 留存-关于 HTMl &#43; Css 的技巧与示例</title>
-    <link>./tags/</link>
+    <link>/html-css-list/tags/</link>
     <description>Recent content in Tags on 留存-关于 HTMl &#43; Css 的技巧与示例</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sun, 17 Mar 2019 11:55:28 +0800</lastBuildDate>
     
-	<atom:link href="./tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/html-css-list/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Center</title>
-      <link>./tags/center/</link>
+      <link>/html-css-list/tags/center/</link>
       <pubDate>Sun, 17 Mar 2019 11:55:28 +0800</pubDate>
       
-      <guid>./tags/center/</guid>
+      <guid>/html-css-list/tags/center/</guid>
       <description></description>
     </item>
     

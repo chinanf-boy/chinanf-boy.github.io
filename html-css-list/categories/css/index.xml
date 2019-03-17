@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Css on 留存-关于 HTMl &#43; Css 的技巧与示例</title>
-    <link>./categories/css/</link>
+    <link>/html-css-list/categories/css/</link>
     <description>Recent content in Css on 留存-关于 HTMl &#43; Css 的技巧与示例</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sun, 17 Mar 2019 11:55:28 +0800</lastBuildDate>
     
-	<atom:link href="./categories/css/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/html-css-list/categories/css/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>如何居中一个元素(终结版)</title>
-      <link>./2019/03/17/%E5%A6%82%E4%BD%95%E5%B1%85%E4%B8%AD%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E7%BB%88%E7%BB%93%E7%89%88/</link>
+      <link>/html-css-list/2019/03/17/%E5%A6%82%E4%BD%95%E5%B1%85%E4%B8%AD%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E7%BB%88%E7%BB%93%E7%89%88/</link>
       <pubDate>Sun, 17 Mar 2019 11:55:28 +0800</pubDate>
       
-      <guid>./2019/03/17/%E5%A6%82%E4%BD%95%E5%B1%85%E4%B8%AD%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E7%BB%88%E7%BB%93%E7%89%88/</guid>
+      <guid>/html-css-list/2019/03/17/%E5%A6%82%E4%BD%95%E5%B1%85%E4%B8%AD%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E7%BB%88%E7%BB%93%E7%89%88/</guid>
       <description>来源 收录日期     前端大全 2019.3.17     作者：前端工匠公号 / 浪里行舟 （本文来自作者投稿）
  一、水平居中 1.行内元素水平居中 利用 text-align: center 可以实现在块级元素内部的行内元素水平居中。此方法对 inline、inline-block、inline-table 和 inline-flex 元素水平居中都有效。
 .parent { /* 在父容器设置 */ text-align: center; }  此外，如果块级元素内部包着也是一个块级元素，我们可以先将其，由块(block)级元素改变为行内块(inline-block)元素，再通过设置行内块元素居中以达到水平居中。
