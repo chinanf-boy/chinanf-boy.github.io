@@ -1307,6 +1307,7 @@
 
 
 
+
 <script>
  (function(){
   var seriesA = document.getElementsByTagName("a");
@@ -1330,7 +1331,7 @@
       var dcreateE = document.createElement("details")
       var screateE = document.createElement("summary")
       screateE.textContent = i;
-      var inner = screateE.outerHTML + "<br >" 
+      var inner = screateE.outerHTML 
 
       nameSeries[i].forEach(x =>{
         inner += x.outerHTML
@@ -1350,6 +1351,7 @@
   createE()
  })()
 </script>
+
 
 
 

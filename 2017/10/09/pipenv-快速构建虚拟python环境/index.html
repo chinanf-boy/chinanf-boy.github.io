@@ -172,49 +172,7 @@ anaconda/bin/python
 
 
 
-<script>
- (function(){
-  var seriesA = document.getElementsByTagName("a");
-  seriesA = Array.from(seriesA).filter(x =>x.getAttribute("data-series"));
-  if(seriesA.length){
-    var nameSeries = {}
-    seriesA.forEach(x =>{
-      var xdata = x.getAttribute("data-series")
-      if(nameSeries[xdata]){
-        nameSeries[xdata].push(x)
-      }else{
-        nameSeries[xdata] = [x]
-      }
-    })
-  }
 
-  function createE(){
-    var detailsArr = [] 
-    var postPosArr = [] 
-    for(let i in nameSeries){
-      var dcreateE = document.createElement("details")
-      var screateE = document.createElement("summary")
-      screateE.textContent = i;
-      var inner = screateE.outerHTML + "<br >" 
-
-      nameSeries[i].forEach(x =>{
-        inner += x.outerHTML
-        x.parentElement.style.display = "none"
-      })
-      postPosArr.push(nameSeries[i][0])
-      dcreateE.innerHTML = inner
-      detailsArr.push(dcreateE)
-    }
-    console.info(postPosArr)
-    console.log(detailsArr[0])
-    postPosArr.forEach(a =>{
-      a.parentElement.style.display = "block"
-      a.outerHTML = detailsArr.shift().outerHTML
-    })
-  }
-  createE()
- })()
-</script>
 
 
 
