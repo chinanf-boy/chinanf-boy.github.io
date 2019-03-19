@@ -543,14 +543,14 @@
   </url>
   
   <url>
-    <loc>/tags/css/</loc>
-    <lastmod>2018-01-20T20:25:56+00:00</lastmod>
+    <loc>/categories/css/</loc>
+    <lastmod>2018-12-06T12:23:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/css/</loc>
-    <lastmod>2018-12-06T12:23:36+08:00</lastmod>
+    <loc>/tags/css/</loc>
+    <lastmod>2018-01-20T20:25:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -561,13 +561,13 @@
   </url>
   
   <url>
-    <loc>/tags/development/</loc>
+    <loc>/categories/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/development/</loc>
+    <loc>/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -639,14 +639,14 @@
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
-    <lastmod>2017-12-06T13:37:41+00:00</lastmod>
+    <loc>/categories/github/</loc>
+    <lastmod>2018-11-28T12:45:40+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
-    <lastmod>2018-11-28T12:45:40+08:00</lastmod>
+    <loc>/tags/github/</loc>
+    <lastmod>2017-12-06T13:37:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -657,14 +657,14 @@
   </url>
   
   <url>
-    <loc>/tags/go/</loc>
-    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
+    <loc>/categories/go/</loc>
+    <lastmod>2018-12-09T09:54:07+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/go/</loc>
-    <lastmod>2018-12-09T09:54:07+08:00</lastmod>
+    <loc>/tags/go/</loc>
+    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -675,13 +675,13 @@
   </url>
   
   <url>
-    <loc>/tags/golang/</loc>
+    <loc>/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/golang/</loc>
+    <loc>/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -727,13 +727,13 @@
   </url>
   
   <url>
-    <loc>/tags/hugo/</loc>
+    <loc>/categories/hugo/</loc>
     <lastmod>2018-08-17T14:52:33+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/hugo/</loc>
+    <loc>/tags/hugo/</loc>
     <lastmod>2018-08-17T14:52:33+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -763,14 +763,14 @@
   </url>
   
   <url>
-    <loc>/tags/js/</loc>
-    <lastmod>2018-08-17T09:37:54+08:00</lastmod>
+    <loc>/categories/js/</loc>
+    <lastmod>2019-02-20T12:55:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/js/</loc>
-    <lastmod>2019-02-20T12:55:13+08:00</lastmod>
+    <loc>/tags/js/</loc>
+    <lastmod>2018-08-17T09:37:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -781,14 +781,14 @@
   </url>
   
   <url>
-    <loc>/tags/learn/</loc>
-    <lastmod>2018-12-28T20:13:43+08:00</lastmod>
+    <loc>/categories/learn/</loc>
+    <lastmod>2019-01-03T09:39:56+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/learn/</loc>
-    <lastmod>2019-01-03T09:39:56+08:00</lastmod>
+    <loc>/tags/learn/</loc>
+    <lastmod>2018-12-28T20:13:43+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -817,14 +817,14 @@
   </url>
   
   <url>
-    <loc>/tags/mrm/</loc>
-    <lastmod>2017-12-04T20:05:58+00:00</lastmod>
+    <loc>/categories/mrm/</loc>
+    <lastmod>2019-02-17T14:11:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/mrm/</loc>
-    <lastmod>2019-02-17T14:11:05+08:00</lastmod>
+    <loc>/tags/mrm/</loc>
+    <lastmod>2017-12-04T20:05:58+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -925,14 +925,14 @@
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
-    <lastmod>2018-11-22T14:27:52+08:00</lastmod>
+    <loc>/categories/python/</loc>
+    <lastmod>2018-11-29T10:03:56+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/python/</loc>
-    <lastmod>2018-11-29T10:03:56+08:00</lastmod>
+    <loc>/tags/python/</loc>
+    <lastmod>2018-11-22T14:27:52+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -985,13 +985,13 @@
   </url>
   
   <url>
-    <loc>/tags/rust/</loc>
+    <loc>/categories/rust/</loc>
     <lastmod>2019-02-27T14:56:41+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/rust/</loc>
+    <loc>/tags/rust/</loc>
     <lastmod>2019-02-27T14:56:41+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1123,14 +1123,14 @@
   </url>
   
   <url>
-    <loc>/tags/vscode/</loc>
-    <lastmod>2018-08-01T13:09:07+00:00</lastmod>
+    <loc>/categories/vscode/</loc>
+    <lastmod>2018-11-21T17:24:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/vscode/</loc>
-    <lastmod>2018-11-21T17:24:09+08:00</lastmod>
+    <loc>/tags/vscode/</loc>
+    <lastmod>2018-08-01T13:09:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1219,13 +1219,13 @@
   </url>
   
   <url>
-    <loc>/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-01-11T16:58:39+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-01-11T16:58:39+00:00</lastmod>
     <priority>0</priority>
   </url>

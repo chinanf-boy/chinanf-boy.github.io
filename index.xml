@@ -30,7 +30,7 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <description>V 编程语言 为开发volt，创建快速，安全，编译的语言，很快，所有人都能用啦。
 2019 年中期，发布开源。
    Github 网址 语法文档     https://github.com/vlang-io/V 英文+非官方中文    安装（2019.3.18官方未发布，但网页注释中有） 在 0.5 秒内，从源安装 V.
-wget vlang.io/v.c &amp;amp;&amp;amp; gcc -o v v.c 尝试 fn main() { types := \[ &amp;#39;game&amp;#39;, &amp;#39;web&amp;#39;, &amp;#39;tools&amp;#39;, &amp;#39;GUI&amp;#39; \] for typ in types { println(&amp;#39;Hello, $typ developers!&amp;#39;) } } 快速编译 V 用一个 CPU 核心，能每秒编译 150 万行代码
+wget vlang.io/v.c &amp;amp;&amp;amp; gcc -o v v.c 尝试 fn main() { types := [ &amp;#39;game&amp;#39;, &amp;#39;web&amp;#39;, &amp;#39;tools&amp;#39;, &amp;#39;GUI&amp;#39; ] for typ in types { println(&amp;#39;Hello, $typ developers!&amp;#39;) } } 快速编译 V 用一个 CPU 核心，能每秒编译 150 万行代码
 cd doom3/ wc -l doom3.v # 458 713 time v doom3.</description>
     </item>
     
