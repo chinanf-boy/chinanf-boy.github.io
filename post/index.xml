@@ -22,6 +22,31 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
+      <title>V 编程语言 预先看</title>
+      <link>/2019/03/19/v-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E9%A2%84%E5%85%88%E7%9C%8B/</link>
+      <pubDate>Tue, 19 Mar 2019 12:19:36 +0800</pubDate>
+      
+      <guid>/2019/03/19/v-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E9%A2%84%E5%85%88%E7%9C%8B/</guid>
+      <description>V 编程语言 为开发volt，创建快速，安全，编译的语言，很快，所有人都能用啦。
+2019 年中期，发布开源。
+   Github 网址 语法文档     https://github.com/vlang-io/V 英文+非官方中文    安装（2019.3.18官方未发布，但网页注释中有） 在 0.5 秒内，从源安装 V.
+wget vlang.io/v.c &amp;amp;&amp;amp; gcc -o v v.c 尝试 fn main() { types := \[ &amp;#39;game&amp;#39;, &amp;#39;web&amp;#39;, &amp;#39;tools&amp;#39;, &amp;#39;GUI&amp;#39; \] for typ in types { println(&amp;#39;Hello, $typ developers!&amp;#39;) } } 快速编译 V 用一个 CPU 核心，能每秒编译 150 万行代码
+cd doom3/ wc -l doom3.v # 458 713 time v doom3.</description>
+    </item>
+    
+    <item>
+      <title>RealWorld.io 真实世界的全栈应用</title>
+      <link>/2019/03/19/realworld.io-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Tue, 19 Mar 2019 10:26:53 +0800</pubDate>
+      
+      <guid>/2019/03/19/realworld.io-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8/</guid>
+      <description>img{ max-width: 33%; float:left; } img+img{ margin-left: 1rem; width:20%; } .blog-post p img { border: 2px dashed #f69c55; }  RealWorld.io 项目 虽然大多数“todo”演示提供了对框架功能不错的粗略一瞥，但它们通常不会传达，实际构建 真实 应用程序，所需的知识和视角。
+而 RealWorld 通过允许您选择任何前端（React，Angular 2 和更多）以及任何后端（Node，Django 等）来解决这个问题，并了解它们如何为现实世界提供动力，设计精美的 fullstack 应用程序称为“Conduit” —— Medium.com 完全相同 的克隆。
+   具体项目 Github     https://github.com/gothinkster/realworld    小样  仅列举我，较为知道的框架，更多组合请查看源项目
+  前端  React (1) with Redux (2) with MobX Vue Hyperapp  后端  Node (1) Express (2) NestJS (3) Koa GO (1) Gin (2) Echo (3) 干净的 Python (1) Django (2) Flask Rust (2) Rocket   前端 React with Redux React / Redux</description>
+    </item>
+    
+    <item>
       <title>Rust ? 语法糖 (译)</title>
       <link>/2019/02/27/rust-%E8%AF%AD%E6%B3%95%E7%B3%96-%E8%AF%91/</link>
       <pubDate>Wed, 27 Feb 2019 14:56:41 +0800</pubDate>

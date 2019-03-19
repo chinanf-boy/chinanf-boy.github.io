@@ -8,6 +8,16 @@
   </url>
   
   <url>
+    <loc>/2019/03/19/v-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E9%A2%84%E5%85%88%E7%9C%8B/</loc>
+    <lastmod>2019-03-19T12:19:36+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/03/19/realworld.io-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8/</loc>
+    <lastmod>2019-03-19T10:26:53+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019/02/27/rust-%E8%AF%AD%E6%B3%95%E7%B3%96-%E8%AF%91/</loc>
     <lastmod>2019-02-27T14:56:41+08:00</lastmod>
   </url>
@@ -588,7 +598,7 @@
   
   <url>
     <loc>/categories/example/</loc>
-    <lastmod>2018-11-07T11:06:59+08:00</lastmod>
+    <lastmod>2019-03-19T10:26:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -613,6 +623,12 @@
   <url>
     <loc>/tags/full-folder/</loc>
     <lastmod>2018-08-01T18:48:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/fullstack/</loc>
+    <lastmod>2019-03-19T10:26:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -755,6 +771,12 @@
   <url>
     <loc>/categories/js/</loc>
     <lastmod>2019-02-20T12:55:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/language/</loc>
+    <lastmod>2019-03-19T12:19:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1091,6 +1113,12 @@
   <url>
     <loc>/tags/unchinese/</loc>
     <lastmod>2019-01-03T09:39:56+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/v/</loc>
+    <lastmod>2019-03-19T12:19:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   

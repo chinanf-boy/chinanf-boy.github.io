@@ -59,7 +59,7 @@
     <item>
       <title>Example</title>
       <link>/categories/example/</link>
-      <pubDate>Wed, 07 Nov 2018 11:06:59 +0800</pubDate>
+      <pubDate>Tue, 19 Mar 2019 10:26:53 +0800</pubDate>
       
       <guid>/categories/example/</guid>
       <description></description>
@@ -125,6 +125,15 @@
       <pubDate>Wed, 20 Feb 2019 12:55:13 +0800</pubDate>
       
       <guid>/categories/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Language</title>
+      <link>/categories/language/</link>
+      <pubDate>Tue, 19 Mar 2019 12:19:36 +0800</pubDate>
+      
+      <guid>/categories/language/</guid>
       <description></description>
     </item>
     
