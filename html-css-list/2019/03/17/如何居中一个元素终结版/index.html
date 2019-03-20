@@ -13,6 +13,20 @@
 
 
     
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
 
         
         <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
@@ -22,7 +36,7 @@
         
         
         
-            <link rel="stylesheet" href="/html-css-list//css/main.css">
+            <link rel="stylesheet" href="/html-css-list/css/main.css">
         
 
         
@@ -1007,8 +1021,8 @@ aria-haspopup="true" aria-expanded="false" aria-controls="edit">
 
 
 
-<script src="/html-css-list//js/copyCode.js"></script>
-<script src="/html-css-list//js/tooltips.js"></script>
+<script src="/html-css-list/js/copyCode.js"></script>
+<script src="/html-css-list/js/tooltips.js"></script>
 
 
 <footer>
@@ -1038,49 +1052,7 @@ aria-haspopup="true" aria-expanded="false" aria-controls="edit">
 
 
 
-<script>
- (function(){
-  var seriesA = document.getElementsByTagName("a");
-  seriesA = Array.from(seriesA).filter(x =>x.getAttribute("data-series"));
-  if(seriesA.length){
-    var nameSeries = {}
-    seriesA.forEach(x =>{
-      var xdata = x.getAttribute("data-series")
-      if(nameSeries[xdata]){
-        nameSeries[xdata].push(x)
-      }else{
-        nameSeries[xdata] = [x]
-      }
-    })
-  }
 
-  function createE(){
-    var detailsArr = [] 
-    var postPosArr = [] 
-    for(let i in nameSeries){
-      var dcreateE = document.createElement("details")
-      var screateE = document.createElement("summary")
-      screateE.textContent = i;
-      var inner = screateE.outerHTML + "<br >" 
-
-      nameSeries[i].forEach(x =>{
-        inner += x.outerHTML
-        x.parentElement.style.display = "none"
-      })
-      postPosArr.push(nameSeries[i][0])
-      dcreateE.innerHTML = inner
-      detailsArr.push(dcreateE)
-    }
-    console.info(postPosArr)
-    console.log(detailsArr[0])
-    postPosArr.forEach(a =>{
-      a.parentElement.style.display = "block"
-      a.outerHTML = detailsArr.shift().outerHTML
-    })
-  }
-  createE()
- })()
-</script>
 
 
 

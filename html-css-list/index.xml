@@ -6,10 +6,24 @@
     <description>Recent content on 留存-关于 HTMl &#43; Css 的技巧与示例</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 17 Mar 2019 11:55:28 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Mar 2019 10:58:56 +0800</lastBuildDate>
     
 	<atom:link href="/html-css-list/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data URLs 嵌入文件</title>
+      <link>/html-css-list/2019/03/20/data-urls-%E5%B5%8C%E5%85%A5%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Wed, 20 Mar 2019 10:58:56 +0800</pubDate>
+      
+      <guid>/html-css-list/2019/03/20/data-urls-%E5%B5%8C%E5%85%A5%E6%96%87%E4%BB%B6/</guid>
+      <description>来源 收录日期     MDN:mozilla 2019.3.20    Data URLs，即前缀为 data: 协议的的 URL，其允许内容创建者向文档中嵌入小文件。
+先试试，不甜不给钱 css 方式  该图片的 Css 格式，
+ .data-img-trangle { border: 5px dashed blue; width: 100%; height: 30vh; background: url(&#39;data:image/png;base64,iVBORw0KGg...&#39;); }   注意 ⚠️，这种方式一开始与src方式最大的不同，是这个 img 元素并没有被图片撑起来。 下面的&amp;lt;svg&amp;gt;是写入img元素的，也就是，从一开始就拥有了图片，而css方式，一开始是没有图片的(支撑)。
+ 这也导致。若是没有定义width+height，img 元素就只是一个小点。如下:
+这个蓝点的 css
+.data-img-trangle-without-xy { border: 5px dashed blue; /* 没有了width+height，也没有其他预先规范css */ background: url(&#39;data:image/png;base64,iVBORw0KGg...&#39;); }  src 方式 &amp;lt;img src=&#39;data:image/svg+xml;utf8,&amp;lt;svg xmlns=&amp;quot;http://www.</description>
+    </item>
     
     <item>
       <title>如何居中一个元素(终结版)</title>

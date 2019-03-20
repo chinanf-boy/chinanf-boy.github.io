@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Data URLs 嵌入文件</title>
+    
+
+
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+        <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+        <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+        
+        
+        
+        
+        
+             <link rel="stylesheet" href="/file-css/2019-3/data.css"></link> <link rel="stylesheet" href="/css/main.css"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+    
+    
+    <style>
+        body {
+            background-color: #fbf6ec;
+            }
+    </style>
+    
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/html-css-list/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Data URLs 嵌入文件</h2>
+        
+
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>收录日期</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/data_URIs">MDN:mozilla</a></td>
+<td>2019.3.20</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Data URLs</strong>，即前缀为 <code>data:</code>  协议的的 URL，其允许内容创建者向文档中嵌入小文件。</p>
+
+<h2 id="先试试-不甜不给钱">先试试，不甜不给钱</h2>
+
+<h3 id="css-方式">css 方式</h3>
+
+<p><img class="data-img-trangle" ></p>
+
+<blockquote>
+<p>该图片的 Css 格式，</p>
+</blockquote>
+
+<pre><code class="language-css">.data-img-trangle {
+  border: 5px dashed blue;
+  width: 100%;
+  height: 30vh;
+  background: url('data:image/png;base64,iVBORw0KGg...');
+}
+</code></pre>
+
+<blockquote>
+<p>注意 ⚠️，这种方式一开始与<code>src方式</code>最大的不同，是这个 img 元素并没有被图片撑起来。
+下面的<code>&lt;svg&gt;</code>是写入<code>img</code>元素的，也就是，从一开始就拥有了图片，而<code>css方式</code>，一开始是没有图片的(支撑)。</p>
+</blockquote>
+
+<p>这也导致。若是没有定义<code>width</code>+<code>height</code>，img 元素就只是一个小点。如下:</p>
+
+<p><img class="data-img-trangle-without-xy" ></p>
+
+<p>这个蓝点的 css</p>
+
+<pre><code class="language-css">.data-img-trangle-without-xy {
+  border: 5px dashed blue;
+  /* 没有了width+height，也没有其他预先规范css */
+  background: url('data:image/png;base64,iVBORw0KGg...');
+}
+</code></pre>
+
+<h3 id="src-方式">src 方式</h3>
+
+<pre><code class="language-html">&lt;img
+  src='data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; id=&quot;Layer_1&quot; x=&quot;0px&quot; y=&quot;0px&quot; viewBox=&quot;0 0 100 100&quot; enable-background=&quot;new 0 0 100 100&quot; xml:space=&quot;preserve&quot; height=&quot;100px&quot; width=&quot;100px&quot;&gt;
+&lt;g&gt;
+    &lt;path d=&quot;M28.1,36.6c4.6,1.9,12.2,1.6,20.9,1.1c8.9-0.4,19-0.9,28.9,0.9c6.3,1.2,11.9,3.1,16.8,6c-1.5-12.2-7.9-23.7-18.6-31.3   c-4.9-0.2-9.9,0.3-14.8,1.4C47.8,17.9,36.2,25.6,28.1,36.6z&quot;/&gt;
+    &lt;path d=&quot;M70.3,9.8C57.5,3.4,42.8,3.6,30.5,9.5c-3,6-8.4,19.6-5.3,24.9c8.6-11.7,20.9-19.8,35.2-23.1C63.7,10.5,67,10,70.3,9.8z&quot;/&gt;
+    &lt;path d=&quot;M16.5,51.3c0.6-1.7,1.2-3.4,2-5.1c-3.8-3.4-7.5-7-11-10.8c-2.1,6.1-2.8,12.5-2.3,18.7C9.6,51.1,13.4,50.2,16.5,51.3z&quot;/&gt;
+    &lt;path d=&quot;M9,31.6c3.5,3.9,7.2,7.6,11.1,11.1c0.8-1.6,1.7-3.1,2.6-4.6c0.1-0.2,0.3-0.4,0.4-0.6c-2.9-3.3-3.1-9.2-0.6-17.6   c0.8-2.7,1.8-5.3,2.7-7.4c-5.2,3.4-9.8,8-13.3,13.7C10.8,27.9,9.8,29.7,9,31.6z&quot;/&gt;
+    &lt;path d=&quot;M15.4,54.7c-2.6-1-6.1,0.7-9.7,3.4c1.2,6.6,3.9,13,8,18.5C13,69.3,13.5,61.8,15.4,54.7z&quot;/&gt;
+    &lt;path d=&quot;M39.8,57.6C54.3,66.7,70,73,86.5,76.4c0.6-0.8,1.1-1.6,1.7-2.5c4.8-7.7,7-16.3,6.8-24.8c-13.8-9.3-31.3-8.4-45.8-7.7   c-9.5,0.5-17.8,0.9-23.2-1.7c-0.1,0.1-0.2,0.3-0.3,0.4c-1,1.7-2,3.4-2.9,5.1C28.2,49.7,33.8,53.9,39.8,57.6z&quot;/&gt;
+    &lt;path d=&quot;M26.2,88.2c3.3,2,6.7,3.6,10.2,4.7c-3.5-6.2-6.3-12.6-8.8-18.5c-3.1-7.2-5.8-13.5-9-17.2c-1.9,8-2,16.4-0.3,24.7   C20.6,84.2,23.2,86.3,26.2,88.2z&quot;/&gt;
+    &lt;path d=&quot;M30.9,73c2.9,6.8,6.1,14.4,10.5,21.2c15.6,3,32-2.3,42.6-14.6C67.7,76,52.2,69.6,37.9,60.7C32,57,26.5,53,21.3,48.6   c-0.6,1.5-1.2,3-1.7,4.6C24.1,57.1,27.3,64.5,30.9,73z&quot;/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;'
+  alt=&quot;&quot;
+/&gt;
+</code></pre>
+
+<div class="example">
+
+<img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">
+<g>
+    <path d="M28.1,36.6c4.6,1.9,12.2,1.6,20.9,1.1c8.9-0.4,19-0.9,28.9,0.9c6.3,1.2,11.9,3.1,16.8,6c-1.5-12.2-7.9-23.7-18.6-31.3   c-4.9-0.2-9.9,0.3-14.8,1.4C47.8,17.9,36.2,25.6,28.1,36.6z"/>
+    <path d="M70.3,9.8C57.5,3.4,42.8,3.6,30.5,9.5c-3,6-8.4,19.6-5.3,24.9c8.6-11.7,20.9-19.8,35.2-23.1C63.7,10.5,67,10,70.3,9.8z"/>
+    <path d="M16.5,51.3c0.6-1.7,1.2-3.4,2-5.1c-3.8-3.4-7.5-7-11-10.8c-2.1,6.1-2.8,12.5-2.3,18.7C9.6,51.1,13.4,50.2,16.5,51.3z"/>
+    <path d="M9,31.6c3.5,3.9,7.2,7.6,11.1,11.1c0.8-1.6,1.7-3.1,2.6-4.6c0.1-0.2,0.3-0.4,0.4-0.6c-2.9-3.3-3.1-9.2-0.6-17.6   c0.8-2.7,1.8-5.3,2.7-7.4c-5.2,3.4-9.8,8-13.3,13.7C10.8,27.9,9.8,29.7,9,31.6z"/>
+    <path d="M15.4,54.7c-2.6-1-6.1,0.7-9.7,3.4c1.2,6.6,3.9,13,8,18.5C13,69.3,13.5,61.8,15.4,54.7z"/>
+    <path d="M39.8,57.6C54.3,66.7,70,73,86.5,76.4c0.6-0.8,1.1-1.6,1.7-2.5c4.8-7.7,7-16.3,6.8-24.8c-13.8-9.3-31.3-8.4-45.8-7.7   c-9.5,0.5-17.8,0.9-23.2-1.7c-0.1,0.1-0.2,0.3-0.3,0.4c-1,1.7-2,3.4-2.9,5.1C28.2,49.7,33.8,53.9,39.8,57.6z"/>
+    <path d="M26.2,88.2c3.3,2,6.7,3.6,10.2,4.7c-3.5-6.2-6.3-12.6-8.8-18.5c-3.1-7.2-5.8-13.5-9-17.2c-1.9,8-2,16.4-0.3,24.7   C20.6,84.2,23.2,86.3,26.2,88.2z"/>
+    <path d="M30.9,73c2.9,6.8,6.1,14.4,10.5,21.2c15.6,3,32-2.3,42.6-14.6C67.7,76,52.2,69.6,37.9,60.7C32,57,26.5,53,21.3,48.6   c-0.6,1.5-1.2,3-1.7,4.6C24.1,57.1,27.3,64.5,30.9,73z"/>
+</g>
+</svg>' alt="" />
+
+</div>
+
+<h2 id="目录">目录</h2>
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+<ul>
+<li><a href="#%E8%AF%AD%E6%B3%95">语法</a></li>
+<li><a href="#%E7%BB%99%E6%95%B0%E6%8D%AE%E4%BD%9C-base64-%E7%BC%96%E7%A0%81">给数据作 base64 编码</a>
+
+<ul>
+<li><a href="#%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%8A%E4%BD%BF%E7%94%A8-javascript">在网页上使用 JavaScript</a></li>
+</ul></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a>
+
+<ul>
+<li><a href="#%E8%AF%AD%E6%B3%95-1">语法</a></li>
+<li><a href="#html-%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96">HTML 代码格式化</a></li>
+<li><a href="#%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6">长度限制</a></li>
+<li><a href="#%E7%BC%BA%E4%B9%8F%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86">缺乏错误处理</a></li>
+<li><a href="#%E4%B8%8D%E6%94%AF%E6%8C%81%E6%9F%A5%E8%AF%A2%E5%AD%97%E7%AC%A6%E4%B8%B2">不支持查询字符串</a></li>
+</ul></li>
+<li><a href="#%E5%BB%B6%E5%B1%95">延展</a></li>
+</ul>
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h2 id="语法">语法</h2>
+
+<p>Data URLs 由四个部分组成：前缀(<code>data:</code>)、指示数据类型的 MIME 类型、如果非文本则为可选的<code>base64</code>标记、数据本身：</p>
+
+<pre><code>data:[&lt;mediatype&gt;][;base64],&lt;data&gt;
+</code></pre>
+
+<p><code>mediatype</code>是个 MIME 类型的字符串，例如 &ldquo;<code>image/jpeg</code>&rdquo; 表示  JPEG 图像文件。如果被省略，则默认值为  <code>text/plain;charset=US-ASCII</code></p>
+
+<p>如果数据是文本类型，你可以直接将文本嵌入  (根据文档类型，使用合适的实体字符或转义字符)。如果是二进制数据，你可以将数据进行 base64 编码之后再进行嵌入。</p>
+
+<p>下面是一些示例：</p>
+
+<p><code>data:,Hello%2C%20World!</code></p>
+
+<p>简单的 text/plain 类型数据</p>
+
+<p><code>data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D</code></p>
+
+<p>上一条示例的 base64 编码版本</p>
+
+<p><code>data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E</code></p>
+
+<p>一个 HTML 文档源代码 <code>&lt;h1&gt;Hello, World&lt;/h1&gt;</code></p>
+
+<p><code>data:text/html,&lt;script&gt;alert('hi');&lt;/script&gt;</code></p>
+
+<p>一个会执行 JavaScript alert 的  HTML 文档。注意 script 标签必须封闭。</p>
+
+<h2 id="给数据作-base64-编码">给数据作 base64 编码</h2>
+
+<p>在 Linux 或者 Mac OS 系统上，你可以使用 <code>uuencode</code>命令行工具来简单实现编码：</p>
+
+<pre><code class="language-bash">uuencode -m `infile` `remotename`
+</code></pre>
+
+<p><code>infile</code>  参数表示要作 base64 编码的文件名称，<code>remotename</code>  参数表示输出的文件名称, 实际上并没有在  data  方案的 URLs 中使用。</p>
+
+<p>输出结果如下：</p>
+
+<pre><code class="language-bash">begin-base64 664 test
+YSBzbGlnaHRseSBsb25nZXIgdGVzdCBmb3IgdGV2ZXIK
+====
+</code></pre>
+
+<p>以上 Data URL 会使用位于首行之后的编码后的数据</p>
+
+<h3 id="在网页上使用-javascript">在网页上使用 JavaScript</h3>
+
+<p>Web APIs 已经有对 base64 进行编码解码的方法: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Base64_encoding_and_decoding">Base64 encoding and decoding</a>.</p>
+
+<h2 id="常见问题">常见问题</h2>
+
+<p>下文介绍一些在使用<code>data</code> URIs 时遇到的常见问题:</p>
+
+<h3 id="语法-1">语法</h3>
+
+<p><code>data</code> URLs 的格式很简单，但很容易会忘记把逗号加在 &ldquo;data&rdquo; 协议名后面，在对数据进行 base64 编码时也很容易发生错误。</p>
+
+<h3 id="html-代码格式化">HTML 代码格式化</h3>
+
+<p>一个  <code>data</code> URL 是一个文件中的文件，相对于文档来说这个文件可能就非常的长。因为 data URL 也是  URL，所以 data 会用空白符(换行符, 制表符, 空格)来对它进行格式化。但如果数据是经过 base64 编码的，就可能会<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=73026#c12" title="http://bugzilla.mozilla.org/show_bug.cgi?id=73026#c12">遇到一些问题</a>。</p>
+
+<h3 id="长度限制">长度限制</h3>
+
+<p>虽然 Firefox 支持无限长度的  <code>data</code> URLs，但是标准中并没有规定浏览器必须支持任意长度的  <code>data</code> URIs。比如，Opera 11 浏览器限制 URLs 最长为 65535  个字符，这意味着 data URLs 最长为  65529 个字符（如果你使用纯文本 data:, 而不是指定一个 MIME 类型的话，那么 65529 字符长度是编码后的长度，而不是源文件）。</p>
+
+<h3 id="缺乏错误处理">缺乏错误处理</h3>
+
+<p>MIME 类型错误或者 base64 编码错误,都会造成<code>data</code> URIs 无法被正常解析, 但不会有任何相关错误提示.</p>
+
+<h3 id="不支持查询字符串">不支持查询字符串</h3>
+
+<p>一个 data URI 的数据字段是没有结束标记的,所以尝试在一个 data URI 后面添加查询字符串会导致,查询字符串也一并被当作数据字段.例如:</p>
+
+<pre><code>data:text/html,lots of text...&lt;p&gt;&lt;a name%3D&quot;bottom&quot;&gt;bottom&lt;/a&gt;?arg=val
+</code></pre>
+
+<p>这个 data URL 代表的 HTML 源文件内容为:</p>
+
+<pre><code>lots of text...&lt;p&gt;&lt;a name=&quot;bottom&quot;&gt;bottom&lt;/a&gt;?arg=val
+</code></pre>
+
+<h2 id="延展">延展</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/data_URIs#Support_in_other_browsers">浏览器兼容表格</a></li>
+<li><a href="https://www.base64-image.de/">图片转义 data URL : online</a></li>
+</ul>
+
+  </div>
+
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+
+<script src="/html-css-list/js/copyCode.js"></script>
+<script src="/html-css-list/js/tooltips.js"></script>
+
+
+<footer>
+  <hr>
+  <small style="font-size:16px;float:right;margin:0 1rem;">
+    &copy; 2019 <a href="https://github.com/chinanf-boy">yobrave Lee.</a>
+    
+  </small>
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/html-css-list/edit/master/content/post\/data:*-集成数据.md");
+        });</script>
+
+    
+
+</body>
+
+</html>
