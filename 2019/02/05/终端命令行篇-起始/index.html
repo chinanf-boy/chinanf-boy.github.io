@@ -157,13 +157,16 @@ mkdir <span style="color:#8be9fd;font-style:italic">$repodir</span>
 
 <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n2. source dir&#34;</span>
 git init
-<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$3</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;no&#34;</span> <span style="color:#ff79c6">]</span>;<span style="color:#ff79c6">then</span>
+<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$3</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;no&#34;</span> <span style="color:#ff79c6">]</span>;<span style="color:#ff79c6">then</span> 
 <span style="color:#6272a4"># es repo.git no local-path</span>
-<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">`</span>ln -s <span style="color:#8be9fd;font-style:italic">$4</span> ./source<span style="color:#f1fa8c">`</span>
+<span style="color:#8be9fd;font-style:italic">cd</span> -
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;ln -s </span><span style="color:#8be9fd;font-style:italic">$PWD</span><span style="color:#f1fa8c">/</span><span style="color:#8be9fd;font-style:italic">$4</span><span style="color:#f1fa8c"> </span><span style="color:#8be9fd;font-style:italic">$PWD</span><span style="color:#f1fa8c">/</span><span style="color:#8be9fd;font-style:italic">$repodir</span><span style="color:#f1fa8c">/source&#34;</span> <span style="color:#ff79c6">&amp;&amp;</span> ln -s <span style="color:#8be9fd;font-style:italic">$PWD</span>/<span style="color:#8be9fd;font-style:italic">$4</span> <span style="color:#8be9fd;font-style:italic">$PWD</span>/<span style="color:#8be9fd;font-style:italic">$repodir</span>/source
+<span style="color:#8be9fd;font-style:italic">cd</span> -
 <span style="color:#ff79c6">else</span>
-git clone <span style="color:#8be9fd;font-style:italic">$1</span> <span style="color:#f1fa8c">&#39;source&#39;</span>
+git clone <span style="color:#8be9fd;font-style:italic">$1</span> <span style="color:#f1fa8c">&#39;source&#39;</span> 
 <span style="color:#ff79c6">fi</span>
-<span style="color:#8be9fd;font-style:italic">cd</span> <span style="color:#f1fa8c">&#39;source&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">COMMIT</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>git rev-parse HEAD<span style="color:#f1fa8c">`</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">DATE</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>git log -1 --date<span style="color:#ff79c6">=</span>short --format<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;%ad&#34;</span><span style="color:#f1fa8c">`</span>
+<span style="color:#8be9fd;font-style:italic">cd</span> <span style="color:#f1fa8c">&#39;./source&#39;</span> <span style="color:#ff79c6">||</span> mkdir <span style="color:#f1fa8c">&#34;source&#34;</span>
+<span style="color:#8be9fd;font-style:italic">COMMIT</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>git rev-parse HEAD<span style="color:#f1fa8c">`</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">DATE</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">`</span>git log -1 --date<span style="color:#ff79c6">=</span>short --format<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;%ad&#34;</span><span style="color:#f1fa8c">`</span>
 <span style="color:#8be9fd;font-style:italic">cd</span> -
 <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n3. git info&#34;</span>
 
@@ -171,7 +174,8 @@ git clone <span style="color:#8be9fd;font-style:italic">$1</span> <span style="c
 <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$COMMIT</span>
 <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$DATE</span>
 
-<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n4. mrm ***&#34;</span>
+<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[[</span> <span style="color:#8be9fd;font-style:italic">$PWD</span> <span style="color:#ff79c6">=</span>~ <span style="color:#f1fa8c">&#34;-zh&#34;</span> <span style="color:#ff79c6">]]</span>;<span style="color:#ff79c6">then</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n5. mrm ***&#34;</span>
 mrm readme --config:repos <span style="color:#8be9fd;font-style:italic">$2</span> --config:name <span style="color:#8be9fd;font-style:italic">$1</span> --config:commit <span style="color:#8be9fd;font-style:italic">$COMMIT</span> --config:date <span style="color:#8be9fd;font-style:italic">$DATE</span>
 mrm gitignore
 <span style="color:#8be9fd;font-style:italic">source</span> ~/.zshrc  &amp;&gt;/dev/null
@@ -179,20 +183,26 @@ mrm gitignore
 sleep .5
 
 
-<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;5. find *.md with source into .mds-list&#34;</span>
-<span style="color:#8be9fd;font-style:italic">list</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>find ./source -type f -name <span style="color:#f1fa8c">\*</span>.md<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;6. find *.md with source into .mds-list&#34;</span>
+<span style="color:#8be9fd;font-style:italic">list</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>find ./source -type f -name <span style="color:#f1fa8c">\*</span>.md<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span> 
 <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;here &gt;&gt;&gt;&gt;&gt;&gt; </span><span style="color:#8be9fd;font-style:italic">$list</span><span style="color:#f1fa8c">\n&#34;</span>
-<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$list</span><span style="color:#f1fa8c">\n&#34;</span> &gt; <span style="color:#f1fa8c">&#39;./.mds-list&#39;</span>;
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$list</span><span style="color:#f1fa8c">\n&#34;</span> &gt; <span style="color:#f1fa8c">&#39;./.mds-list&#39;</span>; 
+<span style="color:#6272a4"># for file in $list; do if [ ! -f &#34;$file&#34; ]; then</span> 
+<span style="color:#6272a4"># echo &#34;MISSING: $file&#34;</span> 
+<span style="color:#6272a4"># else</span> 
+<span style="color:#6272a4"># echo &#34;$file\n&#34; &gt;&gt; &#34;./mds-list&#34;;</span> 
+<span style="color:#6272a4"># fi;</span> 
+<span style="color:#6272a4"># done</span>
 
-<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;6. add sync-en.sh to sync en:*.md with .mds-list &#34;</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;7. add sync-en.sh to sync en:*.md with .mds-list &#34;</span>
 cat <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$HOME</span><span style="color:#f1fa8c">/sync-en.sh&#34;</span> &gt; ./sync-en.sh
 chmod +x ./sync-en.sh
 
-<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n7. use translate-mds, translate readme.md and move&#34;</span>
-translateMds source/readme.md -T <span style="color:#f1fa8c">&#39;inlineCode,link&#39;</span> -C
-cp source/readme.md ./en.md
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n8. start translate readme.md and move&#34;</span>
+local-translateMds source/readme.md -T <span style="color:#f1fa8c">&#39;inlineCode,link&#39;</span> -C 
+cp source/readme.md ./en.md 
 
-<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n8. doc-templite&#34;</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n9. doc-templite&#34;</span>
 <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$2</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ex&#34;</span> <span style="color:#ff79c6">]</span>;<span style="color:#ff79c6">then</span>
 <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;explain&#34;</span>
 doc-templite-explain
@@ -204,17 +214,22 @@ cat source/readme.zh.md &gt;&gt; ./readme.md
 <span style="color:#ff79c6">fi</span>
 
 
-<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n9. &gt;&gt; hub cmd to hub-create.sh&#34;</span>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;\n10. &gt;&gt; hub cmd to hub-create.sh&#34;</span>
 <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$2</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ex&#34;</span> <span style="color:#ff79c6">]</span>;<span style="color:#ff79c6">then</span>
 
 <span style="color:#8be9fd;font-style:italic">huC</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;hub create -d &#34;explain:&lt;&#39;</span><span style="color:#8be9fd;font-style:italic">$two</span><span style="color:#f1fa8c">&#39;&gt; something :heart: explaining&#34; &#39;</span>
 
 <span style="color:#ff79c6">else</span>
 
-<span style="color:#8be9fd;font-style:italic">huC</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;hub create -d &#34;中文翻译:&lt;&#39;</span><span style="color:#8be9fd;font-style:italic">$two</span><span style="color:#f1fa8c">&#39;&gt; something :heart: working on&#34; &#39;</span>
+<span style="color:#8be9fd;font-style:italic">huC</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;hub create -d &#34;中文翻译:&lt;&#39;</span><span style="color:#8be9fd;font-style:italic">$two</span><span style="color:#f1fa8c">&#39;&gt; something :heart: working on&#34; &#39;</span> 
 <span style="color:#ff79c6">fi</span>
 
-<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$huC</span> &gt;&gt; hub-create.sh</code></pre></div>
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$huC</span> &gt;&gt; hub-create.sh
+
+<span style="color:#ff79c6">else</span>
+
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;错误 ：not in *-zh Dir&#34;</span>
+<span style="color:#ff79c6">fi</span></code></pre></div>
 <h3 id="sync-en-sh">sync-en.sh</h3>
 
 <p>主要是，对<code>.mds-list</code>的复制</p>
@@ -228,12 +243,12 @@ cat source/readme.zh.md &gt;&gt; ./readme.md
         <span style="color:#6272a4"># lowwer string</span>
         <span style="color:#8be9fd;font-style:italic">zh</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">line</span>//source<span style="color:#f1fa8c">\/</span>/<span style="color:#f1fa8c">}</span>
         <span style="color:#8be9fd;font-style:italic">dir</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(</span>dirname <span style="color:#8be9fd;font-style:italic">$zh</span><span style="color:#ff79c6">)</span>
-
+        
         <span style="color:#8be9fd;font-style:italic">source_readme</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;./source/readme.md&#34;</span>
         <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[[</span> <span style="color:#8be9fd;font-style:italic">$lowline</span> <span style="color:#ff79c6">==</span> <span style="color:#8be9fd;font-style:italic">$source_readme</span> <span style="color:#ff79c6">]]</span>;<span style="color:#ff79c6">then</span>
         <span style="color:#6272a4"># source/[readme|REAMDE].md =&gt; en.md</span>
         <span style="color:#8be9fd;font-style:italic">filename</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en.md&#34;</span>
-        <span style="color:#ff79c6">else</span>
+        <span style="color:#ff79c6">else</span> 
         <span style="color:#6272a4"># source/other.md =&gt; ./other.md</span>
         <span style="color:#8be9fd;font-style:italic">filename</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(</span>basename <span style="color:#8be9fd;font-style:italic">$zh</span><span style="color:#ff79c6">)</span>
         <span style="color:#ff79c6">fi</span>
