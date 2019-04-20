@@ -1,0 +1,59 @@
+<!-- Copyright 2018-2019 the Deno authors. All rights reserved. MIT license. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deno Style Guide</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/default.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/github-gist.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/languages/typescript.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <a href="/"><img id="logo" src="images/deno_logo_3.svg" width="200"/></a>
+      <div class="toc"></div>
+      <div id="manual"></div>
+
+      <script>
+        const url = 'style_guide.zh.md';
+
+        async function main() {
+          const response = await fetch(url);
+          const content = await response.text();
+
+          const manual = document.getElementById('manual');
+          manual.innerHTML = marked(content);
+
+          // Disable automatic language detection
+          hljs.configure({
+            languages: []
+          });
+
+          hljs.initHighlighting();
+
+          anchors.options = {
+            visible: 'hover',
+            placement: 'left',
+            icon: '¶'
+          };
+          anchors.add();
+        }
+
+        main();
+      </script>
+    </main>
+    <script src="toc.js"></script>
+    <script src="sticky_toc.js"></script>
+  </body>
+</html>

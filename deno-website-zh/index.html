@@ -1,0 +1,170 @@
+<!-- Copyright 2018-2019 the Deno authors. All rights reserved. MIT license. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deno</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/default.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/github-gist.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/languages/typescript.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <img id="logo" src="images/deno_logo_3.svg" width="200" />
+        <div>
+          <h1>Deno</h1>
+          JavaScript 和 TypeScript 安全运行时，使用 V8, Rust, 和 Tokio 构建。
+        </div>
+      </header>
+
+      <table>
+        <tr>
+          <th></th>
+          <th>Linux &amp; Mac</th>
+          <th>Windows</th>
+        </tr>
+        <tr>
+          <th><a href="https://github.com/denoland/deno">deno</a></th>
+          <td>
+            <a class="badge" href="https://travis-ci.com/denoland/deno">
+              <img
+                src="https://travis-ci.com/denoland/deno.svg?branch=master"
+              />
+            </a>
+          </td>
+          <td>
+            <a class="badge" href="https://ci.appveyor.com/project/deno/deno">
+              <img
+                src="https://ci.appveyor.com/api/projects/status/yel7wtcqwoy0to8x/branch/master?svg=true"
+              />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <th><a href="https://github.com/denoland/deno_std">deno_std</a></th>
+          <td colspan="2">
+            <a
+              class="badge"
+              href="https://dev.azure.com/denoland/deno_std/_build?definitionId=2"
+            >
+              <img
+                src="https://dev.azure.com/denoland/deno_std/_apis/build/status/denoland.deno_std?branchName=master"
+              />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <a href="https://github.com/denoland/deno_install">deno_install</a>
+          </th>
+          <td>
+            <a class="badge" href="https://travis-ci.com/denoland/deno_install">
+              <img
+                src="https://travis-ci.com/denoland/deno_install.svg?branch=master"
+              />
+            </a>
+          </td>
+          <td>
+            <a
+              class="badge"
+              href="https://ci.appveyor.com/project/deno/deno-install"
+            >
+              <img
+                src="https://ci.appveyor.com/api/projects/status/gtekeaf7r60xa896?branch=master&svg=true"
+              />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <th><a href="https://github.com/denoland/registry">registry</a></th>
+          <td colspan="2">
+            <a class="badge" href="https://travis-ci.com/denoland/registry">
+              <img
+                src="https://travis-ci.com/denoland/registry.svg?branch=master"
+              />
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      <h2 id="install">安装 <a href="#install">#</a></h2>
+
+      <p>使用 Shell:</p>
+      <pre>curl -fsSL <a
+href="https://github.com/denoland/deno_install/blob/master/install.sh">https://deno.land/x/install/install.sh</a> | sh</pre>
+      <p>Or 使用 PowerShell:</p>
+      <pre>iwr <a
+href="https://github.com/denoland/deno_install/blob/master/install.ps1">https://deno.land/x/install/install.ps1</a> | iex</pre>
+      <p>
+        查看
+        <a href="https://github.com/denoland/deno_install">deno_install</a>
+        ，了解更多。
+      </p>
+
+      <h2 id="example">例子 <a href="#example">#</a></h2>
+
+      <p>尝试运行一个简单程序:</p>
+      <pre>deno https://deno.land/welcome.ts</pre>
+
+      <p>或更为复杂点的:</p>
+
+      <pre><code class="typescript language-typescript">import {serve} from 'https://deno.land/std@v0.3.2/http/server.ts';
+
+async function main() {
+  const body = new TextEncoder().encode('Hello World\n');
+  for await (const req of serve(':8000')) {
+    req.respond({body});
+  }
+}
+
+main();</code></pre>
+
+      <h2 id="dig-in">深挖... <a href="#dig-in">#</a></h2>
+
+      <p>
+        <b><a href="manual.html">手册</a></b>
+      </p>
+
+      <p><a href="https://deno.land/typedoc/">API 参考</a></p>
+
+      <p><a href="style_guide.html">风格指南</a></p>
+
+      <p><a href="https://deno.land/x/">模块 存储库</a></p>
+
+      <p><a href="https://twitter.com/deno_land">Twitter</a></p>
+
+      <p>
+        <a href="https://github.com/denoland/deno/blob/master/Releases.md"
+          >发布记录</a
+        >
+      </p>
+
+      <p><a href="https://gitter.im/denolife/Lobby">社区聊天室</a></p>
+
+      <p><a href="http://llever.com/deno-website-zh/benchmarks.html">基准</a></p>
+
+      <p>
+        <a href="https://github.com/denolib/awesome-deno">awesome Deno</a>
+      </p>
+
+      <script>
+        // Disable automatic language detection
+        hljs.configure({
+          languages: []
+        });
+
+        hljs.initHighlighting();
+      </script>
+    </main>
+  </body>
+</html>
