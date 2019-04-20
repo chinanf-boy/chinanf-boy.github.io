@@ -557,7 +557,7 @@ metrics(指标) 是 deno 的内部计数器，针对各种静态。
 
 ### 示意图
 
-<img src="docs/images/schematic_v0.2.png">
+<img src="images/schematic_v0.2.png">
 
 ### 分析
 
