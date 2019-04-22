@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: bisque;
+      }
+      #my-node {
+        min-width: 300px;
+        max-width: 350px;
+      }
+
+      .img-by-mask {
+        position: relative;
+        -webkit-mask: url(github-icon.png);
+        mask-size: auto auto;
+        -webkit-mask-size: 2%;
+        width: 100%;
+      }
+
+      .img-by-mask1 {
+        position: relative;
+        -webkit-mask: url(logo-no-back.png);
+        mask-size: auto auto;
+        -webkit-mask-size: 87%;
+        width: 100%;
+        /* -webkit-mask-position-x: right; */
+        -webkit-mask-position: 30px 7px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- coming from https://dikmax.name/demos/css-masking/ -->
+    <div id="my-node" style="background-color: black;">
+      <img
+        class="img-by-mask"
+        src="hole.jpeg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    2019-4-20 morning ，我感觉它在动。我的天
+
+    <br />
+    <div id="my-node" style="background-color: #00000063">
+      <img
+        class="img-by-mask1"
+        src="hole.jpeg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    2019-4-20 evening
+  </body>
+</html>
