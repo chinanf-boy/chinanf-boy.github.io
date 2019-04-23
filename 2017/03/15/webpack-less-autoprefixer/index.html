@@ -186,6 +186,11 @@ module.exports <span style="color:#ff79c6">=</span> {
   </div>
 
 
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
 
 
 <script src="/js/copyCode.js"></script>
@@ -222,6 +227,11 @@ module.exports <span style="color:#ff79c6">=</span> {
 
 
 
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\/webpack-less-Autoprefixer.md");
+        });</script>
 
     
 

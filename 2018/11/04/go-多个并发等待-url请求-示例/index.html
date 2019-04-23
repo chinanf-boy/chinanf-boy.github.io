@@ -192,6 +192,11 @@ before done
   </div>
 
 
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
 
 
 <script src="/js/copyCode.js"></script>
@@ -228,6 +233,11 @@ before done
 
 
 
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\/Go-多个并发等待-url请求-示例.md");
+        });</script>
 
     
 
