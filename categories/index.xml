@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>Blog</title>
+      <link>/categories/blog/</link>
+      <pubDate>Wed, 24 Apr 2019 23:45:13 +0800</pubDate>
+      
+      <guid>/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Css</title>
       <link>/categories/css/</link>
       <pubDate>Thu, 06 Dec 2018 12:23:36 +0800</pubDate>
