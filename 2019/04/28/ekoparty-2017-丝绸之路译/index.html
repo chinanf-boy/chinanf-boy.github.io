@@ -156,13 +156,13 @@ div.inner {
 <li>1）登录面板：</li>
 </ul>
 
-<p><img src="https://codisec.com/wp-content/uploads/2017/09/pic1-300x164.png" alt="" width="600" height="328" class="alignnone size-medium wp-image-14720" srcset="https://codisec.com/wp-content/uploads/2017/09/pic1-300x164.png 300w, https://codisec.com/wp-content/uploads/2017/09/pic1-768x420.png 768w, https://codisec.com/wp-content/uploads/2017/09/pic1-1024x560.png 1024w, https://codisec.com/wp-content/uploads/2017/09/pic1-250x137.png 250w, https://codisec.com/wp-content/uploads/2017/09/pic1-600x328.png 600w, https://codisec.com/wp-content/uploads/2017/09/pic1.png 1600w" sizes="(max-width: 600px) 100vw, 600px"></p>
+<p><img src="https://codisec.com/wp-content/uploads/2017/09/pic1-1024x560.png" alt="login"></p>
 
 <ul>
 <li>2）在<code>/register</code>的注册面板，结果发现是不能用的&hellip;</li>
 </ul>
 
-<p><img src="https://codisec.com/wp-content/uploads/2017/09/pic2-300x164.png" alt="" width="600" height="328" class="alignnone size-medium wp-image-14721" srcset="https://codisec.com/wp-content/uploads/2017/09/pic2-300x164.png 300w, https://codisec.com/wp-content/uploads/2017/09/pic2-768x420.png 768w, https://codisec.com/wp-content/uploads/2017/09/pic2-1024x560.png 1024w, https://codisec.com/wp-content/uploads/2017/09/pic2-250x137.png 250w, https://codisec.com/wp-content/uploads/2017/09/pic2-600x328.png 600w, https://codisec.com/wp-content/uploads/2017/09/pic2.png 1600w" sizes="(max-width: 600px) 100vw, 600px"></p>
+<p><img src="https://codisec.com/wp-content/uploads/2017/09/pic2-1024x560.png" alt="register"></p>
 
 <p>测试 SQL 注入等常见漏洞，并没有带来任何用处。
 让我们来看看标题：</p>
@@ -342,6 +342,10 @@ zAzGZgHXmB8zTXljc2yUyARY2kMyTHYa77uW2v8tyFUn8YxIrgiXwAPqDP/oQILB
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">openssl genpkey -algorithm RSA -out my_key/private_key.pem -pkeyopt rsa_keygen_bits:2048
 openssl rsa -pubout -in my_key/private_key.pem -out my_key/public_key.pem</code></pre></div>
 <p>让我们继续创建对， <code>getPublicKey</code> 的假响应，这次使用我们自己的密钥，并继续进行身份验证过程：</p>
+
+<blockquote>
+<p>假的 SOAP 服务器 – part 3</p>
+</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">else if(strstr($input, &#39;getPublicKey&#39;) !== False)
 {
 ?&gt;
@@ -385,6 +389,10 @@ wwtQt7qwJZuJPobMNXcSK8jcXmV5EqF0JvYKlwm5aszTYP5/5mo0hGE2FMuNv/5CgXQcI2XocyDO
 guGd9fALzwB3Fxt6K7PLpoJ2pg4Ln99t0EWfGxXqYzCqLi8Jx8HFCl4dFVSJ37IuqmUPvl1brTkD
 <span style="color:#8be9fd;font-style:italic">SrD0t20YtF6awDhnAYTJ9HQcMuvcMLW6XpQcIA</span><span style="color:#ff79c6">==</span></code></pre></div>
 <p>我们已经构建了，对我们的假 SOAP 服务器的另一个正确响应，让我们将其添加到脚本中：</p>
+
+<blockquote>
+<p>假的 SOAP 服务器 – part 4</p>
+</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#ff79c6">&lt;?php</span>
 <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (strstr(<span style="color:#8be9fd;font-style:italic">$input</span>, <span style="color:#f1fa8c">&#39;checkCredentials&#39;</span>) <span style="color:#ff79c6">!==</span> <span style="color:#ff79c6">False</span>)
 {
@@ -485,6 +493,18 @@ aria-haspopup="true" aria-expanded="false" aria-controls="edit">
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
 
 <script>
         document.getElementById("edit-button").addEventListener("click", function () {
@@ -492,6 +512,9 @@ aria-haspopup="true" aria-expanded="false" aria-controls="edit">
         });</script>
 
     
+
+
+
 
 </body>
 
