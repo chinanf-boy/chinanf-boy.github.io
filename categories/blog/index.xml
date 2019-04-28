@@ -6,10 +6,23 @@
     <description>Recent content in Blog on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 27 Apr 2019 14:47:35 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Apr 2019 14:00:32 +0800</lastBuildDate>
     
 	<atom:link href="/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ekoparty 2017: 丝绸之路（译）</title>
+      <link>/2019/04/28/ekoparty-2017-%E4%B8%9D%E7%BB%B8%E4%B9%8B%E8%B7%AF%E8%AF%91/</link>
+      <pubDate>Sun, 28 Apr 2019 14:00:32 +0800</pubDate>
+      
+      <guid>/2019/04/28/ekoparty-2017-%E4%B8%9D%E7%BB%B8%E4%B9%8B%E8%B7%AF%E8%AF%91/</guid>
+      <description>body{ background-color: #272b30; color:#f9f1f1; font-size:1.1em; } a { color:#f1851a; } pre { background-color: #272b30; font-weight: 500; font-size: 1rem; } p { color: #c8c8c8; } li code, p code { background-color: rgb(34, 40, 42) !important; color: #f1851a; } div.inner { background-color: #272b30; }  博文来源  源文 ：2017 9-21 ，作者：Krzysztof Stopczański
+ CTF：EKOPARTY 2017 积分：496 类别：网络
+描述  “我们永远不会再犯同样的错误，我们向你挑战，来吧，阅读我们的信息，看看你能不能获得一些 BTC！” - DPR
+https://silkroadzpvwzxxv.onion/
+ 在此网络挑战中，我们在 TOR 网络中，展示了一个网站。要访问它，我们可以使用Tor 浏览器，并使用像 curl 这样的命令行工具 torify，但 Tor 网络专用：</description>
+    </item>
     
     <item>
       <title>CTFZONE 2017 财富的翅膀伴我左右 (译)</title>
