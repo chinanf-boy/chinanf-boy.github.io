@@ -41,7 +41,7 @@
     <item>
       <title>Css</title>
       <link>/categories/css/</link>
-      <pubDate>Thu, 06 Dec 2018 12:23:36 +0800</pubDate>
+      <pubDate>Mon, 29 Apr 2019 21:50:59 +0800</pubDate>
       
       <guid>/categories/css/</guid>
       <description></description>
@@ -66,29 +66,11 @@
     </item>
     
     <item>
-      <title>Development</title>
-      <link>/categories/development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Example</title>
       <link>/categories/example/</link>
       <pubDate>Tue, 19 Mar 2019 10:26:53 +0800</pubDate>
       
       <guid>/categories/example/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Food</title>
-      <link>/categories/food/</link>
-      <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/food/</guid>
       <description></description>
     </item>
     
@@ -116,15 +98,6 @@
       <pubDate>Mon, 19 Nov 2018 13:07:34 +0800</pubDate>
       
       <guid>/categories/go-repo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>/categories/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/golang/</guid>
       <description></description>
     </item>
     
@@ -170,15 +143,6 @@
       <pubDate>Sun, 17 Feb 2019 14:11:05 +0800</pubDate>
       
       <guid>/categories/mrm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pro</title>
-      <link>/categories/pro/</link>
-      <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/pro/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,20 @@
     <description>Recent content in Css on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 06 Dec 2018 12:23:36 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 21:50:59 +0800</lastBuildDate>
     
 	<atom:link href="/categories/css/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Water.css 为简单而生的 css 框架</title>
+      <link>/2019/04/29/water.css-%E4%B8%BA%E7%AE%80%E5%8D%95%E8%80%8C%E7%94%9F%E7%9A%84-css-%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 29 Apr 2019 21:50:59 +0800</pubDate>
+      
+      <guid>/2019/04/29/water.css-%E4%B8%BA%E7%AE%80%E5%8D%95%E8%80%8C%E7%94%9F%E7%9A%84-css-%E6%A1%86%E6%9E%B6/</guid>
+      <description>来源 https://github.com/kognise/water.css     官方Demo https://watercss.netlify.com    Water.css  Water.css is a just-add-css collection of styles to make simple websites like this just a little bit nicer. Get it already!  Now you can write your simple static site with nice semantic html, and Water.css will manage the styling for you. 
+Goals  Responsive Good code quality Good browser support Small size (&amp;lt; 2kb) Beautiful No classes</description>
+    </item>
     
     <item>
       <title>NES.css 任天堂风格css框架 Yummy</title>

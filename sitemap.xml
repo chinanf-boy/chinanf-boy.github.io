@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/2014/09/25/wonderful/</loc>
-    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
+    <loc>/2019/04/29/water.css-%E4%B8%BA%E7%AE%80%E5%8D%95%E8%80%8C%E7%94%9F%E7%9A%84-css-%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2019-04-29T21:50:59+08:00</lastmod>
   </url>
   
   <url>
@@ -468,18 +468,8 @@
   </url>
   
   <url>
-    <loc>/2015/09/28/colenak/</loc>
-    <lastmod>2015-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/about/</loc>
     <lastmod>2015-04-14T22:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2014/04/02/hugo-template-primer/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -556,7 +546,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-29T21:50:59+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -592,7 +582,7 @@
   
   <url>
     <loc>/categories/css/</loc>
-    <lastmod>2018-12-06T12:23:36+08:00</lastmod>
+    <lastmod>2019-04-29T21:50:59+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -605,18 +595,6 @@
   <url>
     <loc>/categories/data-science/</loc>
     <lastmod>2019-04-22T10:20:02+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -663,12 +641,6 @@
   </url>
   
   <url>
-    <loc>/categories/food/</loc>
-    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/full-folder/</loc>
     <lastmod>2018-08-01T18:48:39+08:00</lastmod>
     <priority>0</priority>
@@ -706,7 +678,7 @@
   
   <url>
     <loc>/tags/go/</loc>
-    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
+    <lastmod>2018-11-19T13:07:34+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -723,25 +695,9 @@
   </url>
   
   <url>
-    <loc>/tags/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/google-drive/</loc>
     <lastmod>2018-08-01T10:56:37+00:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/1/01/01/hello-world/</loc>
   </url>
   
   <url>
@@ -950,19 +906,13 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-29T21:50:59+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/preact/</loc>
     <lastmod>2017-10-17T19:12:08+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/pro/</loc>
-    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1069,6 +1019,12 @@
   </url>
   
   <url>
+    <loc>/tags/simple/</loc>
+    <lastmod>2019-04-29T21:50:59+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/slack/</loc>
     <lastmod>2017-10-09T20:17:57+00:00</lastmod>
     <priority>0</priority>
@@ -1123,12 +1079,6 @@
   </url>
   
   <url>
-    <loc>/tags/templates/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/templite/</loc>
     <lastmod>2019-02-20T12:55:13+08:00</lastmod>
     <priority>0</priority>
@@ -1137,12 +1087,6 @@
   <url>
     <loc>/categories/theme/</loc>
     <lastmod>2019-01-11T12:26:15+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/themes/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
