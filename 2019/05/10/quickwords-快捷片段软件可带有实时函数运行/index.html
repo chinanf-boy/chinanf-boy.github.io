@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     
     
-    <title>Categories</title>
+    <title>QuickWords 快捷片段软件，可带有实时函数运行</title>
 
     
 
@@ -42,7 +42,7 @@
 
         
         
-            <link rel="stylesheet" href="/css/main.css">
+             <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="/css/stylesheet.css"></link>
         
 
         
@@ -94,67 +94,83 @@
 
     
 
-<div class="site-header-content">
-  <div style="font-size:2.3rem; " ><a href="/" class="back" style="color:#2f6f6f;">Home </a></div>
-  <h1 class="site-title">Categories</h1>
-    
-    <h2 class="site-description">&#x2F;&nbsp;
-      
-      
-      <a href="/categories/autoplay"> autoplay </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/bench"> bench </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/blog"> blog </a> (4)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/css"> css </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/csshtml"> csshtml </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/data-science"> data-science </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/electron"> electron </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/example"> example </a> (4)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/github"> github </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/go"> go </a> (3)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/go-repo"> go-repo </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/hugo"> hugo </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/js"> js </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/language"> language </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/learn"> learn </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/mac"> mac </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/mrm"> mrm </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/python"> python </a> (3)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/rust"> rust </a> (3)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/shell"> shell </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/sublimetext"> sublimetext </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/theme"> theme </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/tools"> tools </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/vscode"> vscode </a> (2)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91"> 中文翻译 </a> (1)&nbsp;&#x2F;&nbsp;
-      
-      <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"> 机器学习 </a> (1)&nbsp;&#x2F;&nbsp;
-      
-    </h2>
-</div>
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>QuickWords 快捷片段软件，可带有实时函数运行</h2>
+        
+
+<style>
+img {
+    box-shadow:none;
+}
+</style>
+
+<h2 id="quickwords">Quickwords</h2>
+
+<p><img src="https://camo.githubusercontent.com/51a5bbc37ca446c3c38e24d80f68e3aa0867d102/68747470733a2f2f692e696d6775722e636f6d2f6173436b3144732e706e67" alt="demo" /></p>
+
+<p>本软件是用 <code>electron</code> 作为基底的软件，所以普遍来说，支持 3 大平台(Mac,Linux,Windows)。相关下载，请看<a href="https://github.com/quickwords/quickwords#installation">安装</a>表述。</p>
+
+<p>不过，还是先让我简单说说，好处都有啥。</p>
+
+<blockquote>
+<p>本软件到底是用什么的？</p>
+</blockquote>
+
+<p>在软件开启期间，会检测文字的输入，匹配设定的片段，执行并返回相应的内容。</p>
+
+<h3 id="1-文字片段-plain-text">1. 文字片段(<strong>Plain Text</strong>)</h3>
+
+<blockquote>
+<p>一般性功能，就是返回文字片段。</p>
+</blockquote>
+
+<p>在 <code>Snippets</code> 设置，如图：</p>
+
+<p><img src="/file_imgs/2019-5/qw-1.png" alt="demo-text" /></p>
+
+<h3 id="2-代码片段-javascript">2. 代码片段(<strong>JavaScript</strong>)</h3>
+
+<blockquote>
+<p>创新性功能，运行相应的函数，并有返回值。</p>
+</blockquote>
+
+<p><img src="/file_imgs/2019-5/qw-2.png" alt="demo-text" /></p>
+
+<p><code>;date</code>是执行 js 函数的，这个函数主要是返回，当前时间的格式表达。</p>
+
+<h2 id="结果">结果</h2>
+
+<blockquote>
+<p>编写本博文时， vscode 编辑器上的运行结果。</p>
+</blockquote>
+
+<p><img src="/file_imgs/2019-5/qw-result.gif" alt="demo-text" /></p>
+
+<p>更多，请查阅<a href="https://github.com/quickwords/quickwords">Github</a></p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/js/copyCode.js"></script>
+<script src="/js/tooltips.js"></script>
+
+
 <footer>
     <p style="float:right;margin:0 1rem;">
         &copy; 2019 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
@@ -167,8 +183,14 @@
 
   <ul class="tags"  style="float: left!important;">
       
+        <span>标签:</span>
+        <li><a class="link" href="/tags/shortcut"> #shortcut </a></li><li><a class="link" href="/tags/tool"> #tool </a></li>
+      
       <span>  </span>
         
+        <span>分类:</span>
+        <li><a class="link" href="/categories/electron"> #electron </a></li>
+      
   </ul>
   
   <br>
@@ -213,7 +235,7 @@
 
 <script>
         document.getElementById("edit-button").addEventListener("click", function () {
-            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/");
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\/QuickWords-快捷键软件，带有实时函数运行.md");
         });</script>
 
     
