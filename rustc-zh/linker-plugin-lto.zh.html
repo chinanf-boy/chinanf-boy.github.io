@@ -159,7 +159,7 @@
                 <main>
                     <a class="header" href="#linker-plugin-lto" id="linker-plugin-lto"><h1>Linker-plugin-LTO</h1></a>
 <p><code>-C linker-plugin-lto</code>标志 允许将 LTO 优化推迟到实际链接步骤，如果链接的所有目标文件都是由基于 LLVM 的工具链创建的，则相应地允许跨编程语言，执行过程优化。这里的主要示例是将 Rust 代码与 Clang 编译的 C/C++代码链接在一起。</p>
-<a class="header" href="#a用法" id="a用法"><h2>用法</h2></a>
+<a class="header" href="#用法" id="用法"><h2>用法</h2></a>
 <p>有两种主要情况，可以使用基于 LTO 的链接器插件：</p>
 <ul>
 <li>编译一个 Rust<code>staticlib</code>，用作一个 C ABI 依赖项</li>
@@ -208,7 +208,7 @@ RUSTFLAGS=&quot;-Clinker-plugin-lto -Clinker=clang -Clink-arg=-fuse-ld=lld&quot;
 <p>如果想要使用 LLD 以外的链接器，则必须明确指定 LLVM 链接器插件。否则链接器无法读取目标文件。插件的路径作为参数传递给<code>-Clinker-plugin-lto</code>选项：</p>
 <pre><code class="language-bash">rustc -Clinker-plugin-lto=&quot;/path/to/LLVMgold.so&quot; -L. -Copt-level=2 ./main.rs
 </code></pre>
-<a class="header" href="#a工具链兼容性" id="a工具链兼容性"><h2>工具链兼容性</h2></a>
+<a class="header" href="#工具链兼容性" id="工具链兼容性"><h2>工具链兼容性</h2></a>
 <p>为了使这种 LTO 工作，LLVM 链接器插件必须能够处理由<code>rustc</code>和<code>clang</code>两者生成的 LLVM bitcode。</p>
 <p>使用一个<code>rustc</code>和<code>clang</code>可以获得最佳效果，它们基于完全相同的 LLVM 版本。可以使用<code>rustc -vV</code>，查看给定<code>rustc</code>版本的 LLVM。请注意，此处给出的版本号只是一个近似值，因为 Rust 有时会使用不稳定的 LLVM 修订版。但是，近似值通常是可靠的。</p>
 <p>下表，显示了工具链版本的已知良好组合。</p>

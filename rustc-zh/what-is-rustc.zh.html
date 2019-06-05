@@ -157,13 +157,13 @@
 
             <div id="content" class="content">
                 <main>
-                    <a class="header" href="#a什么是-rustc" id="a什么是-rustc"><h1>什么是 rustc？</h1></a>
+                    <a class="header" href="#什么是-rustc" id="什么是-rustc"><h1>什么是 rustc？</h1></a>
 <p>欢迎来到“rustc 书”！<code>rustc</code>是 Rust 编程语言的编译器，由项目组开发提供。编译器将您的源代码和生产二进制代码，变成一个或可执行文件。</p>
 <p>大多数 Rust 程序员都不会直接调用<code>rustc</code>，而是通过<a href="../cargo/index.html">Cargo</a>来完成，虽然这一切都只是调用<code>rustc</code>流程！如果你想看看 Cargo 如何调用<code>rustc</code>， 您可以</p>
 <pre><code class="language-bash">$ cargo build --verbose
 </code></pre>
 <p>它会打印出每个<code>rustc</code>调用。本书可以帮助您了解每个选项的作用。此外，虽然大多数 Rustaceans 使用 Cargo，但并非所有人都这样做：有时，他们将<code>rustc</code>整合进其他构建系统。本书会提供您需要执行此操作的所有选项的指南。</p>
-<a class="header" href="#a基本用法" id="a基本用法"><h2>基本用法</h2></a>
+<a class="header" href="#基本用法" id="基本用法"><h2>基本用法</h2></a>
 <p>假设你在文件中有一个小小的 hello world 程序，<code>hello.rs</code>：</p>
 <pre><pre class="playpen"><code class="language-rust">fn main() {
     println!(&quot;Hello, world!&quot;);

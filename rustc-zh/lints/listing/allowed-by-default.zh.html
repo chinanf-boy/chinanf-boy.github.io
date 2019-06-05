@@ -157,9 +157,9 @@
 
             <div id="content" class="content">
                 <main>
-                    <a class="header" href="#a默认允许的-lints" id="a默认允许的-lints"><h1>默认允许的 lints</h1></a>
+                    <a class="header" href="#默认允许的-lints" id="默认允许的-lints"><h1>默认允许的 lints</h1></a>
 <p>默认情况下，这些 lint 都设置为’allow’级别。因此，除非您使用标志或属性将它们设置为更高的 lint 级别，否则它们将不会显示。</p>
-<a class="header" href="#a匿名参数" id="a匿名参数"><h2>匿名参数</h2></a>
+<a class="header" href="#anonymous-parameters" id="anonymous-parameters"><h2>anonymous-parameters</h2></a>
 <p>此 lint 检测匿名参数。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -186,7 +186,7 @@ trait Foo {
     fn foo(_: usize);
 }
 #}</code></pre></pre>
-<a class="header" href="#a裸-trait-对象" id="a裸-trait-对象"><h2>裸 trait 对象</h2></a>
+<a class="header" href="#bare-trait-object" id="bare-trait-object"><h2>bare-trait-object</h2></a>
 <p>这个 lint 暗示对 trait 对象，使用<code>dyn Trait</code>。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -218,7 +218,7 @@ trait Trait { }
 fn takes_trait_object(_: Box&lt;dyn Trait&gt;) {
 }
 #}</code></pre></pre>
-<a class="header" href="#box-指针" id="box-指针"><h2>box 指针</h2></a>
+<a class="header" href="#box-pointers" id="box-pointers"><h2>box-pointers</h2></a>
 <p>给 Box 类型使用的 lints。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -257,7 +257,7 @@ fn foo(x: &amp;Foo) {
   |
 </code></pre>
 <p>生命周期省略规则隐藏这个生命周期，但是这个被弃用了。</p>
-<a class="header" href="#a缺少-copy-的实现" id="a缺少-copy-的实现"><h2>缺少 Copy 的实现</h2></a>
+<a class="header" href="#missing-copy-implementations" id="missing-copy-implementations"><h2>missing-copy-implementations</h2></a>
 <p>这个 lint 检测到可能被遗忘的<code>Copy</code>实现。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -279,7 +279,7 @@ pub struct Foo {
 <p>您可以通过派生<code>Copy</code>，来修复 lint。</p>
 <p>这个 lint 被设置为’allow’，因为这个代码并不坏; 特别是常写一个类似这样的新类型，所以一个<code>Copy</code>类型不再是<code>Copy</code>（it’s common to write
 newtypes like this specifically so that a <code>Copy</code> type is no longer <code>Copy</code>）。</p>
-<a class="header" href="#a缺少-debug-的实现" id="a缺少-debug-的实现"><h2>缺少 Debug 的实现</h2></a>
+<a class="header" href="#missing-debug-implementations" id="missing-debug-implementations"><h2>missing-debug-implementations</h2></a>
 <p>此 lint 检测到缺少的<code>fmt::Debug</code>实现。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -295,7 +295,7 @@ pub struct Foo;
   |
 </code></pre>
 <p>您可以通过派生<code>Debug</code>来修复 lint。</p>
-<a class="header" href="#a缺乏文档" id="a缺乏文档"><h2>缺乏文档</h2></a>
+<a class="header" href="#missing-docs" id="missing-docs"><h2>missing-docs</h2></a>
 <p>此 lint 检测到公有项的缺乏文档。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -321,7 +321,7 @@ error: missing documentation for a function
   | ^^^^^^^^^^^^
 </code></pre>
 <p>要修复 lint，请为所有项添加文档。</p>
-<a class="header" href="#a使用一次的生命周期" id="a使用一次的生命周期"><h2>使用一次的生命周期</h2></a>
+<a class="header" href="#single-use-lifetime" id="single-use-lifetime"><h2>single-use-lifetime</h2></a>
 <p>此 lint 检测仅使用一次的生命周期。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -338,7 +338,7 @@ struct Foo&lt;'x&gt; {
   |            ^^
   |
 </code></pre>
-<a class="header" href="#a琐碎成本" id="a琐碎成本"><h2>琐碎成本</h2></a>
+<a class="header" href="#trivial-casts" id="trivial-casts"><h2>trivial-casts</h2></a>
 <p>这种 lint 可以检测到可以移除的琐碎成本。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -359,7 +359,7 @@ note: lint level defined here
 1 | #![deny(trivial_casts)]
   |         ^^^^^^^^^^^^^
 </code></pre>
-<a class="header" href="#a琐碎数字成本" id="a琐碎数字成本"><h2>琐碎数字成本</h2></a>
+<a class="header" href="#trivial-numeric-casts" id="trivial-numeric-casts"><h2>trivial-numeric-casts</h2></a>
 <p>此 lint 检测可以删除的数字类型的简单转换。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -374,7 +374,7 @@ let x = 42i32 as i32;
   |             ^^^^^^^^^^^^
   |
 </code></pre>
-<a class="header" href="#a不可达-pub" id="a不可达-pub"><h2>不可达-pub</h2></a>
+<a class="header" href="#unreachable-pub" id="unreachable-pub"><h2>unreachable-pub</h2></a>
 <p>这个 lint 无法从箱子根触发了到达的<code>pub</code>项。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -395,7 +395,7 @@ mod foo {
   |     help: consider restricting its visibility: `pub(crate)`
   |
 </code></pre>
-<a class="header" href="#a不安全的代码" id="a不安全的代码"><h2>不安全的代码</h2></a>
+<a class="header" href="#unsafe-code" id="unsafe-code"><h2>unsafe-code</h2></a>
 <p>这种 lint 可以使用<code>unsafe</code>码。一些触发此 lint 的示例代码：</p>
 <pre><pre class="playpen"><code class="language-rust">fn main() {
     unsafe {
@@ -413,7 +413,7 @@ mod foo {
   | |_____^
   |
 </code></pre>
-<a class="header" href="#a不稳定的特性" id="a不稳定的特性"><h2>不稳定的特性</h2></a>
+<a class="header" href="#unstable-features" id="unstable-features"><h2>unstable-features</h2></a>
 <p>此 lint 已弃用，不再使用。</p>
 <a class="header" href="#unused-extern-crates" id="unused-extern-crates"><h2>unused-extern-crates</h2></a>
 <p>这种 lint 可以防止<code>extern crate</code>，从未使用过的箱。一些触发此 lint 的示例代码：</p>

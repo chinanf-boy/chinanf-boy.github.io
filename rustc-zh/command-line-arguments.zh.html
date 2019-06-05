@@ -157,63 +157,63 @@
 
             <div id="content" class="content">
                 <main>
-                    <a class="header" href="#a命令行参数" id="a命令行参数"><h1>命令行参数</h1></a>
+                    <a class="header" href="#命令行参数" id="命令行参数"><h1>命令行参数</h1></a>
 <p>这里是，<code>rustc</code>能做什么的命令行参数列表。</p>
-<a class="header" href="#a-h--help-帮助下" id="a-h--help-帮助下"><h2><code>-h</code>/<code>--help</code>： 帮助下</h2></a>
+<a class="header" href="#-h--help-帮助下" id="-h--help-帮助下"><h2><code>-h</code>/<code>--help</code>： 帮助下</h2></a>
 <p>该标志将打印出<code>rustc</code>的帮助信息。</p>
-<a class="header" href="#a--cfg配置编译环境" id="a--cfg配置编译环境"><h2><code>--cfg</code>：配置编译环境</h2></a>
+<a class="header" href="#--cfg配置编译环境" id="--cfg配置编译环境"><h2><code>--cfg</code>：配置编译环境</h2></a>
 <p>此标志可以打开或关闭各种<code>#[cfg]</code>设置。</p>
 <p>该值可以是单个标识符，也可以是由<code>=</code>分隔两个标识符。</p>
 <p>举些例子，<code>--cfg 'verbose'</code>要么<code>--cfg 'feature=&quot;serde&quot;'</code>。分别对应<code>#[cfg(verbose)]</code>和<code>#[cfg(feature = &quot;serde&quot;)]</code>。</p>
-<a class="header" href="#a-l将目录添加到库搜索路径" id="a-l将目录添加到库搜索路径"><h2><code>-L</code>：将目录添加到库搜索路径</h2></a>
+<a class="header" href="#-l将目录添加到库搜索路径" id="-l将目录添加到库搜索路径"><h2><code>-L</code>：将目录添加到库搜索路径</h2></a>
 <p>要查找外部包时，就传递给此标志的目录，rustc 会搜索。</p>
-<a class="header" href="#a-l将生成的包链接到一个原生库" id="a-l将生成的包链接到一个原生库"><h2><code>-l</code>：将生成的包链接到一个原生库</h2></a>
+<a class="header" href="#-l将生成的包链接到一个原生库" id="-l将生成的包链接到一个原生库"><h2><code>-l</code>：将生成的包链接到一个原生库</h2></a>
 <p>此标志允许您在构建包时，指定一个特定原生库的链接。</p>
-<a class="header" href="#a--crate-type编译器要发出的包的类型列表" id="a--crate-type编译器要发出的包的类型列表"><h2><code>--crate-type</code>：编译器要发出的包的类型列表</h2></a>
+<a class="header" href="#--crate-type编译器要发出的包的类型列表" id="--crate-type编译器要发出的包的类型列表"><h2><code>--crate-type</code>：编译器要发出的包的类型列表</h2></a>
 <p>这指示<code>rustc</code>构建哪种箱子类型。</p>
-<a class="header" href="#a--crate-name指定正在构建的包的名称" id="a--crate-name指定正在构建的包的名称"><h2><code>--crate-name</code>：指定正在构建的包的名称</h2></a>
+<a class="header" href="#--crate-name指定正在构建的包的名称" id="--crate-name指定正在构建的包的名称"><h2><code>--crate-name</code>：指定正在构建的包的名称</h2></a>
 <p>这告诉<code>rustc</code>，您的箱子名称。</p>
-<a class="header" href="#a--emit发出除箱子以外的输出" id="a--emit发出除箱子以外的输出"><h2><code>--emit</code>：发出除箱子以外的输出</h2></a>
+<a class="header" href="#--emit发出除箱子以外的输出" id="--emit发出除箱子以外的输出"><h2><code>--emit</code>：发出除箱子以外的输出</h2></a>
 <p>这个标志可以打印出装配或 LLVM-IR 之类的东西，而不是生成一个箱子。</p>
-<a class="header" href="#a--print打印编译器信息" id="a--print打印编译器信息"><h2><code>--print</code>：打印编译器信息</h2></a>
+<a class="header" href="#--print打印编译器信息" id="--print打印编译器信息"><h2><code>--print</code>：打印编译器信息</h2></a>
 <p>该标志打印出有，关编译器的各种信息。</p>
-<a class="header" href="#a-g包含调试信息" id="a-g包含调试信息"><h2><code>-g</code>：包含调试信息</h2></a>
+<a class="header" href="#-g包含调试信息" id="-g包含调试信息"><h2><code>-g</code>：包含调试信息</h2></a>
 <p>与<code>-C debuginfo=2</code>同义，更多看<a href="codegen-options/index.zh.html#debuginfo">这里</a>。</p>
-<a class="header" href="#a-o优化您的代码" id="a-o优化您的代码"><h2><code>-O</code>：优化您的代码</h2></a>
+<a class="header" href="#-o优化您的代码" id="-o优化您的代码"><h2><code>-O</code>：优化您的代码</h2></a>
 <p>与<code>-C opt-level=2</code>同义，更多看<a href="codegen-options/index.zh.html#opt-level">这里</a>。</p>
-<a class="header" href="#a-o输出的文件名" id="a-o输出的文件名"><h2><code>-o</code>：输出的文件名</h2></a>
+<a class="header" href="#-o输出的文件名" id="-o输出的文件名"><h2><code>-o</code>：输出的文件名</h2></a>
 <p>此标志控制，输出的文件名。</p>
-<a class="header" href="#a--out-dir用于写入输出的目录" id="a--out-dir用于写入输出的目录"><h2><code>--out-dir</code>：用于写入输出的目录</h2></a>
+<a class="header" href="#--out-dir用于写入输出的目录" id="--out-dir用于写入输出的目录"><h2><code>--out-dir</code>：用于写入输出的目录</h2></a>
 <p>输出包，被写入的目录。</p>
-<a class="header" href="#a--explain提供错误消息的详细说明" id="a--explain提供错误消息的详细说明"><h2><code>--explain</code>：提供错误消息的详细说明</h2></a>
+<a class="header" href="#--explain提供错误消息的详细说明" id="--explain提供错误消息的详细说明"><h2><code>--explain</code>：提供错误消息的详细说明</h2></a>
 <p>每个错误，<code>rustc</code>附带一个错误代码;这将打印出给定错误的更详细解释。</p>
-<a class="header" href="#a--test构建测试工具" id="a--test构建测试工具"><h2><code>--test</code>：构建测试工具</h2></a>
+<a class="header" href="#--test构建测试工具" id="--test构建测试工具"><h2><code>--test</code>：构建测试工具</h2></a>
 <p>编译这个箱子时，<code>rustc</code>会忽略你的<code>main</code>功能，而不是产生一个测试工具。</p>
-<a class="header" href="#a--target选择要构建的目标三元组" id="a--target选择要构建的目标三元组"><h2><code>--target</code>：选择要构建的目标三元组</h2></a>
+<a class="header" href="#--target选择要构建的目标三元组" id="--target选择要构建的目标三元组"><h2><code>--target</code>：选择要构建的目标三元组</h2></a>
 <p>控制了哪个生产<a href="targets/index.zh.html">目标</a>。</p>
-<a class="header" href="#a-w设置-lint-警告" id="a-w设置-lint-警告"><h2><code>-W</code>：设置 lint 警告</h2></a>
+<a class="header" href="#-w设置-lint-警告" id="-w设置-lint-警告"><h2><code>-W</code>：设置 lint 警告</h2></a>
 <p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#warn">警告水平</a>。</p>
-<a class="header" href="#a-a设置-lint-允许" id="a-a设置-lint-允许"><h2><code>-A</code>：设置 lint 允许</h2></a>
+<a class="header" href="#-a设置-lint-允许" id="-a设置-lint-允许"><h2><code>-A</code>：设置 lint 允许</h2></a>
 <p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#allow">允许水平</a>。</p>
-<a class="header" href="#a-d设置-lint-拒绝" id="a-d设置-lint-拒绝"><h2><code>-D</code>：设置 lint 拒绝</h2></a>
+<a class="header" href="#-d设置-lint-拒绝" id="-d设置-lint-拒绝"><h2><code>-D</code>：设置 lint 拒绝</h2></a>
 <p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#deny">拒绝等级</a>。</p>
-<a class="header" href="#a-f设置-lint-禁止" id="a-f设置-lint-禁止"><h2><code>-F</code>：设置 lint 禁止</h2></a>
+<a class="header" href="#-f设置-lint-禁止" id="-f设置-lint-禁止"><h2><code>-F</code>：设置 lint 禁止</h2></a>
 <p>该标志将设置，应将哪些 lint 设置为<a href="lints/levels.zh.html#forbid">禁止等级</a>。</p>
-<a class="header" href="#a--cap-lints设置最严格的-lint-级别" id="a--cap-lints设置最严格的-lint-级别"><h2><code>--cap-lints</code>：设置最严格的 lint 级别</h2></a>
+<a class="header" href="#--cap-lints设置最严格的-lint-级别" id="--cap-lints设置最严格的-lint-级别"><h2><code>--cap-lints</code>：设置最严格的 lint 级别</h2></a>
 <p>这个标志让你’盖’lints，更多，<a href="lints/levels.zh.html#capping-lints">看这里</a>。</p>
-<a class="header" href="#a-c--codegen代码生成选项" id="a-c--codegen代码生成选项"><h2><code>-C</code>/<code>--codegen</code>：代码生成选项</h2></a>
+<a class="header" href="#-c--codegen代码生成选项" id="-c--codegen代码生成选项"><h2><code>-C</code>/<code>--codegen</code>：代码生成选项</h2></a>
 <p>此标志将允许您,设置<a href="codegen-options/index.zh.html">codegen 选项</a>。</p>
-<a class="header" href="#a-v--version打印版本" id="a-v--version打印版本"><h2><code>-V</code>/<code>--version</code>：打印版本</h2></a>
+<a class="header" href="#-v--version打印版本" id="-v--version打印版本"><h2><code>-V</code>/<code>--version</code>：打印版本</h2></a>
 <p>此标志将打印出来<code>rustc</code>的版本。</p>
-<a class="header" href="#a-v--verbose使用详细输出" id="a-v--verbose使用详细输出"><h2><code>-v</code>/<code>--verbose</code>：使用详细输出</h2></a>
+<a class="header" href="#-v--verbose使用详细输出" id="-v--verbose使用详细输出"><h2><code>-v</code>/<code>--verbose</code>：使用详细输出</h2></a>
 <p>该标志与其他标志组合使用时，会产生额外的输出。</p>
-<a class="header" href="#a--extern指定外部库的位置" id="a--extern指定外部库的位置"><h2><code>--extern</code>：指定外部库的位置</h2></a>
+<a class="header" href="#--extern指定外部库的位置" id="--extern指定外部库的位置"><h2><code>--extern</code>：指定外部库的位置</h2></a>
 <p>此标志允许您传递外部箱子的位置和名称，并链接该箱到您正在构建的箱子中。</p>
-<a class="header" href="#a--sysroot覆盖系统根目录" id="a--sysroot覆盖系统根目录"><h2><code>--sysroot</code>：覆盖系统根目录</h2></a>
+<a class="header" href="#--sysroot覆盖系统根目录" id="--sysroot覆盖系统根目录"><h2><code>--sysroot</code>：覆盖系统根目录</h2></a>
 <p>“sysroot”就是<code>rustc</code>寻找 Rust安装附带的箱子;这个标志允许被覆盖。</p>
-<a class="header" href="#a--error-format控制错误的产生方式" id="a--error-format控制错误的产生方式"><h2><code>--error-format</code>：控制错误的产生方式</h2></a>
+<a class="header" href="#--error-format控制错误的产生方式" id="--error-format控制错误的产生方式"><h2><code>--error-format</code>：控制错误的产生方式</h2></a>
 <p>此标志允许您控制错误的格式。</p>
-<a class="header" href="#a--color配置输出的着色" id="a--color配置输出的着色"><h2><code>--color</code>：配置输出的着色</h2></a>
+<a class="header" href="#--color配置输出的着色" id="--color配置输出的着色"><h2><code>--color</code>：配置输出的着色</h2></a>
 <p>此标志可让您控制输出的颜色设置。</p>
 
                 </main>
