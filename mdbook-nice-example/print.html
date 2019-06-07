@@ -201,7 +201,7 @@ expand = true
 heading-split-level = 3
 # copy-js = true
 </code></pre>
-<a class="header" href="#a关于导入其他文件的两种方式" id="a关于导入其他文件的两种方式"><h2>关于导入其他文件的两种方式</h2></a>
+<a class="header" href="#关于导入其他文件的两种方式" id="关于导入其他文件的两种方式"><h2>关于导入其他文件的两种方式</h2></a>
 <a class="header" href="#playpen" id="playpen"><h3>playpen</h3></a>
 <p>我是这样写的<code>{{ #playpen ***}}</code></p>
 <blockquote>
@@ -231,7 +231,7 @@ heading-split-level = 3
 </li>
 </ul>
 <p>下一节，是rust文件的导入，看看有什么不同</p>
-<a class="header" href="#a关于导入其他文件" id="a关于导入其他文件"><h1>关于导入其他文件</h1></a>
+<a class="header" href="#关于导入其他文件" id="关于导入其他文件"><h1>关于导入其他文件</h1></a>
 <p>我是这样写的<code>{{ #playpen ***}}</code></p>
 <blockquote>
 <p><code>***</code> == <code>./test.rs</code></p>
@@ -264,6 +264,21 @@ heading-split-level = 3
 
     </div>
 
+    
+    <!-- Livereload script (if served using the cli tool) -->
+    <script type="text/javascript">
+        var socket = new WebSocket("ws://localhost:3001");
+        socket.onmessage = function (event) {
+            if (event.data === "reload") {
+                socket.close();
+                location.reload(true); // force reload from server (not from cache)
+            }
+        };
+
+        window.onbeforeunload = function () {
+            socket.close();
+        }
+    </script>
     
 
     
