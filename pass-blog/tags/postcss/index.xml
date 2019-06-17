@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Postcss on 杂项博文</title>
+    <link>/pass-blog/tags/postcss/</link>
+    <description>Recent content in Postcss on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 15 Mar 2017 11:56:59 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/postcss/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>webpack&#43;less&#43;Autoprefixer</title>
+      <link>/pass-blog/2017/03/15/webpack-less-autoprefixer/</link>
+      <pubDate>Wed, 15 Mar 2017 11:56:59 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/03/15/webpack-less-autoprefixer/</guid>
+      <description>webpack  前端打包工具
+ js css 图片 之类 压缩 生产化
+ 现在，配置其中一项，css文件的加载器，loader
+   不同的是，配置结果，是为了，把less &amp;gt; css + 补全浏览器前缀
+还有 babel js 语法
+ postcss.config.js 启动补全前缀
+module.exports = { plugins: [ require(&amp;#39;autoprefixer&amp;#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
+var path = require(&amp;#39;path&amp;#39;); var ExtractTextPlugin = require(&amp;#39;extract-text-webpack-plugin&amp;#39;); const webpack = require(&amp;#39;webpack&amp;#39;); module.exports = { entry: &amp;#39;./app/index.js&amp;#39;, output: { filename: &amp;#39;bundle.js&amp;#39;, path: path.resolve(__dirname, &amp;#39;dist&amp;#39;) }, module: { rules: [{ test: /\.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git Lens on 杂项博文</title>
+    <link>/pass-blog/tags/git-lens/</link>
+    <description>Recent content in Git Lens on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 14 Nov 2017 16:03:39 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/git-lens/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vscode git lens</title>
+      <link>/pass-blog/2017/11/14/vscode-git-lens/</link>
+      <pubDate>Tue, 14 Nov 2017 16:03:39 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/14/vscode-git-lens/</guid>
+      <description>安利安利 git lens
+加强 git 文件之间 改动
+细分到 每一行由谁改</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Npm on 杂项博文</title>
+    <link>/pass-blog/tags/npm/</link>
+    <description>Recent content in Npm on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 04 Dec 2017 20:06:28 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>npx 不用下载全局包啦</title>
+      <link>/pass-blog/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/</link>
+      <pubDate>Mon, 04 Dec 2017 20:06:28 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/</guid>
+      <description> 从 npm@5.2.0 开始 npx 被集合在了 npm
+ npx 让我们免于下载众多的全局包
+ cd you-project
+npx create-react-app my-react-app  Done! 不需要 npm i -g create-react-app  </description>
+    </item>
+    
+    <item>
+      <title>zsh completion tab 补全提示</title>
+      <link>/pass-blog/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/</link>
+      <pubDate>Tue, 14 Nov 2017 14:17:47 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/</guid>
+      <description>&lt;h1 id=&#34;npm-和-git-补全噢&#34;&gt;npm 和 git 补全噢😯&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;npm &amp;lt;Tab&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;会补全命令&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm&lt;/code&gt;实现代码
+&lt;a href=&#34;https://github.com/npm/npm/blob/master/lib/utils/completion.sh&#34;&gt;https://github.com/npm/npm/blob/master/lib/utils/completion.sh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;npm completion&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;code&gt;git&lt;/code&gt; 实现代码&lt;/p&gt;
+
+&lt;p&gt;分终端（zsh,bash..) 分实现文件
+&lt;a href=&#34;https://github.com/git/git/blob/master/contrib/completion&#34;&gt;https://github.com/git/git/blob/master/contrib/completion/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;因为&lt;code&gt;npm&lt;/code&gt; 的实现文件只有一个，懒为主。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;我的是 zsh&lt;/p&gt;
+
+&lt;p&gt;首先定义一个&lt;code&gt;可执行文件 sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;test_completion.sh&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if type compdef &amp;amp;&amp;gt;/dev/null; then
+
+    _test_completion() {
+    }
+
+    compdef _test_completion npm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当你运行上面 什么都没有的 文件时&lt;/p&gt;
+
+&lt;p&gt;or 复制 &lt;code&gt;then&lt;/code&gt; 后面那段代码，粘贴到 命令行运行也可以。&lt;/p&gt;
+
+&lt;p&gt;之前&lt;code&gt;npm &amp;lt;Tab&amp;gt;&lt;/code&gt; 的 提示就会没有&lt;/p&gt;
+
+&lt;p&gt;## 代码分解&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;if type&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;是为了判断 &lt;code&gt;compdef&lt;/code&gt; 是否存在 这是 &lt;code&gt;zsh&lt;/code&gt; 定义的 函数命令&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;amp;&amp;gt;/del/null&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;应该是把 错误 文件化 放到 /dev/null&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;compdef _test_completion npm&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这里有三个变量&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;compdef 是 函数调用&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;_test_completion 是 &lt;code&gt;compdef&lt;/code&gt; 的第一个变量，用来定义 补全规则&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;compdef(_test_completion)&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;npm 是 &lt;code&gt;compdef&lt;/code&gt; 的第二个变量。补全对象&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;compdef( _test_completion, npm )&lt;/p&gt;
+
+&lt;p&gt;只要把 npm 替换成 git 那么，&lt;/p&gt;
+
+&lt;p&gt;git 的 补全命令 也会被替换 什么都没有。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;补全规则&#34;&gt;补全规则&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;_test_completion(){
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;zsh 实现了 简便的 命令添加-函数&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;compadd&#34;&gt;compadd&lt;/h2&gt;
+
+&lt;p&gt;源代码中主要&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;    compadd -- &lt;span style=&#34;color:#ff79c6&#34;&gt;$(&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_CWORD&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;$((&lt;/span&gt;CURRENT-1&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_LINE&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;$BUFFER&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_POINT&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 npm completion -- &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;words&lt;/span&gt;[@]&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;&amp;gt;/dev/null&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这样的 ,不难看出 &amp;ndash; $ 后面就是 compadd函数 - 变量定义&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;源文档太大了，截掉什么看看区别&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;当我把 &lt;code&gt;npm completion -- &amp;quot;${words[@]}&amp;quot; \&lt;/code&gt; 剪掉&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm &amp;lt;Tab&amp;gt;&lt;/code&gt;什么提示都没有了，看来这就是秘密。&lt;/p&gt;
+
+&lt;p&gt;不过我们看了终点，不如回到原点。加加看&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;示例&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;    _test_completion&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+        compadd -- install
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+    compdef _test_completion npm &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ npm &amp;lt;tab&amp;gt;
+
+$ npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;噢 那么就会提示 install&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;再试试&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;    _test_completion() {
+        echo &amp;quot;${words[@]}&amp;quot; 
+        echo $CURRENT
+        echo $BUFFER
+        compadd -- install up
+    }
+    compdef _test_completion npm 
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>node 命令行应用 与 npm 包发布</title>
+      <link>/pass-blog/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Sun, 01 Oct 2017 09:27:06 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/</guid>
+      <description>先讲讲 Npm
+NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
+让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
+安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
+npm -v  更新NPM版本的命令: sudo npm install npm -g  使用 npm安装nodejs模块语法格式:
+npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
+npm install express //本地安装 npm install express -g //全局安装  两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
+可以用以下命令来查看所有全局安装的模块:
+npm ls -g  Package.</description>
+    </item>
+    
+    <item>
+      <title>pip npm conda 换下载源</title>
+      <link>/pass-blog/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/</link>
+      <pubDate>Tue, 12 Sep 2017 10:09:44 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/</guid>
+      <description> Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
+npm --registry https://registry.npm.taobao.org install express  2.持久使用
+npm config set registry https://registry.npm.taobao.org  3.通过cnpm
+npm install -g cnpm --registry=https://registry.npm.taobao.org  二、使用官方镜像
+npm config set registry https://registry.npmjs.org/  三、查看npm源地址
+npm config get registry  </description>
+    </item>
+    
+  </channel>
+</rss>

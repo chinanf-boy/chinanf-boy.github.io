@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Node on 杂项博文</title>
+    <link>/pass-blog/tags/node/</link>
+    <description>Recent content in Node on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 31 Jan 2017 15:31:15 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/node/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>浏览器与node，this，的不同</title>
+      <link>/pass-blog/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/</link>
+      <pubDate>Tue, 31 Jan 2017 15:31:15 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/</guid>
+      <description>区别 浏览器   Chrome + Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 == this ? console.log(a) : console.log(0);  输出结果：
+2 7 7   也就是说，浏览器，认为 local 函数返回的 this
+ 和 window，总this 是相同的！
+  node v6.9.2
+ 对于同样的代码
+ function local() { this.a = 7; var a = 2; this.</description>
+    </item>
+    
+  </channel>
+</rss>

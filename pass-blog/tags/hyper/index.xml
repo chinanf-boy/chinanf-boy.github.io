@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hyper on 杂项博文</title>
+    <link>/pass-blog/tags/hyper/</link>
+    <description>Recent content in Hyper on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 01 Jun 2018 15:26:56 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/hyper/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hyper open in finder and 服务</title>
+      <link>/pass-blog/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Fri, 01 Jun 2018 15:26:56 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/</guid>
+      <description> 美丽的终端 Hyper 下面是 在 mac 上的快速启动
+open in finder https://github.com/ealeksandrov/cdto/releases/tag/2_8_0
+添加服务 也就是 文件夹 右键
+https://github.com/zeit/hyper/files/1800038/New.Hyper.Tab.at.Folder.workflow.zip
+更改 默认 终端 可更改 mac 上 默认开启的服务与应用
+http://www.rubicode.com/Downloads/RCDefaultApp-2.1.X.dmg
+ 官网 http://www.rubicode.com/Software/RCDefaultApp/
+ Passed mac high serirra 10.13.2 </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on 杂项博文</title>
+    <link>/pass-blog/categories/go/</link>
+    <description>Recent content in Go on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 05 May 2019 23:17:06 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>系统中 Golang 版本，更新流程</title>
+      <link>/pass-blog/2019/05/05/%E7%B3%BB%E7%BB%9F%E4%B8%AD-golang-%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Sun, 05 May 2019 23:17:06 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/05/05/%E7%B3%BB%E7%BB%9F%E4%B8%AD-golang-%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B/</guid>
+      <description>Windows 系统使用者， 抱歉这里没有你要的。
+   来源     gist    如何更新 Go 的版本 下面解释，大概三种方法
+ brew 使用者，当我没说。
+ 一：常规方式 (没代理的，推荐)  Mac, Linux
+  1. 卸载现有版本  根据这里的官方文档，要更新一个 go 版本，你先要删除现有版本。
+常规来说，go 位于/usr/local/go目录，删除如下:
+sudo rm -rf /usr/local/go  2. 安装新的版本  去到下载页面，下载对应系统的压缩包。
+ 推荐：迅雷或其他 P2p 网络。
+  3. 解压  解压命令:
+sudo tar -C /usr/local -xzf $HOME/Downloads/go1.12.4.linux-amd64.tar.gz  4. 确保你的PATH包含/usr/local/go/bin  echo $PATH | grep &amp;#34;/usr/local/go/bin&amp;#34;  常规方式的问题：  1.</description>
+    </item>
+    
+    <item>
+      <title>Goreleaser : 为多个平台构建Go二进制文件</title>
+      <link>/pass-blog/2018/12/09/goreleaser-%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Sun, 09 Dec 2018 09:54:07 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/12/09/goreleaser-%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</guid>
+      <description>GoReleaser GoReleaser 为多个平台构建 Go 二进制文件，也可将 Homebrew 公式推送到 tap 存储库。所有这些都包含在你最喜欢的 CI 中。
+使用 GoReleaser 能自动，为生成 Github 项目的 release 页面的，可供下载的二进制文件
+ 下面是我的 howdoi(Golang)项目的发布页面   三个平台(MacOS,Linux,Windows)都有
+ 行列    官方文档 非官方中文翻译     https://goreleaser.com/ goreleaser-zh    用例 最好的基础例子，莫过于自己常用的东西，也就是我的 howdoi 项目
+ 这个例子，是让 travis 与 goreleaser 合作，的例子
+ 当然，前提是你要安装好-&amp;gt;
+.travis.yml # .travis.yml language: go addons: apt: packages: # needed for the nfpm pipe: # - rpm # needed for the snap pipe: # - snapcraft env: # needed for the snap pipe: # - PATH=/snap/bin:$PATH install: # needed for the snap pipe: # - sudo snap install snapcraft --classic # needed for the docker pipe services: - docker after_success: # docker login is required if you want to push docker images.</description>
+    </item>
+    
+    <item>
+      <title>(译)如何在VScode中使用Delve调试代码</title>
+      <link>/pass-blog/2018/10/29/%E8%AF%91%E5%A6%82%E4%BD%95%E5%9C%A8vscode%E4%B8%AD%E4%BD%BF%E7%94%A8delve%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 29 Oct 2018 16:02:30 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/10/29/%E8%AF%91%E5%A6%82%E4%BD%95%E5%9C%A8vscode%E4%B8%AD%E4%BD%BF%E7%94%A8delve%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/</guid>
+      <description>原文 日期     stackoverflow 2016-08-21    如何在VScode中使用Delve调试代码, 一步一脚印:  ( 注意: Windows 操作系统 要将 所有 $GOPATH 替换成 %GOPATH% )
+  安装Golang 和 设置 GOROOT and GOPATH。
+ 添加 $GOPATH/bin 到你的 OS PATH 环境变量。
+ 设置环境变量: GO15VENDOREXPERIMENT = 1
+ 运行: go get github.com/derekparker/delve/cmd/dlv， 并确保 dlv 二进制文件在你的$GOPATH/bin目录中生成。
+ 安装 Visual Studio Code
+ 启动 VS Code 快捷键(Ctrl+P), 输出以下命令: ext install Go , 点击Enter.</description>
+    </item>
+    
+  </channel>
+</rss>

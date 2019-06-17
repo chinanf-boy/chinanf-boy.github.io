@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on 杂项博文</title>
+    <link>/pass-blog/tags/javascript/</link>
+    <description>Recent content in Javascript on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 09 Oct 2017 20:17:57 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Slack-Hubot-use-py-or-js</title>
+      <link>/pass-blog/2017/10/09/slack-hubot-use-py-or-js/</link>
+      <pubDate>Mon, 09 Oct 2017 20:17:57 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/09/slack-hubot-use-py-or-js/</guid>
+      <description> Slack 的机器人 和Slack上的机器人发命令
+在服务器布置的 接收 处理
+下面是两个，简单的构建示例
+1.用python SlackClient 简单构建 github代码
+2.用Hubot与Slack结合 js github代码
+区别是  使用语言不同
+ hubot是一个完备的框架
+  </description>
+    </item>
+    
+    <item>
+      <title>Redux combineReducers js 作者简单实现</title>
+      <link>/pass-blog/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 13 Jun 2017 10:39:06 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
+      <description> 来源 Redux作者入门教程
+combineReducers  js 简单实现
+ const combineReducers = (reducers) =&amp;gt;{ return (state = {}, action) =&amp;gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&amp;gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; }; </description>
+    </item>
+    
+    <item>
+      <title>中间件js实现</title>
+      <link>/pass-blog/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 13 Jun 2017 10:03:19 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/</guid>
+      <description>中间件模式（middleware） 是一种很常见、也很强大的模式，被广泛应用在 Express、Koa、Redux 等类库和框架当中。
+如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
+ 简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
+ 数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&amp;gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&amp;gt; { ctx.age = 12 next() }) app.use((ctx, next) =&amp;gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&amp;gt; Lucy is 12 years old. next() }) // .</description>
+    </item>
+    
+    <item>
+      <title>processing p5 js 动画与游戏制造</title>
+      <link>/pass-blog/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/</link>
+      <pubDate>Wed, 17 May 2017 11:37:25 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/</guid>
+      <description>改 2017 6.13
+processing 动画转换 转向 js客户  这意味着 我可以 在 codepen 上展示
+ 减少一下，js加载流量
+如何使用 Processing 有自己的 动画规则语言 较为易懂易用
+See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  现在 你只需要一个
+ p5.js
+ fire.html
+  fire.html
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;sketch.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; sketch.js
+// Global variables function setup() { createCanvas(640, 480); } function draw() { if (mouseIsPressed) { fill(0); } else { fill(255); } ellipse(mouseX, mouseY, 80, 80); }  就这样 就是上 显示的</description>
+    </item>
+    
+    <item>
+      <title>Typescript类-转换学习</title>
+      <link>/pass-blog/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 08 Feb 2017 08:24:06 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/</guid>
+      <description>#TypeScript
+typescript作为微软实现的js的超集.
+在类的实现，有如传统语言一样简单，
+例子：官方
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &amp;#34;Hello, &amp;#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &amp;#34;Hello, &amp;#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console.</description>
+    </item>
+    
+    <item>
+      <title>Js - Module模式 - 私有-公有-命名空间</title>
+      <link>/pass-blog/2017/02/06/js-module%E6%A8%A1%E5%BC%8F-%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Mon, 06 Feb 2017 15:42:53 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/02/06/js-module%E6%A8%A1%E5%BC%8F-%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+      <description>在javascript中没有真正意义的‘私有’，因为不像传统语言- js 没有访问修饰符。从技术上来说，我们不能称变量为公有或私有.
+ 因此我们需使用函数作用域来模拟这个概念。
+ 由于闭包的存在，声明的变量和方法只在该模式内部可用，
+  但在返回对象上的定义的变量和方法，则对外部使用者都是可用的。
+var testModule = (function () { //私有变量 var myPrivateVar = 0; //记录所有参数的私有函数 var myPrivateMethod = function(bar){ console.log(bar); } return { //公有变量 myPublicVar : &amp;#34;foo&amp;#34;, //调用私有变量和方法的公有函数 myPublicFunction: function(bar){ //增加私有计数器值  myPrivateVar++; console.log(myPrivateVar); //传入bar调用私有方法  myPrivateMethod(bar); } }; })(); console.log(testModule); //用公有变量传值公有函数 testModule.myPublicFunction(testModule.myPublicVar);  输出
+{ myPublicVar: &amp;#39;foo&amp;#39;, myPublicFunction: [Function: myPublicFunction] } 1 foo  可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。
+却可以，通过两个函数来操控，myPrivateVar表现得就像一个私有变量。</description>
+    </item>
+    
+    <item>
+      <title>js原型与构造</title>
+      <link>/pass-blog/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/</link>
+      <pubDate>Tue, 31 Jan 2017 20:01:12 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/</guid>
+      <description>#对象／构造／原型
+ 对象 &amp;ndash; 原型  all 浏览器 获取原型方法
+var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// Object {}  a.constructor// function Object() { [native code] }   函数 &amp;ndash; 构造 + 原型  var a = function(){}; //函数可以直接 prototype a.prototype// Object {};  a.constructor// function Function() { [native code] }   上面可以看出，构造都是函数
+  对象 &amp;gt; 构造函数 &amp;gt; 函数 。。  var b = {}; b// Object {} b.</description>
+    </item>
+    
+  </channel>
+</rss>

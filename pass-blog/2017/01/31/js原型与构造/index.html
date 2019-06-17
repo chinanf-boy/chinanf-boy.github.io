@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>js原型与构造</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>js原型与构造</h2>
+        <p>#对象／构造／原型</p>
+
+<ul>
+<li>对象 &ndash; 原型</li>
+</ul>
+
+<p>all 浏览器 获取原型方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#ff79c6">=</span> {};
+<span style="color:#6272a4">//a.prototype 无法获取——原型
+</span><span style="color:#6272a4"></span>
+a.constructor.prototype;<span style="color:#6272a4">// Object {}
+</span><span style="color:#6272a4"></span>
+a.constructor<span style="color:#6272a4">// function Object() { [native code] }
+</span><span style="color:#6272a4"></span></code></pre></div>
+<ul>
+<li>函数 &ndash; 构造 + 原型</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(){};
+	<span style="color:#6272a4">//函数可以直接  prototype
+</span><span style="color:#6272a4"></span>a.prototype<span style="color:#6272a4">// Object {};
+</span><span style="color:#6272a4"></span>
+a.constructor<span style="color:#6272a4">// function Function() { [native code] }
+</span><span style="color:#6272a4"></span></code></pre></div>
+<blockquote>
+<p>上面可以看出，构造都是函数</p>
+</blockquote>
+
+<ul>
+<li>对象 &gt; 构造函数 &gt; 函数 。。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> b <span style="color:#ff79c6">=</span> {};
+b<span style="color:#6272a4">// Object {}
+</span><span style="color:#6272a4"></span>b.constructor<span style="color:#6272a4">// function Object() { [native code] }
+</span><span style="color:#6272a4"></span>b.constructor.constructor<span style="color:#6272a4">// function Function() { [native code] }
+</span><span style="color:#6272a4"></span>b.constructor.constructor.constructor<span style="color:#6272a4">// function Function() { [native code] }
+</span><span style="color:#6272a4"></span></code></pre></div>
+<blockquote>
+<p>对象的构造是 对象函数<code>Object</code> ,<code>Object</code>的构造函数是<code>Function</code>函数。
+&gt; <code>Function</code>的构造是<code>Function</code>，到头了。</p>
+</blockquote>
+
+<ul>
+<li>函数 &gt; 原型 &gt; 函数</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(){};
+<span style="color:#6272a4">//undefined
+</span><span style="color:#6272a4"></span>a.__proto__
+<span style="color:#6272a4">//function () {}
+</span><span style="color:#6272a4">// == a.constructor.prototype
+</span><span style="color:#6272a4"></span>a.constructor
+<span style="color:#6272a4">//function Function() { [native code] }
+</span><span style="color:#6272a4"></span>a.prototype
+<span style="color:#6272a4">//Object {}
+</span><span style="color:#6272a4"></span></code></pre></div>
+<blockquote>
+<p>函数 <strong>a</strong> 的 原型，是，对象函数<code>Object</code>！！</p>
+
+<p>所以说，a函数的原型是对象，由函数构造。！！</p>
+</blockquote>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/javascript"> #javascript </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/js原型与构造.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

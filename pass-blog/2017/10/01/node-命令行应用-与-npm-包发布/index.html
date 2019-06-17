@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>node 命令行应用 与 npm 包发布</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>node 命令行应用 与 npm 包发布</h2>
+        
+
+<p>先讲讲 <code>Npm</code></p>
+
+<h2 id="npm">NPM</h2>
+
+<p>NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:</p>
+
+<p>让用户从NPM服务器下载别人编写的命令程序到本地使用
+允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用
+允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用</p>
+
+<!-- more -->
+
+<h2 id="安装">安装</h2>
+
+<p>新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功</p>
+
+<pre><code>npm -v
+</code></pre>
+
+<h2 id="更新npm版本的命令">更新NPM版本的命令:</h2>
+
+<pre><code>sudo npm install npm -g
+</code></pre>
+
+<h2 id="使用">使用</h2>
+
+<p>npm安装nodejs模块语法格式:</p>
+
+<p>npm install <Moudle Name></p>
+
+<h2 id="全局安装与本地安装">全局安装与本地安装</h2>
+
+<p>npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种</p>
+
+<pre><code>npm install express //本地安装
+npm install express -g //全局安装
+</code></pre>
+
+<h3 id="两者的区别">两者的区别</h3>
+
+<h4 id="本地安装">本地安装:</h4>
+
+<p>将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。
+可以通过 require() 来引入本地安装的包。</p>
+
+<h4 id="全局安装">全局安装:</h4>
+
+<p>将安装包放在 /usr/local 下。
+可以直接在命令行里使用。
+不能通过 require() 来引入本地安装的包。</p>
+
+<p>可以用以下命令来查看所有全局安装的模块:</p>
+
+<pre><code>npm ls -g
+</code></pre>
+
+<h3 id="package-json-属性说明">Package.json 属性说明</h3>
+
+<ul>
+<li>name - 包名。</li>
+<li>version - 包的版本号。</li>
+<li>description - 包的描述。</li>
+<li>homepage - 包的官网 url 。</li>
+<li>author - 包的作者姓名。</li>
+<li>contributors - 包的其他贡献者姓名。</li>
+<li>dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。</li>
+<li>repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。</li>
+<li>main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后- require(&ldquo;express&rdquo;)。</li>
+<li>keywords - 关键字</li>
+</ul>
+
+<p><a href="https://docs.npmjs.com/files/package.json">官网属性列表</a>
+<a href="http://www.cnblogs.com/tzyy/p/5193811.html">中文——属性解释</a></p>
+
+<h3 id="卸载模块-可以使用以下命令来卸载nodejs">卸载模块 可以使用以下命令来卸载Nodejs</h3>
+
+<pre><code>npm uninstall express //卸载该express模块
+npm ls // 查看是否成功卸载
+</code></pre>
+
+<h3 id="更新模块-可以使用以下命令来更新模块">更新模块 可以使用以下命令来更新模块</h3>
+
+<pre><code>npm update express
+</code></pre>
+
+<h3 id="搜索模块-使用以下命令来搜索模块">搜索模块 使用以下命令来搜索模块</h3>
+
+<pre><code>npm search express
+</code></pre>
+
+<h3 id="创建模块-生成package-json">创建模块 生成package.json</h3>
+
+<p>注册一个npm账户</p>
+
+<pre><code>npm adduser
+
+Username :
+Password:
+Email:
+</code></pre>
+
+<p>发布模块</p>
+
+<pre><code>npm publish
+</code></pre>
+
+<h3 id="版本号-使用npm下载和发布代码时都会接触到版本号-npm使用语义版本号来管理代码-语义版本号分为x-y-z三位-分别代表主版本号-次版本号和补丁版本号-当代码变更时-版本号按以下原则更新">版本号 使用NPM下载和发布代码时都会接触到版本号。NPM使用语义版本号来管理代码, 语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。</h3>
+
+<p>如果只是修复bug，需要更新Z位。
+如果是新增了功能，但是向下兼容，需要更新Y位。
+如果有大变动，向下不兼容，需要更新X位。
+版本号有了这个保证后，在申明第三方包依赖时，除了可依赖于一个固定版本号外，还可依赖于某个范围的版本号。例如&rdquo;argv&rdquo;: &ldquo;0.0.x&rdquo;表示依赖于0.0.x系列的最新版argv。</p>
+
+<p>NPM常用命令</p>
+
+<ul>
+<li>NPM提供了很多命令，例如install和publish，使用npm help可查看所有命令。</li>
+<li>使用npm help <command>可查看某条命令的详细帮助，例如npm help install。</li>
+<li>在package.json所在目录下使用npm install . -g可先在本地安装当前命令行程序，可用于发布前的本地测试。</li>
+<li>使用npm update <package>可以把当前目录下node_modules子目录里边的对应模块更新至最新版本。</li>
+<li>使用npm update <package> -g可以把全局安装的对应命令行程序更新至最新版。 使用npm cache clear可以清空NPM本地缓存，用于对付使用相同版本号发布新版本代码的人。</li>
+<li>使用npm unpublish <package>@<version>可以撤销发布自己发布过的某个版本代码。</li>
+</ul>
+
+<h1 id="再来说说-命令行-cli">再来说说 命令行 cli</h1>
+
+<p>拿一个简单的 github 项目来说</p>
+
+<p><a href="https://github.com/kevva/wifi-password-cli/blob/master/cli.js">wifi-password-cli</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#6272a4">#!/usr/bin/env node
+</span><span style="color:#6272a4"></span><span style="color:#f1fa8c">&#39;use strict&#39;</span>;
+<span style="color:#ff79c6">const</span> meow <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;meow&#39;</span>);
+<span style="color:#ff79c6">const</span> wifiPassword <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;wifi-password&#39;</span>);
+
+<span style="color:#ff79c6">const</span> cli <span style="color:#ff79c6">=</span> meow(<span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">	Usage
+</span><span style="color:#f1fa8c">	  $ wifi-password [network-name]
+</span><span style="color:#f1fa8c">	Example
+</span><span style="color:#f1fa8c">	  $ wifi-password
+</span><span style="color:#f1fa8c">	  unicorns
+</span><span style="color:#f1fa8c">	  $ wifi-password foo-network
+</span><span style="color:#f1fa8c">	  foosecretpassword
+</span><span style="color:#f1fa8c">`</span>);
+
+wifiPassword(cli.input[<span style="color:#bd93f9">0</span>])
+	.then(console.log)
+	.<span style="color:#ff79c6">catch</span>(err =&gt; {
+		<span style="color:#ff79c6">if</span> (err.message <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">`Your network doesn&#39;t have a password`</span>) {
+			console.error(err.message);
+			process.exit(<span style="color:#bd93f9">1</span>);
+		}
+
+		<span style="color:#ff79c6">throw</span> err;
+	});
+</code></pre></div>
+<h3 id="meow">meow</h3>
+
+<p><a href="https://github.com/sindresorhus/meow">meow</a> 是 简单的命令行帮助程序</p>
+
+<h3 id="wifi-password-cli的使用">wifi-password-cli的使用</h3>
+
+<p>安装</p>
+
+<pre><code>npm install -g wifi-password-cli
+</code></pre>
+
+<p>使用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wifi-password --help
+
+  Usage
+    $ wifi-password <span style="color:#ff79c6">[</span>network-name<span style="color:#ff79c6">]</span>
+
+  Example
+    $ wifi-password
+    unicorns
+    $ wifi-password foo-network
+    foosecretpassword</code></pre></div>
+<p>可以看到正是上面代码的 <code>meow{}</code> 的内容</p>
+
+<h3 id="那么可以看出-全局安装的部分由-npm-完成">- 那么可以看出，全局安装的部分由<code>npm</code>完成</h3>
+
+<h3 id="package-json-里面-发布相关部分也要注意-尤其是-bin">- <code>package.json</code>里面，发布相关部分也要注意⚠️,尤其是<code>bin</code></h3>
+
+<h3 id="那么最后-命令行-cli-js-编写调用-主程序-上文就是-wifi-password-和名字">- 那么最后 命令行 <code>cli.js</code>编写调用-&gt;<code>主程序</code>-&gt;上文就是 <code>wifi-password</code>，和名字</h3>
+
+<h1 id="进阶-命令行-commander">进阶 命令行 commander</h1>
+
+<p>是由 <code>express</code>和<code>koa</code> 项目 开发者之一的 <a href="https://github.com/tj">tj</a></p>
+
+<p>从<code>Ruby</code> 移植 <code>javascript</code>项目 <a href="https://github.com/tj/commander.js">commander</a></p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/npm"> #npm </a></li><li><a class="link" href="/pass-blog/tags/node%e5%91%bd%e4%bb%a4%e8%a1%8c"> #node命令行 </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/node-命令行应用-与-npm-包发布.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

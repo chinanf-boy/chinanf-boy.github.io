@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redux on 杂项博文</title>
+    <link>/pass-blog/tags/redux/</link>
+    <description>Recent content in Redux on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 13 Jun 2017 10:39:06 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/redux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redux combineReducers js 作者简单实现</title>
+      <link>/pass-blog/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 13 Jun 2017 10:39:06 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
+      <description> 来源 Redux作者入门教程
+combineReducers  js 简单实现
+ const combineReducers = (reducers) =&amp;gt;{ return (state = {}, action) =&amp;gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&amp;gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; }; </description>
+    </item>
+    
+    <item>
+      <title>Redux 基础</title>
+      <link>/pass-blog/2017/04/24/redux-%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 24 Apr 2017 17:01:53 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/04/24/redux-%E5%9F%BA%E7%A1%80/</guid>
+      <description>一个世界(store)  redux的中心思想，一直是共享数据的理念
+ 只有一个更改数据的接口dispatch
+ 一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
+  创造数据中心 import { createStore } from &amp;#34;redux&amp;#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
+ const reducer = function( state, action ) { if (action.type === &amp;#34;Something&amp;#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &amp;#34;Another&amp;#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在</description>
+    </item>
+    
+  </channel>
+</rss>

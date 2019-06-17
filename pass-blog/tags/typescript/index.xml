@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Typescript on 杂项博文</title>
+    <link>/pass-blog/tags/typescript/</link>
+    <description>Recent content in Typescript on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 28 May 2017 17:05:02 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ory-editer 网页编辑器-基于react</title>
+      <link>/pass-blog/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/</link>
+      <pubDate>Sun, 28 May 2017 17:05:02 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/</guid>
+      <description>ory 的 editer 用于网页的编辑器，Online 应该说，这是高级应用了  我的目标，也就是这极限了。
+看了下源码，真的看晕了
+react, typescript, material-ui, redux, bootstrap
+单独一二项，看的明白，混在一起的. 科科
+ 虽然说，用react框架省去了些，步骤，redux做全局，meterial-ui 做 UI ，bootstrap 做 布局 部分，代码文件，后缀名是，.js 但是，应该是，用工具转代码的， 因为，变量数据格式，太凸显 ， 还是说用了其他的方式。
+editor/packages/renderer/src/index.js v0.2.10 line-8
+const gridClass = (size: number = 12): string =&amp;gt; `ory-cell-sm-${size}ory-cell-xs-12`   eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
+ 作者造搞了，自己的数据格式，主要通过 cells Raws
+状态是一个规范的JSON对象，不涉及HTML。
+也是为了，免xss威胁。
+行 列 去区分，显示
+editor/examples/src/content.js
+export default [ { &amp;#34;id&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;cells&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&amp;#34;, &amp;#34;inline&amp;#34;: null, &amp;#34;size&amp;#34;: 12, &amp;#34;rows&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&amp;#34;, &amp;#34;cells&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;39417572-f976-44b7-97b2-9a7e00fd66f2&amp;#34;, &amp;#34;inline&amp;#34;: null, &amp;#34;size&amp;#34;: 12,  用来对，服务器渲染，静态</description>
+    </item>
+    
+    <item>
+      <title>Typescript类-转换学习</title>
+      <link>/pass-blog/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 08 Feb 2017 08:24:06 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/</guid>
+      <description>#TypeScript
+typescript作为微软实现的js的超集.
+在类的实现，有如传统语言一样简单，
+例子：官方
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &amp;#34;Hello, &amp;#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &amp;#34;Hello, &amp;#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console.</description>
+    </item>
+    
+  </channel>
+</rss>

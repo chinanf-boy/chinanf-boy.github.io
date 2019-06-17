@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Es5 on 杂项博文</title>
+    <link>/pass-blog/tags/es5/</link>
+    <description>Recent content in Es5 on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 27 May 2017 11:19:22 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/es5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>babel 继承 Es5</title>
+      <link>/pass-blog/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/</link>
+      <pubDate>Sat, 27 May 2017 11:19:22 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/</guid>
+      <description>继承 复制下面代码 - 点击https://babeljs.io/repl/
+class b { constructor(c,d){ c = c+&amp;#39;1111&amp;#39;; console.log(c,d); } start(){ console.log(&amp;#39;ba ba&amp;#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&amp;#39;222222&amp;#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&amp;#39;son&amp;#39;); } } var o1 = new a(&amp;#39;first&amp;#39;, &amp;#39;second&amp;#39;); console.log(&amp;#39;------------------&amp;#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
+一个 ， 丑陋的 写法，构造，与原型，的，概念.
+增加，初学者的入门，难度, 不过，好在，
+TypeScript babel 语法实现
+ coffeeScript 太极端了， 一堆空格。
+有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
+ 让我们不在需要，对，继承,</description>
+    </item>
+    
+  </channel>
+</rss>

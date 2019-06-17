@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Go</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+
+  <div class="outer">
+  <ul class="list-group">
+    
+
+    <li class="list-group-item title">
+      
+         
+        
+        
+            
+                <a href="/pass-blog/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/"><time style="color:black;">2018-11-19</time>  / (译) GoAWK，一个用Go编写的AWK解释器 </a>
+            
+        
+      
+    </li>
+    
+
+    <li class="list-group-item title">
+      
+         
+        
+        
+            
+                <a href="/pass-blog/2018/11/07/go-%E5%A4%9A%E5%B9%B6%E5%8F%91-%E5%8F%AA%E8%A6%81%E6%9C%80%E5%BF%AB%E7%9A%84%E4%B8%80%E4%B8%AA%E6%AD%A3%E7%A1%AE%E8%BF%94%E5%9B%9E-%E7%A4%BA%E4%BE%8B/"><time style="color:black;">2018-11-07</time>  / Go 多并发 只要最快的一个正确返回 示例 </a>
+            
+        
+      
+    </li>
+    
+
+    <li class="list-group-item title">
+      
+         
+        
+        
+            
+                <a href="/pass-blog/2018/11/04/go-%E5%A4%9A%E4%B8%AA%E5%B9%B6%E5%8F%91%E7%AD%89%E5%BE%85-url%E8%AF%B7%E6%B1%82-%E7%A4%BA%E4%BE%8B/"><time style="color:black;">2018-11-04</time>  / Go 多个并发等待 Url请求 示例 </a>
+            
+        
+      
+    </li>
+    
+
+    <li class="list-group-item title">
+      
+         
+        
+        
+            
+                <a href="/pass-blog/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/"><time style="color:black;">2018-11-01</time>  / Golang Chroma 使用例子 </a>
+            
+        
+      
+    </li>
+    
+
+    <li class="list-group-item title">
+      
+         
+        
+        
+            
+                <a href="/pass-blog/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/"><time style="color:black;">2018-01-24</time>  / mac repl js go 大混杂 </a>
+            
+        
+      
+    </li>
+    
+
+    <li class="list-group-item title">
+      
+         
+        
+        
+            
+                <a href="/pass-blog/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/"><time style="color:black;">2017-12-17</time>  / 目录环境加载 direnv </a>
+            
+        
+      
+    </li>
+    
+
+    <li class="list-group-item title">
+      
+         
+        
+        
+            
+                <a href="/pass-blog/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/"><time style="color:black;">2017-11-14</time>  / hugo hexo 傻傻分不清出 GO实现 </a>
+            
+        
+      
+    </li>
+    
+  </ul>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

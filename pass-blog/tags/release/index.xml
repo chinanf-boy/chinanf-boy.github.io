@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Release on 杂项博文</title>
+    <link>/pass-blog/tags/release/</link>
+    <description>Recent content in Release on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 09 Dec 2018 09:54:07 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/release/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Goreleaser : 为多个平台构建Go二进制文件</title>
+      <link>/pass-blog/2018/12/09/goreleaser-%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Sun, 09 Dec 2018 09:54:07 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/12/09/goreleaser-%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</guid>
+      <description>GoReleaser GoReleaser 为多个平台构建 Go 二进制文件，也可将 Homebrew 公式推送到 tap 存储库。所有这些都包含在你最喜欢的 CI 中。
+使用 GoReleaser 能自动，为生成 Github 项目的 release 页面的，可供下载的二进制文件
+ 下面是我的 howdoi(Golang)项目的发布页面   三个平台(MacOS,Linux,Windows)都有
+ 行列    官方文档 非官方中文翻译     https://goreleaser.com/ goreleaser-zh    用例 最好的基础例子，莫过于自己常用的东西，也就是我的 howdoi 项目
+ 这个例子，是让 travis 与 goreleaser 合作，的例子
+ 当然，前提是你要安装好-&amp;gt;
+.travis.yml # .travis.yml language: go addons: apt: packages: # needed for the nfpm pipe: # - rpm # needed for the snap pipe: # - snapcraft env: # needed for the snap pipe: # - PATH=/snap/bin:$PATH install: # needed for the snap pipe: # - sudo snap install snapcraft --classic # needed for the docker pipe services: - docker after_success: # docker login is required if you want to push docker images.</description>
+    </item>
+    
+  </channel>
+</rss>

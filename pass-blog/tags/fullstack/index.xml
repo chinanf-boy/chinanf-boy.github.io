@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fullstack on 杂项博文</title>
+    <link>/pass-blog/tags/fullstack/</link>
+    <description>Recent content in Fullstack on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Mar 2019 10:26:53 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/fullstack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RealWorld.io 真实世界的全栈应用</title>
+      <link>/pass-blog/2019/03/19/realworld.io-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Tue, 19 Mar 2019 10:26:53 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/03/19/realworld.io-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8/</guid>
+      <description>img{ max-width: 33%; float:left; } img+img{ margin-left: 1rem; width:20%; } .blog-post p img { border: 2px dashed #f69c55; }  RealWorld.io 项目 虽然大多数“todo”演示提供了对框架功能不错的粗略一瞥，但它们通常不会传达，实际构建 真实 应用程序，所需的知识和视角。
+而 RealWorld 通过允许您选择任何前端（React，Angular 2 和更多）以及任何后端（Node，Django 等）来解决这个问题，并了解它们如何为现实世界提供动力，设计精美的 fullstack 应用程序称为“Conduit” —— Medium.com 完全相同 的克隆。
+   具体项目 Github     https://github.com/gothinkster/realworld    小样  仅列举我，较为知道的框架，更多组合请查看源项目
+  前端  React (1) with Redux (2) with MobX Vue Hyperapp  后端  Node (1) Express (2) NestJS (3) Koa GO (1) Gin (2) Echo (3) 干净的 Python (1) Django (2) Flask Rust (2) Rocket   前端 React with Redux React / Redux</description>
+    </item>
+    
+  </channel>
+</rss>

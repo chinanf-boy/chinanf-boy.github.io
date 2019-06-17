@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on 杂项博文</title>
+    <link>/pass-blog/tags/react/</link>
+    <description>Recent content in React on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 04 Jun 2017 16:03:08 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React事件与原生事件</title>
+      <link>/pass-blog/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/</link>
+      <pubDate>Sun, 04 Jun 2017 16:03:08 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/</guid>
+      <description>实例 我们用一个实例，发现，原生与 react事件 冲突
+JS Bin on jsbin.com
+原生事件 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ this.setState({s1:!this.state.s1}) alert(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) console.log(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) })  react事件 onSubmit(e){ alert(&amp;#39;onsubmit&amp;#39;, e.target.value) this.setState({s1:!this.state.s1}) } //... &amp;lt;input id=&amp;#39;qr&amp;#39; value=&amp;#39;二维码&amp;#39; type=&amp;#34;button&amp;#34; onClick={this.onSubmit} /&amp;gt;  点击二维码 可以看到，事件从body开始，div.qr -&amp;gt;div.root
+实例的功能是
+点击二维码按钮，可以显示／隐藏，照片
+ 在，照片显示时
+ 1.点击非照片区域，可以隐藏，
+2.点击照片，没有变化
+  但是 可以看到，点击，显示照片，事件顺序
+body -&amp;gt; div.code -&amp;gt; div.root
+由此说来，body,的优先级很大啊
+但是 可以看到console面板，我留在，body事件的输出语句
+二维码 是 div.qr 的 value 值。
+ img 是 div.code的 alt 值。
+ 以此可以看出，原生body事件是，触发了， 而 e.target 是 二维码按钮的实例.</description>
+    </item>
+    
+    <item>
+      <title>ory-editer 网页编辑器-基于react</title>
+      <link>/pass-blog/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/</link>
+      <pubDate>Sun, 28 May 2017 17:05:02 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/</guid>
+      <description>ory 的 editer 用于网页的编辑器，Online 应该说，这是高级应用了  我的目标，也就是这极限了。
+看了下源码，真的看晕了
+react, typescript, material-ui, redux, bootstrap
+单独一二项，看的明白，混在一起的. 科科
+ 虽然说，用react框架省去了些，步骤，redux做全局，meterial-ui 做 UI ，bootstrap 做 布局 部分，代码文件，后缀名是，.js 但是，应该是，用工具转代码的， 因为，变量数据格式，太凸显 ， 还是说用了其他的方式。
+editor/packages/renderer/src/index.js v0.2.10 line-8
+const gridClass = (size: number = 12): string =&amp;gt; `ory-cell-sm-${size}ory-cell-xs-12`   eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
+ 作者造搞了，自己的数据格式，主要通过 cells Raws
+状态是一个规范的JSON对象，不涉及HTML。
+也是为了，免xss威胁。
+行 列 去区分，显示
+editor/examples/src/content.js
+export default [ { &amp;#34;id&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;cells&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&amp;#34;, &amp;#34;inline&amp;#34;: null, &amp;#34;size&amp;#34;: 12, &amp;#34;rows&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&amp;#34;, &amp;#34;cells&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;39417572-f976-44b7-97b2-9a7e00fd66f2&amp;#34;, &amp;#34;inline&amp;#34;: null, &amp;#34;size&amp;#34;: 12,  用来对，服务器渲染，静态</description>
+    </item>
+    
+    <item>
+      <title>react-router v4 哎 路由</title>
+      <link>/pass-blog/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/</link>
+      <pubDate>Fri, 19 May 2017 15:43:39 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/</guid>
+      <description>react-router v4  react 的路由解决方案
+ 而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
+ &amp;lt;Route path=&amp;quot;/&amp;quot; component={App} /&amp;gt;  注意这个 ／
+比如我的 域名 llever.com
+当应用直接放在 llever.com/ 的时候，会实用。
+但是 如果我想 放在 llever.com/about/
+也正是我想做的.
+但是，本地测试 在 ／ :localhost:3000
+而， 我要放的地方在 /about/,
+万一，我想放在 /user/ 又去改，源码。妖
+资源路径 · 请求- 资源- 的 路径
+确保，刷新网页后，
+要是，服务器渲染，资源要对上啊。
+用 绝对路径 ，当我没说, 那还是用吧。（不用服务器渲染，真的好慢-首页）
+有没有，谁能 告诉我， 代码放哪，路由跟哪 的方法</description>
+    </item>
+    
+    <item>
+      <title>Redux 基础</title>
+      <link>/pass-blog/2017/04/24/redux-%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 24 Apr 2017 17:01:53 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/04/24/redux-%E5%9F%BA%E7%A1%80/</guid>
+      <description>一个世界(store)  redux的中心思想，一直是共享数据的理念
+ 只有一个更改数据的接口dispatch
+ 一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
+  创造数据中心 import { createStore } from &amp;#34;redux&amp;#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
+ const reducer = function( state, action ) { if (action.type === &amp;#34;Something&amp;#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &amp;#34;Another&amp;#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在</description>
+    </item>
+    
+    <item>
+      <title>React.Component use class or className</title>
+      <link>/pass-blog/2017/04/21/react.component-use-class-or-classname/</link>
+      <pubDate>Fri, 21 Apr 2017 13:32:14 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/04/21/react.component-use-class-or-classname/</guid>
+      <description>React 中 继承 React.Component react v15.4.1
+一般来说的做法是
+外层元素 用 className 里层元素 也用 className
+而在 fackbook文档-web Component 中
+例子中
+x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
+class HelloMessage3 extends React.Component { render() { return &amp;lt;div className=&amp;#39;new&amp;#39;&amp;gt; className=&amp;#39;new&amp;#39; &amp;lt;x-search class=&amp;#39;new2&amp;#39; &amp;gt;{this.props.name}&amp;lt;/x-search&amp;gt; &amp;lt;span className=&amp;#39;new2&amp;#39;&amp;gt;好&amp;lt;/span&amp;gt; class=&amp;#39;new2&amp;#39; &amp;lt;/div&amp;gt;; } } ReactDOM.render( &amp;lt;HelloMessage name=&amp;#39;1&amp;#39; /&amp;gt;, document.getElementById(&amp;#39;root&amp;#39;) );  Codepen Demo 参考 Codepen 参考
+.new{ color:red; } .new2{ color:blue; } 。。。。未完待续</description>
+    </item>
+    
+  </channel>
+</rss>

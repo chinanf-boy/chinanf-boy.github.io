@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Full Folder on 杂项博文</title>
+    <link>/pass-blog/tags/full-folder/</link>
+    <description>Recent content in Full Folder on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 01 Aug 2018 18:48:39 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/full-folder/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何将完整的文件夹放进hugo</title>
+      <link>/pass-blog/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/</link>
+      <pubDate>Wed, 01 Aug 2018 18:48:39 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/</guid>
+      <description>1. 有时,想加点东西到我们的 Hugo 比如: 例子啊, 书籍列表啊 可以通过http://example.com/full-folder 网址来看
+解决  根据 官方论坛-项目维护者 beq
+ 有三种替代方法可以包含“完整的外部HTML”：
+ 将HTML及其所有资源放在 /static中 将HTML放入 /content（将资源等放在 /content 或 /static 中） 与3相同，但前面有关系 我不会详细介绍3，它们应该易于测试 - 但最后2个可以包含模板语法，最后一个是带有布局和短代码等的内容文件。  最好是第一种方法 2. hugo server 其实, 不是很透明, 甚至, 我老觉得它有好多bug, 坑 最好是, 把 服务器 生成静态文件夹, 放在我们可以看到的位置, 这样, 是否有加什么, 减了什么, 能看到
+hugo server -d dev 3. hugo 生产 public 文件夹 只需要
+hugo 就可以了</description>
+    </item>
+    
+  </channel>
+</rss>

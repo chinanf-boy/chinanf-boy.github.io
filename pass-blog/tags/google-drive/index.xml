@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Drive on 杂项博文</title>
+    <link>/pass-blog/tags/google-drive/</link>
+    <description>Recent content in Google Drive on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 01 Aug 2018 10:56:37 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/google-drive/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>google 备份与同步 mac版无法登录问题</title>
+      <link>/pass-blog/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 01 Aug 2018 10:56:37 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/</guid>
+      <description>在中国
+问题1: 即便代理开了, 登录 google 备份与同步 应用 , 也登录不了 解决1: 可以试试 mac 切到 http 代理 解决2: 浏览器登录 如果也是错误的, 请把 代理扩展 - 代理协议 换成 http
+{% asset_img fix-2.png This is an image %}</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1519 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>杂项博文</title>
+    <link>/pass-blog/</link>
+    <description>Recent content on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 19 May 2019 10:25:27 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>（译）Flutter 官方样例索引</title>
+      <link>/pass-blog/2019/05/19/%E8%AF%91flutter-%E5%AE%98%E6%96%B9%E6%A0%B7%E4%BE%8B%E7%B4%A2%E5%BC%95/</link>
+      <pubDate>Sun, 19 May 2019 10:25:27 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/05/19/%E8%AF%91flutter-%E5%AE%98%E6%96%B9%E6%A0%B7%E4%BE%8B%E7%B4%A2%E5%BC%95/</guid>
+      <description>精选的样例列表 Github source
+此列表包含示例应用程序，演示和示例，可帮助您提高 Flutter 技能。有些是由 Flutter 团队在这里维护的，但很多都是由 Flutter 社区创建的，项目的保存不限于 GitHub 。
+这不是一个详尽的样例列表，没在这里列出的项目，并不意味着它不值得探索。同样，虽然 Flutter 团队努力使这个列表保持最新，但社区创建了很多其他的，例如来自@Solido 的Awesome Flutter 。
+请不要直接提交 PR，更新此文件。虽然我们总是很乐意学习来自社区的新样例，但我们需要保持这个文件很小。有很多用户维护的索引（比如Awesome Flutter）都是详尽无遗的，这些都是提交自己作品的好地方。
+怎样做-集合 Flutter 的例子           来自 Nishant Srivastava 的单主题示例集合。这些包括，从渐变到 JSON 到路由的所有内容。
+Flutter 示例应用程序           来自 Flutter GDE Pawan Kumar 的几十个例子。这些包括状态管理，Firebase，UI 设计和许多其他主题。每个都附带一个 YouTube 视频，显示实现过程。
+Flutter by Example           二十多个样例，详细说明了 Flutter 的常见任务：如何使用文本字段，流和 StreamBuilder 等等。</description>
+    </item>
+    
+    <item>
+      <title>QuickWords 快捷片段软件，可带有实时函数运行</title>
+      <link>/pass-blog/2019/05/10/quickwords-%E5%BF%AB%E6%8D%B7%E7%89%87%E6%AE%B5%E8%BD%AF%E4%BB%B6%E5%8F%AF%E5%B8%A6%E6%9C%89%E5%AE%9E%E6%97%B6%E5%87%BD%E6%95%B0%E8%BF%90%E8%A1%8C/</link>
+      <pubDate>Fri, 10 May 2019 15:11:48 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/05/10/quickwords-%E5%BF%AB%E6%8D%B7%E7%89%87%E6%AE%B5%E8%BD%AF%E4%BB%B6%E5%8F%AF%E5%B8%A6%E6%9C%89%E5%AE%9E%E6%97%B6%E5%87%BD%E6%95%B0%E8%BF%90%E8%A1%8C/</guid>
+      <description>img { box-shadow:none; }  Quickwords 本软件是用 electron 作为基底的软件，所以普遍来说，支持 3 大平台(Mac,Linux,Windows)。相关下载，请看安装表述。
+不过，还是先让我简单说说，好处都有啥。
+ 本软件到底是用什么的？
+ 在软件开启期间，会检测文字的输入，匹配设定的片段，执行并返回相应的内容。
+1. 文字片段(Plain Text)  一般性功能，就是返回文字片段。
+ 在 Snippets 设置，如图：
+2. 代码片段(JavaScript)  创新性功能，运行相应的函数，并有返回值。
+ ;date是执行 js 函数的，这个函数主要是返回，当前时间的格式表达。
+结果  编写本博文时， vscode 编辑器上的运行结果。
+ 更多，请查阅Github</description>
+    </item>
+    
+    <item>
+      <title>Mac 想法或思维概念 文字图工具: LinkedIdeas</title>
+      <link>/pass-blog/2019/05/10/mac-%E6%83%B3%E6%B3%95%E6%88%96%E6%80%9D%E7%BB%B4%E6%A6%82%E5%BF%B5-%E6%96%87%E5%AD%97%E5%9B%BE%E5%B7%A5%E5%85%B7-linkedideas/</link>
+      <pubDate>Fri, 10 May 2019 14:28:11 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/05/10/mac-%E6%83%B3%E6%B3%95%E6%88%96%E6%80%9D%E7%BB%B4%E6%A6%82%E5%BF%B5-%E6%96%87%E5%AD%97%E5%9B%BE%E5%B7%A5%E5%85%B7-linkedideas/</guid>
+      <description>  img { box-shadow: none; }     来源     Github    LinkedIdeas 本工具，主要给，那些零散的想法，一个放置的位置。它们总能在某个时刻，有所指引。
+主要操作 ***.idea是它保存的文件格式。
+ ⇧ ⏎ 是新放置一个文字框，打字，⏎确定。 按住⇧，在一个文字框上按住鼠标，移动到另一个文件框上(放鼠标)，箭头完成。   其他文字格式的快捷键，请看软件导航栏。主要是，字体啊，颜色啊，位置啊，这些变化。
+ </description>
+    </item>
+    
+    <item>
+      <title>系统中 Golang 版本，更新流程</title>
+      <link>/pass-blog/2019/05/05/%E7%B3%BB%E7%BB%9F%E4%B8%AD-golang-%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Sun, 05 May 2019 23:17:06 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/05/05/%E7%B3%BB%E7%BB%9F%E4%B8%AD-golang-%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B/</guid>
+      <description>Windows 系统使用者， 抱歉这里没有你要的。
+   来源     gist    如何更新 Go 的版本 下面解释，大概三种方法
+ brew 使用者，当我没说。
+ 一：常规方式 (没代理的，推荐)  Mac, Linux
+  1. 卸载现有版本  根据这里的官方文档，要更新一个 go 版本，你先要删除现有版本。
+常规来说，go 位于/usr/local/go目录，删除如下:
+sudo rm -rf /usr/local/go  2. 安装新的版本  去到下载页面，下载对应系统的压缩包。
+ 推荐：迅雷或其他 P2p 网络。
+  3. 解压  解压命令:
+sudo tar -C /usr/local -xzf $HOME/Downloads/go1.12.4.linux-amd64.tar.gz  4. 确保你的PATH包含/usr/local/go/bin  echo $PATH | grep &amp;#34;/usr/local/go/bin&amp;#34;  常规方式的问题：  1.</description>
+    </item>
+    
+    <item>
+      <title>Water.css 为简单而生的 css 框架</title>
+      <link>/pass-blog/2019/04/29/water.css-%E4%B8%BA%E7%AE%80%E5%8D%95%E8%80%8C%E7%94%9F%E7%9A%84-css-%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 29 Apr 2019 21:50:59 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/29/water.css-%E4%B8%BA%E7%AE%80%E5%8D%95%E8%80%8C%E7%94%9F%E7%9A%84-css-%E6%A1%86%E6%9E%B6/</guid>
+      <description>来源 https://github.com/kognise/water.css     官方Demo https://watercss.netlify.com    Water.css  Water.css is a just-add-css collection of styles to make simple websites like this just a little bit nicer. Get it already!  Now you can write your simple static site with nice semantic html, and Water.css will manage the styling for you. 
+Goals  Responsive Good code quality Good browser support Small size (&amp;lt; 2kb) Beautiful No classes</description>
+    </item>
+    
+    <item>
+      <title>Ekoparty 2017: 丝绸之路（译）</title>
+      <link>/pass-blog/2019/04/28/ekoparty-2017-%E4%B8%9D%E7%BB%B8%E4%B9%8B%E8%B7%AF%E8%AF%91/</link>
+      <pubDate>Sun, 28 Apr 2019 14:00:32 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/28/ekoparty-2017-%E4%B8%9D%E7%BB%B8%E4%B9%8B%E8%B7%AF%E8%AF%91/</guid>
+      <description>body{ background-color: #272b30; color:#f9f1f1; font-size:1.1em; } a { color:#f1851a; } pre { background-color: #272b30; font-weight: 500; font-size: 1rem; } p { color: #c8c8c8; } li code, p code { background-color: rgb(34, 40, 42) !important; color: #f1851a; } div.inner { background-color: #272b30; }  博文来源  源文 ：2017 9-21 ，作者：Krzysztof Stopczański
+ CTF：EKOPARTY 2017 积分：496 类别：网络
+描述  “我们永远不会再犯同样的错误，我们向你挑战，来吧，阅读我们的信息，看看你能不能获得一些 BTC！” - DPR
+https://silkroadzpvwzxxv.onion/
+ 在此网络挑战中，我们在 TOR 网络中，展示了一个网站。要访问它，我们可以使用Tor 浏览器，并使用像 curl 这样的命令行工具 torify，但 Tor 网络专用：</description>
+    </item>
+    
+    <item>
+      <title>CTFZONE 2017 财富的翅膀伴我左右 (译)</title>
+      <link>/pass-blog/2019/04/27/ctfzone-2017-%E8%B4%A2%E5%AF%8C%E7%9A%84%E7%BF%85%E8%86%80%E4%BC%B4%E6%88%91%E5%B7%A6%E5%8F%B3-%E8%AF%91/</link>
+      <pubDate>Sat, 27 Apr 2019 14:47:35 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/27/ctfzone-2017-%E8%B4%A2%E5%AF%8C%E7%9A%84%E7%BF%85%E8%86%80%E4%BC%B4%E6%88%91%E5%B7%A6%E5%8F%B3-%E8%AF%91/</guid>
+      <description>body{ background-color: #272b30; color:#f9f1f1; font-size:1.1em; } a { color:#f1851a; } pre { background-color: #272b30; font-weight: 500; } p { color: #c8c8c8; } li code, p code { background-color: rgb(34, 40, 42) !important; color: #f1851a; } div.inner { background-color: #272b30; }  博文来源  源文 ：2017 7-28 ，作者：Arkadiusz Wróbel
+  CTF：2017 年 CTFZONE 积分：921 类别：Web，PPC  描述  我们听说你的候选人，在竞选期间遇到了经济困难。如果被媒体发现，这将是一场灾难。你有一天的时间去解决这个问题。否则我们就毁了。记住，你应该不留下痕迹&amp;hellip;
+ 在第二天，我们也得到了一个提示：
+第一部分：网络 在我们打开提供的链接后，一开始，得到一个标准的登录/注册表单（带验证码，所以我们不能自动创建用户），就没有什么别的呢。
+首先，让我们用户名 codisec_writeup 注册，并查看服务页面内部的内容。
+好吧，没有太多东西&amp;hellip; 我们唯一能做的就是退出，其余的链接指向当前页面。</description>
+    </item>
+    
+    <item>
+      <title>EKOPARTY CTF 2017: SlowShell （译）</title>
+      <link>/pass-blog/2019/04/24/ekoparty-ctf-2017-slowshell-%E8%AF%91/</link>
+      <pubDate>Wed, 24 Apr 2019 23:45:13 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/24/ekoparty-ctf-2017-slowshell-%E8%AF%91/</guid>
+      <description>body{ background-color: #272b30; color:#f9f1f1; font-size:1.1em; } a { color:#f1851a; } pre { background-color: #272b30; } p { color: #c8c8c8; } li code, p code { background-color: rgb(34, 40, 42) !important; color: #f1851a; } div.inner { background-color: #272b30; }  博文来源  源文 ：2017 9-29 ，作者：Hubert Jasudowicz
+  CTF：EKOPARTY CTF 2017 积分：498（由 2 支团队解决） 类别：Web，RE  描述 在这次挑战中，我们获得了一个 Web 服务器 URL -http://hhvm.ctf.site:10080/，和两个用于运行服务的 shell 命令：
+$ hhvm --hphp -t hhbc -v AllVolatile=true --input-dir .</description>
+    </item>
+    
+    <item>
+      <title>ASIS CTF 2017 总决赛: 如果他发现…（译）</title>
+      <link>/pass-blog/2019/04/23/asis-ctf-2017-%E6%80%BB%E5%86%B3%E8%B5%9B-%E5%A6%82%E6%9E%9C%E4%BB%96%E5%8F%91%E7%8E%B0%E8%AF%91/</link>
+      <pubDate>Tue, 23 Apr 2019 19:32:46 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/23/asis-ctf-2017-%E6%80%BB%E5%86%B3%E8%B5%9B-%E5%A6%82%E6%9E%9C%E4%BB%96%E5%8F%91%E7%8E%B0%E8%AF%91/</guid>
+      <description>body{ background-color: #272b30; color:#f9f1f1; font-size:1.1em; } a { color:#f1851a; } pre { background-color: #272b30; } p { color: #c8c8c8; } li code, p code { background-color: rgb(34, 40, 42) !important; color: #f1851a; } div.inner { background-color: #272b30; }  博文来源  源文 ：2017 9-29 ，作者：Hubert Jasudowicz
+  CTF: ASIS CTF 2017 总决赛 分值: 343 类型: 数字取证  侦察 在此任务中，我们获得了一个名为 ifhe_Find_Out的文件。 让我们尝试找一些有关它的信息：
+$ file ifhe_Find_Out ifhe_Find_Out: data 嗯，这根本没用。是时候查看十六进制转储了：</description>
+    </item>
+    
+    <item>
+      <title>数据科学之五大问题类:降维,分类,聚类,强化,回归</title>
+      <link>/pass-blog/2019/04/22/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B9%8B%E4%BA%94%E5%A4%A7%E9%97%AE%E9%A2%98%E7%B1%BB%E9%99%8D%E7%BB%B4%E5%88%86%E7%B1%BB%E8%81%9A%E7%B1%BB%E5%BC%BA%E5%8C%96%E5%9B%9E%E5%BD%92/</link>
+      <pubDate>Mon, 22 Apr 2019 10:20:02 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/22/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E4%B9%8B%E4%BA%94%E5%A4%A7%E9%97%AE%E9%A2%98%E7%B1%BB%E9%99%8D%E7%BB%B4%E5%88%86%E7%B1%BB%E8%81%9A%E7%B1%BB%E5%BC%BA%E5%8C%96%E5%9B%9E%E5%BD%92/</guid>
+      <description>数据科学  起步：微软 Ai 学院
+ 本文来自，courses.edx.org
+机器学习，只是数据科学中，较为有效(鉴于现今形式，可以说是最时髦的)方式和解决方法。
+机器学习的类型 机器学习有三种主要类型：无监督学习，监督学习和强化学习。但是在本课程中，您将专注于前两个。这两种类型，能够让计算机能够通过检查大量数据，来执行通用任务。为了说明两者之间的区别，请考虑以下事项：
+假设你的名字是安吉，而你丈夫的名字是克雷格。你们都是有计划的人，都喜欢保留清单。事实上，您列出了您曾与之合作过的每家公司，以及有关它们的一些细节，例如它们的可靠性。克雷格也有一份清单。他的清单是他所做的每笔交易，以及有关这些交易的一些细节，例如交易项及其成本。
+ 无监督学习：你和克雷格决定进入计算机转售业务。作为数据驱动的人，您希望有所准备，因此您可以使用您的清单。经过整理，你注意到，销售电脑的公司似乎都位于一个叫做“硅谷”的地方。您还注意到评价最好的公司，是注重时尚外壳设计的公司。哦，除了这家名为“Fast-Computers”的公司，它有很棒的评论，但他们的电脑看起来，像是由一个 10 岁的人设计的。  无监督学习与此类似。给予计算机大量数据，其实电脑对这些数据没有任何概念。然而，它仍然能够确认数据中，是否存在任何有意义的分组和模式，以及，那些似乎不合适的数据实例！
+ 监督学习：克雷格对计算机转售挑战的态度是不同的。他真正感兴趣的是：  鉴于统计的数据，您应该为计算机定价多少钱？您应该以什么价格买一台电脑，以最大化您的利润？通过他的数据列表，他发现了计算机处理器速度，存储空间和成本之间的相互关系。事实上，克雷格能够计算出一个精确的方程式，来模拟这关系！他还能够创建一套“IF this AND that THEN transact”(如果这和那具备，那么交易)规则，来决定什么时候最好买或卖电脑。
+与无监督学习中，计算机不知道数据意味着什么不同，通过监督学习，计算机负责获取数据，然后拟合规则和方程式。一旦通过称为建模的过程，学习了这些通用规则，这套规则就可以给计算机，观察以前从未见过的数据。
+菜单 下面介绍，相关问题的五大对应方式。这一阶段，你理解问题核心，才能用对方法。一个对的问题，是答案的 50%。
+ 分类(Classification) 回归(Regression) 聚类(Clustering) 降维(Dimensionality Reduction) 强化学习(Reinforcement Learning)  分类(Classification) 分类的目标是确定，一个样本属于什么*类*。
+一个类可能就像*Windows 10 移动版本*，而样本可能是一堆*手机*。分类的工作方式，您必须为计算机提供大量手机样本，其中一些是*Windows 10 移动版*标签，剩余的是其他标签，就是&amp;hellip; *非 Windows 10 移动版*。有了足够的训练数据，分类器，最终(可能)能够概括出 Windows 10 手机的相似之处。那么，你就有了一台已训练的计算机，来弄清手机类型！
+ 一封邮件。你觉得它属于垃圾还是非垃圾邮件呢。
+ 更多分类例子  关键字：监督学习，分类。
+  标记为垃圾邮件和非垃圾邮件的电子邮件列表数据，然后，确定新收到的邮件是否实际上是垃圾邮件。 给出您朋友的许多不同图像，请对您的朋友之前从未见过的新图像，进行面部识别。 在接受了几本书的训练后，决定哪篇不明文章，是之前看过的作者写的。 给出一个身体症状列表，确定一个人有什么病。  分类属于监督学习领域，因为要使其发挥作用，您必须通过使用正确标记的记录示例，来引导它。在完成对计算机的训练后，您可以对新记录测试，进行评分，并查看其准确程度。
+回归(Regression) 回归的目标是预测许多样本中，相关(要素/特征)的*连续值*。连续值意味着输入的微小变化，导致输出的微小变化。</description>
+    </item>
+    
+    <item>
+      <title>不要从master分支,发出PR(译)</title>
+      <link>/pass-blog/2019/04/18/%E4%B8%8D%E8%A6%81%E4%BB%8Emaster%E5%88%86%E6%94%AF%E5%8F%91%E5%87%BApr%E8%AF%91/</link>
+      <pubDate>Thu, 18 Apr 2019 14:06:03 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/18/%E4%B8%8D%E8%A6%81%E4%BB%8Emaster%E5%88%86%E6%94%AF%E5%8F%91%E5%87%BApr%E8%AF%91/</guid>
+      <description>不要从 master 分支，发出 PR    来源 日期     https://blog.jasonmeridth.com 30 Mar 2012    问题： 您不会希望从 fork 项目的主分支，在Github.com发出 PR 到父级存储库，因为您添加到(fork)主分支的任何新更改，都将 自动 显示在 PR 中。这意味着，即便您没打算要的更改，也会出现在那里。
+解： 从 功能/主题(feature/topic) 分支发出 PR
+糟糕的情景：
+ Fork ABC 存储库 在本地克隆（git clone git@github.com:jmeridth/jekyll.git） 添加上游存储库（git remote add upstream git@github.com:mojombo/jekyll.git） 主分支上的，代码修复/功能添加  不要忘记添加测试/规格，并确保它们通过  提交代码（git add . &amp;amp;&amp;amp; git commit -m “awesome”） 从上游，拉取最新（git pull upstream master） 推送你的改变（git push origin master） 上Github网站看看  这里问题出现在，如果在 PR 被接受并合并之前，您继续在本地主分支上工作，并再次推送到您的 fork 项目。为什么这是一个问题 ？这就是一个问题，因为 PR 所基于的分支上，任何进一步的提交，都将 自动 添加到这个 PR 中。通常确切出现在，PR 被接受之前，请求您修复 它。</description>
+    </item>
+    
+    <item>
+      <title>V 编程语言 预先看</title>
+      <link>/pass-blog/2019/03/19/v-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E9%A2%84%E5%85%88%E7%9C%8B/</link>
+      <pubDate>Tue, 19 Mar 2019 12:19:36 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/03/19/v-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E9%A2%84%E5%85%88%E7%9C%8B/</guid>
+      <description>V 编程语言 为开发volt，创建快速，安全，编译的语言，很快，所有人都能用啦。
+2019 年中期，发布开源。
+   Github 网址 语法文档     https://github.com/vlang-io/V 英文+非官方中文    安装（2019.3.18官方未发布，但网页注释中有） 在 0.5 秒内，从源安装 V.
+wget vlang.io/v.c &amp;amp;&amp;amp; gcc -o v v.c 尝试 fn main() { types := [ &amp;#39;game&amp;#39;, &amp;#39;web&amp;#39;, &amp;#39;tools&amp;#39;, &amp;#39;GUI&amp;#39; ] for typ in types { println(&amp;#39;Hello, $typ developers!&amp;#39;) } } 快速编译 V 用一个 CPU 核心，能每秒编译 150 万行代码
+cd doom3/ wc -l doom3.v # 458 713 time v doom3.</description>
+    </item>
+    
+    <item>
+      <title>RealWorld.io 真实世界的全栈应用</title>
+      <link>/pass-blog/2019/03/19/realworld.io-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Tue, 19 Mar 2019 10:26:53 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/03/19/realworld.io-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8/</guid>
+      <description>img{ max-width: 33%; float:left; } img+img{ margin-left: 1rem; width:20%; } .blog-post p img { border: 2px dashed #f69c55; }  RealWorld.io 项目 虽然大多数“todo”演示提供了对框架功能不错的粗略一瞥，但它们通常不会传达，实际构建 真实 应用程序，所需的知识和视角。
+而 RealWorld 通过允许您选择任何前端（React，Angular 2 和更多）以及任何后端（Node，Django 等）来解决这个问题，并了解它们如何为现实世界提供动力，设计精美的 fullstack 应用程序称为“Conduit” —— Medium.com 完全相同 的克隆。
+   具体项目 Github     https://github.com/gothinkster/realworld    小样  仅列举我，较为知道的框架，更多组合请查看源项目
+  前端  React (1) with Redux (2) with MobX Vue Hyperapp  后端  Node (1) Express (2) NestJS (3) Koa GO (1) Gin (2) Echo (3) 干净的 Python (1) Django (2) Flask Rust (2) Rocket   前端 React with Redux React / Redux</description>
+    </item>
+    
+    <item>
+      <title>Vue Getnoabsbooks 看书已不再迅速</title>
+      <link>/pass-blog/2019/02/17/vue-getnoabsbooks-%E7%9C%8B%E4%B9%A6%E5%B7%B2%E4%B8%8D%E5%86%8D%E8%BF%85%E9%80%9F/</link>
+      <pubDate>Sun, 17 Feb 2019 14:38:18 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/02/17/vue-getnoabsbooks-%E7%9C%8B%E4%B9%A6%E5%B7%B2%E4%B8%8D%E5%86%8D%E8%BF%85%E9%80%9F/</guid>
+      <description>不知道有多少试过vue-getnoabsbooks 项目的仁 先抱歉一声，关于它的交流障碍问题
+ 演示页面  这个应用是因为我厌倦了广告弹窗(各种黄赌毒，作为新时代的三好青年&amp;hellip;这就是就是我)
+我搞了这些东东
+总思路 一： 通过，heroku 的免费平台，上传了getnoabsbooks 的 js 后台
+二： 再拿jsonstore 服务(当然也是免费)，作为简易数据存储，主要是书签与书籍存储，作为应用首页面
+三： 还有，就是简单的 Vue 应用，主要为请求(GET+POST)后台与看书相关的功能(自动阅读，字体大小，自动缓存等等)。
+通过后台对那些(daoban)网站，获取，冲洗，以及链接格式修正(改为 Vue 路由格式)，返回给 Vue 应用。
+并没有大刀阔斧地搞成一个，存好书字本身的网站，也没有所谓的用户(难度在于，有入门门槛，主要是部署这一系列东东)。
+但，就使用来说，自认为不错。
+ 甚至你可以直接，在http://llever.com/getNoAbsBooks/#/后面，加上书页面的网站链接，当然只能处理那么一两种格式网页。
+如：http://llever.com/getNoAbsBooks/#/https://m.zwdu.com/book/30586/11314042_2.html，就是一个示例，这种做法并不会存入书籍目录。
+ 不过，世界上没有免费的午餐，即便是有，也不是永远的。刚开始，jsonstore + daoban 网站 + heroku + vue 应用的交流速度还过得去，而现在出于某些不可抗力因素，之间交流越来越难受(主要是与 heroku 交流的障碍，谢谢祖国，还有自身，在一定时间内，若无活跃连接，会自动沉默，这就是导致第一次请求永远超时的原因)，常常出现请求超时的情况。
+我想，去广告功能方面，后台的冲洗是必不可少的，而又想在免费的道路上一直走下去，就目前而言，并未找到好的办法。
+我现在看书去广告的选择 我现在选用了手机浏览器自带的功能（Brave 浏览器，Iphone 版)，所谓去广告，其实只是 Brave 功能的一个缩影。 起作用的按钮是禁用脚本，由此可以看出，Brave 其实是个安全浏览器，它还有其他杂七杂八的(好/坏)东西(比如重启后，网页不见的诡秘)，虽然在界面，或是生态上，达不到其他大浏览器那般，但在看书去广告方面，绝对实用。</description>
+    </item>
+    
+    <item>
+      <title>系列 功能添加 Hugo theme</title>
+      <link>/pass-blog/2019/01/11/%E7%B3%BB%E5%88%97-%E5%8A%9F%E8%83%BD%E6%B7%BB%E5%8A%A0-hugo-theme/</link>
+      <pubDate>Fri, 11 Jan 2019 12:26:15 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/01/11/%E7%B3%BB%E5%88%97-%E5%8A%9F%E8%83%BD%E6%B7%BB%E5%8A%A0-hugo-theme/</guid>
+      <description> 此博文的 header 是
+--- title: &amp;quot;系列 功能添加 Hugo theme&amp;quot; date: 2019-01-11T12:26:15+08:00 categories: [&amp;quot;theme&amp;quot;] tags: [&amp;quot;series&amp;quot;] series: &amp;quot;我是系列博文哦&amp;quot; description: &amp;quot;series功能&amp;quot; draft: false ---  最重要的当然，是series: &amp;quot;我是系列博文哦&amp;quot; </description>
+    </item>
+    
+    <item>
+      <title>六个月领悟其他国家语言「youtube-TEDx」</title>
+      <link>/pass-blog/2019/01/03/%E5%85%AD%E4%B8%AA%E6%9C%88%E9%A2%86%E6%82%9F%E5%85%B6%E4%BB%96%E5%9B%BD%E5%AE%B6%E8%AF%AD%E8%A8%80youtube-tedx/</link>
+      <pubDate>Thu, 03 Jan 2019 09:39:56 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/01/03/%E5%85%AD%E4%B8%AA%E6%9C%88%E9%A2%86%E6%82%9F%E5%85%B6%E4%BB%96%E5%9B%BD%E5%AE%B6%E8%AF%AD%E8%A8%80youtube-tedx/</guid>
+      <description>五大原则，7 项行动 – 来自 https://www.youtube.com/watch?v=d0yGdNEWdn0
+五大原则  四个关键词: 专注，含义，相关性和记忆
+  Focus on language content that is relevant to you聚焦在与你相关的语言内容上 Use your New Language as Tool to communicate … From Day 1使用你的新语言，从第一天起就把它当成一个沟通的工具 When you first UNDERSTAND the MESSAGE , then you will unconsciously ACQUIRE the Language!当你第一次理解信息，你就会无形中学会这个语言 Physiological Training生理训练 Psycho-physiological STATE Matters!心理生理状态很重要  7 项行动  Listen A LOT泡脑子 Focus on getting the meaning FIRST （before the words）先掌握语意，再了解字义( 不知道，字义，又如何掌握 - 请出人类沟通的根本，肢体语言） Start Mixing！开始混合各种动名词，尽情玩乐 Focus on the Core专注那些核心(词） Get a Language Parent找个语言(人/群) , 友好往来 👬 Copy the face复制口部动作 “Direct Connect” to Mental Images图词 ‘直连’  第一周，要有个工具箱 (短语快用)  What is this?</description>
+    </item>
+    
+    <item>
+      <title>(译)搜索工具的功能比较</title>
+      <link>/pass-blog/2018/12/11/%E8%AF%91%E6%90%9C%E7%B4%A2%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83/</link>
+      <pubDate>Tue, 11 Dec 2018 11:54:27 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/12/11/%E8%AF%91%E6%90%9C%E7%B4%A2%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83/</guid>
+      <description>div.inner { margin: 0 4%; } tr td:nth-child(2n){ background-color: #ffdfac; } tr td:not(:first-child) code { background-color: #ffdfac; font-size: 14px; margin: 1px; display: block; padding: 5px; text-align: center; } tr th:not(:first-child) { width:14%; } th { position: static; } 
+返回 原文 | Github 存储库 |
+ack，ag，git-grep，GNU grep 和 ripgrep 的功能比较 如果您对图表有更新，请提交一个 issue。
+如果您发现此图表有用，请考虑为您运行的项目制作一个，即使它包含&amp;rdquo;竞争&amp;rdquo;项目。最好的项目可能不是你的项目，而这并没有错.
+   工具 ack ag git grep GNU grep rg     名称 ack 银色搜索者(The Silver Searcher) git grep GNU grep ripgrep   项目页面 https://beyondgrep.</description>
+    </item>
+    
+    <item>
+      <title>Goreleaser : 为多个平台构建Go二进制文件</title>
+      <link>/pass-blog/2018/12/09/goreleaser-%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Sun, 09 Dec 2018 09:54:07 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/12/09/goreleaser-%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BAgo%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/</guid>
+      <description>GoReleaser GoReleaser 为多个平台构建 Go 二进制文件，也可将 Homebrew 公式推送到 tap 存储库。所有这些都包含在你最喜欢的 CI 中。
+使用 GoReleaser 能自动，为生成 Github 项目的 release 页面的，可供下载的二进制文件
+ 下面是我的 howdoi(Golang)项目的发布页面   三个平台(MacOS,Linux,Windows)都有
+ 行列    官方文档 非官方中文翻译     https://goreleaser.com/ goreleaser-zh    用例 最好的基础例子，莫过于自己常用的东西，也就是我的 howdoi 项目
+ 这个例子，是让 travis 与 goreleaser 合作，的例子
+ 当然，前提是你要安装好-&amp;gt;
+.travis.yml # .travis.yml language: go addons: apt: packages: # needed for the nfpm pipe: # - rpm # needed for the snap pipe: # - snapcraft env: # needed for the snap pipe: # - PATH=/snap/bin:$PATH install: # needed for the snap pipe: # - sudo snap install snapcraft --classic # needed for the docker pipe services: - docker after_success: # docker login is required if you want to push docker images.</description>
+    </item>
+    
+    <item>
+      <title>NES.css 任天堂风格css框架 Yummy</title>
+      <link>/pass-blog/2018/12/06/nes.css-%E4%BB%BB%E5%A4%A9%E5%A0%82%E9%A3%8E%E6%A0%BCcss%E6%A1%86%E6%9E%B6-yummy/</link>
+      <pubDate>Thu, 06 Dec 2018 12:23:36 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/12/06/nes.css-%E4%BB%BB%E5%A4%A9%E5%A0%82%E9%A3%8E%E6%A0%BCcss%E6%A1%86%E6%9E%B6-yummy/</guid>
+      <description>NES(任天堂) css 框架    Github 库 Demo 页 中文     github demo readme-zh    Reaction    
+   
+   
+SNS   
+  
+  
+  
+Others       
+Controllers    
+yinwang-css 格式添加说明 此文件的头是这样的
+--- title: &amp;#39;NES.css 任天堂风格css框架 Yummy&amp;#39; date: 2018-12-06T12:23:36+08:00 categories: [&amp;#39;css&amp;#39;] tags: [&amp;#39;NES&amp;#39;] description: &amp;#39;NES.</description>
+    </item>
+    
+    <item>
+      <title>你应该使用pipenv啦</title>
+      <link>/pass-blog/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/</link>
+      <pubDate>Thu, 29 Nov 2018 10:03:56 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/</guid>
+      <description>我选择放弃所有的 Conda 构建 正如我一年前的博文:pipenv-快速构建虚拟 python 环境所叙述
+当时，pipenv 还只是一个选择，现在我爱它(python 虚拟的唯一选择)，谢谢所有贡献者
+如何删除 Ana(conda),基本就是删删删
+ 1 删. conda 主目录  where conda # 删掉  2 删. 应用目录下/Ana***.App(Mac) 3 删. Shell 配置 .bashrc之类的文件中，conda 主目录的 PATH 环境变量  Pipenv python 的多项目环境，在于项目与项目之间的requirements.txt列表，存在多版本的可能(基本可以认为是 100%的不同)。为了应对这种环境，就需要拆分 python 的关系库(包库)。
+入正题之前:
+确保纯净的 python 在pip install pipenv之前，使用where python确定，你使用的 python 是由官网下载的，不是系统自带的
+where pip pip: aliased to pip3 /Library/Frameworks/Python.framework/Versions/3.6/bin/pip /Library/Frameworks/Python.framework/Versions/3.6/bin/pip /usr/local/bin/pip # 系统的 正如你看到的，我是将pip别名(alias)为pip3，对python也做了python3的别名
+where python python: aliased to python3 /usr/bin/python # 系统的  alias  alias python=&amp;#34;python3&amp;#34; alias pip=&amp;#34;pip3&amp;#34; 安装  pip install pipenv pip install --upgrade pipenv升级  使用 主要也就那几个命令</description>
+    </item>
+    
+    <item>
+      <title>下载 Github项目子目录的方式</title>
+      <link>/pass-blog/2018/11/28/%E4%B8%8B%E8%BD%BD-github%E9%A1%B9%E7%9B%AE%E5%AD%90%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Wed, 28 Nov 2018 12:45:40 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/28/%E4%B8%8B%E8%BD%BD-github%E9%A1%B9%E7%9B%AE%E5%AD%90%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E5%BC%8F/</guid>
+      <description>目录  stackoverflow  1. 网站 2. 浏览器扩展  若只是简单的单个文件  1. curl   stackoverflow 1. 网站 GitZip 需要 Github token DownGit 亲测有效，但无分哪个真的强
+2. 浏览器扩展 以下扩展，源自 GitZip 作者
+ Chrome 扩展程序 | Firefox 插件  用法：(会有点权限问题)
+ 在任何 GitHub 存储库页面中。 只需双击您需要的项目即可。 单击右下角的下载按钮。（文件路径权限) 查看进度仪表板并等待浏览器触发下载器。 获取 ZIP 文件。  权限解决（也就是管理扩展程序的页面):
+若只是简单的单个文件 1. curl 可使用 curl 类似的
+curl -O https://raw.</description>
+    </item>
+    
+    <item>
+      <title>（译）Conda Install 搭配 Requirements.txt</title>
+      <link>/pass-blog/2018/11/22/%E8%AF%91conda-install-%E6%90%AD%E9%85%8D-requirements.txt/</link>
+      <pubDate>Thu, 22 Nov 2018 17:49:39 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/22/%E8%AF%91conda-install-%E6%90%AD%E9%85%8D-requirements.txt/</guid>
+      <description> 原文 | 2016-03-04
+问: 使用conda install --yes --file requirements.txt安装仅可用的包，没有错误  答:   第一个命令只是，遍历文件中的每行  $ while read requirement; do conda install --yes $requirement; done &amp;lt; requirements.txt   修改后: 如果你想，在conda install不可用的情况下，使用pip:  $ while read requirement; do conda install --yes $requirement || pip install $requirement; done &amp;lt; requirements.txt   可用于 Windows (来自 @Clay):  $ FOR /F &amp;quot;delims=~&amp;quot; %f in (requirements.txt) DO conda install --yes &amp;quot;%f&amp;quot; || pip install &amp;quot;%f&amp;quot;  </description>
+    </item>
+    
+    <item>
+      <title>Wechat(跳一跳)自动跳-(手机测试的部分能力)</title>
+      <link>/pass-blog/2018/11/22/wechat%E8%B7%B3%E4%B8%80%E8%B7%B3%E8%87%AA%E5%8A%A8%E8%B7%B3-%E6%89%8B%E6%9C%BA%E6%B5%8B%E8%AF%95%E7%9A%84%E9%83%A8%E5%88%86%E8%83%BD%E5%8A%9B/</link>
+      <pubDate>Thu, 22 Nov 2018 14:27:52 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/22/wechat%E8%B7%B3%E4%B8%80%E8%B7%B3%E8%87%AA%E5%8A%A8%E8%B7%B3-%E6%89%8B%E6%9C%BA%E6%B5%8B%E8%AF%95%E7%9A%84%E9%83%A8%E5%88%86%E8%83%BD%E5%8A%9B/</guid>
+      <description>其实网上说明很多，这里仅做小参    github iOS（12.1）+ MacOS（Mojave） 的图文说明     repo 简书    过程遇到的问题 1。 HomeBrew 下载 库出错 $ brew install &amp;lt;包名&amp;gt; Error: Your Xcode (1) is too outdated. 之类  答  brew update-reset 答案参考
+(Ana)Conda，运行手动版本失败 (虚拟环境名)$ conda install matplotlib # 之后，还是出错 (虚拟环境名)$ python wechat_jump_iOS_py3.py RuntimeError: Python is not installed as a framework. The Mac OS X backend will not be able to function correctly if Python is not installed as a framework.</description>
+    </item>
+    
+    <item>
+      <title>Power Mode与HackerTyper一VSCode扩展</title>
+      <link>/pass-blog/2018/11/21/power-mode%E4%B8%8Ehackertyper%E4%B8%80vscode%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Wed, 21 Nov 2018 17:24:09 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/21/power-mode%E4%B8%8Ehackertyper%E4%B8%80vscode%E6%89%A9%E5%B1%95/</guid>
+      <description>有趣的VSCode扩展 Power Mode 编码力量的体现
+ 个人觉得太抖了，最好的效果应该是Flames
+ 好了就这样，介绍完毕，
+HackerTyper 要展示你的编码，慢吞吞可不行
+更好的选择是VSCode扩展: vscode-hacker-typer
+它能记录，你的文字动向，保存下来，并在有需要的时候，play这段文字记录(你乱打就好了)
+作者的扩展演讲youtube，就是个经典例子，太有趣了</description>
+    </item>
+    
+    <item>
+      <title>警告 find在终端与shell脚本是不同的</title>
+      <link>/pass-blog/2018/11/21/%E8%AD%A6%E5%91%8A-find%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E6%98%AF%E4%B8%8D%E5%90%8C%E7%9A%84/</link>
+      <pubDate>Wed, 21 Nov 2018 14:47:31 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/21/%E8%AD%A6%E5%91%8A-find%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E6%98%AF%E4%B8%8D%E5%90%8C%E7%9A%84/</guid>
+      <description>find 命令可用于查找，文件系统的信息 如: 查找source目录下的所有匹配*.md的文件（终端）
+$ find ./source/**/*.md ./source/README.md ./source/readme.zh.md 终端却不能这么写 $ sh &amp;#34;find ./source/**/*.md&amp;#34; sh: find ./source/**/*.md: No such file or directory or
+# find-md.sh &amp;#34;find ./source/**/*.md&amp;#34;$ find-md.sh sh: find ./source/**/*.md: No such file or directory 解决: $(find ) # fix-find.sh list=&amp;#34;$(find ./source -type f -name \*.md)&amp;#34; echo &amp;#34;$list\n&amp;#34;;$ fix-find.sh ./source/README.md ./source/readme.zh.md  注意: 会有空行
+ # fix-find.sh list=&amp;#34;$(find ./source -type f -name \*.md)&amp;#34; for file in $list; do if [ !</description>
+    </item>
+    
+    <item>
+      <title>(译) GoAWK，一个用Go编写的AWK解释器</title>
+      <link>/pass-blog/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/</link>
+      <pubDate>Mon, 19 Nov 2018 13:07:34 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/</guid>
+      <description>原文 时间 原作者同意翻译     benhoyt blog 2018 年 11 月 github Issue    GoAWK，一个用 Go 编写的 AWK 解释器  简介：阅读 AWK 编程语言之后 我受到启发，用 Go 语言 为 AWK 编写了一个解释器。本文向你概述了什么是 AWK，描述了 GoAWK 的工作原理，我是如何进行测试的，以及我如何衡量和改进其性能。
+转至： AWK 概述 | 代码演练 | 测试 | 性能
+ 大目录 
+ AWK 概述 代码演练  词法分析器 解析器 分解器 解释器 主程序  我是如何测试它的  Lexer 测试 解析测试 解释器测试 命令行测试 AWK 测试套件 模糊测试  提高性能  我是如何分析的 性能改进 性能表现  从哪里来？</description>
+    </item>
+    
+    <item>
+      <title>Go 多并发 只要最快的一个正确返回 示例</title>
+      <link>/pass-blog/2018/11/07/go-%E5%A4%9A%E5%B9%B6%E5%8F%91-%E5%8F%AA%E8%A6%81%E6%9C%80%E5%BF%AB%E7%9A%84%E4%B8%80%E4%B8%AA%E6%AD%A3%E7%A1%AE%E8%BF%94%E5%9B%9E-%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Wed, 07 Nov 2018 11:06:59 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/07/go-%E5%A4%9A%E5%B9%B6%E5%8F%91-%E5%8F%AA%E8%A6%81%E6%9C%80%E5%BF%AB%E7%9A%84%E4%B8%80%E4%B8%AA%E6%AD%A3%E7%A1%AE%E8%BF%94%E5%9B%9E-%E7%A4%BA%E4%BE%8B/</guid>
+      <description>我们用Go 多个并发等待 Url请求 示例，改造
+code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;net/http&amp;#34; ) func main() { urls := []string{ &amp;#34;http://llever.com&amp;#34;, &amp;#34;http://llever.com/goreleaser-zh&amp;#34;, &amp;#34;http://llever.com/about/&amp;#34;, } jsonResponses := make(chan int) all := 0 for _, url := range urls { all++ // 这个 ++，可以改成 原子添加，但也没那么必要 	go getURL(url, jsonResponses) } index := 0 for response := range jsonResponses { // 等待 getURL 中 jsonResponses通道，返回 	index++ // 这个 ++，则大可不必 	if response !</description>
+    </item>
+    
+    <item>
+      <title>Go 多个并发等待 Url请求 示例</title>
+      <link>/pass-blog/2018/11/04/go-%E5%A4%9A%E4%B8%AA%E5%B9%B6%E5%8F%91%E7%AD%89%E5%BE%85-url%E8%AF%B7%E6%B1%82-%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Sun, 04 Nov 2018 12:34:22 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/04/go-%E5%A4%9A%E4%B8%AA%E5%B9%B6%E5%8F%91%E7%AD%89%E5%BE%85-url%E8%AF%B7%E6%B1%82-%E7%A4%BA%E4%BE%8B/</guid>
+      <description>Code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;sync&amp;#34; ) func main() { urls := []string{ &amp;#34;http://llever.com&amp;#34;, &amp;#34;http://llever.com/goreleaser-zh&amp;#34;, &amp;#34;http://llever.com/about/&amp;#34;, } jsonResponses := make(chan int) var wg sync.WaitGroup all := 0 for _, url := range urls { wg.Add(1) all++ go getURL(url, &amp;amp;wg, jsonResponses) } index := 0 for response := range jsonResponses { index++ fmt.Println(response) if all == index { close(jsonResponses) } } fmt.Println(&amp;#34;before done&amp;#34;) wg.Wait() } func getURL(url string, wg *sync.</description>
+    </item>
+    
+    <item>
+      <title>Golang Chroma 使用例子</title>
+      <link>/pass-blog/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</link>
+      <pubDate>Thu, 01 Nov 2018 10:30:33 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</guid>
+      <description>Chroma 通用语法高亮库    源码 翻译     github repo 中文    简略说一下，三点  要是屁话，不想听，直接上例子，或看中文翻译
+  1: lexers 词法分析器  主要是为了，知道你用的那串字符，是什么语言  2: styles 主题/样式  
+ 查看-&amp;gt;主题名称 
+[ abap, algol, algol_nu, arduino, autumn, borland, bw, colorful, dracula, emacs, friendly, fruity, github, igor, lovelace, manni, monokai, monokailight, murphy, native, paraiso-dark, paraiso-light, pastie, perldoc, pygments, rainbow_dash, rrt, solarized-dark, solarized-dark256, solarized-light, swapoff, tango, trac, vim, vsxcode ]</description>
+    </item>
+    
+    <item>
+      <title>(译)如何在VScode中使用Delve调试代码</title>
+      <link>/pass-blog/2018/10/29/%E8%AF%91%E5%A6%82%E4%BD%95%E5%9C%A8vscode%E4%B8%AD%E4%BD%BF%E7%94%A8delve%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 29 Oct 2018 16:02:30 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/10/29/%E8%AF%91%E5%A6%82%E4%BD%95%E5%9C%A8vscode%E4%B8%AD%E4%BD%BF%E7%94%A8delve%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/</guid>
+      <description>原文 日期     stackoverflow 2016-08-21    如何在VScode中使用Delve调试代码, 一步一脚印:  ( 注意: Windows 操作系统 要将 所有 $GOPATH 替换成 %GOPATH% )
+  安装Golang 和 设置 GOROOT and GOPATH。
+ 添加 $GOPATH/bin 到你的 OS PATH 环境变量。
+ 设置环境变量: GO15VENDOREXPERIMENT = 1
+ 运行: go get github.com/derekparker/delve/cmd/dlv， 并确保 dlv 二进制文件在你的$GOPATH/bin目录中生成。
+ 安装 Visual Studio Code
+ 启动 VS Code 快捷键(Ctrl+P), 输出以下命令: ext install Go , 点击Enter.</description>
+    </item>
+    
+    <item>
+      <title>Hugo 语法高亮与md序列显示问题</title>
+      <link>/pass-blog/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 17 Aug 2018 14:52:33 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</guid>
+      <description>1. hugo 内置 工具 Hugo在官方文档中 有 Pygments{python 写的}与Chroma{go 写的}（从0.30版本开始，集成了Chroma作为替代。）
+2. 引入 hightlight 类的库到 &amp;lt;head&amp;gt; 两种做法, 可看
+具体看 http://note.qidong.name/2017/06/24/hugo-highlight/
+3. 自定义css, 这一点其实不如上两种的通用, 这个方法更倾向 语法显示的修复 我的hugo语法高亮 我的 config.toml
+pygmentsCodeFences = true pygmentsCodefencesGuessSyntax = false pygmentsStyle = &amp;#34;dracula&amp;#34; pygmentsOptions = [&amp;#39;linenos&amp;#39;] 这个语法的显示有问题: 代码块的宽度被代码撑大了 答: 在 theme 下 /casper-two/layouts/partials/head.html 模版上,加 css
+&amp;lt;style&amp;gt; div.highlight { width:100%; } &amp;lt;/style&amp;gt; 相关问题 vue语法显示问题 答: 自定义css http://www.shawpo.me/post/hugo-markdown-code-style/
+hugo 的 markdown 解析器对 1. 第一 中间有东西的话 2. 第二 这个`2.`会变回`1.` 3. 第三 同上   的解析出现错误</description>
+    </item>
+    
+    <item>
+      <title>如何比较不同js库的相同功能的性能</title>
+      <link>/pass-blog/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/</link>
+      <pubDate>Fri, 17 Aug 2018 09:37:54 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/</guid>
+      <description>js库中的颜色库, 可以提供漂亮的色彩输出 它们的大小 其中名气最大的是 chalk, 绚丽多彩的颜色组合.
+但, 如果仅仅只需要 通用色彩的功能 来说, https://bundlephobia.com/result?p=chalk
+chalk 无疑是 过大了
+它们的速度  当然这里主要是讲它们的速度比较
+ 我们用turbocolor 的基准比较, 作为我们例子
+作者这样做的目的, 当然是为了表明它的快
+# turbocolor bench 包结构 readme.md # 说明如何运行,与结果报告 index.js # 基准-bench文件 ❤️ package.json # 建立独立的包依赖  const { Suite } = require(&amp;#34;benchmark&amp;#34;) // 基准测试的库  console.log(&amp;#34;# Load Time&amp;#34;) console.time(&amp;#34;chalk&amp;#34;) const chalk = require(&amp;#34;chalk&amp;#34;) console.timeEnd(&amp;#34;chalk&amp;#34;) console.time(&amp;#34;kleur&amp;#34;) const kleur = require(&amp;#34;kleur&amp;#34;) console.timeEnd(&amp;#34;kleur&amp;#34;) console.time(&amp;#34;ansi-colors&amp;#34;) const ansi = require(&amp;#34;ansi-colors&amp;#34;) console.timeEnd(&amp;#34;ansi-colors&amp;#34;) console.time(&amp;#34;turbocolor&amp;#34;) const turbocolor = require(&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Macbook屏幕修理记</title>
+      <link>/pass-blog/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/</link>
+      <pubDate>Sat, 11 Aug 2018 17:30:30 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/</guid>
+      <description>macbook问题描述 长时间使用电脑导致的, 长达二三个月, 每天都会出现
+ 屏幕下的黑框
+  一时无法移去的鼠标箭头
+ 解决 当然, 是找授权的维修店
+那么， 你最好最好是在保修期限内
+Mac 保修期限 Mac 电脑整机及所含附件自原始购买之日起享有 1 年保修期。 主要部件享有自购买之日起 2 年保修期。 Mac 台式电脑所有主要部件包括：主板 (MLB)、处理器 (CPU)、内存、硬盘 (HDD/SSD)、电源和显卡。 Mac 笔记本电脑所有主要部件范围包括主板 (MLB)、处理器 (CPU)、内存、硬盘 (HDD/SSD)、电源适配器、键盘和显示屏 (LCD)。 可另外购买 AppleCare Protection Plan 全方位服务计划。 维修方式 根据具体的故障情况对设备进行维修。 所有更换的部件和附件都是全新的。 更换的非主要部件和附件享受原有保修期的剩余时长或自更换日起 90 天的保修期，以二者中期限较长者为准。更换后的主要部件享有重新计算的 2 年保修期。  更多可看 https://support.apple.com/zh-cn/warranties
+那么官方预订维修 可通过 https://support.apple.com/zh-cn/repair/products
+店面需要的信息  个人身份证 (可与买电脑时不同) 买电脑的发票或电子发票之类 记得备份  这些信息, 在预约邮件都会有
+ 个人于 2016 12月买的电脑， 用得是QQ邮箱, 电子发票的邮件早已删除</description>
+    </item>
+    
+    <item>
+      <title>FiraCode 使用在 Vscode 的问题</title>
+      <link>/pass-blog/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 01 Aug 2018 13:09:07 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description> 如果你使用官方的办法 https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions
+成功, 将箭头改变了, 那就好了
+如果无法 请到 https://github.com/tonsky/FiraCode/releases 下载 压缩
+对应每个平台的系统字体应用, 将 下载的 字体文件夹 添加
+ macOS Windows Linux/Unix-based systems  比如: macOS
+记得把 Vscode 的配置 写好 &amp;#34;editor.fontFamily&amp;#34;:&amp;#34;&amp;#39;Fira Code&amp;#39;, Source Code Pro&amp;#34;, &amp;#34;editor.fontSize&amp;#34;: 13, &amp;#34;editor.fontLigatures&amp;#34;: true, </description>
+    </item>
+    
+    <item>
+      <title>让你的py优雅</title>
+      <link>/pass-blog/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/</link>
+      <pubDate>Wed, 01 Aug 2018 19:14:03 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/</guid>
+      <description>参考译文来自：www.lightxue.com/transforming-code-into-beautiful-idiomatic-python
+在Python社区文化的浇灌下，演化出了一种独特的代码风格，去指导如何正确地使用Python，这就是常说的pythonic。
+Raymond Hettinger是Python核心开发者，本文提到的许多特性都是他开发的。同时他也是Python社区热忱的布道师，不遗余力地传授pythoni c之道。这篇文章是网友Jeff Paine整理的他在2013年美国的PyCon的演讲的笔记。
+以下正文
+遍历一个范围内的数字 0 for i in [0, 1, 2, 3, 4, 5]: 1 print i ** 2 2 3 for i in range(6): 4 print i ** 2 更好的方法
+for i in xrange(6): print i ** 2 xrange会返回一个迭代器，用来一次 遍历一个范围。这种方式会比range更省内存。xrange在Python 3中已经改名为range。
+遍历一个集合 colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] for i in range(len(colors)): print colors[i] 更好的方法
+for color in colors: print color 反向遍历 colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] for i in range(len(colors)-1, -1, -1): print colors[i] 更好的方法</description>
+    </item>
+    
+    <item>
+      <title>google 备份与同步 mac版无法登录问题</title>
+      <link>/pass-blog/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 01 Aug 2018 10:56:37 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/google-%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%90%8C%E6%AD%A5-mac%E7%89%88%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/</guid>
+      <description>在中国
+问题1: 即便代理开了, 登录 google 备份与同步 应用 , 也登录不了 解决1: 可以试试 mac 切到 http 代理 解决2: 浏览器登录 如果也是错误的, 请把 代理扩展 - 代理协议 换成 http
+{% asset_img fix-2.png This is an image %}</description>
+    </item>
+    
+    <item>
+      <title>如何将完整的文件夹放进hugo</title>
+      <link>/pass-blog/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/</link>
+      <pubDate>Wed, 01 Aug 2018 18:48:39 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/</guid>
+      <description>1. 有时,想加点东西到我们的 Hugo 比如: 例子啊, 书籍列表啊 可以通过http://example.com/full-folder 网址来看
+解决  根据 官方论坛-项目维护者 beq
+ 有三种替代方法可以包含“完整的外部HTML”：
+ 将HTML及其所有资源放在 /static中 将HTML放入 /content（将资源等放在 /content 或 /static 中） 与3相同，但前面有关系 我不会详细介绍3，它们应该易于测试 - 但最后2个可以包含模板语法，最后一个是带有布局和短代码等的内容文件。  最好是第一种方法 2. hugo server 其实, 不是很透明, 甚至, 我老觉得它有好多bug, 坑 最好是, 把 服务器 生成静态文件夹, 放在我们可以看到的位置, 这样, 是否有加什么, 减了什么, 能看到
+hugo server -d dev 3. hugo 生产 public 文件夹 只需要
+hugo 就可以了</description>
+    </item>
+    
+    <item>
+      <title>批量修改文件名-cmd:bash</title>
+      <link>/pass-blog/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/</link>
+      <pubDate>Thu, 19 Jul 2018 10:59:18 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/</guid>
+      <description> 问题: 批量修改文件名 解决: bash 好耶, 无得顶啊 https://www.zhihu.com/question/21294798/answer/62848985
+写个bash,用 for循环mv文件. 比如改扩展名,把 .c 改成 .cpp
+for f in *.c ; do mv &amp;#34;$f&amp;#34; &amp;#34;${f/c/cpp}&amp;#34; ; done</description>
+    </item>
+    
+    <item>
+      <title>Hyper open in finder and 服务</title>
+      <link>/pass-blog/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Fri, 01 Jun 2018 15:26:56 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/06/01/hyper-open-in-finder-and-%E6%9C%8D%E5%8A%A1/</guid>
+      <description> 美丽的终端 Hyper 下面是 在 mac 上的快速启动
+open in finder https://github.com/ealeksandrov/cdto/releases/tag/2_8_0
+添加服务 也就是 文件夹 右键
+https://github.com/zeit/hyper/files/1800038/New.Hyper.Tab.at.Folder.workflow.zip
+更改 默认 终端 可更改 mac 上 默认开启的服务与应用
+http://www.rubicode.com/Downloads/RCDefaultApp-2.1.X.dmg
+ 官网 http://www.rubicode.com/Software/RCDefaultApp/
+ Passed mac high serirra 10.13.2 </description>
+    </item>
+    
+    <item>
+      <title>vue slot-scope 2.5.* example</title>
+      <link>/pass-blog/2018/03/11/vue-slot-scope-2.5.-example/</link>
+      <pubDate>Sun, 11 Mar 2018 13:21:37 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/03/11/vue-slot-scope-2.5.-example/</guid>
+      <description>都写在这里了 jsfiddle 🌰</description>
+    </item>
+    
+    <item>
+      <title>mac repl js go 大混杂</title>
+      <link>/pass-blog/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/</link>
+      <pubDate>Wed, 24 Jan 2018 15:53:30 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/</guid>
+      <description>这是我 mac 上 repl 软件-「js, go」 大混杂
+Go 语言 官方并没有给出，repl 交互环境
+所以有 gore 这类-终端的
+用起来，就像 node
+ 不过我想说得是   gophernotes jupyter Go 内核  没错，能在jupyter 上用内核，
+ 不过 -mac- 上无法使用
+ 但是你知道-docker 就十分方便了-也给出docker的入门中文
+docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
+当你想与容器-gophernotes- 互通数据文件
+docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes   -p 端口互通
+ --mount 可以文件夹互通
+ source 本地存在的文件夹 要自己新建
+ target 容器的文件夹
+    用alias 命名一下，就好用了</description>
+    </item>
+    
+    <item>
+      <title>pm2 window 开机启动</title>
+      <link>/pass-blog/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Mon, 22 Jan 2018 14:58:35 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/</guid>
+      <description> pm2 startup 开机启动 不支持 window 使用 pm2-windows-startup
+npm install pm2 -g npm install pm2-windows-startup -g pm2-startup install pm2 start myApp.js --name mySuperApp pm2 save # 重启电脑 pm2 ls 完成，就这么简单， tips 开机会有终端运行 </description>
+    </item>
+    
+    <item>
+      <title>position sticky 粘连定位</title>
+      <link>/pass-blog/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/</link>
+      <pubDate>Sat, 20 Jan 2018 20:25:56 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/</guid>
+      <description> position css 的 position 定位
+一般我们使用
+static relative absolute fixed 这四个
+现在有个实验的 粘连定位 position: sticky
+ 可以让我们 一边固定 一边滚动 出范围就不固定, 滚动查看 A-C-D.. 标签的位置
+ See the Pen 粘性定位 by braveyo (@china-boy) on CodePen.  </description>
+    </item>
+    
+    <item>
+      <title>yarn no sudo 设置</title>
+      <link>/pass-blog/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Fri, 22 Dec 2017 20:43:06 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/22/yarn-no-sudo-%E8%AE%BE%E7%BD%AE/</guid>
+      <description> yarn 全局下载时不使用 sudo 方法如下
+yarn global bin // 默认全局下载目录  开始设置 新建目录
+mkdir ~/.yarn-global  设置目录
+yarn config set prefix ~/.yarn-global  写入 .zshrc / .bashrc
+export PATH=&amp;quot;$PATH:$HOME/.yarn-global&amp;quot;  内容地址 </description>
+    </item>
+    
+    <item>
+      <title>目录环境加载 direnv</title>
+      <link>/pass-blog/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/</link>
+      <pubDate>Sun, 17 Dec 2017 20:39:21 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/</guid>
+      <description> direnv 它可以让你明白一个目录的意思，
+简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
+比如我 zsh
+# Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; 当然前提是要下载，在github 上就有很详细
+cd/my_project echo &amp;quot;echo &#39;hello this is my project&#39;&amp;quot; &amp;gt;&amp;gt; .envrc direnv allow  那么再你再进入这个目录时，自动运行 echo hello this is my project
+问题: 不需要 unloading or loading .envrc 之类的日志输出时。
+.zshrc
+# Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
+direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。  </description>
+    </item>
+    
+    <item>
+      <title>ChangeLog 生成器</title>
+      <link>/pass-blog/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/</link>
+      <pubDate>Sat, 16 Dec 2017 15:42:49 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/</guid>
+      <description>ChangeLog 生成器
+gem install github_changelog_generator 示例
+最好生成 github token 因为 github 限制了 每小时 50个请求 对于匿名用户
+快速token生成&amp;ndash;点击
+然后 把 获得 token id 放进 .bashrc or .zshrc
+# Add ChangeLog github token export CHANGELOG_GITHUB_TOKEN=&amp;#39;token id&amp;#39; 使用 在你的项目中，
+github_changelog_generator  or
+github_changelog_generator github_name/github_project  更多信息 github_changelog_generator --help  为什么 ChangeLog 重要 or 如何维护更新日志
+github库</description>
+    </item>
+    
+    <item>
+      <title>github hand fun vscode 用户自定义代码片段</title>
+      <link>/pass-blog/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/</link>
+      <pubDate>Wed, 06 Dec 2017 13:37:41 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/</guid>
+      <description>github 连接动画 小手摆摆 See the Pen githubLink by braveyo (@china-boy) on CodePen.  vscode 用户自定义代码片段 快速添加 github 动画连接
+ vscode软件 -&amp;gt; 首选项 -&amp;gt; 用户代码片段 -&amp;gt; 选择对应 HTML
+ 有个模版，你可以自己看看，或者 复制
+&amp;#34;Print github link&amp;#34;: { &amp;#34;prefix&amp;#34;: &amp;#34;ghand&amp;#34;, &amp;#34;body&amp;#34;: [ &amp;#34;&amp;lt;style&amp;gt;svg{fill:#fff;color:#151513;position:absolute;border:0;right:0}foreignObject,image,marker,pattern,svg:not(:root),symbol{overflow:hidden}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}.github-corner .octo-arm{-webkit-transform-origin:130px 106px;transform-origin:130px 106px}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}&amp;lt;/style&amp;gt;&amp;#34;, &amp;#34;&amp;lt;a class=\&amp;#34;github-corner\&amp;#34; href=\&amp;#34;$1\&amp;#34; aria-label=\&amp;#34;View source on Github\&amp;#34;&amp;gt;&amp;#34;, &amp;#34;&amp;lt;svg width=\&amp;#34;80\&amp;#34; height=\&amp;#34;80\&amp;#34; viewBox=\&amp;#34;0 0 250 250\&amp;#34; aria-hidden=\&amp;#34;true\&amp;#34;&amp;gt;&amp;lt;path d=\&amp;#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\&amp;#34;&amp;gt;&amp;lt;/path&amp;gt;&amp;lt;path class=\&amp;#34;octo-arm\&amp;#34; d=\&amp;#34;M128.</description>
+    </item>
+    
+    <item>
+      <title>mo.js 专注动画</title>
+      <link>/pass-blog/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Tue, 05 Dec 2017 23:43:05 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/</guid>
+      <description>css-trick-介绍
+ mo.js官网 github
+ 专注 运动图形工具
+具有声明式命令
+ See the Pen Geometric Mo.js Burst by braveyo (@china-boy) on CodePen.  也可以看看，点赞的优秀动画
+ 还有个 medium 中型拍手 例子
+ See the Pen Medium clap effect by braveyo (@china-boy) on CodePen.  所以的所有，去官网去找吧</description>
+    </item>
+    
+    <item>
+      <title>npx 不用下载全局包啦</title>
+      <link>/pass-blog/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/</link>
+      <pubDate>Mon, 04 Dec 2017 20:06:28 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/04/npx-%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%85%A8%E5%B1%80%E5%8C%85%E5%95%A6/</guid>
+      <description> 从 npm@5.2.0 开始 npx 被集合在了 npm
+ npx 让我们免于下载众多的全局包
+ cd you-project
+npx create-react-app my-react-app  Done! 不需要 npm i -g create-react-app  </description>
+    </item>
+    
+    <item>
+      <title>mrm 管理你的多个json</title>
+      <link>/pass-blog/2017/12/04/mrm-%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%A4%9A%E4%B8%AAjson/</link>
+      <pubDate>Mon, 04 Dec 2017 20:05:58 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/04/mrm-%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%A4%9A%E4%B8%AAjson/</guid>
+      <description>mrm 对自己众多的配置文件，烦恼吗 ？！
+就像下面这些
+codecov contributing editorconfig eslint gitignore jest license lintstaged package prettier readme semantic-release styleguidist stylelint travis typescript
+mrm 项目
+帮助你管理你的配置
+npx mrm gitignore // 一个 .gitignore 就在运行目录 如何定义
+mkdir ~/dotfiles || cd ~/dotfiles &amp;amp;&amp;amp; mkdir mrm || cd mrm npm init -y npm i --save mrm-core 如  gitignore
+～/dotfiles/mrm/&amp;lt;Task&amp;gt;/index.js
+// Mrm module to work with new line separated text files const {lines} = require(&amp;#39;mrm-core&amp;#39;); function task() { // Read .</description>
+    </item>
+    
+    <item>
+      <title>Travis Ci 测试以及 发布 npm</title>
+      <link>/pass-blog/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/</link>
+      <pubDate>Tue, 21 Nov 2017 20:57:30 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/21/travis-ci-%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A-%E5%8F%91%E5%B8%83-npm/</guid>
+      <description> translate-js 在我的 项目发布问题上
+ISSUE3
+主要问题 在于 travis CI 识别 Npm-version-标签的 提交
+git push --tags  进一步，通过我的 Npm api token，帮我提交,在测试通过的情况下
+在我提交多个标签
+到 github
+v2.1 v2.2 v2.3
+但是 Travis Ci 的测试顺序 是反过来的，也就是说，我Npm的版本变成了
+v2.1 可以看 </description>
+    </item>
+    
+    <item>
+      <title>hugo i18n </title>
+      <link>/pass-blog/2017/11/15/hugo-i18n/</link>
+      <pubDate>Wed, 15 Nov 2017 23:31:55 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/15/hugo-i18n/</guid>
+      <description>双语 hugo的国际化 由源于 内置 go-i18n
+方式 一: 翻译 string  类似与 菜单栏 nav
+ 有两种方式
+ 在项目根目录  创建 i18n 文件夹
+i18n
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &amp;quot;home&amp;quot;  zh.toml
+[home] other = &amp;quot;主页&amp;quot;  上面的设置好后，在 模版主题中使用
+*.html
+{{ i18n &amp;quot;home&amp;quot; }}  这样在
+html 头的带领下 呈现 en/zh.toml
+&amp;lt;html lang=&amp;#39;en&amp;#39;&amp;gt;  第二种   根目录中
+ config.toml
+defaultContentLanguage = &amp;quot;en&amp;quot; # 这里是 默认网址 https://example.com # 如果是 true https://example.</description>
+    </item>
+    
+    <item>
+      <title>hugo templete 语法</title>
+      <link>/pass-blog/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Tue, 14 Nov 2017 17:48:57 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/</guid>
+      <description>--- title: &amp;quot;Hugo Template&amp;quot; date: 2017-11-14T15:39:48+08:00 description: &amp;quot;a hugo template example&amp;quot; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg ---  hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
+{{ block &amp;quot;main&amp;quot; . }}{{ end }}   定义 区域块
+ 其他 html themes/youthemes/layouts/_default/list.html
+{{ define &amp;quot;main&amp;quot; }} {{ end }}   注意⚠️ themes/youthemes/layouts/_default/single.html
+themes/youthemes/layouts/_default/list.html
+ 对于，Hugo 来说，网站分为 index.html list.html single.html
+ 根目录文件夹中
+ 在 content 文件夹下 就是 路由
+content about // list.</description>
+    </item>
+    
+    <item>
+      <title>vscode git lens</title>
+      <link>/pass-blog/2017/11/14/vscode-git-lens/</link>
+      <pubDate>Tue, 14 Nov 2017 16:03:39 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/14/vscode-git-lens/</guid>
+      <description>安利安利 git lens
+加强 git 文件之间 改动
+细分到 每一行由谁改</description>
+    </item>
+    
+    <item>
+      <title>hugo hexo 傻傻分不清出 GO实现</title>
+      <link>/pass-blog/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 14 Nov 2017 15:08:32 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/</guid>
+      <description>hugo  像 hexo 一样的 静态网站生成
+ 重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
+ 不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
+三部走
+ 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml 噢不止三步, 那四部 - 加文章
+hugo new posts/my-first-post.</description>
+    </item>
+    
+    <item>
+      <title>zsh completion tab 补全提示</title>
+      <link>/pass-blog/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/</link>
+      <pubDate>Tue, 14 Nov 2017 14:17:47 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/14/zsh-completion-tab-%E8%A1%A5%E5%85%A8%E6%8F%90%E7%A4%BA/</guid>
+      <description>&lt;h1 id=&#34;npm-和-git-补全噢&#34;&gt;npm 和 git 补全噢😯&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;npm &amp;lt;Tab&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;会补全命令&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm&lt;/code&gt;实现代码
+&lt;a href=&#34;https://github.com/npm/npm/blob/master/lib/utils/completion.sh&#34;&gt;https://github.com/npm/npm/blob/master/lib/utils/completion.sh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;npm completion&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;code&gt;git&lt;/code&gt; 实现代码&lt;/p&gt;
+
+&lt;p&gt;分终端（zsh,bash..) 分实现文件
+&lt;a href=&#34;https://github.com/git/git/blob/master/contrib/completion&#34;&gt;https://github.com/git/git/blob/master/contrib/completion/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;因为&lt;code&gt;npm&lt;/code&gt; 的实现文件只有一个，懒为主。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;我的是 zsh&lt;/p&gt;
+
+&lt;p&gt;首先定义一个&lt;code&gt;可执行文件 sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;test_completion.sh&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if type compdef &amp;amp;&amp;gt;/dev/null; then
+
+    _test_completion() {
+    }
+
+    compdef _test_completion npm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当你运行上面 什么都没有的 文件时&lt;/p&gt;
+
+&lt;p&gt;or 复制 &lt;code&gt;then&lt;/code&gt; 后面那段代码，粘贴到 命令行运行也可以。&lt;/p&gt;
+
+&lt;p&gt;之前&lt;code&gt;npm &amp;lt;Tab&amp;gt;&lt;/code&gt; 的 提示就会没有&lt;/p&gt;
+
+&lt;p&gt;## 代码分解&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;if type&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;是为了判断 &lt;code&gt;compdef&lt;/code&gt; 是否存在 这是 &lt;code&gt;zsh&lt;/code&gt; 定义的 函数命令&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;amp;&amp;gt;/del/null&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;应该是把 错误 文件化 放到 /dev/null&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;compdef _test_completion npm&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这里有三个变量&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;compdef 是 函数调用&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;_test_completion 是 &lt;code&gt;compdef&lt;/code&gt; 的第一个变量，用来定义 补全规则&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;compdef(_test_completion)&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;npm 是 &lt;code&gt;compdef&lt;/code&gt; 的第二个变量。补全对象&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;compdef( _test_completion, npm )&lt;/p&gt;
+
+&lt;p&gt;只要把 npm 替换成 git 那么，&lt;/p&gt;
+
+&lt;p&gt;git 的 补全命令 也会被替换 什么都没有。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;补全规则&#34;&gt;补全规则&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;_test_completion(){
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;zsh 实现了 简便的 命令添加-函数&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;compadd&#34;&gt;compadd&lt;/h2&gt;
+
+&lt;p&gt;源代码中主要&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;    compadd -- &lt;span style=&#34;color:#ff79c6&#34;&gt;$(&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_CWORD&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;$((&lt;/span&gt;CURRENT-1&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_LINE&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;$BUFFER&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;COMP_POINT&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 npm completion -- &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;words&lt;/span&gt;[@]&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&lt;/span&gt;                 &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;&amp;gt;/dev/null&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这样的 ,不难看出 &amp;ndash; $ 后面就是 compadd函数 - 变量定义&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;源文档太大了，截掉什么看看区别&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;当我把 &lt;code&gt;npm completion -- &amp;quot;${words[@]}&amp;quot; \&lt;/code&gt; 剪掉&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm &amp;lt;Tab&amp;gt;&lt;/code&gt;什么提示都没有了，看来这就是秘密。&lt;/p&gt;
+
+&lt;p&gt;不过我们看了终点，不如回到原点。加加看&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;示例&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;    _test_completion&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+        compadd -- install
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+    compdef _test_completion npm &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ npm &amp;lt;tab&amp;gt;
+
+$ npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;噢 那么就会提示 install&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;再试试&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;    _test_completion() {
+        echo &amp;quot;${words[@]}&amp;quot; 
+        echo $CURRENT
+        echo $BUFFER
+        compadd -- install up
+    }
+    compdef _test_completion npm 
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>hexo-disqus-proxy-heroku 发布 感觉一般般</title>
+      <link>/pass-blog/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/</link>
+      <pubDate>Tue, 17 Oct 2017 19:12:08 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/</guid>
+      <description> fork 别人项目 源地址
+改成heroku做服务端
+去掉 port fix 样式 bug react -&amp;gt; preact 大小 从 400多k 到 100多K </description>
+    </item>
+    
+    <item>
+      <title>heroku web  port 问题</title>
+      <link>/pass-blog/2017/10/17/heroku-web-port-%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 17 Oct 2017 16:13:05 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/17/heroku-web-port-%E9%97%AE%E9%A2%98/</guid>
+      <description>本文说明，一点heroku疑问
+procfile heroku运行的命令文件
+web worker clock  本地项目可以 查看procfile
+heroku ps  可以使用 js的web框架express koa
+web: node index.js  但是 app.listen(port) 一定要是他们定下来的
+var port = process.env.PORT  同理 python
+import os os.environ[&amp;#39;POST&amp;#39;] 这样，heroku转路由 直接网址-就能看到了</description>
+    </item>
+    
+    <item>
+      <title>Slack-Hubot-use-py-or-js</title>
+      <link>/pass-blog/2017/10/09/slack-hubot-use-py-or-js/</link>
+      <pubDate>Mon, 09 Oct 2017 20:17:57 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/09/slack-hubot-use-py-or-js/</guid>
+      <description> Slack 的机器人 和Slack上的机器人发命令
+在服务器布置的 接收 处理
+下面是两个，简单的构建示例
+1.用python SlackClient 简单构建 github代码
+2.用Hubot与Slack结合 js github代码
+区别是  使用语言不同
+ hubot是一个完备的框架
+  </description>
+    </item>
+    
+    <item>
+      <title>pipenv 快速构建虚拟python环境</title>
+      <link>/pass-blog/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Mon, 09 Oct 2017 08:15:28 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/</guid>
+      <description>pipenv python的快速构建虚拟环境 使用 pip install pipenv  搭建 pipenv --three pipenv --two   &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境共用 必须保证，下载 pipenv的pip，是纯净的python 2. 运行 pipenv &amp;ndash;three ，如果出现错误，像我 因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建， 但是之前说了，为了纯净，这就会发生错误。
+$ pipenv --three error $ which python anaconda/bin/python  ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
+Mac oX 系统
+$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6  更多 Github 官网</description>
+    </item>
+    
+    <item>
+      <title>ionic Going</title>
+      <link>/pass-blog/2017/10/06/ionic-going/</link>
+      <pubDate>Fri, 06 Oct 2017 19:25:25 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/06/ionic-going/</guid>
+      <description>似流程，不是流程 下载问题可看上一篇文章
+ionic 是一套使用 javascript html css 技术构建 手机原生应用的 框架 从这里就可以看出，困难的地方就是，如何转换，原生应用，这点上 ionic 帮我们做了，
+不仅如此，还做了分享平台，测试应用的快速教程和应用，不可谓不大大的良心
+命令行下载 npm install -g cordova ionic   cordova 是 为了 神不知鬼不觉 的 构建原生应用 后续
+ 主要网站 官网：http://ionicframework.com/
+分享部署平台和主要代码管理和测试：https://dashboard.ionicjs.com/
+网上编辑器可拖拉搞定：https://creator.ionic.io/app/dashboard
+手机应用—— ionic view 与分享平台结合
+官方文档真的很棒，不过要翻墙，上面大部分 使用 Angular 与 sass 和 TypeScript 作为 编写条件 不过可以试试第一个官方应用 ionic start myApp tabs  服务器
+ionic serve  链接平台,要有账号,在这一步通过与本身项目链接 自动 git remote add ionic [你的项目.git]
+这个过程还会配合ssh
+ionic link [可选项 项目唯一id]  部署功能与Ionic Pro Git工作流配合使用，可在生产（或测试）应用程序中部署新的代码更新。</description>
+    </item>
+    
+    <item>
+      <title>ionic 项目 npm问题解决</title>
+      <link>/pass-blog/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Fri, 06 Oct 2017 16:52:29 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description> ionic项目 问题
+npm install  主要问题在于 node-sass node 版本 要求 我最后使用 8.0
+使用 n
+和
+python 版本要求 2.5&amp;lt;x&amp;lt;3.0
+使用 conda
+去改变 版本
+npm rebuild node-sass --force  </description>
+    </item>
+    
+    <item>
+      <title>node 命令行应用 与 npm 包发布</title>
+      <link>/pass-blog/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Sun, 01 Oct 2017 09:27:06 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/01/node-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8-%E4%B8%8E-npm-%E5%8C%85%E5%8F%91%E5%B8%83/</guid>
+      <description>先讲讲 Npm
+NPM NPM是随NodeJS一起安装的包管理工具, 能解决NodeJS代码部署上的很多问题, 以下是常见的使用场景:
+让用户从NPM服务器下载别人编写的命令程序到本地使用 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用
+安装 新版的nodejs已经竟成了NPM,所以NPM也一并安装上了.检查是否成功安装NPM,可以在终端输入以下命令来测试是否安装成功
+npm -v  更新NPM版本的命令: sudo npm install npm -g  使用 npm安装nodejs模块语法格式:
+npm install 全局安装与本地安装 npm的包安装分为本地安装 (local) 和 全局安装 (global) 两种
+npm install express //本地安装 npm install express -g //全局安装  两者的区别 本地安装: 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。 可以通过 require() 来引入本地安装的包。
+全局安装: 将安装包放在 /usr/local 下。 可以直接在命令行里使用。 不能通过 require() 来引入本地安装的包。
+可以用以下命令来查看所有全局安装的模块:
+npm ls -g  Package.</description>
+    </item>
+    
+    <item>
+      <title>Mac 使用 NTFS </title>
+      <link>/pass-blog/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/</link>
+      <pubDate>Tue, 26 Sep 2017 08:32:59 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/09/26/mac-%E4%BD%BF%E7%94%A8-ntfs/</guid>
+      <description> 本机：10.12.4版本 Mounty：1.6(9)
+介绍 Mac 使用 NTFS 方法 直接下载 安装包或查看官网
+官方网址
+下载链接
+ 或
+ 你有 Homebrew , 你可以
+brew cask install mounty 注意 使用 Mounty 是为了，windows和 mac 文件复制／粘贴
+请确保U盘之类： 正确-推出 ✅
+避免： 直接拔出 ❌
+不正确的操作，会导致BUG,和一定后果 可看官网 下拉 到下面标题
+Some questions that might come up  </description>
+    </item>
+    
+    <item>
+      <title>highlight-css样式列表</title>
+      <link>/pass-blog/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/</link>
+      <pubDate>Fri, 22 Sep 2017 12:58:02 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/09/22/highlight-css%E6%A0%B7%E5%BC%8F%E5%88%97%E8%A1%A8/</guid>
+      <description> 代码高亮 正如 hexo 就是使用 highlight.js 的插件
+通过CDN可以快速获取 highlight.js 的源码
+ 但是
+ 没有 css文件也是白瞎
+噢，好险，highlight.js官方上 多种风格与语言列表预览
+当你，查看网站资源获取时，它是一下子收多个css文件，所以有点慢加载
+想用哪个用哪个
+  没人想全要吧~|!
+  比如： CSsdarcula风格网站文件
+&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://highlightjs.org/static/demo/styles/dracula.css&amp;#34;&amp;gt;  源码样式文件——github
+下面有个 codepen 的例子
+See the Pen highlight_无本地例子 by braveyo (@china-boy) on CodePen.  </description>
+    </item>
+    
+    <item>
+      <title>vscode 扩展Api实践</title>
+      <link>/pass-blog/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Wed, 13 Sep 2017 21:45:35 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/</guid>
+      <description>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
+安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
+yo code  更多详情 创建扩展的文件夹
+扩展API流程 的介绍 扩展清单： package.json contributes &amp;quot;contributes&amp;quot;: { &amp;quot;commands&amp;quot;: [{ &amp;quot;command&amp;quot;: &amp;quot;extension.sayHello&amp;quot;, &amp;quot;title&amp;quot;: &amp;quot;Hello World&amp;quot; }] }  调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&amp;rdquo;Hello world&amp;rdquo;调用命令&amp;rdquo;extension.sayHello&amp;rdquo;
+activationEvents 启动事件—通过命令也就是 contributes 中 &amp;quot;Hello World&amp;quot;
+&amp;quot;activationEvents&amp;quot;: [ &amp;quot;onCommand:extension.sayHello&amp;quot; ]  启动事件—当语言为markdown
+&amp;quot;activationEvents&amp;quot;: [ &amp;quot;onLanguage:markdown&amp;quot; ]  示例 extension.ts 你好世界 import * as vscode from &amp;#39;vscode&amp;#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console.</description>
+    </item>
+    
+    <item>
+      <title>pip npm conda 换下载源</title>
+      <link>/pass-blog/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/</link>
+      <pubDate>Tue, 12 Sep 2017 10:09:44 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/</guid>
+      <description> Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
+npm --registry https://registry.npm.taobao.org install express  2.持久使用
+npm config set registry https://registry.npm.taobao.org  3.通过cnpm
+npm install -g cnpm --registry=https://registry.npm.taobao.org  二、使用官方镜像
+npm config set registry https://registry.npmjs.org/  三、查看npm源地址
+npm config get registry  </description>
+    </item>
+    
+    <item>
+      <title>windows7 pylint ASCII 问题解决</title>
+      <link>/pass-blog/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Fri, 08 Sep 2017 22:22:36 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/09/08/windows7-pylint-ascii-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>问题描述:
+UnicodeEncodeError: &amp;#39;ascii&amp;#39; codec can&amp;#39;t encode characters in position 1-5: ordinal not in range(128)  原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码。  解决办法是：
+ 在python目录 Python27\Lib\site-packages 建一个文件
+sitecustomize.py
+内容写：
+import sys sys.setdefaultencoding(&amp;#39;gbk&amp;#39;)  python会自动运行这个文件。
+参考链接：https://www.v2ex.com/t/90659</description>
+    </item>
+    
+    <item>
+      <title>Python核心编程第三版-第二章代码运行 问题解决</title>
+      <link>/pass-blog/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Fri, 08 Sep 2017 12:46:40 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>当在windows和Mac上，练习对应的代码时
+非常明显的错误就在于 传输类型
+TypeError: a bytes-like object is required, not &amp;#39;str&amp;#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &amp;#39;str self.wfile.write(b&amp;#39;[%s] %s&amp;#39; % (bytes(ctime(), &amp;#39;utf-8&amp;#39;), bytes(self.rfile.readline(), &amp;#39;utf-8&amp;#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
+所以需要使用
+ bytes() 函数
+ 以下是可以正常运行的代码
+from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &amp;#34;&amp;#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&amp;#39;connect.</description>
+    </item>
+    
+    <item>
+      <title>Anaconda conda command not found : 解决</title>
+      <link>/pass-blog/2017/08/12/anaconda-conda-command-not-found-%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Sat, 12 Aug 2017 09:58:18 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/08/12/anaconda-conda-command-not-found-%E8%A7%A3%E5%86%B3/</guid>
+      <description>conda  是 Anaconda 的 命令行
+ 因为使用zsh终端后，conda路径失去了
+ohmyzsh
+$ conda conda command not found 解决 export PATH=&amp;quot;/home/username/miniconda/bin:$PATH&amp;quot; source ~/.zshrc   zsh中 .zshrc
+//error: export PATH = &amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; //right export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34;  不要保持良好的代码格式,会出错
+ 参考 stackoverflow .zshrc保持不空格</description>
+    </item>
+    
+    <item>
+      <title>Preact 小React</title>
+      <link>/pass-blog/2017/06/16/preact-%E5%B0%8Freact/</link>
+      <pubDate>Fri, 16 Jun 2017 17:04:46 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/06/16/preact-%E5%B0%8Freact/</guid>
+      <description> Preact webSite
+See the Pen Preact Kickstart by Jason Miller (@developit) on CodePen.  import { h, render, Component } from &amp;#39;preact&amp;#39; </description>
+    </item>
+    
+    <item>
+      <title>React-Redux 父-Provider 子-connect</title>
+      <link>/pass-blog/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/</link>
+      <pubDate>Wed, 14 Jun 2017 15:53:45 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/06/14/react-redux-%E7%88%B6-provider-%E5%AD%90-connect/</guid>
+      <description>来源 Redux作者
+React-Redux  两个主要 Api Provider connect
+ 先放一边
+React 的 context context 实现了，一个全局变量
+const PropTypes = require(&amp;#39;prop-types&amp;#39;); class Button extends React.Component { render() { return ( //################ &amp;lt;button style={{background: this.context.color}}&amp;gt; {this.props.children} &amp;lt;/button&amp;gt; ); } } //################ Button.contextTypes = { color: PropTypes.string }; class Message extends React.Component { render() { return ( &amp;lt;div&amp;gt; {this.props.text} &amp;lt;Button&amp;gt;Delete&amp;lt;/Button&amp;gt; &amp;lt;/div&amp;gt; ); } } class MessageList extends React.Component { //################  getChildContext() { return {color: &amp;#34;purple&amp;#34;}; } render() { const children = this.</description>
+    </item>
+    
+    <item>
+      <title>Redux combineReducers js 作者简单实现</title>
+      <link>/pass-blog/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 13 Jun 2017 10:39:06 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/06/13/redux-combinereducers-js-%E4%BD%9C%E8%80%85%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
+      <description> 来源 Redux作者入门教程
+combineReducers  js 简单实现
+ const combineReducers = (reducers) =&amp;gt;{ return (state = {}, action) =&amp;gt;{ return Object.Keys(reducers).reduce( (nextState, key) =&amp;gt;{ nextState[key] = reducers[key]( state[key], action ); return nextState; }, {}) }; }; </description>
+    </item>
+    
+    <item>
+      <title>中间件js实现</title>
+      <link>/pass-blog/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 13 Jun 2017 10:03:19 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/06/13/%E4%B8%AD%E9%97%B4%E4%BB%B6js%E5%AE%9E%E7%8E%B0/</guid>
+      <description>中间件模式（middleware） 是一种很常见、也很强大的模式，被广泛应用在 Express、Koa、Redux 等类库和框架当中。
+如果你能在自己的代码中也使用灵活这种模式能给你的程序带来更大的便利性和灵活性。
+ 简单来说，中间件就是在调用目标函数之前，你可以随意插入其他函数预先对数据进行处理、过滤，在这个过程里面你可以打印数据、或者停止往下执行中间件等。
+ 数据就像水流一样经过中间件的层层的处理、过滤，最终到达目标函数。请你模拟一个中间件模式，可以达到以下效果：
+const app = { callback (ctx) { console.log(ctx) }, use (fn) { /* TODO */ }, go (ctx) { /* TODO */ } } app.use((ctx, next) =&amp;gt; { ctx.name = &#39;Lucy&#39; next() }) app.use((ctx, next) =&amp;gt; { ctx.age = 12 next() }) app.use((ctx, next) =&amp;gt; { console.log(`${ctx.name} is ${ctx.age} years old.`) // =&amp;gt; Lucy is 12 years old. next() }) // .</description>
+    </item>
+    
+    <item>
+      <title>React事件与原生事件</title>
+      <link>/pass-blog/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/</link>
+      <pubDate>Sun, 04 Jun 2017 16:03:08 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/06/04/react%E4%BA%8B%E4%BB%B6%E4%B8%8E%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6/</guid>
+      <description>实例 我们用一个实例，发现，原生与 react事件 冲突
+JS Bin on jsbin.com
+原生事件 document.body.addEventListener(&amp;#39;click&amp;#39;, e =&amp;gt;{ this.setState({s1:!this.state.s1}) alert(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) console.log(&amp;#39;body&amp;#39;,e.target.alt,e.target.value) })  react事件 onSubmit(e){ alert(&amp;#39;onsubmit&amp;#39;, e.target.value) this.setState({s1:!this.state.s1}) } //... &amp;lt;input id=&amp;#39;qr&amp;#39; value=&amp;#39;二维码&amp;#39; type=&amp;#34;button&amp;#34; onClick={this.onSubmit} /&amp;gt;  点击二维码 可以看到，事件从body开始，div.qr -&amp;gt;div.root
+实例的功能是
+点击二维码按钮，可以显示／隐藏，照片
+ 在，照片显示时
+ 1.点击非照片区域，可以隐藏，
+2.点击照片，没有变化
+  但是 可以看到，点击，显示照片，事件顺序
+body -&amp;gt; div.code -&amp;gt; div.root
+由此说来，body,的优先级很大啊
+但是 可以看到console面板，我留在，body事件的输出语句
+二维码 是 div.qr 的 value 值。
+ img 是 div.code的 alt 值。
+ 以此可以看出，原生body事件是，触发了， 而 e.target 是 二维码按钮的实例.</description>
+    </item>
+    
+    <item>
+      <title>ory-editer 网页编辑器-基于react</title>
+      <link>/pass-blog/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/</link>
+      <pubDate>Sun, 28 May 2017 17:05:02 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/28/ory-editer-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8-%E5%9F%BA%E4%BA%8Ereact/</guid>
+      <description>ory 的 editer 用于网页的编辑器，Online 应该说，这是高级应用了  我的目标，也就是这极限了。
+看了下源码，真的看晕了
+react, typescript, material-ui, redux, bootstrap
+单独一二项，看的明白，混在一起的. 科科
+ 虽然说，用react框架省去了些，步骤，redux做全局，meterial-ui 做 UI ，bootstrap 做 布局 部分，代码文件，后缀名是，.js 但是，应该是，用工具转代码的， 因为，变量数据格式，太凸显 ， 还是说用了其他的方式。
+editor/packages/renderer/src/index.js v0.2.10 line-8
+const gridClass = (size: number = 12): string =&amp;gt; `ory-cell-sm-${size}ory-cell-xs-12`   eslint 总 显示红线， 这个是ts的书写 啊，一坨的红线。
+ 作者造搞了，自己的数据格式，主要通过 cells Raws
+状态是一个规范的JSON对象，不涉及HTML。
+也是为了，免xss威胁。
+行 列 去区分，显示
+editor/examples/src/content.js
+export default [ { &amp;#34;id&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;cells&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&amp;#34;, &amp;#34;inline&amp;#34;: null, &amp;#34;size&amp;#34;: 12, &amp;#34;rows&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&amp;#34;, &amp;#34;cells&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;39417572-f976-44b7-97b2-9a7e00fd66f2&amp;#34;, &amp;#34;inline&amp;#34;: null, &amp;#34;size&amp;#34;: 12,  用来对，服务器渲染，静态</description>
+    </item>
+    
+    <item>
+      <title>babel 继承 Es5</title>
+      <link>/pass-blog/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/</link>
+      <pubDate>Sat, 27 May 2017 11:19:22 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/27/babel-%E7%BB%A7%E6%89%BF-es5/</guid>
+      <description>继承 复制下面代码 - 点击https://babeljs.io/repl/
+class b { constructor(c,d){ c = c+&amp;#39;1111&amp;#39;; console.log(c,d); } start(){ console.log(&amp;#39;ba ba&amp;#39;) } } class a extends b { constructor(c,b){ super(c,b); c = c+&amp;#39;222222&amp;#39;; console.log(1,c,2,b); return this.start; } start(){ console.log(&amp;#39;son&amp;#39;); } } var o1 = new a(&amp;#39;first&amp;#39;, &amp;#39;second&amp;#39;); console.log(&amp;#39;------------------&amp;#39;); console.log(o1.toString());  -为了实现，相当于 类的 继承 问题，js 给 大众
+一个 ， 丑陋的 写法，构造，与原型，的，概念.
+增加，初学者的入门，难度, 不过，好在，
+TypeScript babel 语法实现
+ coffeeScript 太极端了， 一堆空格。
+有人说 它像 python, 拜托，一段的空格，哪来的格式美感。
+ 让我们不在需要，对，继承,</description>
+    </item>
+    
+    <item>
+      <title>react-router v4 哎 路由</title>
+      <link>/pass-blog/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/</link>
+      <pubDate>Fri, 19 May 2017 15:43:39 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/19/react-router-v4-%E5%93%8E-%E8%B7%AF%E7%94%B1/</guid>
+      <description>react-router v4  react 的路由解决方案
+ 而我却更，想讲讲，本地测试 与 发布 在 react-router 的世界
+ &amp;lt;Route path=&amp;quot;/&amp;quot; component={App} /&amp;gt;  注意这个 ／
+比如我的 域名 llever.com
+当应用直接放在 llever.com/ 的时候，会实用。
+但是 如果我想 放在 llever.com/about/
+也正是我想做的.
+但是，本地测试 在 ／ :localhost:3000
+而， 我要放的地方在 /about/,
+万一，我想放在 /user/ 又去改，源码。妖
+资源路径 · 请求- 资源- 的 路径
+确保，刷新网页后，
+要是，服务器渲染，资源要对上啊。
+用 绝对路径 ，当我没说, 那还是用吧。（不用服务器渲染，真的好慢-首页）
+有没有，谁能 告诉我， 代码放哪，路由跟哪 的方法</description>
+    </item>
+    
+    <item>
+      <title>processing p5 js 动画与游戏制造</title>
+      <link>/pass-blog/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/</link>
+      <pubDate>Wed, 17 May 2017 11:37:25 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/</guid>
+      <description>改 2017 6.13
+processing 动画转换 转向 js客户  这意味着 我可以 在 codepen 上展示
+ 减少一下，js加载流量
+如何使用 Processing 有自己的 动画规则语言 较为易懂易用
+See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  现在 你只需要一个
+ p5.js
+ fire.html
+  fire.html
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;sketch.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; sketch.js
+// Global variables function setup() { createCanvas(640, 480); } function draw() { if (mouseIsPressed) { fill(0); } else { fill(255); } ellipse(mouseX, mouseY, 80, 80); }  就这样 就是上 显示的</description>
+    </item>
+    
+    <item>
+      <title>codepen 代码嵌入</title>
+      <link>/pass-blog/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/</link>
+      <pubDate>Wed, 17 May 2017 11:25:39 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/</guid>
+      <description>codepen 的 代码嵌入 功能 See the Pen Gravity Points by braveyo (@china-boy) on CodePen.  # 只要在 codepen 的 编辑器界面
+# 有个 右下角 Embed 的 功能
+# 复制 提供的 iframe 或 html 代码 就好
+# 上面的 点击 制造 黑洞 模仿黑洞引力哦</description>
+    </item>
+    
+    <item>
+      <title>放原网页首页进来</title>
+      <link>/pass-blog/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/</link>
+      <pubDate>Sun, 30 Apr 2017 20:47:09 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/04/30/%E6%94%BE%E5%8E%9F%E7%BD%91%E9%A1%B5%E9%A6%96%E9%A1%B5%E8%BF%9B%E6%9D%A5/</guid>
+      <description>把完整的网页放进，hexo中  我做了一下步骤
+ 在不影响，快捷命令
+hexo g -d 1. 原 html文件 放进根目录 source  hexo 根据 source 生成静态文件夹.
+所以，放source才能被 看到
+ 2. 在 html 文件中 第一行 写下 --- layout: false ---  不能被模版化
+ 3. 再把 css 之类 一起放进 source 就成  最好一个文件夹，用 打包工具。
+ 4. 把我的以前，简介域名，更换到 home.html  index.html 是首选，以前 用 home.html
+ 提示，如果想，整个demo 文件夹 单纯 copy 过去 _config.yml
+... skip_render [floder/*, floder/**/*] 具体看这issue</description>
+    </item>
+    
+    <item>
+      <title>Redux 基础</title>
+      <link>/pass-blog/2017/04/24/redux-%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 24 Apr 2017 17:01:53 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/04/24/redux-%E5%9F%BA%E7%A1%80/</guid>
+      <description>一个世界(store)  redux的中心思想，一直是共享数据的理念
+ 只有一个更改数据的接口dispatch
+ 一个全局的共享数据(store)之外, react本身 state props ref.. 可以说成是 本地数据或继承数据
+  创造数据中心 import { createStore } from &amp;#34;redux&amp;#34; const store = createStore(reducer);  打造数据逻辑结构  reducer Redux 把 数据逻辑结构 叫 reducer
+ const reducer = function( state, action ) { if (action.type === &amp;#34;Something&amp;#34;){ //为什么叫 逻辑 ,就因为 if if if  //你可以加1  //return state+1;  //返回值，自动改变原有数据。  return state; } if (action.type === &amp;#34;Another&amp;#34;){ return state; } return state; }  行动属性  action 行动 就像 行动代号，一样的存在</description>
+    </item>
+    
+    <item>
+      <title>React.Component use class or className</title>
+      <link>/pass-blog/2017/04/21/react.component-use-class-or-classname/</link>
+      <pubDate>Fri, 21 Apr 2017 13:32:14 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/04/21/react.component-use-class-or-classname/</guid>
+      <description>React 中 继承 React.Component react v15.4.1
+一般来说的做法是
+外层元素 用 className 里层元素 也用 className
+而在 fackbook文档-web Component 中
+例子中
+x-search 元素 却是要使用 class 才能 赋予 css 正确的样式
+class HelloMessage3 extends React.Component { render() { return &amp;lt;div className=&amp;#39;new&amp;#39;&amp;gt; className=&amp;#39;new&amp;#39; &amp;lt;x-search class=&amp;#39;new2&amp;#39; &amp;gt;{this.props.name}&amp;lt;/x-search&amp;gt; &amp;lt;span className=&amp;#39;new2&amp;#39;&amp;gt;好&amp;lt;/span&amp;gt; class=&amp;#39;new2&amp;#39; &amp;lt;/div&amp;gt;; } } ReactDOM.render( &amp;lt;HelloMessage name=&amp;#39;1&amp;#39; /&amp;gt;, document.getElementById(&amp;#39;root&amp;#39;) );  Codepen Demo 参考 Codepen 参考
+.new{ color:red; } .new2{ color:blue; } 。。。。未完待续</description>
+    </item>
+    
+    <item>
+      <title>webpack&#43;less&#43;Autoprefixer</title>
+      <link>/pass-blog/2017/03/15/webpack-less-autoprefixer/</link>
+      <pubDate>Wed, 15 Mar 2017 11:56:59 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/03/15/webpack-less-autoprefixer/</guid>
+      <description>webpack  前端打包工具
+ js css 图片 之类 压缩 生产化
+ 现在，配置其中一项，css文件的加载器，loader
+   不同的是，配置结果，是为了，把less &amp;gt; css + 补全浏览器前缀
+还有 babel js 语法
+ postcss.config.js 启动补全前缀
+module.exports = { plugins: [ require(&amp;#39;autoprefixer&amp;#39;) ] }  webpack.config.js (babel 语法，css，less文件解析补全,合并到一个‘style.css’)
+var path = require(&amp;#39;path&amp;#39;); var ExtractTextPlugin = require(&amp;#39;extract-text-webpack-plugin&amp;#39;); const webpack = require(&amp;#39;webpack&amp;#39;); module.exports = { entry: &amp;#39;./app/index.js&amp;#39;, output: { filename: &amp;#39;bundle.js&amp;#39;, path: path.resolve(__dirname, &amp;#39;dist&amp;#39;) }, module: { rules: [{ test: /\.</description>
+    </item>
+    
+    <item>
+      <title>Typescript类-转换学习</title>
+      <link>/pass-blog/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 08 Feb 2017 08:24:06 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/02/08/typescript%E7%B1%BB-%E8%BD%AC%E6%8D%A2%E5%AD%A6%E4%B9%A0/</guid>
+      <description>#TypeScript
+typescript作为微软实现的js的超集.
+在类的实现，有如传统语言一样简单，
+例子：官方
+//.ts class Greeter { greeting: string; constructor(message: string) { this.greeting = message; } greet() { return &amp;#34;Hello, &amp;#34; + this.greeting; } }//.js var Greeter = (function () { function Greeter(message) { this.greeting = message; } Greeter.prototype.greet = function () { return &amp;#34;Hello, &amp;#34; + this.greeting; }; return Greeter; }());  说道理，ts文件最终还是要变成js文件，所以，在我看来， 这似乎是，学习如何写，js 类 的方法。
+ 上面是一个类，的，写法
+ //.ts class Animal { constructor(public name: string) { } //默认 为 0  move(distanceInMeters: number = 0) { console.</description>
+    </item>
+    
+    <item>
+      <title>Js - Module模式 - 私有-公有-命名空间</title>
+      <link>/pass-blog/2017/02/06/js-module%E6%A8%A1%E5%BC%8F-%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Mon, 06 Feb 2017 15:42:53 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/02/06/js-module%E6%A8%A1%E5%BC%8F-%E7%A7%81%E6%9C%89-%E5%85%AC%E6%9C%89-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</guid>
+      <description>在javascript中没有真正意义的‘私有’，因为不像传统语言- js 没有访问修饰符。从技术上来说，我们不能称变量为公有或私有.
+ 因此我们需使用函数作用域来模拟这个概念。
+ 由于闭包的存在，声明的变量和方法只在该模式内部可用，
+  但在返回对象上的定义的变量和方法，则对外部使用者都是可用的。
+var testModule = (function () { //私有变量 var myPrivateVar = 0; //记录所有参数的私有函数 var myPrivateMethod = function(bar){ console.log(bar); } return { //公有变量 myPublicVar : &amp;#34;foo&amp;#34;, //调用私有变量和方法的公有函数 myPublicFunction: function(bar){ //增加私有计数器值  myPrivateVar++; console.log(myPrivateVar); //传入bar调用私有方法  myPrivateMethod(bar); } }; })(); console.log(testModule); //用公有变量传值公有函数 testModule.myPublicFunction(testModule.myPublicVar);  输出
+{ myPublicVar: &amp;#39;foo&amp;#39;, myPublicFunction: [Function: myPublicFunction] } 1 foo  可以看到，testModule 返回 1个函数,1个变量,但是，并没有myPrivateVar变量。
+却可以，通过两个函数来操控，myPrivateVar表现得就像一个私有变量。</description>
+    </item>
+    
+    <item>
+      <title>js原型与构造</title>
+      <link>/pass-blog/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/</link>
+      <pubDate>Tue, 31 Jan 2017 20:01:12 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/01/31/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0/</guid>
+      <description>#对象／构造／原型
+ 对象 &amp;ndash; 原型  all 浏览器 获取原型方法
+var a = {}; //a.prototype 无法获取——原型  a.constructor.prototype;// Object {}  a.constructor// function Object() { [native code] }   函数 &amp;ndash; 构造 + 原型  var a = function(){}; //函数可以直接 prototype a.prototype// Object {};  a.constructor// function Function() { [native code] }   上面可以看出，构造都是函数
+  对象 &amp;gt; 构造函数 &amp;gt; 函数 。。  var b = {}; b// Object {} b.</description>
+    </item>
+    
+    <item>
+      <title>浏览器与node，this，的不同</title>
+      <link>/pass-blog/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/</link>
+      <pubDate>Tue, 31 Jan 2017 15:31:15 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/01/31/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8Enodethis%E7%9A%84%E4%B8%8D%E5%90%8C/</guid>
+      <description>区别 浏览器   Chrome + Firefox   function local() { this.a = 7; var a = 2; this.a = 7; console.log(a); return this; } var local1 = local(); console.log(a); local1 == this ? console.log(a) : console.log(0);  输出结果：
+2 7 7   也就是说，浏览器，认为 local 函数返回的 this
+ 和 window，总this 是相同的！
+  node v6.9.2
+ 对于同样的代码
+ function local() { this.a = 7; var a = 2; this.</description>
+    </item>
+    
+    <item>
+      <title>translate与rotate</title>
+      <link>/pass-blog/2017/01/19/translate%E4%B8%8Erotate/</link>
+      <pubDate>Thu, 19 Jan 2017 21:46:00 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/01/19/translate%E4%B8%8Erotate/</guid>
+      <description>translate与rotate 标签：html5，canvas 目录： - translate - rotate - 关系
+一：translate  translate 在 canvas中定义了，画框的位置
+ 比如
+&amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border: 1px solid #d3d3d3;&amp;#34; width=&amp;#34;300&amp;#34; height=&amp;#34;150&amp;#34;&amp;gt; &amp;lt;script&amp;gt;; var c = document.getElementById(&amp;#34;myCanvas&amp;#34;); var ctx = c.getContext(&amp;#34;2d&amp;#34;); ctx.fillRect(10, 10, 100, 50); ctx.translate(150, 75); ctx.fillRect(10, 10, 100, 50); &amp;lt;/script&amp;gt;&amp;lt;/canvas&amp;gt;;  &amp;gt; 定义一个宽300px，高150px的画布    在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50); translate(150,75)命令 就会在，已初始画布的基础上，向下移动150px，和向右移动75px 此时，如果再画一个矩形，那么，位置，也会发生改变 画布并没有改变，但是，观察画布的位置发生了变化 我们重新，以(150,75)定义为左上角(0,0)的新观察窗口   二：rotate &amp;lt;canvas id=&amp;#34;myCanvas&amp;#34; style=&amp;#34;border: 1px solid #d3d3d3;&amp;#34; width=&amp;#34;300&amp;#34; height=&amp;#34;150&amp;#34;&amp;gt; &amp;lt;script&amp;gt; var c = document.</description>
+    </item>
+    
+    <item>
+      <title>sublime text 插件：color Highlighter</title>
+      <link>/pass-blog/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/</link>
+      <pubDate>Sat, 14 Jan 2017 10:08:35 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/</guid>
+      <description>sublime text css 文件上的颜色，啊 ，好烦啊，看不到对应的颜色，现在不用担心
+1.用 color Highlighter ,使用Package Control下载
+2.重启 or not
+ prefernces &amp;gt;&amp;gt; Package Settings &amp;gt;&amp;gt; Color Highlighter &amp;gt;&amp;gt; Setting -User
+&amp;ldquo;ha_style&amp;rdquo;: &amp;ldquo;filled&amp;rdquo;
+  &amp;nbsp;</description>
+    </item>
+    
+    <item>
+      <title>TensorFlow by Google</title>
+      <link>/pass-blog/2017/01/11/tensorflow-by-google/</link>
+      <pubDate>Wed, 11 Jan 2017 16:58:39 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/01/11/tensorflow-by-google/</guid>
+      <description>So ,开始吧！
+这份学习来自于Google 在 Github上的开源项目 TensorFlow
+要知道，当今，如果，你想，实现一个机器人的 “大脑”。
+😯，那么你要做得事情，会很多很多，难度说到这里。
+正题：
+机器学习的概念，定义一长串？！
+所以，通俗的说。
+1.输入
+2.TensorFlow
+3.输出
+ 从 1⃣️ 开始：TensorFlow具有简单的运行公式，即便它本身的函数名看起来是那么那么的繁杂
+ 输入:(=训练数据=)； 我的标题是 《图像识别》，那么，也就是
+官方的例子，#如何识别图片是什么花#。
+虽然说是机器学习，但是完成一项识别工作，是繁重的。
+就如每个动物出生，要别——动物 ^ _ ^ 告诉他／她／它
+哦，这是爸爸，哦，这是妈妈。。。
+那么前期的工作就是，花的图片，大量大量的，越多越好||😢
+ 像五年高考，三年模拟，的题海战术，不想回忆
+  这是红菊
+这是黄菊
+ 但还是菊，科科
+收集起来，放一起，这就是需要训练的数据。
+2⃣️：TensorFlow
+在前一步，完成图片的收集后，是时候，入厂了喔。
+ 我现在不放代码，只是单纯从，非专业人士的角度。
+概su，毕竟，猫🐱总是好奇的嘛
+ 好了，现在，手握大量图片，再然后事情就不归我们管了
+ps：代码就是看起来很厉害的，一串东东
+图片库路径=&amp;gt;(代码)
+代码里面有(TensorFlow的各种算法) 什么样的算法？不用管
+像选 商品一样，想用哪个用哪个
+总结下&amp;gt;&amp;gt;&amp;gt; 图片库，_写入&amp;gt;代码，代码里含有（算法）。
+然后，很重要的一点，就是，就是，哦，告诉代码，对
+告诉代码，这个图片库路径是什么花🌹。哪个是什么花
+ok👌。是不是很简单
+ 3⃣️：输入
+为什么，我们要使用机器学习，来完成图片识别，
+或者说
+未来，机器人大脑数据的构成。
+因为，我们想要一台 不断成长的 机器人。后果另算
+ 重新说回，输入
+ 这个时候，大手大脚，的，测试吧，</description>
+    </item>
+    
+    <item>
+      <title>关于</title>
+      <link>/pass-blog/about/</link>
+      <pubDate>Tue, 14 Apr 2015 22:17:00 +0000</pubDate>
+      
+      <guid>/pass-blog/about/</guid>
+      <description>本博客的性质，一个字：杂。</description>
+    </item>
+    
+  </channel>
+</rss>

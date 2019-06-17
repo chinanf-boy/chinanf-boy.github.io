@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chroma on 杂项博文</title>
+    <link>/pass-blog/tags/chroma/</link>
+    <description>Recent content in Chroma on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 01 Nov 2018 10:30:33 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/chroma/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang Chroma 使用例子</title>
+      <link>/pass-blog/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</link>
+      <pubDate>Thu, 01 Nov 2018 10:30:33 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</guid>
+      <description>Chroma 通用语法高亮库    源码 翻译     github repo 中文    简略说一下，三点  要是屁话，不想听，直接上例子，或看中文翻译
+  1: lexers 词法分析器  主要是为了，知道你用的那串字符，是什么语言  2: styles 主题/样式  
+ 查看-&amp;gt;主题名称 
+[ abap, algol, algol_nu, arduino, autumn, borland, bw, colorful, dracula, emacs, friendly, fruity, github, igor, lovelace, manni, monokai, monokailight, murphy, native, paraiso-dark, paraiso-light, pastie, perldoc, pygments, rainbow_dash, rrt, solarized-dark, solarized-dark256, solarized-light, swapoff, tango, trac, vim, vsxcode ]</description>
+    </item>
+    
+  </channel>
+</rss>

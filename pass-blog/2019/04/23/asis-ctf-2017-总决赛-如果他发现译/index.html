@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>ASIS CTF 2017 总决赛: 如果他发现…（译）</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="/css/stylesheet.css"></link> <link rel="stylesheet" href="https://codisec.com/wp-content/themes/codisec-strappress/style.css?ver=3.3.6"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>ASIS CTF 2017 总决赛: 如果他发现…（译）</h2>
+        
+
+<style>
+body{
+    background-color: #272b30;
+    color:#f9f1f1;
+    font-size:1.1em;
+}
+
+a {
+  color:#f1851a;
+}
+pre {
+    background-color: #272b30;
+}
+p {
+    color: #c8c8c8;
+}
+
+li code,
+p code {
+    background-color: rgb(34, 40, 42) !important;
+    color: #f1851a;
+}
+div.inner {
+    background-color: #272b30;
+}
+</style>
+
+<h2 id="博文来源">博文来源</h2>
+
+<blockquote>
+<p><a href="https://codisec.com/asis-ctf-finals-2017-finds/">源文</a> ：2017 9-29 ，作者：<a href="https://codisec.com/author/hubert-jasudowicz/">Hubert Jasudowicz</a></p>
+</blockquote>
+
+<ul>
+<li>CTF: <code>ASIS CTF 2017 总决赛</code></li>
+<li>分值: <code>343</code></li>
+<li>类型: <code>数字取证</code></li>
+</ul>
+
+<h2 id="侦察">侦察</h2>
+
+<p>在此任务中，我们获得了一个名为 <a href="https://codisec.com/wp-content/uploads/2017/09/ifhe_Finds_Out.zip">ifhe_Find_Out</a>的文件。
+让我们尝试找一些有关它的信息：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ file ifhe_Find_Out
+ifhe_Find_Out: data</code></pre></div>
+<p>嗯，这根本没用。是时候查看十六进制转储了：</p>
+
+<pre><code>$ xxd -l 0x100 ifhe_Find_Out
+</code></pre>
+
+<pre><code>00000000: 6674 7970 6d69 6631 0000 0000 6173 6973  ftypmif1....asis
+00000010: 6374 6666 696e 616c 0000 021c 6d65 7461  ctffinal....meta
+00000020: 0000 0000 0000 0021 6864 6c72 0000 0000  .......!hdlr....
+00000030: 0000 0000 7069 6374 0000 0000 0000 0000  ....pict........
+00000040: 0000 0000 0000 0000 0e70 6974 6d00 0000  .........pitm...
+00000050: 004e 2200 0000 3469 6c6f 6300 0000 0044  .N&quot;...4iloc....D
+00000060: 4000 024e 2200 0000 0002 4000 0100 0000  @..N&quot;.....@.....
+00000070: 0000 0062 484e 2300 0000 0064 9000 0100  ...bHN#....d....
+00000080: 0000 0000 0012 aa00 0000 4e69 696e 6602  ..........Niinf.
+00000090: 0000 0000 0000 0200 0000 1f69 6e66 6502  ...........infe.
+000000a0: 0000 004e 2200 0068 7663 3148 4556 4320  ...N&quot;..hvc1HEVC
+000000b0: 496d 6167 6500 0000 001f 696e 6665 0200  Image.....infe..
+000000c0: 0000 4e23 0000 6876 6331 4845 5643 2049  ..N#..hvc1HEVC I
+000000d0: 6d61 6765 0000 0000 1a69 7265 6600 0000  mage.....iref...
+000000e0: 0000 0000 0e74 686d 624e 2300 014e 2200  .....thmbN#..N&quot;.
+000000f0: 0001 4569 7072 7000 0001 2369 7063 6f00  ..Eiprp...#ipco.
+</code></pre>
+
+<p>除了 <code>asisctffinal</code>， 显而易见的是：<code>hvc1HEVC Image</code> 。 谷歌搜索下， <code>HEVC Image</code> 指向我们一种新的图像文件格式：<a href="https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format">HEIF</a>。 这让我们对我们正在处理的文件类型有所了解。不过，我们无法打开它。要解决此问题，我们需要找到一个有效的<code>HEIF</code>文件来与我们的文件进行比较，并查找它们之间的差异。我们选择了 <a href="http://nokiatech.github.io/heif/content/images/autumn_1440x960.heic">这里</a> 例子。</p>
+
+<pre><code>$ xxd -l 0x100 autumn_1440x960.heic
+
+00000000: 0000 001c 6674 7970 6d69 6631 0000 0000  ....ftypmif1....
+00000010: 6d69 6631 6865 6963 6865 7663 0000 0200  mif1heichevc....
+</code></pre>
+
+<pre><code>00000020: 6d65 7461 0000 0000 0000 0021 6864 6c72  meta.......!hdlr
+00000030: 0000 0000 0000 0000 7069 6374 0000 0000  ........pict....
+00000040: 0000 0000 0000 0000 0000 0000 0e70 6974  .............pit
+00000050: 6d00 0000 004e 2200 0000 3469 6c6f 6300  m....N&quot;...4iloc.
+00000060: 0000 0044 4000 024e 2200 0000 0002 2400  ...D@..N&quot;.....$.
+00000070: 0100 0000 0000 046a 804e 2300 0000 046c  .......j.N#....l
+00000080: ac00 0100 0000 0000 000e 4a00 0000 4e69  ..........J...Ni
+00000090: 696e 6602 0000 0000 0000 0200 0000 1f69  inf............i
+000000a0: 6e66 6502 0000 004e 2200 0068 7663 3148  nfe....N&quot;..hvc1H
+000000b0: 4556 4320 496d 6167 6500 0000 001f 696e  EVC Image.....in
+000000c0: 6665 0200 0000 4e23 0000 6876 6331 4845  fe....N#..hvc1HE
+000000d0: 5643 2049 6d61 6765 0000 0000 1a69 7265  VC Image.....ire
+000000e0: 6600 0000 0000 0000 0e74 686d 624e 2300  f........thmbN#.
+000000f0: 014e 2200 0001 2969 7072 7000 0001 0769  .N&quot;...)iprp....i
+</code></pre>
+
+<p>看来，我们除了缺少文件开头的 4 个字节，还要把 <code>mif1heichevc</code>替换成<code>asisctffinal</code>。</p>
+
+<h2 id="fix">fix</h2>
+
+<p>前置魔术字节：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dd <span style="color:#ff79c6">if</span><span style="color:#ff79c6">=</span>autumn_1440x960.heic <span style="color:#8be9fd;font-style:italic">bs</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#8be9fd;font-style:italic">count</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">4</span> | cat - ifhe_Find_Out &gt; ifhe_fixed</code></pre></div>
+<p><code>asisctffinal</code> 更换成 <code>mif1heichevc</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dd <span style="color:#8be9fd;font-style:italic">conv</span><span style="color:#ff79c6">=</span>notrunc <span style="color:#ff79c6">if</span><span style="color:#ff79c6">=</span>autumn_1440x960.heic <span style="color:#8be9fd;font-style:italic">of</span><span style="color:#ff79c6">=</span>ifhe_fixed <span style="color:#8be9fd;font-style:italic">bs</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#8be9fd;font-style:italic">count</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">12</span> <span style="color:#8be9fd;font-style:italic">skip</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">16</span> <span style="color:#8be9fd;font-style:italic">seek</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">16</span></code></pre></div>
+<p>固定文件:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ xxd -l 0x80 ifhe_fixed</code></pre></div>
+<pre><code>00000000: 0000 001c 6674 7970 6d69 6631 0000 0000  ....ftypmif1....
+00000010: 6d69 6631 6865 6963 6865 7663 0000 021c  mif1heichevc....
+00000020: 6d65 7461 0000 0000 0000 0021 6864 6c72  meta.......!hdlr
+00000030: 0000 0000 0000 0000 7069 6374 0000 0000  ........pict....
+00000040: 0000 0000 0000 0000 0000 0000 0e70 6974  .............pit
+00000050: 6d00 0000 004e 2200 0000 3469 6c6f 6300  m....N&quot;...4iloc.
+00000060: 0000 0044 4000 024e 2200 0000 0002 4000  ...D@..N&quot;.....@.
+00000070: 0100 0000 0000 0062 484e 2300 0000 0064  .......bHN#....d
+00000080: 9000 0100 0000 0000 0012 aa00 0000 4e69  ..............Ni
+00000090: 696e 6602 0000 0000 0000 0200 0000 1f69  inf............i
+000000a0: 6e66 6502 0000 004e 2200 0068 7663 3148  nfe....N&quot;..hvc1H
+000000b0: 4556 4320 496d 6167 6500 0000 001f 696e  EVC Image.....in
+000000c0: 6665 0200 0000 4e23 0000 6876 6331 4845  fe....N#..hvc1HE
+000000d0: 5643 2049 6d61 6765 0000 0000 1a69 7265  VC Image.....ire
+000000e0: 6600 0000 0000 0000 0e74 686d 624e 2300  f........thmbN#.
+000000f0: 014e 2200 0001 4569 7072 7000 0001 2369  .N&quot;...Eiprp...#i
+</code></pre>
+
+<h2 id="打开文件">打开文件</h2>
+
+<p>最后要做的是打开图像。不幸的是，它并不像听起来那么容易。HEIF 是一种新格式，图像查看器几乎没有支持。但是，可以使用诺基亚的 JavaScript (<a href="http://nokiatech.github.io/heif/examples.html">示例</a> 中包括了 HEIF 文件)中的参考实现， 因此我们可以使用我们自己的文件，替换示例中的一些 HEIF 文件，然后使用浏览器显示(得分)旗帜。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git clone <span style="color:#f1fa8c">&#34;https://github.com/nokiatech/heif.git&#34;</span> --branch gh-pages
+$ mv ifhe_fixed heif/content/images/autumn_1440x960.heic</code></pre></div>
+<p>最终 我们可以打开 <code>heif/examples.html</code> ，通过点击 autumn 示例，来显示旗帜。
+<img src="https://codisec.com/wp-content/uploads/2017/09/asisflag-1024x46.png" alt="" /></p>
+
+<ul>
+<li>注意: 使用 Firefox ，要知道 Chrome 会把不同的 <code>file://</code> URIs 当作独立的来源。</li>
+</ul>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/codisec%20CTF"> #codisec CTF </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/blog"> #blog </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/codisec.com的CTF团队博客-挑战小节.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

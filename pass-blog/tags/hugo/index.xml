@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on 杂项博文</title>
+    <link>/pass-blog/tags/hugo/</link>
+    <description>Recent content in Hugo on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 17 Aug 2018 14:52:33 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo 语法高亮与md序列显示问题</title>
+      <link>/pass-blog/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 17 Aug 2018 14:52:33 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</guid>
+      <description>1. hugo 内置 工具 Hugo在官方文档中 有 Pygments{python 写的}与Chroma{go 写的}（从0.30版本开始，集成了Chroma作为替代。）
+2. 引入 hightlight 类的库到 &amp;lt;head&amp;gt; 两种做法, 可看
+具体看 http://note.qidong.name/2017/06/24/hugo-highlight/
+3. 自定义css, 这一点其实不如上两种的通用, 这个方法更倾向 语法显示的修复 我的hugo语法高亮 我的 config.toml
+pygmentsCodeFences = true pygmentsCodefencesGuessSyntax = false pygmentsStyle = &amp;#34;dracula&amp;#34; pygmentsOptions = [&amp;#39;linenos&amp;#39;] 这个语法的显示有问题: 代码块的宽度被代码撑大了 答: 在 theme 下 /casper-two/layouts/partials/head.html 模版上,加 css
+&amp;lt;style&amp;gt; div.highlight { width:100%; } &amp;lt;/style&amp;gt; 相关问题 vue语法显示问题 答: 自定义css http://www.shawpo.me/post/hugo-markdown-code-style/
+hugo 的 markdown 解析器对 1. 第一 中间有东西的话 2. 第二 这个`2.`会变回`1.` 3. 第三 同上   的解析出现错误</description>
+    </item>
+    
+    <item>
+      <title>如何将完整的文件夹放进hugo</title>
+      <link>/pass-blog/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/</link>
+      <pubDate>Wed, 01 Aug 2018 18:48:39 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/</guid>
+      <description>1. 有时,想加点东西到我们的 Hugo 比如: 例子啊, 书籍列表啊 可以通过http://example.com/full-folder 网址来看
+解决  根据 官方论坛-项目维护者 beq
+ 有三种替代方法可以包含“完整的外部HTML”：
+ 将HTML及其所有资源放在 /static中 将HTML放入 /content（将资源等放在 /content 或 /static 中） 与3相同，但前面有关系 我不会详细介绍3，它们应该易于测试 - 但最后2个可以包含模板语法，最后一个是带有布局和短代码等的内容文件。  最好是第一种方法 2. hugo server 其实, 不是很透明, 甚至, 我老觉得它有好多bug, 坑 最好是, 把 服务器 生成静态文件夹, 放在我们可以看到的位置, 这样, 是否有加什么, 减了什么, 能看到
+hugo server -d dev 3. hugo 生产 public 文件夹 只需要
+hugo 就可以了</description>
+    </item>
+    
+    <item>
+      <title>hugo i18n </title>
+      <link>/pass-blog/2017/11/15/hugo-i18n/</link>
+      <pubDate>Wed, 15 Nov 2017 23:31:55 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/15/hugo-i18n/</guid>
+      <description>双语 hugo的国际化 由源于 内置 go-i18n
+方式 一: 翻译 string  类似与 菜单栏 nav
+ 有两种方式
+ 在项目根目录  创建 i18n 文件夹
+i18n
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &amp;quot;home&amp;quot;  zh.toml
+[home] other = &amp;quot;主页&amp;quot;  上面的设置好后，在 模版主题中使用
+*.html
+{{ i18n &amp;quot;home&amp;quot; }}  这样在
+html 头的带领下 呈现 en/zh.toml
+&amp;lt;html lang=&amp;#39;en&amp;#39;&amp;gt;  第二种   根目录中
+ config.toml
+defaultContentLanguage = &amp;quot;en&amp;quot; # 这里是 默认网址 https://example.com # 如果是 true https://example.</description>
+    </item>
+    
+    <item>
+      <title>hugo templete 语法</title>
+      <link>/pass-blog/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Tue, 14 Nov 2017 17:48:57 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/</guid>
+      <description>--- title: &amp;quot;Hugo Template&amp;quot; date: 2017-11-14T15:39:48+08:00 description: &amp;quot;a hugo template example&amp;quot; featured_image: http://localhost:1313/images/gohugo-default-sample-hero-image.jpg ---  hugo templete 目录  主模版 内置变量 函数 引入模版 定义元素标签  baseof.html themes/youthemes/layouts/_default/baseof.html
+{{ block &amp;quot;main&amp;quot; . }}{{ end }}   定义 区域块
+ 其他 html themes/youthemes/layouts/_default/list.html
+{{ define &amp;quot;main&amp;quot; }} {{ end }}   注意⚠️ themes/youthemes/layouts/_default/single.html
+themes/youthemes/layouts/_default/list.html
+ 对于，Hugo 来说，网站分为 index.html list.html single.html
+ 根目录文件夹中
+ 在 content 文件夹下 就是 路由
+content about // list.</description>
+    </item>
+    
+    <item>
+      <title>hugo hexo 傻傻分不清出 GO实现</title>
+      <link>/pass-blog/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 14 Nov 2017 15:08:32 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/</guid>
+      <description>hugo  像 hexo 一样的 静态网站生成
+ 重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
+ 不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
+三部走
+ 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml 噢不止三步, 那四部 - 加文章
+hugo new posts/my-first-post.</description>
+    </item>
+    
+  </channel>
+</rss>

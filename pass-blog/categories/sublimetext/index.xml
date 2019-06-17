@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sublimetext on 杂项博文</title>
+    <link>/pass-blog/categories/sublimetext/</link>
+    <description>Recent content in Sublimetext on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 14 Jan 2017 10:08:35 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/sublimetext/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>sublime text 插件：color Highlighter</title>
+      <link>/pass-blog/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/</link>
+      <pubDate>Sat, 14 Jan 2017 10:08:35 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/01/14/sublime-text-%E6%8F%92%E4%BB%B6color-highlighter/</guid>
+      <description>sublime text css 文件上的颜色，啊 ，好烦啊，看不到对应的颜色，现在不用担心
+1.用 color Highlighter ,使用Package Control下载
+2.重启 or not
+ prefernces &amp;gt;&amp;gt; Package Settings &amp;gt;&amp;gt; Color Highlighter &amp;gt;&amp;gt; Setting -User
+&amp;ldquo;ha_style&amp;rdquo;: &amp;ldquo;filled&amp;rdquo;
+  &amp;nbsp;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>(译)如何在VScode中使用Delve调试代码</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>(译)如何在VScode中使用Delve调试代码</h2>
+        
+
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>日期</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://stackoverflow.com/a/39062734/9299542">stackoverflow</a></td>
+<td>2016-08-21</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="如何在vscode中使用delve调试代码-一步一脚印">如何在VScode中使用Delve调试代码, 一步一脚印:</h2>
+
+<blockquote>
+<p>( 注意:  Windows 操作系统 要将 所有 $GOPATH 替换成 %GOPATH% )</p>
+</blockquote>
+
+<ul>
+<li><p>安装<a href="https://golang.org/dl">Golang</a> 和 设置 <code>GOROOT</code> and <code>GOPATH</code>。</p></li>
+
+<li><p>添加 <code>$GOPATH/bin</code> 到你的 OS <code>PATH</code> 环境变量。</p></li>
+
+<li><p>设置环境变量: <code>GO15VENDOREXPERIMENT = 1</code></p></li>
+
+<li><p>运行: <code>go get github.com/derekparker/delve/cmd/dlv</code>， 并确保 <code>dlv</code> 二进制文件在你的<code>$GOPATH/bin</code>目录中生成。</p></li>
+
+<li><p>安装 <a href="https://code.visualstudio.com/">Visual Studio Code</a></p></li>
+
+<li><p>启动 VS Code 快捷键(<kbd>Ctrl</kbd>+<kbd>P</kbd>), 输出以下命令: <code>ext install Go</code> , 点击Enter.</p></li>
+
+<li><p>点击 安装 <code>Rich Go language support for Visual Studio Code</code></p></li>
+
+<li><p>若未启用，点击 <code>启用</code> 和 重启 Visual Studio Code</p></li>
+
+<li><p>通过 <code>Visual Studio Code</code> 打开某个文件夹 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> , e.g.: <code>$GOPATH\src\hello\</code></p></li>
+
+<li><p>然后 打开，这个文件夹的文件 hello.go` (或 创建一个新的文件 <kbd>Ctrl</kbd>+<kbd>N</kbd> ，并保存在此文件夹):</p></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">package</span> main
+
+<span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
+
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Hello World!&#34;</span>)
+    i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">101</span>
+    fmt.<span style="color:#50fa7b">Println</span>(i)
+}</code></pre></div>
+<ul>
+<li>然后开启调试器 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd></li>
+<li>在: <code>i := 101</code>行 键入 <kbd>F9</kbd> 或 数字边栏左边制造<strong>红</strong>断点.</li>
+<li>键入 <kbd>F5</kbd> 开启调试或运行这个应用, 如果被要求选择环境: 选择 Go.</li>
+<li>键入 <kbd>F10</kbd> 单步跳过.</li>
+<li>键入 <kbd>F11</kbd> 单步调试.</li>
+<li>键入 <kbd>Shift</kbd>+<kbd>F11</kbd> 单步退出.</li>
+<li>键入 <kbd>Shift</kbd>+<kbd>F5</kbd> 停止调试.</li>
+<li>键入 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F5</kbd> 重启调试.</li>
+</ul>
+
+<p>我的 <code>launch.json</code> 没有动过:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#ff79c6">&#34;version&#34;</span>: <span style="color:#f1fa8c">&#34;0.2.0&#34;</span>,
+    <span style="color:#ff79c6">&#34;configurations&#34;</span>: [
+        {
+            <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Launch&#34;</span>,
+            <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;go&#34;</span>,
+            <span style="color:#ff79c6">&#34;request&#34;</span>: <span style="color:#f1fa8c">&#34;launch&#34;</span>,
+            <span style="color:#ff79c6">&#34;mode&#34;</span>: <span style="color:#f1fa8c">&#34;debug&#34;</span>,
+            <span style="color:#ff79c6">&#34;remotePath&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
+            <span style="color:#ff79c6">&#34;port&#34;</span>: <span style="color:#bd93f9">2345</span>,
+            <span style="color:#ff79c6">&#34;host&#34;</span>: <span style="color:#f1fa8c">&#34;127.0.0.1&#34;</span>,
+            <span style="color:#ff79c6">&#34;program&#34;</span>: <span style="color:#f1fa8c">&#34;${workspaceRoot}&#34;</span>,
+            <span style="color:#ff79c6">&#34;env&#34;</span>: {},
+            <span style="color:#ff79c6">&#34;args&#34;</span>: [],
+            <span style="color:#ff79c6">&#34;showLog&#34;</span>: <span style="color:#ff79c6">true</span>
+        }
+    ]
+}</code></pre></div>
+<p>结果:</p>
+
+<p><img src="https://i.stack.imgur.com/sxUZ0.png" alt="result" /></p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/translate"> #translate </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/vscode"> #vscode </a></li><li><a class="link" href="/pass-blog/categories/go"> #go </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/如何在VScode中使用Delve调试代码.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

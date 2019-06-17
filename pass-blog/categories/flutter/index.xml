@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flutter on 杂项博文</title>
+    <link>/pass-blog/categories/flutter/</link>
+    <description>Recent content in Flutter on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 19 May 2019 10:25:27 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/flutter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>（译）Flutter 官方样例索引</title>
+      <link>/pass-blog/2019/05/19/%E8%AF%91flutter-%E5%AE%98%E6%96%B9%E6%A0%B7%E4%BE%8B%E7%B4%A2%E5%BC%95/</link>
+      <pubDate>Sun, 19 May 2019 10:25:27 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/05/19/%E8%AF%91flutter-%E5%AE%98%E6%96%B9%E6%A0%B7%E4%BE%8B%E7%B4%A2%E5%BC%95/</guid>
+      <description>精选的样例列表 Github source
+此列表包含示例应用程序，演示和示例，可帮助您提高 Flutter 技能。有些是由 Flutter 团队在这里维护的，但很多都是由 Flutter 社区创建的，项目的保存不限于 GitHub 。
+这不是一个详尽的样例列表，没在这里列出的项目，并不意味着它不值得探索。同样，虽然 Flutter 团队努力使这个列表保持最新，但社区创建了很多其他的，例如来自@Solido 的Awesome Flutter 。
+请不要直接提交 PR，更新此文件。虽然我们总是很乐意学习来自社区的新样例，但我们需要保持这个文件很小。有很多用户维护的索引（比如Awesome Flutter）都是详尽无遗的，这些都是提交自己作品的好地方。
+怎样做-集合 Flutter 的例子           来自 Nishant Srivastava 的单主题示例集合。这些包括，从渐变到 JSON 到路由的所有内容。
+Flutter 示例应用程序           来自 Flutter GDE Pawan Kumar 的几十个例子。这些包括状态管理，Firebase，UI 设计和许多其他主题。每个都附带一个 YouTube 视频，显示实现过程。
+Flutter by Example           二十多个样例，详细说明了 Flutter 的常见任务：如何使用文本字段，流和 StreamBuilder 等等。</description>
+    </item>
+    
+  </channel>
+</rss>

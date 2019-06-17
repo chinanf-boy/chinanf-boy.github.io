@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>translate与rotate</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>translate与rotate</h2>
+        
+
+<h1 id="translate与rotate">translate与rotate</h1>
+
+<h2 id="标签-html5-canvas">标签：html5，canvas</h2>
+
+<p>目录：
+- <a href="#translate">translate</a>
+- <a href="#二：rotate">rotate</a>
+- <a href="#三-rotate与translate的关系">关系</a></p>
+
+<h3 id="一-translate">一：translate</h3>
+
+<blockquote>
+<p>translate 在 canvas中定义了，画框的位置</p>
+</blockquote>
+
+<p>比如</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#ff79c6">&lt;</span>canvas id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;myCanvas&#34;</span> style<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;border: 1px solid #d3d3d3;&#34;</span> width<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;300&#34;</span> height<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;150&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>script<span style="color:#ff79c6">&gt;</span>;
+    <span style="color:#8be9fd;font-style:italic">var</span> c <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.getElementById(<span style="color:#f1fa8c">&#34;myCanvas&#34;</span>);
+    <span style="color:#8be9fd;font-style:italic">var</span> ctx <span style="color:#ff79c6">=</span> c.getContext(<span style="color:#f1fa8c">&#34;2d&#34;</span>);
+    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
+    ctx.translate(<span style="color:#bd93f9">150</span>, <span style="color:#bd93f9">75</span>);
+    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
+    <span style="color:#ff79c6">&lt;</span>/script&gt;&lt;/canvas&gt;;
+</code></pre></div>
+<pre><code>&gt; 定义一个宽300px，高150px的画布
+</code></pre>
+
+<blockquote>
+<pre><code>  在画布的(10,10)坐标上，画一个矩形》》ctx.fillRect(10, 10, 100, 50);
+
+  translate(150,75)命令
+
+  就会在，已初始画布的基础上，向下移动150px，和向右移动75px
+
+  此时，如果再画一个矩形，那么，位置，也会发生改变
+
+  画布并没有改变，但是，观察画布的位置发生了变化
+
+  我们重新，以(150,75)定义为左上角(0,0)的新观察窗口
+</code></pre>
+</blockquote>
+
+<h3 id="二-rotate">二：rotate</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#ff79c6">&lt;</span>canvas id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;myCanvas&#34;</span> style<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;border: 1px solid #d3d3d3;&#34;</span> width<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;300&#34;</span> height<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;150&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>script<span style="color:#ff79c6">&gt;</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> c <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.getElementById(<span style="color:#f1fa8c">&#34;myCanvas&#34;</span>);
+    <span style="color:#8be9fd;font-style:italic">var</span> ctx <span style="color:#ff79c6">=</span> c.getContext(<span style="color:#f1fa8c">&#34;2d&#34;</span>);
+    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
+    ctx.translate(<span style="color:#bd93f9">150</span>, <span style="color:#bd93f9">75</span>);
+    ctx.rotate(<span style="color:#8be9fd;font-style:italic">Math</span>.PI<span style="color:#f1fa8c">/6);/</span>/Math.PI 是 180度
+    ctx.fillRect(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">50</span>);
+    <span style="color:#ff79c6">&lt;</span>/script&gt;
+    <span style="color:#ff79c6">&lt;</span>/canvas&gt;
+</code></pre></div>
+<pre><code>rotate定义的是`旋转`，观察窗口的旋转，上面
+
+ctx.rotate(Math.PI/6);就是旋转30度，顺时针(负值-逆时针)
+</code></pre>
+
+<h3 id="三-rotate与translate的关系">三. rotate与translate的关系</h3>
+
+<pre><code>
+  &lt;script&gt;
+    var c = document.getElementById(&quot;myCanvas&quot;);
+    var ctx = c.getContext(&quot;2d&quot;);
+    ctx.translate(150, 75);
+    ctx.rotate(1*Math.PI/6);
+    ctx.translate(0, -25);
+    ctx.fillText(1000000, 0, 0);
+    ctx.fillRect(0, 0, 10, 5);
+    ctx.translate(0, 25);
+    ctx.fillText(1000000, 0, 0);
+    ctx.fillRect(0, 0, 10, 5);
+    ctx.rotate(-1*Math.PI/6);
+    &lt;/script&gt;
+
+</code></pre>
+
+<p>在于，当<code>rotate</code>,旋转后，translate，移动的窗口位置，随</p>
+
+<p>着旋转。！！</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/canvas"> #canvas </a></li><li><a class="link" href="/pass-blog/tags/html5"> #html5 </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/css%ef%bc%8chtml"> #css，html </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/translate-and-rotate.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

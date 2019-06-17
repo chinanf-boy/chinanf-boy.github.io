@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>CTFZONE 2017 财富的翅膀伴我左右 (译)</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="/css/stylesheet.css"></link> <link rel="stylesheet" href="https://codisec.com/wp-content/themes/codisec-strappress/style.css?ver=3.3.6"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>CTFZONE 2017 财富的翅膀伴我左右 (译)</h2>
+        
+
+<style>
+body{
+    background-color: #272b30;
+    color:#f9f1f1;
+    font-size:1.1em;
+}
+
+a {
+  color:#f1851a;
+}
+pre {
+    background-color: #272b30;
+    font-weight: 500;
+}
+p {
+    color: #c8c8c8;
+}
+
+li code,
+p code {
+    background-color: rgb(34, 40, 42) !important;
+    color: #f1851a;
+}
+div.inner {
+    background-color: #272b30;
+}
+</style>
+
+<h2 id="博文来源">博文来源</h2>
+
+<blockquote>
+<p><a href="https://codisec.com/ctfzone-2017-riches-wings/">源文</a> ：2017 7-28 ，作者：<a href="https://codisec.com/author/arkadiusz-wrobel/">Arkadiusz Wróbel</a></p>
+</blockquote>
+
+<ul>
+<li>CTF：2017 年 CTFZONE</li>
+<li>积分：921</li>
+<li>类别：Web，PPC</li>
+</ul>
+
+<h2 id="描述">描述</h2>
+
+<blockquote>
+<p>我们听说你的候选人，在竞选期间遇到了经济困难。如果被媒体发现，这将是一场灾难。你有一天的时间去解决这个问题。否则我们就毁了。记住，你应该不留下<code>痕迹</code>&hellip;</p>
+</blockquote>
+
+<p>在第二天，我们也得到了一个提示：</p>
+
+<p><img src="https://codisec.com/wp-content/uploads/2017/07/16-riches-have-wings.png" alt="" /></p>
+
+<h2 id="第一部分-网络">第一部分：网络</h2>
+
+<p>在我们打开提供的链接后，一开始，得到一个标准的登录/注册表单（带验证码，所以我们不能自动创建用户），就没有什么别的呢。</p>
+
+<p><img src="https://codisec.com/wp-content/uploads/2017/07/form.png" alt="" /></p>
+
+<p>首先，让我们用户名 <code>codisec_writeup</code> 注册，并查看服务页面内部的内容。</p>
+
+<p><img src="https://codisec.com/wp-content/uploads/2017/07/hello.png" alt="" /></p>
+
+<p>好吧，没有太多东西&hellip; 我们唯一能做的就是退出，其余的链接指向当前页面。</p>
+
+<p>但是在查看 <em>HTTP 标头</em> 时，我们注意到此页面设置的 <code>cookie</code> 非常奇怪：<code>&quot;62a63956496ad24338340c0e64c45c621eca9fa0b9afb4069c58c985d9888a12&quot;</code>。
+文本被引号包围着，所以，这也许是某些数据库查询，只是把它拼接在一起。</p>
+
+<p>现在是时候利用我们的提示：叶子，是<a href="https://www.tutorialspoint.com/mongodb/mongodb_query_document.htm">MongoDB</a>数据库的 Logo（我们可以使用谷歌图片查看）。</p>
+
+<p>我们假设数据库查询，看起来像这样：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+	<span style="color:#ff79c6">&#34;some_session_id_field&#34;</span>: &lt;COOKIE CONTENT&gt;
+}</code></pre></div>
+<p>我们来试试吧。我们将 cookie 设置为：<code>{&quot;$exists&quot;：true}</code>。然后数据库查询将变为：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">{
+	&#34;some_session_id_field&#34;: {&#34;$exists&#34;: true}
+}</code></pre></div>
+<p>这只意味着，&rsquo;<code>some_session_id_field</code>属性存在&rsquo;，它会匹配所有会话（因它不使用任何过滤器）。
+那个 cookie 给了我们某会话，表明，脚本注射会工作：</p>
+
+<p><img src="https://codisec.com/wp-content/uploads/2017/07/hello_user2.png" alt="" /></p>
+
+<p>我们实际上，已经知道这个字段存在，但我们可以测试其他字段！
+例如，设置<code>{&quot;$exists&quot;: true}, &quot;username&quot;: {&quot;$exists&quot;: true}</code>，作为给予我们的 cookie：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">{
+	&#34;some_session_id_field&#34;: {&#34;$exists&#34;: true},
+	&#34;username&#34;: {&#34;$exists&#34;: true}
+}</code></pre></div>
+<p>如果提供的属性是存在的，我们将获得一些会话。否则我们会得到空白页，说明出现了问题。</p>
+
+<p>经过一些实验，我们意识到名为 <code>login</code> 的字段存在。</p>
+
+<p>让我们尝试设置登录 <code>codisec_writeup</code> 上去：
+<code>{&quot;$exists&quot;: true}, &quot;login&quot;: &quot;codisec_writeup&quot;</code></p>
+
+<p>有用。</p>
+
+<p>那么我们为什么不将 admin 设置为登录？
+<code>{&quot;$exists&quot;: true}, &quot;login&quot;: &quot;admin&quot;</code></p>
+
+<p>但，这不起作用。</p>
+
+<p>也许类似的东西，比如 <code>administrator</code>，<code>admin2017</code>，<code>my_super_admin</code> 之类的名称？</p>
+
+<p>让我们使用一些正则表达式，来过滤出哪些登录，在数据库中：
+<code>{&quot;$exists&quot;：true}，&quot;login&quot;：{&quot;$regex&quot;：&quot;admin&quot;}</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">{
+	&#34;some_session_id_field&#34;: {&#34;$exists&#34;: true},
+	&#34;login&#34;: {&#34;$regex&#34;: &#34;admin&#34;}
+}</code></pre></div>
+<p><img src="https://codisec.com/wp-content/uploads/2017/07/hello_user2.png" alt="" /></p>
+
+<p>这是怎么回事？<code>user2</code> 不包含 <code>admin</code>子字符串！</p>
+
+<p>使用<code>{&quot;$exists&quot;: true}, &quot;login&quot;: {&quot;$regex&quot;: &quot;^co[abcd]i.ec_writeup$&quot;}</code>，我们可以确保正则表达式正常工作。</p>
+
+<p>棘手的部分是要意识到服务器，受某种<a href="https://en.wikipedia.org/wiki/Web_application_firewall">WAF</a>形式的保护，在查询执行之前，从 cookie 值过滤掉 <code>admin</code>
+，现在我们可以使用<code>{&quot;$exists&quot;: true}, &quot;login&quot;: {&quot;$regex&quot;: &quot;^ad[m]in$&quot;}</code>轻松绕过它。</p>
+
+<p>另一种方法是设置<code>{&quot;$exists&quot;: true}, &quot;login&quot;: &quot;admadminin&quot;</code>。它可能会起作用，因为一些常用的替换函数，会用于过滤，也就是说， <code>admadminin</code> 的过滤结果是 <code>admin</code>。</p>
+
+<p>现在我们有了渴望的管理员权限。
+<img src="https://codisec.com/wp-content/uploads/2017/07/hello_admin.png" alt="" /></p>
+
+<p>在这里，我们可以做更多的事情：向任意用户发送邀请。</p>
+
+<h2 id="第二部分-欺诈">第二部分：欺诈</h2>
+
+<p>在激活 <code>codisec_writeup</code> 和重新登陆它之后，我们可以看到两个新选项：</p>
+
+<ul>
+<li>菜单(Menu）：这是一个非常简单的交易市场菜单（仅限，美元\$和 BIZ 币）</li>
+<li>购买(Buy)： 有 <strong>1337\$ 和 1337 BIZ 币</strong> ，我们就可以买一面旗帜。</li>
+</ul>
+
+<p><img src="https://codisec.com/wp-content/uploads/2017/07/market.png" alt="" /></p>
+
+<blockquote>
+<p>注意 <code>Get free 1$</code> 免费获得 1 美元</p>
+</blockquote>
+
+<h3 id="市场分析">市场分析</h3>
+
+<p>在市场上，我们可以执行两个操作：</p>
+
+<ul>
+<li>创建一个出价(Offer)，要出售约<code>&lt;COUNT&gt;</code>(数目)的<CURRENCY>(货币)，和某<code>&lt;RATE&gt;</code>(汇率)（介于 0.00064 和 0.00068 之间）。
+汇率只表明，BIZ 币的 1 美元价格。</li>
+<li>接受(accept)出价（如果我们有足够的资源/钱来做。出价方也必须同意才行，但这只是一个技术问题，所以，让我们跳过吧。</li>
+</ul>
+
+<p>一开始我们的钱包是空的：0 美元和 0 Biz 币。</p>
+
+<p>当我们没有一些资源的正数(没有钱)时，我们根本不能出售它（大几率，会有一个特定的检查）。
+但是，当我们有非负数时，我们可以出售，任何少于我们金额的金额都可以，甚至是负数！</p>
+
+<p>因此，我们可以使用&rdquo;获得免费 1 美元&rdquo;选项，该选项为我们提供 1 美元，和 0.0006613371337 Biz 币。
+此选项，仅适用于每个帐户一次（并且，它不会添加 1 美元和 0.0006613371337 Biz 币，它只是把您的钱包 <strong>设为</strong> 这些值！）</p>
+
+<h3 id="解">解</h3>
+
+<p>我们至少需要两个帐户。让我们注册并激活多一个账号 <code>codisec_writeup2</code>。</p>
+
+<p>在第一个帐户上，我们点击&rdquo;免费获取 1 美元&rdquo;，然后创建一个出价，以低汇率（即 <code>0.000640001</code>）卖出 <b>-10<sup>20</sup></b> 美元。</p>
+
+<p>在第二个帐户，我们接受报价，金钱如下：</p>
+
+<pre><code>codisec_writeup:  USD:  100,000,000,000,000,000,000.0000000000000 Bizcoin: -64,000,099,999,999,992.0000000000000
+codisec_writeup2: USD: -100,000,000,000,000,000,000.0000000000000 Bizcoin:  64,000,099,999,999,992.0000000000000
+</code></pre>
+
+<blockquote>
+<p>货币间，相互交换。</p>
+</blockquote>
+
+<p>然后，在第二个账户上，我们以高汇率（即 <code>0.000679999</code>）出售我们所有的 Biz 币，并在第一个账户上接受：</p>
+
+<pre><code>codisec_writeup:  USD:  5,882,067,473,628,659,712.0000000000000 Bizcoin: 0.0000000000000
+codisec_writeup2: USD: -5,882,067,473,628,659,712.0000000000000 Bizcoin: 0.0000000000000
+</code></pre>
+
+<p>现在，让我们点击第二个帐户的&rdquo;免费获取 1 美元&rdquo;：</p>
+
+<blockquote>
+<p>注意，免费获取不是添加操作，而是设为 1。</p>
+</blockquote>
+
+<pre><code>codisec_writeup:  USD: 5,882,067,473,628,659,712.0000000000000 Bizcoin: 0.0000000000000
+codisec_writeup2: USD:                         1.0000000000000 Bizcoin: 0.0006613371337
+</code></pre>
+
+<p>最后，让我们在第二个帐户上，创建出价，即 <code>-20,000,000</code> 美元，并在第一个帐户上接受它：</p>
+
+<pre><code>codisec_writeup:  USD: 5,882,067,473,608,659,968.0000000000000 Bizcoin:  12,800.0199999999986
+codisec_writeup2: USD:                20,000,001.0000000000000 Bizcoin: -12,800.0193386628653
+</code></pre>
+
+<blockquote>
+<p>稍微解释一下，第二个账号出价<code>-20,000,000</code>美元，但同账号下的 <code>Bizcoin</code>货币来说，要付出相当汇率的金额。一加一减：美元加了，BIZ 就要减(为美元买单)。</p>
+</blockquote>
+
+<p>现在我们可以在第一个帐户上，就可以买一个旗帜：<code>ctfzone{I_d0nt_n33d_d0llar_b1lls_t0_h@v3_fun_t0n1ght}</code>。</p>
+
+<h2 id="备择方案">备择方案</h2>
+
+<h3 id="网络部分">网络部分</h3>
+
+<p>如果我们不喜欢猜测，我们可以使用正则表达式，扫描会话 ID（如果存在匹配所选模式的 id，我们会得到响应。但这种方法需要大量的查询。</p>
+
+<h3 id="欺诈部分">欺诈部分</h3>
+
+<p>如果我们贪婪，我们可以出售，尽可能多的 BIZ 币，因为我们需要溢出美元金额。然后，因为，值保持为浮点数，我们将得到无穷大的 USD 。🙂</p>
+
+<p>我们也可以尝试劫持，用户的会话 ID，这已经解决了这个练习。</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/codisec%20CTF"> #codisec CTF </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/blog"> #blog </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/ctfzone-2017-riches-wings.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

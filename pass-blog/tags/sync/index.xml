@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sync on 杂项博文</title>
+    <link>/pass-blog/tags/sync/</link>
+    <description>Recent content in Sync on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 04 Nov 2018 12:34:22 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/sync/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go 多个并发等待 Url请求 示例</title>
+      <link>/pass-blog/2018/11/04/go-%E5%A4%9A%E4%B8%AA%E5%B9%B6%E5%8F%91%E7%AD%89%E5%BE%85-url%E8%AF%B7%E6%B1%82-%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Sun, 04 Nov 2018 12:34:22 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/04/go-%E5%A4%9A%E4%B8%AA%E5%B9%B6%E5%8F%91%E7%AD%89%E5%BE%85-url%E8%AF%B7%E6%B1%82-%E7%A4%BA%E4%BE%8B/</guid>
+      <description>Code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;sync&amp;#34; ) func main() { urls := []string{ &amp;#34;http://llever.com&amp;#34;, &amp;#34;http://llever.com/goreleaser-zh&amp;#34;, &amp;#34;http://llever.com/about/&amp;#34;, } jsonResponses := make(chan int) var wg sync.WaitGroup all := 0 for _, url := range urls { wg.Add(1) all++ go getURL(url, &amp;amp;wg, jsonResponses) } index := 0 for response := range jsonResponses { index++ fmt.Println(response) if all == index { close(jsonResponses) } } fmt.Println(&amp;#34;before done&amp;#34;) wg.Wait() } func getURL(url string, wg *sync.</description>
+    </item>
+    
+  </channel>
+</rss>

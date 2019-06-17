@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wechat on 杂项博文</title>
+    <link>/pass-blog/tags/wechat/</link>
+    <description>Recent content in Wechat on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 22 Nov 2018 14:27:52 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/wechat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wechat(跳一跳)自动跳-(手机测试的部分能力)</title>
+      <link>/pass-blog/2018/11/22/wechat%E8%B7%B3%E4%B8%80%E8%B7%B3%E8%87%AA%E5%8A%A8%E8%B7%B3-%E6%89%8B%E6%9C%BA%E6%B5%8B%E8%AF%95%E7%9A%84%E9%83%A8%E5%88%86%E8%83%BD%E5%8A%9B/</link>
+      <pubDate>Thu, 22 Nov 2018 14:27:52 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/22/wechat%E8%B7%B3%E4%B8%80%E8%B7%B3%E8%87%AA%E5%8A%A8%E8%B7%B3-%E6%89%8B%E6%9C%BA%E6%B5%8B%E8%AF%95%E7%9A%84%E9%83%A8%E5%88%86%E8%83%BD%E5%8A%9B/</guid>
+      <description>其实网上说明很多，这里仅做小参    github iOS（12.1）+ MacOS（Mojave） 的图文说明     repo 简书    过程遇到的问题 1。 HomeBrew 下载 库出错 $ brew install &amp;lt;包名&amp;gt; Error: Your Xcode (1) is too outdated. 之类  答  brew update-reset 答案参考
+(Ana)Conda，运行手动版本失败 (虚拟环境名)$ conda install matplotlib # 之后，还是出错 (虚拟环境名)$ python wechat_jump_iOS_py3.py RuntimeError: Python is not installed as a framework. The Mac OS X backend will not be able to function correctly if Python is not installed as a framework.</description>
+    </item>
+    
+  </channel>
+</rss>

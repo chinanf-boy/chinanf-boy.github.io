@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Repl on 杂项博文</title>
+    <link>/pass-blog/tags/repl/</link>
+    <description>Recent content in Repl on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 24 Jan 2018 15:53:30 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/repl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mac repl js go 大混杂</title>
+      <link>/pass-blog/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/</link>
+      <pubDate>Wed, 24 Jan 2018 15:53:30 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/</guid>
+      <description>这是我 mac 上 repl 软件-「js, go」 大混杂
+Go 语言 官方并没有给出，repl 交互环境
+所以有 gore 这类-终端的
+用起来，就像 node
+ 不过我想说得是   gophernotes jupyter Go 内核  没错，能在jupyter 上用内核，
+ 不过 -mac- 上无法使用
+ 但是你知道-docker 就十分方便了-也给出docker的入门中文
+docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
+当你想与容器-gophernotes- 互通数据文件
+docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes   -p 端口互通
+ --mount 可以文件夹互通
+ source 本地存在的文件夹 要自己新建
+ target 容器的文件夹
+    用alias 命名一下，就好用了</description>
+    </item>
+    
+  </channel>
+</rss>

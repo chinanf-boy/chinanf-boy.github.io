@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Css on 杂项博文</title>
+    <link>/pass-blog/tags/css/</link>
+    <description>Recent content in Css on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 20 Jan 2018 20:25:56 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>position sticky 粘连定位</title>
+      <link>/pass-blog/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/</link>
+      <pubDate>Sat, 20 Jan 2018 20:25:56 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/01/20/position-sticky-%E7%B2%98%E8%BF%9E%E5%AE%9A%E4%BD%8D/</guid>
+      <description> position css 的 position 定位
+一般我们使用
+static relative absolute fixed 这四个
+现在有个实验的 粘连定位 position: sticky
+ 可以让我们 一边固定 一边滚动 出范围就不固定, 滚动查看 A-C-D.. 标签的位置
+ See the Pen 粘性定位 by braveyo (@china-boy) on CodePen.  </description>
+    </item>
+    
+  </channel>
+</rss>

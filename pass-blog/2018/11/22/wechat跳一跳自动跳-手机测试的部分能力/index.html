@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Wechat(跳一跳)自动跳-(手机测试的部分能力)</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Wechat(跳一跳)自动跳-(手机测试的部分能力)</h2>
+        
+
+<h1 id="其实网上说明很多-这里仅做小参">其实网上说明很多，这里仅做小参</h1>
+
+<table>
+<thead>
+<tr>
+<th>github</th>
+<th>iOS（12.1）+ MacOS（Mojave） 的图文说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://github.com/wangshub/wechat_jump_game">repo</a></td>
+<td><a href="https://jianshu.com/p/ff973a5910ae">简书</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="过程遇到的问题">过程遇到的问题</h2>
+
+<h3 id="1-homebrew-下载-库出错"><strong>1。</strong> HomeBrew 下载 库出错</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install &lt;包名&gt;
+Error: Your Xcode <span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span> is too outdated. 之类</code></pre></div>
+<ul>
+<li>答</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew update-reset</code></pre></div>
+<p><a href="https://github.com/Homebrew/brew/issues/4957">答案参考</a></p>
+
+<h3 id="ana-conda-运行手动版本失败">(Ana)Conda，运行手动版本失败</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ff79c6">(</span>虚拟环境名<span style="color:#ff79c6">)</span>$ conda install matplotlib
+<span style="color:#6272a4"># 之后，还是出错</span>
+<span style="color:#ff79c6">(</span>虚拟环境名<span style="color:#ff79c6">)</span>$ python wechat_jump_iOS_py3.py
+RuntimeError: Python is not installed as a framework. The Mac OS X backend will not be able to <span style="color:#ff79c6">function</span> correctly <span style="color:#ff79c6">if</span> Python is not installed as a framework. See the Python documentation <span style="color:#ff79c6">for</span> more information on installing Python as a framework on Mac OS X. Please either reinstall Python as a framework, or try one of the other backends. If you are using <span style="color:#ff79c6">(</span>Ana<span style="color:#ff79c6">)</span>Conda please install python.app and replace the use of <span style="color:#f1fa8c">&#39;python&#39;</span> with <span style="color:#f1fa8c">&#39;pythonw&#39;</span>. See <span style="color:#f1fa8c">&#39;Working with Matplotlib on OSX&#39;</span> in the Matplotlib FAQ <span style="color:#ff79c6">for</span> more information.</code></pre></div>
+<table>
+<thead>
+<tr>
+<th><strong>参考</strong>：</th>
+<th><a href="https://github.com/wangshub/wechat_jump_game/wiki/Android-%E5%92%8C-iOS-%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4#%E4%B8%89%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83">作者说</a></th>
+<th><a href="https://matplotlib.org/faq/osx_framework.html#conda">matplotlib 官方说</a> 后</th>
+<th><a href="/2018/11/22/译conda-install-搭配-requirements.txt/">Conda Install 搭配 Requirements.txt</a></th>
+</tr>
+</thead>
+
+<tbody>
+</tbody>
+</table>
+
+<blockquote>
+<p>我说，就算了吧，直接运行自动跳的那个好了<code>python wechat_jump_auto_iOS.py</code>(答)</p>
+</blockquote>
+
+<h2 id="加了点-快速脚本-请在上面按照简书说明-试运行成功后"> 加了点，快速脚本(请在上面按照简书说明，试运行成功后)</h2>
+
+<ul>
+<li>1. 开手机调试测试</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># 解锁keychain，以便可以正常的签名应用，</span>
+<span style="color:#8be9fd;font-style:italic">PASSWORD</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$1</span>
+security unlock-keychain -p <span style="color:#8be9fd;font-style:italic">$PASSWORD</span> ~/Library/Keychains/login.keychain
+
+<span style="color:#6272a4"># 获取设备的UDID</span>
+<span style="color:#8be9fd;font-style:italic">UDID</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(</span>idevice_id -l | head -n1<span style="color:#ff79c6">)</span>
+
+<span style="color:#8be9fd;font-style:italic">cd</span> /安装的位置/WebDriverAgent
+
+<span style="color:#6272a4"># 运行测试</span>
+xcodebuild -project WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination <span style="color:#f1fa8c">&#34;id=</span><span style="color:#8be9fd;font-style:italic">$UDID</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#8be9fd;font-style:italic">test</span> &amp;
+<span style="color:#6272a4"># 开启代理</span>
+iproxy <span style="color:#bd93f9">8100</span> <span style="color:#bd93f9">8100</span> &amp; </code></pre></div>
+<p>另开终端，<em>有没有一个终端/或合在一起的方法呢?)</em></p>
+
+<ul>
+<li>2. 启动虚拟(若有的话)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#8be9fd;font-style:italic">source</span> activate &lt;虚拟环境名&gt;</code></pre></div>
+<ul>
+<li>3. 正式启动</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#8be9fd;font-style:italic">cd</span> /安装的位置/wechat_jump_game
+python wechat_jump_auto_iOS.py</code></pre></div>
+<p><a href="https://testerhome.com/topics/7220#%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%9B%BF%E4%BB%A3Xcode">参考</a> |</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/wechat"> #wechat </a></li><li><a class="link" href="/pass-blog/tags/python"> #python </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/autoplay"> #autoplay </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/wechat-auto-jump-fun.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

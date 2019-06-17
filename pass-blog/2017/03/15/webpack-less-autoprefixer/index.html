@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>webpack&#43;less&#43;Autoprefixer</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>webpack&#43;less&#43;Autoprefixer</h2>
+        
+
+<h1 id="webpack">webpack</h1>
+
+<ul>
+<li><p>前端打包工具</p></li>
+
+<li><p>js css 图片 之类 压缩 生产化</p></li>
+
+<li><p>现在，配置其中一项，css文件的加载器，<code>loader</code></p></li>
+</ul>
+
+<blockquote>
+<p>不同的是，配置结果，是为了，把<code>less</code> &gt; <code>css</code> + <strong>补全浏览器前缀</strong></p>
+
+<p>还有 <code>babel</code> <code>js</code> 语法</p>
+</blockquote>
+
+<!-- more -->
+
+<p>postcss.config.js 启动补全前缀</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">module.exports <span style="color:#ff79c6">=</span> {
+  plugins<span style="color:#ff79c6">:</span> [
+    require(<span style="color:#f1fa8c">&#39;autoprefixer&#39;</span>)
+  ]
+}
+</code></pre></div>
+<p>webpack.config.js (<code>babel</code> 语法，<code>css</code>，<code>less</code>文件解析补全,合并到一个‘<code>style.css</code>’)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> path <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;path&#39;</span>);
+<span style="color:#8be9fd;font-style:italic">var</span> ExtractTextPlugin <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;extract-text-webpack-plugin&#39;</span>);
+<span style="color:#ff79c6">const</span> webpack <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;webpack&#39;</span>);
+
+module.exports <span style="color:#ff79c6">=</span> {
+  entry<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;./app/index.js&#39;</span>,
+  output<span style="color:#ff79c6">:</span> {
+    filename<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;bundle.js&#39;</span>,
+    path<span style="color:#ff79c6">:</span> path.resolve(__dirname, <span style="color:#f1fa8c">&#39;dist&#39;</span>)
+  },
+  module<span style="color:#ff79c6">:</span> {
+       rules<span style="color:#ff79c6">:</span> [{
+           test<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/\.css$/</span>,
+           use<span style="color:#ff79c6">:</span> ExtractTextPlugin.extract({
+                fallback<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;style-loader&#34;</span>,
+                use<span style="color:#ff79c6">:</span> [ <span style="color:#f1fa8c">&#39;css-loader&#39;</span>, <span style="color:#f1fa8c">&#39;postcss-loader&#39;</span> ]
+            })
+       },
+       {
+          test<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/\.less$/</span>,
+          use<span style="color:#ff79c6">:</span> ExtractTextPlugin.extract({
+            fallback<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;style-loader&#34;</span>,
+            use<span style="color:#ff79c6">:</span>[ <span style="color:#f1fa8c">&#39;css-loader&#39;</span>, <span style="color:#f1fa8c">&#39;postcss-loader&#39;</span>, <span style="color:#f1fa8c">&#39;less-loader&#39;</span> ]
+          })
+       },
+       {
+         test<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/\.js$/</span>,
+         exclude<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">/(node_modules)/</span>,
+         use<span style="color:#ff79c6">:</span> [{
+           loader<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;babel-loader&#39;</span>,
+           options<span style="color:#ff79c6">:</span> {
+             presets<span style="color:#ff79c6">:</span> [[<span style="color:#f1fa8c">&#39;es2015&#39;</span>, {modules<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>}]],
+             plugins<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;syntax-dynamic-import&#39;</span>]
+           }
+          }]
+      }
+     ]
+   },
+    plugins<span style="color:#ff79c6">:</span> [
+        <span style="color:#ff79c6">new</span> ExtractTextPlugin(<span style="color:#f1fa8c">&#39;styles.css&#39;</span>)
+    ]
+};
+</code></pre></div>
+<p>index.js (写入，导入命令)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;../css/H5.css&#34;</span>;
+<span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;../css/test.less&#34;</span>;
+</code></pre></div>
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><p><a href="https://github.com/postcss/autoprefixer">https://github.com/postcss/autoprefixer</a> (postcss 中的补全)</p></li>
+
+<li><p><a href="https://github.com/webpack-contrib/extract-text-webpack-plugin">https://github.com/webpack-contrib/extract-text-webpack-plugin</a> (把<code>webpack</code> 中 css文件独立出来 插件)</p></li>
+</ul>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/webpack"> #webpack </a></li><li><a class="link" href="/pass-blog/tags/less"> #less </a></li><li><a class="link" href="/pass-blog/tags/Autoprefixer"> #Autoprefixer </a></li><li><a class="link" href="/pass-blog/tags/postCss"> #postCss </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/webpack-less-Autoprefixer.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

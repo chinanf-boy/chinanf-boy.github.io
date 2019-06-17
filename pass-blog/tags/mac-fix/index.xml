@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac Fix on 杂项博文</title>
+    <link>/pass-blog/tags/mac-fix/</link>
+    <description>Recent content in Mac Fix on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 11 Aug 2018 17:30:30 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/mac-fix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Macbook屏幕修理记</title>
+      <link>/pass-blog/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/</link>
+      <pubDate>Sat, 11 Aug 2018 17:30:30 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/11/macbook%E5%B1%8F%E5%B9%95%E4%BF%AE%E7%90%86%E8%AE%B0/</guid>
+      <description>macbook问题描述 长时间使用电脑导致的, 长达二三个月, 每天都会出现
+ 屏幕下的黑框
+  一时无法移去的鼠标箭头
+ 解决 当然, 是找授权的维修店
+那么， 你最好最好是在保修期限内
+Mac 保修期限 Mac 电脑整机及所含附件自原始购买之日起享有 1 年保修期。 主要部件享有自购买之日起 2 年保修期。 Mac 台式电脑所有主要部件包括：主板 (MLB)、处理器 (CPU)、内存、硬盘 (HDD/SSD)、电源和显卡。 Mac 笔记本电脑所有主要部件范围包括主板 (MLB)、处理器 (CPU)、内存、硬盘 (HDD/SSD)、电源适配器、键盘和显示屏 (LCD)。 可另外购买 AppleCare Protection Plan 全方位服务计划。 维修方式 根据具体的故障情况对设备进行维修。 所有更换的部件和附件都是全新的。 更换的非主要部件和附件享受原有保修期的剩余时长或自更换日起 90 天的保修期，以二者中期限较长者为准。更换后的主要部件享有重新计算的 2 年保修期。  更多可看 https://support.apple.com/zh-cn/warranties
+那么官方预订维修 可通过 https://support.apple.com/zh-cn/repair/products
+店面需要的信息  个人身份证 (可与买电脑时不同) 买电脑的发票或电子发票之类 记得备份  这些信息, 在预约邮件都会有
+ 个人于 2016 12月买的电脑， 用得是QQ邮箱, 电子发票的邮件早已删除</description>
+    </item>
+    
+  </channel>
+</rss>

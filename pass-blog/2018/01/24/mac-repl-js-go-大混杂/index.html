@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>mac repl js go 大混杂</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>mac repl js go 大混杂</h2>
+        
+
+<p>这是我 mac 上 repl 软件-「js, go」 大混杂</p>
+
+<h2 id="go-语言">Go 语言</h2>
+
+<p>官方并没有给出，repl 交互环境</p>
+
+<p>所以有 <a href="https://github.com/motemen/gore">gore</a> 这类-终端的</p>
+
+<p>用起来，就像 <code>node</code></p>
+
+<ul>
+<li>不过我想说得是</li>
+</ul>
+
+<blockquote>
+<h2 id="gophernotes-jupyter-go-内核-https-github-com-gopherdata-gophernotes"><a href="https://github.com/gopherdata/gophernotes">gophernotes jupyter Go 内核</a></h2>
+</blockquote>
+
+<p>没错，能在<code>jupyter</code> 上用内核，</p>
+
+<blockquote>
+<p>不过 -mac- 上无法使用</p>
+</blockquote>
+
+<p>但是你知道-<code>docker</code> 就十分方便了-也给出<a href="https://github.com/yeasy/docker_practice">docker的入门中文</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash·" data-lang="bash·">docker run -it -p 8888:8888 gopherdata/gophernotes</code></pre></div>
+<p>这条命令，是下载与运行</p>
+
+<p>当你想与容器-gophernotes- 互通数据文件</p>
+
+<pre><code>docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes
+</code></pre>
+
+<ul>
+<li><p><code>-p</code> 端口互通</p></li>
+
+<li><p><code>--mount</code> 可以文件夹互通</p>
+
+<ul>
+<li><p><code>source</code> 本地存在的文件夹 要自己新建</p></li>
+
+<li><p><code>target</code> 容器的文件夹</p></li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>用<code>alias</code> 命名一下，就好用了</p>
+</blockquote>
+
+<hr />
+
+<h2 id="node-js">node-js</h2>
+
+<p>现在有个类-<code>jupyter</code></p>
+
+<blockquote>
+<h2 id="nteract-https-github-com-nteract-nteract"><a href="https://github.com/nteract/nteract">nteract</a></h2>
+</blockquote>
+
+<p>可用于<code>node</code>的交互</p>
+
+<hr />
+
+<p>还有</p>
+
+<blockquote>
+<h2 id="scratches-便签簿-阅读-评估-打印-循环-但用一个更好的编辑器-也可以交互并有window属性-https-github-com-0x00a-scratches"><a href="https://github.com/0x00A/scratches">scratches 便签簿 阅读，评估，打印，循环，但用一个更好的编辑器。也可以交互并有window属性</a>👍</h2>
+</blockquote>
+
+<hr />
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/go"> #go </a></li><li><a class="link" href="/pass-blog/tags/js"> #js </a></li><li><a class="link" href="/pass-blog/tags/repl"> #repl </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/mac-repl-js-go-大混杂.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>动画 on 杂项博文</title>
+    <link>/pass-blog/tags/%E5%8A%A8%E7%94%BB/</link>
+    <description>Recent content in 动画 on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 17 May 2017 11:37:25 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/%E5%8A%A8%E7%94%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>processing p5 js 动画与游戏制造</title>
+      <link>/pass-blog/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/</link>
+      <pubDate>Wed, 17 May 2017 11:37:25 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/17/processing-p5-js-%E5%8A%A8%E7%94%BB%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%88%B6%E9%80%A0/</guid>
+      <description>改 2017 6.13
+processing 动画转换 转向 js客户  这意味着 我可以 在 codepen 上展示
+ 减少一下，js加载流量
+如何使用 Processing 有自己的 动画规则语言 较为易懂易用
+See the Pen CSS ICON: right double quote by braveyo (@china-boy) on CodePen.  现在 你只需要一个
+ p5.js
+ fire.html
+  fire.html
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;#34;//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;sketch.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; sketch.js
+// Global variables function setup() { createCanvas(640, 480); } function draw() { if (mouseIsPressed) { fill(0); } else { fill(255); } ellipse(mouseX, mouseY, 80, 80); }  就这样 就是上 显示的</description>
+    </item>
+    
+    <item>
+      <title>codepen 代码嵌入</title>
+      <link>/pass-blog/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/</link>
+      <pubDate>Wed, 17 May 2017 11:25:39 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/</guid>
+      <description>codepen 的 代码嵌入 功能 See the Pen Gravity Points by braveyo (@china-boy) on CodePen.  # 只要在 codepen 的 编辑器界面
+# 有个 右下角 Embed 的 功能
+# 复制 提供的 iframe 或 html 代码 就好
+# 上面的 点击 制造 黑洞 模仿黑洞引力哦</description>
+    </item>
+    
+  </channel>
+</rss>

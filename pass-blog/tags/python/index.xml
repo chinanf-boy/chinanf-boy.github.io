@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 杂项博文</title>
+    <link>/pass-blog/tags/python/</link>
+    <description>Recent content in Python on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 22 Nov 2018 14:27:52 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wechat(跳一跳)自动跳-(手机测试的部分能力)</title>
+      <link>/pass-blog/2018/11/22/wechat%E8%B7%B3%E4%B8%80%E8%B7%B3%E8%87%AA%E5%8A%A8%E8%B7%B3-%E6%89%8B%E6%9C%BA%E6%B5%8B%E8%AF%95%E7%9A%84%E9%83%A8%E5%88%86%E8%83%BD%E5%8A%9B/</link>
+      <pubDate>Thu, 22 Nov 2018 14:27:52 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/22/wechat%E8%B7%B3%E4%B8%80%E8%B7%B3%E8%87%AA%E5%8A%A8%E8%B7%B3-%E6%89%8B%E6%9C%BA%E6%B5%8B%E8%AF%95%E7%9A%84%E9%83%A8%E5%88%86%E8%83%BD%E5%8A%9B/</guid>
+      <description>其实网上说明很多，这里仅做小参    github iOS（12.1）+ MacOS（Mojave） 的图文说明     repo 简书    过程遇到的问题 1。 HomeBrew 下载 库出错 $ brew install &amp;lt;包名&amp;gt; Error: Your Xcode (1) is too outdated. 之类  答  brew update-reset 答案参考
+(Ana)Conda，运行手动版本失败 (虚拟环境名)$ conda install matplotlib # 之后，还是出错 (虚拟环境名)$ python wechat_jump_iOS_py3.py RuntimeError: Python is not installed as a framework. The Mac OS X backend will not be able to function correctly if Python is not installed as a framework.</description>
+    </item>
+    
+    <item>
+      <title>让你的py优雅</title>
+      <link>/pass-blog/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/</link>
+      <pubDate>Wed, 01 Aug 2018 19:14:03 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/</guid>
+      <description>参考译文来自：www.lightxue.com/transforming-code-into-beautiful-idiomatic-python
+在Python社区文化的浇灌下，演化出了一种独特的代码风格，去指导如何正确地使用Python，这就是常说的pythonic。
+Raymond Hettinger是Python核心开发者，本文提到的许多特性都是他开发的。同时他也是Python社区热忱的布道师，不遗余力地传授pythoni c之道。这篇文章是网友Jeff Paine整理的他在2013年美国的PyCon的演讲的笔记。
+以下正文
+遍历一个范围内的数字 0 for i in [0, 1, 2, 3, 4, 5]: 1 print i ** 2 2 3 for i in range(6): 4 print i ** 2 更好的方法
+for i in xrange(6): print i ** 2 xrange会返回一个迭代器，用来一次 遍历一个范围。这种方式会比range更省内存。xrange在Python 3中已经改名为range。
+遍历一个集合 colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] for i in range(len(colors)): print colors[i] 更好的方法
+for color in colors: print color 反向遍历 colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] for i in range(len(colors)-1, -1, -1): print colors[i] 更好的方法</description>
+    </item>
+    
+    <item>
+      <title>Slack-Hubot-use-py-or-js</title>
+      <link>/pass-blog/2017/10/09/slack-hubot-use-py-or-js/</link>
+      <pubDate>Mon, 09 Oct 2017 20:17:57 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/09/slack-hubot-use-py-or-js/</guid>
+      <description> Slack 的机器人 和Slack上的机器人发命令
+在服务器布置的 接收 处理
+下面是两个，简单的构建示例
+1.用python SlackClient 简单构建 github代码
+2.用Hubot与Slack结合 js github代码
+区别是  使用语言不同
+ hubot是一个完备的框架
+  </description>
+    </item>
+    
+    <item>
+      <title>pipenv 快速构建虚拟python环境</title>
+      <link>/pass-blog/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Mon, 09 Oct 2017 08:15:28 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/</guid>
+      <description>pipenv python的快速构建虚拟环境 使用 pip install pipenv  搭建 pipenv --three pipenv --two   &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境共用 必须保证，下载 pipenv的pip，是纯净的python 2. 运行 pipenv &amp;ndash;three ，如果出现错误，像我 因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建， 但是之前说了，为了纯净，这就会发生错误。
+$ pipenv --three error $ which python anaconda/bin/python  ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
+Mac oX 系统
+$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6  更多 Github 官网</description>
+    </item>
+    
+    <item>
+      <title>Python核心编程第三版-第二章代码运行 问题解决</title>
+      <link>/pass-blog/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Fri, 08 Sep 2017 12:46:40 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/09/08/python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%89%88-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>当在windows和Mac上，练习对应的代码时
+非常明显的错误就在于 传输类型
+TypeError: a bytes-like object is required, not &amp;#39;str&amp;#39; TypeError: %b requires a bytes-like object, or an object that implements __bytes__, not &amp;#39;str self.wfile.write(b&amp;#39;[%s] %s&amp;#39; % (bytes(ctime(), &amp;#39;utf-8&amp;#39;), bytes(self.rfile.readline(), &amp;#39;utf-8&amp;#39;))) TypeError: encoding without a string argument 主要都是因为，通信的接收和发送都是byte的类型。
+所以需要使用
+ bytes() 函数
+ 以下是可以正常运行的代码
+from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH) from time import ctime HOST = &amp;#34;&amp;#34; PORT = 21467 BUFSIZ = 1024 ADDR = (HOST, PORT) class MyRequestHandler(SRH): def handle(self): print(&amp;#39;connect.</description>
+    </item>
+    
+  </channel>
+</rss>

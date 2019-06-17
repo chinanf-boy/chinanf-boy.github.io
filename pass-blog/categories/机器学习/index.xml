@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>机器学习 on 杂项博文</title>
+    <link>/pass-blog/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 机器学习 on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 11 Jan 2017 16:58:39 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TensorFlow by Google</title>
+      <link>/pass-blog/2017/01/11/tensorflow-by-google/</link>
+      <pubDate>Wed, 11 Jan 2017 16:58:39 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/01/11/tensorflow-by-google/</guid>
+      <description>So ,开始吧！
+这份学习来自于Google 在 Github上的开源项目 TensorFlow
+要知道，当今，如果，你想，实现一个机器人的 “大脑”。
+😯，那么你要做得事情，会很多很多，难度说到这里。
+正题：
+机器学习的概念，定义一长串？！
+所以，通俗的说。
+1.输入
+2.TensorFlow
+3.输出
+ 从 1⃣️ 开始：TensorFlow具有简单的运行公式，即便它本身的函数名看起来是那么那么的繁杂
+ 输入:(=训练数据=)； 我的标题是 《图像识别》，那么，也就是
+官方的例子，#如何识别图片是什么花#。
+虽然说是机器学习，但是完成一项识别工作，是繁重的。
+就如每个动物出生，要别——动物 ^ _ ^ 告诉他／她／它
+哦，这是爸爸，哦，这是妈妈。。。
+那么前期的工作就是，花的图片，大量大量的，越多越好||😢
+ 像五年高考，三年模拟，的题海战术，不想回忆
+  这是红菊
+这是黄菊
+ 但还是菊，科科
+收集起来，放一起，这就是需要训练的数据。
+2⃣️：TensorFlow
+在前一步，完成图片的收集后，是时候，入厂了喔。
+ 我现在不放代码，只是单纯从，非专业人士的角度。
+概su，毕竟，猫🐱总是好奇的嘛
+ 好了，现在，手握大量图片，再然后事情就不归我们管了
+ps：代码就是看起来很厉害的，一串东东
+图片库路径=&amp;gt;(代码)
+代码里面有(TensorFlow的各种算法) 什么样的算法？不用管
+像选 商品一样，想用哪个用哪个
+总结下&amp;gt;&amp;gt;&amp;gt; 图片库，_写入&amp;gt;代码，代码里含有（算法）。
+然后，很重要的一点，就是，就是，哦，告诉代码，对
+告诉代码，这个图片库路径是什么花🌹。哪个是什么花
+ok👌。是不是很简单
+ 3⃣️：输入
+为什么，我们要使用机器学习，来完成图片识别，
+或者说
+未来，机器人大脑数据的构成。
+因为，我们想要一台 不断成长的 机器人。后果另算
+ 重新说回，输入
+ 这个时候，大手大脚，的，测试吧，</description>
+    </item>
+    
+  </channel>
+</rss>

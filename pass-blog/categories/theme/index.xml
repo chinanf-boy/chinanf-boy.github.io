@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Theme on 杂项博文</title>
+    <link>/pass-blog/categories/theme/</link>
+    <description>Recent content in Theme on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 11 Jan 2019 12:26:15 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/theme/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>系列 功能添加 Hugo theme</title>
+      <link>/pass-blog/2019/01/11/%E7%B3%BB%E5%88%97-%E5%8A%9F%E8%83%BD%E6%B7%BB%E5%8A%A0-hugo-theme/</link>
+      <pubDate>Fri, 11 Jan 2019 12:26:15 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/01/11/%E7%B3%BB%E5%88%97-%E5%8A%9F%E8%83%BD%E6%B7%BB%E5%8A%A0-hugo-theme/</guid>
+      <description> 此博文的 header 是
+--- title: &amp;quot;系列 功能添加 Hugo theme&amp;quot; date: 2019-01-11T12:26:15+08:00 categories: [&amp;quot;theme&amp;quot;] tags: [&amp;quot;series&amp;quot;] series: &amp;quot;我是系列博文哦&amp;quot; description: &amp;quot;series功能&amp;quot; draft: false ---  最重要的当然，是series: &amp;quot;我是系列博文哦&amp;quot; </description>
+    </item>
+    
+  </channel>
+</rss>

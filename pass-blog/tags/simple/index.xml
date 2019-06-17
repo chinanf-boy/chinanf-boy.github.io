@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Simple on 杂项博文</title>
+    <link>/pass-blog/tags/simple/</link>
+    <description>Recent content in Simple on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 29 Apr 2019 21:50:59 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/simple/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Water.css 为简单而生的 css 框架</title>
+      <link>/pass-blog/2019/04/29/water.css-%E4%B8%BA%E7%AE%80%E5%8D%95%E8%80%8C%E7%94%9F%E7%9A%84-css-%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 29 Apr 2019 21:50:59 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/29/water.css-%E4%B8%BA%E7%AE%80%E5%8D%95%E8%80%8C%E7%94%9F%E7%9A%84-css-%E6%A1%86%E6%9E%B6/</guid>
+      <description>来源 https://github.com/kognise/water.css     官方Demo https://watercss.netlify.com    Water.css  Water.css is a just-add-css collection of styles to make simple websites like this just a little bit nicer. Get it already!  Now you can write your simple static site with nice semantic html, and Water.css will manage the styling for you. 
+Goals  Responsive Good code quality Good browser support Small size (&amp;lt; 2kb) Beautiful No classes</description>
+    </item>
+    
+  </channel>
+</rss>

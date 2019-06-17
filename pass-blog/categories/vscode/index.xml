@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vscode on 杂项博文</title>
+    <link>/pass-blog/categories/vscode/</link>
+    <description>Recent content in Vscode on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 21 Nov 2018 17:24:09 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/vscode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Power Mode与HackerTyper一VSCode扩展</title>
+      <link>/pass-blog/2018/11/21/power-mode%E4%B8%8Ehackertyper%E4%B8%80vscode%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Wed, 21 Nov 2018 17:24:09 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/21/power-mode%E4%B8%8Ehackertyper%E4%B8%80vscode%E6%89%A9%E5%B1%95/</guid>
+      <description>有趣的VSCode扩展 Power Mode 编码力量的体现
+ 个人觉得太抖了，最好的效果应该是Flames
+ 好了就这样，介绍完毕，
+HackerTyper 要展示你的编码，慢吞吞可不行
+更好的选择是VSCode扩展: vscode-hacker-typer
+它能记录，你的文字动向，保存下来，并在有需要的时候，play这段文字记录(你乱打就好了)
+作者的扩展演讲youtube，就是个经典例子，太有趣了</description>
+    </item>
+    
+    <item>
+      <title>(译)如何在VScode中使用Delve调试代码</title>
+      <link>/pass-blog/2018/10/29/%E8%AF%91%E5%A6%82%E4%BD%95%E5%9C%A8vscode%E4%B8%AD%E4%BD%BF%E7%94%A8delve%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 29 Oct 2018 16:02:30 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/10/29/%E8%AF%91%E5%A6%82%E4%BD%95%E5%9C%A8vscode%E4%B8%AD%E4%BD%BF%E7%94%A8delve%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/</guid>
+      <description>原文 日期     stackoverflow 2016-08-21    如何在VScode中使用Delve调试代码, 一步一脚印:  ( 注意: Windows 操作系统 要将 所有 $GOPATH 替换成 %GOPATH% )
+  安装Golang 和 设置 GOROOT and GOPATH。
+ 添加 $GOPATH/bin 到你的 OS PATH 环境变量。
+ 设置环境变量: GO15VENDOREXPERIMENT = 1
+ 运行: go get github.com/derekparker/delve/cmd/dlv， 并确保 dlv 二进制文件在你的$GOPATH/bin目录中生成。
+ 安装 Visual Studio Code
+ 启动 VS Code 快捷键(Ctrl+P), 输出以下命令: ext install Go , 点击Enter.</description>
+    </item>
+    
+  </channel>
+</rss>

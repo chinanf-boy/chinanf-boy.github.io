@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>hugo i18n </title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>hugo i18n </h2>
+        
+
+<h1 id="双语">双语</h1>
+
+<p><code>hugo</code>的国际化 由源于 内置 <code>go-i18n</code></p>
+
+<h2 id="方式">方式</h2>
+
+<h1 id="一-翻译-string">一: 翻译 string</h1>
+
+<blockquote>
+<p>类似与 菜单栏 nav</p>
+</blockquote>
+
+<p>有两种方式</p>
+
+<ol>
+<li>在项目根目录</li>
+</ol>
+
+<p>创建 <code>i18n</code> 文件夹</p>
+
+<p>i18n</p>
+
+<pre><code>en.toml/yaml
+zh.toml/yaml
+</code></pre>
+
+<p>en.toml</p>
+
+<pre><code>[home]
+  other = &quot;home&quot;
+</code></pre>
+
+<p>zh.toml</p>
+
+<pre><code>[home]
+  other = &quot;主页&quot;
+</code></pre>
+
+<p>上面的设置好后，在 模版主题中使用</p>
+
+<p>*.html</p>
+
+<pre><code>{{ i18n &quot;home&quot; }}
+</code></pre>
+
+<p>这样在</p>
+
+<p>html 头的带领下 呈现 en/zh.toml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;en&#39;</span>&gt;</code></pre></div>
+<ol>
+<li>第二种</li>
+</ol>
+
+<blockquote>
+<p>根目录中</p>
+</blockquote>
+
+<p><code>config.toml</code></p>
+
+<pre><code>defaultContentLanguage = &quot;en&quot;
+# 这里是 默认网址 https://example.com
+
+# 如果是 true https://example.com/en
+defaultContentLanguageInSubdir = false 
+
+[languages.en]
+  languageCode = &quot;en-us&quot;
+
+[languages.zh]
+  languageCode = &quot;zh-cn&quot;
+
+[[menu.main]]
+  name = &quot;Home&quot;
+  url = &quot;#about&quot;
+  weight = 1
+
+[[Languages.zh.menu.main]]
+  name = &quot;主页&quot;
+  url = &quot;#about&quot;
+  weight = 1
+
+</code></pre>
+
+<p>这里有个 第二种的 <a href="http://www.pzhao.org/zh/post/hugo-multilingual/">例子</a></p>
+
+<p>总结一下：</p>
+
+<ul>
+<li><p>第一种，方式更像是，内置就有的功能，使用 <code>i18n</code>函数</p></li>
+
+<li><p>第二种，需要<code>主题模版</code>带有一定的国际化功能。</p></li>
+
+<li><p>最重要的一点，算然，<code>hugo server</code>带有自动刷新页面的功能，</p></li>
+</ul>
+
+<p>但其实有时<code>页面过大</code>，<code>错误语法</code>带来</p>
+
+<p>的 <code>不良或不改</code>的页面呈现。 多数情况下，对我们来说，过程是不可见的。</p>
+
+<h2 id="所以应该时刻注意开启-hugo-server-v-的-调试日志-查看原因">所以应该时刻注意开启 <code>hugo server -v</code> 的 调试日志，查看原因。</h2>
+
+<hr />
+
+<h1 id="二-翻译文章">二: 翻译文章</h1>
+
+<blockquote>
+<p>md 文件</p>
+</blockquote>
+
+<p>根据官方文档，文章的翻译在配置好后</p>
+
+<p>会变成</p>
+
+<pre><code>content
+      about
+          me.md  // me.en.md
+          me.zh.md
+      doc
+          start.md //start.en.md
+          start.zh.md
+</code></pre>
+
+<p>在 <code>content</code> 文章文件夹，存在着<code>后缀名</code>-有关<code>国家简写</code></p>
+
+<p>在网站 <code>URL</code> 体现</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">https://example.com/en/about
+https://example.com/zh/about
+...</code></pre></div>
+<hr />
+
+<p>config.toml</p>
+
+<pre><code>
+DefaultContentLanguage = &quot;en&quot;
+copyright = &quot;Everything is mine&quot;
+
+[params.navigation]
+help  = &quot;Help&quot;
+
+[Languages]
+[Languages.en]  #这
+title = &quot;My blog&quot;
+weight = 1
+[Languages.en.params]
+linkedin = &quot;english-link&quot;
+
+[Languages.zh] #和这个是关键
+copyright = &quot;都是我的&quot;
+title = &quot;我的博客&quot;
+weight = 2
+[Languages.zh.params]
+linkedin = &quot;lien-francais&quot;
+[Languages.fr.navigation]
+help  = &quot;Aide&quot;
+
+</code></pre>
+
+<p>不过 如果 <code>hugo server -v</code> 出来的页面有时 页面呈现不正确</p>
+
+<p>请给予多点耐心，Cao 怎么 <code>英文直接变中文了</code></p>
+
+<p>这时候，转几圈，重启<code>server</code> or  加 <code>-w file.html</code> <code>watch</code> 文件</p>
+
+<p>的改动, 这里确实有<code>bug，hugo</code>,应该是 并发的问题，<code>hexo server</code> 就没这问题</p>
+
+<blockquote>
+<p>上面代码 的 <code>关键</code> 就给予了 URL/en &ndash; URL/zh</p>
+</blockquote>
+
+<p>剩下的 就是 翻译 文章 -&gt; 新建 语言后缀文件 -&gt; 放对位置</p>
+
+<p>Done!!</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/hugo"> #hugo </a></li><li><a class="link" href="/pass-blog/tags/i18n"> #i18n </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/hugo-i18n.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

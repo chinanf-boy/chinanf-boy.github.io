@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Window on 杂项博文</title>
+    <link>/pass-blog/tags/window/</link>
+    <description>Recent content in Window on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 22 Jan 2018 14:58:35 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/window/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>pm2 window 开机启动</title>
+      <link>/pass-blog/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Mon, 22 Jan 2018 14:58:35 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/01/22/pm2-window-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/</guid>
+      <description> pm2 startup 开机启动 不支持 window 使用 pm2-windows-startup
+npm install pm2 -g npm install pm2-windows-startup -g pm2-startup install pm2 start myApp.js --name mySuperApp pm2 save # 重启电脑 pm2 ls 完成，就这么简单， tips 开机会有终端运行 </description>
+    </item>
+    
+  </channel>
+</rss>

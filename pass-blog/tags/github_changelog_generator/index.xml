@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github_changelog_generator on 杂项博文</title>
+    <link>/pass-blog/tags/github_changelog_generator/</link>
+    <description>Recent content in Github_changelog_generator on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 16 Dec 2017 15:42:49 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/github_changelog_generator/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ChangeLog 生成器</title>
+      <link>/pass-blog/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/</link>
+      <pubDate>Sat, 16 Dec 2017 15:42:49 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/16/changelog-%E7%94%9F%E6%88%90%E5%99%A8/</guid>
+      <description>ChangeLog 生成器
+gem install github_changelog_generator 示例
+最好生成 github token 因为 github 限制了 每小时 50个请求 对于匿名用户
+快速token生成&amp;ndash;点击
+然后 把 获得 token id 放进 .bashrc or .zshrc
+# Add ChangeLog github token export CHANGELOG_GITHUB_TOKEN=&amp;#39;token id&amp;#39; 使用 在你的项目中，
+github_changelog_generator  or
+github_changelog_generator github_name/github_project  更多信息 github_changelog_generator --help  为什么 ChangeLog 重要 or 如何维护更新日志
+github库</description>
+    </item>
+    
+  </channel>
+</rss>

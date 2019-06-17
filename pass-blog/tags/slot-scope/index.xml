@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slot Scope on 杂项博文</title>
+    <link>/pass-blog/tags/slot-scope/</link>
+    <description>Recent content in Slot Scope on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 11 Mar 2018 13:21:37 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/slot-scope/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vue slot-scope 2.5.* example</title>
+      <link>/pass-blog/2018/03/11/vue-slot-scope-2.5.-example/</link>
+      <pubDate>Sun, 11 Mar 2018 13:21:37 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/03/11/vue-slot-scope-2.5.-example/</guid>
+      <description>都写在这里了 jsfiddle 🌰</description>
+    </item>
+    
+  </channel>
+</rss>

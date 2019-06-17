@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Find on 杂项博文</title>
+    <link>/pass-blog/tags/find/</link>
+    <description>Recent content in Find on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 21 Nov 2018 14:47:31 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/find/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>警告 find在终端与shell脚本是不同的</title>
+      <link>/pass-blog/2018/11/21/%E8%AD%A6%E5%91%8A-find%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E6%98%AF%E4%B8%8D%E5%90%8C%E7%9A%84/</link>
+      <pubDate>Wed, 21 Nov 2018 14:47:31 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/21/%E8%AD%A6%E5%91%8A-find%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E6%98%AF%E4%B8%8D%E5%90%8C%E7%9A%84/</guid>
+      <description>find 命令可用于查找，文件系统的信息 如: 查找source目录下的所有匹配*.md的文件（终端）
+$ find ./source/**/*.md ./source/README.md ./source/readme.zh.md 终端却不能这么写 $ sh &amp;#34;find ./source/**/*.md&amp;#34; sh: find ./source/**/*.md: No such file or directory or
+# find-md.sh &amp;#34;find ./source/**/*.md&amp;#34;$ find-md.sh sh: find ./source/**/*.md: No such file or directory 解决: $(find ) # fix-find.sh list=&amp;#34;$(find ./source -type f -name \*.md)&amp;#34; echo &amp;#34;$list\n&amp;#34;;$ fix-find.sh ./source/README.md ./source/readme.zh.md  注意: 会有空行
+ # fix-find.sh list=&amp;#34;$(find ./source -type f -name \*.md)&amp;#34; for file in $list; do if [ !</description>
+    </item>
+    
+  </channel>
+</rss>

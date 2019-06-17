@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>ionic Going</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>ionic Going</h2>
+        
+
+<h1 id="似流程-不是流程">似流程，不是流程</h1>
+
+<p>下载问题可看<a href="http://llever.com/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">上一篇</a>文章</p>
+
+<h1 id="ionic-是一套使用-javascript-html-css-技术构建-手机原生应用的-框架">ionic 是一套使用 javascript html css 技术构建 手机原生应用的 框架</h1>
+
+<p>从这里就可以看出，困难的地方就是，如何转换，原生应用，这点上 <code>ionic</code> 帮我们做了，</p>
+
+<p><code>不仅如此，还做了分享平台，测试应用的快速教程和应用，不可谓不大大的良心</code></p>
+
+<h1 id="命令行下载">命令行下载</h1>
+
+<pre><code>npm install -g cordova ionic
+</code></pre>
+
+<blockquote>
+<p>cordova 是 为了 神不知鬼不觉 的 构建原生应用 后续</p>
+</blockquote>
+
+<h1 id="主要网站">主要网站</h1>
+
+<p>官网：<a href="http://ionicframework.com/">http://ionicframework.com/</a></p>
+
+<p>分享部署平台和主要代码管理和测试：<a href="https://dashboard.ionicjs.com/">https://dashboard.ionicjs.com/</a></p>
+
+<p>网上编辑器可拖拉搞定：<a href="https://creator.ionic.io/app/dashboard">https://creator.ionic.io/app/dashboard</a></p>
+
+<p>手机应用—— <code>ionic view</code> 与分享平台结合</p>
+
+<h1 id="官方文档真的很棒-不过要翻墙-上面大部分">官方文档真的很棒，不过要翻墙，上面大部分</h1>
+
+<h1 id="使用-angular-与-sass-和-typescript-作为-编写条件">使用 <code>Angular</code> 与 <code>sass</code> 和 <code>TypeScript</code> 作为 编写条件</h1>
+
+<h1 id="不过可以试试第一个官方应用">不过可以试试第一个官方应用</h1>
+
+<pre><code>ionic start myApp tabs
+</code></pre>
+
+<p>服务器</p>
+
+<pre><code>ionic serve
+</code></pre>
+
+<p>链接平台,要有账号,在这一步通过与本身项目链接 自动 <code>git remote add ionic [你的项目.git]</code></p>
+
+<p>这个过程还会配合<code>ssh</code></p>
+
+<pre><code>ionic link [可选项 项目唯一id]
+</code></pre>
+
+<p>部署功能与<code>Ionic Pro</code> <code>Git工作流</code>配合使用，可在生产（或测试）应用程序中部署新的代码更新。</p>
+
+<p>通过上一步的路由添加了 <code>ionic</code></p>
+
+<pre><code>git push ionic master
+</code></pre>
+
+<blockquote>
+<p>注意：部署功能仅适用于二进制兼容更改，这意味着如果您依赖本机代码更新，则必须先重新提交到应用程序商店才能使用部署。
+要使用<code>Ionic Pro</code>的部署功能，您必须先设置一个 <code>Channels</code> 来轮询更新。
+配合 <code>cordova</code> 与 <code>Xcode</code> 快速测试手机应用</p>
+</blockquote>
+
+<pre><code>cordova plugin add cordova-plugin-ionic --save \
+--variable APP_ID=&quot;f1d47607&quot; \
+--variable CHANNEL_NAME=&quot;Master&quot; \
+--variable UPDATE_METHOD=&quot;auto&quot;
+</code></pre>
+
+<p>构建</p>
+
+<pre><code>ionic build ios
+</code></pre>
+
+<p>然后在<code>Xcode</code>打开 构建 的 <code>ios</code>文件夹</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/ionic"> #ionic </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/ionic-Going.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

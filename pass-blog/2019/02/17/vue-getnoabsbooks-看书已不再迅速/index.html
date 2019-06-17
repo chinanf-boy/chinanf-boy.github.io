@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Vue Getnoabsbooks 看书已不再迅速</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Vue Getnoabsbooks 看书已不再迅速</h2>
+        
+
+<h2 id="不知道有多少试过-vue-getnoabsbooks-https-github-com-chinanf-boy-vue-getnoabsbooks-项目的仁">不知道有多少试过<a href="https://github.com/chinanf-boy/vue-getnoabsbooks">vue-getnoabsbooks</a> 项目的仁</h2>
+
+<p>先抱歉一声，关于它的交流障碍问题</p>
+
+<ul>
+<li><a href="http://llever.com/getNoAbsBooks/#/">演示页面</a></li>
+</ul>
+
+<p>这个应用是因为我厌倦了广告弹窗(各种黄赌毒，作为新时代的三好青年&hellip;这就是就是我)</p>
+
+<p>我搞了这些东东</p>
+
+<h3 id="总思路">总思路</h3>
+
+<p><strong>一：</strong> 通过，heroku 的免费平台，上传了<a href="https://github.com/chinanf-boy/getnoabsbooks">getnoabsbooks 的 js 后台</a></p>
+
+<p><strong>二：</strong> 再拿<a href="https://github.com/bluzi/jsonstore">jsonstore 服务</a>(当然也是免费)，作为简易数据存储，主要是书签与书籍存储，作为应用首页面</p>
+
+<p><strong>三：</strong> 还有，就是简单的 Vue 应用，主要为请求(GET+POST)后台与看书相关的功能(自动阅读，字体大小，自动缓存等等)。</p>
+
+<p>通过后台对那些(daoban)网站，获取，冲洗，以及链接格式修正(改为 Vue 路由格式)，返回给 Vue 应用。</p>
+
+<p>并没有大刀阔斧地搞成一个，存好书字本身的网站，也没有所谓的用户(难度在于，有入门门槛，主要是部署这一系列东东)。</p>
+
+<p>但，就使用来说，自认为不错。</p>
+
+<blockquote>
+<p>甚至你可以直接，在<code>http://llever.com/getNoAbsBooks/#/</code>后面，加上书页面的网站链接，当然只能处理那么一两种格式网页。</p>
+
+<p>如：<code>http://llever.com/getNoAbsBooks/#/https://m.zwdu.com/book/30586/11314042_2.html</code>，就是一个示例，这种做法并不会存入书籍目录。</p>
+</blockquote>
+
+<p>不过，世界上没有免费的午餐，即便是有，也不是永远的。刚开始，jsonstore + daoban 网站 + heroku + vue 应用的交流速度还过得去，而现在出于某些不可抗力因素，之间交流越来越难受(主要是与 heroku 交流的障碍，谢谢祖国，还有自身，在一定时间内，若无活跃连接，会自动沉默，这就是导致<strong>第一次请求永远超时的原因</strong>)，常常出现请求超时的情况。</p>
+
+<p>我想，去广告功能方面，后台的冲洗是必不可少的，而又想在免费的道路上一直走下去，就目前而言，并未找到好的办法。</p>
+
+<h3 id="我现在看书去广告的选择">我现在看书去广告的选择</h3>
+
+<p>我现在选用了手机浏览器自带的功能（Brave 浏览器，Iphone 版)，所谓去广告，其实只是 Brave 功能的一个缩影。
+起作用的按钮是<strong>禁用脚本</strong>，由此可以看出，Brave 其实是个安全浏览器，它还有其他杂七杂八的(好/坏)东西(比如重启后，网页不见的诡秘)，虽然在界面，或是生态上，达不到其他大浏览器那般，但在看书去广告方面，绝对实用。</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/sorry"> #sorry </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/js"> #js </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/vue-getnoabsbooks-看书已不再迅速.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

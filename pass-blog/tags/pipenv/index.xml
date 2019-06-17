@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pipenv on 杂项博文</title>
+    <link>/pass-blog/tags/pipenv/</link>
+    <description>Recent content in Pipenv on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 29 Nov 2018 10:03:56 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/pipenv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>你应该使用pipenv啦</title>
+      <link>/pass-blog/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/</link>
+      <pubDate>Thu, 29 Nov 2018 10:03:56 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/</guid>
+      <description>我选择放弃所有的 Conda 构建 正如我一年前的博文:pipenv-快速构建虚拟 python 环境所叙述
+当时，pipenv 还只是一个选择，现在我爱它(python 虚拟的唯一选择)，谢谢所有贡献者
+如何删除 Ana(conda),基本就是删删删
+ 1 删. conda 主目录  where conda # 删掉  2 删. 应用目录下/Ana***.App(Mac) 3 删. Shell 配置 .bashrc之类的文件中，conda 主目录的 PATH 环境变量  Pipenv python 的多项目环境，在于项目与项目之间的requirements.txt列表，存在多版本的可能(基本可以认为是 100%的不同)。为了应对这种环境，就需要拆分 python 的关系库(包库)。
+入正题之前:
+确保纯净的 python 在pip install pipenv之前，使用where python确定，你使用的 python 是由官网下载的，不是系统自带的
+where pip pip: aliased to pip3 /Library/Frameworks/Python.framework/Versions/3.6/bin/pip /Library/Frameworks/Python.framework/Versions/3.6/bin/pip /usr/local/bin/pip # 系统的 正如你看到的，我是将pip别名(alias)为pip3，对python也做了python3的别名
+where python python: aliased to python3 /usr/bin/python # 系统的  alias  alias python=&amp;#34;python3&amp;#34; alias pip=&amp;#34;pip3&amp;#34; 安装  pip install pipenv pip install --upgrade pipenv升级  使用 主要也就那几个命令</description>
+    </item>
+    
+    <item>
+      <title>pipenv 快速构建虚拟python环境</title>
+      <link>/pass-blog/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Mon, 09 Oct 2017 08:15:28 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/09/pipenv-%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E8%99%9A%E6%8B%9Fpython%E7%8E%AF%E5%A2%83/</guid>
+      <description>pipenv python的快速构建虚拟环境 使用 pip install pipenv  搭建 pipenv --three pipenv --two   &amp;ndash;three 3.x版本 &amp;ndash;two 2.x版本
+ 主要下载问题 1. pipenv 无法与 conda 或 其他 虚拟环境搭建python环境共用 必须保证，下载 pipenv的pip，是纯净的python 2. 运行 pipenv &amp;ndash;three ，如果出现错误，像我 因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建， 但是之前说了，为了纯净，这就会发生错误。
+$ pipenv --three error $ which python anaconda/bin/python  ✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python
+Mac oX 系统
+$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6  更多 Github 官网</description>
+    </item>
+    
+  </channel>
+</rss>

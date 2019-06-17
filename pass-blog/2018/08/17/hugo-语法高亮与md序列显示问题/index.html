@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Hugo 语法高亮与md序列显示问题</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Hugo 语法高亮与md序列显示问题</h2>
+        
+
+<h2 id="1-hugo-内置-工具">1. hugo 内置 工具</h2>
+
+<p>Hugo在官方文档中 有 <code>Pygments</code>{python 写的}与<code>Chroma</code>{go 写的}（从0.30版本开始，集成了Chroma作为替代。）</p>
+
+<h2 id="2-引入-hightlight-类的库到-head">2. 引入 hightlight 类的库到 <code>&lt;head&gt;</code></h2>
+
+<p>两种做法, 可看</p>
+
+<p>具体看 <a href="http://note.qidong.name/2017/06/24/hugo-highlight/">http://note.qidong.name/2017/06/24/hugo-highlight/</a></p>
+
+<h2 id="3-自定义css-这一点其实不如上两种的通用-这个方法更倾向-语法显示的修复">3. 自定义css, 这一点其实不如上两种的通用, 这个方法更倾向 语法显示的修复</h2>
+
+<h2 id="我的hugo语法高亮">我的hugo语法高亮</h2>
+
+<p>我的 <code>config.toml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">pygmentsCodeFences = <span style="color:#ff79c6">true</span>
+pygmentsCodefencesGuessSyntax = <span style="color:#ff79c6">false</span>
+pygmentsStyle = <span style="color:#f1fa8c">&#34;dracula&#34;</span>
+pygmentsOptions = [<span style="color:#f1fa8c">&#39;linenos&#39;</span>]</code></pre></div>
+<h3 id="这个语法的显示有问题-代码块的宽度被代码撑大了">这个语法的显示有问题: 代码块的宽度被代码撑大了</h3>
+
+<p>答: 在 <code>theme</code> 下 <code>/casper-two/layouts/partials/head.html</code> 模版上,加 <code>css</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    &lt;<span style="color:#ff79c6">style</span>&gt;
+    <span style="color:#ff79c6">div</span>.<span style="color:#50fa7b">highlight</span> {
+        <span style="color:#ff79c6">width</span>:<span style="color:#bd93f9">100</span><span style="color:#8be9fd">%</span>;
+    }
+    &lt;/<span style="color:#ff79c6">style</span>&gt;</code></pre></div>
+<h2 id="相关问题">相关问题</h2>
+
+<h3 id="vue语法显示问题">vue语法显示问题</h3>
+
+<p>答: 自定义css <a href="http://www.shawpo.me/post/hugo-markdown-code-style/">http://www.shawpo.me/post/hugo-markdown-code-style/</a></p>
+
+<h3 id="hugo-的-markdown-解析器对">hugo 的 markdown 解析器对</h3>
+
+<pre><code>1.  第一
+
+中间有东西的话
+
+2.  第二
+
+这个`2.`会变回`1.`
+
+3.  第三
+
+同上
+</code></pre>
+
+<blockquote>
+<p>的解析出现错误</p>
+</blockquote>
+
+<p><details>
+<summary> 错误用咧请看 </summary></p>
+
+<ol>
+<li>第一</li>
+</ol>
+
+<p>中间有东西的话</p>
+
+<ol>
+<li>第二</li>
+</ol>
+
+<p>这个<code>2.</code>会变回<code>1.</code></p>
+
+<ol>
+<li>第三</li>
+</ol>
+
+<p>同上</p>
+
+<p></details></p>
+
+<p>答: 不得已<code>&lt;b&gt; *. &lt;/b&gt;</code> 代替吧</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/hugo"> #hugo </a></li><li><a class="link" href="/pass-blog/tags/hightlight"> #hightlight </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/hugo"> #hugo </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/hugo-语法高亮与md序列显示问题.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

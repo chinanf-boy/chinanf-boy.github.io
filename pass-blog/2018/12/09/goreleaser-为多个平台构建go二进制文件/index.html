@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Goreleaser : 为多个平台构建Go二进制文件</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Goreleaser : 为多个平台构建Go二进制文件</h2>
+        
+
+<h2 id="goreleaser">GoReleaser</h2>
+
+<p>GoReleaser 为多个平台构建 Go 二进制文件，也可将 Homebrew 公式推送到 tap 存储库。所有这些都包含在你最喜欢的 CI 中。</p>
+
+<p>使用 GoReleaser 能自动，为生成 Github 项目的 release 页面的，可供下载的二进制文件</p>
+
+<ul>
+<li>下面是我的 howdoi(Golang)项目的发布页面</li>
+</ul>
+
+<p><img src="/file_imgs/2018-12/howdoi.png" alt="my howdoi releaser" /></p>
+
+<blockquote>
+<p>三个平台(MacOS,Linux,Windows)都有</p>
+</blockquote>
+
+<h2 id="行列">行列</h2>
+
+<table>
+<thead>
+<tr>
+<th>官方文档</th>
+<th>非官方中文翻译</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://goreleaser.com/">https://goreleaser.com/</a></td>
+<td><a href="http://chinanf-boy.github.io/goreleaser-zh">goreleaser-zh</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="用例">用例</h2>
+
+<p>最好的基础例子，莫过于自己常用的东西，也就是我的 howdoi 项目</p>
+
+<blockquote>
+<p>这个例子，是让 travis 与 goreleaser 合作，的例子</p>
+</blockquote>
+
+<p>当然，前提是你要<a href="http://llever.com/goreleaser-zh/">安装好-&gt;</a></p>
+
+<h3 id="travis-yml">.travis.yml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#6272a4"># .travis.yml</span>
+language: go
+
+addons:
+  apt:
+    packages:
+    <span style="color:#6272a4"># needed for the nfpm pipe:</span>
+    <span style="color:#6272a4"># - rpm</span>
+    <span style="color:#6272a4"># needed for the snap pipe:</span>
+    <span style="color:#6272a4"># - snapcraft</span>
+
+env:
+<span style="color:#6272a4"># needed for the snap pipe:</span>
+<span style="color:#6272a4"># - PATH=/snap/bin:$PATH</span>
+
+install:
+<span style="color:#6272a4"># needed for the snap pipe:</span>
+<span style="color:#6272a4"># - sudo snap install snapcraft --classic</span>
+
+<span style="color:#6272a4"># needed for the docker pipe</span>
+services:
+  - docker
+
+after_success:
+<span style="color:#6272a4"># docker login is required if you want to push docker images.</span>
+<span style="color:#6272a4"># DOCKER_PASSWORD should be a secret in your .travis.yml configuration.</span>
+<span style="color:#6272a4"># - test -n &#34;$TRAVIS_TAG&#34; &amp;&amp; docker login -u=myuser -p=&#34;$DOCKER_PASSWORD&#34;</span>
+<span style="color:#6272a4"># snapcraft login is required if you want to push snapcraft packages to the</span>
+<span style="color:#6272a4"># store.</span>
+<span style="color:#6272a4"># You&#39;ll need to run `snapcraft export-login snap.login` and</span>
+<span style="color:#6272a4"># `travis encrypt-file snap.login --add` to add the key to the travis</span>
+<span style="color:#6272a4"># environment.</span>
+<span style="color:#6272a4"># - test -n &#34;$TRAVIS_TAG&#34; &amp;&amp; snapcraft login --with snap.login</span>
+
+<span style="color:#6272a4"># calls goreleaser</span>
+deploy:
+  - provider: script
+    skip_cleanup: <span style="color:#ff79c6">true</span>
+    github_token: $GITHUB_TOKEN
+    script: curl -sL https://git.io/goreleaser <span style="color:#f1fa8c">| bash
+</span><span style="color:#f1fa8c">    on:
+</span><span style="color:#f1fa8c">      tags: true
+</span><span style="color:#f1fa8c">      condition: $TRAVIS_OS_NAME = linux</span></code></pre></div>
+<p>说明下，travis 的持续集成，一开始当然，你要打开你项目的权限，然后在 travis 上设置，
+关于该项目的<code>GITHUB_TOKEN</code>环境变量 ，(这样就可以安全使用<code>$GITHUB_TOKEN</code>，而不会流窜到整个构建过程)</p>
+
+<blockquote>
+<p>可以看到上面，英文连片，但其实这大多数就是官方例子(加了少许注释)，以此可看出其简单复制/粘贴就可搞定 release。</p>
+</blockquote>
+
+<h3 id="goreleaser-yml">.goreleaser.yml</h3>
+
+<p>这个才是，goreleaser 的配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#6272a4"># This is an example goreleaser.yaml file with some sane defaults.</span>
+<span style="color:#6272a4"># Make sure to check the documentation at http://goreleaser.com</span>
+before:
+  hooks:
+    <span style="color:#6272a4"># you may remove this if you don&#39;t use vgo</span>
+    <span style="color:#6272a4"># - go mod download</span>
+    <span style="color:#6272a4"># you may remove this if you don&#39;t need go generate</span>
+    <span style="color:#6272a4"># - go generate ./...</span>
+builds:
+  - env:
+      - CGO_ENABLED=<span style="color:#bd93f9">0</span>
+  - goos:
+      - windows
+archive:
+  replacements:
+    darwin: Darwin
+    linux: Linux
+    windows: Windows
+    <span style="color:#bd93f9">386</span>: i386
+    amd64: x86_64
+checksum:
+  name_template: <span style="color:#f1fa8c">&#39;checksums.txt&#39;</span>
+snapshot:
+  name_template: <span style="color:#f1fa8c">&#39;{{ .Tag }}-next&#39;</span>
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - <span style="color:#f1fa8c">&#39;^docs:&#39;</span>
+      - <span style="color:#f1fa8c">&#39;^test:&#39;</span></code></pre></div>
+<p>有关其字段意思，其实也字面上，表述得很清楚</p>
+
+<p>重点说说<code>builds</code>下面的，这个<code>官方 go build</code>的环境参数。
+其中<code>- goos:</code>默认就有 MacOS 与 Linux 的构建(这里我略写了，但仍会构建该两个平台)，再加上<code>- windows</code>
+,也就是三个平台，正如上面 howdoi 的发布页面图片所看到的。</p>
+
+<p>想了解<a href="http://llever.com/goreleaser-zh/customization/">更多 .goreleaser.yml-&gt;</a></p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/release"> #release </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/go"> #go </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/goreleaser-为多个平台构建Go二进制文件.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

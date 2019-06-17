@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>ory-editer 网页编辑器-基于react</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>ory-editer 网页编辑器-基于react</h2>
+        
+
+<h1 id="ory-https-github-com-ory-editor-的-editer"><a href="https://github.com/ory/editor">ory</a> 的 editer</h1>
+
+<h2 id="用于网页的编辑器-online-http-editor-ory-am"><a href="http://editor.ory.am">用于网页的编辑器，Online</a></h2>
+
+<h1 id="应该说-这是高级应用了">应该说，这是高级应用了</h1>
+
+<blockquote>
+<p>我的目标，也就是这极限了。</p>
+
+<p>看了下源码，真的看晕了</p>
+
+<p>react, typescript, material-ui, redux, bootstrap</p>
+
+<p>单独一二项，看的明白，混在一起的. 科科</p>
+</blockquote>
+
+<h2 id="虽然说-用-react-框架省去了些-步骤-redux-做全局-meterial-ui-做-ui-bootstrap-做-布局">虽然说，用<code>react</code>框架省去了些，步骤，<code>redux</code>做全局，<code>meterial-ui</code> 做 UI ，<code>bootstrap</code> 做 布局</h2>
+
+<h2 id="部分-代码文件-后缀名是-js-但是-应该是-用工具转代码的">部分，代码文件，后缀名是，<code>.js</code> 但是，应该是，用工具转代码的，</h2>
+
+<p>因为，变量数据格式，太凸显 ， 还是说用了其他的方式。</p>
+
+<p>editor/packages/renderer/src/index.js
+v0.2.10 line-<code>8</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> gridClass <span style="color:#ff79c6">=</span> (size<span style="color:#ff79c6">:</span> number <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">12</span>)<span style="color:#ff79c6">:</span> string =&gt;
+  <span style="color:#f1fa8c">`ory-cell-sm-</span><span style="color:#f1fa8c">${</span>size<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> ory-cell-xs-12`</span>
+</code></pre></div>
+<blockquote>
+<p>eslint 总 显示红线， 这个是<code>ts</code>的书写 啊，一坨的红线。</p>
+</blockquote>
+
+<p>作者造搞了，自己的数据格式，主要通过 <code>cells</code> <code>Raws</code></p>
+
+<p>状态是一个规范的JSON对象，不涉及HTML。</p>
+
+<p>也是为了，免xss威胁。</p>
+
+<p><code>行</code> <code>列</code> 去区分，显示</p>
+
+<p>editor/examples/src/content.js</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> [
+  {
+    <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;1&#34;</span>,
+    <span style="color:#f1fa8c">&#34;cells&#34;</span><span style="color:#ff79c6">:</span> [
+      {
+        <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;5ac89ec4-7536-4120-a072-8eedad0a48ff&#34;</span>,
+        <span style="color:#f1fa8c">&#34;inline&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
+        <span style="color:#f1fa8c">&#34;size&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">12</span>,
+        <span style="color:#f1fa8c">&#34;rows&#34;</span><span style="color:#ff79c6">:</span> [
+          {
+            <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;c440df91-52c5-44cf-9ac2-f5b15ff61b13&#34;</span>,
+            <span style="color:#f1fa8c">&#34;cells&#34;</span><span style="color:#ff79c6">:</span> [
+              {
+                <span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;39417572-f976-44b7-97b2-9a7e00fd66f2&#34;</span>,
+                <span style="color:#f1fa8c">&#34;inline&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
+                <span style="color:#f1fa8c">&#34;size&#34;</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">12</span>,
+</code></pre></div>
+<p>用来对，服务器渲染，静态</p>
+
+<p>editor/examples/src/index.js line-<code>92</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">ReactDOM.render(<span style="color:#ff79c6">&lt;</span>HTMLRenderer state<span style="color:#ff79c6">=</span>{content[<span style="color:#bd93f9">0</span>]} plugins<span style="color:#ff79c6">=</span>{plugins} /&gt;, document.getElementById(&#39;editable-static&#39;))
+</code></pre></div>
+<blockquote>
+<p>state = content[0] //就是上面的一串格式</p>
+
+<p>感觉，还要做一个，<code>html</code> <strong>转</strong> 上面一串格式</p>
+</blockquote>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/react"> #react </a></li><li><a class="link" href="/pass-blog/tags/typescript"> #typescript </a></li><li><a class="link" href="/pass-blog/tags/material-ui"> #material-ui </a></li><li><a class="link" href="/pass-blog/tags/redux%ef%bc%8cbootstrap"> #redux，bootstrap </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/ory-editer-网页编辑器-基于react.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

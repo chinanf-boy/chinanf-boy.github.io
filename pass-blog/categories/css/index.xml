@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Css on 杂项博文</title>
+    <link>/pass-blog/categories/css/</link>
+    <description>Recent content in Css on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 29 Apr 2019 21:50:59 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Water.css 为简单而生的 css 框架</title>
+      <link>/pass-blog/2019/04/29/water.css-%E4%B8%BA%E7%AE%80%E5%8D%95%E8%80%8C%E7%94%9F%E7%9A%84-css-%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 29 Apr 2019 21:50:59 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/29/water.css-%E4%B8%BA%E7%AE%80%E5%8D%95%E8%80%8C%E7%94%9F%E7%9A%84-css-%E6%A1%86%E6%9E%B6/</guid>
+      <description>来源 https://github.com/kognise/water.css     官方Demo https://watercss.netlify.com    Water.css  Water.css is a just-add-css collection of styles to make simple websites like this just a little bit nicer. Get it already!  Now you can write your simple static site with nice semantic html, and Water.css will manage the styling for you. 
+Goals  Responsive Good code quality Good browser support Small size (&amp;lt; 2kb) Beautiful No classes</description>
+    </item>
+    
+    <item>
+      <title>NES.css 任天堂风格css框架 Yummy</title>
+      <link>/pass-blog/2018/12/06/nes.css-%E4%BB%BB%E5%A4%A9%E5%A0%82%E9%A3%8E%E6%A0%BCcss%E6%A1%86%E6%9E%B6-yummy/</link>
+      <pubDate>Thu, 06 Dec 2018 12:23:36 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/12/06/nes.css-%E4%BB%BB%E5%A4%A9%E5%A0%82%E9%A3%8E%E6%A0%BCcss%E6%A1%86%E6%9E%B6-yummy/</guid>
+      <description>NES(任天堂) css 框架    Github 库 Demo 页 中文     github demo readme-zh    Reaction    
+   
+   
+SNS   
+  
+  
+  
+Others       
+Controllers    
+yinwang-css 格式添加说明 此文件的头是这样的
+--- title: &amp;#39;NES.css 任天堂风格css框架 Yummy&amp;#39; date: 2018-12-06T12:23:36+08:00 categories: [&amp;#39;css&amp;#39;] tags: [&amp;#39;NES&amp;#39;] description: &amp;#39;NES.</description>
+    </item>
+    
+  </channel>
+</rss>

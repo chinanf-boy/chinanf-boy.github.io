@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anaconda on 杂项博文</title>
+    <link>/pass-blog/tags/anaconda/</link>
+    <description>Recent content in Anaconda on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 12 Aug 2017 09:58:18 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/anaconda/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Anaconda conda command not found : 解决</title>
+      <link>/pass-blog/2017/08/12/anaconda-conda-command-not-found-%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Sat, 12 Aug 2017 09:58:18 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/08/12/anaconda-conda-command-not-found-%E8%A7%A3%E5%86%B3/</guid>
+      <description>conda  是 Anaconda 的 命令行
+ 因为使用zsh终端后，conda路径失去了
+ohmyzsh
+$ conda conda command not found 解决 export PATH=&amp;quot;/home/username/miniconda/bin:$PATH&amp;quot; source ~/.zshrc   zsh中 .zshrc
+//error: export PATH = &amp;#34;/home/username/miniconda/bin:$PATH&amp;#34; //right export PATH=&amp;#34;/home/username/miniconda/bin:$PATH&amp;#34;  不要保持良好的代码格式,会出错
+ 参考 stackoverflow .zshrc保持不空格</description>
+    </item>
+    
+  </channel>
+</rss>

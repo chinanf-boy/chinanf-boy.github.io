@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>pipenv 快速构建虚拟python环境</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>pipenv 快速构建虚拟python环境</h2>
+        
+
+<h1 id="pipenv-python的快速构建虚拟环境">pipenv python的快速构建虚拟环境</h1>
+
+<h2 id="使用">使用</h2>
+
+<pre><code>pip install pipenv
+</code></pre>
+
+<h2 id="搭建">搭建</h2>
+
+<pre><code>pipenv --three 
+pipenv --two
+</code></pre>
+
+<blockquote>
+<p>&ndash;three 3.x版本
+&ndash;two 2.x版本</p>
+</blockquote>
+
+<h2 id="主要下载问题">主要下载问题</h2>
+
+<h4 id="1-pipenv-无法与-conda-或-其他-虚拟环境搭建python环境共用">1. <code>pipenv</code> 无法与 <code>conda</code> 或 其他 虚拟环境搭建python环境共用</h4>
+
+<h4 id="必须保证-下载-pipenv-的-pip-是纯净的-python">必须保证，下载 <code>pipenv</code>的<code>pip</code>，是纯净的<code>python</code></h4>
+
+<h4 id="2-运行-pipenv-three-如果出现错误-像我">2. 运行 pipenv &ndash;three ，如果出现错误，像我</h4>
+
+<p>因为，我带有conda，所以 pipenv 会用这个的虚拟库 virtualenv 构建，
+但是之前说了，为了纯净，这就会发生错误。</p>
+
+<pre><code>$ pipenv --three
+error
+
+$ which python
+anaconda/bin/python
+</code></pre>
+
+<p>✅ 这个时候需要手动添加那个当时 pip install pipenv 的那个python</p>
+
+<p>Mac oX 系统</p>
+
+<pre><code>$ pipenv --three --python /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6
+</code></pre>
+
+<h2 id="更多">更多</h2>
+
+<p><a href="https://github.com/kennethreitz/pipenv">Github</a>
+<a href="https://docs.pipenv.org/">官网</a></p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/python"> #python </a></li><li><a class="link" href="/pass-blog/tags/pipenv"> #pipenv </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/pipenv-快速构建虚拟python环境.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

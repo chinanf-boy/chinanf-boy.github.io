@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on 杂项博文</title>
+    <link>/pass-blog/tags/go/</link>
+    <description>Recent content in Go on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 19 Nov 2018 13:07:34 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>(译) GoAWK，一个用Go编写的AWK解释器</title>
+      <link>/pass-blog/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/</link>
+      <pubDate>Mon, 19 Nov 2018 13:07:34 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/19/%E8%AF%91-goawk%E4%B8%80%E4%B8%AA%E7%94%A8go%E7%BC%96%E5%86%99%E7%9A%84awk%E8%A7%A3%E9%87%8A%E5%99%A8/</guid>
+      <description>原文 时间 原作者同意翻译     benhoyt blog 2018 年 11 月 github Issue    GoAWK，一个用 Go 编写的 AWK 解释器  简介：阅读 AWK 编程语言之后 我受到启发，用 Go 语言 为 AWK 编写了一个解释器。本文向你概述了什么是 AWK，描述了 GoAWK 的工作原理，我是如何进行测试的，以及我如何衡量和改进其性能。
+转至： AWK 概述 | 代码演练 | 测试 | 性能
+ 大目录 
+ AWK 概述 代码演练  词法分析器 解析器 分解器 解释器 主程序  我是如何测试它的  Lexer 测试 解析测试 解释器测试 命令行测试 AWK 测试套件 模糊测试  提高性能  我是如何分析的 性能改进 性能表现  从哪里来？</description>
+    </item>
+    
+    <item>
+      <title>Go 多并发 只要最快的一个正确返回 示例</title>
+      <link>/pass-blog/2018/11/07/go-%E5%A4%9A%E5%B9%B6%E5%8F%91-%E5%8F%AA%E8%A6%81%E6%9C%80%E5%BF%AB%E7%9A%84%E4%B8%80%E4%B8%AA%E6%AD%A3%E7%A1%AE%E8%BF%94%E5%9B%9E-%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Wed, 07 Nov 2018 11:06:59 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/07/go-%E5%A4%9A%E5%B9%B6%E5%8F%91-%E5%8F%AA%E8%A6%81%E6%9C%80%E5%BF%AB%E7%9A%84%E4%B8%80%E4%B8%AA%E6%AD%A3%E7%A1%AE%E8%BF%94%E5%9B%9E-%E7%A4%BA%E4%BE%8B/</guid>
+      <description>我们用Go 多个并发等待 Url请求 示例，改造
+code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;net/http&amp;#34; ) func main() { urls := []string{ &amp;#34;http://llever.com&amp;#34;, &amp;#34;http://llever.com/goreleaser-zh&amp;#34;, &amp;#34;http://llever.com/about/&amp;#34;, } jsonResponses := make(chan int) all := 0 for _, url := range urls { all++ // 这个 ++，可以改成 原子添加，但也没那么必要 	go getURL(url, jsonResponses) } index := 0 for response := range jsonResponses { // 等待 getURL 中 jsonResponses通道，返回 	index++ // 这个 ++，则大可不必 	if response !</description>
+    </item>
+    
+    <item>
+      <title>Go 多个并发等待 Url请求 示例</title>
+      <link>/pass-blog/2018/11/04/go-%E5%A4%9A%E4%B8%AA%E5%B9%B6%E5%8F%91%E7%AD%89%E5%BE%85-url%E8%AF%B7%E6%B1%82-%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Sun, 04 Nov 2018 12:34:22 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/04/go-%E5%A4%9A%E4%B8%AA%E5%B9%B6%E5%8F%91%E7%AD%89%E5%BE%85-url%E8%AF%B7%E6%B1%82-%E7%A4%BA%E4%BE%8B/</guid>
+      <description>Code package main import ( &amp;#34;fmt&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;sync&amp;#34; ) func main() { urls := []string{ &amp;#34;http://llever.com&amp;#34;, &amp;#34;http://llever.com/goreleaser-zh&amp;#34;, &amp;#34;http://llever.com/about/&amp;#34;, } jsonResponses := make(chan int) var wg sync.WaitGroup all := 0 for _, url := range urls { wg.Add(1) all++ go getURL(url, &amp;amp;wg, jsonResponses) } index := 0 for response := range jsonResponses { index++ fmt.Println(response) if all == index { close(jsonResponses) } } fmt.Println(&amp;#34;before done&amp;#34;) wg.Wait() } func getURL(url string, wg *sync.</description>
+    </item>
+    
+    <item>
+      <title>Golang Chroma 使用例子</title>
+      <link>/pass-blog/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</link>
+      <pubDate>Thu, 01 Nov 2018 10:30:33 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/01/golang-chroma-%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90/</guid>
+      <description>Chroma 通用语法高亮库    源码 翻译     github repo 中文    简略说一下，三点  要是屁话，不想听，直接上例子，或看中文翻译
+  1: lexers 词法分析器  主要是为了，知道你用的那串字符，是什么语言  2: styles 主题/样式  
+ 查看-&amp;gt;主题名称 
+[ abap, algol, algol_nu, arduino, autumn, borland, bw, colorful, dracula, emacs, friendly, fruity, github, igor, lovelace, manni, monokai, monokailight, murphy, native, paraiso-dark, paraiso-light, pastie, perldoc, pygments, rainbow_dash, rrt, solarized-dark, solarized-dark256, solarized-light, swapoff, tango, trac, vim, vsxcode ]</description>
+    </item>
+    
+    <item>
+      <title>mac repl js go 大混杂</title>
+      <link>/pass-blog/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/</link>
+      <pubDate>Wed, 24 Jan 2018 15:53:30 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/01/24/mac-repl-js-go-%E5%A4%A7%E6%B7%B7%E6%9D%82/</guid>
+      <description>这是我 mac 上 repl 软件-「js, go」 大混杂
+Go 语言 官方并没有给出，repl 交互环境
+所以有 gore 这类-终端的
+用起来，就像 node
+ 不过我想说得是   gophernotes jupyter Go 内核  没错，能在jupyter 上用内核，
+ 不过 -mac- 上无法使用
+ 但是你知道-docker 就十分方便了-也给出docker的入门中文
+docker run -it -p 8888:8888 gopherdata/gophernotes 这条命令，是下载与运行
+当你想与容器-gophernotes- 互通数据文件
+docker run -it -p 8888:8888 --mount type=bind,source=$HOME/Desktop/jupyter-go-file,target=/local-go-file gopherdata/gophernotes   -p 端口互通
+ --mount 可以文件夹互通
+ source 本地存在的文件夹 要自己新建
+ target 容器的文件夹
+    用alias 命名一下，就好用了</description>
+    </item>
+    
+    <item>
+      <title>目录环境加载 direnv</title>
+      <link>/pass-blog/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/</link>
+      <pubDate>Sun, 17 Dec 2017 20:39:21 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/17/%E7%9B%AE%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8A%A0%E8%BD%BD-direnv/</guid>
+      <description> direnv 它可以让你明白一个目录的意思，
+简单来说，在你熟悉的终端 zsh bash 之类的 配置文件中
+比如我 zsh
+# Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; 当然前提是要下载，在github 上就有很详细
+cd/my_project echo &amp;quot;echo &#39;hello this is my project&#39;&amp;quot; &amp;gt;&amp;gt; .envrc direnv allow  那么再你再进入这个目录时，自动运行 echo hello this is my project
+问题: 不需要 unloading or loading .envrc 之类的日志输出时。
+.zshrc
+# Add direnv hook eval &amp;#34;$(direnv hook zsh)&amp;#34; # remove direnv log loading export DIRENV_LOG_FORMAT= 原文，
+direnv是shell的环境切换器。 它知道如何挂钩到bash，zsh，tcsh和fish shell来根据当前目录加载或卸载环境变量。 这允许项目特定的环境变量而不会混乱〜/ .profile文件。 在每次提示之前，direnv检查当前目录和父目录中是否存在“.envrc”文件。 如果文件存在（并被授权），则将其加载到bash子shell中，然后所有导出的变量将被direnv捕获，然后提供给当前shell。 因为direnv被编译成一个静态的可执行文件，所以在每个提示符上显示的速度足够快。 它也是语言不可知的，可用于构建类似于rbenv，pyenv和pipenv的解决方案。  </description>
+    </item>
+    
+    <item>
+      <title>hugo hexo 傻傻分不清出 GO实现</title>
+      <link>/pass-blog/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 14 Nov 2017 15:08:32 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/14/hugo-hexo-%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E5%87%BA-go%E5%AE%9E%E7%8E%B0/</guid>
+      <description>hugo  像 hexo 一样的 静态网站生成
+ 重点，就是  FF_FFFFF_FFFFFFFF____FFFFast
+ 不过，网上找到的都很多是基本例子 不过也没有要做的高级例子。
+三部走
+ 下载  $ brew install hugo $ hugo version  创建  $ hugo new site quickstart  加皮肤 themes  cd quickstart;\ git init;\ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\  # Edit your config.toml configuration file # and add the Ananke theme. echo &amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml 噢不止三步, 那四部 - 加文章
+hugo new posts/my-first-post.</description>
+    </item>
+    
+  </channel>
+</rss>

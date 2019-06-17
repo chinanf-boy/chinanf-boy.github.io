@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>扩展 on 杂项博文</title>
+    <link>/pass-blog/tags/%E6%89%A9%E5%B1%95/</link>
+    <description>Recent content in 扩展 on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 21 Nov 2018 17:24:09 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/%E6%89%A9%E5%B1%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Power Mode与HackerTyper一VSCode扩展</title>
+      <link>/pass-blog/2018/11/21/power-mode%E4%B8%8Ehackertyper%E4%B8%80vscode%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Wed, 21 Nov 2018 17:24:09 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/21/power-mode%E4%B8%8Ehackertyper%E4%B8%80vscode%E6%89%A9%E5%B1%95/</guid>
+      <description>有趣的VSCode扩展 Power Mode 编码力量的体现
+ 个人觉得太抖了，最好的效果应该是Flames
+ 好了就这样，介绍完毕，
+HackerTyper 要展示你的编码，慢吞吞可不行
+更好的选择是VSCode扩展: vscode-hacker-typer
+它能记录，你的文字动向，保存下来，并在有需要的时候，play这段文字记录(你乱打就好了)
+作者的扩展演讲youtube，就是个经典例子，太有趣了</description>
+    </item>
+    
+  </channel>
+</rss>

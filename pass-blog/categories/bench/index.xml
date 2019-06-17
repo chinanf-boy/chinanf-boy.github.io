@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bench on 杂项博文</title>
+    <link>/pass-blog/categories/bench/</link>
+    <description>Recent content in Bench on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 17 Aug 2018 09:37:54 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/bench/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何比较不同js库的相同功能的性能</title>
+      <link>/pass-blog/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/</link>
+      <pubDate>Fri, 17 Aug 2018 09:37:54 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/17/%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8Cjs%E5%BA%93%E7%9A%84%E7%9B%B8%E5%90%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%A7%E8%83%BD/</guid>
+      <description>js库中的颜色库, 可以提供漂亮的色彩输出 它们的大小 其中名气最大的是 chalk, 绚丽多彩的颜色组合.
+但, 如果仅仅只需要 通用色彩的功能 来说, https://bundlephobia.com/result?p=chalk
+chalk 无疑是 过大了
+它们的速度  当然这里主要是讲它们的速度比较
+ 我们用turbocolor 的基准比较, 作为我们例子
+作者这样做的目的, 当然是为了表明它的快
+# turbocolor bench 包结构 readme.md # 说明如何运行,与结果报告 index.js # 基准-bench文件 ❤️ package.json # 建立独立的包依赖  const { Suite } = require(&amp;#34;benchmark&amp;#34;) // 基准测试的库  console.log(&amp;#34;# Load Time&amp;#34;) console.time(&amp;#34;chalk&amp;#34;) const chalk = require(&amp;#34;chalk&amp;#34;) console.timeEnd(&amp;#34;chalk&amp;#34;) console.time(&amp;#34;kleur&amp;#34;) const kleur = require(&amp;#34;kleur&amp;#34;) console.timeEnd(&amp;#34;kleur&amp;#34;) console.time(&amp;#34;ansi-colors&amp;#34;) const ansi = require(&amp;#34;ansi-colors&amp;#34;) console.timeEnd(&amp;#34;ansi-colors&amp;#34;) console.time(&amp;#34;turbocolor&amp;#34;) const turbocolor = require(&amp;#34;.</description>
+    </item>
+    
+  </channel>
+</rss>

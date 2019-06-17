@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on 杂项博文</title>
+    <link>/pass-blog/categories/hugo/</link>
+    <description>Recent content in Hugo on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 17 Aug 2018 14:52:33 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo 语法高亮与md序列显示问题</title>
+      <link>/pass-blog/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 17 Aug 2018 14:52:33 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/17/hugo-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E4%B8%8Emd%E5%BA%8F%E5%88%97%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</guid>
+      <description>1. hugo 内置 工具 Hugo在官方文档中 有 Pygments{python 写的}与Chroma{go 写的}（从0.30版本开始，集成了Chroma作为替代。）
+2. 引入 hightlight 类的库到 &amp;lt;head&amp;gt; 两种做法, 可看
+具体看 http://note.qidong.name/2017/06/24/hugo-highlight/
+3. 自定义css, 这一点其实不如上两种的通用, 这个方法更倾向 语法显示的修复 我的hugo语法高亮 我的 config.toml
+pygmentsCodeFences = true pygmentsCodefencesGuessSyntax = false pygmentsStyle = &amp;#34;dracula&amp;#34; pygmentsOptions = [&amp;#39;linenos&amp;#39;] 这个语法的显示有问题: 代码块的宽度被代码撑大了 答: 在 theme 下 /casper-two/layouts/partials/head.html 模版上,加 css
+&amp;lt;style&amp;gt; div.highlight { width:100%; } &amp;lt;/style&amp;gt; 相关问题 vue语法显示问题 答: 自定义css http://www.shawpo.me/post/hugo-markdown-code-style/
+hugo 的 markdown 解析器对 1. 第一 中间有东西的话 2. 第二 这个`2.`会变回`1.` 3. 第三 同上   的解析出现错误</description>
+    </item>
+    
+    <item>
+      <title>如何将完整的文件夹放进hugo</title>
+      <link>/pass-blog/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/</link>
+      <pubDate>Wed, 01 Aug 2018 18:48:39 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/%E5%A6%82%E4%BD%95%E5%B0%86%E5%AE%8C%E6%95%B4%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%94%BE%E8%BF%9Bhugo/</guid>
+      <description>1. 有时,想加点东西到我们的 Hugo 比如: 例子啊, 书籍列表啊 可以通过http://example.com/full-folder 网址来看
+解决  根据 官方论坛-项目维护者 beq
+ 有三种替代方法可以包含“完整的外部HTML”：
+ 将HTML及其所有资源放在 /static中 将HTML放入 /content（将资源等放在 /content 或 /static 中） 与3相同，但前面有关系 我不会详细介绍3，它们应该易于测试 - 但最后2个可以包含模板语法，最后一个是带有布局和短代码等的内容文件。  最好是第一种方法 2. hugo server 其实, 不是很透明, 甚至, 我老觉得它有好多bug, 坑 最好是, 把 服务器 生成静态文件夹, 放在我们可以看到的位置, 这样, 是否有加什么, 减了什么, 能看到
+hugo server -d dev 3. hugo 生产 public 文件夹 只需要
+hugo 就可以了</description>
+    </item>
+    
+  </channel>
+</rss>

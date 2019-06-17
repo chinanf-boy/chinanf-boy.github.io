@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on 杂项博文</title>
+    <link>/pass-blog/categories/blog/</link>
+    <description>Recent content in Blog on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 28 Apr 2019 14:00:32 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ekoparty 2017: 丝绸之路（译）</title>
+      <link>/pass-blog/2019/04/28/ekoparty-2017-%E4%B8%9D%E7%BB%B8%E4%B9%8B%E8%B7%AF%E8%AF%91/</link>
+      <pubDate>Sun, 28 Apr 2019 14:00:32 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/28/ekoparty-2017-%E4%B8%9D%E7%BB%B8%E4%B9%8B%E8%B7%AF%E8%AF%91/</guid>
+      <description>body{ background-color: #272b30; color:#f9f1f1; font-size:1.1em; } a { color:#f1851a; } pre { background-color: #272b30; font-weight: 500; font-size: 1rem; } p { color: #c8c8c8; } li code, p code { background-color: rgb(34, 40, 42) !important; color: #f1851a; } div.inner { background-color: #272b30; }  博文来源  源文 ：2017 9-21 ，作者：Krzysztof Stopczański
+ CTF：EKOPARTY 2017 积分：496 类别：网络
+描述  “我们永远不会再犯同样的错误，我们向你挑战，来吧，阅读我们的信息，看看你能不能获得一些 BTC！” - DPR
+https://silkroadzpvwzxxv.onion/
+ 在此网络挑战中，我们在 TOR 网络中，展示了一个网站。要访问它，我们可以使用Tor 浏览器，并使用像 curl 这样的命令行工具 torify，但 Tor 网络专用：</description>
+    </item>
+    
+    <item>
+      <title>CTFZONE 2017 财富的翅膀伴我左右 (译)</title>
+      <link>/pass-blog/2019/04/27/ctfzone-2017-%E8%B4%A2%E5%AF%8C%E7%9A%84%E7%BF%85%E8%86%80%E4%BC%B4%E6%88%91%E5%B7%A6%E5%8F%B3-%E8%AF%91/</link>
+      <pubDate>Sat, 27 Apr 2019 14:47:35 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/27/ctfzone-2017-%E8%B4%A2%E5%AF%8C%E7%9A%84%E7%BF%85%E8%86%80%E4%BC%B4%E6%88%91%E5%B7%A6%E5%8F%B3-%E8%AF%91/</guid>
+      <description>body{ background-color: #272b30; color:#f9f1f1; font-size:1.1em; } a { color:#f1851a; } pre { background-color: #272b30; font-weight: 500; } p { color: #c8c8c8; } li code, p code { background-color: rgb(34, 40, 42) !important; color: #f1851a; } div.inner { background-color: #272b30; }  博文来源  源文 ：2017 7-28 ，作者：Arkadiusz Wróbel
+  CTF：2017 年 CTFZONE 积分：921 类别：Web，PPC  描述  我们听说你的候选人，在竞选期间遇到了经济困难。如果被媒体发现，这将是一场灾难。你有一天的时间去解决这个问题。否则我们就毁了。记住，你应该不留下痕迹&amp;hellip;
+ 在第二天，我们也得到了一个提示：
+第一部分：网络 在我们打开提供的链接后，一开始，得到一个标准的登录/注册表单（带验证码，所以我们不能自动创建用户），就没有什么别的呢。
+首先，让我们用户名 codisec_writeup 注册，并查看服务页面内部的内容。
+好吧，没有太多东西&amp;hellip; 我们唯一能做的就是退出，其余的链接指向当前页面。</description>
+    </item>
+    
+    <item>
+      <title>EKOPARTY CTF 2017: SlowShell （译）</title>
+      <link>/pass-blog/2019/04/24/ekoparty-ctf-2017-slowshell-%E8%AF%91/</link>
+      <pubDate>Wed, 24 Apr 2019 23:45:13 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/24/ekoparty-ctf-2017-slowshell-%E8%AF%91/</guid>
+      <description>body{ background-color: #272b30; color:#f9f1f1; font-size:1.1em; } a { color:#f1851a; } pre { background-color: #272b30; } p { color: #c8c8c8; } li code, p code { background-color: rgb(34, 40, 42) !important; color: #f1851a; } div.inner { background-color: #272b30; }  博文来源  源文 ：2017 9-29 ，作者：Hubert Jasudowicz
+  CTF：EKOPARTY CTF 2017 积分：498（由 2 支团队解决） 类别：Web，RE  描述 在这次挑战中，我们获得了一个 Web 服务器 URL -http://hhvm.ctf.site:10080/，和两个用于运行服务的 shell 命令：
+$ hhvm --hphp -t hhbc -v AllVolatile=true --input-dir .</description>
+    </item>
+    
+    <item>
+      <title>ASIS CTF 2017 总决赛: 如果他发现…（译）</title>
+      <link>/pass-blog/2019/04/23/asis-ctf-2017-%E6%80%BB%E5%86%B3%E8%B5%9B-%E5%A6%82%E6%9E%9C%E4%BB%96%E5%8F%91%E7%8E%B0%E8%AF%91/</link>
+      <pubDate>Tue, 23 Apr 2019 19:32:46 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/23/asis-ctf-2017-%E6%80%BB%E5%86%B3%E8%B5%9B-%E5%A6%82%E6%9E%9C%E4%BB%96%E5%8F%91%E7%8E%B0%E8%AF%91/</guid>
+      <description>body{ background-color: #272b30; color:#f9f1f1; font-size:1.1em; } a { color:#f1851a; } pre { background-color: #272b30; } p { color: #c8c8c8; } li code, p code { background-color: rgb(34, 40, 42) !important; color: #f1851a; } div.inner { background-color: #272b30; }  博文来源  源文 ：2017 9-29 ，作者：Hubert Jasudowicz
+  CTF: ASIS CTF 2017 总决赛 分值: 343 类型: 数字取证  侦察 在此任务中，我们获得了一个名为 ifhe_Find_Out的文件。 让我们尝试找一些有关它的信息：
+$ file ifhe_Find_Out ifhe_Find_Out: data 嗯，这根本没用。是时候查看十六进制转储了：</description>
+    </item>
+    
+  </channel>
+</rss>

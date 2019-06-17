@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Translate on 杂项博文</title>
+    <link>/pass-blog/tags/translate/</link>
+    <description>Recent content in Translate on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 18 Apr 2019 14:06:03 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/translate/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>不要从master分支,发出PR(译)</title>
+      <link>/pass-blog/2019/04/18/%E4%B8%8D%E8%A6%81%E4%BB%8Emaster%E5%88%86%E6%94%AF%E5%8F%91%E5%87%BApr%E8%AF%91/</link>
+      <pubDate>Thu, 18 Apr 2019 14:06:03 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/04/18/%E4%B8%8D%E8%A6%81%E4%BB%8Emaster%E5%88%86%E6%94%AF%E5%8F%91%E5%87%BApr%E8%AF%91/</guid>
+      <description>不要从 master 分支，发出 PR    来源 日期     https://blog.jasonmeridth.com 30 Mar 2012    问题： 您不会希望从 fork 项目的主分支，在Github.com发出 PR 到父级存储库，因为您添加到(fork)主分支的任何新更改，都将 自动 显示在 PR 中。这意味着，即便您没打算要的更改，也会出现在那里。
+解： 从 功能/主题(feature/topic) 分支发出 PR
+糟糕的情景：
+ Fork ABC 存储库 在本地克隆（git clone git@github.com:jmeridth/jekyll.git） 添加上游存储库（git remote add upstream git@github.com:mojombo/jekyll.git） 主分支上的，代码修复/功能添加  不要忘记添加测试/规格，并确保它们通过  提交代码（git add . &amp;amp;&amp;amp; git commit -m “awesome”） 从上游，拉取最新（git pull upstream master） 推送你的改变（git push origin master） 上Github网站看看  这里问题出现在，如果在 PR 被接受并合并之前，您继续在本地主分支上工作，并再次推送到您的 fork 项目。为什么这是一个问题 ？这就是一个问题，因为 PR 所基于的分支上，任何进一步的提交，都将 自动 添加到这个 PR 中。通常确切出现在，PR 被接受之前，请求您修复 它。</description>
+    </item>
+    
+    <item>
+      <title>(译)如何在VScode中使用Delve调试代码</title>
+      <link>/pass-blog/2018/10/29/%E8%AF%91%E5%A6%82%E4%BD%95%E5%9C%A8vscode%E4%B8%AD%E4%BD%BF%E7%94%A8delve%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 29 Oct 2018 16:02:30 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/10/29/%E8%AF%91%E5%A6%82%E4%BD%95%E5%9C%A8vscode%E4%B8%AD%E4%BD%BF%E7%94%A8delve%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/</guid>
+      <description>原文 日期     stackoverflow 2016-08-21    如何在VScode中使用Delve调试代码, 一步一脚印:  ( 注意: Windows 操作系统 要将 所有 $GOPATH 替换成 %GOPATH% )
+  安装Golang 和 设置 GOROOT and GOPATH。
+ 添加 $GOPATH/bin 到你的 OS PATH 环境变量。
+ 设置环境变量: GO15VENDOREXPERIMENT = 1
+ 运行: go get github.com/derekparker/delve/cmd/dlv， 并确保 dlv 二进制文件在你的$GOPATH/bin目录中生成。
+ 安装 Visual Studio Code
+ 启动 VS Code 快捷键(Ctrl+P), 输出以下命令: ext install Go , 点击Enter.</description>
+    </item>
+    
+  </channel>
+</rss>

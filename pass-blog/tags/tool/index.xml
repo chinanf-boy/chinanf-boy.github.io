@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tool on 杂项博文</title>
+    <link>/pass-blog/tags/tool/</link>
+    <description>Recent content in Tool on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 10 May 2019 15:11:48 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>QuickWords 快捷片段软件，可带有实时函数运行</title>
+      <link>/pass-blog/2019/05/10/quickwords-%E5%BF%AB%E6%8D%B7%E7%89%87%E6%AE%B5%E8%BD%AF%E4%BB%B6%E5%8F%AF%E5%B8%A6%E6%9C%89%E5%AE%9E%E6%97%B6%E5%87%BD%E6%95%B0%E8%BF%90%E8%A1%8C/</link>
+      <pubDate>Fri, 10 May 2019 15:11:48 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/05/10/quickwords-%E5%BF%AB%E6%8D%B7%E7%89%87%E6%AE%B5%E8%BD%AF%E4%BB%B6%E5%8F%AF%E5%B8%A6%E6%9C%89%E5%AE%9E%E6%97%B6%E5%87%BD%E6%95%B0%E8%BF%90%E8%A1%8C/</guid>
+      <description>img { box-shadow:none; }  Quickwords 本软件是用 electron 作为基底的软件，所以普遍来说，支持 3 大平台(Mac,Linux,Windows)。相关下载，请看安装表述。
+不过，还是先让我简单说说，好处都有啥。
+ 本软件到底是用什么的？
+ 在软件开启期间，会检测文字的输入，匹配设定的片段，执行并返回相应的内容。
+1. 文字片段(Plain Text)  一般性功能，就是返回文字片段。
+ 在 Snippets 设置，如图：
+2. 代码片段(JavaScript)  创新性功能，运行相应的函数，并有返回值。
+ ;date是执行 js 函数的，这个函数主要是返回，当前时间的格式表达。
+结果  编写本博文时， vscode 编辑器上的运行结果。
+ 更多，请查阅Github</description>
+    </item>
+    
+    <item>
+      <title>Mac 想法或思维概念 文字图工具: LinkedIdeas</title>
+      <link>/pass-blog/2019/05/10/mac-%E6%83%B3%E6%B3%95%E6%88%96%E6%80%9D%E7%BB%B4%E6%A6%82%E5%BF%B5-%E6%96%87%E5%AD%97%E5%9B%BE%E5%B7%A5%E5%85%B7-linkedideas/</link>
+      <pubDate>Fri, 10 May 2019 14:28:11 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/05/10/mac-%E6%83%B3%E6%B3%95%E6%88%96%E6%80%9D%E7%BB%B4%E6%A6%82%E5%BF%B5-%E6%96%87%E5%AD%97%E5%9B%BE%E5%B7%A5%E5%85%B7-linkedideas/</guid>
+      <description>  img { box-shadow: none; }     来源     Github    LinkedIdeas 本工具，主要给，那些零散的想法，一个放置的位置。它们总能在某个时刻，有所指引。
+主要操作 ***.idea是它保存的文件格式。
+ ⇧ ⏎ 是新放置一个文字框，打字，⏎确定。 按住⇧，在一个文字框上按住鼠标，移动到另一个文件框上(放鼠标)，箭头完成。   其他文字格式的快捷键，请看软件导航栏。主要是，字体啊，颜色啊，位置啊，这些变化。
+ </description>
+    </item>
+    
+  </channel>
+</rss>

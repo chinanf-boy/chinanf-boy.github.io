@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on 杂项博文</title>
+    <link>/pass-blog/tags/github/</link>
+    <description>Recent content in Github on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 06 Dec 2017 13:37:41 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>github hand fun vscode 用户自定义代码片段</title>
+      <link>/pass-blog/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/</link>
+      <pubDate>Wed, 06 Dec 2017 13:37:41 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/</guid>
+      <description>github 连接动画 小手摆摆 See the Pen githubLink by braveyo (@china-boy) on CodePen.  vscode 用户自定义代码片段 快速添加 github 动画连接
+ vscode软件 -&amp;gt; 首选项 -&amp;gt; 用户代码片段 -&amp;gt; 选择对应 HTML
+ 有个模版，你可以自己看看，或者 复制
+&amp;#34;Print github link&amp;#34;: { &amp;#34;prefix&amp;#34;: &amp;#34;ghand&amp;#34;, &amp;#34;body&amp;#34;: [ &amp;#34;&amp;lt;style&amp;gt;svg{fill:#fff;color:#151513;position:absolute;border:0;right:0}foreignObject,image,marker,pattern,svg:not(:root),symbol{overflow:hidden}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}.github-corner .octo-arm{-webkit-transform-origin:130px 106px;transform-origin:130px 106px}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}&amp;lt;/style&amp;gt;&amp;#34;, &amp;#34;&amp;lt;a class=\&amp;#34;github-corner\&amp;#34; href=\&amp;#34;$1\&amp;#34; aria-label=\&amp;#34;View source on Github\&amp;#34;&amp;gt;&amp;#34;, &amp;#34;&amp;lt;svg width=\&amp;#34;80\&amp;#34; height=\&amp;#34;80\&amp;#34; viewBox=\&amp;#34;0 0 250 250\&amp;#34; aria-hidden=\&amp;#34;true\&amp;#34;&amp;gt;&amp;lt;path d=\&amp;#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\&amp;#34;&amp;gt;&amp;lt;/path&amp;gt;&amp;lt;path class=\&amp;#34;octo-arm\&amp;#34; d=\&amp;#34;M128.</description>
+    </item>
+    
+  </channel>
+</rss>

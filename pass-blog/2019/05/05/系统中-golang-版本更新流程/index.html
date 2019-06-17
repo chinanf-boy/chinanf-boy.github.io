@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>系统中 Golang 版本，更新流程</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="/css/stylesheet.css"></link> <link rel="stylesheet" href="/css/scroll-dark.css"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>系统中 Golang 版本，更新流程</h2>
+        
+
+<p>Windows 系统使用者， 抱歉这里没有你要的。</p>
+
+<table>
+<thead>
+<tr>
+<th>来源</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://gist.github.com/nikhita/432436d570b89cab172dcf2894465753">gist</a></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="如何更新-go-的版本">如何更新 Go 的版本</h1>
+
+<p>下面解释，大概三种方法</p>
+
+<blockquote>
+<p>brew 使用者，当我没说。</p>
+</blockquote>
+
+<h2 id="一-常规方式-没代理的-推荐">一：常规方式 (没代理的，推荐)</h2>
+
+<blockquote>
+<p>Mac, Linux</p>
+</blockquote>
+
+<ul>
+<li><strong>1.</strong> 卸载现有版本</li>
+</ul>
+
+<p>根据<a href="(https://golang.org/doc/install#install)">这里</a>的官方文档，要更新一个 go 版本，你先要删除现有版本。</p>
+
+<p>常规来说，go 位于<code>/usr/local/go</code>目录，删除如下:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo rm -rf /usr/local/go</code></pre></div>
+<ul>
+<li><strong>2.</strong> 安装新的版本</li>
+</ul>
+
+<p>去到<a href="https://golang.org/dl/">下载</a>页面，下载对应系统的压缩包。</p>
+
+<blockquote>
+<p>推荐：迅雷或其他 P2p 网络。</p>
+</blockquote>
+
+<ul>
+<li><strong>3.</strong> 解压</li>
+</ul>
+
+<p>解压命令:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tar -C /usr/local -xzf <span style="color:#8be9fd;font-style:italic">$HOME</span>/Downloads/go1.12.4.linux-amd64.tar.gz</code></pre></div>
+<ul>
+<li><strong>4.</strong> 确保你的<code>PATH</code>包含<code>/usr/local/go/bin</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$PATH</span> | grep <span style="color:#f1fa8c">&#34;/usr/local/go/bin&#34;</span></code></pre></div>
+<ul>
+<li>常规方式的问题：</li>
+</ul>
+
+<p><strong>1.</strong> 在这一步，最麻烦的是，你可能进入不了官方网站，那么你需要<strong>代理</strong>或者</p>
+
+<pre><code>https://dl.google.com/go/go1.12.4.darwin-amd64.tar.gz
+https://dl.google.com/go/go1.12.4.linux-386.tar.gz
+https://dl.google.com/go/go1.12.4.linux-amd64.tar.gz
+https://dl.google.com/go/go1.12.4.windows-amd64.msi
+https://dl.google.com/go/go1.12.4.windows-amd64.zip
+
+// 模版
+https://dl.google.com/go/go「版本」.「系统」-「架构」.「压缩名」
+
+</code></pre>
+
+<p>请参照，模版下载链接，关于最新版本是多少，<a href="https://github.com/golang/go/releases">golang/go/releaser</a> 会告诉你。</p>
+
+<p><strong>2.</strong> 下载缓慢</p>
+
+<p>那么你(可以)试试迅雷，因为若是有前者下载过，迅雷的 P2p 网络，能让你飞起来。</p>
+
+<h2 id="二-curl-一行过-要代理">二：curl 一行过 (要代理)</h2>
+
+<blockquote>
+<p>Linux</p>
+</blockquote>
+
+<p>该脚本，会下载压缩包，但不会删除旧版本，只会覆盖<code>which</code>的优先级。
+让其指向，新版本的 Go。</p>
+
+<p>单行:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl --silent https://storage.googleapis.com/golang/<span style="color:#ff79c6">$(</span>curl --silent https://golang.org/doc/devel/release.html | grep -Eo <span style="color:#f1fa8c">&#39;go[0-9]+(\.[0-9]+)+&#39;</span> | sort -V | uniq | tail -1<span style="color:#ff79c6">)</span>.<span style="color:#ff79c6">$(</span>uname -s | tr <span style="color:#f1fa8c">&#39;[:upper:]&#39;</span> <span style="color:#f1fa8c">&#39;[:lower:]&#39;</span><span style="color:#ff79c6">)</span>-<span style="color:#ff79c6">$(case</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>uname -m<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span> in i*<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;386&#39;</span> ;; x*<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;amd64&#39;</span> ;; *<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;armv61&#39;</span>; <span style="color:#ff79c6">esac</span><span style="color:#ff79c6">)</span>.tar.gz  | sudo tar -vxz --strip-components <span style="color:#bd93f9">1</span> -C <span style="color:#ff79c6">$(</span>dirname <span style="color:#ff79c6">$(</span>dirname <span style="color:#ff79c6">$(</span>which go<span style="color:#ff79c6">)))</span></code></pre></div>
+<p>多行详细版本（如上面单行的功能相同）:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">release</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(</span>curl --silent https://golang.org/doc/devel/release.html | grep -Eo <span style="color:#f1fa8c">&#39;go[0-9]+(\.[0-9]+)+&#39;</span> | sort -V | uniq | tail -1<span style="color:#ff79c6">)</span>
+<span style="color:#8be9fd;font-style:italic">os</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(</span>uname -s | tr <span style="color:#f1fa8c">&#39;[:upper:]&#39;</span> <span style="color:#f1fa8c">&#39;[:lower:]&#39;</span><span style="color:#ff79c6">)</span>
+<span style="color:#8be9fd;font-style:italic">arch</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$(case</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>uname -m<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span> in i*<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;386&#39;</span> ;; x*<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;amd64&#39;</span> ;; *<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;armv61&#39;</span>; <span style="color:#ff79c6">esac</span><span style="color:#ff79c6">)</span>
+
+curl --silent https://storage.googleapis.com/golang/<span style="color:#8be9fd;font-style:italic">$release</span>.<span style="color:#8be9fd;font-style:italic">$os</span>-<span style="color:#8be9fd;font-style:italic">$arch</span>.tar.gz <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>  | sudo tar -vxz --strip-components <span style="color:#bd93f9">1</span> -C <span style="color:#ff79c6">$(</span>dirname <span style="color:#ff79c6">$(</span>dirname <span style="color:#ff79c6">$(</span>which go<span style="color:#ff79c6">)))</span></code></pre></div>
+<p>可以看到，这个脚本与常规方式的问题解答:下载链接模版，很相似。</p>
+
+<p><code>release</code>就是版本，<code>os</code>就是系统，<code>arch</code>就是架构。</p>
+
+<blockquote>
+<p>Mac 上会运行错误：主要是<code>arch</code>那行。</p>
+</blockquote>
+
+<ul>
+<li>问题</li>
+</ul>
+
+<p>代理，如果<code>curl</code>不加上代理，根本没用。(需要修改代码)</p>
+
+<h2 id="三-update-golang-要代理">三：update-golang (要代理)</h2>
+
+<blockquote>
+<p>Mac，Linux</p>
+</blockquote>
+
+<p>做得是 常规方式的功能，但运行一个脚本就好。</p>
+
+<pre><code>git clone https://github.com/udhos/update-golang
+cd update-golang
+sudo ./update-golang.sh
+</code></pre>
+
+<ul>
+<li>问题</li>
+</ul>
+
+<p>代理，下载命令同样是使用<code>curl</code>或者<code>wget</code>，默认都是没有代理的。
+(需要修改源代码)</p>
+
+<h2 id="总结">总结</h2>
+
+<p>没有代理，第二和第三种，就不用想了。</p>
+
+<p>我的更新方式，就是常规方式，只是下载工具是迅雷。(用不了多少时间)</p>
+
+<blockquote>
+<p>关于 Windows 系统， 抱歉</p>
+</blockquote>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/update"> #update </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/go"> #go </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/Golang-版本，在系统中更新流程.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

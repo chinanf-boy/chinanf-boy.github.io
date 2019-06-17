@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>如何比较不同js库的相同功能的性能</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>如何比较不同js库的相同功能的性能</h2>
+        
+
+<h2 id="js库中的颜色库-可以提供漂亮的色彩输出">js库中的颜色库, 可以提供漂亮的色彩输出</h2>
+
+<h3 id="它们的大小">它们的大小</h3>
+
+<p>其中名气最大的是 <code>chalk</code>, 绚丽多彩的颜色组合.</p>
+
+<p>但, 如果仅仅只需要 通用色彩的功能 来说, <a href="https://bundlephobia.com/result?p=chalk">https://bundlephobia.com/result?p=chalk</a></p>
+
+<p><code>chalk</code> 无疑是 过大了</p>
+
+<h3 id="它们的速度">它们的速度</h3>
+
+<blockquote>
+<p>当然这里主要是讲它们的速度比较</p>
+</blockquote>
+
+<p>我们用<a href="https://github.com/jorgebucaran/turbocolor/tree/master/bench">turbocolor 的基准比较</a>, 作为我们例子</p>
+
+<p>作者这样做的目的, 当然是为了表明它的快</p>
+
+<pre><code># turbocolor bench 包结构
+readme.md # 说明如何运行,与结果报告
+index.js # 基准-bench文件 ❤️
+package.json # 建立独立的包依赖
+</code></pre>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> { Suite } <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#34;benchmark&#34;</span>) <span style="color:#6272a4">// 基准测试的库
+</span><span style="color:#6272a4"></span>
+console.log(<span style="color:#f1fa8c">&#34;# Load Time&#34;</span>)
+
+console.time(<span style="color:#f1fa8c">&#34;chalk&#34;</span>)
+<span style="color:#ff79c6">const</span> chalk <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#34;chalk&#34;</span>)
+console.timeEnd(<span style="color:#f1fa8c">&#34;chalk&#34;</span>)
+
+console.time(<span style="color:#f1fa8c">&#34;kleur&#34;</span>)
+<span style="color:#ff79c6">const</span> kleur <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#34;kleur&#34;</span>)
+console.timeEnd(<span style="color:#f1fa8c">&#34;kleur&#34;</span>)
+
+console.time(<span style="color:#f1fa8c">&#34;ansi-colors&#34;</span>)
+<span style="color:#ff79c6">const</span> ansi <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#34;ansi-colors&#34;</span>)
+console.timeEnd(<span style="color:#f1fa8c">&#34;ansi-colors&#34;</span>)
+
+console.time(<span style="color:#f1fa8c">&#34;turbocolor&#34;</span>)
+<span style="color:#ff79c6">const</span> turbocolor <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#34;..&#34;</span>)
+console.timeEnd(<span style="color:#f1fa8c">&#34;turbocolor&#34;</span>)
+
+<span style="color:#6272a4">//  上面是展示 初始化的时间
+</span><span style="color:#6272a4"></span>
+<span style="color:#ff79c6">const</span> styles <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Object</span>.keys(turbocolor.Styles) <span style="color:#6272a4">// 因为 turbocolor 旨在 只提供 通用的色彩, 来达到 尺寸与速度 上的优势
+</span><span style="color:#6272a4">// 所以, 基准测试 基于 turbocolor 具有的颜色数组 上 
+</span><span style="color:#6272a4"></span>
+<span style="color:#ff79c6">const</span> bench <span style="color:#ff79c6">=</span> ({ testables, tests }) =&gt;
+  <span style="color:#8be9fd;font-style:italic">Object</span>.keys(tests)
+    .map(name =&gt; ({
+      name,
+      test<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">Object</span>.keys(testables).reduce(
+          <span style="color:#6272a4">// 3
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="color:#6272a4"></span>        (bench, id) =&gt; bench.add(id, tests[name].bind({}, testables[id])),
+</span><span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#6272a4">// 1
+</span></span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="color:#6272a4"></span>        <span style="color:#ff79c6">new</span> Suite().on(<span style="color:#f1fa8c">&#34;cycle&#34;</span>, ({ target<span style="color:#ff79c6">:</span> { name, hz } }) =&gt;
+</span><span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#6272a4">// 2
+</span></span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="color:#6272a4"></span>          console.log(<span style="color:#f1fa8c">`</span><span style="color:#f1fa8c">${</span>name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> × </span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">Math</span>.floor(hz).toLocaleString()<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> ops/sec`</span>)
+</span>        )
+      )
+    }))
+                <span style="color:#6272a4">//4
+</span><span style="display:block;width:100%;background-color:#3d3f4a"><span style="color:#6272a4"></span>    .map(({ name, test }) =&gt; (console.log(<span style="color:#f1fa8c">`</span>\<span style="color:#f1fa8c">n# </span><span style="color:#f1fa8c">${</span>name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>), test.run()))
+</span></code></pre></div>
+
+<p>这里是作者定义的基准测试的通用函数, 这里就用到 <code>benchmark</code> 库的API</p>
+
+<p>简单说明一下:</p>
+
+<blockquote>
+<p>那些 <code>Object map reduce</code> 之类 就不会讲的</p>
+</blockquote>
+
+<p><b>1.</b> <code>new Suite()</code> - 官方例子中 初始化 管理基准流程的 API <a href="https://github.com/bestiejs/benchmark.js#installation">官方库例子</a></p>
+
+<p><b>2.</b> <code>Suite().on(&quot;cycle&quot;,funArgs)</code> - 订阅 周期 函数</p>
+
+<p><code>funArgs</code> 就是 <code>({target: {name, hz}}) //...</code> ,作者描述 哪个库 一秒 多少个周期</p>
+
+<p><b>3.</b> <code>bench.add</code> - 为<code>Suite</code>添加 基准测试 函数</p>
+
+<blockquote>
+<p>原生数组<code>reduce</code>的函数表明, 一开始<code>bench</code> === <code>new Suite的定义</code></p>
+</blockquote>
+
+<p><b>4.</b> <code>test.run()</code> - 在前面的订阅/添加测试, 后需要通过, 确切的 <code>run</code>函数 来启动测试</p>
+
+<h3 id="下面的就是-测试函数">下面的就是 测试函数</h3>
+
+<h4 id="using-styles">&ldquo;Using Styles&rdquo;</h4>
+
+<p>就是</p>
+
+<pre><code>    chalk,
+    kleur,
+    &quot;ansi-colors&quot;: ansi,
+    turbocolor
+</code></pre>
+
+<p>每个都运行<code>turbocolor</code>的同色彩函数</p>
+
+<h4 id="chaining-styles">&ldquo;Chaining Styles&rdquo;</h4>
+
+<p>类比上面, 但是 链状的函数定义 运行</p>
+
+<h4 id="nesting-styles">&ldquo;Nesting Styles&rdquo;</h4>
+
+<p>类比上面, 嵌套/混合函数 颜色输出</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">bench({
+  testables<span style="color:#ff79c6">:</span> {
+    chalk,
+    kleur,
+    <span style="color:#f1fa8c">&#34;ansi-colors&#34;</span><span style="color:#ff79c6">:</span> ansi,
+    turbocolor
+  },
+  tests<span style="color:#ff79c6">:</span> {
+    <span style="color:#f1fa8c">&#34;Using Styles&#34;</span><span style="color:#ff79c6">:</span> c =&gt; styles.map(k =&gt; c[k](<span style="color:#f1fa8c">&#34;foo&#34;</span>)),
+    <span style="color:#f1fa8c">&#34;Chaining Styles&#34;</span><span style="color:#ff79c6">:</span> c =&gt; styles.map(k =&gt; c[k].italic.underline.bold(<span style="color:#f1fa8c">&#34;bar&#34;</span>)),
+    <span style="color:#f1fa8c">&#34;Nesting Styles&#34;</span><span style="color:#ff79c6">:</span> ({
+      red,
+      cyan,
+      green,
+      blue,
+      bold,
+      magenta,
+      white,
+      bgBlue,
+      yellow
+    }) =&gt;
+      green(
+        <span style="color:#f1fa8c">`GREEN, </span><span style="color:#f1fa8c">${</span>blue(
+          <span style="color:#f1fa8c">`BLUE, </span><span style="color:#f1fa8c">${</span>bold(
+            <span style="color:#f1fa8c">`BOLD AND </span><span style="color:#f1fa8c">${</span>green(<span style="color:#f1fa8c">&#34;GREEN&#34;</span>)<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">. BACK TO BLUE, </span><span style="color:#f1fa8c">${</span>red.italic.underline(
+              <span style="color:#f1fa8c">`RED ITALIC UNDERLINE,`</span>
+            )<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>
+          )<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> MORE BLUE, </span><span style="color:#f1fa8c">${</span>magenta(
+            <span style="color:#f1fa8c">`MAGENTA, </span><span style="color:#f1fa8c">${</span>white.inverse(<span style="color:#f1fa8c">&#34;INVERSE WHITE,&#34;</span>)<span style="color:#f1fa8c">}${</span>cyan(
+              <span style="color:#f1fa8c">` CYAN, </span><span style="color:#f1fa8c">${</span>bgBlue.black(
+                <span style="color:#f1fa8c">`BLACK ON BLUE, </span><span style="color:#f1fa8c">${</span>yellow.bold.inverse(
+                  <span style="color:#f1fa8c">&#34;BLUE ON BOLD YELLOW&#34;</span>
+                )<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">, BLACK ON BLUE`</span>
+              )<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">, CYAN,`</span>
+            )<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> MAGENTA,`</span>
+          )<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> BLUE`</span>
+        )<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> AND BACK TO GREEN.`</span>
+      )
+  }
+})
+</code></pre></div>
+<p>那么结果正如下:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># Load Time</span>
+chalk: <span style="color:#bd93f9">15</span>.653ms
+kleur: <span style="color:#bd93f9">1</span>.195ms
+ansi-colors: <span style="color:#bd93f9">1</span>.227ms
+turbocolor: <span style="color:#bd93f9">0</span>.740ms
+
+<span style="color:#6272a4"># Using Styles</span>
+chalk × <span style="color:#bd93f9">8</span>,634 ops/sec
+kleur × <span style="color:#bd93f9">290</span>,343 ops/sec
+ansi-colors × <span style="color:#bd93f9">93</span>,980 ops/sec
+turbocolor × <span style="color:#bd93f9">374</span>,825 ops/sec
+
+<span style="color:#6272a4"># Chaining Styles</span>
+chalk × <span style="color:#bd93f9">1</span>,802 ops/sec
+kleur × <span style="color:#bd93f9">44</span>,709 ops/sec
+ansi-colors × <span style="color:#bd93f9">14</span>,495 ops/sec
+turbocolor × <span style="color:#bd93f9">52</span>,300 ops/sec
+
+<span style="color:#6272a4"># Nesting Styles</span>
+chalk × <span style="color:#bd93f9">12</span>,088 ops/sec
+kleur × <span style="color:#bd93f9">176</span>,561 ops/sec
+ansi-colors × <span style="color:#bd93f9">82</span>,132 ops/sec
+turbocolor × <span style="color:#bd93f9">190</span>,595 ops/sec</code></pre></div>
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/js"> #js </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/bench"> #bench </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/如何比较不同js库的相同功能的性能.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

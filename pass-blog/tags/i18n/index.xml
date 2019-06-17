@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>I18n on 杂项博文</title>
+    <link>/pass-blog/tags/i18n/</link>
+    <description>Recent content in I18n on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 15 Nov 2017 23:31:55 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/i18n/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hugo i18n </title>
+      <link>/pass-blog/2017/11/15/hugo-i18n/</link>
+      <pubDate>Wed, 15 Nov 2017 23:31:55 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/11/15/hugo-i18n/</guid>
+      <description>双语 hugo的国际化 由源于 内置 go-i18n
+方式 一: 翻译 string  类似与 菜单栏 nav
+ 有两种方式
+ 在项目根目录  创建 i18n 文件夹
+i18n
+en.toml/yaml zh.toml/yaml  en.toml
+[home] other = &amp;quot;home&amp;quot;  zh.toml
+[home] other = &amp;quot;主页&amp;quot;  上面的设置好后，在 模版主题中使用
+*.html
+{{ i18n &amp;quot;home&amp;quot; }}  这样在
+html 头的带领下 呈现 en/zh.toml
+&amp;lt;html lang=&amp;#39;en&amp;#39;&amp;gt;  第二种   根目录中
+ config.toml
+defaultContentLanguage = &amp;quot;en&amp;quot; # 这里是 默认网址 https://example.com # 如果是 true https://example.</description>
+    </item>
+    
+  </channel>
+</rss>

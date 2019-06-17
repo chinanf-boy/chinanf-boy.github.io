@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>(译)搜索工具的功能比较</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="https://beyondgrep.com/bg.css"></link> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT&#43;Serif:400,700,400italic,700italic"></link> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT&#43;Sans:400,700,400italic,700italic"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>(译)搜索工具的功能比较</h2>
+        
+
+<p><rawhtml>
+<style>
+div.inner {
+margin: 0 4%;
+}
+tr td:nth-child(2n){
+background-color: #ffdfac;
+}
+tr td:not(:first-child) code {
+background-color: #ffdfac;
+font-size: 14px;
+margin: 1px;
+display: block;
+padding: 5px;
+text-align: center;
+}
+tr th:not(:first-child)  {
+width:14%;
+}
+th {
+    position: static;
+}
+</style></p>
+
+<h3 id="返回-http-llever-com"><a href="http://llever.com">返回</a></h3>
+
+<p><a href="https://beyondgrep.com/feature-comparison/">原文</a> | <a href="https://github.com/chinanf-boy/beyondgrep-feature-comparison-zh">Github 存储库</a> |</p>
+
+<h1 id="ack-ag-git-grep-gnu-grep-和-ripgrep-的功能比较">ack，ag，git-grep，GNU grep 和 ripgrep 的功能比较</h1>
+
+<p>如果您对图表有更新，请<a href="https://github.com/beyondgrep/website/issues/">提交一个 issue</a>。</p>
+
+<p>如果您发现此图表有用，请考虑为您运行的项目制作一个，即使它包含&rdquo;竞争&rdquo;项目。<a href="http://blog.petdance.com/2018/01/02/the-best-open-source-project-for-someone-might-not-be-yours-and-thats-ok/">最好的项目可能不是你的项目，而这并没有错</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th><strong>工具</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>名称</td>
+<td>ack</td>
+<td>银色搜索者(The Silver Searcher)</td>
+<td>git grep</td>
+<td>GNU grep</td>
+<td>ripgrep</td>
+</tr>
+
+<tr>
+<td>项目页面</td>
+<td><a href="https://beyondgrep.com">https://beyondgrep.com</a></td>
+<td><a href="https://geoff.greer.fm/ag/">https://geoff.greer.fm/ag/</a></td>
+<td><a href="https://git-scm.com/docs/git-grep">https://git-scm.com/docs/git-grep</a></td>
+<td><a href="https://www.gnu.org/software/grep/">https://www.gnu.org/software/grep/</a></td>
+<td><a href="https://github.com/BurntSushi/ripgrep">https://github.com/BurntSushi/ripgrep</a></td>
+</tr>
+
+<tr>
+<td>语言</td>
+<td>Perl</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>锈</td>
+</tr>
+
+<tr>
+<td>许可</td>
+<td>艺术许可证 2.0</td>
+<td>Apache License 2.0</td>
+<td>GPL 2</td>
+<td>GPL 3</td>
+<td>MIT /授予许可</td>
+</tr>
+
+<tr>
+<td>正则表达式</td>
+<td>原生 Perl</td>
+<td>Perl 兼容</td>
+<td>可选择三种模式:基本，扩展或 Perl 兼容</td>
+<td>可选择三种模式:基本，扩展或 Perl 兼容(实验)</td>
+<td>非回溯，主要是 Perl 兼容.看到<a href="https://docs.rs/regex">https://docs.rs/regex</a></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th><strong>特征</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>搜索哪里</td>
+<td>随地</td>
+<td>随地</td>
+<td>默认情况下使用 git 存储库，或者使用&ndash;no-index</td>
+<td>随地</td>
+<td>随地</td>
+</tr>
+
+<tr>
+<td>搜索 git 历史记录</td>
+<td></td>
+<td></td>
+<td>✔</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>按文件类型，包含/排除文件</td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td>✔</td>
+</tr>
+
+<tr>
+<td>按文件扩展名，指定文件类型</td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td>✔</td>
+</tr>
+
+<tr>
+<td>通过文件名匹配，指定文件类型</td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>通过匹配模式在文件的第一行，<br /> 指定文件类型</td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>配置文件</td>
+<td>系统级，用户级和项目级</td>
+<td></td>
+<td>系统级，用户级和项目级</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>忽略基于.gitignore 或.ignore 文件的文件</td>
+<td></td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+<td>✔</td>
+</tr>
+
+<tr>
+<td>并发</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>使用线程</td>
+</tr>
+
+<tr>
+<td>确定性输出</td>
+<td>✔，使用&ndash;sort-files</td>
+<td></td>
+<td></td>
+<td></td>
+<td>✔，使用&ndash;sort-files</td>
+</tr>
+
+<tr>
+<td>跨换行符，匹配模式</td>
+<td></td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>智能案例搜索</td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td>✔</td>
+</tr>
+
+<tr>
+<td>具有布尔表达式的多个模式</td>
+<td></td>
+<td></td>
+<td>✔</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>按编号打印行</td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>显示与其他匹配的匹配距离</td>
+<td>✔，在 ack 3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>根据匹配组，为每一行构建输出</td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td></td>
+<td>✔</td>
+</tr>
+
+<tr>
+<td>限制输出行的长度</td>
+<td></td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td>✔</td>
+</tr>
+
+<tr>
+<td>下划线 匹配项 ，展示 w/o 颜色</td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>搜寻 gzip 文件</td>
+<td></td>
+<td>✔</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th><strong>Searching</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git-grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>忽略大小写</td>
+<td><code>-i --ignore-case</code></td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+</tr>
+
+<tr>
+<td>智能大小写 搜索 (无论大小，除非模式包括了一个大写字母)</td>
+<td><code>-S --smart-case</code></td>
+<td><code>-S --smart-case</code></td>
+<td></td>
+<td></td>
+<td><code>-S --smart-case</code></td>
+</tr>
+
+<tr>
+<td>启用 区分大小写(最优级)</td>
+<td><code>-I</code></td>
+<td><code>-s --case-sensitive</code></td>
+<td><code>--no-ignore-case</code></td>
+<td></td>
+<td><code>-s --case-sensitive</code></td>
+</tr>
+
+<tr>
+<td>匹配 全 字</td>
+<td><code>-w --word-regexp</code></td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+</tr>
+
+<tr>
+<td>倒置 匹配</td>
+<td><code>-v --invert-match</code></td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+</tr>
+
+<tr>
+<td>仅匹配整行</td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>-x --line-regexp</code></td>
+<td><code>-x --line-regexp</code></td>
+</tr>
+
+<tr>
+<td>明确指定模式</td>
+<td><code>--match</code></td>
+<td></td>
+<td><code>-e</code></td>
+<td><code>-e --regexp</code></td>
+<td><code>-e --regexp</code></td>
+</tr>
+
+<tr>
+<td>从文件中，读取匹配模式</td>
+<td></td>
+<td></td>
+<td><code>-f</code></td>
+<td><code>-f --file</code></td>
+<td><code>-f --file</code></td>
+</tr>
+
+<tr>
+<td>使用布尔表达式指定多个模式</td>
+<td></td>
+<td></td>
+<td><code>--and --or --not --all-match</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>跨换行符，匹配模式</td>
+<td></td>
+<td><code>--[no-]multiline</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>按编号打印特定行</td>
+<td><code>--lines</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th><strong>正则表达式</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>使用固定字符串，而不是正则表达式进行文字匹配</td>
+<td><code>-Q --literal</code></td>
+<td><code>-Q --literal -F --fixed-strings</code></td>
+<td><code>-F --fixed-strings</code></td>
+<td><code>-F --fixed-strings --fixed-regexp</code></td>
+<td><code>-F --fixed-strings</code></td>
+</tr>
+
+<tr>
+<td>使用基本正则表达式</td>
+<td></td>
+<td></td>
+<td><code>-G --basic-regexp</code></td>
+<td><code>-G --basic-regexp</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>使用扩展的正则表达式</td>
+<td></td>
+<td></td>
+<td><code>-E --extended-regexp</code></td>
+<td><code>-E --extended-regexp</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>使用 Perl(或 Perl 兼容)正则表达式</td>
+<td>总是</td>
+<td></td>
+<td><code>-P --perl-regexp</code></td>
+<td><code>-P --perl-regexp (experimental)</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th><strong>搜索输出</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>仅打印包含匹配项的文件名</td>
+<td><code>-l --files-with-matches</code></td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+</tr>
+
+<tr>
+<td>仅打印不包含匹配项的文件名</td>
+<td><code>-L --files-without-match</code></td>
+<td><code>-L --files-without-match</code></td>
+<td><code>-L --files-without-match</code></td>
+<td><code>-L --files-without-match</code></td>
+<td><code>--files-without-match</code></td>
+</tr>
+
+<tr>
+<td>仅显示匹配的行的一部分</td>
+<td><code>-o</code></td>
+<td><code>-o --only-matching</code></td>
+<td></td>
+<td><code>-o --only-matching</code></td>
+<td><code>-o --only-matching</code></td>
+</tr>
+
+<tr>
+<td>为每个行匹配指定输出</td>
+<td><code>--output</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>-r --replace</code></td>
+</tr>
+
+<tr>
+<td>打印每个匹配的文件名</td>
+<td><code>-H --with-filename</code></td>
+<td><code>--[no-]filename</code></td>
+<td><code>-H</code></td>
+<td><code>-H --with-filename</code></td>
+<td><code>-H --with-filename</code></td>
+</tr>
+
+<tr>
+<td>在输出上，抑制前缀文件名</td>
+<td><code>-h --no-filename</code></td>
+<td><code>--no-filename</code></td>
+<td><code>-h</code></td>
+<td><code>-h --no-filename</code></td>
+<td><code>--no-filename</code></td>
+</tr>
+
+<tr>
+<td>打印相对于项目顶级目录的路径</td>
+<td></td>
+<td></td>
+<td><code>--full-name</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>将行号前缀为匹配行</td>
+<td></td>
+<td><code>--[no-]numbers</code></td>
+<td><code>-n --line-number</code></td>
+<td><code>-n --line-number</code></td>
+<td><code>-n --line-number</code></td>
+</tr>
+
+<tr>
+<td>抑制行号</td>
+<td></td>
+<td><code>--no-numbers</code></td>
+<td><code>--no-line-number</code></td>
+<td></td>
+<td><code>-N --no-line-number</code></td>
+</tr>
+
+<tr>
+<td>在匹配之前，打印每个文件名称的标题</td>
+<td><code>--[no-]heading</code></td>
+<td><code>-H --[no-]heading</code></td>
+<td><code>--[no-]heading</code></td>
+<td></td>
+<td><code>--[no-]heading</code></td>
+</tr>
+
+<tr>
+<td>指定要在 STDIN 上，显示匹配项的文件名</td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>--label</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>显示第一个匹配的列号</td>
+<td><code>--[no-]column</code></td>
+<td><code>--column</code></td>
+<td></td>
+<td></td>
+<td><code>--column</code></td>
+</tr>
+
+<tr>
+<td>匹配后，打印上下文行</td>
+<td><code>-A --after</code></td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+</tr>
+
+<tr>
+<td>在匹配前，打印上下文行</td>
+<td><code>-B --before</code></td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+</tr>
+
+<tr>
+<td>在匹配前后，打印上下文行</td>
+<td><code>-C --context</code></td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+</tr>
+
+<tr>
+<td>显示每个文件匹配的行数</td>
+<td><code>-c --count</code></td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+</tr>
+
+<tr>
+<td>打印空字节作为文件名之间的分隔符</td>
+<td><code>--print0</code></td>
+<td><code>-0 --null --print0</code></td>
+<td><code>-z --null</code></td>
+<td><code>-Z --null</code></td>
+<td><code>-0 --null</code></td>
+</tr>
+
+<tr>
+<td>NUM 匹配后停止在每个文件中搜索</td>
+<td><code>-m --max-count</code></td>
+<td><code>-m --max-count</code></td>
+<td></td>
+<td><code>-m --max-count</code></td>
+<td><code>-m --max-count</code></td>
+</tr>
+
+<tr>
+<td>在任何一场匹配后，停止搜索</td>
+<td><code>-1</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>在每行之前，打印文件中的字节偏移量</td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>-b --byte-offset -u --unix-byte-offsets</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>禁止有关不存在或不可读文件的错误消息</td>
+<td><code>-s</code></td>
+<td><code>--silent</code></td>
+<td></td>
+<td><code>-s --no-messages</code></td>
+<td><code>--no-messages</code></td>
+</tr>
+
+<tr>
+<td>限制输出线的长度</td>
+<td></td>
+<td><code>-W --width</code></td>
+<td></td>
+<td></td>
+<td><code>-M --max-columns</code></td>
+</tr>
+
+<tr>
+<td>不要输出匹配的行</td>
+<td></td>
+<td></td>
+<td><code>-q --quiet</code></td>
+<td><code>-q --quiet --silent</code></td>
+<td><code>-q --quiet</code></td>
+</tr>
+
+<tr>
+<td>打印统计数据(扫描的文件，拍摄的时间等)</td>
+<td></td>
+<td><code>--stats --stats-only</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th><strong>文件演示</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>启用颜色输出</td>
+<td><code>--color</code></td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+<td>同</td>
+</tr>
+
+<tr>
+<td>下划线匹配</td>
+<td><code>--underline</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>设置各种输出项目的颜色</td>
+<td><code>--color-match --color-filename --color-lineno --color-colno</code></td>
+<td><code>--color-match --color-path --color-line-number</code></td>
+<td>在.gitconfig 文件中指定</td>
+<td>在 GREP_COLORS 环境变量中指定</td>
+<td><code>--colors</code></td>
+</tr>
+
+<tr>
+<td>通过 pager 或其他命令输出管道</td>
+<td><code>--[no-]pager</code></td>
+<td></td>
+<td><code>-O --open-files-in-pager</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>除非它们在相邻的行上，否则将匹配输出用空行分开</td>
+<td><code>--[no-]proximate</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>将所有匹配组合在一个文件中</td>
+<td><code>--[no-]group</code></td>
+<td><code>--[no-]group</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>指定组分隔符</td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>--[no-]group-separator</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>显示匹配的函数名称</td>
+<td></td>
+<td></td>
+<td><code>-p --show-function</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>显示找到匹配项的函数</td>
+<td></td>
+<td></td>
+<td><code>-W --function-context</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>在不同文件的结果之间打印分隔符</td>
+<td><code>--[no-]break</code></td>
+<td><code>--[no-]break</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>每行都冲洗下输出</td>
+<td><code>--flush</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th><strong>文件查找</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>仅打印所选文件，而不进行搜索</td>
+<td><code>-f</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>--files</code></td>
+</tr>
+
+<tr>
+<td>显示每个文件的类型</td>
+<td><code>--show-types</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>列出与模式匹配的可搜索文件</td>
+<td><code>-g</code></td>
+<td><code>-g</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>阅读要从 FILE 中搜索的文件列表</td>
+<td><code>--files-from</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>词法排序找到的文件</td>
+<td><code>--sort-files</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>--sort-files</code></td>
+</tr>
+
+<tr>
+<td>阅读要从 STDIN 搜索的文件列表</td>
+<td><code>-x</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>将搜索限制为与模式匹配的文件名</td>
+<td></td>
+<td><code>-G --file-search-regex</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>搜索隐藏文件</td>
+<td></td>
+<td><code>--hidden</code></td>
+<td></td>
+<td></td>
+<td><code>--hidden</code></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th><strong>文件包含/排除</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>仅搜索给定类型的文件</td>
+<td><code>--type=X --X (where X is a filetype)</code></td>
+<td><code>--X (where X is a filetype)</code></td>
+<td></td>
+<td></td>
+<td><code>-t --type</code></td>
+</tr>
+
+<tr>
+<td>排除给定类型的文件</td>
+<td><code>--type=noX --noX (where X is a filetype)</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>-T --type-not</code></td>
+</tr>
+
+<tr>
+<td>递归到子目录</td>
+<td><code>-r -R --[no-]recurse</code></td>
+<td><code>-r --recurse</code></td>
+<td></td>
+<td><code>-r --recursive</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>按照符号链接递归到子目录</td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>-R --dereference-recursive</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>没有下降到子目录</td>
+<td><code>-n --no-recurse</code></td>
+<td><code>-n --norecurse</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>从被忽略的目录列表中添加/删除目录</td>
+<td><code>--[no-]ignore-dir</code></td>
+<td><code>--ignore-dir</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>不要忽视忽略文件(.gitignore，.ignore 等)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>--no-ignore --no-ignore-parent --no-ignore-vcs</code></td>
+</tr>
+
+<tr>
+<td>忽略大于给定大小的文件</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>`&ndash;max-文件大小</td>
+</tr>
+
+<tr>
+<td>指定要搜索的文件</td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>--include</code></td>
+<td><code>-g --glob --iglob</code></td>
+</tr>
+
+<tr>
+<td>忽略匹配的文件/目录</td>
+<td></td>
+<td><code>--ignore</code></td>
+<td></td>
+<td><code>--exclude --exclude-from --exclude-dir</code></td>
+<td><code>--ignore-file</code></td>
+</tr>
+
+<tr>
+<td>添加用于忽略文件的过滤器</td>
+<td><code>--ignore-file</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>仅包括 ack 识别的类型的文件</td>
+<td><code>-k --known-types</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>跟随符号链接</td>
+<td><code>--[no-]follow</code></td>
+<td><code>-f --follow</code></td>
+<td></td>
+<td></td>
+<td><code>-L --follow</code></td>
+</tr>
+
+<tr>
+<td>不要关注其他设备的链接</td>
+<td></td>
+<td><code>--one-device</code></td>
+<td></td>
+<td><code>--devices=skip</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>搜索所有类型的文件</td>
+<td></td>
+<td><code>-a --all-types</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>限制目录搜索深度</td>
+<td></td>
+<td><code>--depth</code></td>
+<td><code>--max-depth</code></td>
+<td></td>
+<td><code>--maxdepth</code></td>
+</tr>
+
+<tr>
+<td>搜索二进制文件</td>
+<td></td>
+<td><code>--binary</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>将文件视为二进制</td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>-U --binary</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>不要搜索二进制文件</td>
+<td></td>
+<td></td>
+<td><code>-I</code></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>将二进制文件视为文本</td>
+<td></td>
+<td></td>
+<td><code>-a --text</code></td>
+<td></td>
+<td><code>-a --text</code></td>
+</tr>
+
+<tr>
+<td>搜索所有文本文件</td>
+<td></td>
+<td><code>-t --all-text</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>搜索所有文件</td>
+<td></td>
+<td><code>-u --unrestricted</code></td>
+<td></td>
+<td></td>
+<td><code>-u --unrestricted</code></td>
+</tr>
+
+<tr>
+<td>跳过 VCS 中的规则忽略文件(.gitignore，.hgignore 等)</td>
+<td></td>
+<td><code>-U --skip-vcs-ignores</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th><strong>文件类型规范</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>创建文件类型，替换以前的规范</td>
+<td><code>--type-set</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>将规范添加到现有文件类型</td>
+<td><code>--type-add</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>--type-add</code></td>
+</tr>
+
+<tr>
+<td>删除文件类型</td>
+<td><code>--type-del</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>--type-clear</code></td>
+</tr>
+
+<tr>
+<td>忽略默认类型定义</td>
+<td><code>--ignore-ack-defaults</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>显示所有已知类型</td>
+<td><code>--help-types</code></td>
+<td><code>--list-file-types</code></td>
+<td></td>
+<td></td>
+<td><code>--type-list</code></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th><strong>杂</strong></th>
+<th>ack</th>
+<th>ag</th>
+<th>git grep</th>
+<th>GNU grep</th>
+<th>rg</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>打印所有行，无论是否匹配</td>
+<td><code>--passthru</code></td>
+<td><code>--passthrough</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>输出默认的 ackrc ，以进行自定义到标准输出</td>
+<td><code>--create-ackrc</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>转储有关加载哪些选项的信息</td>
+<td><code>--dump</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>指定要使用的配置文件</td>
+<td><code>--ackrc</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>忽略环境变量和全局配置文件</td>
+<td><code>--env</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>将标准输入视为管道</td>
+<td><code>--[no-]filter</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>搜索压缩文件的内容(例如 gzip)</td>
+<td></td>
+<td><code>-z --search-zip</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>指定输入文件编码</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><code>-E --encoding</code></td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/searcher"> #searcher </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/%e4%b8%ad%e6%96%87%e7%bf%bb%e8%af%91"> #中文翻译 </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/译-搜索工具的功能比较.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

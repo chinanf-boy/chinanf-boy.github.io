@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>(译) GoAWK，一个用Go编写的AWK解释器</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>(译) GoAWK，一个用Go编写的AWK解释器</h2>
+        
+
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>时间</th>
+<th>原作者同意翻译</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://benhoyt.com/writings/goawk">benhoyt blog</a></td>
+<td>2018 年 11 月</td>
+<td><a href="https://github.com/benhoyt/goawk/issues/12">github Issue</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="goawk-一个用-go-编写的-awk-解释器-https-benhoyt-com-writings-goawk"><a href="https://benhoyt.com/writings/goawk/">GoAWK，一个用 Go 编写的 AWK 解释器</a></h2>
+
+<blockquote>
+<p>简介：阅读 <em>AWK 编程语言之后</em> 我受到启发，用 Go 语言 为 AWK 编写了一个解释器。本文向你概述了什么是 AWK，描述了 GoAWK 的工作原理，我是如何进行测试的，以及我如何衡量和改进其性能。</p>
+
+<p><strong>转至：</strong> <a href="#awk-%E6%A6%82%E8%BF%B0">AWK 概述</a> | <a href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%BB%83">代码演练</a> | <a href="#%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E6%B5%8B%E8%AF%95%E5%AE%83%E7%9A%84t">测试</a> | <a href="#%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD">性能</a></p>
+</blockquote>
+
+<h3 id="大目录">大目录</h3>
+
+<p><details></p>
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+<ul>
+<li><a href="#awk-%E6%A6%82%E8%BF%B0">AWK 概述</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%BB%83">代码演练</a>
+
+<ul>
+<li><a href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8">词法分析器</a></li>
+<li><a href="#%E8%A7%A3%E6%9E%90%E5%99%A8">解析器</a></li>
+<li><a href="#%E5%88%86%E8%A7%A3%E5%99%A8">分解器</a></li>
+<li><a href="#%E8%A7%A3%E9%87%8A%E5%99%A8">解释器</a></li>
+<li><a href="#%E4%B8%BB%E7%A8%8B%E5%BA%8F">主程序</a></li>
+</ul></li>
+<li><a href="#%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E6%B5%8B%E8%AF%95%E5%AE%83%E7%9A%84">我是如何测试它的</a>
+
+<ul>
+<li><a href="#lexer-%E6%B5%8B%E8%AF%95">Lexer 测试</a></li>
+<li><a href="#%E8%A7%A3%E6%9E%90%E6%B5%8B%E8%AF%95">解析测试</a></li>
+<li><a href="#%E8%A7%A3%E9%87%8A%E5%99%A8%E6%B5%8B%E8%AF%95">解释器测试</a></li>
+<li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%B5%8B%E8%AF%95">命令行测试</a></li>
+<li><a href="#awk-%E6%B5%8B%E8%AF%95%E5%A5%97%E4%BB%B6">AWK 测试套件</a></li>
+<li><a href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">模糊测试</a></li>
+</ul></li>
+<li><a href="#%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD">提高性能</a>
+
+<ul>
+<li><a href="#%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90%E7%9A%84">我是如何分析的</a></li>
+<li><a href="#%E6%80%A7%E8%83%BD%E6%94%B9%E8%BF%9B">性能改进</a></li>
+<li><a href="#%E6%80%A7%E8%83%BD%E8%A1%A8%E7%8E%B0">性能表现</a></li>
+</ul></li>
+<li><a href="#%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5">从哪里来？</a></li>
+</ul>
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<p></details></p>
+
+<hr />
+
+<p>AWK 是一种引人入胜的文本处理语言，而<a href="https://ia802309.us.archive.org/25/items/pdfy-MgN0H1joIoDVoIC7/The_AWK_Programming_Language.pdf"><em>AWK 编程语言</em></a>是一本描述它的,非常简洁的书。AWK 中的 A，W 和 K 代表三位原创作者的姓氏：Alfred Aho，Peter Weinberger 和 Brian Kernighan。Kernighan 也是*The C Programming Language*（“K＆R”）的作者，这两本书具有相同的每页风格感觉。</p>
+
+<p>AWK 于 1977 年发布，超过 40 年！对于这种特定领域的语言来说并不常见，而今它仍大量用于 Unix 命令行上的单行控制。</p>
+
+<p>在实现了我个人的一种<a href="https://benhoyt.com/writings/littlelang/">语言</a> , 还有 Bob Nystrom 的<a href="https://benhoyt.com/writings/loxlox/">在Lox中实现的Lox解释器</a>后，我好像处在一个“高级解释员”的位置 。在阅读了 AWK 书之后，我认为用 Go 语言 为它编写一个解释器会相当有趣（或一些与“乐趣”想近的意思）。它能有多难？</p>
+
+<p>事实证明，让它在基本功能级别上工作并不是很难，但在获得正确的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html">POSIX AWK</a>语义，并使其快速的上面，有点棘手。</p>
+
+<p>首先，简要介绍 AWK 语言（如果您已经知道，请跳到下一部分）。</p>
+
+<h2 id="awk-概述">AWK 概述</h2>
+
+<p>如果您不熟悉 AWK，这里有一句话摘要：<code>AWK 逐行读取文本文件，对于与模式表达式匹配的每一行，它执行一个操作动作（通常打印输出）</code>。</p>
+
+<p>因此，给出一个输入文件示例（Web 服务器日志文件），其中每行使用以下格式</p>
+
+<p><code>&quot;timestamp method path ip status time&quot;</code> ：</p>
+
+<pre><code>2018-11-07T07:56:34Z GET /about 1.2.3.4 200 0.013
+2018-11-07T07:56:35Z GET /contact 1.2.3.4 200 0.020
+2018-11-07T07:56:37Z POST /contact 1.2.3.4 200 1.309
+2018-11-07T07:56:40Z GET /robots.txt 123.0.0.1 404 0.004
+2018-11-07T07:57:00Z GET /about 2.3.4.5 200 0.014
+2018-11-07T08:00:00Z GET /asdf 3.4.5.6 404 0.005
+2018-11-07T08:00:01Z GET /fdsa 3.4.5.6 404 0.004
+2018-11-07T08:00:02Z HEAD / 4.5.6.7 200 0.008
+2018-11-07T08:00:15Z GET / 4.5.6.7 200 0.055
+2018-11-07T08:05:57Z GET /robots.txt 201.12.34.56 404 0.004
+2018-11-07T08:05:58Z HEAD / 5.6.7.8 200 0.007
+2018-11-07T08:05:59Z GET / 5.6.7.8 200 0.049
+
+</code></pre>
+
+<p>如果我们想要查看<code>/about</code>页面中，所有命中的 IP 地址（字段 4），我们可以写：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ awk <span style="color:#f1fa8c">&#39;/about/ { print $4 }&#39;</span> server.log
+<span style="color:#bd93f9">1</span>.2.3.4
+<span style="color:#bd93f9">2</span>.3.4.5</code></pre></div>
+<p>上面的模式是斜线分隔的正则表达式<code>/about/</code>，操作是打印第四个字段（<code>$4</code>）。默认情况下，AWK 以空白格，将行拆分字段，但字段分隔符很容易配置，并可以是正则表达式。</p>
+
+<p>通常，正则表达式模式匹配整行，但您也可以匹配任意表达式。上面写法也会匹配 URL <code>/not-about</code>，但你可以收紧它，通过测试路径（字段 3）是否正好<code>&quot;/about&quot;</code>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ awk <span style="color:#f1fa8c">&#39;$3 == &#34;/about&#34; { print $4 }&#39;</span> server.log
+<span style="color:#bd93f9">1</span>.2.3.4
+<span style="color:#bd93f9">2</span>.3.4.5</code></pre></div>
+<p>如果我们想确定所有 GET 请求的平均响应时间（字段 6），我们可以将响应时间相加，并计算 GET 请求的数量，然后打印<code>END</code>块中的平均值 - <strong>18 毫秒</strong>，不错：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ awk <span style="color:#f1fa8c">&#39;/GET/ { total += $6; n++ } END { print total/n }&#39;</span> server.log
+<span style="color:#bd93f9">0</span>.0186667</code></pre></div>
+<p>AWK 支持哈希表（称为“关联数组”），因此您可以像这样打印每个请求方法的计数 - 请注意该模式是可 pe 的，并在此处省略：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ awk <span style="color:#f1fa8c">&#39;{ num[$2]++ } END { for (m in num) print m, num[m] }&#39;</span> server.log
+GET <span style="color:#bd93f9">9</span>
+POST <span style="color:#bd93f9">1</span>
+HEAD <span style="color:#bd93f9">2</span></code></pre></div>
+<p>AWK 有两个标量类型，字符串和数字，但它被描述为“字符串类型”，因为如果数据来自用户输入并作为数字解析，就用<code>==</code>和<code>&lt;</code>这样的比较运算符进行数字比较，否则进行字符串比较。这听起来很草率，但对于文本处理，它通常就是你想要的。</p>
+
+<p>该语言支持的类 C 的表达式和控制结构（通常的<code>if</code>，<code>for</code>区块范围等等）。它还具有一系列内置函数，如<code>substr()</code>和<code>tolower()</code>，它支持用户定义的函数，以及局部变量和数组参数。</p>
+
+<p>所以它绝对是完整图灵性(符合)的，实际上这是一个非常好的，强大的语言。你甚至<a href="https://github.com/benhoyt/goawk/blob/master/examples/mandel.awk">可以用</a>几十行代码就<a href="https://github.com/benhoyt/goawk/blob/master/examples/mandel.awk">生成 Mandelbrot 集合</a>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ awk -f examples/mandel.awk</code></pre></div>
+<pre><code>......................................................................................................................................................
+............................................................................................................-.........................................
+.....................................................................................................----++-*------...................................
+...................................................................................................--------$+---------................................
+................................................................................................-----------++$++--+++---..............................
+..............................................................................................--------------++*%#+++------............................
+............................................................................................--------------++%*%@*++----------.........................
+.........................................................................................------------++**++*#    *++++%----------.....................
+......................................................................................--------------+++             %#%+-------------.................
+..................................................................................-------------------+* @           %*+------------------.............
+.............................................................................---------------------+++++              +++--------------------..........
+........................................................................----------*%+**#@++++++$ %++****%%        $%**+**+++#++---------+*+---........
+.................................................................-----------------+*$% $ #  ++*   $                       #   *++++#*+++**++----......
+..........................................................------------------------+++@      #                                  @**#   @  *#+-----.....
+....................................................-----------------------------++++*#                                                 %*+-------....
+...............................................------------------------------+$+*%**#                                                 %*++--------....
+..........................................---+-------------------------------++                                                        %#+---------...
+......................................--------+ +----------++---------------++**%$                                                       *%*+* ----...
+..................................------------+*+++++*+++++ *++++++-----+++++$@                                                               +----...
+...............................----------------+++#% $$**%* @ $**#%+++++++++                                                              %++------...
+............................------------------+++*%$                $ *++++*                                                              # **-----...
+..........................-------------------+*+**#                    @%**%                                                              #$+------...
+.......................---------------%++++++++*#                         ##                                                               $+------...
+....................-----------------+++#**%***#                                                                                          *--------...
+.......-----------++--------------++++**%$                                                                                              +----------...
+......                                                                                                                              %*++-----------...
+.......-----------++--------------++++**%$                                                                                              +----------...
+....................-----------------+++#**%***#                                                                                          *--------...
+.......................---------------%++++++++*#                         ##                                                               $+------...
+..........................-------------------+*+**#                    @%**%                                                              #$+------...
+............................------------------+++*%$                $ *++++*                                                              # **-----...
+...............................----------------+++#% $$**%* @ $**#%+++++++++                                                              %++------...
+..................................------------+*+++++*+++++ *++++++-----+++++$@                                                               +----...
+......................................--------+ +----------++---------------++**%$                                                       *%*+* ----...
+..........................................---+-------------------------------++                                                        %#+---------...
+...............................................------------------------------+$+*%**#                                                 %*++--------....
+....................................................-----------------------------++++*#                                                 %*+-------....
+..........................................................------------------------+++@      #                                  @**#   @  *#+-----.....
+.................................................................-----------------+*$% $ #  ++*   $                       #   *++++#*+++**++----......
+........................................................................----------*%+**#@++++++$ %++****%%        $%**+**+++#++---------+*+---........
+.............................................................................---------------------+++++              +++--------------------..........
+..................................................................................-------------------+* @           %*+------------------.............
+......................................................................................--------------+++             %#%+-------------.................
+.........................................................................................------------++**++*#    *++++%----------.....................
+............................................................................................--------------++%*%@*++----------.........................
+..............................................................................................--------------++*%#+++------............................
+................................................................................................-----------++$++--+++---..............................
+...................................................................................................--------$+---------................................
+.....................................................................................................----++-*------...................................
+............................................................................................................-.........................................
+</code></pre>
+
+<p>而这也就不过是，AWK 的一个小能力。</p>
+
+<h2 id="代码演练">代码演练</h2>
+
+<p>GoAWK 在编译器设计方面并不突破。它由词法分析器(lexer)，解析器(parser)，分解器(resolver)，解释器(interpreter)和主程序(main)（<a href="https://github.com/benhoyt/goawk">GitHub repo</a>）组成。只用 Go 标准库包，制作此程序。</p>
+
+<h3 id="词法分析器">词法分析器</h3>
+
+<p>这一切都始于<a href="https://github.com/benhoyt/goawk/blob/master/lexer/lexer.go">词法分析器</a>，它将 AWK 源代码转换为<code>tokens(标记)</code>流。词法分析器的核心是<code>scan()</code>方法，其会跳过空格和注释，解析下一个<code>token</code>：例如，<code>DOLLAR</code>，<code>NUMBER</code>，或<code>LPAREN</code>。每个<code>token(标记)</code>都返回其源代码位置（行和列），以便解析器可以在语法错误消息中,包含此信息。</p>
+
+<p>大部分代码（<code>Lexer.scan</code>方法）只是一个大的 <strong>switch</strong> 语句，用来海选<code>token</code>的第一个字符。下面是一个片段：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">switch</span> ch {
+<span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#39;$&#39;</span>:
+    tok = DOLLAR
+<span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#39;0&#39;</span>, <span style="color:#f1fa8c">&#39;1&#39;</span>, <span style="color:#f1fa8c">&#39;2&#39;</span>, <span style="color:#f1fa8c">&#39;3&#39;</span>, <span style="color:#f1fa8c">&#39;4&#39;</span>, <span style="color:#f1fa8c">&#39;5&#39;</span>, <span style="color:#f1fa8c">&#39;6&#39;</span>, <span style="color:#f1fa8c">&#39;7&#39;</span>, <span style="color:#f1fa8c">&#39;8&#39;</span>, <span style="color:#f1fa8c">&#39;9&#39;</span>, <span style="color:#f1fa8c">&#39;.&#39;</span>:
+    start <span style="color:#ff79c6">:=</span> l.offset <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">2</span>
+    gotDigit <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">false</span>
+    <span style="color:#ff79c6">if</span> ch <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#39;.&#39;</span> {
+        gotDigit = <span style="color:#ff79c6">true</span>
+        <span style="color:#ff79c6">for</span> l.ch <span style="color:#ff79c6">&gt;=</span> <span style="color:#f1fa8c">&#39;0&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span> l.ch <span style="color:#ff79c6">&lt;=</span> <span style="color:#f1fa8c">&#39;9&#39;</span> {
+            l.<span style="color:#50fa7b">next</span>()
+        }
+        <span style="color:#ff79c6">if</span> l.ch <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;.&#39;</span> {
+            l.<span style="color:#50fa7b">next</span>()
+        }
+    }
+    <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>    tok = NUMBER
+<span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#39;{&#39;</span>:
+    tok = LBRACE
+<span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#39;}&#39;</span>:
+    tok = RBRACE
+<span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#39;=&#39;</span>:
+    tok = l.<span style="color:#50fa7b">choice</span>(<span style="color:#f1fa8c">&#39;=&#39;</span>, ASSIGN, EQUALS)
+<span style="color:#ff79c6">//</span> <span style="color:#ff79c6">...</span></code></pre></div>
+<p>关于 AWK 语法的一个奇怪的事情是解析<code>/</code>和<code>/regex/</code>并不明确 - 你必须知道解析中的上下文，以便知道返回的是一个<code>DIV</code>还是一个<code>REGEX</code>的标记。因此，词法分析器暴露了一个针对普通标记的<code>Scan</code>方法和一个解析器调用正则标记时，所需的<code>ScanRegex</code>方法。</p>
+
+<h3 id="解析器">解析器</h3>
+
+<p>接下来是<a href="https://github.com/benhoyt/goawk/blob/master/parser/parser.go">解析器</a>，一个相当标准的深度递归解析器，它创建一个<a href="https://github.com/benhoyt/goawk/blob/master/internal/ast/ast.go">抽象语法树（AST）</a>。我不喜欢学习如何驱动一个解析生成器，像<code>yacc</code>或引入外部依赖，所以 GoAWK 的解析器是用爱，手工制作的。</p>
+
+<p>AST 节点是简单的 Go 结构，每个表达式和语句结构分别实现<code>Expr</code>和<code>Stmt</code>作为接口。AST 节点也可调用<code>String()</code>方法，好看格式打印自身 - 这对于调试解析器非常有用，您可以命令行上指定<code>-d</code>，启用它：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ goawk -d <span style="color:#f1fa8c">&#39;BEGIN { x=4; print x+3; }&#39;</span>
+BEGIN <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">x</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">4</span>
+    print <span style="color:#ff79c6">(</span>x + <span style="color:#bd93f9">3</span><span style="color:#ff79c6">)</span>
+<span style="color:#ff79c6">}</span>
+<span style="color:#bd93f9">7</span></code></pre></div>
+<p>AWK 语法在某些地方有点古怪，其中最重要的是<code>print</code>语句中，不支持表达式<code>&gt;</code>或<code>|</code>(除括号内)。这些若支持，应该能使重定向或管道输出更简单吧。</p>
+
+<ul>
+<li><code>print x &gt; y</code>: 表示 打印变量<code>x</code>重定向到具有<code>y</code>名称的文件</li>
+<li><code>print (x &gt; y)</code>: 表示 打印 布尔:true（1），若<code>x</code>大于<code>y</code></li>
+</ul>
+
+<p>我无法想出一个更好的方式，来完成两种深度递归树的路径方法 - <code>expr()</code>和<code>printExpr()</code>在代码中：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>parser) <span style="color:#50fa7b">expr</span>() Expr      { <span style="color:#ff79c6">return</span> p.<span style="color:#50fa7b">getLine</span>() }
+<span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>parser) <span style="color:#50fa7b">printExpr</span>() Expr { <span style="color:#ff79c6">return</span> p.<span style="color:#50fa7b">_assign</span>(p.printCond) }</code></pre></div>
+<p>内置的函数调用是需要指定解析类别的，这样在解析时，可检查参数的数量（在某些情况下是类型）。例如，在解析<code>match(str, regex)</code>时：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">case</span> F_MATCH:
+    p.<span style="color:#50fa7b">next</span>()
+    p.<span style="color:#50fa7b">expect</span>(LPAREN)
+    str <span style="color:#ff79c6">:=</span> p.<span style="color:#50fa7b">expr</span>()
+    p.<span style="color:#50fa7b">commaNewlines</span>()
+    regex <span style="color:#ff79c6">:=</span> p.<span style="color:#50fa7b">regexStr</span>(p.expr)
+    p.<span style="color:#50fa7b">expect</span>(RPAREN)
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">&amp;</span>CallExpr{F_MATCH, []Expr{str, regex}}</code></pre></div>
+<p>许多解析函数会提出，无效语法或意外标记的错误。而我不会在每一步都检查这些错误，让生活更容易的方式是，在<code>panic</code>后，在顶层<code>recover(恢复)</code>制定的<code>ParseError</code>类型。这避免了深度递归代码中的大量重复错误处理。以下是顶层<code>ParseProgram</code>函数：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">ParseProgram</span>(src []<span style="color:#8be9fd">byte</span>, config <span style="color:#ff79c6">*</span>ParserConfig) (
+        prog <span style="color:#ff79c6">*</span>Program, err <span style="color:#8be9fd">error</span>) {
+    <span style="color:#ff79c6">defer</span> <span style="color:#8be9fd;font-style:italic">func</span>() {
+        <span style="color:#ff79c6">if</span> r <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">recover</span>(); r <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+            <span style="color:#6272a4">// 转换为ParseError或重新发生恐慌
+</span><span style="color:#6272a4"></span>            err = r.(<span style="color:#ff79c6">*</span>ParseError)
+        }
+    }()
+    <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>}</code></pre></div>
+<h3 id="分解器">分解器</h3>
+
+<p>该<a href="https://github.com/benhoyt/goawk/blob/master/parser/resolve.go">分解器</a>实际上是解析器包的一部分。它对数组和标量(scalars)进行基本类型检查，并为所有变量引用分配整数索引（以避免执行时，较慢的映射查找）。</p>
+
+<p>我认为我完成分解器的方式是非传统的：解析器不是对 AST 进行完整传递，而仅记录分解器找出的类型（函数调用和变量引用的列表）所需的内容。这可能比走遍整棵树更快，但它也可能使代码不那么直接利落。</p>
+
+<p>事实上，分解器是我写了一段时间的代码之一。这是我 对 GoAWK 不太满意的的一部分。它有效，但它很混乱，我仍然不确定我是否覆盖了所有边缘情况。</p>
+
+<p>复杂性来自这样一个事实，即在调用函数时，您不知道调用点上的参数是，标量还是数组。您必须仔细阅读被调用函数中的类型（并且可能在它调用的函数中）以确定它。考虑这个 AWK 程序：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">function <span style="color:#50fa7b">g</span>(b, y) { <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">f</span>(b, y) }
+function <span style="color:#50fa7b">f</span>(a, x) { <span style="color:#ff79c6">return</span> a[x] }
+BEGIN { c[<span style="color:#bd93f9">1</span>]=<span style="color:#bd93f9">2</span>; print <span style="color:#50fa7b">f</span>(c, <span style="color:#bd93f9">1</span>); print <span style="color:#50fa7b">g</span>(c, <span style="color:#bd93f9">1</span>) }</code></pre></div>
+<p>该程序只打印<code>2</code>,两次。但是当我们在<code>g</code>里面调用<code>f</code>时，我们还不知道参数的类型。这是分解器工作的一部分，它用迭代的方式解决了这个问题。（参见<a href="https://github.com/benhoyt/goawk/blob/a75cecd04d8aa8829c04b97bf370c8afaf53a68e/parser/resolve.go#L223"><code>resolveVars</code></a>，在<code>resolve.go</code>）。</p>
+
+<p>找出未知参数类型后，解析器将整数索引，分配给所有的变量引用，全局和局部。</p>
+
+<h3 id="解释器">解释器</h3>
+
+<p>解释器是一个简单的(tree-walk)爬树解释器。解释器实现了，<code>语句执行和表达式求值(评估)，输入/输出，函数调用和基本值类型</code>。</p>
+
+<ul>
+<li>*语句执行*开始在<a href="https://github.com/benhoyt/goawk/blob/master/interp/interp.go">interp.go</a>的<code>ExecProgram</code>，这需要一个解析了的<code>Program</code>，建立起解释器，然后执行<code>BEGIN</code>块，模式和动作，和<code>END</code>块。执行操作包括评估模式表达式，并确定它们是否与当前行匹配。其中包括“范围range-模式” <code>NR==4, NR==10</code>，它匹配开始和停止模式之间的行。</li>
+</ul>
+
+<p>一个语句由<code>execute</code>方法执行，该方法获取任何类型的一个<code>Stmt</code>，在其<code>switch</code>上执行大型类型&rsquo;认亲&rsquo;活动，以确定它是什么类型的语句，并执行该语句的行为。</p>
+
+<ul>
+<li>*表达式求值*以相同的方式工作，除了它发生在<code>eval</code>方法中，它接受<code>Expr</code>，并 switch 到表达式类型。</li>
+</ul>
+
+<p>大多数二进制表达式（除短路的<code>&amp;&amp;</code>和<code>||</code>）都可通过<code>evalBinary</code>进行求值，其中包含对运算符标记的进一步 switch，如下所示：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>interp) <span style="color:#50fa7b">evalBinary</span>(op Token, l, r value) (value, <span style="color:#8be9fd">error</span>) {
+    <span style="color:#ff79c6">switch</span> op {
+    <span style="color:#ff79c6">case</span> ADD:
+        <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">num</span>(l.<span style="color:#50fa7b">num</span>() <span style="color:#ff79c6">+</span> r.<span style="color:#50fa7b">num</span>()), <span style="color:#ff79c6">nil</span>
+    <span style="color:#ff79c6">case</span> SUB:
+        <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">num</span>(l.<span style="color:#50fa7b">num</span>() <span style="color:#ff79c6">-</span> r.<span style="color:#50fa7b">num</span>()), <span style="color:#ff79c6">nil</span>
+    <span style="color:#ff79c6">case</span> EQUALS:
+        <span style="color:#ff79c6">if</span> l.<span style="color:#50fa7b">isTrueStr</span>() <span style="color:#ff79c6">||</span> r.<span style="color:#50fa7b">isTrueStr</span>() {
+            <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">boolean</span>(p.<span style="color:#50fa7b">toString</span>(l) <span style="color:#ff79c6">==</span> p.<span style="color:#50fa7b">toString</span>(r)), <span style="color:#ff79c6">nil</span>
+        } <span style="color:#ff79c6">else</span> {
+            <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">boolean</span>(l.n <span style="color:#ff79c6">==</span> r.n), <span style="color:#ff79c6">nil</span>
+        }
+    <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>}</code></pre></div>
+<p>在<code>EQUALS</code>这种情况下，您可以看到 AWK 的“字符串类型”特性：如果任一操作数绝对是“真正的字符串”（来自用户输入的非数字字符串），请进行字符串比较，否则进行数字比较。这意味着像<code>$3 == &quot;foo&quot;</code>是字符串比较，但<code>$3 == 3.14</code>是一个数字比较，这正是想你所想。</p>
+
+<p>AWK 的关联数组很好地映射到了 Go 的<code>map[string]value</code>类型，因此可以轻松实现这些。说到这个，Go 的垃圾收集器意味着我们不必担心编写自己的 GC。</p>
+
+<ul>
+<li>*输入和输出*在<a href="https://github.com/benhoyt/goawk/blob/master/interp/io.go">io.go 中</a>处理。所有 I/O 都经过缓冲以提高效率，我们使用 Go 的<code>bufio.Scanner</code>来读取输入记录和<code>bufio.Writer</code>缓冲输出。</li>
+</ul>
+
+<p>输入记录通常是行（<code>Scanner</code>默认行为），但记录的分隔符<code>RS</code>也可以设置为要拆分的另一个字符，或者设置为空字符串，这意味着可在两个连续的换行符（空行）上，进行拆分以处理多行记录。这些方法仍使用<code>bufio.Scanner</code>，但使用了自定义拆分函数，例如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// 拆分函数，用于拆分给定分隔符字节上的记录
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">type</span> byteSplitter <span style="color:#8be9fd;font-style:italic">struct</span> {
+    sep <span style="color:#8be9fd">byte</span>
+}
+
+<span style="color:#8be9fd;font-style:italic">func</span> (s byteSplitter) <span style="color:#50fa7b">scan</span>(data []<span style="color:#8be9fd">byte</span>, atEOF <span style="color:#8be9fd">bool</span>)
+        (advance <span style="color:#8be9fd">int</span>, token []<span style="color:#8be9fd">byte</span>, err <span style="color:#8be9fd">error</span>) {
+    <span style="color:#ff79c6">if</span> atEOF <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">len</span>(data) <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span> {
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>, <span style="color:#ff79c6">nil</span>, <span style="color:#ff79c6">nil</span>
+    }
+    <span style="color:#ff79c6">if</span> i <span style="color:#ff79c6">:=</span> bytes.<span style="color:#50fa7b">IndexByte</span>(data, s.sep); i <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">0</span> {
+        <span style="color:#6272a4">// 我们有一个完整的sep终止符记录
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">return</span> i <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>, data[<span style="color:#bd93f9">0</span>:i], <span style="color:#ff79c6">nil</span>
+    }
+    <span style="color:#6272a4">// 如果在EOF，我们有最终的，未终止的记录; 把它返还
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> atEOF {
+        <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">len</span>(data), data, <span style="color:#ff79c6">nil</span>
+    }
+    <span style="color:#6272a4">// 请求更多数据
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>, <span style="color:#ff79c6">nil</span>, <span style="color:#ff79c6">nil</span>
+}</code></pre></div>
+<p><code>print</code>或<code>printf</code>的输出可以重定向到文件，附加到文件或通过管道输出到命令：这些在<code>getOutputStream</code>处理。输入可以来自 stdin，文件，也可以来自命令。</p>
+
+<ul>
+<li>*调用的函数*在<a href="https://github.com/benhoyt/goawk/blob/master/interp/functions.go">functions.go</a>中实现，包括内置函数和用户定义函数。</li>
+</ul>
+
+<p>该<code>callBuiltin</code>方法再次使用一个大的 <code>switch</code> 语句，来确定我们正在调用的 AWK 函数，例如<code>split()</code>或<code>sqrt()</code>。内置<code>split</code>函数需要特殊处理，因为它获取一个未评估的数组参数。类似地，<code>sub</code>，<code>gsub</code>实际上采用分配到的“(lvalue)左值”参数。对于其余的函数，我们首先评估参数才执行操作。</p>
+
+<blockquote>
+<p>译曰: lvalue 的意思，应该是也被特效处理了</p>
+</blockquote>
+
+<p>大多数函数都是使用 Go 标准库的一部分实现的。例如，所有数学函数，像<code>sqrt()</code>是使用标准<code>math</code>包，<code>split()</code>用到了<code>strings</code>和<code>regexp</code>函数。GoAWK 重新使用 Go 的正则表达式，因此模糊正则表达式语法可能与“one true awk”的行为不同。</p>
+
+<p>说到正则表达式，我使用简单的有界缓存，来缓存正则表达式的编译，这足以加速几乎所有的 AWK 脚本：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// 编译正则表达式字符串（或从正则表达式缓存中获取）
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>interp) <span style="color:#50fa7b">compileRegex</span>(regex <span style="color:#8be9fd">string</span>) (<span style="color:#ff79c6">*</span>regexp.Regexp, <span style="color:#8be9fd">error</span>) {
+    <span style="color:#ff79c6">if</span> re, ok <span style="color:#ff79c6">:=</span> p.regexCache[regex]; ok {
+        <span style="color:#ff79c6">return</span> re, <span style="color:#ff79c6">nil</span>
+    }
+    re, err <span style="color:#ff79c6">:=</span> regexp.<span style="color:#50fa7b">Compile</span>(regex)
+    <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">nil</span>, <span style="color:#50fa7b">newError</span>(<span style="color:#f1fa8c">&#34;invalid regex %q: %s&#34;</span>, regex, err)
+    }
+    <span style="color:#6272a4">// 哎呀，非LRU 缓存：只缓存前N个正则表达式
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(p.regexCache) &lt; maxCachedRegexes {
+        p.regexCache[regex] = re
+    }
+    <span style="color:#ff79c6">return</span> re, <span style="color:#ff79c6">nil</span>
+}</code></pre></div>
+<p>我也对 AWK 的<code>printf</code>语句作弊了，将 AWK 格式的字符串和类型转换为 Go 类型，这样我就可以重用 Go 的<code>fmt.Sprintf</code>函数了。同样，缓存此转换的格式字符串。</p>
+
+<p>用户定义，是调用了<code>callUser</code>，它会评估函数的参数，并将它们推送到本地堆栈。这比你想象的要复杂得多，原因有二：</p>
+
+<ul>
+<li>首先，你可以将数组作为参数传递（通过引用），</li>
+<li>其次，你可以调用一个，输入参数少于规定参数的函数。</li>
+</ul>
+
+<p>它还检查调用深度（当前最大值为 1000），以避免无限递归的panic。</p>
+
+<ul>
+<li>*基本值类型*实现在<a href="https://github.com/benhoyt/goawk/blob/master/interp/value.go">value.go</a>。GoAWK 值是字符串或数字（或“数字字符串”），并使用<code>value</code>，这个值传递的结构，其定义如下：</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">type</span> value <span style="color:#8be9fd;font-style:italic">struct</span> {
+    typ      valueType <span style="color:#6272a4">// 值类型（nil，str或num）
+</span><span style="color:#6272a4"></span>    isNumStr <span style="color:#8be9fd">bool</span>      <span style="color:#6272a4">// 如果str值是“数字字符串”，则为True
+</span><span style="color:#6272a4"></span>    s        <span style="color:#8be9fd">string</span>    <span style="color:#6272a4">// 字符串值（typeStr）
+</span><span style="color:#6272a4"></span>    n        <span style="color:#8be9fd">float64</span>   <span style="color:#6272a4">// 数值（typeNum和数字字符串）
+</span><span style="color:#6272a4"></span>}</code></pre></div>
+<p>一开始我是，让 GoAWK 值为<code>interface{}</code>类型，用它来持有<code>string</code>和<code>float64</code>。但你无法分辨常规字符串和数字字符串之间的区别，所以才决定使用结构。我的预想是，通过，值传递一个小的 4字(4-word) 结构，比指针传递更好，所以这就是我所做的（虽然我没有验证）。</p>
+
+<p>要检测“数字字符串”（请参阅 ​​<code>numStr</code>），我们只是简单修剪(trim)了空格，并使用 Go 的<code>strconv.ParseFloat</code>函数。但是啊，当字符串值使用<code>value.num()</code>显式转换为数字时，就出现了转换是允许<code>&quot;1.5foo&quot;</code>这样的，而<code>ParseFloat</code>却不能这样。无奈，我不得不自力更生，&rsquo;卷&rsquo;好自己的解析函数。</p>
+
+<h3 id="主程序">主程序</h3>
+
+<p>主程序,在<a href="https://github.com/benhoyt/goawk/blob/master/goawk.go">goawk.go</a>中，卷好上面的所有内容，放到命令行实用程序<code>goawk</code>中。同样，这里没什么好看的 - 它甚至使用标准的 Go <code>flag</code>包来解析命令行参数。</p>
+
+<p>该<code>goawk</code>实用程序具有一个小辅助函数<code>showSourceLine</code>，它会显示语法错误的错误行和位置。例如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ goawk <span style="color:#f1fa8c">&#39;BEGIN { print sqrt(2; }&#39;</span>
+--------------------------------------------
+BEGIN <span style="color:#ff79c6">{</span> print sqrt<span style="color:#ff79c6">(</span><span style="color:#bd93f9">2</span>; <span style="color:#ff79c6">}</span>
+                    ^
+--------------------------------------------
+parse error at <span style="color:#bd93f9">1</span>:21: expected <span style="color:#ff79c6">)</span> instead of ;</code></pre></div>
+<p>没有什么特别的<code>goawk</code>：它只是调用<code>parser</code>和<code>interp</code>包。GoAWK 有一个非常简单的 Go API，所以如果你想从你自己的 Go 程序中调用它，请查看<a href="https://godoc.org/github.com/benhoyt/goawk">GoDoc API 文档</a>。</p>
+
+<h2 id="我是如何测试它的">我是如何测试它的</h2>
+
+<h3 id="lexer-测试">Lexer 测试</h3>
+
+<p><a href="https://github.com/benhoyt/goawk/blob/master/lexer/lexer_test.go">词法分析器测试</a>使用了<a href="https://dave.cheney.net/2013/06/09/writing-table-driven-tests-in-go">表格驱动的测试</a>，比较源输入和词法分析器字符串化版本的输出。这包括检查标记位置（行：列）以及标记的字符串值（用于<code>NAME</code>，<code>NUMBER</code>，<code>STRING</code>，和<code>REGEX</code>标记）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">TestLexer</span>(t <span style="color:#ff79c6">*</span>testing.T) {
+    tests <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">struct</span> {
+        input  <span style="color:#8be9fd">string</span>
+        output <span style="color:#8be9fd">string</span>
+    }{
+        <span style="color:#6272a4">// 名称和关键字
+</span><span style="color:#6272a4"></span>        {<span style="color:#f1fa8c">&#34;x&#34;</span>, <span style="color:#f1fa8c">`1:1 name &#34;x&#34;`</span>},
+        {<span style="color:#f1fa8c">&#34;x y0&#34;</span>, <span style="color:#f1fa8c">`1:1 name &#34;x&#34;, 1:3 name &#34;y0&#34;`</span>},
+        {<span style="color:#f1fa8c">&#34;x 0y&#34;</span>, <span style="color:#f1fa8c">`1:1 name &#34;x&#34;, 1:3 number &#34;0&#34;, 1:4 name &#34;y&#34;`</span>},
+        {<span style="color:#f1fa8c">&#34;sub SUB&#34;</span>, <span style="color:#f1fa8c">`1:1 sub &#34;&#34;, 1:5 name &#34;SUB&#34;`</span>},
+
+        <span style="color:#6272a4">// 字符串标记
+</span><span style="color:#6272a4"></span>        {<span style="color:#f1fa8c">`&#34;foo&#34;`</span>, <span style="color:#f1fa8c">`1:1 string &#34;foo&#34;`</span>},
+        {<span style="color:#f1fa8c">`&#34;a\t\r\n\z\&#39;\&#34;b&#34;`</span>, <span style="color:#f1fa8c">`1:1 string &#34;a\t\r\nz&#39;\&#34;b&#34;`</span>},
+        <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>    }
+    <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>}</code></pre></div>
+<h3 id="解析测试">解析测试</h3>
+
+<p>解析器实际上没有明确的单元测试，除了<a href="https://github.com/benhoyt/goawk/blob/a75cecd04d8aa8829c04b97bf370c8afaf53a68e/parser/parser_test.go#L17"><code>TestParseAndString</code></a>，它测试一个包含所有语法结构的大程序 - 测试只是它解析，并可以通过漂亮的打印再次序列化。我的目的是在解释器测试中，测试解析逻辑。</p>
+
+<h3 id="解释器测试">解释器测试</h3>
+
+<p>该<a href="https://github.com/benhoyt/goawk/blob/master/interp/interp_test.go">解释器单元测试</a>是表格驱动的测试，其具有漫长的列表。它们比词法分析器测试稍微复杂一点 - 它们采用 AWK 源，预期输入和预期输出，以及预期的错误字符串和 AWK 错误字符串（如果测试是应为导致错误的）。</p>
+
+<p>您可以选择通过指定命令行<code>go test ./interp -awk=gawk</code>，运行针对某外部 AWK 解释器的解释器测试。我要确保测试是能针对<code>awk</code>和<code>gawk</code>这两种情况的 - 比如说，错误讯息，两者是完全不同的，我已经考虑到这一点，尝试只针对错误消息的一个子字符串，。</p>
+
+<p>有时<code>awk</code>和<code>gawk</code>都有不同的已知行为，或者不会捕获与 GoAWK 相同的错误，因此在一些测试中我必须按名称排除解释器 - 也就是在源字符串中使用特殊的<code>!awk</code>（“非 awk”）注释来完成的。。</p>
+
+<p>以下是解释器单元测试的样子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">TestInterp</span>(t <span style="color:#ff79c6">*</span>testing.T) {
+    tests <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">struct</span> {
+        src    <span style="color:#8be9fd">string</span>
+        in     <span style="color:#8be9fd">string</span>
+        out    <span style="color:#8be9fd">string</span>
+        err    <span style="color:#8be9fd">string</span> <span style="color:#6272a4">// GoAWK的错误必须等于此
+</span><span style="color:#6272a4"></span>        awkErr <span style="color:#8be9fd">string</span> <span style="color:#6272a4">// 来自 awk/gawk的错误 必须包含此内容
+</span><span style="color:#6272a4"></span>    }{
+        {<span style="color:#f1fa8c">`$0`</span>, <span style="color:#f1fa8c">&#34;foo\n\nbar&#34;</span>, <span style="color:#f1fa8c">&#34;foo\nbar\n&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>},
+        {<span style="color:#f1fa8c">`{ print $0 }`</span>, <span style="color:#f1fa8c">&#34;foo\n\nbar&#34;</span>, <span style="color:#f1fa8c">&#34;foo\n\nbar\n&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>},
+        {<span style="color:#f1fa8c">`$1==&#34;foo&#34;`</span>, <span style="color:#f1fa8c">&#34;foo\n\nbar&#34;</span>, <span style="color:#f1fa8c">&#34;foo\n&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>},
+        {<span style="color:#f1fa8c">`$1==42`</span>, <span style="color:#f1fa8c">&#34;foo\n42\nbar&#34;</span>, <span style="color:#f1fa8c">&#34;42\n&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>},
+        {<span style="color:#f1fa8c">`$1==&#34;42&#34;`</span>, <span style="color:#f1fa8c">&#34;foo\n42\nbar&#34;</span>, <span style="color:#f1fa8c">&#34;42\n&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>},
+        {<span style="color:#f1fa8c">`BEGIN { printf &#34;%d&#34; }`</span>, <span style="color:#f1fa8c">&#34;&#34;</span>, <span style="color:#f1fa8c">&#34;&#34;</span>,
+            <span style="color:#f1fa8c">&#34;format error: got 0 args, expected 1&#34;</span>, <span style="color:#f1fa8c">&#34;not enough arg&#34;</span>},
+        <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>    }
+    <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>}</code></pre></div>
+<h3 id="命令行测试">命令行测试</h3>
+
+<p>我也想测试<code>goawk</code>命令行处理，所以在<a href="https://github.com/benhoyt/goawk/blob/master/goawk_test.go"><code>goawk_test.go</code></a>有，另一套测试的东西，表格驱动测试像<code>-f</code>，<code>-v</code>，<code>ARGV</code>，和相关的命令行其他的事情：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">TestCommandLine</span>(t <span style="color:#ff79c6">*</span>testing.T) {
+    tests <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">struct</span> {
+        args   []<span style="color:#8be9fd">string</span>
+        stdin  <span style="color:#8be9fd">string</span>
+        output <span style="color:#8be9fd">string</span>
+    }{
+        {[]<span style="color:#8be9fd">string</span>{<span style="color:#f1fa8c">&#34;-f&#34;</span>, <span style="color:#f1fa8c">&#34;-&#34;</span>}, <span style="color:#f1fa8c">`BEGIN { print &#34;b&#34; }`</span>, <span style="color:#f1fa8c">&#34;b\n&#34;</span>},
+        {[]<span style="color:#8be9fd">string</span>{<span style="color:#f1fa8c">&#34;-f&#34;</span>, <span style="color:#f1fa8c">&#34;-&#34;</span>, <span style="color:#f1fa8c">&#34;-f&#34;</span>, <span style="color:#f1fa8c">&#34;-&#34;</span>}, <span style="color:#f1fa8c">`BEGIN { print &#34;b&#34; }`</span>, <span style="color:#f1fa8c">&#34;b\n&#34;</span>},
+        {[]<span style="color:#8be9fd">string</span>{<span style="color:#f1fa8c">`BEGIN { print &#34;a&#34; }`</span>}, <span style="color:#f1fa8c">&#34;&#34;</span>, <span style="color:#f1fa8c">&#34;a\n&#34;</span>},
+        {[]<span style="color:#8be9fd">string</span>{<span style="color:#f1fa8c">`$0`</span>}, <span style="color:#f1fa8c">&#34;one\n\nthree&#34;</span>, <span style="color:#f1fa8c">&#34;one\nthree\n&#34;</span>},
+        {[]<span style="color:#8be9fd">string</span>{<span style="color:#f1fa8c">`$0`</span>, <span style="color:#f1fa8c">&#34;-&#34;</span>}, <span style="color:#f1fa8c">&#34;one\n\nthree&#34;</span>, <span style="color:#f1fa8c">&#34;one\nthree\n&#34;</span>},
+        {[]<span style="color:#8be9fd">string</span>{<span style="color:#f1fa8c">`$0`</span>, <span style="color:#f1fa8c">&#34;-&#34;</span>, <span style="color:#f1fa8c">&#34;-&#34;</span>}, <span style="color:#f1fa8c">&#34;one\n\nthree&#34;</span>, <span style="color:#f1fa8c">&#34;one\nthree\n&#34;</span>},
+        <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>    }
+    <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>}</code></pre></div>
+<p>这些是针对<code>goawk</code>二进制，以及外部 AWK 程序（默认为<code>gawk</code>）进行测试的。</p>
+
+<h3 id="awk-测试套件">AWK 测试套件</h3>
+
+<p>我还针对 Brian Kernighan 的“one true awk”测试套件，测试了 GoAWK 。它们是<code>testdata</code>目录中的<code>p.*</code>和<code>t.*</code>文件。<a href="https://github.com/benhoyt/goawk/blob/master/goawk_test.go"><code>goawk_test.go</code></a>的<code>TestAWK</code>函数会驱动这些测试。将测试程序的输出与外部 AWK 程序的输出（再次默认为<code>gawk</code>）进行比较，以确保其匹配。</p>
+
+<p>一些测试程序，例如那些调用<code>rand()</code>的不会真正与 AWK 区别开来的测试，所以我将其排除在外。对于其他程序，例如循环遍历数组的测试（迭代顺序未定义），我会在 不同 之前，对输出中的行进行排序。</p>
+
+<h3 id="模糊测试">模糊测试</h3>
+
+<p>我使用的最后一种测试是“模糊测试”。这是一种向解释器发送随机输入直到它中断的方法。我通过这种方式捕获了几次崩溃（panic），甚至 Go 编译器中的<a href="https://github.com/benhoyt/goawk/commit/89cf2a2c3958f2e602d553a9abc418aa0031a0f0">一个错误</a>导致了对 segfault 的越界切片访问（虽然我发现在 Go 1.11 中已经修复了）。</p>
+
+<p>为了驱动模糊测试，我简单使用了<a href="https://github.com/dvyukov/go-fuzz">go-fuzz</a>库的<code>Fuzz</code>函数：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">Fuzz</span>(data []<span style="color:#8be9fd">byte</span>) <span style="color:#8be9fd">int</span> {
+    input <span style="color:#ff79c6">:=</span> bytes.<span style="color:#50fa7b">NewReader</span>([]<span style="color:#8be9fd;font-style:italic">byte</span>(<span style="color:#f1fa8c">&#34;foo bar\nbaz buz\n&#34;</span>))
+    err <span style="color:#ff79c6">:=</span> interp.<span style="color:#50fa7b">Exec</span>(<span style="color:#8be9fd;font-style:italic">string</span>(data), <span style="color:#f1fa8c">&#34; &#34;</span>, input, <span style="color:#ff79c6">&amp;</span>bytes.Buffer{})
+    <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>
+    }
+    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>
+}</code></pre></div>
+<p>模糊测试发现了一些我没在其他测试方法抓到的漏洞和边缘情况。大多数情况下，这些都是你不会用实际代码编写的东西，但是让一个不知疲倦的机器人帮助你增加一层健壮性是很好的。在 GoAWK 中，模糊测试发现至少存在以下问题：</p>
+
+<ul>
+<li><a href="https://github.com/benhoyt/goawk/commit/c59731f5543bf9b48cf92a981b66696a5ab0ceae">c59731f</a>：使用数组上下文中的内置（scalar）修复恐慌</li>
+<li><a href="https://github.com/benhoyt/goawk/commit/59c931fa42e6bd436c64391fd743f6e259beabef">59c931f</a>：修复尝试从输出流中，读取时，的崩溃（反之亦然）</li>
+<li><a href="https://github.com/benhoyt/goawk/commit/b09e51f64689e12c466e951ed1b8add17742be9f">b09e51f</a>：禁止将 NF 和 $n 设置为 1,000,000（fuzzer 发现此信息）</li>
+<li><a href="https://github.com/benhoyt/goawk/commit/6d99151bc918fc602bc0274221b8ca93f80c7095">6d99151</a>：修改，转换为浮点数时的&rsquo;值超出范围&rsquo;恐慌（go-fuzz 发现这个）</li>
+</ul>
+
+<p>有关如何运行 fuzzer 的详细信息，请参见<a href="https://github.com/benhoyt/goawk/blob/master/fuzz/README.txt">fuzz/README.txt</a>。</p>
+
+<h2 id="提高性能">提高性能</h2>
+
+<p><a href="#%E6%80%A7%E8%83%BD%E8%A1%A8%E7%8E%B0">跳过 叙述，直接查看性能表现！</a></p>
+
+<p>性能问题往往是由以下几个方面的瓶颈造成的，从多到少影响排序（感谢 Alan Donovan 对此的简洁思考方式）：</p>
+
+<ol>
+<li>输入/输出</li>
+<li>内存分配</li>
+<li>CPU 周期</li>
+</ol>
+
+<p>如果您要做很多很多的 I/O 或系统调用，<code>goAWK</code>的血量会<code>-99999</code>。</p>
+
+<p>下一个是内存分配：它们是昂贵的，重要事情之一，为此 Go 提供了内存分配很大的控制权（例如，<code>make()</code>的“cap”容量参数）。</p>
+
+<p>最后是 CPU 周期 - 这通常是影响最小的，尽管有时人们在谈论“性能”时，会想到这一点。</p>
+
+<p>在 GoAWK 中，我在所有三个方面都做了一些优化。对于典型的 AWK 程序来说，其最大优性能点都与 I/O 有关 - 正如预期的那样，因为 AWK 程序通常会读取输入，处理它，并写入输出。但，仍可在内存分配和 CPU 周期，有一些重要的收获。</p>
+
+<h3 id="我是如何分析的">我是如何分析的</h3>
+
+<p>瓶颈往往不 🐶 直观，因此*测量*是关键。让我们来看看你如何衡量 Go 代码中，正在发生的事情。</p>
+
+<p>使用标准库<a href="https://golang.org/pkg/runtime/pprof/"><code>runtime/pprof</code>包</a>来检索，分析代码相当容易。（您可以<a href="https://blog.golang.org/profiling-go-programs">在此处</a>阅读有关<a href="https://blog.golang.org/profiling-go-programs">分析 Go 程序的</a>更多信息。）</p>
+
+<p>首先，我添加了一个<code>-cpuprofile</code>命令行标志，若设置了这个，会启用 CPU 分析。下面是代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">*</span>cpuprofile <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;&#34;</span> {
+    f, err <span style="color:#ff79c6">:=</span> os.<span style="color:#50fa7b">Create</span>(<span style="color:#ff79c6">*</span>cpuprofile)
+    <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+        <span style="color:#50fa7b">errorExit</span>(<span style="color:#f1fa8c">&#34;could not create CPU profile: %v&#34;</span>, err)
+    }
+    <span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">:=</span> pprof.<span style="color:#50fa7b">StartCPUProfile</span>(f); err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+        <span style="color:#50fa7b">errorExit</span>(<span style="color:#f1fa8c">&#34;could not start CPU profile: %v&#34;</span>, err)
+    }
+}
+<span style="color:#6272a4">// ...运行 interp.Exec ...
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">*</span>cpuprofile <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;&#34;</span> {
+    pprof.<span style="color:#50fa7b">StopCPUProfile</span>()
+}</code></pre></div>
+<p>然后，您可以运行，要分析的 AWK 程序：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./goawk -cpuprofile<span style="color:#ff79c6">=</span>prof <span style="color:#f1fa8c">&#39;BEGIN { for (i=0; i&lt;100000000; i++) s++ }&#39;</span></code></pre></div>
+<p>最后使用该<code>pprof</code>工具查看输出（该<code>-http</code>标志会在 Web 浏览器中，激活一个 tab 选项卡，并提供几种查看数据的好方法）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go tool pprof -http<span style="color:#ff79c6">=</span>:4001 prof</code></pre></div>
+<p>这是“top”视图的屏幕截图，我发现它最有用：</p>
+
+<p><img src="/images/goawk-pprof.png" alt="pprof的“顶级”视图" /></p>
+
+<p>从这个截图中，你可以立即看到几件事：</p>
+
+<ul>
+<li>通过<strong>map</strong>的变量访问让我们慢慢的（<code>getVar</code>，<code>mapassign</code>，<code>mapaccess</code>）</li>
+<li>基于<code>panic</code>的错误处理相当缓慢（所有<code>defer</code>行）</li>
+</ul>
+
+<p>为了解决了这两个问题，我在下面叙述了。我在不同类型的 AWK 程序上，运行了很多次分析器，并从 I/O 开始发现了许多问题。</p>
+
+<h3 id="性能改进">性能改进</h3>
+
+<p>果不期然，GoAWK 有 I/O 问题 - 我没有缓冲对 stdout 的写入。因此微基准测试看起来没问题，但真正的 AWK 程序运行速度比之慢很多倍。因此，<strong>加速输出</strong>是我做的第一个优化（后来我意识到我也忘了为重定向输出做这一点）：</p>
+
+<ul>
+<li><a href="https://github.com/benhoyt/goawk/commit/60745c3503ba3d99297816f5c7b5364a08ec47ab">60745c3</a>：缓冲标准输出（和 stderr），加速 10 倍</li>
+<li><a href="https://github.com/benhoyt/goawk/commit/6ba004f5fbf9b84bc6196d50c2a0dd496ed1771b">6ba004f</a>：缓冲重定向输出以提高性能</li>
+</ul>
+
+<p>接下来我改为使用<strong>switch/case 进行二进制操作，</strong>而不是在<code>map</code>中查找函数,并调用它。但这并没有明显变快，特别是<code>switch</code>在 Go 跳过<code>case</code>列表，并且不使用“computed gotos”时。但我想在很多情况下，调用函数所涉及的常数因素超过了这个因素：</p>
+
+<ul>
+<li><a href="https://github.com/benhoyt/goawk/commit/ad8ff0e5f6cc89fdd480099614187ee23b20a8c9">ad8ff0e</a>：通过从 map 移动到 switch/case 来加速二进制操作</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">benchmark                           old ns/op     new ns/op     delta
+BenchmarkComparisons-8              <span style="color:#bd93f9">975</span>           <span style="color:#bd93f9">739</span>           -24.21%
+BenchmarkBinaryOperators-8          <span style="color:#bd93f9">1294</span>          <span style="color:#bd93f9">993</span>           -23.26%
+BenchmarkConcatSmall-8              <span style="color:#bd93f9">1312</span>          <span style="color:#bd93f9">1120</span>          -14.63%
+BenchmarkArrayOperations-8          <span style="color:#bd93f9">2542</span>          <span style="color:#bd93f9">2350</span>          -7.55%
+BenchmarkRecursiveFunc-8            <span style="color:#bd93f9">64319</span>         <span style="color:#bd93f9">60507</span>         -5.93%
+BenchmarkBuiltinSub-8               <span style="color:#bd93f9">16213</span>         <span style="color:#bd93f9">15305</span>         -5.60%
+BenchmarkForInLoop-8                <span style="color:#bd93f9">3886</span>          <span style="color:#bd93f9">4092</span>          +5.30%
+...</code></pre></div>
+<p>有趣的是，我的一些改进，将了*完全不相关*路径的代码变慢。我还是不知道为什么。它是测量的’噪音‘吗？我不这么认为，因为它似乎非常一致。我的猜测是，机器代码已被重新排列，并在某种程度上导致代码的其他部分中的，缓存未命中或分支预测更改。</p>
+
+<p>下一个重大变化是，<strong>在解析时</strong>将<strong>变量名称分解为索引。</strong>以前，我是使用<code>map[string]value</code>在&rsquo;运行时&rsquo;，执行所有变量查找，但是 AWK 中的变量引用可以在解析时,分解，然后解释器可以在一个<code>[]value</code>中找到它们。它还避免了内存分配，当因，随着 map 的增长分配了变量等情况：</p>
+
+<ul>
+<li><a href="https://github.com/benhoyt/goawk/commit/e0d7287ac1580bd0f144c763b222b9db8a858c54">e0d7287</a>：大的性能改进：在解析时分解变量</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">benchmark                           old ns/op     new ns/op     delta
+BenchmarkFuncCall-8                 <span style="color:#bd93f9">13710</span>         <span style="color:#bd93f9">5313</span>          -61.25%
+BenchmarkRecursiveFunc-8            <span style="color:#bd93f9">60507</span>         <span style="color:#bd93f9">30719</span>         -49.23%
+BenchmarkForInLoop-8                <span style="color:#bd93f9">4092</span>          <span style="color:#bd93f9">2467</span>          -39.71%
+BenchmarkLocalVars-8                <span style="color:#bd93f9">2959</span>          <span style="color:#bd93f9">1827</span>          -38.26%
+BenchmarkForLoop-8                  <span style="color:#bd93f9">15706</span>         <span style="color:#bd93f9">10349</span>         -34.11%
+BenchmarkIncrDecr-8                 <span style="color:#bd93f9">2441</span>          <span style="color:#bd93f9">1647</span>          -32.53%
+BenchmarkGlobalVars-8               <span style="color:#bd93f9">2628</span>          <span style="color:#bd93f9">1812</span>          -31.05%
+...</code></pre></div>
+<p>最初我用<code>interp.eval()</code>，只是为了<code>value</code>和运行时错误的特殊错误而恐慌返回，但这是一个显着的减速，所以我切换到使用更详细，但更类 Go <strong>错误返回值。</strong>使用<a href="https://go.googlesource.com/proposal/+/master/design/go2draft-error-handling-overview.md">建议的<code>check</code>关键字</a>会更好，但是哦！这一变化在许多基准测试中提高了 2-3 倍：</p>
+
+<ul>
+<li><a href="https://github.com/benhoyt/goawk/commit/aa6aa75368afeb40897b180c5a36501012e94907">aa6aa75</a>：通过消除 panic/recover 来提高<code>interp</code>性能</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">benchmark                           old ns/op     new ns/op     delta
+BenchmarkIfStatement-8              <span style="color:#bd93f9">885</span>           <span style="color:#bd93f9">292</span>           -67.01%
+BenchmarkGlobalVars-8               <span style="color:#bd93f9">1812</span>          <span style="color:#bd93f9">672</span>           -62.91%
+BenchmarkLocalVars-8                <span style="color:#bd93f9">1827</span>          <span style="color:#bd93f9">682</span>           -62.67%
+BenchmarkIncrDecr-8                 <span style="color:#bd93f9">1647</span>          <span style="color:#bd93f9">714</span>           -56.65%
+BenchmarkCondExpr-8                 <span style="color:#bd93f9">604</span>           <span style="color:#bd93f9">280</span>           -53.64%
+BenchmarkForLoop-8                  <span style="color:#bd93f9">10349</span>         <span style="color:#bd93f9">6007</span>          -41.96%
+BenchmarkBuiltinLength-8            <span style="color:#bd93f9">2775</span>          <span style="color:#bd93f9">1616</span>          -41.77%
+...</code></pre></div>
+<p>下一个改进是对<code>evalIndex</code>一些小但有效的调整，它评估一片数组表达式，以产生一个关键字符串。在 AWK 中，数组可以被多个下标索引<code>a[1, 2]</code>，实际上只是将它们一起混合成<code>&quot;1{SUBSEP}2&quot;</code>（下标分隔符默认为<code>\x1c</code>）。</p>
+
+<p>但大多数时候你只有一个下标，所以我<strong>优化了常见的情况。</strong>对于多下标的情况，我做了一个初始分配 - 希望在堆栈上 - 使用<code>make([]string, 0, 3)</code>以避免最多 3 个下标的堆分配。</p>
+
+<ul>
+<li><a href="https://github.com/benhoyt/goawk/commit/af993094e3e8aca2b7ab709ffcda437996c906fe">af99309</a>：加速数组操作</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">name                    old time/op  new time/op  delta
+ArrayOperations-8       <span style="color:#bd93f9">1</span>.80µs ± <span style="color:#bd93f9">1</span>%  <span style="color:#bd93f9">1</span>.13µs ± <span style="color:#bd93f9">1</span>%  -37.52%</code></pre></div>
+<p>另一个例子是<strong>减少分配</strong>，通过确保具有多达七个参数的调用不需要堆分配，来加速函数调用。内置调用增加了 2 倍。</p>
+
+<ul>
+<li><a href="https://github.com/benhoyt/goawk/commit/e45e2090d44c08b340555f483e1f5bf42160e199">e45e209</a>：通过减少分配，来加速对内置函数的调用</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">name                    old time/op  new time/op  delta
+BuiltinSubstr-8         <span style="color:#bd93f9">3</span>.11µs ± <span style="color:#bd93f9">0</span>%  <span style="color:#bd93f9">1</span>.56µs ± <span style="color:#bd93f9">5</span>%  -49.77%
+BuiltinIndex-8          <span style="color:#bd93f9">3</span>.00µs ± <span style="color:#bd93f9">2</span>%  <span style="color:#bd93f9">1</span>.56µs ± <span style="color:#bd93f9">3</span>%  -48.17%
+BuiltinLength-8         <span style="color:#bd93f9">1</span>.62µs ± <span style="color:#bd93f9">0</span>%  <span style="color:#bd93f9">0</span>.93µs ± <span style="color:#bd93f9">6</span>%  -42.92%
+ArrayOperations-8       <span style="color:#bd93f9">1</span>.80µs ± <span style="color:#bd93f9">1</span>%  <span style="color:#bd93f9">1</span>.13µs ± <span style="color:#bd93f9">1</span>%  -37.12%
+BuiltinMatch-8          <span style="color:#bd93f9">3</span>.77µs ± <span style="color:#bd93f9">1</span>%  <span style="color:#bd93f9">3</span>.04µs ± <span style="color:#bd93f9">0</span>%  -19.39%
+SimpleBuiltins-8        <span style="color:#bd93f9">5</span>.50µs ± <span style="color:#bd93f9">1</span>%  <span style="color:#bd93f9">4</span>.68µs ± <span style="color:#bd93f9">0</span>%  -14.83%
+BuiltinSprintf-8        <span style="color:#bd93f9">14</span>.3µs ± <span style="color:#bd93f9">4</span>%  <span style="color:#bd93f9">12</span>.6µs ± <span style="color:#bd93f9">0</span>%  -12.50%
+...</code></pre></div>
+<p>下一个优化是<strong>避免使用重量级工具</strong>（<code>text/scanner</code>），仅为了简单地将字符串转换为数字。我正在使用<code>Scanner</code>，因为它允许你解析，像<code>1.23foo</code>（当字符串不是来自用户输入时， AWK 允许），且因<code>strconv.ParseFloat</code>并不处理它。</p>
+
+<p>我只是简单地编写了自己的 lexing 函数，来查找字符串中实际浮点数的结尾，然后在其上调用<code>ParseFloat</code>。这样可以将显式字符串到数字的转换速度提高 10 倍以上！</p>
+
+<ul>
+<li><a href="https://github.com/benhoyt/goawk/commit/12b8520948e78ef19e3ed99bcffe25b3e893e447">12b8520</a>：优化，通过不使用 text/scanner 程序 - 字符串到数字转换</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat test.awk
+BEGIN <span style="color:#ff79c6">{</span>
+    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">i</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>; i&lt;<span style="color:#bd93f9">1000000</span>; i++<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>; <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>; <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>; <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>; <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>;
+        <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>; <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>; <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>; <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>; <span style="color:#f1fa8c">&#34;1.5e1&#34;</span>+<span style="color:#f1fa8c">&#34;1&#34;</span>;
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+$ <span style="color:#8be9fd;font-style:italic">time</span> ./goawk_before test.awk
+real    0m10.692s
+$ <span style="color:#8be9fd;font-style:italic">time</span> ./goawk_after test.awk
+real    0m0.983s</code></pre></div>
+<p>我做的另一优化是，通过在 lexing 期间<strong>避免 UTF-8 解码</strong>，可加速词法分析器。没有充分的理由不会将所有内容保留为字节，并且它使得词法分析器，在这些提交后，速度提升了 2-3 倍：</p>
+
+<ul>
+<li><a href="https://github.com/benhoyt/goawk/commit/0fa32f929b27bc55bcb8d68507853f1083d8ae02">0fa32f9</a>：通过避免 UTF-8 解码，加速词法分析器</li>
+<li><a href="https://github.com/benhoyt/goawk/commit/43af0cbd2f7b19273b58a75bf0fab20f91a755bf">43af0cb</a>：通过从 rune 改为 byte 类型, 加速词法分析器</li>
+<li><a href="https://github.com/benhoyt/goawk/commit/c5a32eb08f817b4622ce11e7ad858ed131e3cad7">c5a32eb</a>：通过减少分配来, 加速词法分析器</li>
+</ul>
+
+<h3 id="性能表现">性能表现</h3>
+
+<p>那么 GoAWK 与其他 AWK 实现相比如何呢？挺好的！在下图中：</p>
+
+<ul>
+<li><code>goawk</code>是指当前版本的 GoAWK（<a href="https://github.com/benhoyt/goawk/commit/109e8a9d645cb454e13582ab34f0f9d6d3fbdcfd">commit 109e8a9</a>）</li>
+<li><code>orig</code>是指第一个“正常工作”的 GoAWK 版本，没有优化（<a href="https://github.com/benhoyt/goawk/commit/8ab54463f01a7d7d018be26a2f618cbd3c82538d">提交 8ab5446</a>）</li>
+<li><code>awk</code> 是“one true awk”版本 20121220</li>
+<li><code>gawk</code> 是 GNU Awk 版本 4.2.1</li>
+<li><code>mawk</code> 是 mawk 版本 1.3.4（20171017）</li>
+</ul>
+
+<p>下面的数字表示在 3 次运行中,运行给定测试所需的平均时间，标准是<code>goawk</code>运行时间 - <strong>越低越好</strong> 。正如你所看到的，大多数情况 GoAWK 比<code>awk</code>要快得多，而相比<code>gawk</code>也不算太差！</p>
+
+<table>
+<thead>
+<tr>
+<th>测试</th>
+<th>goawk</th>
+<th>orig</th>
+<th>awk</th>
+<th>gawk</th>
+<th>mawk</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>tt.01</td>
+<td>1.000</td>
+<td>1.123</td>
+<td>5.818</td>
+<td>0.455</td>
+<td>0.465</td>
+</tr>
+
+<tr>
+<td>tt.02</td>
+<td>1.000</td>
+<td>1.107</td>
+<td>5.015</td>
+<td>1.331</td>
+<td>0.963</td>
+</tr>
+
+<tr>
+<td>tt.02a</td>
+<td>1.000</td>
+<td>1.149</td>
+<td>4.115</td>
+<td>1.356</td>
+<td>0.892</td>
+</tr>
+
+<tr>
+<td>tt.03</td>
+<td>1.000</td>
+<td>1.183</td>
+<td>5.574</td>
+<td>0.467</td>
+<td>0.738</td>
+</tr>
+
+<tr>
+<td>tt.03a</td>
+<td>1.000</td>
+<td>2.013</td>
+<td>5.965</td>
+<td>0.362</td>
+<td>0.794</td>
+</tr>
+
+<tr>
+<td>tt.04</td>
+<td>1.000</td>
+<td>1.386</td>
+<td>1.222</td>
+<td>0.800</td>
+<td>0.434</td>
+</tr>
+
+<tr>
+<td>tt.05</td>
+<td>1.000</td>
+<td>1.450</td>
+<td>1.425</td>
+<td>0.545</td>
+<td>0.430</td>
+</tr>
+
+<tr>
+<td>tt.06</td>
+<td>1.000</td>
+<td>1.360</td>
+<td>5.175</td>
+<td>0.628</td>
+<td>0.756</td>
+</tr>
+
+<tr>
+<td>tt.07</td>
+<td>1.000</td>
+<td>1.177</td>
+<td>6.160</td>
+<td>1.140</td>
+<td>0.961</td>
+</tr>
+
+<tr>
+<td>tt.big</td>
+<td>1.000</td>
+<td>1.540</td>
+<td>1.314</td>
+<td>0.757</td>
+<td>0.447</td>
+</tr>
+
+<tr>
+<td>tt.x1</td>
+<td>1.000</td>
+<td>2.591</td>
+<td>0.866</td>
+<td>0.575</td>
+<td>0.427</td>
+</tr>
+
+<tr>
+<td>tt.x2</td>
+<td>1.000</td>
+<td>2.348</td>
+<td>0.511</td>
+<td>0.411</td>
+<td>0.296</td>
+</tr>
+
+<tr>
+<td><strong>总</strong></td>
+<td><strong>1.000</strong></td>
+<td><strong>1.486</strong></td>
+<td><strong>3.074</strong></td>
+<td><strong>0.708</strong></td>
+<td><strong>0.521</strong></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="从哪里来">从哪里来？</h2>
+
+<p>我很想知道您是否使用<a href="https://github.com/benhoyt/goawk">GoAWK</a>，请向我发送错误报告和代码反馈。如果你不需要 GoAWK，至少你已经了解了常用的 AWK，以及它是多么有用的工具。</p>
+
+<p>谢谢阅读！</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/go"> #go </a></li><li><a class="link" href="/pass-blog/tags/awk"> #awk </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/go-repo"> #go-repo </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/GoAWK-一个用Go编写的AWK解释器.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mo on 杂项博文</title>
+    <link>/pass-blog/tags/mo/</link>
+    <description>Recent content in Mo on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 05 Dec 2017 23:43:05 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/mo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mo.js 专注动画</title>
+      <link>/pass-blog/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Tue, 05 Dec 2017 23:43:05 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/12/05/mo.js-%E4%B8%93%E6%B3%A8%E5%8A%A8%E7%94%BB/</guid>
+      <description>css-trick-介绍
+ mo.js官网 github
+ 专注 运动图形工具
+具有声明式命令
+ See the Pen Geometric Mo.js Burst by braveyo (@china-boy) on CodePen.  也可以看看，点赞的优秀动画
+ 还有个 medium 中型拍手 例子
+ See the Pen Medium clap effect by braveyo (@china-boy) on CodePen.  所以的所有，去官网去找吧</description>
+    </item>
+    
+  </channel>
+</rss>

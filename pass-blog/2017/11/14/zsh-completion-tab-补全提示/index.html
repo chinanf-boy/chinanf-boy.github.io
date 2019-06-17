@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>zsh completion tab 补全提示</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>zsh completion tab 补全提示</h2>
+        <h1 id="npm-和-git-补全噢">npm 和 git 补全噢😯</h1>
+
+<pre><code>npm &lt;Tab&gt; 
+</code></pre>
+
+<p>会补全命令</p>
+
+<p><code>npm</code>实现代码
+<a href="https://github.com/npm/npm/blob/master/lib/utils/completion.sh">https://github.com/npm/npm/blob/master/lib/utils/completion.sh</a></p>
+
+<p>or</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm completion</code></pre></div>
+<hr />
+
+<p><code>git</code> 实现代码</p>
+
+<p>分终端（zsh,bash..) 分实现文件
+<a href="https://github.com/git/git/blob/master/contrib/completion">https://github.com/git/git/blob/master/contrib/completion/</a></p>
+
+<p>因为<code>npm</code> 的实现文件只有一个，懒为主。</p>
+
+<hr />
+
+<p>我的是 zsh</p>
+
+<p>首先定义一个<code>可执行文件 sh</code></p>
+
+<p>test_completion.sh</p>
+
+<pre><code>if type compdef &amp;&gt;/dev/null; then
+
+    _test_completion() {
+    }
+
+    compdef _test_completion npm
+</code></pre>
+
+<p>当你运行上面 什么都没有的 文件时</p>
+
+<p>or 复制 <code>then</code> 后面那段代码，粘贴到 命令行运行也可以。</p>
+
+<p>之前<code>npm &lt;Tab&gt;</code> 的 提示就会没有</p>
+
+<p>## 代码分解</p>
+
+<blockquote>
+<p>if type</p>
+</blockquote>
+
+<p>是为了判断 <code>compdef</code> 是否存在 这是 <code>zsh</code> 定义的 函数命令</p>
+
+<blockquote>
+<p>&amp;&gt;/del/null</p>
+</blockquote>
+
+<p>应该是把 错误 文件化 放到 /dev/null</p>
+
+<blockquote>
+<p>compdef _test_completion npm</p>
+</blockquote>
+
+<p>这里有三个变量</p>
+
+<ol>
+<li><p>compdef 是 函数调用</p></li>
+
+<li><p>_test_completion 是 <code>compdef</code> 的第一个变量，用来定义 补全规则</p></li>
+</ol>
+
+<p>compdef(_test_completion)</p>
+
+<ol>
+<li>npm 是 <code>compdef</code> 的第二个变量。补全对象</li>
+</ol>
+
+<p>compdef( _test_completion, npm )</p>
+
+<p>只要把 npm 替换成 git 那么，</p>
+
+<p>git 的 补全命令 也会被替换 什么都没有。</p>
+
+<hr />
+
+<h2 id="补全规则">补全规则</h2>
+
+<pre><code>_test_completion(){
+
+}
+</code></pre>
+
+<blockquote>
+<p>zsh 实现了 简便的 命令添加-函数</p>
+</blockquote>
+
+<h2 id="compadd">compadd</h2>
+
+<p>源代码中主要</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">    compadd -- <span style="color:#ff79c6">$(</span><span style="color:#8be9fd;font-style:italic">COMP_CWORD</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$((</span>CURRENT-1<span style="color:#ff79c6">))</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_LINE</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$BUFFER</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_POINT</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 npm completion -- <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">words</span>[@]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#bd93f9">2</span>&gt;/dev/null<span style="color:#ff79c6">)</span></code></pre></div>
+<p>这样的 ,不难看出 &ndash; $ 后面就是 compadd函数 - 变量定义</p>
+
+<blockquote>
+<p>源文档太大了，截掉什么看看区别</p>
+</blockquote>
+
+<p>当我把 <code>npm completion -- &quot;${words[@]}&quot; \</code> 剪掉</p>
+
+<p><code>npm &lt;Tab&gt;</code>什么提示都没有了，看来这就是秘密。</p>
+
+<p>不过我们看了终点，不如回到原点。加加看</p>
+
+<blockquote>
+<p>示例</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">    _test_completion<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+        compadd -- install
+    <span style="color:#ff79c6">}</span>
+    compdef _test_completion npm </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm &lt;tab&gt;
+
+$ npm install</code></pre></div>
+<p>噢 那么就会提示 install</p>
+
+<blockquote>
+<p>再试试</p>
+</blockquote>
+
+<pre><code>    _test_completion() {
+        echo &quot;${words[@]}&quot; 
+        echo $CURRENT
+        echo $BUFFER
+        compadd -- install up
+    }
+    compdef _test_completion npm 
+</code></pre>
+
+<pre><code>$ npm &lt;tab&gt;
+
+$ npm 
+install up
+</code></pre>
+
+<p>噢😯, 那么问题也就是说下面代码</p>
+
+<pre><code>npm completion -- &quot;${words[@]}&quot;
+</code></pre>
+
+<p>返回的就是一串 命令 <code>install up </code>之类.</p>
+
+<hr />
+
+<p>至于怎么返回来</p>
+
+<p>秘密在哪里？😖 懒，算了不弄</p>
+
+<hr />
+
+<p>不过最重要的是</p>
+
+<pre><code>$ npm run &lt;tab&gt;
+</code></pre>
+
+<p>会根据 <code>package.json</code> 文件的变化</p>
+
+<p>我想 秘密就在</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    compadd -- <span style="color:#ff79c6">$(</span><span style="color:#8be9fd;font-style:italic">COMP_CWORD</span><span style="color:#ff79c6">=</span><span style="color:#ff79c6">$((</span>CURRENT-1<span style="color:#ff79c6">))</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_LINE</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$BUFFER</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#8be9fd;font-style:italic">COMP_POINT</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 npm completion -- <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">words</span>[@]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#f1fa8c">\
+</span><span style="color:#f1fa8c"></span>                 <span style="color:#bd93f9">2</span>&gt;/dev/null<span style="color:#ff79c6">)</span></code></pre></div>
+<p>-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">$ npm &lt;tab&gt;
+    // <span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">words</span>[@]<span style="color:#f1fa8c">}</span> <span style="color:#ff79c6">=</span> npm 
+    // <span style="color:#8be9fd;font-style:italic">$CURRENT</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>
+    // <span style="color:#8be9fd;font-style:italic">$BUFFER</span> <span style="color:#ff79c6">=</span> npm</code></pre></div>
+<ul>
+<li>
+<code>zsh
+$ npm run &lt;tab&gt;
+// ${words[@]} = npm run
+// $CURRENT = 3
+// $BUFFER = npm run
+</code></li>
+</ul>
+
+<blockquote>
+<p>就这样了</p>
+</blockquote>
+
+<p><a href="https://github.com/npm/npm/blob/master/lib/utils/completion.sh">https://github.com/npm/npm/blob/master/lib/utils/completion.sh</a>
+</p>
+
+<h2 id="中的疑惑函数">中的疑惑函数</h2>
+
+<h2 id="bash-的判断">bash 的判断？？</h2>
+
+<pre><code>if type complete &amp;&gt;/dev/null; then
+</code></pre>
+
+<h2 id="命令返回-秘密所在">命令返回，秘密所在？？</h2>
+
+<pre><code>elif type compctl &amp;&gt;/dev/null; then
+</code></pre>
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/npm"> #npm </a></li><li><a class="link" href="/pass-blog/tags/zsh"> #zsh </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/zsh-completion-tab-补全提示.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

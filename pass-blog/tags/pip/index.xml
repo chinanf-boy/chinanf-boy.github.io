@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pip on 杂项博文</title>
+    <link>/pass-blog/tags/pip/</link>
+    <description>Recent content in Pip on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 12 Sep 2017 10:09:44 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/pip/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>pip npm conda 换下载源</title>
+      <link>/pass-blog/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/</link>
+      <pubDate>Tue, 12 Sep 2017 10:09:44 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/09/12/pip-npm-conda-%E6%8D%A2%E4%B8%8B%E8%BD%BD%E6%BA%90/</guid>
+      <description> Pip 换 阿里源 linux下运行命令 vi ~/.pip/pip.confp[global] trusted-host = mirrors.aliyun.com index-url = http://mirrors.aliyun.com/pypi/simple Conda 换 清华源 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --set show_channel_urls yes Npm 换 淘宝源 一、使用淘宝镜像 1.临时使用
+npm --registry https://registry.npm.taobao.org install express  2.持久使用
+npm config set registry https://registry.npm.taobao.org  3.通过cnpm
+npm install -g cnpm --registry=https://registry.npm.taobao.org  二、使用官方镜像
+npm config set registry https://registry.npmjs.org/  三、查看npm源地址
+npm config get registry  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>中文翻译 on 杂项博文</title>
+    <link>/pass-blog/categories/%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/</link>
+    <description>Recent content in 中文翻译 on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 11 Dec 2018 11:54:27 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>(译)搜索工具的功能比较</title>
+      <link>/pass-blog/2018/12/11/%E8%AF%91%E6%90%9C%E7%B4%A2%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83/</link>
+      <pubDate>Tue, 11 Dec 2018 11:54:27 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/12/11/%E8%AF%91%E6%90%9C%E7%B4%A2%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83/</guid>
+      <description>div.inner { margin: 0 4%; } tr td:nth-child(2n){ background-color: #ffdfac; } tr td:not(:first-child) code { background-color: #ffdfac; font-size: 14px; margin: 1px; display: block; padding: 5px; text-align: center; } tr th:not(:first-child) { width:14%; } th { position: static; } 
+返回 原文 | Github 存储库 |
+ack，ag，git-grep，GNU grep 和 ripgrep 的功能比较 如果您对图表有更新，请提交一个 issue。
+如果您发现此图表有用，请考虑为您运行的项目制作一个，即使它包含&amp;rdquo;竞争&amp;rdquo;项目。最好的项目可能不是你的项目，而这并没有错.
+   工具 ack ag git grep GNU grep rg     名称 ack 银色搜索者(The Silver Searcher) git grep GNU grep ripgrep   项目页面 https://beyondgrep.</description>
+    </item>
+    
+  </channel>
+</rss>

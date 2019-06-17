@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heroku on 杂项博文</title>
+    <link>/pass-blog/tags/heroku/</link>
+    <description>Recent content in Heroku on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 17 Oct 2017 19:12:08 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hexo-disqus-proxy-heroku 发布 感觉一般般</title>
+      <link>/pass-blog/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/</link>
+      <pubDate>Tue, 17 Oct 2017 19:12:08 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/17/hexo-disqus-proxy-heroku-%E5%8F%91%E5%B8%83-%E6%84%9F%E8%A7%89%E4%B8%80%E8%88%AC%E8%88%AC/</guid>
+      <description> fork 别人项目 源地址
+改成heroku做服务端
+去掉 port fix 样式 bug react -&amp;gt; preact 大小 从 400多k 到 100多K </description>
+    </item>
+    
+    <item>
+      <title>heroku web  port 问题</title>
+      <link>/pass-blog/2017/10/17/heroku-web-port-%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 17 Oct 2017 16:13:05 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/17/heroku-web-port-%E9%97%AE%E9%A2%98/</guid>
+      <description>本文说明，一点heroku疑问
+procfile heroku运行的命令文件
+web worker clock  本地项目可以 查看procfile
+heroku ps  可以使用 js的web框架express koa
+web: node index.js  但是 app.listen(port) 一定要是他们定下来的
+var port = process.env.PORT  同理 python
+import os os.environ[&amp;#39;POST&amp;#39;] 这样，heroku转路由 直接网址-就能看到了</description>
+    </item>
+    
+  </channel>
+</rss>

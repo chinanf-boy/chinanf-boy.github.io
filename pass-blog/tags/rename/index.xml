@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rename on 杂项博文</title>
+    <link>/pass-blog/tags/rename/</link>
+    <description>Recent content in Rename on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 19 Jul 2018 10:59:18 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/rename/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>批量修改文件名-cmd:bash</title>
+      <link>/pass-blog/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/</link>
+      <pubDate>Thu, 19 Jul 2018 10:59:18 +0000</pubDate>
+      
+      <guid>/pass-blog/2018/07/19/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D-cmdbash/</guid>
+      <description> 问题: 批量修改文件名 解决: bash 好耶, 无得顶啊 https://www.zhihu.com/question/21294798/answer/62848985
+写个bash,用 for循环mv文件. 比如改扩展名,把 .c 改成 .cpp
+for f in *.c ; do mv &amp;#34;$f&amp;#34; &amp;#34;${f/c/cpp}&amp;#34; ; done</description>
+    </item>
+    
+  </channel>
+</rss>

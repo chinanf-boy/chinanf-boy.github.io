@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Water.css 为简单而生的 css 框架</title>
+
+    
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="https://watercss.netlify.com/dist/light.css"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Water.css 为简单而生的 css 框架</h2>
+        <table>
+<thead>
+<tr>
+<th>来源</th>
+<th><a href="https://github.com/kognise/water.css">https://github.com/kognise/water.css</a></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>官方Demo</td>
+<td><a href="https://watercss.netlify.com">https://watercss.netlify.com</a></td>
+</tr>
+</tbody>
+</table>
+
+<p><h1>Water.css</h1>
+<p>
+    Water.css is a just-add-css collection of styles to make simple websites like this just a little bit nicer.
+    <a href='https://github.com/kognise/water.css'>Get it already!</a>
+</p>
+<p>
+    Now you can write your simple static site with nice semantic html, and Water.css will manage the styling for you.
+</p>
+<a href='https://www.producthunt.com/posts/water-css?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-water-css' target='_blank'><img id='ph' src='https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=150490&theme=dark&period=daily' alt='Water.css - Make your tiny website just a little nicer | Product Hunt Embed' style='width: 250px; height: 54px;' width='250px' height='54px' /></a></p>
+
+<p><h2>Goals</h2>
+<ul>
+    <li>Responsive</li>
+    <li>Good code quality</li>
+    <li>Good browser support</li>
+    <li>Small size (&lt; 2kb)</li>
+    <li>Beautiful</li>
+    <li>No classes</li>
+</ul></p>
+
+<p><h2>Is it responsive?</h2>
+<p>
+    <strong>Heck yeah!</strong> It doesn&rsquo;t include any fancy styles so it&rsquo;s easily mobile responsive.
+    Just add the famous <a href='https://www.w3schools.com/css/css_rwd_viewport.asp'>responsive viewport tag</a> and you&rsquo;ll be good to go!
+</p>
+<p>
+    In fact, try resizing this page. Everything flows super nicely as you&rsquo;ll see.
+</p>
+<button id='switch'>Switch theme</button></p>
+
+<p><h2>Element demos</h2>
+<p>
+    This is supposed to be a demo page so we need more elements!
+</p></p>
+
+<p><h3>Form elements</h3>
+<form>
+    <label for='email'>Email</label>
+    <input type='email' name='email' id='email' placeholder='john.doe@gmail.com'></p>
+
+<p><label for='id'>User id (read only)</label>
+<input readonly name='id' id='id' value='04D6H89Z'></p>
+
+<p><label for='disabled'>Random disabled input</label>
+<input disabled name='disabled' id='disabled' placeholder='Because why not?'></p>
+
+<p><label for='about'>About me</label>
+<textarea name='about' id='about' placeholder='I am a textarea...'></textarea></p>
+
+<p><label>Choose a Doe:</label>
+<div>
+<input type='radio' id='john' name='drone' value='john' checked>
+<label for='john'>John Doe</label>
+</div>
+<div>
+<input type='radio' id='jane' name='drone' value='jane' checked>
+<label for='jane'>Jane Doe</label>
+</div>
+<div>
+<input type='radio' id='johnny' name='drone' value='johnny' checked>
+<label for='johnny'>Johnny Doe</label>
+</div></p>
+
+<p><br></p>
+
+<p><input type='checkbox' name='remember' id='remember' checked>
+<label for='remember'>Remember me</label></p>
+
+<p><input type='submit'></p>
+
+<p></form></p>
+
+<p><h3>Code</h3>
+<p>
+    Below is some code, you can copy it with <kbd>Ctrl-C</kbd>.
+    Did you know, <code>alert(1)</code> can show an alert in JavaScript!
+</p>
+<pre><code>// This logs a message to the console and check out the scrollbar.<br>console.log(&lsquo;Hello, world!&rsquo;)</code></pre></p>
+
+<p><h3>Other</h3>
+<p>Here&rsquo;s a horizontal rule and image because I don&rsquo;t know where else to put them.</p>
+<img src='https://placekitten.com/408/287' alt='Example kitten'>
+<hr></p>
+
+<p>And here's a nicely marked up table!</p>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Godzilla</td>
+        <td>2</td>
+        <td>$299.99</td>
+    </tr>
+    <tr>
+        <td>Mozilla</td>
+        <td>10</td>
+        <td>$100,000.00</td>
+    </tr>
+    <tr>
+        <td>Quesadilla</td>
+        <td>1</td>
+        <td>$2.22</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Typography</h3>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dictum hendrerit velit, quis ullamcorper sem congue ac. Quisque id magna rhoncus, sodales massa vel, vestibulum elit. Duis ornare accumsan egestas. Proin maximus lacus interdum leo molestie convallis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut iaculis risus eu felis feugiat, eu mollis neque elementum. Donec interdum, nisl id dignissim iaculis, felis dui aliquet dui, non fermentum velit lectus ac quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+    <strong>This is strong,</strong> this is normal, <b>this is just bold,</b> <em>and this is emphasized!</em> And heck, <a href='/'>here</a>'s a link.
+</p>
+
+<blockquote cite='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote'>
+    "The HTML blockquote Element (or HTML Block Quotation Element) indicates
+    that the enclosed text is an extended quotation. Usually, this is
+    rendered visually by indentation (see
+    <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote#Usage_notes'>Notes</a>
+    for how to change it). A URL for the source of the quotation may be given using the
+    <code>cite</code> attribute, while a text representation of the source
+    can be given using the <code>&ltcite&gt</code> cite element."
+
+    <footer>
+    <cite>MDN, "The Block Quotation element"</cite>
+    </footer>
+
+</blockquote>
+
+<p><ul>
+    <li>Unordered list item 1</li>
+    <li>Unordered list item 2</li>
+    <li>Unordered list item 3</li>
+</ul>
+<ol>
+    <li>Ordered list item 1</li>
+    <li>Ordered list item 2</li>
+    <li>Ordered list item 3</li>
+</ol></p>
+
+<p><p>
+    Addresses are also styled to be <strong>awesome</strong>!
+</p>
+<address>
+    <a href='mailto:john.doe@example.com'>john.doe@example.com</a><br/>
+    <a href='tel:778-330-2389'>778-330-2389</a><br/>
+    <a href='sms:666-666-6666'>666-666-6666</a><br/>
+</address></p>
+
+<p><h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6></p>
+
+<script src="https://watercss.netlify.com/script.js"></script>
+
+  </div>
+
+<br>
+  
+
+
+
+
+<br>
+
+
+
+
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/water.css-为简单文章而生.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

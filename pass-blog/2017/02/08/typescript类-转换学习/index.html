@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Typescript类-转换学习</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Typescript类-转换学习</h2>
+        <p>#TypeScript</p>
+
+<p>typescript作为微软实现的<code>js</code>的超集.</p>
+
+<p>在类的实现，有如传统语言一样简单，</p>
+
+<!-- more -->
+
+<p>例子：<a href="#http://www.typescriptlang.org/play/index.html">官方</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-TypeScript" data-lang="TypeScript"><span style="color:#6272a4">//.ts
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> Greeter {
+    greeting: <span style="color:#8be9fd">string</span>;
+    <span style="color:#ff79c6">constructor</span>(message: <span style="color:#8be9fd">string</span>) {
+        <span style="color:#ff79c6">this</span>.greeting <span style="color:#ff79c6">=</span> message;
+    }
+    greet() {
+        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Hello, &#34;</span> <span style="color:#ff79c6">+</span> <span style="color:#ff79c6">this</span>.greeting;
+    }
+}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">//.js
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> Greeter <span style="color:#ff79c6">=</span> (<span style="color:#8be9fd;font-style:italic">function</span> () {
+    <span style="color:#8be9fd;font-style:italic">function</span> Greeter(message) {
+        <span style="color:#ff79c6">this</span>.greeting <span style="color:#ff79c6">=</span> message;
+    }
+    Greeter.prototype.greet <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span> () {
+        <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Hello, &#34;</span> <span style="color:#ff79c6">+</span> <span style="color:#ff79c6">this</span>.greeting;
+    };
+    <span style="color:#ff79c6">return</span> Greeter;
+}());
+</code></pre></div>
+<p>说道理，<code>ts</code>文件最终还是要变成<code>js</code>文件，所以，在我看来，
+这似乎是，学习如何写，<code>js</code> <em>类</em> 的方法。</p>
+
+<blockquote>
+<p>上面是一个类，的，写法</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#6272a4">//.ts
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> Animal {
+    <span style="color:#ff79c6">constructor</span>(<span style="color:#ff79c6">public</span> name: <span style="color:#8be9fd">string</span>) { }
+    <span style="color:#6272a4">//默认 为 0
+</span><span style="color:#6272a4"></span>    move(distanceInMeters: <span style="color:#8be9fd">number</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>) {
+        console.log(<span style="color:#f1fa8c">`</span><span style="color:#f1fa8c">${</span><span style="color:#ff79c6">this</span>.name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> moved </span><span style="color:#f1fa8c">${</span>distanceInMeters<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">m.`</span>);
+    }
+}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">//.js
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> Animal <span style="color:#ff79c6">=</span> (<span style="color:#8be9fd;font-style:italic">function</span> () {
+    <span style="color:#8be9fd;font-style:italic">function</span> Animal(name) {
+        <span style="color:#ff79c6">this</span>.name <span style="color:#ff79c6">=</span> name;
+    }
+    Animal.prototype.move <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span> (distanceInMeters) {
+    <span style="color:#6272a4">//js 中，要写个条件语句。
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (distanceInMeters <span style="color:#ff79c6">===</span> <span style="color:#ff79c6">void</span> <span style="color:#bd93f9">0</span>) { distanceInMeters <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; }
+        console.log(<span style="color:#ff79c6">this</span>.name <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; moved &#34;</span> <span style="color:#ff79c6">+</span> distanceInMeters <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;m.&#34;</span>);
+    };
+    <span style="color:#ff79c6">return</span> Animal;
+}());
+</code></pre></div>
+<blockquote>
+<p>上面也是一个类，的，写法</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#6272a4">//.ts
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> Animal {
+    <span style="color:#ff79c6">constructor</span>(<span style="color:#ff79c6">public</span> name: <span style="color:#8be9fd">string</span>) { }
+    move(distanceInMeters: <span style="color:#8be9fd">number</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>) {
+        console.log(<span style="color:#f1fa8c">`</span><span style="color:#f1fa8c">${</span><span style="color:#ff79c6">this</span>.name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> moved </span><span style="color:#f1fa8c">${</span>distanceInMeters<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">m.`</span>);
+    }
+}
+
+<span style="color:#ff79c6">class</span> Snake <span style="color:#ff79c6">extends</span> Animal {
+    <span style="color:#ff79c6">constructor</span>(name: <span style="color:#8be9fd">string</span>) { <span style="color:#ff79c6">super</span>(name); }
+    move(distanceInMeters <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>) {
+        console.log(<span style="color:#f1fa8c">&#34;Slithering...&#34;</span>);
+        <span style="color:#ff79c6">super</span>.move(distanceInMeters);
+    }
+}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">//.js
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> __extends <span style="color:#ff79c6">=</span> (<span style="color:#ff79c6">this</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">this</span>.__extends) <span style="color:#ff79c6">||</span> <span style="color:#8be9fd;font-style:italic">function</span> (d, b) {
+    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">in</span> b) <span style="color:#ff79c6">if</span> (b.hasOwnProperty(p)) d[p] <span style="color:#ff79c6">=</span> b[p];
+    <span style="color:#8be9fd;font-style:italic">function</span> __() { <span style="color:#ff79c6">this</span>.constructor <span style="color:#ff79c6">=</span> d; }
+    d.prototype <span style="color:#ff79c6">=</span> b <span style="color:#ff79c6">===</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">?</span> <span style="color:#8be9fd;font-style:italic">Object</span>.create(b) <span style="color:#ff79c6">:</span> (__.prototype <span style="color:#ff79c6">=</span> b.prototype, <span style="color:#ff79c6">new</span> __());
+};
+<span style="color:#8be9fd;font-style:italic">var</span> Animal <span style="color:#ff79c6">=</span> (<span style="color:#8be9fd;font-style:italic">function</span> () {
+    <span style="color:#8be9fd;font-style:italic">function</span> Animal(name) {
+        <span style="color:#ff79c6">this</span>.name <span style="color:#ff79c6">=</span> name;
+    }
+    Animal.prototype.move <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span> (distanceInMeters) {
+        <span style="color:#ff79c6">if</span> (distanceInMeters <span style="color:#ff79c6">===</span> <span style="color:#ff79c6">void</span> <span style="color:#bd93f9">0</span>) { distanceInMeters <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; }
+        console.log(<span style="color:#ff79c6">this</span>.name <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; moved &#34;</span> <span style="color:#ff79c6">+</span> distanceInMeters <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;m.&#34;</span>);
+    };
+    <span style="color:#ff79c6">return</span> Animal;
+}());
+
+<span style="color:#8be9fd;font-style:italic">var</span> Snake <span style="color:#ff79c6">=</span> (<span style="color:#8be9fd;font-style:italic">function</span> (_super) {
+    __extends(Snake, _super);
+    <span style="color:#8be9fd;font-style:italic">function</span> Snake(name) {
+        <span style="color:#ff79c6">return</span> _super.call(<span style="color:#ff79c6">this</span>, name) <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">this</span>;
+    }
+    Snake.prototype.move <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span> (distanceInMeters) {
+        <span style="color:#ff79c6">if</span> (distanceInMeters <span style="color:#ff79c6">===</span> <span style="color:#ff79c6">void</span> <span style="color:#bd93f9">0</span>) { distanceInMeters <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>; }
+        console.log(<span style="color:#f1fa8c">&#34;Slithering...&#34;</span>);
+        _super.prototype.move.call(<span style="color:#ff79c6">this</span>, distanceInMeters);
+    };
+    <span style="color:#ff79c6">return</span> Snake;
+}(Animal));
+</code></pre></div>
+<blockquote>
+<p>在继承性，问题上，通过<code>__extends</code>函数，实现属性复制和 原型链的拼接。</p>
+</blockquote>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/typescript"> #typescript </a></li><li><a class="link" href="/pass-blog/tags/javascript"> #javascript </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/typescript类-转换学习.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on 杂项博文</title>
+    <link>/pass-blog/categories/mac/</link>
+    <description>Recent content in Mac on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 10 May 2019 14:28:11 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mac 想法或思维概念 文字图工具: LinkedIdeas</title>
+      <link>/pass-blog/2019/05/10/mac-%E6%83%B3%E6%B3%95%E6%88%96%E6%80%9D%E7%BB%B4%E6%A6%82%E5%BF%B5-%E6%96%87%E5%AD%97%E5%9B%BE%E5%B7%A5%E5%85%B7-linkedideas/</link>
+      <pubDate>Fri, 10 May 2019 14:28:11 +0800</pubDate>
+      
+      <guid>/pass-blog/2019/05/10/mac-%E6%83%B3%E6%B3%95%E6%88%96%E6%80%9D%E7%BB%B4%E6%A6%82%E5%BF%B5-%E6%96%87%E5%AD%97%E5%9B%BE%E5%B7%A5%E5%85%B7-linkedideas/</guid>
+      <description>  img { box-shadow: none; }     来源     Github    LinkedIdeas 本工具，主要给，那些零散的想法，一个放置的位置。它们总能在某个时刻，有所指引。
+主要操作 ***.idea是它保存的文件格式。
+ ⇧ ⏎ 是新放置一个文字框，打字，⏎确定。 按住⇧，在一个文字框上按住鼠标，移动到另一个文件框上(放鼠标)，箭头完成。   其他文字格式的快捷键，请看软件导航栏。主要是，字体啊，颜色啊，位置啊，这些变化。
+ </description>
+    </item>
+    
+  </channel>
+</rss>

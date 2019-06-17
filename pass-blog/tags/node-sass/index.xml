@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Node Sass on 杂项博文</title>
+    <link>/pass-blog/tags/node-sass/</link>
+    <description>Recent content in Node Sass on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 06 Oct 2017 16:52:29 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/node-sass/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ionic 项目 npm问题解决</title>
+      <link>/pass-blog/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Fri, 06 Oct 2017 16:52:29 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/10/06/ionic-%E9%A1%B9%E7%9B%AE-npm%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description> ionic项目 问题
+npm install  主要问题在于 node-sass node 版本 要求 我最后使用 8.0
+使用 n
+和
+python 版本要求 2.5&amp;lt;x&amp;lt;3.0
+使用 conda
+去改变 版本
+npm rebuild node-sass --force  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>V 编程语言 预先看</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>V 编程语言 预先看</h2>
+        
+
+<h1 id="v-编程语言">V 编程语言</h1>
+
+<p>为开发<a href="https://volt.ws">volt</a>，创建快速，安全，编译的语言，很快，所有人都能用啦。</p>
+
+<p>2019 年中期，发布开源。</p>
+
+<table>
+<thead>
+<tr>
+<th>Github 网址</th>
+<th>语法文档</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://github.com/vlang-io/V">https://github.com/vlang-io/V</a></td>
+<td><a href="https://vlang.io/docs">英文</a>+<a href="https://github.com/chinanf-boy/V-zh/blob/master/mds/docs.zh.md">非官方中文</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="安装-2019-3-18-官方未发布-但网页注释中有">安装（<code>2019.3.18</code>官方未发布，但网页注释中有）</h2>
+
+<p>在 0.5 秒内，从源安装 V.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget vlang.io/v.c <span style="color:#ff79c6">&amp;&amp;</span> gcc -o v v.c</code></pre></div>
+<h2 id="尝试">尝试</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">fn <span style="color:#50fa7b">main</span>() {
+	types <span style="color:#ff79c6">:=</span> [ &#39;game&#39;, &#39;web&#39;, &#39;tools&#39;, &#39;GUI&#39; ]
+	<span style="color:#ff79c6">for</span> typ in types {
+		<span style="color:#8be9fd;font-style:italic">println</span>(&#39;Hello, $typ developers!&#39;)
+	}
+}</code></pre></div>
+<h2 id="快速编译">快速编译</h2>
+
+<p>V 用一个 CPU 核心，能每秒编译 150 万行代码</p>
+
+<pre><code>cd doom3/
+wc -l doom3.v # 458 713
+time v doom3.v # 0.5s
+</code></pre>
+
+<p><a href="https://github.com/chinanf-boy/V-zh/blob/master/mds/compilation_speed.zh.md">和其他语言的，编译速度基准的比较</a>。</p>
+
+<h2 id="安全">安全</h2>
+
+<ul>
+<li>没有全局变量</li>
+<li>没有 null</li>
+<li>没有未定义的值</li>
+<li><a href="https://github.com/chinanf-boy/V-zh/blob/master/mds/docs.zh.md#option">选项类型</a></li>
+<li><a href="https://github.com/chinanf-boy/V-zh/blob/master/mds/docs.zh.md#generics">泛型</a></li>
+<li>默认不变性</li>
+<li>部分纯粹的功能</li>
+</ul>
+
+<h2 id="c-c-转译">C/C ++ 转译</h2>
+
+<p>V 可以转译整个 C / C ++项目，为您提供安全性，简单性，还有高达 200 倍提升的编译速度。</p>
+
+<pre><code>std::vector&lt;std::string&gt; s;      s := []string
+s.push_back(&quot;V is &quot;); 			 s &lt;&lt; 'V is '
+s.push_back(&quot;awesome&quot;);			 s &lt;&lt; 'awesome'
+std::cout &lt;&lt; s.size();			 println(s.len)
+</code></pre>
+
+<p>阅读有关转译 Doom＆Doom 3，LevelDB，SQLite 的内容。（即将于 3 月发布）</p>
+
+<h2 id="400-kb-编译器-具有零依赖性">400 KB 编译器，具有零依赖性</h2>
+
+<p>整个 V 语言及其标准库小于 400 KB。你可以在 0.3 秒内，构建 V。</p>
+
+<p>为了比较：</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>需要空间</th>
+<th>构建时间</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Go</td>
+<td>525 MB</td>
+<td>1m 33s</td>
+</tr>
+
+<tr>
+<td>Rust</td>
+<td>30 GB</td>
+<td>45m</td>
+</tr>
+
+<tr>
+<td>gcc</td>
+<td>8 GB</td>
+<td>50m</td>
+</tr>
+
+<tr>
+<td>Clang</td>
+<td>15-20 GB</td>
+<td>25m</td>
+</tr>
+
+<tr>
+<td>Swift</td>
+<td>70 GB<a href="https://github.com/apple/swift#getting-started">*</a></td>
+<td>90m</td>
+</tr>
+
+<tr>
+<td>V</td>
+<td>0.4 MB</td>
+<td>0.3s</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="性能">性能</h2>
+
+<ul>
+<li>和 C 一样快</li>
+
+<li><p>最少的内存分配数量</p></li>
+
+<li><p>内置序列化，无需反射(reflection)</p></li>
+</ul>
+
+<h2 id="热代码重载">热代码重载</h2>
+
+<p>无需重新编译，即可立即获取更改！</p>
+
+<p>由于您在每次编译后，不必浪费时间进入状态，因此可以节省大量宝贵的开发时间。</p>
+
+<p><a href="https://volt.ws/img/lang.webm">演示热代码重新加载。</a></p>
+
+<h2 id="用于构建可维护程序的简单语言">用于构建可维护程序的简单语言</h2>
+
+<p>你可以通过浏览<a href="https://github.com/chinanf-boy/V-zh/blob/master/mds/docs.zh.md">文档</a>来学习整个语言，半小时内搞定。</p>
+
+<p>尽管很简单，但它为开发人员提供了很多动力。你用其他语言做的任何事情，你都可以用 V 做。</p>
+
+<h2 id="repl">REPL</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt;$ v
+&gt;  data :<span style="color:#ff79c6">=</span> http.get<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#39;https://vlang.io/utc\_now&#39;</span><span style="color:#ff79c6">)</span>?
+&gt;  data
+&gt;  <span style="color:#f1fa8c">&#39;1551205308&#39;</span></code></pre></div>
+<h2 id="原生跨平台-ui-库">原生跨平台 UI 库</h2>
+
+<p>构建原生的原生应用程序。您不再需要嵌入浏览器，来快速开发跨平台应用程序。</p>
+
+<h2 id="到处都行">到处都行</h2>
+
+<p>V 可以编译为（人类可读的）C，因此您可以获得 gcc 和 Clang 的优秀平台支持和优化。</p>
+
+<h1 id="常问问题">常问问题</h1>
+
+<p><strong>为什么在已经有这么多语言的情况下，创建 V？为什么不使用 Go，Rust，C ++，Python 等？</strong></p>
+
+<p><a href="https://github.com/chinanf-boy/V-zh/blob/master/mds/compare.zh.md">V 和其他语言的详细比较。</a></p>
+
+<p><strong>V 是用什么语言写成的？</strong></p>
+
+<p>V。编译器可以自行编译。原始版本是用 Go 编写的。</p>
+
+<p><strong>V 使用 LLVM 吗？</strong></p>
+
+<p>No。V 直接编译为机器代码。这是它如此轻盈和快速的主要原因之一。目前仅支持 x64 架构。</p>
+
+<p>V 还可以发出人类可读的 C，然后可以在任何平台上，编译运行。</p>
+
+<p><strong>那么优化呢？</strong></p>
+
+<p>目前，V 发出 C ，可使用 gcc/clang 来优化生产构建。这样您就可以访问复杂的优化。</p>
+
+<p>这样构建的编译速度比 V 开发版本慢大约 150 倍（但仍比 C++构建快）。</p>
+
+<p>对于开发过程中，优化为刚需的行业（例如 AAA(3A) 游戏），这可能是一个问题。在这种情况下，可以使用热代码重新加载，不需要重新编译。</p>
+
+<p>将来, V 将拥有自己的优化器。</p>
+
+<p><strong>有垃圾收集吗？</strong></p>
+
+<p>不。V 的内存管理类似于 Rust，但更容易使用。有关它的更多信息，将在不久的将来发布。</p>
+
+<p><strong>会有一个包管理器吗？</strong></p>
+
+<p>对！V 是一种非常模块化的语言，它鼓励创建易于重用的模块。将有一个中央包管理器，安装模块将非常简单，就像这样:</p>
+
+<pre><code>v install sqlite
+</code></pre>
+
+<h1 id="v-的内置软件">v 的内置软件</h1>
+
+<h2 id="v-语言">V 语言</h2>
+
+<p>V 本身是用 V 写的。</p>
+
+<h2 id="volt-https-volt-ws"><a href="https://volt.ws">Volt</a></h2>
+
+<p>原生桌面客户端，为 Slack、Skype、Matrix、Telegram、Twitch 等多种服务。</p>
+
+<h2 id="filey">Filey</h2>
+
+<p>带 Miller Columns 的跨平台文件管理器，内置有，与主流云平台的选择性同步。</p>
+
+<h2 id="vid-https-github-com-medvednikov-vid"><a href="https://github.com/medvednikov/vid">Vid</a></h2>
+
+<p>200kb 的开源编辑器，具备 Sublime Text 性能的卓越。</p>
+
+<h2 id="c-c-到-v-转译器">C/C++到 V 转译器</h2>
+
+<p>该工具支持最新的，是人都觉得复杂的， C++标准，并允许全自动转译为人类可读代码。</p>
+
+<h2 id="v-ui">V ui</h2>
+
+<p>使用原生 API 的跨平台小部件工具包。</p>
+
+<p>你是用 v 来构建你的产品还是库？<a href="mailto:alex@medvednikov.com">把它加到这个名单上</a>。</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/V"> #V </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/language"> #language </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/V-编程语言-预先看.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>TensorFlow by Google</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>TensorFlow by Google</h2>
+        <p>So ,开始吧！</p>
+
+<p>这份学习来自于Google 在 Github上的开源项目 TensorFlow</p>
+
+<p>要知道，当今，如果，你想，实现一个机器人的 “大脑”。</p>
+
+<p>😯，那么你要做得事情，会很多很多，难度说到这里。</p>
+
+<p>正题：</p>
+
+<p>机器学习的概念，定义一长串？！</p>
+
+<p>所以，通俗的说。</p>
+
+<p>1.输入</p>
+
+<p>2.TensorFlow</p>
+
+<p>3.输出</p>
+
+<!-- more -->
+
+<blockquote>
+<p>从 1⃣️ 开始：TensorFlow具有简单的运行公式，即便它本身的函数名看起来是那么那么的繁杂</p>
+</blockquote>
+
+<p><strong>输入</strong>:(=训练数据=)； 我的标题是 《图像识别》，那么，也就是</p>
+
+<p>官方的例子，#如何识别图片是什么花#。</p>
+
+<p>虽然说是机器学习，但是完成一项识别工作，是繁重的。</p>
+
+<p>就如每个动物出生，要别——动物 ^ _ ^ 告诉他／她／它</p>
+
+<p>哦，这是爸爸，哦，这是妈妈。。。</p>
+
+<p>那么前期的工作就是，花的图片，大量大量的，越多越好||😢</p>
+
+<blockquote>
+<p>像五年高考，三年模拟，的题海战术，<strong>不想回忆</strong></p>
+
+<p> <a href="http://www.llever.com/workpress/wp-content/uploads/2017/01/th-1.jpeg"><img src="http://www.llever.com/workpress/wp-content/uploads/2017/01/th-1-300x225.jpeg" alt="" /></a> 这是红菊</p>
+
+<p><a href="http://www.llever.com/workpress/wp-content/uploads/2017/01/th.jpeg"><img src="http://www.llever.com/workpress/wp-content/uploads/2017/01/th-300x225.jpeg" alt="" /></a>这是黄菊</p>
+</blockquote>
+
+<p>但还是菊，科科</p>
+
+<p>收集起来，放一起，这就是需要训练的数据。</p>
+
+<p>2⃣️：TensorFlow</p>
+
+<p>在前一步，完成图片的收集后，是时候，入厂了喔。</p>
+
+<blockquote>
+<p>我现在不放代码，只是单纯从，非专业人士的角度。</p>
+
+<p>概su，毕竟，猫🐱总是好奇的嘛</p>
+</blockquote>
+
+<p>好了，现在，手握大量图片，再然后事情就不归我们管了</p>
+
+<p>ps：代码就是看起来很厉害的，一串东东</p>
+
+<p>图片库路径=&gt;(代码)</p>
+
+<p>代码里面有(TensorFlow的各种算法)   什么样的算法？不用管</p>
+
+<p>像选 商品一样，想用哪个用哪个</p>
+
+<p>总结下&gt;&gt;&gt; 图片库，_写入&gt;代码，代码里含有（算法）。</p>
+
+<p>然后，很重要的一点，就是，就是，哦，告诉代码，对</p>
+
+<p>告诉代码，这个图片库路径是什么花🌹。哪个是什么花</p>
+
+<p>ok👌。是不是很简单</p>
+
+<p> <strong>3⃣️：输入</strong></p>
+
+<p>为什么，我们要使用机器学习，来完成图片识别，</p>
+
+<p>或者说</p>
+
+<p>未来，机器人大脑数据的构成。</p>
+
+<p>因为，我们想要一台 不断成长的 机器人。后果另算</p>
+
+<blockquote>
+<p>重新说回，输入</p>
+</blockquote>
+
+<p>这个时候，大手大脚，的，测试吧，</p>
+
+<blockquote>
+<p>哦，第二步，算法有过程，时间还是要付出的</p>
+</blockquote>
+
+<p>写入，并没有在 第一步 里面 的图片路径，</p>
+
+<p>让，它，就它，给你识别，这是什么花。</p>
+
+<p>就这样，是不是说了一堆废话？！！</p>
+
+<p><strong>抛砖引玉，懂不懂<a href="http://i.youku.com/i/UMjczOTc0NDkzNg==/custom?spm=a2hzp.8244740.0.0.EgFK8I&amp;amp;id=87105">http://i.youku.com/i/UMjczOTc0NDkzNg==/custom?spm=a2hzp.8244740.0.0.EgFK8I&amp;id=87105</a></strong></p>
+
+<p>优酷链接，中文中文</p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0"> #机器学习 </a></li><li><a class="link" href="/pass-blog/tags/%e5%9b%be%e5%83%8f%e8%af%86%e5%88%ab"> #图像识别 </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0"> #机器学习 </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/tensorflow-by-google.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

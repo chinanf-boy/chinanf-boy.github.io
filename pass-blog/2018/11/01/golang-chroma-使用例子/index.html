@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Golang Chroma 使用例子</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Golang Chroma 使用例子</h2>
+        
+
+<h1 id="chroma-通用语法高亮库">Chroma 通用语法高亮库</h1>
+
+<table>
+<thead>
+<tr>
+<th>源码</th>
+<th>翻译</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://github.com/alecthomas/chroma">github repo</a></td>
+<td><a href="https://github.com/chinanf-boy/chroma-zh">中文</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="简略说一下-三点">简略说一下，三点</h3>
+
+<blockquote>
+<p>要是屁话，不想听，直接上<a href="#example">例子</a>，或看中文翻译</p>
+</blockquote>
+
+<ul>
+<li>1: <code>lexers</code> 词法分析器
+
+<ul>
+<li>主要是为了，知道你用的那串字符，<a href="https://github.com/chinanf-boy/chroma-zh#%E6%94%AF%E6%8C%81%E7%9A%84%E8%AF%AD%E8%A8%80">是什么语言</a></li>
+</ul></li>
+<li>2: <code>styles</code> 主题/样式</li>
+</ul>
+
+<p><details></p>
+
+<p><summary> 查看-&gt;主题名称 </summary></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">[
+  abap, algol, algol_nu, arduino, autumn, borland, bw, colorful, dracula, emacs, friendly, fruity, github, igor, lovelace, manni, monokai, monokailight, murphy, native, paraiso<span style="color:#ff79c6">-</span>dark, paraiso<span style="color:#ff79c6">-</span>light, pastie, perldoc, pygments, rainbow_dash, rrt, solarized<span style="color:#ff79c6">-</span>dark, solarized<span style="color:#ff79c6">-</span>dark256, solarized<span style="color:#ff79c6">-</span>light, swapoff, tango, trac, vim, vsxcode
+]</code></pre></div>
+<p></details></p>
+
+<ul>
+<li>3: <code>formatters</code> 格式化/+高亮吧</li>
+</ul>
+
+<p><details></p>
+
+<p><summary> 查看-&gt;格式名称 </summary></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">[ html, json, noop, terminal, terminal16m, terminal256, tokens ]</code></pre></div>
+<p><strong>1.</strong> chroma lexers</p>
+
+<p><strong>2.</strong> chroma styles</p>
+
+<p><strong>3.</strong> chroma formatters</p>
+
+<p></details></p>
+
+<hr />
+
+<h1 id="example">example</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">package</span> main
+
+<span style="color:#ff79c6">import</span> (
+	<span style="color:#f1fa8c">&#34;bytes&#34;</span>
+	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
+	<span style="color:#f1fa8c">&#34;log&#34;</span>
+
+	<span style="color:#f1fa8c">&#34;github.com/alecthomas/chroma/formatters&#34;</span>
+	<span style="color:#f1fa8c">&#34;github.com/alecthomas/chroma/lexers&#34;</span>
+	<span style="color:#f1fa8c">&#34;github.com/alecthomas/chroma/quick&#34;</span>
+	<span style="color:#f1fa8c">&#34;github.com/alecthomas/chroma/styles&#34;</span>
+)
+
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+    <span style="color:#6272a4">// 源码
+</span><span style="color:#6272a4"></span>	s <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">`package main
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">import (
+</span><span style="color:#f1fa8c">	&#34;fmt&#34;
+</span><span style="color:#f1fa8c">)
+</span><span style="color:#f1fa8c">
+</span><span style="color:#f1fa8c">func main() {
+</span><span style="color:#f1fa8c">	fmt.Println(&#34;Hello, playground&#34;)
+</span><span style="color:#f1fa8c">}
+</span><span style="color:#f1fa8c">`</span>
+	res <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">colorCode</span>(s) <span style="color:#6272a4">// example 返回，高亮字符
+</span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(res)
+}
+<span style="color:#ff79c6">//</span> 接 下面的 example<span style="color:#ff79c6">-*</span></code></pre></div>
+<p><details open></p>
+
+<p><summary> <span>example-0，使用 <code>quick.Highlight</code> 输出</span> </summary></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">colorCode</span>(s <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">string</span> {
+	res <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">new</span>(bytes.Buffer) <span style="color:#6272a4">// 放 高亮的字符
+</span><span style="color:#6272a4"></span>
+	style <span style="color:#ff79c6">:=</span> styles.<span style="color:#50fa7b">Get</span>(<span style="color:#f1fa8c">&#34;dark&#34;</span>) <span style="color:#6272a4">// 主题设置
+</span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">if</span> style <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
+		fmt.<span style="color:#50fa7b">Println</span>(style)
+		style = styles.Fallback <span style="color:#6272a4">// 默认主题
+</span><span style="color:#6272a4"></span>	}
+
+	attr <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;terminal&#34;</span> <span style="color:#6272a4">// 终端
+</span><span style="color:#6272a4"></span>	formatter <span style="color:#ff79c6">:=</span> formatters.<span style="color:#50fa7b">Get</span>(attr) <span style="color:#6272a4">// 环境的变量，默认为`html`
+</span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">if</span> formatter <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
+		formatter = formatters.Fallback <span style="color:#6272a4">// 默认格式化
+</span><span style="color:#6272a4"></span>	}
+
+    err <span style="color:#ff79c6">:=</span> quick.<span style="color:#50fa7b">Highlight</span>(res, s, <span style="color:#f1fa8c">&#34;go&#34;</span>, attr, style.Name) <span style="color:#6272a4">// 直接高亮
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// 1. 放哪，2. 源码，3. 语言，4. 格式环境，5. 主题名
+</span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+		log.<span style="color:#50fa7b">Fatalln</span>(err)
+	}
+	<span style="color:#ff79c6">return</span> res.<span style="color:#50fa7b">String</span>()
+}</code></pre></div>
+<p></details></p>
+
+<hr />
+
+<p><details></p>
+
+<p><summary> <span>example-1，使用 <code>formatter.Format</code> 输出</span> </summary></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">colorCode</span>(s <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">string</span> {
+	res <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">new</span>(bytes.Buffer)
+	lexer <span style="color:#ff79c6">:=</span> lexers.<span style="color:#50fa7b">Get</span>(<span style="color:#f1fa8c">&#34;go&#34;</span>)
+	<span style="color:#ff79c6">if</span> lexer <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
+		lexer = lexers.Fallback
+	}
+	style <span style="color:#ff79c6">:=</span> styles.<span style="color:#50fa7b">Get</span>(<span style="color:#f1fa8c">&#34;dracula&#34;</span>)
+	<span style="color:#ff79c6">if</span> style <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
+		style = styles.Fallback
+	}
+
+	<span style="color:#6272a4">// [html json noop terminal terminal16m terminal256 tokens]
+</span><span style="color:#6272a4"></span>	formatter <span style="color:#ff79c6">:=</span> formatters.<span style="color:#50fa7b">Get</span>(<span style="color:#f1fa8c">&#34;terminal&#34;</span>)
+	<span style="color:#ff79c6">if</span> formatter <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
+		formatter = formatters.Fallback
+	}
+	iterator, err <span style="color:#ff79c6">:=</span> lexer.<span style="color:#50fa7b">Tokenise</span>(<span style="color:#ff79c6">nil</span>, s) <span style="color:#6272a4">// 拿到迭代器
+</span><span style="color:#6272a4"></span>
+	err = formatter.<span style="color:#50fa7b">Format</span>(res, style, iterator)
+
+	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+		log.<span style="color:#50fa7b">Fatalln</span>(err)
+	}
+
+	<span style="color:#ff79c6">return</span> res.<span style="color:#50fa7b">String</span>()
+}</code></pre></div>
+<p></details></p>
+
+<h2 id="项目实践">项目实践</h2>
+
+<ul>
+<li><a href="https://github.com/chinanf-boy/howdoi/blob/master/pkg/colorCode.go#L20">howdoi, 彩色代码输出终端</a></li>
+</ul>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/go"> #go </a></li><li><a class="link" href="/pass-blog/tags/chroma"> #chroma </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/example"> #example </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/golang-chroma-使用例子.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

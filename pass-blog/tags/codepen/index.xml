@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Codepen on 杂项博文</title>
+    <link>/pass-blog/tags/codepen/</link>
+    <description>Recent content in Codepen on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 17 May 2017 11:25:39 +0000</lastBuildDate>
+    
+	<atom:link href="/pass-blog/tags/codepen/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>codepen 代码嵌入</title>
+      <link>/pass-blog/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/</link>
+      <pubDate>Wed, 17 May 2017 11:25:39 +0000</pubDate>
+      
+      <guid>/pass-blog/2017/05/17/codepen-%E4%BB%A3%E7%A0%81%E5%B5%8C%E5%85%A5/</guid>
+      <description>codepen 的 代码嵌入 功能 See the Pen Gravity Points by braveyo (@china-boy) on CodePen.  # 只要在 codepen 的 编辑器界面
+# 有个 右下角 Embed 的 功能
+# 复制 提供的 iframe 或 html 代码 就好
+# 上面的 点击 制造 黑洞 模仿黑洞引力哦</description>
+    </item>
+    
+  </channel>
+</rss>

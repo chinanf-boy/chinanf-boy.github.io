@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>mrm 管理你的多个json</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>mrm 管理你的多个json</h2>
+        
+
+<h1 id="mrm">mrm</h1>
+
+<p>对自己众多的配置文件，烦恼吗 ？！</p>
+
+<p>就像下面这些</p>
+
+<p><code>codecov contributing editorconfig eslint gitignore jest license lintstaged package prettier readme semantic-release styleguidist stylelint travis typescript</code></p>
+
+<p><a href="https://github.com/sapegin/mrm#writing-your-own-tasks">mrm 项目</a></p>
+
+<p>帮助你管理你的配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx mrm gitignore
+// 一个 .gitignore 就在运行目录</code></pre></div>
+<p>如何定义</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/dotfiles <span style="color:#ff79c6">||</span> <span style="color:#8be9fd;font-style:italic">cd</span> ~/dotfiles <span style="color:#ff79c6">&amp;&amp;</span> mkdir mrm <span style="color:#ff79c6">||</span> <span style="color:#8be9fd;font-style:italic">cd</span> mrm
+
+npm init -y
+npm i --save mrm-core</code></pre></div>
+<p>如 <Task> gitignore</p>
+
+<p><code>～/dotfiles/mrm/&lt;Task&gt;/index.js</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#6272a4">// Mrm module to work with new line separated text files
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> {lines} <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;mrm-core&#39;</span>);
+
+<span style="color:#8be9fd;font-style:italic">function</span> task() {
+  <span style="color:#6272a4">// Read .gitignore if it exists
+</span><span style="color:#6272a4"></span>  lines(<span style="color:#f1fa8c">&#39;.gitignore&#39;</span>)
+    <span style="color:#6272a4">// Add lines that do not exist in a file yet,
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// but keep all existing lines
+</span><span style="color:#6272a4"></span>    .add([<span style="color:#f1fa8c">&#39;node_modules/&#39;</span>, <span style="color:#f1fa8c">&#39;.DS_Store&#39;</span>])
+    <span style="color:#6272a4">// Update or create a file
+</span><span style="color:#6272a4"></span>    .save();
+}
+
+task.description <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Adds .gitignore&#39;</span>;
+module.exports <span style="color:#ff79c6">=</span> task;
+</code></pre></div>
+<pre><code>cd you-project
+npx mrm gitignore
+</code></pre>
+
+<p>.gitignore 就被创建，并以 ～/dotfiles/mrm/gitignore/index.js</p>
+
+<pre><code>node_modules/
+.DS_Store%
+</code></pre>
+
+<p>更具体， 需要参考<a href="https://github.com/sapegin/mrm#writing-your-own-tasks">项目 write-you-own-task</a></p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/mrm"> #mrm </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/mrm-管理你的多个json.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

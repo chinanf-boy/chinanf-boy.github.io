@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>浏览器与node，this，的不同</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>浏览器与node，this，的不同</h2>
+        
+
+<h2 id="区别">区别</h2>
+
+<h1 id="浏览器">浏览器</h1>
+
+<blockquote>
+<ul>
+<li>Chrome + Firefox</li>
+</ul>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">function</span> local() {
+	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+	<span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>;
+	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+	console.log(a);
+	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>;
+}
+<span style="color:#8be9fd;font-style:italic">var</span> local1 <span style="color:#ff79c6">=</span> local();
+console.log(a);
+local1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">this</span> <span style="color:#ff79c6">?</span> console.log(a) <span style="color:#ff79c6">:</span> console.log(<span style="color:#bd93f9">0</span>);
+</code></pre></div>
+<p>输出结果：</p>
+
+<pre><code>2
+7
+7
+</code></pre>
+
+<ul>
+<li><p>也就是说，浏览器，认为 <code>local</code> 函数返回的 <code>this</code></p></li>
+
+<li><p>和 <code>window</code>，总<code>this</code> 是<strong>相同</strong>的！</p></li>
+</ul>
+
+<h1 id="node">node</h1>
+
+<p>v6.9.2</p>
+
+<blockquote>
+<p>对于同样的代码</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">function</span> local() {
+	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+	<span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>;
+	<span style="color:#ff79c6">this</span>.a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+	console.log(a);
+	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>;
+}
+<span style="color:#8be9fd;font-style:italic">var</span> local1 <span style="color:#ff79c6">=</span> local();
+console.log(a);
+local1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">this</span> <span style="color:#ff79c6">?</span> console.log(a) <span style="color:#ff79c6">:</span> console.log(<span style="color:#bd93f9">0</span>);
+</code></pre></div>
+<p>输出结果:</p>
+
+<pre><code>2
+7
+0
+[Finished in 0.7s]
+</code></pre>
+
+<ul>
+<li><p>也就是说，浏览器，认为 <code>local</code> 函数返回的 <code>this</code></p></li>
+
+<li><p>和 <code>window</code>，总<code>this</code> 是<strong>不相同</strong>的！</p></li>
+
+<li><p>其实是因为</p></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#ff79c6">this</span>);<span style="color:#6272a4">//{}
+</span><span style="color:#6272a4"></span>console.log(global);<span style="color:#6272a4">//才是全局变量。在node中！
+</span><span style="color:#6272a4"></span></code></pre></div>
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/node"> #node </a></li><li><a class="link" href="/pass-blog/tags/%e5%87%bd%e6%95%b0"> #函数 </a></li>
+      
+      <span>  </span>
+        
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/浏览器与node.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

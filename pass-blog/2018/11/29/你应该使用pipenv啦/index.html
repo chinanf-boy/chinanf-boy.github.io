@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>你应该使用pipenv啦</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="https://clipboardjs.com/bower_components/primer-css/css/primer.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+            <link rel="stylesheet" href="/pass-blog/css/main.css">
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/pass-blog/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>你应该使用pipenv啦</h2>
+        
+
+<h3 id="我选择放弃所有的-conda-构建">我选择放弃所有的 Conda 构建</h3>
+
+<p>正如我<a href="http://llever.com/2017/10/09/pipenv-快速构建虚拟python环境/">一年前的博文:pipenv-快速构建虚拟 python 环境</a>所叙述</p>
+
+<p>当时，pipenv 还只是一个选择，现在我爱它(python 虚拟的唯一选择)，谢谢<a href="https://github.com/pypa/pipenv/graphs/contributors">所有贡献者</a></p>
+
+<p>如何删除 Ana(conda),基本就是删删删</p>
+
+<ul>
+<li>1 删. conda 主目录</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">where conda
+<span style="color:#6272a4"># 删掉</span></code></pre></div>
+<ul>
+<li>2 删. 应用目录下/Ana***.App(Mac)</li>
+<li>3 删. Shell 配置 <code>.bashrc</code>之类的文件中，conda 主目录的 PATH 环境变量</li>
+</ul>
+
+<h2 id="pipenv">Pipenv</h2>
+
+<p>python 的多项目环境，在于项目与项目之间的<code>requirements.txt</code>列表，存在多版本的可能(基本可以认为是 100%的不同)。为了应对这种环境，就需要拆分 python 的关系库(包库)。</p>
+
+<p>入正题之前:</p>
+
+<h3 id="确保纯净的-python">确保纯净的 python</h3>
+
+<p>在<code>pip install pipenv</code>之前，使用<code>where python</code>确定，你使用的 python 是由官网下载的，不是系统自带的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">where pip
+pip: aliased to pip3
+/Library/Frameworks/Python.framework/Versions/3.6/bin/pip
+/Library/Frameworks/Python.framework/Versions/3.6/bin/pip
+/usr/local/bin/pip <span style="color:#6272a4"># 系统的</span></code></pre></div>
+<p>正如你看到的，我是将<code>pip</code>别名(alias)为<code>pip3</code>，对<code>python</code>也做了<code>python3</code>的别名</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">where python
+python: aliased to python3
+/usr/bin/python <span style="color:#6272a4"># 系统的</span></code></pre></div>
+<ul>
+<li>alias</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#8be9fd;font-style:italic">alias</span> <span style="color:#8be9fd;font-style:italic">python</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;python3&#34;</span>
+<span style="color:#8be9fd;font-style:italic">alias</span> <span style="color:#8be9fd;font-style:italic">pip</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;pip3&#34;</span></code></pre></div>
+<h3 id="安装">安装</h3>
+
+<ul>
+<li><code>pip install pipenv</code></li>
+<li><code>pip install --upgrade pipenv</code>升级</li>
+</ul>
+
+<h3 id="使用">使用</h3>
+
+<p>主要也就那几个命令</p>
+
+<ul>
+<li>要初始化 Python 3 虚拟环境,请运行<code>$ pipenv --three</code>.</li>
+<li>要初始化 Python 2 虚拟环境,请运行<code>$ pipenv --two</code>.</li>
+</ul>
+
+<p>更多，<a href="https://github.com/chinanf-boy/pipenv-zh">请看非官方中文</a></p>
+
+<h3 id="问与答">问与答</h3>
+
+<h4 id="pipenv-的-locking-过程-很慢"><code>pipenv</code>的 locking 过程 很慢</h4>
+
+<blockquote>
+<p>(不用急，<a href="https://github.com/pypa/pipenv/issues/1914">大家都是一样的</a>)</p>
+</blockquote>
+
+<p>答:</p>
+
+<ul>
+<li><p><strong>方法1.</strong> 使用 <code>pipenv install --skip-lock</code>(首选)，跳过lock过程</p></li>
+
+<li><p><strong>方法2.</strong> 使用<code>pipenv shell</code>进入子 shell，再使用<code>pip install -r requirements.txt</code>(适用于初次转换)，也可以跳过lock过程</p></li>
+</ul>
+
+<blockquote>
+<p><strong>提示</strong>， 再加点 pip 下载源换成国内的，就可以‘吃’啦</p>
+</blockquote>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/pass-blog/js/copyCode.js"></script>
+<script src="/pass-blog/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2019 <a href="https://github.com/chinanf-boy/pass-blog/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/pass-blog/tags/pipenv"> #pipenv </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/pass-blog/categories/python"> #python </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/pass-blog/edit/master/content/post\/你应该使用pipenv啦.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

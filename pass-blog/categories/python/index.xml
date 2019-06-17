@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 杂项博文</title>
+    <link>/pass-blog/categories/python/</link>
+    <description>Recent content in Python on 杂项博文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 29 Nov 2018 10:03:56 +0800</lastBuildDate>
+    
+	<atom:link href="/pass-blog/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>你应该使用pipenv啦</title>
+      <link>/pass-blog/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/</link>
+      <pubDate>Thu, 29 Nov 2018 10:03:56 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/29/%E4%BD%A0%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8pipenv%E5%95%A6/</guid>
+      <description>我选择放弃所有的 Conda 构建 正如我一年前的博文:pipenv-快速构建虚拟 python 环境所叙述
+当时，pipenv 还只是一个选择，现在我爱它(python 虚拟的唯一选择)，谢谢所有贡献者
+如何删除 Ana(conda),基本就是删删删
+ 1 删. conda 主目录  where conda # 删掉  2 删. 应用目录下/Ana***.App(Mac) 3 删. Shell 配置 .bashrc之类的文件中，conda 主目录的 PATH 环境变量  Pipenv python 的多项目环境，在于项目与项目之间的requirements.txt列表，存在多版本的可能(基本可以认为是 100%的不同)。为了应对这种环境，就需要拆分 python 的关系库(包库)。
+入正题之前:
+确保纯净的 python 在pip install pipenv之前，使用where python确定，你使用的 python 是由官网下载的，不是系统自带的
+where pip pip: aliased to pip3 /Library/Frameworks/Python.framework/Versions/3.6/bin/pip /Library/Frameworks/Python.framework/Versions/3.6/bin/pip /usr/local/bin/pip # 系统的 正如你看到的，我是将pip别名(alias)为pip3，对python也做了python3的别名
+where python python: aliased to python3 /usr/bin/python # 系统的  alias  alias python=&amp;#34;python3&amp;#34; alias pip=&amp;#34;pip3&amp;#34; 安装  pip install pipenv pip install --upgrade pipenv升级  使用 主要也就那几个命令</description>
+    </item>
+    
+    <item>
+      <title>（译）Conda Install 搭配 Requirements.txt</title>
+      <link>/pass-blog/2018/11/22/%E8%AF%91conda-install-%E6%90%AD%E9%85%8D-requirements.txt/</link>
+      <pubDate>Thu, 22 Nov 2018 17:49:39 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/11/22/%E8%AF%91conda-install-%E6%90%AD%E9%85%8D-requirements.txt/</guid>
+      <description> 原文 | 2016-03-04
+问: 使用conda install --yes --file requirements.txt安装仅可用的包，没有错误  答:   第一个命令只是，遍历文件中的每行  $ while read requirement; do conda install --yes $requirement; done &amp;lt; requirements.txt   修改后: 如果你想，在conda install不可用的情况下，使用pip:  $ while read requirement; do conda install --yes $requirement || pip install $requirement; done &amp;lt; requirements.txt   可用于 Windows (来自 @Clay):  $ FOR /F &amp;quot;delims=~&amp;quot; %f in (requirements.txt) DO conda install --yes &amp;quot;%f&amp;quot; || pip install &amp;quot;%f&amp;quot;  </description>
+    </item>
+    
+    <item>
+      <title>让你的py优雅</title>
+      <link>/pass-blog/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/</link>
+      <pubDate>Wed, 01 Aug 2018 19:14:03 +0800</pubDate>
+      
+      <guid>/pass-blog/2018/08/01/%E8%AE%A9%E4%BD%A0%E7%9A%84py%E4%BC%98%E9%9B%85/</guid>
+      <description>参考译文来自：www.lightxue.com/transforming-code-into-beautiful-idiomatic-python
+在Python社区文化的浇灌下，演化出了一种独特的代码风格，去指导如何正确地使用Python，这就是常说的pythonic。
+Raymond Hettinger是Python核心开发者，本文提到的许多特性都是他开发的。同时他也是Python社区热忱的布道师，不遗余力地传授pythoni c之道。这篇文章是网友Jeff Paine整理的他在2013年美国的PyCon的演讲的笔记。
+以下正文
+遍历一个范围内的数字 0 for i in [0, 1, 2, 3, 4, 5]: 1 print i ** 2 2 3 for i in range(6): 4 print i ** 2 更好的方法
+for i in xrange(6): print i ** 2 xrange会返回一个迭代器，用来一次 遍历一个范围。这种方式会比range更省内存。xrange在Python 3中已经改名为range。
+遍历一个集合 colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] for i in range(len(colors)): print colors[i] 更好的方法
+for color in colors: print color 反向遍历 colors = [&amp;#39;red&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;yellow&amp;#39;] for i in range(len(colors)-1, -1, -1): print colors[i] 更好的方法</description>
+    </item>
+    
+  </channel>
+</rss>
