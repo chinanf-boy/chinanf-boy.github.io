@@ -168,7 +168,7 @@ language = &quot;zh-CN&quot;
 
 [build]
 build-dir = &quot;docs&quot;
-create-missing = true
+create-missing = false
 use-default-preprocessors = false
 
 [preprocessor.links]
@@ -183,6 +183,11 @@ google-analytics = &quot;UA-128555056-1&quot;
 git_repository_url = &quot;https://github.com/chinanf-boy/mdbook-nice-example&quot;
 git_repository_icon = &quot;fa-github&quot;
 # additional-js = [&quot;theme/custom.js&quot;]
+
+# [output.linkcheck]
+# follow-web-links = true
+# traverse-parent-directories = false
+# exclude = [ &quot;google\\.com&quot; ]
 
 [output.html.playpen]
 # editor = &quot;./path/to/editor&quot;
@@ -264,21 +269,6 @@ heading-split-level = 3
 
     </div>
 
-    
-    <!-- Livereload script (if served using the cli tool) -->
-    <script type="text/javascript">
-        var socket = new WebSocket("ws://localhost:3001");
-        socket.onmessage = function (event) {
-            if (event.data === "reload") {
-                socket.close();
-                location.reload(true); // force reload from server (not from cache)
-            }
-        };
-
-        window.onbeforeunload = function () {
-            socket.close();
-        }
-    </script>
     
 
     
