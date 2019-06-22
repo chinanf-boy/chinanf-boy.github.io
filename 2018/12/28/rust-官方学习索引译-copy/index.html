@@ -42,7 +42,7 @@
 
         
         
-             <link rel="stylesheet" href="https://www.rust-lang.org/static/styles/vendor.css"></link> <link rel="stylesheet" href="https://www.rust-lang.org/static/styles/fonts.css"></link> <link rel="stylesheet" href="https://www.rust-lang.org/static/styles/app.css"></link>
+             <link rel="stylesheet" href="/other_css/2018/vendor.css"></link> <link rel="stylesheet" href="/other_css/2018/fonts.css"></link> <link rel="stylesheet" href="/other_css/2018/app.css"></link>
         
 
         
@@ -107,158 +107,186 @@
 .blog-post > h2:first-child {display:none}
 </style>
 
-<p><header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
+<div id="main-content">
+
+<header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
-    <h1> &gt; ❤️ 学习 Rust</h1>
+    <h1>  ❤️ 学习 Rust</h1>
   </div>
 </header>
+
 <section id="learn-begin" class="green">
   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
-<header>
-<h2> Rust 从入门 到 ** </h2>
-<div class="highlight"></div>
-</header>
-<div class="flex flex-column flex-row-l justify-between">
-<section class="pt0">
-<p>让我们将<cite> &lt;&lt;Rust 编程语言&gt;&gt;</cite>亲切地称为 “the book,” 它会从第一原理开始，给你描述该语言的一个整体。期间，它会教你构建一些项目, 到最后,
-你会扎实地掌握了该语言</p>
-<a class="button button-secondary" href="https://kaisery.github.io/trpl-zh-cn/">开始 the Book! （中文)</a>
-</section>
-<section class="pl5-l pt4 pt0-l">
-<p>如果孜孜不倦地阅读几百页关于一种语言的文章，不太符合你的风格,
-那 Rust By Example 可能会合适你。 这本书会用许多单词来讨论代码, 其中RBE(编程实例) 会展示出了一段代码, 和代码注释+描述，会保持尽量简洁。 它还包括练习!</p>
-<a class="button button-secondary" href="http://llever.com/rust-by-example-cn/">来看看 Rust by
-example (中文)</a>
-</section>
-</div>
+    <header>
+      <h2>开启您的 Rust 之旅</h2>
+      <div class="highlight"></div>
+    </header>
+    <section class="flex flex-column flex-row-l pv0-l">
+      <div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pb4 pb5-m pb6-ns ph4-l">
+        <div class="v-top pl4 pl0-l pt3-l measure-wide-l flex-l flex-column-l flex-auto-l">
+          <p class="flex-grow"><strong>《Rust 程序设计语言》</strong>被亲切地称为“圣经”。本书从基本原则出发，给出了
+        Rust 语言的概览。您将在阅读本书的过程中构建几个项目，读完本书后，您就能扎实地掌握 Rust 语言。</p>
+          <a class="button button-secondary" href="https://kaisery.github.io/trpl-zh-cn/">阅读本书！（中文）</a>
+        </div>
+      </div>
+      <div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pb4 pb5-m pb6-ns ph4-l">
+        <div class="v-top pl4 pl0-l pt3-l measure-wide-l flex-l flex-column-l flex-auto-l">
+          <p class="flex-grow">此外，Rustlings 课程会指导您下载并设置 Rust 工具链，在命令行中教您阅读和编写 Rust 代码的语法基础。它可以运行在您自己的环境中，是《通过例子学 Rust》之外的另一种选择。</p>
+          <a class="button button-secondary" href="https://github.com/rust-lang/rustlings/">学习 Rustlings 课程！</a>
+        </div>
+      </div>
+      <div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pb4 pb5-m pb6-ns ph4-l">
+        <div class="v-top pl4 pl0-l pt3-l measure-wide-l flex-l flex-column-l flex-auto-l">
+          <p class="flex-grow">如果您不喜欢阅读大量的文档来学习语言，那么《通过例子学 Rust》就能涵盖您要学的知识。虽然本书花了很多篇幅来解释代码，但它展示的代码很丰富，并且尽量减少了文字解释。它还包括很多练习！</p>
+          <a class="button button-secondary" href="http://llever.com/rust-by-example-cn/">阅读《通过例子学 Rust》！（中文）</a>
+        </div>
+      </div>
+    </section>
   </div>
 </section>
+
 <section id="learn-use" class="white">
   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
     <header>
       <h2 class="black">
-        Rust成长
+        与 Rust 共同成长
       </h2>
       <div class="highlight"></div>
     </header>
     <div class="row black">
-      <h3>领略核心文档</h3>
-      <p>所有的这些文档都能通过
-        <code>rustup doc</code> 命令进行本地启用(相应的源码库), 这样就可以在浏览器上查看这些资源文档，而不需要网络!</p>
-<section class="flex flex-column">
-<div class="pt3 flex flex-column flex-row-l">
-  <a href="https://doc.rust-lang.org/std/index.html" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">标准库</a>
-  <p class="pl4-l">
-    Rust 标准库 APIs - 全面指南.
-  </p>
-</div>
-<div class="pt4 pt3-l flex flex-column flex-row-l">
-  <a href="http://llever.com/cargo-book-zh" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">Cargo
-    书 （非官方中文）</a>
-  <p class="pl4-l">
-    一本关于 Rust’s 包管理器与构建系统的书.
-  </p>
-</div>
-<div class="pt4 pt3-l flex flex-column flex-row-l">
-  <a href="https://doc.rust-lang.org/rustdoc/index.html" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">rustdoc
-    书</a>
-  <p class="pl4-l">
-    学习如何为了你的箱子(crate)，搞起靓爆镜的文档.
-  </p>
-</div>
-<div class="pt4 pt3-l flex flex-column flex-row-l">
-  <a href="http://llever.com/rustc-zh" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">rustc
-    书 （非官方中文）</a>
-  <p class="pl4-l">
-    熟悉Rust编译器中可用的&rsquo;门把手&rsquo;.
-  </p>
-</div>
-<div class="pt4 pt3-l flex flex-column flex-row-l">
-  <a href="https://doc.rust-lang.org/error-index.html" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">编译器错误索引</a>
-  <p class="pl4-l">
-    深入解释，Rust编译器中可能出现的错误.
-  </p>
-</div>
-</section>
-</div>
-<hr />
-<div class="row black">
-<h3>是时候，在应用领域，展示你的技术啦</h3>
-<section class="flex flex-column">
-<div class="pt3 flex flex-column flex-row-l">
-  <a href="https://rust-lang-nursery.github.io/cli-wg/" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">
-    命令行 书
+      <h3>阅读核心文档</h3>
+      <p>以下所有文档都可以用 <code>rustup doc</code> 命令在本地阅读，它会在您的浏览器中离线打开这些资源！</p>
+      <section class="flex flex-column">
+        <div class="pt3 flex flex-column flex-row-l items-center-l mb4-l">
+          <a href="https://doc.rust-lang.org/std/index.html" class="button button-secondary button-secondary--no-skeleton mw6-l w-100">标准库</a>
+          <p class="pl4-l ma0-l mt1 mb3">
+            详尽的 Rust 标准库 API 手册。
+          </p>
+        </div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l items-center-l mb4-l">
+          <a href="https://doc.rust-lang.org/edition-guide/index.html" class="button button-secondary button-secondary--no-skeleton mw6-l w-100">版本指南</a>
+          <p class="pl4-l ma0-l mt1 mb3">
+            Rust 版本指南。
+          </p>
+        </div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l items-center-l mb4-l">
+          <a href="http://llever.com/cargo-book-zh" class="button button-secondary button-secondary--no-skeleton mw6-l w-100">Cargo 之书（中文）</a>
+          <p class="pl4-l ma0-l mt1 mb3">
+            Rust 的包管理器和构建系统。
+          </p>
+        </div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l items-center-l mb4-l">
+          <a href="http://llever.com/rustdoc-zh" class="button button-secondary button-secondary--no-skeleton mw6-l w-100">rustdoc 之书(中文)</a>
+          <p class="pl4-l ma0-l mt1 mb3">
+            学习如何为您的 crate 编写完美的文档。
+          </p>
+        </div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l items-center-l mb4-l">
+          <a href="http://llever.com/rustc-zh" class="button button-secondary button-secondary--no-skeleton mw6-l w-100">rustc 之书(中文)</a>
+          <p class="pl4-l ma0-l mt1 mb3">
+            熟悉 Rust 编译器中可用的选项。
+          </p>
+        </div>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l items-center-l mb4-l">
+          <a href="https://doc.rust-lang.org/error-index.html" class="button button-secondary button-secondary--no-skeleton mw6-l w-100">编译错误索引表</a>
+          <p class="pl4-l mb0 mt1 ma0-l">
+            深入解释了您可能会遇到的编译错误。
+          </p>
+        </div>
+      </section>
+    </div>
+    <hr>
+    <div class="row black">
+      <h3>在应用领域中点亮您的技能树</h3>
+        <section class="flex flex-column">
+<div class="pt3 flex flex-column flex-row-l items-center-l mb4-l">
+  <a href="http://llever.com/cli-wg-zh" class="button button-secondary button-secondary--no-skeleton mw6-l w-100">
+    命令行之书 (中文)
   </a>
-  <p class="pl4-l">
-    了解如何在Rust中，搞好有效的命令行应用程序。
+  <p class="pl4-l ma0-l mt1 mb3">
+    学习如何用 Rust 构建高效的命令行应用。
   </p>
 </div>
-<div class="pt4 pt3-l flex flex-column flex-row-l">
-  <a href="http://llever.com/rustwasm-book" target="_blank" rel="noopener" class="button button-secondary mw6-l w-100">
-    WebAssembly 书（非官方中文）
-  </a>
-  <p class="pl4-l">
-    使用Rust，通过Webassembly构建浏览器原生库。
-  </p>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l items-center-l mb4-l">
+<a href="http://llever.com/rustwasm-book" class="button button-secondary button-secondary--no-skeleton mw6-l w-100">
+  WebAssembly 之书(中文)
+</a>
+<p class="pl4-l ma0-l mt1 mb3">
+  通过 WebAssembly 用 Rust 构建浏览器原生的库。
+</p>
 </div>
-<div class="pt4 pt3-l flex flex-column flex-row-l">
-  <a href="https://rust-embedded.github.io/book/" class="button button-secondary mw6-l w-100">
-    嵌入式 书
-  </a>
-  <p class="pl4-l">
-    熟练使用 Rust ，搞好微控制器和其他嵌入式系统
-  </p>
+
+<div class="pt4 pt3-l flex flex-column flex-row-l items-center-l mb4-l">
+<a href="https://rust-embedded.github.io/book/" class="button button-secondary button-secondary--no-skeleton mw6-l w-100">
+  嵌入式之书
+</a>
+<p class="pl4-l mb0 mt1 ma0-l">
+  熟练掌握用 Rust 编写微控制器和其它嵌入式系统程序。
+</p>
 </div>
-</section>
-</div>
-  </div>
+
+<p></section>
+    </div>
   </div>
 </section></p>
 
 <section id="learn-master" class="purple">
   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
     <header>
-      <h2>Rust大师</h2>
+      <h2>精通 Rust</h2>
       <div class="highlight"></div>
     </header>
-    <p>对这语言，最黑暗的角落有好奇吗？ 在这里，您可以深入了解细节：</p>
+    <p>对 Rust 中的黑魔法感到好奇？在这里，您可以深入理解其本质。</p>
     <section class="flex flex-column flex-row-l pv0-l">
       <div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pv4 pv5-m pv6-ns ph4-l">
         <div class="v-top tc-l">
-          <img src="https://rust-lang.org/static/images/reference.svg" alt="A bookshelf icon" class="mw4 mw5-ns" />
+          <img src="/file_imgs/2018-12/reference.svg" alt="书架图标" class="mw3 mw4-ns">
         </div>
         <div class="v-top pl4 pl0-l pt0 pt3-l measure-wide-l flex-l flex-column-l flex-auto-l justify-between-l">
-          <p>“参考”书 不是一个正式的规范，但比"the book"更详细和全面</p>
+          <p>《参考手册》并非正式的语言规范，但它比“圣经”更加详尽而全面。</p>
           <a class="button button-secondary" href="https://doc.rust-lang.org/reference/index.html">
-            进入 参考书
+            阅读《参考手册》
           </a>
         </div>
       </div>
-<div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pv4 pv5-m pv6-ns ph4-l">
-  <div class="v-top tc-l">
-    <img src="https://rust-lang.org/static/images/nomicon.svg" alt="Two hands cradling fire" class="mw4 mw5-ns" />
+
+  <div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pv4 pv5-m pv6-ns ph4-l">
+    <div class="v-top tc-l">
+      <img src="/file_imgs/2018-12/nomicon.svg" alt="双手捧火" class="mw3 mw4-ns">
+    </div>
+    <div class="v-top pl4 pl0-l pt0 pt3-l measure-wide-l flex-l flex-column-l flex-auto-l justify-between-l">
+      <p>《Rust 秘典》是 Unsafe Rust 的黑魔法指南。它有时被称作“死灵书”。</p>
+
+      <a class="button button-secondary" href="https://doc.rust-lang.org/nomicon/index.html">
+        阅读《Rust 秘典》
+      </a>
+    </div>
   </div>
-  <div class="v-top pl4 pl0-l pt0 pt3-l measure-wide-l flex-l flex-column-l flex-auto-l justify-between-l">
-    <p> Rustonomicon是你的指南,有关, 不安全Rust的黑暗艺术。 它有时也被称为“the ’nomicon”。</p>
-  <a class="button button-secondary" href="https://doc.rust-lang.org/nomicon/index.html">
-    拥抱 ’nomicon
-  </a>
+
+  <div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pv3 pv5-m pv6-ns ph4-l">
+    <div class="v-top tc-l">
+      <img src="/file_imgs/2018-12/unstable.svg" alt="手洒星光" class="mw3 mw4-ns">
+    </div>
+    <div class="v-top pl4 pl0-l pt0 pt3-l measure-wide-l flex-l flex-column-l flex-auto-l justify-between-l">
+      <p>《未稳定特性手册》覆盖了当前只能在 nightly Rust 中使用的还未稳定的特性。</p>
+      <a class="button button-secondary" href="https://doc.rust-lang.org/unstable-book/index.html">
+        阅读《未稳定特性手册》
+      </a>
+    </div>
   </div>
-</div>
-<div class="flex flex-row flex-column-l justify-between-l mw8 measure-wide-l pv3 pv5-m pv6-ns ph4-l">
-  <div class="v-top tc-l">
-    <img src="https://rust-lang.org/static/images/unstable.svg" alt="A hand sharing sparkles" class="mw4 mw5-ns" />
-  </div>
-  <div class="v-top pl4 pl0-l pt0 pt3-l measure-wide-l flex-l flex-column-l flex-auto-l justify-between-l">
-    <p> &lt;&lt;不稳定 书&gt;&gt; 中有关于Rust不稳定特性的文档，这些文档只能与nightly版本的“Rust”一起使用。</p>
-    <a class="button button-secondary" href="https://doc.rust-lang.org/unstable-book/index.html">
-      吃吃 不稳定 书
-    </a>
-  </div>
-</div>
+
 </section>
-</div>
-</section>
+
+<p></div>
+</section></p>
+
+<p></div></p>
 
   </div>
 
@@ -289,17 +317,6 @@ aria-haspopup="true" aria-expanded="false" aria-controls="edit">
 
   
 
-  <ul class="tags"  style="float: left!important;">
-      
-        <span>标签:</span>
-        <li><a class="link" href="/tags/learn"> #learn </a></li>
-      
-      <span>  </span>
-        
-        <span>分类:</span>
-        <li><a class="link" href="/categories/rust"> #rust </a></li>
-      
-  </ul>
   
   <br>
 

@@ -17,10 +17,11 @@
       <pubDate>Fri, 28 Dec 2018 20:13:43 +0800</pubDate>
       
       <guid>/2018/12/28/rust-%E5%AE%98%E6%96%B9%E5%AD%A6%E4%B9%A0%E7%B4%A2%E5%BC%95%E8%AF%91-copy/</guid>
-      <description>.blog-post  h2:first-child {display:none}   &amp;gt; ❤️ 学习 Rust     Rust 从入门 到 **    让我们将 &amp;lt;&amp;lt;Rust 编程语言&amp;gt;&amp;gt;亲切地称为 “the book,” 它会从第一原理开始，给你描述该语言的一个整体。期间，它会教你构建一些项目, 到最后, 你会扎实地掌握了该语言
-开始 the Book! （中文)  如果孜孜不倦地阅读几百页关于一种语言的文章，不太符合你的风格, 那 Rust By Example 可能会合适你。 这本书会用许多单词来讨论代码, 其中RBE(编程实例) 会展示出了一段代码, 和代码注释+描述，会保持尽量简洁。 它还包括练习!
-来看看 Rust by example (中文)      Rust成长    领略核心文档 所有的这些文档都能通过 rustup doc 命令进行本地启用(相应的源码库), 这样就可以在浏览器上查看这些资源文档，而不需要网络!
-标准库 Rust 标准库 APIs - 全面指南.</description>
+      <description>.blog-post  h2:first-child {display:none}   ❤️ 学习 Rust    开启您的 Rust 之旅   《Rust 程序设计语言》被亲切地称为“圣经”。本书从基本原则出发，给出了 Rust 语言的概览。您将在阅读本书的过程中构建几个项目，读完本书后，您就能扎实地掌握 Rust 语言。
+阅读本书！（中文）   此外，Rustlings 课程会指导您下载并设置 Rust 工具链，在命令行中教您阅读和编写 Rust 代码的语法基础。它可以运行在您自己的环境中，是《通过例子学 Rust》之外的另一种选择。
+学习 Rustlings 课程！   如果您不喜欢阅读大量的文档来学习语言，那么《通过例子学 Rust》就能涵盖您要学的知识。虽然本书花了很多篇幅来解释代码，但它展示的代码很丰富，并且尽量减少了文字解释。它还包括很多练习！
+阅读《通过例子学 Rust》！（中文）       与 Rust 共同成长    阅读核心文档 以下所有文档都可以用 rustup doc 命令在本地阅读，它会在您的浏览器中离线打开这些资源！
+标准库 详尽的 Rust 标准库 API 手册。  版本指南 Rust 版本指南。  Cargo 之书（中文） Rust 的包管理器和构建系统。  rustdoc 之书(中文) 学习如何为您的 crate 编写完美的文档。  rustc 之书(中文) 熟悉 Rust 编译器中可用的选项。  编译错误索引表 深入解释了您可能会遇到的编译错误。     在应用领域中点亮您的技能树 命令行之书 (中文)  学习如何用 Rust 构建高效的命令行应用。  WebAssembly 之书(中文)  通过 WebAssembly 用 Rust 构建浏览器原生的库。  嵌入式之书  熟练掌握用 Rust 编写微控制器和其它嵌入式系统程序。</description>
     </item>
     
   </channel>
