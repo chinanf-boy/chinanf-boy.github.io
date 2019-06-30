@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>正方形的图形：Gfx-rs 教程</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <!-- <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX", "output/HTML-CSS"],
+      MathML: {
+        extensions: ["content-mathml.js"]
+      },
+      "HTML-CSS": { webFont: "Neo-Euler" }
+    });
+  </script> -->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">正方形的图形：Gfx-rs 教程</h1>
+</header>
+<p>我正在制作一个小玩具，来更好地理解 gfx-rs。但作为玩具的附属品，我也写了这个能帮助其他人学习 gfx-rs 的小教程。</p>
+<h2>入门</h2>
+<p>让我们写一些用来编译和运行的东西。</p>
+<pre><code>$ cargo init sqtoy</code></pre>
+<p>将下面代码添加到<code>Cargo.toml</code>：</p>
+<pre class="toml"><code>[dependencies]
+gfx = &quot;0.16&quot;
+gfx_window_glutin = &quot;0.16&quot;
+glutin = &quot;0.8&quot;</code></pre>
+<p>把它放进去<code>main.rs</code>：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb3-1" title="1"><span class="at">#[</span>macro_use<span class="at">]</span> <span class="kw">extern</span> <span class="kw">crate</span> gfx;</a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">extern</span> <span class="kw">crate</span> gfx_window_glutin;</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw">extern</span> <span class="kw">crate</span> glutin;</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw">use</span> <span class="pp">gfx::traits::</span>FactoryExt;</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="kw">use</span> <span class="pp">gfx::</span>Device;</a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="kw">use</span> gfx_window_glutin <span class="kw">as</span> gfx_glutin;</a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="kw">pub</span> <span class="kw">type</span> ColorFormat = <span class="pp">gfx::format::</span>Srgba8;</a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="kw">pub</span> <span class="kw">type</span> DepthFormat = <span class="pp">gfx::format::</span>DepthStencil;</a>
+<a class="sourceLine" id="cb3-12" title="12"></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="kw">const</span> BLACK: <span class="op">[</span><span class="dt">f32</span>; <span class="dv">4</span><span class="op">]</span> = <span class="op">[</span><span class="dv">0.0</span>, <span class="dv">0.0</span>, <span class="dv">0.0</span>, <span class="dv">1.0</span><span class="op">]</span>;</a>
+<a class="sourceLine" id="cb3-14" title="14"></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="kw">pub</span> <span class="kw">fn</span> main() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-16" title="16">    <span class="kw">let</span> events_loop = <span class="pp">glutin::EventsLoop::</span>new();</a>
+<a class="sourceLine" id="cb3-17" title="17">    <span class="kw">let</span> builder = <span class="pp">glutin::WindowBuilder::</span>new()</a>
+<a class="sourceLine" id="cb3-18" title="18">        .with_title(<span class="st">&quot;Square Toy&quot;</span>.to_string())</a>
+<a class="sourceLine" id="cb3-19" title="19">        .with_dimensions(<span class="dv">800</span>, <span class="dv">800</span>)</a>
+<a class="sourceLine" id="cb3-20" title="20">        .with_vsync();</a>
+<a class="sourceLine" id="cb3-21" title="21">    <span class="kw">let</span> (window, <span class="kw">mut</span> device, <span class="kw">mut</span> factory, main_color, <span class="kw">mut</span> main_depth) =</a>
+<a class="sourceLine" id="cb3-22" title="22">        <span class="pp">gfx_glutin::init::</span>&lt;ColorFormat, DepthFormat&gt;(builder, &amp;events_loop);</a>
+<a class="sourceLine" id="cb3-23" title="23"></a>
+<a class="sourceLine" id="cb3-24" title="24">    <span class="kw">let</span> <span class="kw">mut</span> encoder: <span class="pp">gfx::</span>Encoder&lt;_, _&gt; = factory.create_command_buffer().into();</a>
+<a class="sourceLine" id="cb3-25" title="25"></a>
+<a class="sourceLine" id="cb3-26" title="26">    <span class="kw">let</span> <span class="kw">mut</span> running = <span class="cn">true</span>;</a>
+<a class="sourceLine" id="cb3-27" title="27">    <span class="kw">while</span> running <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-28" title="28">        events_loop.poll_events(|<span class="pp">glutin::Event::</span>WindowEvent<span class="op">{</span>window_id: _, event<span class="op">}</span>| <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-29" title="29">            <span class="kw">use</span> <span class="pp">glutin::WindowEvent::</span>*;</a>
+<a class="sourceLine" id="cb3-30" title="30">            <span class="kw">match</span> event <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-31" title="31">                KeyboardInput(_, _, <span class="cn">Some</span>(<span class="pp">glutin::VirtualKeyCode::</span>Escape), _)</a>
+<a class="sourceLine" id="cb3-32" title="32">                | Closed =&gt; running = <span class="cn">false</span>,</a>
+<a class="sourceLine" id="cb3-33" title="33">                Resized(_, _) =&gt; <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-34" title="34">                    <span class="pp">gfx_glutin::</span>update_views(&amp;window, &amp;<span class="kw">mut</span> main_color, &amp;<span class="kw">mut</span> main_depth);</a>
+<a class="sourceLine" id="cb3-35" title="35">                <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb3-36" title="36">                _ =&gt; (),</a>
+<a class="sourceLine" id="cb3-37" title="37">            <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-38" title="38">        <span class="op">}</span>);</a>
+<a class="sourceLine" id="cb3-39" title="39"></a>
+<a class="sourceLine" id="cb3-40" title="40">        encoder.clear(&amp;main_color, BLACK);</a>
+<a class="sourceLine" id="cb3-41" title="41">        encoder.flush(&amp;<span class="kw">mut</span> device);</a>
+<a class="sourceLine" id="cb3-42" title="42">        window.swap_buffers().unwrap();</a>
+<a class="sourceLine" id="cb3-43" title="43">        device.cleanup();</a>
+<a class="sourceLine" id="cb3-44" title="44">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-45" title="45"><span class="op">}</span></a></code></pre></div>
+<p>如您所见，我们会使用 gfx，并配上 glutin 和 OpenGL。简言之，代码的作用如下：</p>
+<ol>
+<li>创建一个事件循环，并准备创建一个标题为“Square Toy”的窗口</li>
+<li>运行<code>gfx_window_glutin::init()</code>得到<code>glutin::Window</code>，<code>gfx_device_gl::Device</code>和一堆或其他的东西</li>
+<li>使用<code>factory</code>创建一个<code>Encoder</code>，这允许您避免调用原始 OpenGL 过程。</li>
+<li><p>每一帧：</p>
+<ol>
+<li>检查是否为退出的时间</li>
+<li>用你想要的颜色填充屏幕（它是<code>BLACK</code>黑）</li>
+<li>实际做的。</li>
+<li>由于我们的缓冲至少是两倍，因此可以切换缓冲区</li>
+<li>清理</li>
+</ol></li>
+</ol>
+<p>好了！无论你使用什么，它只是简单画一个什么都没有的黑色屏幕。不幸的是，绘制其他东西通常会有点复杂。在 gfx-rs 中它需要一个管道(pipeline)，Vertex (顶点)，以及着色器(shaders)...</p>
+<h2>gfx-rs 架构概述</h2>
+<p><img src="https://i.imgur.com/Dgj7PX8.jpg" alt="AbstractSingletonProxyFactoryBean" title="一个典型的程序员经验。幸运的是，Gfx-rs 不是这样的。" /></p>
+<p>Gfx-rs 是一个抽象库，基于四个底层图形 API 库：OpenGL（原始和 ES），DirectX，Metal 和 Vulkan。因底层库多，它无法提供直接的 API 。不过它本就不应该(直接)，因为图形 API（特别是像 OpenGL 这样的旧版本）非常冗长，既命令式又有状态。它们既不安全也不易于使用。</p>
+<p>在 gfx-rs 中，一切都围绕三种核心类型构建： <code>Factory</code>和<code>Encoder</code>，还有<code>Device</code>。第一个用于创建东西，第二个是缓冲区，存储着由<code>Device</code>执行的图形命令，和<code>Device</code>将命令转换为底层 API 调用。</p>
+<p>此外，与 OpenGL 不同，但像 DX12 和 Vulcan 之类的当前-获取 API，其管道状态，会在管道状态对象（PSO）中封装。您可以拥有大量 PSO ，并在它们之间切换。但是要创建 PSO，首先必须定义管道，并指定 vertex 属性和制服(uniforms)。</p>
+<blockquote>
+<p>译者：比喻为‘制服’，实际就是一致性条件常量</p>
+</blockquote>
+<p>Gfx-rs 博客中有个很棒的<a href="https://gfx-rs.github.io/2016/09/14/programming-model.html">博文</a>，对 Gfx-rs 架构有更详细描述。</p>
+<h2>画一个正方形</h2>
+<p>我们需要一个管道，在屏幕上绘制任何东西。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb4-1" title="1"><span class="pp">gfx_defines!</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">    vertex Vertex <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">        pos: <span class="op">[</span><span class="dt">f32</span>; <span class="dv">2</span><span class="op">]</span> = <span class="st">&quot;a_Pos&quot;</span>,</a>
+<a class="sourceLine" id="cb4-4" title="4">        color: <span class="op">[</span><span class="dt">f32</span>; <span class="dv">3</span><span class="op">]</span> = <span class="st">&quot;a_Color&quot;</span>,</a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7">    pipeline pipe <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-8" title="8">        vbuf: <span class="pp">gfx::</span>VertexBuffer&lt;Vertex&gt; = (),</a>
+<a class="sourceLine" id="cb4-9" title="9">        out: <span class="pp">gfx::</span>RenderTarget&lt;ColorFormat&gt; = <span class="st">&quot;Target0&quot;</span>,</a>
+<a class="sourceLine" id="cb4-10" title="10">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="op">}</span></a></code></pre></div>
+<p>在图形编程中，一切都由三角形组成，三角形由 Vertex(顶点) 定义。Vertex 可以在坐标旁边，携带附加信息，我们只有 2D 位置<code>a_Pos</code>和颜色<code>a_Color</code>。该管道只有 Vertex 缓冲区和渲染目标，没有纹理，没有变换，没什么花哨的。</p>
+<p>GPU 不知道<em>究竟</em>要与 Vertex 做什么，或是像素应具有什么颜色。而这些，要去定义<em>着色器</em>使用的行为。着色器有两种：Vertex 着色器和片段着色器（让我们忽略我们不使用的几何着色器）。两者都在 GPU 上并行执行。Vertex 着色器在每个 Vertex 上运行，并以某种方式转换它。片段着色器在每个片段（通常是像素）上运行，并确定片段将具有的颜色。</p>
+<p>我们的 Vertex 着色器非常非常简单：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode glsl"><code class="sourceCode glsl"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// shaders/rect_150.glslv</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="pp">#version 150 core</span></a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="dt">in</span> <span class="dt">vec2</span> a_Pos;</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="dt">in</span> <span class="dt">vec3</span> a_Color;</a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="dt">out</span> <span class="dt">vec4</span> v_Color;</a>
+<a class="sourceLine" id="cb5-7" title="7"></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="dt">void</span> <span class="fu">main</span>() {</a>
+<a class="sourceLine" id="cb5-9" title="9">    v_Color = <span class="dt">vec4</span>(a_Color, <span class="fl">1.0</span>);</a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="bu">gl_Position</span> = <span class="dt">vec4</span>(a_Pos, <span class="fl">0.0</span>, <span class="fl">1.0</span>);</a>
+<a class="sourceLine" id="cb5-11" title="11">}</a></code></pre></div>
+<p>OpenGL 使用到<code>(x, y, z, w)</code> <a href="http://www.tomdalling.com/blog/modern-opengl/explaining-homogenous-coordinates-and-projective-geometry/">齐次坐标</a>和 RGBA 颜色。着色器只是将<code>a_Pos</code>和<code>a_Color</code>转换成 OpenGL 的位置和颜色。</p>
+<p>片段着色器更简单：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode glsl"><code class="sourceCode glsl"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// shaders/rect_150.glslf</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="pp">#version 150 core</span></a>
+<a class="sourceLine" id="cb6-3" title="3"></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="dt">in</span> <span class="dt">vec4</span> v_Color;</a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="dt">out</span> <span class="dt">vec4</span> Target0;</a>
+<a class="sourceLine" id="cb6-6" title="6"></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="dt">void</span> <span class="fu">main</span>() {</a>
+<a class="sourceLine" id="cb6-8" title="8">    Target0 = v_Color;</a>
+<a class="sourceLine" id="cb6-9" title="9">}</a></code></pre></div>
+<p>它只是将像素颜色设置为<code>v_Color</code>值，它通过 GPU， 由 Vertex <code>v_Color</code>值<a href="http://www.geeks3d.com/20130514/opengl-interpolation-qualifiers-glsl-tutorial/">插入</a>。</p>
+<p>让我们定义我们的 Vertex ：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">const</span> WHITE: <span class="op">[</span><span class="dt">f32</span>; <span class="dv">3</span><span class="op">]</span> = <span class="op">[</span><span class="dv">1.0</span>, <span class="dv">1.0</span>, <span class="dv">1.0</span><span class="op">]</span>;</a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">const</span> SQUARE: <span class="op">[</span>Vertex; <span class="dv">3</span><span class="op">]</span> = <span class="op">[</span></a>
+<a class="sourceLine" id="cb7-4" title="4">    Vertex <span class="op">{</span> pos: <span class="op">[</span><span class="dv">0.5</span>, -<span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb7-5" title="5">    Vertex <span class="op">{</span> pos: <span class="op">[</span>-<span class="dv">0.5</span>, -<span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb7-6" title="6">    Vertex <span class="op">{</span> pos: <span class="op">[</span>-<span class="dv">0.5</span>, <span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="op">]</span>;</a></code></pre></div>
+<p>并初始化我们绘制所需的一切：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">let</span> <span class="kw">mut</span> encoder: <span class="pp">gfx::</span>Encoder&lt;_, _&gt; = factory.create_command_buffer().into();</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">let</span> pso = factory.create_pipeline_simple(</a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="pp">include_bytes!</span>(<span class="pp">concat!</span>(<span class="pp">env!</span>(<span class="st">&quot;CARGO_MANIFEST_DIR&quot;</span>), <span class="st">&quot;/shaders/rect_150.glslv&quot;</span>)),</a>
+<a class="sourceLine" id="cb8-4" title="4">    <span class="pp">include_bytes!</span>(<span class="pp">concat!</span>(<span class="pp">env!</span>(<span class="st">&quot;CARGO_MANIFEST_DIR&quot;</span>), <span class="st">&quot;/shaders/rect_150.glslf&quot;</span>)),</a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="pp">pipe::</span>new()</a>
+<a class="sourceLine" id="cb8-6" title="6">).unwrap();</a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="kw">let</span> (vertex_buffer, slice) = factory.create_vertex_buffer_with_slice(&amp;SQUARE, ());</a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="kw">let</span> <span class="kw">mut</span> data = <span class="pp">pipe::</span>Data <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-9" title="9">    vbuf: vertex_buffer,</a>
+<a class="sourceLine" id="cb8-10" title="10">    out: main_color</a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="op">}</span>;</a></code></pre></div>
+<p>因<code>main_color</code>(所有权)移动到<code>data</code>，我们需要将其他地方的<code>&amp;main_color</code>换成<code>&amp;data.out</code>。然后，在事件循环中，我们绘制：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb9-1" title="1">encoder.clear(&amp;data.out, BLACK);</a>
+<a class="sourceLine" id="cb9-2" title="2">encoder.draw(&amp;slice, &amp;pso, &amp;data);</a>
+<a class="sourceLine" id="cb9-3" title="3">encoder.flush(&amp;<span class="kw">mut</span> device);</a></code></pre></div>
+<p>程序运行了。</p>
+<p><img src="https://i.imgur.com/7u3ol88.png" width="600" height="600" /></p>
+<p>这不是一个正方形。它不是正方形的原因很简单：它只有三个 Vertex，所以它必然是一个三角形。另外 OpenGL 对方块其实是一无所知，只能绘制三角形。</p>
+<p>但您可以添加另外三个 Vertex，通过两个三角形绘制正方形。像这样：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">const</span> SQUARE: <span class="op">[</span>Vertex; <span class="dv">6</span><span class="op">]</span> = <span class="op">[</span></a>
+<a class="sourceLine" id="cb10-2" title="2">    Vertex <span class="op">{</span> pos: <span class="op">[</span><span class="dv">0.5</span>, -<span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb10-3" title="3">    Vertex <span class="op">{</span> pos: <span class="op">[</span>-<span class="dv">0.5</span>, -<span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb10-4" title="4">    Vertex <span class="op">{</span> pos: <span class="op">[</span>-<span class="dv">0.5</span>, <span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb10-5" title="5">    Vertex <span class="op">{</span> pos: <span class="op">[</span>-<span class="dv">0.5</span>, <span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb10-6" title="6">    Vertex <span class="op">{</span> pos: <span class="op">[</span><span class="dv">0.5</span>, <span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb10-7" title="7">    Vertex <span class="op">{</span> pos: <span class="op">[</span><span class="dv">0.5</span>, -<span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="op">]</span>;</a></code></pre></div>
+<p>但相反的，元素缓冲对象只能定义 4 个 Vertex，才能重用它们。</p>
+<p><img src="http://www.opengl-tutorial.org/assets/images/tuto-9-vbo-indexing/indexing1.png" /></p>
+<p>所以，让我们定义 Vertex 和索引：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">const</span> SQUARE: &amp;<span class="op">[</span>Vertex<span class="op">]</span> = &amp;<span class="op">[</span></a>
+<a class="sourceLine" id="cb11-2" title="2">    Vertex <span class="op">{</span> pos: <span class="op">[</span><span class="dv">0.5</span>, -<span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb11-3" title="3">    Vertex <span class="op">{</span> pos: <span class="op">[</span>-<span class="dv">0.5</span>, -<span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb11-4" title="4">    Vertex <span class="op">{</span> pos: <span class="op">[</span>-<span class="dv">0.5</span>, <span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb11-5" title="5">    Vertex <span class="op">{</span> pos: <span class="op">[</span><span class="dv">0.5</span>, <span class="dv">0.5</span><span class="op">]</span>, color: WHITE <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="op">]</span>;</a>
+<a class="sourceLine" id="cb11-7" title="7"></a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="kw">const</span> INDICES: &amp;<span class="op">[</span><span class="dt">u16</span><span class="op">]</span> = &amp;<span class="op">[</span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">0</span><span class="op">]</span>;</a></code></pre></div>
+<p>并使用它们：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">let</span> (vertex_buffer, slice) =</a>
+<a class="sourceLine" id="cb12-2" title="2">    factory.create_vertex_buffer_with_slice(SQUARE, INDICES);</a></code></pre></div>
+<p>编译程序并运行。</p>
+<p><img src="https://i.imgur.com/5JfHmm6.png" width="600" height="600" /></p>
+<p>最后，一个正方形。最基本的事情已经完成，现在我们可以做得更多。</p>
+<h2>走下去</h2>
+<p>你应该注意的第一件事是，我们画的正方形实际上是一个矩形：当你调整窗口的比例时，它会改变。这是因为 OpenGL 使用<em>标准化</em>坐标，所以 X 和 Y 都会在 -1 到 1 之间(遵循比例)。所以我们需要调整正方形的 Vertex 和窗口的比例。</p>
+<p>第二件事是：我们的 Vertex 和索引是预先定义的，并且是常量。因此我们无法调整它们，也无法快速制作新的正方形。</p>
+<p>让我们解决这两个问题。定义一个 顶点(Vertex)生成器：</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb13-1" title="1"><span class="at">#[</span>derive<span class="at">(</span><span class="bu">Debug</span><span class="at">,</span> <span class="bu">Clone</span><span class="at">,</span> <span class="bu">Copy</span><span class="at">)]</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="kw">struct</span> Square <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="kw">pub</span> pos: (<span class="dt">f32</span>, <span class="dt">f32</span>),</a>
+<a class="sourceLine" id="cb13-4" title="4">    <span class="kw">pub</span> size: <span class="dt">f32</span>,</a>
+<a class="sourceLine" id="cb13-5" title="5">    <span class="kw">pub</span> color: <span class="op">[</span><span class="dt">f32</span>; <span class="dv">3</span><span class="op">]</span></a>
+<a class="sourceLine" id="cb13-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb13-7" title="7"></a>
+<a class="sourceLine" id="cb13-8" title="8"><span class="co">//立方体(cube)是一堆（连续）无限多的正方形</span></a>
+<a class="sourceLine" id="cb13-9" title="9"><span class="co">//这个数据结构是有限的，所以我们加个“伪（pseudo）”</span></a>
+<a class="sourceLine" id="cb13-10" title="10"><span class="at">#[</span>derive<span class="at">(</span><span class="bu">Debug</span><span class="at">)]</span></a>
+<a class="sourceLine" id="cb13-11" title="11"><span class="kw">struct</span> Pseudocube <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-12" title="12">    squares: <span class="dt">Vec</span>&lt;Square&gt;,</a>
+<a class="sourceLine" id="cb13-13" title="13">    ratio: <span class="dt">f32</span>,</a>
+<a class="sourceLine" id="cb13-14" title="14"><span class="op">}</span></a>
+<a class="sourceLine" id="cb13-15" title="15"></a>
+<a class="sourceLine" id="cb13-16" title="16"><span class="kw">impl</span> Pseudocube <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-17" title="17">    <span class="kw">pub</span> <span class="kw">fn</span> new() -&gt; <span class="kw">Self</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-18" title="18">        Pseudocube <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-19" title="19">            squares: <span class="pp">vec!</span><span class="op">[]</span>,</a>
+<a class="sourceLine" id="cb13-20" title="20">            ratio: <span class="dv">1.0</span>,</a>
+<a class="sourceLine" id="cb13-21" title="21">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-22" title="22">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-23" title="23"></a>
+<a class="sourceLine" id="cb13-24" title="24">    <span class="kw">pub</span> <span class="kw">fn</span> add_square(&amp;<span class="kw">mut</span> <span class="kw">self</span>, x: <span class="dt">f32</span>, y: <span class="dt">f32</span>, size: <span class="dt">f32</span>, color: <span class="op">[</span><span class="dt">f32</span>; <span class="dv">3</span><span class="op">]</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-25" title="25">        <span class="kw">let</span> sq = Square <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-26" title="26">            pos: (x, y),</a>
+<a class="sourceLine" id="cb13-27" title="27">            size, color</a>
+<a class="sourceLine" id="cb13-28" title="28">        <span class="op">}</span>;</a>
+<a class="sourceLine" id="cb13-29" title="29">        <span class="kw">self</span>.squares.push(sq);</a>
+<a class="sourceLine" id="cb13-30" title="30">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-31" title="31"></a>
+<a class="sourceLine" id="cb13-32" title="32">    <span class="kw">pub</span> <span class="kw">fn</span> get_vertices_indices(&amp;<span class="kw">self</span>) -&gt; (<span class="dt">Vec</span>&lt;Vertex&gt;, <span class="dt">Vec</span>&lt;<span class="dt">u16</span>&gt;) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-33" title="33">        <span class="kw">let</span> (<span class="kw">mut</span> vs, <span class="kw">mut</span> is) = (<span class="pp">vec!</span><span class="op">[]</span>, <span class="pp">vec!</span><span class="op">[]</span>);</a>
+<a class="sourceLine" id="cb13-34" title="34">        <span class="kw">for</span> (i, sq) <span class="kw">in</span> <span class="kw">self</span>.squares.iter().enumerate() <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-35" title="35">            <span class="kw">let</span> (pos, half) = (sq.pos, <span class="dv">0.5</span> * sq.size);</a>
+<a class="sourceLine" id="cb13-36" title="36">            <span class="kw">let</span> i = i <span class="kw">as</span> <span class="dt">u16</span>;</a>
+<a class="sourceLine" id="cb13-37" title="37"></a>
+<a class="sourceLine" id="cb13-38" title="38">            <span class="kw">let</span> (hx, hy);</a>
+<a class="sourceLine" id="cb13-39" title="39">            <span class="kw">if</span> <span class="kw">self</span>.ratio &gt; <span class="dv">1.0</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-40" title="40">                hx = half / <span class="kw">self</span>.ratio;</a>
+<a class="sourceLine" id="cb13-41" title="41">                hy = half;</a>
+<a class="sourceLine" id="cb13-42" title="42">            <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-43" title="43">            <span class="kw">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-44" title="44">                hx = half;</a>
+<a class="sourceLine" id="cb13-45" title="45">                hy = half * <span class="kw">self</span>.ratio;</a>
+<a class="sourceLine" id="cb13-46" title="46">            <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-47" title="47"></a>
+<a class="sourceLine" id="cb13-48" title="48">            vs.extend(&amp;<span class="op">[</span></a>
+<a class="sourceLine" id="cb13-49" title="49">                Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> + hx, pos.<span class="dv">1</span> - hy<span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb13-50" title="50">                Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> - hx, pos.<span class="dv">1</span> - hy<span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb13-51" title="51">                Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> - hx, pos.<span class="dv">1</span> + hy<span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb13-52" title="52">                Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> + hx, pos.<span class="dv">1</span> + hy<span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb13-53" title="53">            <span class="op">]</span>);</a>
+<a class="sourceLine" id="cb13-54" title="54">            is.extend(&amp;<span class="op">[</span></a>
+<a class="sourceLine" id="cb13-55" title="55">                <span class="dv">4</span>*i, <span class="dv">4</span>*i + <span class="dv">1</span>, <span class="dv">4</span>*i + <span class="dv">2</span>, <span class="dv">4</span>*i + <span class="dv">2</span>, <span class="dv">4</span>*i + <span class="dv">3</span>, <span class="dv">4</span>*i</a>
+<a class="sourceLine" id="cb13-56" title="56">            <span class="op">]</span>);</a>
+<a class="sourceLine" id="cb13-57" title="57">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-58" title="58"></a>
+<a class="sourceLine" id="cb13-59" title="59">        (vs, is)</a>
+<a class="sourceLine" id="cb13-60" title="60">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-61" title="61"></a>
+<a class="sourceLine" id="cb13-62" title="62">    <span class="kw">pub</span> <span class="kw">fn</span> update_ratio(&amp;<span class="kw">mut</span> <span class="kw">self</span>, ratio: <span class="dt">f32</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-63" title="63">        <span class="kw">self</span>.ratio = ratio</a>
+<a class="sourceLine" id="cb13-64" title="64">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-65" title="65"><span class="op">}</span></a></code></pre></div>
+<p>使用它：</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">pub</span> <span class="kw">fn</span> main() <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-2" title="2">    <span class="kw">let</span> <span class="kw">mut</span> cube = <span class="pp">Pseudocube::</span>new();</a>
+<a class="sourceLine" id="cb14-3" title="3">    cube.add_square(<span class="dv">0.0</span>, <span class="dv">0.0</span>, <span class="dv">1.0</span>, WHITE);</a>
+<a class="sourceLine" id="cb14-4" title="4">    <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb14-5" title="5">    <span class="kw">let</span> (vertices, indices) = cube.get_vertices_indices();</a>
+<a class="sourceLine" id="cb14-6" title="6">    <span class="kw">let</span> (vertex_buffer, <span class="kw">mut</span> slice) =</a>
+<a class="sourceLine" id="cb14-7" title="7">        factory.create_vertex_buffer_with_slice(&amp;vertices, &amp;*indices);</a>
+<a class="sourceLine" id="cb14-8" title="8">    <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb14-9" title="9">    <span class="kw">let</span> <span class="kw">mut</span> running = <span class="cn">true</span>;</a>
+<a class="sourceLine" id="cb14-10" title="10">    <span class="kw">let</span> <span class="kw">mut</span> needs_update = <span class="cn">false</span>;</a>
+<a class="sourceLine" id="cb14-11" title="11">    <span class="kw">while</span> running <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-12" title="12">        <span class="kw">if</span> needs_update <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-13" title="13">            <span class="kw">let</span> (vs, is) = cube.get_vertices_indices();</a>
+<a class="sourceLine" id="cb14-14" title="14">            <span class="kw">let</span> (vbuf, sl) = factory.create_vertex_buffer_with_slice(&amp;vs, &amp;*is);</a>
+<a class="sourceLine" id="cb14-15" title="15"></a>
+<a class="sourceLine" id="cb14-16" title="16">            data.vbuf = vbuf;</a>
+<a class="sourceLine" id="cb14-17" title="17">            slice = sl;</a>
+<a class="sourceLine" id="cb14-18" title="18"></a>
+<a class="sourceLine" id="cb14-19" title="19">            needs_update = <span class="cn">false</span></a>
+<a class="sourceLine" id="cb14-20" title="20">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb14-21" title="21">        <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb14-22" title="22">                Resized(w, h) =&gt; <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-23" title="23">                    <span class="pp">gfx_glutin::</span>update_views(&amp;window, &amp;<span class="kw">mut</span> data.out, &amp;<span class="kw">mut</span> main_depth);</a>
+<a class="sourceLine" id="cb14-24" title="24">                    cube.update_ratio(w <span class="kw">as</span> <span class="dt">f32</span> / h <span class="kw">as</span> <span class="dt">f32</span>);</a>
+<a class="sourceLine" id="cb14-25" title="25">                    needs_update = <span class="cn">true</span></a>
+<a class="sourceLine" id="cb14-26" title="26">                <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb14-27" title="27">        <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb14-28" title="28">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb14-29" title="29"><span class="op">}</span></a></code></pre></div>
+<p>真棒。现在我们的正方形总是正方形。是时候添加一些光标：</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb15-1" title="1"><span class="at">#[</span>derive<span class="at">(</span><span class="bu">Debug</span><span class="at">,</span> <span class="bu">Clone</span><span class="at">,</span> <span class="bu">Copy</span><span class="at">)]</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="kw">enum</span> Cursor <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-3" title="3">    Plain((<span class="dt">f32</span>, <span class="dt">f32</span>), <span class="op">[</span><span class="dt">f32</span>; <span class="dv">3</span><span class="op">]</span>),</a>
+<a class="sourceLine" id="cb15-4" title="4">    Growing((<span class="dt">f32</span>, <span class="dt">f32</span>), <span class="dt">f32</span>, <span class="op">[</span><span class="dt">f32</span>; <span class="dv">3</span><span class="op">]</span>)</a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb15-6" title="6"></a>
+<a class="sourceLine" id="cb15-7" title="7"><span class="kw">impl</span> Cursor <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-8" title="8">    <span class="kw">fn</span> to_square(<span class="kw">self</span>) -&gt; Square <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-9" title="9">        <span class="kw">match</span> <span class="kw">self</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-10" title="10">            <span class="pp">Cursor::</span>Plain(xy, color) =&gt; Square <span class="op">{</span> pos: xy, size: <span class="dv">0.05</span>, color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb15-11" title="11">            <span class="pp">Cursor::</span>Growing(xy, size, color) =&gt; Square <span class="op">{</span> pos: xy, size, color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb15-12" title="12">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb15-13" title="13">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb15-14" title="14"><span class="op">}</span></a>
+<a class="sourceLine" id="cb15-15" title="15"></a>
+<a class="sourceLine" id="cb15-16" title="16"><span class="co">// ...</span></a>
+<a class="sourceLine" id="cb15-17" title="17"></a>
+<a class="sourceLine" id="cb15-18" title="18"><span class="kw">impl</span> Pseudocube <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-19" title="19"><span class="co">// ...</span></a>
+<a class="sourceLine" id="cb15-20" title="20">    <span class="kw">pub</span> <span class="kw">fn</span> update_cursor_position(&amp;<span class="kw">mut</span> <span class="kw">self</span>, x: <span class="dt">f32</span>, y: <span class="dt">f32</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-21" title="21">        <span class="kw">let</span> x = <span class="dv">2.0</span>*x - <span class="dv">1.0</span>;</a>
+<a class="sourceLine" id="cb15-22" title="22">        <span class="kw">let</span> y = -<span class="dv">2.0</span>*y + <span class="dv">1.0</span>;</a>
+<a class="sourceLine" id="cb15-23" title="23">        <span class="kw">let</span> cursor = <span class="kw">match</span> <span class="kw">self</span>.cursor <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-24" title="24">            <span class="pp">Cursor::</span>Plain(_, color) =&gt; <span class="pp">Cursor::</span>Plain((x, y), color),</a>
+<a class="sourceLine" id="cb15-25" title="25">            <span class="pp">Cursor::</span>Growing(_, size, color) =&gt; <span class="pp">Cursor::</span>Growing((x, y), size, color),</a>
+<a class="sourceLine" id="cb15-26" title="26">        <span class="op">}</span>;</a>
+<a class="sourceLine" id="cb15-27" title="27">        <span class="kw">self</span>.cursor = cursor;</a>
+<a class="sourceLine" id="cb15-28" title="28">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb15-29" title="29"><span class="op">}</span></a>
+<a class="sourceLine" id="cb15-30" title="30"><span class="co">// ...</span></a>
+<a class="sourceLine" id="cb15-31" title="31">                Resized(w, h) =&gt; <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-32" title="32">                    <span class="pp">gfx_glutin::</span>update_views(&amp;window, &amp;<span class="kw">mut</span> data.out, &amp;<span class="kw">mut</span> main_depth);</a>
+<a class="sourceLine" id="cb15-33" title="33">                    cube.update_ratio(w <span class="kw">as</span> <span class="dt">f32</span> / h <span class="kw">as</span> <span class="dt">f32</span>);</a>
+<a class="sourceLine" id="cb15-34" title="34">                    window_size = (w <span class="kw">as</span> <span class="dt">f32</span>, h <span class="kw">as</span> <span class="dt">f32</span>);</a>
+<a class="sourceLine" id="cb15-35" title="35">                    needs_update = <span class="cn">true</span></a>
+<a class="sourceLine" id="cb15-36" title="36">                <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb15-37" title="37">                MouseMoved(x, y) =&gt; <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-38" title="38">                    cube.update_cursor_position(</a>
+<a class="sourceLine" id="cb15-39" title="39">                        x <span class="kw">as</span> <span class="dt">f32</span> / window_size.<span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb15-40" title="40">                        y <span class="kw">as</span> <span class="dt">f32</span> / window_size.<span class="dv">1</span></a>
+<a class="sourceLine" id="cb15-41" title="41">                    );</a>
+<a class="sourceLine" id="cb15-42" title="42">                    needs_update = <span class="cn">true</span></a>
+<a class="sourceLine" id="cb15-43" title="43">                <span class="op">}</span>,</a></code></pre></div>
+<p>它活了。<strong>它活了！</strong>是的，当你增加一点交互性的时候，事情总是变得更酷。</p>
+<p>让我们扩大方块：</p>
+<pre class="toml"><code>[dependencies]
+rand = &quot;*&quot;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">impl</span> Pseudocube <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="co">// ...</span></a>
+<a class="sourceLine" id="cb17-3" title="3">    <span class="kw">pub</span> <span class="kw">fn</span> start_growing(&amp;<span class="kw">mut</span> <span class="kw">self</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-4" title="4">        <span class="kw">if</span> <span class="kw">let</span> <span class="pp">Cursor::</span>Plain(xy, color) = <span class="kw">self</span>.cursor <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-5" title="5">            <span class="kw">self</span>.cursor = <span class="pp">Cursor::</span>Growing(xy, <span class="dv">0.05</span>, color)</a>
+<a class="sourceLine" id="cb17-6" title="6">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-7" title="7">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-8" title="8"></a>
+<a class="sourceLine" id="cb17-9" title="9">    <span class="kw">pub</span> <span class="kw">fn</span> stop_growing(&amp;<span class="kw">mut</span> <span class="kw">self</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-10" title="10">        <span class="kw">if</span> <span class="kw">let</span> <span class="pp">Cursor::</span>Growing(xy, size, color) = <span class="kw">self</span>.cursor <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-11" title="11">            <span class="kw">self</span>.squares.push (<span class="pp">Cursor::</span>Growing(xy, size, color).to_square());</a>
+<a class="sourceLine" id="cb17-12" title="12">            <span class="kw">self</span>.cursor = <span class="pp">Cursor::</span>Plain(xy, <span class="pp">rand::</span>random())</a>
+<a class="sourceLine" id="cb17-13" title="13">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-14" title="14">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-15" title="15"></a>
+<a class="sourceLine" id="cb17-16" title="16">    <span class="kw">pub</span> <span class="kw">fn</span> tick(&amp;<span class="kw">mut</span> <span class="kw">self</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-17" title="17">        <span class="kw">if</span> <span class="kw">let</span> <span class="pp">Cursor::</span>Growing(xy, size, color) = <span class="kw">self</span>.cursor <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-18" title="18">            <span class="kw">self</span>.cursor = <span class="pp">Cursor::</span>Growing(xy, size + <span class="dv">0.01</span>, color)</a>
+<a class="sourceLine" id="cb17-19" title="19">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-20" title="20">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-21" title="21"><span class="op">}</span></a>
+<a class="sourceLine" id="cb17-22" title="22"><span class="co">// ...</span></a>
+<a class="sourceLine" id="cb17-23" title="23">                MouseInput(<span class="pp">ElementState::</span>Pressed, <span class="pp">MouseButton::</span>Left) =&gt;</a>
+<a class="sourceLine" id="cb17-24" title="24">                    cube.start_growing(),</a>
+<a class="sourceLine" id="cb17-25" title="25">                MouseInput(<span class="pp">ElementState::</span>Released, <span class="pp">MouseButton::</span>Left) =&gt;</a>
+<a class="sourceLine" id="cb17-26" title="26">                    cube.stop_growing(),</a>
+<a class="sourceLine" id="cb17-27" title="27">                _ =&gt; (),</a>
+<a class="sourceLine" id="cb17-28" title="28">            <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-29" title="29"></a>
+<a class="sourceLine" id="cb17-30" title="30">            cube.tick();</a></code></pre></div>
+<p>方格被扩大：</p>
+<p><img src="https://i.imgur.com/rumV7tU.png" title="这不是一个现代艺术." width="600" height="600" /></p>
+<h2>纹理和制服</h2>
+<p>所以，你可以画正方形，移动光标，你还需要什么？哦，我明白了。图形。纯色很无聊，对吧？我们加一些<a href="https://learnopengl.com/#!Getting-started/Textures">纹理</a>吧：</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb18-1" title="1"><span class="pp">gfx_defines!</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-2" title="2">    vertex Vertex <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-3" title="3">        pos: <span class="op">[</span><span class="dt">f32</span>; <span class="dv">2</span><span class="op">]</span> = <span class="st">&quot;a_Pos&quot;</span>,</a>
+<a class="sourceLine" id="cb18-4" title="4">        uv: <span class="op">[</span><span class="dt">f32</span>; <span class="dv">2</span><span class="op">]</span> = <span class="st">&quot;a_Uv&quot;</span>,</a>
+<a class="sourceLine" id="cb18-5" title="5">        color: <span class="op">[</span><span class="dt">f32</span>; <span class="dv">3</span><span class="op">]</span> = <span class="st">&quot;a_Color&quot;</span>,</a>
+<a class="sourceLine" id="cb18-6" title="6">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb18-7" title="7"></a>
+<a class="sourceLine" id="cb18-8" title="8">    pipeline pipe <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-9" title="9">        vbuf: <span class="pp">gfx::</span>VertexBuffer&lt;Vertex&gt; = (),</a>
+<a class="sourceLine" id="cb18-10" title="10">        awesome: <span class="pp">gfx::</span>TextureSampler&lt;<span class="op">[</span><span class="dt">f32</span>; <span class="dv">4</span><span class="op">]</span>&gt; = <span class="st">&quot;t_Awesome&quot;</span>,</a>
+<a class="sourceLine" id="cb18-11" title="11">        out: <span class="pp">gfx::</span>RenderTarget&lt;ColorFormat&gt; = <span class="st">&quot;Target0&quot;</span>,</a>
+<a class="sourceLine" id="cb18-12" title="12">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb18-13" title="13"><span class="op">}</span></a></code></pre></div>
+<p>这里有两个变化。第一个是：Vertex 得到了一个新数据：<code>a_Uv</code>。如果你认为这只意味着一件事，你是对的：是的，GPU 不知道如何<em>确切地</em>绘制纹理。是的，我们使用片段着色器来确定行为。<code>a_Uv</code>是纹理片段的坐标。</p>
+<p>第二个变化是介绍管道中的<code>t_Awesome</code>纹理。而这会让，此管道绘制的所有三角形的纹理都相同。但是如果你想让不同的正方形看起来不同怎么办？嗯，有三种方法。第一种方法是为每个方块切换纹理。这种方法很慢，因为它要求每个方块都有一个绘制调用，而不能用一个调用绘制所有内容。第二种方法是把所有的东西都放在一个大的纹理（纹理地图集）中，并使用 UV 坐标从地图集中获取纹理。第三种方法是使用纹理数组（如果支持的话）。</p>
+<p>我们将使用第 2 种方法，所以我们的方块将具有相同的简单纹理：</p>
+<p><img src="https://i.imgur.com/40VzkBZ.jpg" title=":awesome:" /></p>
+<p>所以，让我们来纹理化我们的方块。为此，我们需要一个箱子来加载图像：</p>
+<pre class="toml"><code>[dependencies]
+image = &quot;*&quot;</code></pre>
+<p>我们需要稍微修改一下我们的着色器：</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode glsl"><code class="sourceCode glsl"><a class="sourceLine" id="cb20-1" title="1"><span class="pp">#version 150 core</span></a>
+<a class="sourceLine" id="cb20-2" title="2"></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="dt">in</span> <span class="dt">vec2</span> a_Pos;</a>
+<a class="sourceLine" id="cb20-4" title="4"><span class="dt">in</span> <span class="dt">vec2</span> a_Uv;</a>
+<a class="sourceLine" id="cb20-5" title="5"><span class="dt">in</span> <span class="dt">vec3</span> a_Color;</a>
+<a class="sourceLine" id="cb20-6" title="6"><span class="dt">out</span> <span class="dt">vec4</span> v_Color;</a>
+<a class="sourceLine" id="cb20-7" title="7"><span class="dt">out</span> <span class="dt">vec2</span> v_Uv;</a>
+<a class="sourceLine" id="cb20-8" title="8"></a>
+<a class="sourceLine" id="cb20-9" title="9"><span class="dt">void</span> <span class="fu">main</span>() {</a>
+<a class="sourceLine" id="cb20-10" title="10">    v_Color = <span class="dt">vec4</span>(a_Color, <span class="fl">1.0</span>);</a>
+<a class="sourceLine" id="cb20-11" title="11">    v_Uv = a_Uv;</a>
+<a class="sourceLine" id="cb20-12" title="12">    <span class="bu">gl_Position</span> = <span class="dt">vec4</span>(a_Pos, <span class="fl">0.0</span>, <span class="fl">1.0</span>);</a>
+<a class="sourceLine" id="cb20-13" title="13">}</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode glsl"><code class="sourceCode glsl"><a class="sourceLine" id="cb21-1" title="1"><span class="pp">#version 150 core</span></a>
+<a class="sourceLine" id="cb21-2" title="2"></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="kw">uniform</span> <span class="dt">sampler2D</span> t_Awesome;</a>
+<a class="sourceLine" id="cb21-4" title="4"></a>
+<a class="sourceLine" id="cb21-5" title="5"><span class="dt">in</span> <span class="dt">vec4</span> v_Color;</a>
+<a class="sourceLine" id="cb21-6" title="6"><span class="dt">in</span> <span class="dt">vec2</span> v_Uv;</a>
+<a class="sourceLine" id="cb21-7" title="7"><span class="dt">out</span> <span class="dt">vec4</span> Target0;</a>
+<a class="sourceLine" id="cb21-8" title="8"></a>
+<a class="sourceLine" id="cb21-9" title="9"><span class="dt">void</span> <span class="fu">main</span>() {</a>
+<a class="sourceLine" id="cb21-10" title="10">    <span class="dt">vec3</span> aw = <span class="bu">texture</span>(t_Awesome, v_Uv).<span class="fu">rgb</span>;</a>
+<a class="sourceLine" id="cb21-11" title="11"></a>
+<a class="sourceLine" id="cb21-12" title="12">    <span class="kw">if</span>(aw == <span class="dt">vec3</span>(<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>)) {</a>
+<a class="sourceLine" id="cb21-13" title="13">        Target0 = <span class="fl">0.20</span> * v_Color;</a>
+<a class="sourceLine" id="cb21-14" title="14">    } <span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb21-15" title="15">        Target0 = <span class="dt">vec4</span>(aw, <span class="fl">1.0</span>);</a>
+<a class="sourceLine" id="cb21-16" title="16">    }</a>
+<a class="sourceLine" id="cb21-17" title="17">}</a></code></pre></div>
+<p>复制粘贴<a href="https://wiki.alopex.li/LearningGfx">另一个教程</a>的函数：</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">fn</span> load_texture&lt;F, R&gt;(factory: &amp;<span class="kw">mut</span> F, path: &amp;<span class="dt">str</span>) -&gt; <span class="pp">gfx::handle::</span>ShaderResourceView&lt;R, <span class="op">[</span><span class="dt">f32</span>; <span class="dv">4</span><span class="op">]</span>&gt;</a>
+<a class="sourceLine" id="cb22-2" title="2">    <span class="kw">where</span> F: <span class="pp">gfx::</span>Factory&lt;R&gt;, R: <span class="pp">gfx::</span>Resources</a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="op">{</span></a>
+<a class="sourceLine" id="cb22-4" title="4">    <span class="kw">let</span> img = <span class="pp">image::</span>open(path).unwrap().to_rgba();</a>
+<a class="sourceLine" id="cb22-5" title="5">    <span class="kw">let</span> (width, height) = img.dimensions();</a>
+<a class="sourceLine" id="cb22-6" title="6">    <span class="kw">let</span> kind = <span class="pp">gfx::texture::Kind::</span>D2(width <span class="kw">as</span> <span class="dt">u16</span>, height <span class="kw">as</span> <span class="dt">u16</span>, <span class="pp">gfx::texture::AaMode::</span>Single);</a>
+<a class="sourceLine" id="cb22-7" title="7">    <span class="kw">let</span> (_, view) = factory.<span class="pp">create_texture_immutable_u8::</span>&lt;ColorFormat&gt;(kind, &amp;<span class="op">[</span>&amp;img<span class="op">]</span>).unwrap();</a>
+<a class="sourceLine" id="cb22-8" title="8">    view</a>
+<a class="sourceLine" id="cb22-9" title="9"><span class="op">}</span></a></code></pre></div>
+<p>向 Vertex 添加 UV 坐标：</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb23-1" title="1">Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> + hx, pos.<span class="dv">1</span> - hy<span class="op">]</span>, uv: <span class="op">[</span><span class="dv">1.0</span>, <span class="dv">0.0</span><span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb23-2" title="2">Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> - hx, pos.<span class="dv">1</span> - hy<span class="op">]</span>, uv: <span class="op">[</span><span class="dv">0.0</span>, <span class="dv">0.0</span><span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb23-3" title="3">Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> - hx, pos.<span class="dv">1</span> + hy<span class="op">]</span>, uv: <span class="op">[</span><span class="dv">0.0</span>, <span class="dv">1.0</span><span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb23-4" title="4">Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> + hx, pos.<span class="dv">1</span> + hy<span class="op">]</span>, uv: <span class="op">[</span><span class="dv">1.0</span>, <span class="dv">1.0</span><span class="op">]</span>, color: sq.color <span class="op">}</span>,</a></code></pre></div>
+<p>加载纹理：</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb24-1" title="1">    <span class="kw">let</span> texture = load_texture(&amp;<span class="kw">mut</span> factory, <span class="st">&quot;assets/awesome.png&quot;</span>);</a>
+<a class="sourceLine" id="cb24-2" title="2">    <span class="kw">let</span> sampler = factory.create_sampler_linear();</a>
+<a class="sourceLine" id="cb24-3" title="3"></a>
+<a class="sourceLine" id="cb24-4" title="4">    <span class="kw">let</span> <span class="kw">mut</span> data = <span class="pp">pipe::</span>Data <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-5" title="5">        vbuf: vertex_buffer,</a>
+<a class="sourceLine" id="cb24-6" title="6">        awesome: (texture, sampler),</a>
+<a class="sourceLine" id="cb24-7" title="7">        out: main_color</a>
+<a class="sourceLine" id="cb24-8" title="8">    <span class="op">}</span>;</a></code></pre></div>
+<p>哒嗒：</p>
+<p><img src="https://i.imgur.com/jeKLvoc.png" width="600" height="600" /></p>
+<p>哦，不对啊。黑色仍然是黑色的，图像是颠倒的。首先，这是图像本身的缺陷（这就是从互联网下载 jpeg 所得到的），但是为什么它是颠倒的呢？</p>
+<p>嗯，原因很简单。图像坐标为 Y 轴是上到下，而在 OpenGL 中，Y 轴总是下到上。所以最明显的解决方法就是翻转图像。但有一个更简单的方法：我们可以翻转 UV 坐标。</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb25-1" title="1">Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> + hx, pos.<span class="dv">1</span> - hy<span class="op">]</span>, uv: <span class="op">[</span><span class="dv">1.0</span>, <span class="dv">1.0</span><span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb25-2" title="2">Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> - hx, pos.<span class="dv">1</span> - hy<span class="op">]</span>, uv: <span class="op">[</span><span class="dv">0.0</span>, <span class="dv">1.0</span><span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb25-3" title="3">Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> - hx, pos.<span class="dv">1</span> + hy<span class="op">]</span>, uv: <span class="op">[</span><span class="dv">0.0</span>, <span class="dv">0.0</span><span class="op">]</span>, color: sq.color <span class="op">}</span>,</a>
+<a class="sourceLine" id="cb25-4" title="4">Vertex <span class="op">{</span> pos: <span class="op">[</span>pos.<span class="dv">0</span> + hx, pos.<span class="dv">1</span> + hy<span class="op">]</span>, uv: <span class="op">[</span><span class="dv">1.0</span>, <span class="dv">0.0</span><span class="op">]</span>, color: sq.color <span class="op">}</span>,</a></code></pre></div>
+<p>然后。。。</p>
+<p><img src="https://i.imgur.com/8li9Csm.png" title="Really :awesome:" width="600" height="600" /></p>
+<p>真棒！但如果你更喜欢纯色呢？我们需要一个开关。我们需要<strong>一致性</strong>。</p>
+<p>一致性(uniform/制服)是着色器的全局常量。它们用于将各种信息传递到着色器：转换材料、鼠标位置或某种开关。在 gfx-rs 中，有两种创建统一的方法，第一种方法是在管道中声明一个值，如下所示：</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb26-1" title="1">switch: <span class="pp">gfx::</span>Global&lt;<span class="dt">i32</span>&gt; = <span class="st">&quot;i_Switch&quot;</span>,</a></code></pre></div>
+<p>第二种方法是定义一组常量，比如</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb27-1" title="1">constant Globals <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-2" title="2">    mx_vp: <span class="op">[[</span><span class="dt">f32</span>; <span class="dv">4</span><span class="op">]</span>; <span class="dv">4</span><span class="op">]</span> = <span class="st">&quot;u_ViewProj&quot;</span>,</a>
+<a class="sourceLine" id="cb27-3" title="3">    num_lights: <span class="dt">u32</span> = <span class="st">&quot;u_NumLights&quot;</span>,</a>
+<a class="sourceLine" id="cb27-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>然后，创建一个常量缓冲区。我们将使用第一种方法，因为它是最简单的方法。</p>
+<p>让我们稍微改变一下着色器：</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode glsl"><code class="sourceCode glsl"><a class="sourceLine" id="cb28-1" title="1">    <span class="kw">if</span>(i_Switch == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb28-2" title="2">        <span class="kw">if</span>(aw == <span class="dt">vec3</span>(<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>)) {</a>
+<a class="sourceLine" id="cb28-3" title="3">            Target0 = <span class="fl">0.20</span> * v_Color;</a>
+<a class="sourceLine" id="cb28-4" title="4">        } <span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb28-5" title="5">            Target0 = <span class="dt">vec4</span>(aw, <span class="fl">1.0</span>);</a>
+<a class="sourceLine" id="cb28-6" title="6">        }</a>
+<a class="sourceLine" id="cb28-7" title="7">    } <span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb28-8" title="8">        Target0 = v_Color;</a>
+<a class="sourceLine" id="cb28-9" title="9">    }</a></code></pre></div>
+<p>并添加一些代码：</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">let</span> <span class="kw">mut</span> data = <span class="pp">pipe::</span>Data <span class="op">{</span></a>
+<a class="sourceLine" id="cb29-2" title="2">    vbuf: vertex_buffer,</a>
+<a class="sourceLine" id="cb29-3" title="3">    awesome: (texture, sampler),</a>
+<a class="sourceLine" id="cb29-4" title="4">    switch: <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb29-5" title="5">    out: main_color</a>
+<a class="sourceLine" id="cb29-6" title="6"><span class="op">}</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb30-1" title="1">    KeyboardInput(<span class="pp">ElementState::</span>Pressed, _, <span class="cn">Some</span>(<span class="pp">VirtualKeyCode::</span>Space), _) =&gt;</a>
+<a class="sourceLine" id="cb30-2" title="2">        <span class="kw">if</span> data.switch == <span class="dv">0</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-3" title="3">            data.switch = <span class="dv">1</span></a>
+<a class="sourceLine" id="cb30-4" title="4">        <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-5" title="5">            data.switch = <span class="dv">0</span></a>
+<a class="sourceLine" id="cb30-6" title="6">        <span class="op">}</span>,</a></code></pre></div>
+<p>好了完成。</p>
+<h2>结论</h2>
+<p>编程是数据转换的艺术。图形编程就是这样一个很好的例子：GPU 本身没有魔力。您必须向它提供 Vertex 数据，并定义转换器（着色器），以便它能够以简单直接的方式，将此数据转换为另一种数据：屏幕上显示的像素数组。</p>
+<p>gfx-rs 是一个很好的库，可以帮助您完成这个任务。它提供了一个简单但清晰的，与 GPU 交互的<em>rust 风格</em>方式。尽管由于缺乏足够的文档，文档看起来很吓人，但是 API 本身非常简单。且易于使用。</p>
+<p>关于 gfx-rs 的文章太少，几乎没有教程。我希望这个小小的教程。将帮助其他人进入 Rist 的图形编程，并使学习不那么陡峭。</p>
+<h2>资源</h2>
+<p>OpenGL 有两个很好的来源：<a href="https://learnopengl.com/">学习 OpenGL</a>和<a href="http://opengl-tutorial.org/">OpenGL 教程</a>. 它们详细地解释了基本的图形编程原理，提供了很好的示例和说明。</p>
+<p>我也强烈建议你<a href="https://gitter.im/gfx-rs/gfx">gfx gitter</a>. 这不仅是欢迎，而且是非常有帮助的，没有他们的帮助，写这个教程会更加困难。</p>
+<p><a href="https://thebookofshaders.com/">《阴影之书》/ 着色器之书</a>是一本关于片段着色器的好书。它不仅是关于着色编程的艺术，而且是关于可称之为艺术的着色程序。着色器不仅是 AAA 游戏中的图形，也是艺术家的工具。这本书有许多美丽的例子，会把你引入<a href="https://github.com/terkelg/awesome-creative-coding">创造性编码</a>世界。</p>
+<h2>源代码</h2>
+<p>sqtoy 的源代码可用<a href="https://github.com/suhr/sqtoy">在 Github 上</a>。 本教程文章的源代码也在 Github 上<a href="https://github.com/suhr/gsgt">可获得的</a>。拉取请求是受欢迎的，尤其是拉取请求到教程：我既不是一个好作家，也不是一个好的英语演说家，所以可能有很多事情需要改进。</p>
+</body>
+</html>
