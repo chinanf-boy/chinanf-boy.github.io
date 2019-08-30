@@ -6,61 +6,35 @@
     <description>Recent content in Vscode on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 01 Aug 2018 13:09:07 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Aug 2019 11:13:52 +0800</lastBuildDate>
     
 	<atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>FiraCode 使用在 Vscode 的问题</title>
-      <link>/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Wed, 01 Aug 2018 13:09:07 +0000</pubDate>
+      <title>如何用VSCode调试Rust(译)</title>
+      <link>/2019/08/30/%E5%A6%82%E4%BD%95%E7%94%A8vscode%E8%B0%83%E8%AF%95rust%E8%AF%91/</link>
+      <pubDate>Fri, 30 Aug 2019 11:13:52 +0800</pubDate>
       
-      <guid>/2018/08/01/firacode-%E4%BD%BF%E7%94%A8%E5%9C%A8-vscode-%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-      <description> 如果你使用官方的办法 https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions
-成功, 将箭头改变了, 那就好了
-如果无法 请到 https://github.com/tonsky/FiraCode/releases 下载 压缩
-对应每个平台的系统字体应用, 将 下载的 字体文件夹 添加
- macOS Windows Linux/Unix-based systems  比如: macOS
-记得把 Vscode 的配置 写好 &amp;#34;editor.fontFamily&amp;#34;:&amp;#34;&amp;#39;Fira Code&amp;#39;, Source Code Pro&amp;#34;, &amp;#34;editor.fontSize&amp;#34;: 13, &amp;#34;editor.fontLigatures&amp;#34;: true, </description>
-    </item>
-    
-    <item>
-      <title>github hand fun vscode 用户自定义代码片段</title>
-      <link>/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/</link>
-      <pubDate>Wed, 06 Dec 2017 13:37:41 +0000</pubDate>
-      
-      <guid>/2017/12/06/github-hand-fun-vscode-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/</guid>
-      <description>github 连接动画 小手摆摆 See the Pen githubLink by braveyo (@china-boy) on CodePen.  vscode 用户自定义代码片段 快速添加 github 动画连接
- vscode软件 -&amp;gt; 首选项 -&amp;gt; 用户代码片段 -&amp;gt; 选择对应 HTML
- 有个模版，你可以自己看看，或者 复制
-&amp;#34;Print github link&amp;#34;: { &amp;#34;prefix&amp;#34;: &amp;#34;ghand&amp;#34;, &amp;#34;body&amp;#34;: [ &amp;#34;&amp;lt;style&amp;gt;svg{fill:#fff;color:#151513;position:absolute;border:0;right:0}foreignObject,image,marker,pattern,svg:not(:root),symbol{overflow:hidden}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}.github-corner .octo-arm{-webkit-transform-origin:130px 106px;transform-origin:130px 106px}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}&amp;lt;/style&amp;gt;&amp;#34;, &amp;#34;&amp;lt;a class=\&amp;#34;github-corner\&amp;#34; href=\&amp;#34;$1\&amp;#34; aria-label=\&amp;#34;View source on Github\&amp;#34;&amp;gt;&amp;#34;, &amp;#34;&amp;lt;svg width=\&amp;#34;80\&amp;#34; height=\&amp;#34;80\&amp;#34; viewBox=\&amp;#34;0 0 250 250\&amp;#34; aria-hidden=\&amp;#34;true\&amp;#34;&amp;gt;&amp;lt;path d=\&amp;#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z\&amp;#34;&amp;gt;&amp;lt;/path&amp;gt;&amp;lt;path class=\&amp;#34;octo-arm\&amp;#34; d=\&amp;#34;M128.</description>
-    </item>
-    
-    <item>
-      <title>vscode git lens</title>
-      <link>/2017/11/14/vscode-git-lens/</link>
-      <pubDate>Tue, 14 Nov 2017 16:03:39 +0000</pubDate>
-      
-      <guid>/2017/11/14/vscode-git-lens/</guid>
-      <description>安利安利 git lens
-加强 git 文件之间 改动
-细分到 每一行由谁改</description>
-    </item>
-    
-    <item>
-      <title>vscode 扩展Api实践</title>
-      <link>/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Wed, 13 Sep 2017 21:45:35 +0000</pubDate>
-      
-      <guid>/2017/09/13/vscode-%E6%89%A9%E5%B1%95api%E5%AE%9E%E8%B7%B5/</guid>
-      <description>前提 您需要安装Node.js并且可以使用$PATH。Node.js安装包括npm，Node.js软件包管理器，它将用于安装扩展生成器。
-安装发电机 npm install -g yo generator-code 运行 要启动生成器，请在命令提示符下键入以下命令：
-yo code  更多详情 创建扩展的文件夹
-扩展API流程 的介绍 扩展清单： package.json contributes &amp;quot;contributes&amp;quot;: { &amp;quot;commands&amp;quot;: [{ &amp;quot;command&amp;quot;: &amp;quot;extension.sayHello&amp;quot;, &amp;quot;title&amp;quot;: &amp;quot;Hello World&amp;quot; }] }  调用命令的标签为命令调色板（⇧⌘P）提供一个条目 输入&amp;rdquo;Hello world&amp;rdquo;调用命令&amp;rdquo;extension.sayHello&amp;rdquo;
-activationEvents 启动事件—通过命令也就是 contributes 中 &amp;quot;Hello World&amp;quot;
-&amp;quot;activationEvents&amp;quot;: [ &amp;quot;onCommand:extension.sayHello&amp;quot; ]  启动事件—当语言为markdown
-&amp;quot;activationEvents&amp;quot;: [ &amp;quot;onLanguage:markdown&amp;quot; ]  示例 extension.ts 你好世界 import * as vscode from &amp;#39;vscode&amp;#39;; export function activate(context: vscode.ExtensionContext) { // //需要主函数 activate() 导出。 // //当 activationEvents 启动时，主函数 activate() 仅运行一次。  console.</description>
+      <guid>/2019/08/30/%E5%A6%82%E4%BD%95%E7%94%A8vscode%E8%B0%83%E8%AF%95rust%E8%AF%91/</guid>
+      <description>如何用 Visual Studio Code 调试 Rust 🌟 2019-03-24 ❤️ 原文
+我是 Visual Studio Code 编辑器的铁杆。不幸的是，它的 Rust 调试不 太能 开箱即用。
+配置调试器并不困难。但有几个步骤。我已经看了好几遍了。我写这本指南是为了省下未来回想的脑力。
+希望本指南对其他一些人也有用。
+安装 Rust 和 VS Code 这应该不用多说了。
+安装 Rust
+安装 Visual Studio Code
+安装 VS Code 扩展 您需要安装一个扩展。哪一个取决于你的平台。
+C/C++（Windows）
+codelldb（OS X/Linux）
+还要继续安装Rust 扩展。
+配置 VS Code 现在已经安装了工具，您需要配置 VS Code 启动属性。
+单击“调试(Debug)”-&amp;gt;“添加配置(Add Configuration)”
+如果您在 Windows 上，请选择C++ (Windows)
+如果您使用的是 Mac 或 Linux，请选择LLDB: Custom Launch
+这应该会创建并打开launch.json。您必须手动更改“program”下的可执行文件名。
+接下来，您应该验证是否启用了断点。有些读者说需要这样做。一些机器是默认启用它。🤷‍♂️
+文件-&amp;gt;首选项-&amp;gt;设置（File -&amp;gt; Preferences -&amp;gt; Settings）</description>
     </item>
     
   </channel>
