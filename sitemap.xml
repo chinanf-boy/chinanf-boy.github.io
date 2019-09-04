@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/2019/09/02/%E5%B0%8F%E7%9A%84rust%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%BA%94%E4%BD%BF%E7%94%A8%E5%A4%8D%E5%88%B6%E8%BF%98%E6%98%AF%E5%80%9F%E7%94%A8%E4%BC%A0%E9%80%92/</loc>
+    <loc>/2019/09/04/%E8%9E%83%E8%9F%B9-rust%E5%91%A8%E6%8A%A5-301%E8%AF%91/</loc>
+    <lastmod>2019-09-04T14:07:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/09/02/%E5%B0%8F%E7%9A%84rust%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%BA%94%E4%BD%BF%E7%94%A8%E5%A4%8D%E5%88%B6%E8%BF%98%E6%98%AF%E5%80%9F%E7%94%A8%E4%BC%A0%E9%80%92%E8%AF%91/</loc>
     <lastmod>2019-09-02T10:11:45+08:00</lastmod>
   </url>
   
@@ -60,7 +65,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-09-02T10:11:45+08:00</lastmod>
+    <lastmod>2019-09-04T14:07:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -102,7 +107,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-09-02T10:11:45+08:00</lastmod>
+    <lastmod>2019-09-04T14:07:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -114,7 +119,7 @@
   
   <url>
     <loc>/categories/rust/</loc>
-    <lastmod>2019-09-02T10:11:45+08:00</lastmod>
+    <lastmod>2019-09-04T14:07:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -151,6 +156,12 @@
   <url>
     <loc>/tags/vscode/</loc>
     <lastmod>2019-08-30T11:13:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/week/</loc>
+    <lastmod>2019-09-04T14:07:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   

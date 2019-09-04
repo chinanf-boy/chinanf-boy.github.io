@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>小的Rust结构类型,应使用复制还是借用传递?</title>
-      <link>/2019/09/02/%E5%B0%8F%E7%9A%84rust%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%BA%94%E4%BD%BF%E7%94%A8%E5%A4%8D%E5%88%B6%E8%BF%98%E6%98%AF%E5%80%9F%E7%94%A8%E4%BC%A0%E9%80%92/</link>
+      <title>小的Rust结构类型,应使用复制还是借用传递?(译)</title>
+      <link>/2019/09/02/%E5%B0%8F%E7%9A%84rust%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%BA%94%E4%BD%BF%E7%94%A8%E5%A4%8D%E5%88%B6%E8%BF%98%E6%98%AF%E5%80%9F%E7%94%A8%E4%BC%A0%E9%80%92%E8%AF%91/</link>
       <pubDate>Mon, 02 Sep 2019 10:11:45 +0800</pubDate>
       
-      <guid>/2019/09/02/%E5%B0%8F%E7%9A%84rust%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%BA%94%E4%BD%BF%E7%94%A8%E5%A4%8D%E5%88%B6%E8%BF%98%E6%98%AF%E5%80%9F%E7%94%A8%E4%BC%A0%E9%80%92/</guid>
+      <guid>/2019/09/02/%E5%B0%8F%E7%9A%84rust%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%BA%94%E4%BD%BF%E7%94%A8%E5%A4%8D%E5%88%B6%E8%BF%98%E6%98%AF%E5%80%9F%E7%94%A8%E4%BC%A0%E9%80%92%E8%AF%91/</guid>
       <description>对于小的 Rust 结构类型，应使用复制（copy）还是借用(borrow)传递？ 2019 年 8 月 26 日 ❤️ 原文
 像许多好故事一样，这个故事从一个简单的问题开始。对于小的 Rust 结构类型，应使用复制还是借用传递？例如：
 struct Vector3 { x: f32, y: f32, z: f32 } fn dot_product_by_copy(a: Vector3, b: Vector3) -&amp;gt; float { a.x*b.x + a.y*b.y + a.z*b.z } fn dot_product_by_borrow(a: &amp;amp;Vector3, b: &amp;amp;Vector3) -&amp;gt; float { a.x*b.x + a.y*b.y + a.z*b.z }  就是这个简单的问题将我带向了长征之路，带有些惊人的曲折和发现。
