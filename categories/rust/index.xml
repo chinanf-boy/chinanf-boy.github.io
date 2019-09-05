@@ -6,10 +6,28 @@
     <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 04 Sep 2019 21:39:23 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2019 10:52:40 +0800</lastBuildDate>
     
 	<atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于Rust项目肥大的思考(译)</title>
+      <link>/2019/09/05/%E5%85%B3%E4%BA%8Erust%E9%A1%B9%E7%9B%AE%E8%82%A5%E5%A4%A7%E7%9A%84%E6%80%9D%E8%80%83%E8%AF%91/</link>
+      <pubDate>Thu, 05 Sep 2019 10:52:40 +0800</pubDate>
+      
+      <guid>/2019/09/05/%E5%85%B3%E4%BA%8Erust%E9%A1%B9%E7%9B%AE%E8%82%A5%E5%A4%A7%E7%9A%84%E6%80%9D%E8%80%83%E8%AF%91/</guid>
+      <description>关于 Rust 项目大小膨胀的思考 2019 年 8 月 21 日 ❤️ 原文
+我要接受了一个PR，这将加快了 druid 的编译时间，约 3 倍，而其可执行文件大小则变为近乎 2 倍。在这种情况下，我认为需要权衡一下（没有国际化，这个 GUI 工具包严格上来说，是一个玩具），但膨胀使我不高兴，我认为有改善 Rust 生态系统的空间。
+我们应该关心吗？ 对我来说，rust 中的膨胀主要是关于编译时间和可执行文件大小。关于编译时间的十大挑战，其中含有 Rust 的开发经验，但在某种程度上，它是由开发人员控制的，特别是选择那些臃肿的箱子。
+膨胀是软件中的一个常见问题，但有一些事情使它在 Rust ，会是一个更大挑战：
+ Cargo 很容易就够到箱子。 泛型，特别是单态化。 不支持动态库。  对编译时间影响的一个更微妙的方法是，使用像 rls 这样的工具。
+这会因人而异，但我个人很在乎。我希望 XI 编辑器的核心是轻量级，特别是当我们能够考虑 UI 之类的问题时。但是，现在发布的二进制文件是 5.9M（发布版本，Windows，不包括语法着色，而这是额外的 2.1M）。为了减少膨胀，我在 Rust 生态系统中做了很多其他的事情，在这篇文章中，我会吹嘘一下。
+功能 vs 膨胀 当然，我之所以考虑在 druid 上，进行如此大的编译时间跳跃，是因为我想要国际化，这是一个重要而复杂的特性。正确地进行这项工作，需要相当多的逻辑，其中包括区域匹配、Unicode 和自然语言处理（如复数规则）的。我没有*期待过*会有一个小箱子，能帮我做到这些。
+最近我们看到的一个类似的权衡是，pulldown-cmark 关于Unicase dep 增加了 50K二进制文件大小。在这种情况下，CommonMark 规范要求 Unicode 大小写折叠，如果没有这个，它将不再符合标准。我理解这种不去匹配的诱惑，但我认为，不符合规范的版本是一件坏事，尤其是对世界上大多数母语不是英语的人不友好。
+因此，重要的是，不要将精益求精与缺乏重要特性混为一谈。真正要说的是，膨胀是不必要的资源消耗，超出了满足需求所必需的范围。Unicode 和国际化是一个特别有争议的问题，这不仅是因为它们实际上，需要代码和数据才能正确处理，而且还因为它们有很大的膨胀量。
+作&amp;rsquo;廋子&amp;rsquo;的基础箱子 我将对“基础”箱子有更高的标准，这些箱子会给多数 Rust 应用所使用。*不*使用依赖关系会是一个膨胀关注点，或者根据需求和对膨胀的容忍度，将生态系统分割成不同的解决方案。</description>
+    </item>
     
     <item>
       <title>Rust周报 302(译)</title>
