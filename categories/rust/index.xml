@@ -6,10 +6,29 @@
     <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 05 Sep 2019 10:52:40 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Sep 2019 10:57:01 +0800</lastBuildDate>
     
 	<atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 303(译)</title>
+      <link>/2019/09/12/rust%E5%91%A8%E6%8A%A5-303%E8%AF%91/</link>
+      <pubDate>Thu, 12 Sep 2019 10:57:01 +0800</pubDate>
+      
+      <guid>/2019/09/12/rust%E5%91%A8%E6%8A%A5-303%E8%AF%91/</guid>
+      <description>a { color: #804d0f;}  本周的螃蟹行情
+日期：2019-09-10
+原文：本周 Rust(螃蟹) 303
+你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  Rust 如何优化 async/await II：程序分析。 在 ESP32 上的 Rust。 Linux.Fe2O3：一个 Rust 病毒。 改善一个箱子的编译时间。 hyper 0.13 alpha 支持 async/await。 Rust 编写操作系统：2019 年 8 月更新。 大型组织中的 Rust - 会议记录。 Futures 并发。  本周的箱子 本周的箱子是viu，终端图像查看器。
+谢谢威利卡普勒建议！
+提交下周的建议和投票！
+呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！
+其中一些任务也可能会有指导者，请访问任务页，了解更多信息。
+ 请求帮助，为 GCC 实现一个独立的 Rust 前端。 Rusoto：寻找维护者。  如果你是一个 Rust 项目的所有者，并且正在寻找贡献者，请在这里提交任务。</description>
+    </item>
     
     <item>
       <title>关于Rust项目肥大的思考(译)</title>
