@@ -6,10 +6,30 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 12 Sep 2019 10:57:01 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Sep 2019 22:15:46 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 304(译)</title>
+      <link>/2019/09/19/rust%E5%91%A8%E6%8A%A5-304%E8%AF%91/</link>
+      <pubDate>Thu, 19 Sep 2019 22:15:46 +0800</pubDate>
+      
+      <guid>/2019/09/19/rust%E5%91%A8%E6%8A%A5-304%E8%AF%91/</guid>
+      <description>a { color: #804d0f;}  本周的螃蟹行情
+日期：2019-09-17
+原文：本周 Rust(螃蟹) 304
+你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  即将发布的 docs.rs 变化。 Rust 的 GitHub Actions。 Rustconf 2019 视频。 改进了 Rust 和 C2Rust 中的 C 变量。 Oreboot：Coreboot 减去 C，Google 的一次演讲。 宣布 awesome-rust-mentors。 运动控制中的冒险。  本周的箱子 本周的箱子是texture-synthesis，一个通过选择示例，生成纹理的程序。
+谢谢威利卡普勒的建议！
+提交下周的建议和投票！
+呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！
+其中一些任务也可能会有指导者，请访问任务页，了解更多信息。
+ Rustup 需要你的帮助（测试一个新功能）。 Rustup 需要你的帮助（测试一个新功能，第二部分）。 通知：寻找维护者。Notify 是 Rust 的跨平台文件系统通知库。  如果您是 Rust 项目所有者并且正在寻找贡献者，请提交任务这里。
+Rust Core 的更新 在上周合并了有 282 个请求</description>
+    </item>
     
     <item>
       <title>Rust周报 303(译)</title>
