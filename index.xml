@@ -6,10 +6,24 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Oct 2019 23:09:19 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 Oct 2019 22:16:31 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 308(译)</title>
+      <link>/2019/10/19/rust%E5%91%A8%E6%8A%A5-308%E8%AF%91/</link>
+      <pubDate>Sat, 19 Oct 2019 22:16:31 +0800</pubDate>
+      
+      <guid>/2019/10/19/rust%E5%91%A8%E6%8A%A5-308%E8%AF%91/</guid>
+      <description>a { color: #804d0f;}  本周的螃蟹行情
+日期：2019-10-15
+原文：本周 Rust(螃蟹) 308
+你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  使 Tokio scheduler 快 10 倍。 在 2019 年，如何进一步加快 Rust 编译器的速度。 node 实验 - 使用 Rust 探索异步基础知识。 在 CLion 中，调试 Rust 代码。 我最喜欢的 rust 函数std::mem::drop。 sodiumoxide 中的漏洞：generichash::Digest::eq 始终返回 true。 使用 Rust 的 RISC-V OS：Communications。 将一个箱子从 futures 0.1 迁移到 0.3。 运动控制历险记：通信系统第 2 部分。 宣布 Rustup 1.20.0。 新的 VxWorks 版本，支持 Rust。 AWS 赞助 Rust 项目。  本周的箱子 这周，我们不是一个，也不是两个，而是*三个*箱子！有Watt，一个基于 WASM 的快速 proc-macro 运行时，Anyhow，为另一个错误处理箱，和spotify-tui，Spotify 的控制台用户界面。</description>
+    </item>
     
     <item>
       <title>Rust周报 307(译)</title>
