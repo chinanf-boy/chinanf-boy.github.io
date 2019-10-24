@@ -6,10 +6,24 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 19 Oct 2019 22:16:31 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 17:55:15 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 309(译)</title>
+      <link>/2019/10/24/rust%E5%91%A8%E6%8A%A5-309%E8%AF%91/</link>
+      <pubDate>Thu, 24 Oct 2019 17:55:15 +0800</pubDate>
+      
+      <guid>/2019/10/24/rust%E5%91%A8%E6%8A%A5-309%E8%AF%91/</guid>
+      <description>a { color: #804d0f;}  本周的螃蟹行情
+日期：2019-10-22
+原文：本周 Rust(螃蟹) 309
+你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  我使用生成器，制作了一个 Rust 的 NES 模拟器。 rustc 把时间花在了哪些地方。 进度：2019 年编译器路线图。 进度：const 泛型更新。 异步析构函数。 使用 Rust 和 WebAssembly 的微型静态全文搜索引擎。 MicroRust：在 BBC micro:bit 上，通过 Rust 探索微控制器的世界。 在 Linux 中，处理进程终止。 嵌入式 WG 的操作系统教程重写，对 Raspberry Pi 4 的添加支持。 运动控制历险记：简单的自动化序列 编程 Servo ：运送信息端口（通过一个 detour{绕行}进入 Spectre）。 嵌入式 Rust 中的 Rotary 编码器。  本周箱子 这周的箱子是grubbnet，一个用于网络应用程序和游戏的 TCP 客户端/服务器库。</description>
+    </item>
     
     <item>
       <title>Rust周报 308(译)</title>
