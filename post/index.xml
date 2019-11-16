@@ -6,10 +6,24 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 07 Nov 2019 10:04:45 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 20:44:26 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 312(译)</title>
+      <link>/2019/11/16/rust%E5%91%A8%E6%8A%A5-312%E8%AF%91/</link>
+      <pubDate>Sat, 16 Nov 2019 20:44:26 +0800</pubDate>
+      
+      <guid>/2019/11/16/rust%E5%91%A8%E6%8A%A5-312%E8%AF%91/</guid>
+      <description>a { color: #804d0f;}  本周的螃蟹行情
+日期：2019-11-12
+原文：本周 Rust(螃蟹) 312
+你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  🎈🎉宣布 Rust 1.39.0。🎉🎈 stable Rust 版本上的，Async-await。 宣布 async-std 1.0。 发布了 Futures 0.3（具有 async/await 支持）。 比较 Rust 和 C ++ 并发。 在 Rust 中，使用类型级编程，来进行更安全的硬件抽象。 揭开 async Rust 的神秘面纱。 Mors Servo 提供的 librsvg 中的 CSS，现在已使用 Rust 。 Swift 如何在 Rust 无法实现的地方，实现动态链接。 对 Windows 代码库的底层系统组件，进行实验性重写。 iou：用于 liburing 的 Rust 绑定。 在 Rust 中，泛化协程。 关于 Rust 中的类型布局和 ABI 的注释。 使用 eBPF，将 Rust 放入内核。 运动控制历险记：使用 G-Code。 使用 Meili，搜索 Rust 箱子。  ＃Rust2020 查找位于＃Rust2020 Read Rust的所有帖子。</description>
+    </item>
     
     <item>
       <title>Rust周报 311(译)</title>
