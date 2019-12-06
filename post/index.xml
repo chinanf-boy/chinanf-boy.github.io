@@ -6,10 +6,24 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 29 Nov 2019 10:28:22 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 09:55:24 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 315(译)</title>
+      <link>/2019/12/06/rust%E5%91%A8%E6%8A%A5-315%E8%AF%91/</link>
+      <pubDate>Fri, 06 Dec 2019 09:55:24 +0800</pubDate>
+      
+      <guid>/2019/12/06/rust%E5%91%A8%E6%8A%A5-315%E8%AF%91/</guid>
+      <description>a { color: #804d0f;}  本周的螃蟹行情
+日期：2019-12-03
+原文：本周 Rust(螃蟹) 315
+你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  现在默认情况下，nightly 版本进行常数传播。 Redox 操作系统：真正的硬件突破，并专注于 rustc。 使用 Rust 将 ML 投入生产：提速 25 倍。 如何 RiiR。 发起 2019 年 Rust 状况调查。 宣布 http v0.2。 用 Rust 和 async/await 实现 pid1。 潮流：现在和未来。 让我们用 Rust 语言加上 Wrap ，创建一个简单的身份验证服务器。 与 Future 融为一体 —— Rust 速成课程 8。 嵌入式 WG 新闻通讯 21。  ＃Rust2020 查找位于＃Rust2020 的所有帖子读 Rust。</description>
+    </item>
     
     <item>
       <title>Rust周报 314(译)</title>
