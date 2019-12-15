@@ -6,10 +6,24 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Dec 2019 09:55:24 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Dec 2019 17:01:31 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 316(译)</title>
+      <link>/2019/12/15/rust%E5%91%A8%E6%8A%A5-316%E8%AF%91/</link>
+      <pubDate>Sun, 15 Dec 2019 17:01:31 +0800</pubDate>
+      
+      <guid>/2019/12/15/rust%E5%91%A8%E6%8A%A5-316%E8%AF%91/</guid>
+      <description>a { color: #804d0f;}  本周的螃蟹行情
+日期：2019-12-10
+原文：本周 Rust(螃蟹) 316
+你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  如何在 2019 年，最后一次加速 Rust 编译器。 Formatting 对于嵌入式 Rust 来说，是不合理的昂贵。 1Password X Manager 的某些部分已用 Rust 重写。 宣布具有完整异步/等待支持的 hyper v0.13。 阻塞内部异步代码。 宣布 docs.rs 团队。 编写最慢的快速排序。 Rust 库中的健全性错误：不能与&amp;rsquo;em 一起生活，活着不能没有&amp;rsquo;em。 Rust 中 3.5 KB 的，微小 Windows 可执行文件。 Embark 内部的 Rust。 Tokio 0.2 - Rust 崩溃课程。 推广 基于 autoref 的规范。 A rusty radio：Si4703 FM 收音机 receiver 驱动程序。  ＃Rust2020 查找位于＃Rust2020 的所有帖子读 Rust。</description>
+    </item>
     
     <item>
       <title>Rust周报 315(译)</title>
