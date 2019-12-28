@@ -6,10 +6,24 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 21 Dec 2019 11:01:11 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Dec 2019 11:40:52 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 318(译)</title>
+      <link>/2019/12/28/rust%E5%91%A8%E6%8A%A5-318%E8%AF%91/</link>
+      <pubDate>Sat, 28 Dec 2019 11:40:52 +0800</pubDate>
+      
+      <guid>/2019/12/28/rust%E5%91%A8%E6%8A%A5-318%E8%AF%91/</guid>
+      <description>a { color: #804d0f;}  本周的螃蟹行情
+日期：2019-12-24
+原文：本周 Rust(螃蟹) 318
+你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  🎈🎉宣布 Rust 1.40.0。🎉🎈 Rust 之危。 宣布 Tokio-Compat。 Haskell 和 Rust 中的 async exceptions。 actix-web v2.0 发布。 宣布正式的 MongoDB Rust 驱动程序。 JetBrains- Rustlings 课程改编。 在 Rust 中，编写 BPF 代码。 在 Rust 箱子中，测试 no_std 兼容性。 源代码链接：将 C headers 合并到 Rust 模块中。 使用 WASM 和 Cloudflare 的无服务器 Rust。 使用 Rust，将 JavaScript 应用程序移植到 WebAssembly（第 1 部分）。 深入探讨：编译的 Rust p1。 Formatting 编译器树。 Streams 并发。 在 Rust 中，写一个 seqlock。 Vishay 的 VEML6030 和 VEML7700 环境光传感器的平台驱动程序。 PCA9685 16-channel，PWM LED/servo 电机控制器驱动器。 祝贺，编译器团队成员 matthewjasper 和 wesleywiser。  周箱 这周的箱子是cargo-scout，一个 cargo 子命令，仅在箱子的更改代码上，运行 clippy（在 git diff 之后）。</description>
+    </item>
     
     <item>
       <title>Rust周报 317(译)</title>
