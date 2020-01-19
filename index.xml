@@ -6,10 +6,29 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Jan 2020 21:38:29 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 10:35:38 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust GameDev 月刊 #1(译)</title>
+      <link>/2020/01/19/rust-gamedev-%E6%9C%88%E5%88%8A-1%E8%AF%91/</link>
+      <pubDate>Sun, 19 Jan 2020 10:35:38 +0800</pubDate>
+      
+      <guid>/2020/01/19/rust-gamedev-%E6%9C%88%E5%88%8A-1%E8%AF%91/</guid>
+      <description>a { color: #b33434;} div.inner { background: #fbf6ec !important;}  
+Rust GameDev #1 月刊 - 8 月 2019  2019 年 9 月 2 日
+欢迎来到 Rust 游戏开发工作组月刊（希望如此！）的创刊号新闻稿。
+Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
+我们希望为想在开发过程中，使用 Rust 的人建立一个吸引人的生态系统！想参与吗？加入 Rust GameDev working group!
+新闻和博文 # the Rust GameDev Working Group 的调查问卷 📋 # 对在游戏开发中使用 Rust 感兴趣（可能已经投资了？）？请留出一点时间，来回答这个简短的调查，了解我们游戏开发生态系统的现状，以及游戏开发工作组可以做些什么，来培育它。🌱
+尽管我们非常感谢您提供少量的信息，以便我们可以方便地与您联系进行进一步的讨论，但共享这些信息是可选的。这项调查中只有 3 个问题是强制性的，我们把最重要的问题留到最后。
+目前正在处理问卷，以供稍后的发布。在调查结果公布并随后永久关闭之前，我们仍在接受回复。
+_讨论：/r/rust,twitter_
+还有，看看我们之前的帖子&amp;ldquo;欢迎 Rust Game Development Working Group&amp;rdquo;，如果你还没看到[/r/rust,twitter].
+Rustsim #7 月刊 (June − July 2019) # nphysics 0.</description>
+    </item>
     
     <item>
       <title>Rust周报 321(译)</title>
@@ -17,12 +36,10 @@
       <pubDate>Thu, 16 Jan 2020 21:38:29 +0800</pubDate>
       
       <guid>/2020/01/16/rust%E5%91%A8%E6%8A%A5-321%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
-日期：2020-01-14
-原文：本周 Rust(螃蟹) 321
-你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+      <description>this-week-in-rust 日期：2020-01-14 原文：321 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
 *这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
-Rust 社区的更新 新闻和博客文章  虚幻引擎中的 Rust 代码。 简介- Roguelike 教程。 迈向 Rust 基础。 Way Cooler 事后剖析。 Why Rust? I have a GC！ rust-analyzer changelog 7. 本月 Rust gamedev 5- 2019 年 12 月. RDBC 正迁往 Tokio. 用 Rust 和 Z3 合成 loop-free程序. ESP32 上，集装箱型构建 for Rust. 在 Rust 内核中，实现协同调度。  一周一箱 这个星期的箱子是cxx，一个通过顾及两面，安全构建 C++ FFI 的库。</description>
+Rust 社区的更新 新闻和博客文章  虚幻引擎中的 Rust 代码。 简介- Roguelike 教程。 迈向 Rust 基础。 Way Cooler 事后剖析。 Why Rust? I have a GC！ rust-analyzer changelog 7. 本月 Rust gamedev 5- 2019 年 12 月. RDBC 正迁往 Tokio. 用 Rust 和 Z3 合成 loop-free 程序. ESP32 上，集装箱型构建 for Rust. 在 Rust 内核中，实现协同调度。  一周一箱 这个星期的箱子是cxx，一个通过顾及两面，安全构建 C++ FFI 的库。
+多亏了Ehsan M.</description>
     </item>
     
     <item>
@@ -31,12 +48,13 @@ Rust 社区的更新 新闻和博客文章  虚幻引擎中的 Rust 代码。 �
       <pubDate>Fri, 10 Jan 2020 10:26:30 +0800</pubDate>
       
       <guid>/2020/01/10/rust%E5%91%A8%E6%8A%A5-320%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2020-01-07
 原文：本周 Rust(螃蟹) 320
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
 *这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
-Rust 社区的更新 新闻和博客文章  将 Quake 3 转换为 Rust。 减少对 32 位 Apple 目标的支持。 学习 Rust 的危险方法：让编译器完成工作。 互斥锁(Mutexes)比自旋锁(spinlocks)更快。 在 Rust 中编写操作系统：2019 年 12 月更新。 const 泛型进度更新。 Elastic 发布正式的 Elasticsearch Rust 客户端。 异步生态系统中的 Backpressure。 解释 Rust 中的 atomics。 宣布 ÄroRust —— 非官方的，Rust + 航空航天工作组。 Rust Belt Rust 2019 的视频，现已发布。 Rust 的 Result 类型入门。  周箱 这周的箱子是sqlx，现代的 SQL 客户端库。</description>
+Rust 社区的更新 新闻和博客文章  将 Quake 3 转换为 Rust。 减少对 32 位 Apple 目标的支持。 学习 Rust 的危险方法：让编译器完成工作。 互斥锁(Mutexes)比自旋锁(spinlocks)更快。 在 Rust 中编写操作系统：2019 年 12 月更新。 const 泛型进度更新。 Elastic 发布正式的 Elasticsearch Rust 客户端。 异步生态系统中的 Backpressure。 解释 Rust 中的 atomics。 宣布 ÄroRust —— 非官方的，Rust + 航空航天工作组。 Rust Belt Rust 2019 的视频，现已发布。 Rust 的 Result 类型入门。  周箱 这周的箱子是sqlx，现代的 SQL 客户端库。
+谢谢扬·里默（Jan Riemer）的建议！</description>
     </item>
     
     <item>
@@ -73,12 +91,15 @@ Rust 社区的更新 新闻和博客文章  🎈🎉宣布 Rust 1.40.0。🎉�
       <pubDate>Sat, 21 Dec 2019 11:01:11 +0800</pubDate>
       
       <guid>/2019/12/21/rust%E5%91%A8%E6%8A%A5-317%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-12-17
 原文：本周 Rust(螃蟹) 317
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
 *这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
-Rust 社区的更新 新闻和博客文章  用 cargo-bisect-rustc 对分 Rust 编译器 regressions。 不用再担心阻塞了：受 Go 启发的新 async-std runtime。 从零到 main()：裸机 Rust。 WASM 为抽象平台。 gtk-rs 新版本：简化以及更多功能。 宣布 Mio 0.7-alpha.1。 Rendology 简介：基于 Glium 的渲染管道。 常见的 Rust traits。 用 Rust 解决 Burger 问题。 将 druid Rust 小部件移植到 PineTime 智能手表。 Relm 教程。 为什么 Rust 似乎会启发人们？  周箱 这周的箱子是bstr，不要求是有效的 UTF-8 的， Rust 字符串类型。</description>
+Rust 社区的更新 新闻和博客文章  用 cargo-bisect-rustc 对分 Rust 编译器 regressions。 不用再担心阻塞了：受 Go 启发的新 async-std runtime。 从零到 main()：裸机 Rust。 WASM 为抽象平台。 gtk-rs 新版本：简化以及更多功能。 宣布 Mio 0.7-alpha.1。 Rendology 简介：基于 Glium 的渲染管道。 常见的 Rust traits。 用 Rust 解决 Burger 问题。 将 druid Rust 小部件移植到 PineTime 智能手表。 Relm 教程。 为什么 Rust 似乎会启发人们？  周箱 这周的箱子是bstr，不要求是有效的 UTF-8 的， Rust 字符串类型。
+谢谢威利·卡普勒的建议！
+提交您下周的建议和投票！
+呼吁参与 一直想为开源项目做贡献，但不知道从哪里开始？每周我们都会重点介绍 Rust 社区的一些任务，供您选择和开始！</description>
     </item>
     
     <item>
@@ -87,7 +108,7 @@ Rust 社区的更新 新闻和博客文章  用 cargo-bisect-rustc 对分 Rust �
       <pubDate>Sun, 15 Dec 2019 17:01:31 +0800</pubDate>
       
       <guid>/2019/12/15/rust%E5%91%A8%E6%8A%A5-316%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-12-10
 原文：本周 Rust(螃蟹) 316
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -101,12 +122,15 @@ Rust 社区的更新 新闻和博客文章  如何在 2019 年，最后一次加
       <pubDate>Fri, 06 Dec 2019 09:55:24 +0800</pubDate>
       
       <guid>/2019/12/06/rust%E5%91%A8%E6%8A%A5-315%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-12-03
 原文：本周 Rust(螃蟹) 315
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
 *这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
-Rust 社区的更新 新闻和博客文章  现在默认情况下，nightly 版本进行常数传播。 Redox 操作系统：真正的硬件突破，并专注于 rustc。 使用 Rust 将 ML 投入生产：提速 25 倍。 如何 RiiR。 发起 2019 年 Rust 状况调查。 宣布 http v0.2。 用 Rust 和 async/await 实现 pid1。 潮流：现在和未来。 让我们用 Rust 语言加上 Wrap ，创建一个简单的身份验证服务器。 与 Future 融为一体 —— Rust 速成课程 8。 嵌入式 WG 新闻通讯 21。  ＃Rust2020 查找位于＃Rust2020 的所有帖子读 Rust。</description>
+Rust 社区的更新 新闻和博客文章  现在默认情况下，nightly 版本进行常数传播。 Redox 操作系统：真正的硬件突破，并专注于 rustc。 使用 Rust 将 ML 投入生产：提速 25 倍。 如何 RiiR。 发起 2019 年 Rust 状况调查。 宣布 http v0.2。 用 Rust 和 async/await 实现 pid1。 潮流：现在和未来。 让我们用 Rust 语言加上 Wrap ，创建一个简单的身份验证服务器。 与 Future 融为一体 —— Rust 速成课程 8。 嵌入式 WG 新闻通讯 21。  ＃Rust2020 查找位于＃Rust2020 的所有帖子读 Rust。
+周箱 这周的箱子是joinery，用于泛型字符串连接的库。
+谢谢内森·韦斯特的建议！
+提交您下周的建议和投票！</description>
     </item>
     
     <item>
@@ -115,7 +139,7 @@ Rust 社区的更新 新闻和博客文章  现在默认情况下，nightly 版�
       <pubDate>Fri, 29 Nov 2019 10:28:22 +0800</pubDate>
       
       <guid>/2019/11/29/rust%E5%91%A8%E6%8A%A5-314%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-11-26
 原文：本周 Rust(螃蟹) 314
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -129,7 +153,7 @@ Rust 社区的更新 新闻和博客文章  Tokio 路线图到 1.0。 每六周�
       <pubDate>Fri, 22 Nov 2019 11:47:05 +0800</pubDate>
       
       <guid>/2019/11/22/rust%E5%91%A8%E6%8A%A5-313%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-11-19
 原文：本周 Rust(螃蟹) 313
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -137,7 +161,8 @@ Rust 社区的更新 新闻和博客文章  Tokio 路线图到 1.0。 每六周�
 Rust 社区的更新 新闻和博客文章  Stacked borrows：Rust 的 aliasing 模型。 使用 const 泛型，实现 ArrayVec。 关于 Rust 中，错误处理的思考。 了解 Serde。 rust-analyzer：Find 用法。 Global executors。 Rust 基础架构团队：执行 GitHub 的操作。 Rust bug 最小化模式。 使用 PineTime 智能手表，在 IoT 中教授 Rust。  ＃Rust2020 查找位于＃Rust2020 Read Rust的所有帖子。
 周箱 这周的箱子是wasmtime，这是 WebAssembly 的独立 JIT 风格的运行时。
 谢谢乔什·特里维特（Josh Triplett）的建议！
-Submit your suggestions and votes for next week！</description>
+Submit your suggestions and votes for next week！
+呼吁参与 一直想为开源项目做贡献，但不知道从哪里开始？每周我们都会重点介绍 Rust 社区的一些任务，供您选择和开始！</description>
     </item>
     
     <item>
@@ -146,7 +171,7 @@ Submit your suggestions and votes for next week！</description>
       <pubDate>Sat, 16 Nov 2019 20:44:26 +0800</pubDate>
       
       <guid>/2019/11/16/rust%E5%91%A8%E6%8A%A5-312%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-11-12
 原文：本周 Rust(螃蟹) 312
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -160,7 +185,7 @@ Rust 社区的更新 新闻和博客文章  🎈🎉宣布 Rust 1.39.0。🎉�
       <pubDate>Thu, 07 Nov 2019 10:04:45 +0800</pubDate>
       
       <guid>/2019/11/07/rust%E5%91%A8%E6%8A%A5-311%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-11-05
 原文：本周 Rust(螃蟹) 311
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -180,7 +205,7 @@ Rust 社区的更新 新闻和博客文章  完成向新借用检查器的过渡
       <pubDate>Thu, 31 Oct 2019 23:02:52 +0800</pubDate>
       
       <guid>/2019/10/31/rust%E5%91%A8%E6%8A%A5-310%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-10-29
 原文：本周 Rust(螃蟹) 310
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -194,12 +219,15 @@ Rust 社区的更新 新闻和博客文章  征集：博客 2020 。 为什么 t
       <pubDate>Thu, 24 Oct 2019 17:55:15 +0800</pubDate>
       
       <guid>/2019/10/24/rust%E5%91%A8%E6%8A%A5-309%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-10-22
 原文：本周 Rust(螃蟹) 309
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
 *这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
-Rust 社区的更新 新闻和博客文章  我使用生成器，制作了一个 Rust 的 NES 模拟器。 rustc 把时间花在了哪些地方。 进度：2019 年编译器路线图。 进度：const 泛型更新。 异步析构函数。 使用 Rust 和 WebAssembly 的微型静态全文搜索引擎。 MicroRust：在 BBC micro:bit 上，通过 Rust 探索微控制器的世界。 在 Linux 中，处理进程终止。 嵌入式 WG 的操作系统教程重写，对 Raspberry Pi 4 的添加支持。 运动控制历险记：简单的自动化序列 编程 Servo ：运送信息端口（通过一个 detour{绕行}进入 Spectre）。 嵌入式 Rust 中的 Rotary 编码器。  本周箱子 这周的箱子是grubbnet，一个用于网络应用程序和游戏的 TCP 客户端/服务器库。</description>
+Rust 社区的更新 新闻和博客文章  我使用生成器，制作了一个 Rust 的 NES 模拟器。 rustc 把时间花在了哪些地方。 进度：2019 年编译器路线图。 进度：const 泛型更新。 异步析构函数。 使用 Rust 和 WebAssembly 的微型静态全文搜索引擎。 MicroRust：在 BBC micro:bit 上，通过 Rust 探索微控制器的世界。 在 Linux 中，处理进程终止。 嵌入式 WG 的操作系统教程重写，对 Raspberry Pi 4 的添加支持。 运动控制历险记：简单的自动化序列 编程 Servo ：运送信息端口（通过一个 detour{绕行}进入 Spectre）。 嵌入式 Rust 中的 Rotary 编码器。  本周箱子 这周的箱子是grubbnet，一个用于网络应用程序和游戏的 TCP 客户端/服务器库。
+谢谢Dooskington的建议！
+提交您下周的建议和投票！
+呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！</description>
     </item>
     
     <item>
@@ -208,7 +236,7 @@ Rust 社区的更新 新闻和博客文章  我使用生成器，制作了一个
       <pubDate>Sat, 19 Oct 2019 22:16:31 +0800</pubDate>
       
       <guid>/2019/10/19/rust%E5%91%A8%E6%8A%A5-308%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-10-15
 原文：本周 Rust(螃蟹) 308
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -222,7 +250,7 @@ Rust 社区的更新 新闻和博客文章  使 Tokio scheduler 快 10 倍。 �
       <pubDate>Thu, 10 Oct 2019 23:09:19 +0800</pubDate>
       
       <guid>/2019/10/10/rust%E5%91%A8%E6%8A%A5-307%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-10-08
 原文：本周 Rust(螃蟹) 307
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -236,7 +264,7 @@ Rust 社区的更新 新闻和博客文章  宣布 Inside Rust 博客。 Async �
       <pubDate>Fri, 04 Oct 2019 15:35:58 +0800</pubDate>
       
       <guid>/2019/10/04/rust%E5%91%A8%E6%8A%A5-306%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-10-01
 原文：本周 Rust(螃蟹) 305
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -244,7 +272,9 @@ Rust 社区的更新 新闻和博客文章  宣布 Inside Rust 博客。 Async �
 Rust 社区的更新 新闻和博客文章  🎈🎉宣布 Rust 1.38.0。🎉🎈 Cargo 安全咨询。 Async-await 处于 beta。 Rust 引用类型的精确心智模型。 对抗 Async 碎片。 使用 Rust 制作 RISC-V 操作系统。 Rust 中的插件。 用 Rust，构建 Azure IoT Edge 安全守护程序。 运动控制历险记：FPS 计数器。 因果分析 Rust 代码。 gfx-rs 2019 更新。 宣布 Drone OS - 用 Rust 编写的实时应用程序的嵌入式操作系统。  本周的箱子 这周的箱子是pin-project，一份程序宏衍生品，符合人体工程学且安全Pin预测。
 谢谢克里希纳（Krishna Sannasi）的建议！
 提交您下周的建议和投票！
-呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！</description>
+呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！
+其中一些任务也可能会有指导者，请访问任务页，了解更多信息。
+ Vector：更新stdin源码使用线程，而不是使用 tokio 版本。Vector 是一种高性能的可观察性的数据路由器。 mundane：启用所有功能的 docs.</description>
     </item>
     
     <item>
@@ -253,12 +283,15 @@ Rust 社区的更新 新闻和博客文章  🎈🎉宣布 Rust 1.38.0。🎉�
       <pubDate>Thu, 26 Sep 2019 17:01:18 +0800</pubDate>
       
       <guid>/2019/09/26/rust%E5%91%A8%E6%8A%A5-305%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-09-24
 原文：本周 Rust(螃蟹) 305
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
 *这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
-Rust 社区的更新 新闻和博客文章  LLVM：缩小差距 - Rust 和 C / C ++之间的跨语言 LTO。 Weld：使用 Rust 和 LLVM 将 numpy，scikit 和 pandas 加速多达 100 倍。 声明式内存管理。 泛型新类型：一种解决 orphan 规则的方法。 Async 构建器。 Adventures in motion control：顶层基础架构。 使用 Apache Mynewt 和 Embedded Rust 在 STM32 L476 上，构建 NB-IoT GPS 跟踪器。 导航到 Rust OSS 社区。  本周的箱子 本周的箱子是runtime，是面向实验性的热加载的运行时。</description>
+Rust 社区的更新 新闻和博客文章  LLVM：缩小差距 - Rust 和 C / C ++之间的跨语言 LTO。 Weld：使用 Rust 和 LLVM 将 numpy，scikit 和 pandas 加速多达 100 倍。 声明式内存管理。 泛型新类型：一种解决 orphan 规则的方法。 Async 构建器。 Adventures in motion control：顶层基础架构。 使用 Apache Mynewt 和 Embedded Rust 在 STM32 L476 上，构建 NB-IoT GPS 跟踪器。 导航到 Rust OSS 社区。  本周的箱子 本周的箱子是runtime，是面向实验性的热加载的运行时。
+谢谢维克兰特的建议！
+提交您下周的建议和投票！
+呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！</description>
     </item>
     
     <item>
@@ -267,7 +300,7 @@ Rust 社区的更新 新闻和博客文章  LLVM：缩小差距 - Rust 和 C / C
       <pubDate>Thu, 19 Sep 2019 22:15:46 +0800</pubDate>
       
       <guid>/2019/09/19/rust%E5%91%A8%E6%8A%A5-304%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-09-17
 原文：本周 Rust(螃蟹) 304
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -278,7 +311,8 @@ Rust 社区的更新 新闻和博客文章  即将发布的 docs.rs 变化。 Ru
 呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！
 其中一些任务也可能会有指导者，请访问任务页，了解更多信息。
  Rustup 需要你的帮助（测试一个新功能）。 Rustup 需要你的帮助（测试一个新功能，第二部分）。 通知：寻找维护者。Notify 是 Rust 的跨平台文件系统通知库。  如果您是 Rust 项目所有者并且正在寻找贡献者，请提交任务这里。
-Rust Core 的更新 在上周合并了有 282 个请求</description>
+Rust Core 的更新 在上周合并了有 282 个请求
+ rustc：允许使用 wasm32-wasi 的 cdylib 箱子类型 隐藏 &amp;ndash;cfg 解析期间，发出的诊断信息 改善alloc::format!</description>
     </item>
     
     <item>
@@ -287,7 +321,7 @@ Rust Core 的更新 在上周合并了有 282 个请求</description>
       <pubDate>Thu, 12 Sep 2019 10:57:01 +0800</pubDate>
       
       <guid>/2019/09/12/rust%E5%91%A8%E6%8A%A5-303%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-09-10
 原文：本周 Rust(螃蟹) 303
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -297,7 +331,8 @@ Rust 社区的更新 新闻和博客文章  Rust 如何优化 async/await II：�
 提交下周的建议和投票！
 呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！
 其中一些任务也可能会有指导者，请访问任务页，了解更多信息。
- 请求帮助，为 GCC 实现一个独立的 Rust 前端。 Rusoto：寻找维护者。  如果你是一个 Rust 项目的所有者，并且正在寻找贡献者，请在这里提交任务。</description>
+ 请求帮助，为 GCC 实现一个独立的 Rust 前端。 Rusoto：寻找维护者。  如果你是一个 Rust 项目的所有者，并且正在寻找贡献者，请在这里提交任务。
+Rust Core 的更新 在上周合并了 303 个请求</description>
     </item>
     
     <item>
@@ -324,7 +359,7 @@ Rust 社区的更新 新闻和博客文章  Rust 如何优化 async/await II：�
       <pubDate>Wed, 04 Sep 2019 21:39:23 +0800</pubDate>
       
       <guid>/2019/09/04/rust%E5%91%A8%E6%8A%A5-302%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 日期：2019-09-03
 原文：本周 Rust(螃蟹) 302
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -335,7 +370,8 @@ Rust 社区的更新 新闻和博客文章  Rust Web 应用程序简介。 本�
 呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！
 其中一些任务也可能会有指导者，请访问任务页，了解更多信息。
 _没有针对 CFP 提出任何问题_。
-如果你是一个 Rust 项目的所有者，并且正在寻找贡献者，请在这里提交任务。</description>
+如果你是一个 Rust 项目的所有者，并且正在寻找贡献者，请在这里提交任务。
+Rust Core 的更新 在上周合并了 214 个请求</description>
     </item>
     
     <item>
@@ -344,7 +380,7 @@ _没有针对 CFP 提出任何问题_。
       <pubDate>Wed, 04 Sep 2019 14:07:11 +0800</pubDate>
       
       <guid>/2019/09/04/rust%E5%91%A8%E6%8A%A5-301%E8%AF%91/</guid>
-      <description>a { color: #804d0f;}  本周的螃蟹行情
+      <description>本周的螃蟹行情
 2019 年 8 月 27 日
 原文：本周 Rust(螃蟹) 301
 你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
@@ -355,7 +391,9 @@ _没有针对 CFP 提出任何问题_。
 呼吁参与 总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！
 其中一些任务也可能会有指导者，请访问任务页，了解更多信息。
 _没有针对 CFP 提出任何问题_。
-如果你是一个 Rust 项目的所有者，并且正在寻找贡献者，请在这里提交任务。</description>
+如果你是一个 Rust 项目的所有者，并且正在寻找贡献者，请在这里提交任务。
+Rust Core 更新 上周合并221 个请求
+ 稳定async_await - Rust 1.</description>
     </item>
     
     <item>
