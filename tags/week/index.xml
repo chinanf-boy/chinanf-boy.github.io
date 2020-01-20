@@ -6,29 +6,10 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 19 Jan 2020 10:35:38 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jan 2020 21:38:29 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Rust GameDev 月刊 #1(译)</title>
-      <link>/2020/01/19/rust-gamedev-%E6%9C%88%E5%88%8A-1%E8%AF%91/</link>
-      <pubDate>Sun, 19 Jan 2020 10:35:38 +0800</pubDate>
-      
-      <guid>/2020/01/19/rust-gamedev-%E6%9C%88%E5%88%8A-1%E8%AF%91/</guid>
-      <description>a { color: #b33434;} div.inner { background: #fbf6ec !important;}  
-Rust GameDev #1 月刊 - 8 月 2019  2019 年 9 月 2 日
-欢迎来到 Rust 游戏开发工作组月刊（希望如此！）的创刊号新闻稿。
-Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
-我们希望为想在开发过程中，使用 Rust 的人建立一个吸引人的生态系统！想参与吗？加入 Rust GameDev working group!
-新闻和博文 # the Rust GameDev Working Group 的调查问卷 📋 # 对在游戏开发中使用 Rust 感兴趣（可能已经投资了？）？请留出一点时间，来回答这个简短的调查，了解我们游戏开发生态系统的现状，以及游戏开发工作组可以做些什么，来培育它。🌱
-尽管我们非常感谢您提供少量的信息，以便我们可以方便地与您联系进行进一步的讨论，但共享这些信息是可选的。这项调查中只有 3 个问题是强制性的，我们把最重要的问题留到最后。
-目前正在处理问卷，以供稍后的发布。在调查结果公布并随后永久关闭之前，我们仍在接受回复。
-_讨论：/r/rust,twitter_
-还有，看看我们之前的帖子&amp;ldquo;欢迎 Rust Game Development Working Group&amp;rdquo;，如果你还没看到[/r/rust,twitter].
-Rustsim #7 月刊 (June − July 2019) # nphysics 0.</description>
-    </item>
     
     <item>
       <title>Rust周报 321(译)</title>

@@ -6,10 +6,30 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 19 Jan 2020 10:35:38 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jan 2020 13:21:58 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust GameDev 月刊 #2(译)</title>
+      <link>/2020/01/20/rust-gamedev-%E6%9C%88%E5%88%8A-2%E8%AF%91/</link>
+      <pubDate>Mon, 20 Jan 2020 13:21:58 +0800</pubDate>
+      
+      <guid>/2020/01/20/rust-gamedev-%E6%9C%88%E5%88%8A-2%E8%AF%91/</guid>
+      <description>a { color: #b33434;} div.inner { background: #fbf6ec !important;}  
+Rust GameDev #2 月刊 - 9 月 2019  2019-10-05
+欢迎来到 Rust GameDev 工作组的月刊第二期。
+Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
+我们希望为想在开发过程中，使用 Rust 的人建立一个吸引人的生态系统！想参与吗？加入 Rust GameDev working group!
+游戏更新 # Veloren # Veloren是一个开放的世界，开源的多人像素 RPG。游戏处于开发的早期阶段，但可以玩。
+九月的一些改进：
+ 完善多阶段城镇建设； 改进库存系统和角色创建； 在水、水物理、湖泊和河流方面取得了巨大进展！ 新的块数据结构； 三维地图和小地图； 第一人称观点； 弓箭； 性能优化；  新视频：&amp;ldquo;24 分钟的 Alpha Gameplay&amp;rdquo;.
+完整的每周开发日志“本周在 Veloren…”：#31,#32,#33,#34,#35.
+Zemeroth v0.6 # Zemeroth是一款回合制的极简 2d 战术游戏。
+本月Zemeroth v0.6发布。此版本的主要功能包括：
+ 名望和 fighter 升级， 财产， 精灵帧和翻转， 状态效果图标。  阅读完整的 devlog post或观看the video version。</description>
+    </item>
     
     <item>
       <title>Rust GameDev 月刊 #1(译)</title>

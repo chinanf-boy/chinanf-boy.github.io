@@ -57,6 +57,15 @@
     </item>
     
     <item>
+      <title>Month</title>
+      <link>/tags/month/</link>
+      <pubDate>Mon, 20 Jan 2020 13:21:58 +0800</pubDate>
+      
+      <guid>/tags/month/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Rust</title>
       <link>/tags/rust/</link>
       <pubDate>Wed, 27 Feb 2019 14:56:41 +0800</pubDate>
@@ -113,7 +122,7 @@
     <item>
       <title>Week</title>
       <link>/tags/week/</link>
-      <pubDate>Sun, 19 Jan 2020 10:35:38 +0800</pubDate>
+      <pubDate>Thu, 16 Jan 2020 21:38:29 +0800</pubDate>
       
       <guid>/tags/week/</guid>
       <description></description>
