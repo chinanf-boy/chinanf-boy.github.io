@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Rust GameDev 月刊 #4(译)</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="/css/tooltips.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="/css/stylesheet.css"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Rust GameDev 月刊 #4(译)</h2>
+        
+
+<style>
+a { color: #b33434;}
+div.inner  { background: #fbf6ec !important;}
+</style>
+
+<p><a href="https://rust-gamedev.github.io/"><img src="https://rust-gamedev.github.io/logo.png" alt="" /></a></p>
+
+<h1 id="this-month-in-rust-gamedev-4-11-月-2019">This Month in Rust GameDev #4 - 11 月 2019</h1>
+
+<p>2019-12-08</p>
+
+<p><a href="https://rust-lang.org">Rust</a>是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。</p>
+
+<p>我们希望为想在开发过程中，使用 Rust 的人建立一个吸引人的生态系统！想参与吗？<a href="https://github.com/rust-gamedev/wg#join-the-fun">加入 Rust GameDev working group!</a></p>
+
+<p>想要加入下一期新闻？<a href="https://github.com/rust-gamedev/rust-gamedev.github.io">Send us a pull request</a> 随意发送有关您自己的项目的 PR。</p>
+
+<h2 id="game-updates-game-updates">Game Updates <a href="#game-updates">#</a></h2>
+
+<h3 id="le-train-dispatcher-http-athorus-itch-io-ltd-route-trains-in-模拟铁路网络-le-train-dispatcher-route-trains-in-simulated-rail-network"><a href="http://athorus.itch.io/ltd">Le Train Dispatcher</a> - Route Trains in 模拟铁路网络  <a href="#le-train-dispatcher-route-trains-in-simulated-rail-network">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/ltd.gif" alt="Demo of Le Train Dispatcher" /></p>
+
+<p>Le Train Dispatcher！<a href="http://athorus.itch.io/ltd">itch.io</a>，<a href="https://patreon.com/athorus">Patreon</a> 允许你在完全模拟的铁路网络中，对火车进行路线选择。特别注意了光信号的实际管理（block 系统，开关保护），列车物理特性和弯道追踪。</p>
+
+<p>该游戏使用 Rust 编程，主要使用的箱子是：ggez，imgui 和 serde。</p>
+
+<p>这第一个版本完全可玩，但是如果您想发表评论，提出您的想法或为游戏的发展做出贡献，请不要犹豫地发布一个<a href="https://athorus.itch.io/ltd/community">message</a>。</p>
+
+<p>独特的特点：</p>
+
+<ul>
+<li>逼真的灯光信号模拟：已经进行了大量的工程工作，来对铁路信号进行逼真的管理。</li>
+<li>没有碰撞：是的，放手，看到许多火车自动行驶，这很有趣。你的所有行为都要检查：不能将火车置于危险之中。</li>
+<li>真实物理学
+
+<ul>
+<li>每个机车或货车都有其自身的重量，驱动力或制动力，和其粘连系数。</li>
+<li>这些弯道不是简单的圆，它们的计算公式与实际道路或铁路网络中，使用的方程相同。</li>
+</ul></li>
+</ul>
+
+<h3 id="veloren-https-veloren-net-veloren"><a href="https://veloren.net">Veloren</a> <a href="#veloren">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/veloren.png" alt="Character creation screen" /></p>
+
+<p><a href="https://veloren.net">Veloren</a>是一个开放世界，开放源代码的多人体素 RPG。该游戏尚处于开发初期，但可以玩。</p>
+
+<p>11 月的一些更新：</p>
+
+<ul>
+<li>主存储库达到 50,000 行代码（根据<a href="https://github.com/XAMPPRocky/tokei">Tokei</a>）;</li>
+<li><a href="https://gitlab.com/veloren/airshipper">Airshipper launcher</a> 明显改善；</li>
+<li>游戏设计工作组成立；</li>
+<li>改进了身份验证，玩家创建界面，资产压缩，故事和配乐；</li>
+<li>CI 升级，大量错误修正和内容升级。</li>
+</ul>
+
+<p>完整的每周开发日志“本周在 Veloren &hellip;”：<a href="https://veloren.net/devblog-40">#40</a>，<a href="https://veloren.net/devblog-41">#41</a>，<a href="https://veloren.net/devblog-42">#42</a>，<a href="https://veloren.net/devblog-43">#43</a>。</p>
+
+<hr />
+
+<p>观看新视频<a href="https://youtube.com/watch?v=IIl271iDulY">&ldquo;什么是 Veloren?&rdquo;</a> @DoNeo 和@ RonVal4 撰写（俄语，但有英文字幕）：</p>
+
+<p><a href="https://youtube.com/watch?v=IIl271iDulY"><img src="https://rust-gamedev.github.io/posts/newsletter-004/veloren-video.png" alt="Youtube preview img" /></a></p>
+
+<p>而且，他们写了<a href="https://dtf.ru/indie/83725-veloren-igra-mechty">俄语博文，关于 Veloren for dtf.ru</a>。</p>
+
+<h3 id="math-defense-https-jackmott-itch-io-math-defense-math-defense"><a href="https://jackmott.itch.io/math-defense">Math Defense</a> <a href="#math-defense">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/math-def.png" alt="Math Defense screenshot" /></p>
+
+<p><a href="https://jackmott.itch.io/math-defense">Math Defense</a> by <a href="https://twitter.com/512Avx">@512Avx</a>是儿童数学游戏。</p>
+
+<blockquote>
+<p>通过加减乘除，解决数学问题击落敌方太空飞船，取得进展。多个难度级别，可以通过编辑 levels.json 文件完全自定义。随意创建自己的关卡，改变难度。</p>
+</blockquote>
+
+<p><a href="https://github.com/jackmott/mathblaster">The source code is available here</a>。</p>
+
+<h3 id="sulis-基本资源管理-https-sulisgame-com-dev-modding-9-dev-15-managing-resources-sulis-basic-resource-management"><a href="https://sulisgame.com/dev-modding/9-dev/15-managing-resources">Sulis: 基本资源管理</a> <a href="#sulis-basic-resource-management">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/sulis_logo.png" alt="Sulis logo" /></p>
+
+<p><a href="https://sulisgame.com/dev-modding/9-dev/15-managing-resources">Sulis</a>是一款角色扮演游戏（RPG），具有基于回合的战略战斗，深度角色定制和引人入胜的故事情节。</p>
+
+<p>这个月，一篇文章<a href="https://sulisgame.com/dev-modding/9-dev/15-managing-resources">&ldquo;Basic Resource Management&rdquo;</a>发表：</p>
+
+<blockquote>
+<p>在开发 Sulis 时，主要目标之一是，简便而强大的改装功能。为此，几乎所有资源都是通过简单的 YAML 文件定义的。这个想法是，任何拥有文本编辑器的人，都可以轻松创建新资源或编辑现有资源。但是，这立即提出了如何在游戏状态内管理所有这些资源的问题。在 Sulis 中，这是通过中央资源管理器处理的。</p>
+</blockquote>
+
+<p>尽管是以 Sulis 作为示例的主体，但本文几乎适用于任何游戏。</p>
+
+<p>另外，项目（游戏本身及其源代码）<a href="https://youtube.com/watch?v=gvibvDiVzn8">被 gamefromscratch.com 评估</a> [<a href="https://reddit.com/r/rust_gamedev/comments/du48iw/sulis_an_rpg_created_using_rust_gamesfromscratch">/r/rust_gamedev</a>]。</p>
+
+<h3 id="paddlers-与-rust-和分布式系统-一起快乐成长-https-www-jakobmeier-ch-blogging-paddlers-3-html-paddlers-fun-with-rust-and-distributed-systems"><a href="https://www.jakobmeier.ch/blogging/Paddlers_3.html">Paddlers: 与 Rust 和分布式系统，一起快乐成长</a> <a href="#paddlers-fun-with-rust-and-distributed-systems">#</a></h3>
+
+<p><a href="https://www.jakobmeier.ch/blogging/Paddlers_3.html"><img src="https://rust-gamedev.github.io/posts/newsletter-004/paddlers-arch.png" alt="Paddlers architecture scheme" /></a></p>
+
+<p><a href="https://github.com/jakmeier/paddlers-browser-game">Paddlers</a>是一款多人实时策略浏览器游戏，旨在使所有 Paddland 的鸭子都开心。</p>
+
+<p>在<a href="http://demo.paddlers.ch">demo.paddlers.ch</a>观看现场演示（测试用户的用户名是“ Tester”，密码是“ 1”）。</p>
+
+<p>本月发布了第三个 devlog：<a href="https://www.jakobmeier.ch/blogging/Paddlers_3.html">&rdquo;#3: Fun with Rust and distributed systems&rdquo;</a>。它概述了项目的体系结构和实现。</p>
+
+<h3 id="antorum-drop-tables-https-dooskington-com-dev-log-11-antorum-drop-tables"><a href="https://dooskington.com/dev-log/11">Antorum: Drop Tables</a> <a href="#antorum-drop-tables">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/antorum.jpeg" alt="screenshot: battlefield after slaying some chonkrats" /></p>
+
+<p><a href="https://dooskington.com">Antorum</a>是一款多人 RPG，玩家可以在其中建立自己的角色，并与岛上日益增长的威胁作斗争。游戏服务器是可信的，用 Rust 编写，而客户端则用 Unity / C＃编写。</p>
+
+<p>本月，@ dooskington 发布了<a href="https://dooskington.com/dev-log/11">11th devlog &ldquo;Drop Tables&rdquo;</a>关于处理怪物战利品的掉落格系统的实现。</p>
+
+<h3 id="recall-singularity-11-月进程-https-medium-com-recallsingularity-recalling-nov-2019-236cdf9c0a8a-recall-singularity-november-progress"><a href="https://medium.com/@recallsingularity/recalling-nov-2019-236cdf9c0a8a">Recall Singularity: 11 月进程</a> <a href="#recall-singularity-november-progress">#</a></h3>
+
+<p><a href="https://youtube.com/watch?v=AoPSAoqmTCk"><img src="https://rust-gamedev.github.io/posts/newsletter-004/recall-sing.gif" alt="Demo of the basic ship collision" /></a></p>
+
+<p>^<em>基本的船舶碰撞演示。</em></p>
+
+<p><a href="https://twitter.com/RecallSingular1">Tom Leys</a>正在开发有关设计自主工厂船只和车站的“The Recall Singularity”游戏，本月他们发布了一个 devlog 帖子：<a href="https://medium.com/@recallsingularity/recalling-nov-2019-236cdf9c0a8a">&ldquo;Recalling Nov 2019&rdquo;</a>。</p>
+
+<p>你也可以<a href="https://youtube.com/watch?v=AoPSAoqmTCk">看视频版</a>。</p>
+
+<p>摘要：</p>
+
+<ul>
+<li>用于移动船只或玩家的基本网络输入；</li>
+<li>船舶物理，包括碰撞；</li>
+<li><a href="https://twitch.tv/recallsingularity">Twich 直播 - 开发过程</a>;</li>
+<li>从 Rust（规格）到 Godot 同步化的更通用方法。</li>
+</ul>
+
+<h3 id="slavic-castles-https-leinnan-itch-io-slavic-castles-slavic-castles"><a href="https://leinnan.itch.io/slavic-castles">Slavic Castles</a> <a href="#slavic-castles">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/castles.jpg" alt="Just a screenshot of some battle" /></p>
+
+<p><a href="https://leinnan.itch.io/slavic-castles">Slavic Castles</a>是一款纸牌游戏，灵感来自<a href="https://en.wikipedia.org/wiki/Arcomage">Arcomage</a>，用 <a href="https://github.com/ggez/ggez">ggez</a>/<a href="https://github.com/not-fl3/good-web-game">good-web-game</a> Rust 写的。</p>
+
+<p>你可以<a href="http://leinnan.ayz.pl/ukw/slavic_castles/index.html">在线</a>玩耍或上<a href="https://leinnan.itch.io/slavic-castles">itch.io</a>。</p>
+
+<p><a href="https://github.com/Leinnan/slavic_castles">源代码在此</a>。</p>
+
+<p>_讨论：<a href="https://reddit.com/r/rust_gamedev/comments/dsm2dh/card_game_inspired_by_arcomage">/r/rust_gamedev</a>_</p>
+
+<h3 id="tennis-academy-https-iolivia-me-posts-6-months-of-rust-game-dev-tennis-academy"><a href="https://iolivia.me/posts/6-months-of-rust-game-dev">Tennis Academy</a> <a href="#tennis-academy">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/tennis-academy.gif" alt="robots demo" /></p>
+
+<p><a href="https://twitter.com/oliviff">@oliviff</a>已发布<a href="https://twitter.com/oliviff/status/1192178573488070659">v0.0.5</a>..<a href="https://twitter.com/oliviff/status/1199073510443945985">v0.1.0</a>版本的<a href="https://iolivia.me/posts/6-months-of-rust-game-dev">Tennis Academy</a>：</p>
+
+<ul>
+<li>⏰ 玩家有耐心，无聊时离开；</li>
+<li>✨ 带有文字效果的分数乘数；</li>
+<li>🥇 得/失状态；</li>
+<li>🤖 若没有更多的人了，机器人已经接管了！</li>
+<li>🎨 新的调色板和图形，新的按钮和 UI（使用<a href="https://github.com/hecrj/iced">Iced</a>）。</li>
+</ul>
+
+<h3 id="twenty-asteroids-https-pum-purum-pum-pum-itch-io-twenty-asteroids-twenty-asteroids"><a href="https://pum-purum-pum-pum.itch.io/twenty-asteroids">Twenty Asteroids</a> <a href="#twenty-asteroids">#</a></h3>
+
+<p><a href="https://twitter.com/VladZhukov0/status/1197855075269521409"><img src="https://rust-gamedev.github.io/posts/newsletter-004/asteroids-demo.gif" alt="space ship destroys enemies and asteroids with plasma beams" /></a></p>
+
+<p>该游戏现已正式命名为“二十个小行星”。</p>
+
+<p><a href="https://twitter.com/VladZhukov0">@VladZhukov0</a>已发表<a href="https://twitter.com/VladZhukov0/status/1197855075269521409">短视频： 更新/调整 gameplay</a>。</p>
+
+<h3 id="erasterra-https-coffejunkstudio-itch-io-erasterra-erasterra"><a href="https://coffejunkstudio.itch.io/erasterra">Erasterra</a> <a href="#erasterra">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/erasterra.png" alt="Flying cars" /></p>
+
+<p><a href="https://coffejunkstudio.itch.io/erasterra">Erasterra</a>是一款地形赛车游戏。它使用 Rust 来实现配对服务器。</p>
+
+<blockquote>
+<p>在 Rust 中实现 matchmaker 很有意义，因为它被设计为长期运行的服务，因此可能不会崩溃。Rust 只是使实现非崩溃软件变得更加容易 🙌</p>
+</blockquote>
+
+<h3 id="garden-https-epcc-itch-io-garden-garden"><a href="https://epcc.itch.io/garden">Garden</a> <a href="#garden">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/garden.jpeg" alt="Garden screenshot: ruins, trees and water in craters" /></p>
+
+<p><a href="https://twitter.com/logicsoup">@logicsoup</a>发了一系列更新，其中包括：</p>
+
+<ul>
+<li><a href="https://twitter.com/logicsoup/status/1192825303338536960">废墟的生成，是通过对建筑物&rdquo;假轰炸&rdquo; </a>，</li>
+<li><a href="https://twitter.com/logicsoup/status/1196195909119496199">提升地质物理</a>，</li>
+<li><a href="https://twitter.com/logicsoup/status/1195461536275415040">craters</a>。</li>
+</ul>
+
+<h3 id="robo-instructus-https-store-steampowered-com-app-1032170-robo-instructus-robo-instructus"><a href="https://store.steampowered.com/app/1032170/Robo_Instructus/">Robo Instructus</a> <a href="#robo-instructus">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/robo.jpeg" alt="A screenshot of a later game level" /></p>
+
+<p><a href="https://twitter.com/bigabgames">Alex Butler</a>继续完善他们的“<a href="https://store.steampowered.com/app/1032170/Robo_Instructus/">Robo Instructus</a>“ 游戏;<a href="https://steamcommunity.com/app/1032170/allnews">1.15, 1.16, and 1.17 versions were released</a>：Rust 1.39，错误修正和更好的翻译。</p>
+
+<p><a href="https://github.com/big-ab-games/robo-instructus-translation#about">你可以帮忙翻译翻译</a>。</p>
+
+<h3 id="github-game-off-2019-github-game-off-2019">GitHub Game Off 2019 <a href="#github-game-off-2019">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/gh-gameoff.gif" alt="gameoff logo" /></p>
+
+<p><a href="https://itch.io/jam/game-off-2019">GitHub&rsquo;s Game Off</a>是一年一度的，长达一个月的 game jam（制作游戏的黑客马拉松）。今年的主题是<a href="https://github.blog/2019-11-01-game-off-2019-theme-announcement">&ldquo;leaps and bounds&rdquo;</a>。</p>
+
+<ul>
+<li><a href="https://fedorgames.itch.io/ggoff2019">&ldquo;TopDown&rdquo;</a> by <a href="https://twitter.com/fedor_games">@fedor_games</a>用<a href="https://twitter.com/fedor_games/status/1192989017840730112">他们自己的非公开游戏引擎</a>（<a href="https://github.com/not-fl3/gameoff-2019">source code</a>）。</li>
+</ul>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/fedor-defense.gif" alt="TopDown: gameplay sample" /></p>
+
+<ul>
+<li><a href="https://puppetmaster.itch.io/compact-space">&ldquo;Compact Space&rdquo;</a> by <a href="https://twitter.com/fischspiele">@fischspiele</a> 使用 specs 和 Tetra（<a href="https://github.com/puppetmaster-/compact-space">source code</a>）。</li>
+</ul>
+
+<blockquote>
+<p>你能活多久？</p>
+</blockquote>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/compact-space.png" alt="Compact-Space screenshot: asteroids, ship, aliens" /></p>
+
+<ul>
+<li>“evo”的作者<a href="https://twitter.com/">@ZappedCow</a>用 Tetra（<a href="https://github.com/jlauener/evo">source code</a>）。</li>
+</ul>
+
+<blockquote>
+<p>一个生活/环境模拟器，里面有一些 rogue-like 的东西。</p>
+</blockquote>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/rogue-sim.gif" alt="evo: demo" /></p>
+
+<h3 id="amethyst-games-amethyst-games">Amethyst Games <a href="#amethyst-games">#</a></h3>
+
+<ul>
+<li><a href="https://azriel.im">Azriel</a> 发表了<a href="https://azriel.im/will/2019/11/08/that-looks-good-on-ui">&ldquo;超棒 UI&rdquo;</a> devlog。</li>
+</ul>
+
+<blockquote>
+<p>新功能：</p>
+
+<ul>
+<li>可以定义动画菜单和背景。</li>
+<li>玩家名称可以在控制器配置中指定。</li>
+<li>游戏结束时，显示赢家。</li>
+</ul>
+
+<p>在幕后，进行了以下代码维护：</p>
+
+<ul>
+<li>将所有测试转移到一个单独的箱子中 —— 速度提高了 1.9 倍，磁盘使用量减少了 65%。</li>
+<li>资产被加载到单独的资产组件中 —— 更容易在不同类型的对象之间共享逻辑。</li>
+<li>舞台的资产加载完成，为禁用某些舞台做准备。</li>
+</ul>
+</blockquote>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/will_winner_status.png" alt="Will: Winner Status Demo" /></p>
+
+<ul>
+<li><a href="https://twitter.com/takeryo_eeic">@takeryo_eeic</a> 将他们的六边形游戏命名为“征服”，<a href="https://twitter.com/takeryo_eeic/status/1195263050896429057">添加了一个主菜单</a>，和<a href="https://twitter.com/takeryo_eeic/status/1192407134245228546">公开了一个视频，关于新地图生成器和地图滚动</a>。</li>
+</ul>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/conquest.png" alt="Main menu demo" /></p>
+
+<h2 id="库-工具更新-library-tooling-updates">库 &amp; 工具更新  <a href="#library-tooling-updates">#</a></h2>
+
+<h3 id="memory-arena-https-kooparse-com-blog-memory-arena-memory-arena"><a href="https://kooparse.com/blog/memory-arena">Memory Arena</a> <a href="#memory-arena">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/mem-arena.jpg" alt="how entities/handles are related to each others" /></p>
+
+<p><a href="https://twitter.com/kooparse">@kooparse</a> 发了<a href="https://kooparse.com/blog/memory-arena">一个帖子：关于实现一个 quick momery arena</a>。</p>
+
+<blockquote>
+<p>对于我的游戏，我决定将几乎所有实体存储在一大块内存中，程序启动时就只分配一次内存。我使用这种技术有三个原因。首先，我想要对游戏中的内存管理方式进行全面而精确的控制，其次，我想要更好的数据局部性，以便增加来自 cpu 的缓存命中率，最后，在运行时，要求操作系统分配更多内存是缓慢的。</p>
+</blockquote>
+
+<h3 id="wgpu-v0-4-https-reddit-com-r-rust-gamedev-comments-drcje5-wgpu04-is-out-wgpu-v0-4"><a href="https://reddit.com/r/rust_gamedev/comments/drcje5/wgpu04_is_out">wgpu v0.4</a> <a href="#wgpu-v0-4">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/webgpu.png" alt="some webgpu logo" /></p>
+
+<p><a href="https://github.com/gfx-rs/wgpu">wgpu</a>是 Rust 中的一个库，用于解决大多数图形和计算需求。</p>
+
+<p>wgpu-rs 0.4 箱子发布。wgpu 基于<a href="https://reddit.com/r/rust/comments/dm89t2/gfxhal_version_04_release">gfx-hal-0.4</a>，并包含来自<a href="https://gfx-rs.github.io/2019/10/01/update.html">上一篇博文</a>的变化;</p>
+
+<p>一些值得注意的补充是：</p>
+
+<ul>
+<li>适当的 Windows7 支持；</li>
+<li>支持同一 GPU 服务器上的多个客户端；</li>
+<li>精简 Rendy 依赖（内存和描述符）；</li>
+<li>新的 skybox 示例。</li>
+</ul>
+
+<p>Lyon 有该版本<a href="https://github.com/nical/lyon/pull/496">更新的示例</a>，显示如何在<code>wgpu</code>画矢量图。</p>
+
+<p>还有，<code>wgpu</code>现在是 Gecko 代码库的一部分，用于支持正在出现的 WebGPU 实现。</p>
+
+<h3 id="book-学习-luminance-https-rust-tutorials-github-io-learn-luminance-book-learn-luminance">Book: <a href="https://rust-tutorials.github.io/learn-luminance">学习 Luminance</a> <a href="#book-learn-luminance">#</a></h3>
+
+<p><a href="https://github.com/phaazon/luminance-rs">luminance</a>是一个类型安全、类型级别和无状态的 Rust 图形框架。</p>
+
+<p>这个月，<a href="https://github.com/phaazon">@phaazon</a>发布了<a href="https://rust-tutorials.github.io/learn-luminance">&ldquo;Learn Luminance&rdquo;</a>一书。Luminance 的 wiki 被弃用了，这本书现在成为了新用户使用 Luminance 的重点参考，也成为了那些想尝试 Luminance，但对渲染一无所知的人的参考。</p>
+
+<p>_讨论：<a href="https://reddit.com/r/rust/comments/e3662k/learn_luminance_the_book">/r/rust</a>_</p>
+
+<hr />
+
+<p>顺便说一句，<a href="https://twitter.com/resinten/status/1194825522418765826">@resinten 正使用 luminance，搞着一个游戏</a>:</p>
+
+<p><a href="https://twitter.com/resinten/status/1194825522418765826"><img src="https://rust-gamedev.github.io/posts/newsletter-004/luminance-space-game.gif" alt="space ship pew pew" /></a></p>
+
+<h3 id="pixels-https-github-com-parasyte-pixels-pixels"><a href="https://github.com/parasyte/pixels">Pixels</a> <a href="#pixels">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/pixels.png" alt="Pixels logo" /></p>
+
+<p><a href="https://github.com/parasyte/pixels">Pixels</a> by <a href="https://twitter.com/kodewerx">@kodewerx</a>是一种基于 wgpu 的小型&rsquo;硬件加速&rsquo;像素帧缓冲器。它应该用于模拟器，软件渲染，二维动画和游戏原型。</p>
+
+<p>查看<a href="https://users.rust-lang.org/t/announcing-pixels-hardware-accelerated-pixel-frame-buffer/34326/1">URLO 通知贴文</a>.</p>
+
+<p>_讨论：<a href="https://reddit.com/r/rust_gamedev/comments/drunej/announcing_pixels_hardwareaccelerated_pixel_frame">/r/rust_gamedev</a>_</p>
+
+<h3 id="metropolis-https-github-com-guyl99-metropolis-metropolis"><a href="https://github.com/GuyL99/metropolis">Metropolis</a> <a href="#metropolis">#</a></h3>
+
+<p><a href="https://github.com/GuyL99/metropolis">metropolis</a> by <a href="https://github.com/GuyL99">@GuyL99</a>是一个高级图形渲染器，具有易于使用的功能。</p>
+
+<blockquote>
+<p>这个箱子应该使图形编程容易，功能如矩形，椭圆，线，文本，等等，它的速度在一台辣鸡电脑上，有 60-120 FPS 。</p>
+</blockquote>
+
+<p>_讨论：<a href="https://reddit.com/r/rust_gamedev/comments/e3lfr7/new_graphics_renderer_metropolis">/r/rust_gamedev</a>_</p>
+
+<h3 id="skulpin-https-github-com-aclysma-skulpin-skulpin"><a href="https://github.com/aclysma/skulpin">skulpin</a> <a href="#skulpin">#</a></h3>
+
+<p><a href="https://www.youtube.com/watch?v=El99FgGSzfg"><img src="https://rust-gamedev.github.io/posts/newsletter-004/skuplin.jpeg" alt="physics demo video" /></a></p>
+
+<p>^点击查看<a href="https://www.youtube.com/watch?v=El99FgGSzfg">a demo video</a>.</p>
+
+<p><a href="https://github.com/aclysma/skulpin">skulpin</a> by <a href="https://twitter.com/aclysma">@aclysma</a>结合 Vulkan 和<a href="https://skia.org">Skia</a>。</p>
+
+<h3 id="ultraviolet-https-github-com-termhn-ultraviolet-v0-2-ultraviolet-v0-2"><a href="https://github.com/termhn/ultraviolet">ultraviolet</a> v0.2 <a href="#ultraviolet-v0-2">#</a></h3>
+
+<p><a href="https://github.com/termhn/ultraviolet">ultraviolet</a> v0.2 发布 by <a href="https://twitter.com/fu5ha">@fu5ha</a>。此版本引入<a href="https://en.wikipedia.org/wiki/Bivector">Bivectors</a>以及<a href="https://en.wikipedia.org/wiki/Rotor_(mathematics)">Rotors</a> 和提高了可用性。</p>
+
+<p>_讨论：<a href="https://reddit.com/r/rust/comments/dt9zhz/ultraviolet_02_released">/r/rust</a>_</p>
+
+<hr />
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/rayn-render.png" alt="rayn fractal render example" /></p>
+
+<p>还有，<a href="https://reddit.com/r/rust/comments/dxjn64/rayn_03_a_major_update_with_deeply_integrated/">Rayn v0.3 最近也发布了</a> —— 它是一个基于 CPU 的路径跟踪渲染器，专注于渲染 SDFs（特别 fractals-分形）（基于<a href="https://github.com/termhn/ultraviolet">ultraviolet</a> ）。</p>
+
+<h3 id="mun-v0-1-https-mun-lang-org-blog-2019-11-11-release-mun-v0-1-0-mun-v0-1"><a href="https://mun-lang.org/blog/2019/11/11/release-mun-v0-1-0">Mun v0.1</a> <a href="#mun-v0-1">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/mun_logo.png" alt="Mun logo" /></p>
+
+<p><a href="https://mun-lang.org">Mun</a>是 gamedev 的一种脚本语言，专注于 Rust 编写的快速迭代时间。</p>
+
+<blockquote>
+<p>作为一种语言，Mun 还远未准备好生产，但是这个版本让您看到了原生支持的热重新加载，未来的样子。这个版本的目的是展示我们的进展，并收集那些勇敢的灵魂愿意尝试在这个早期阶段的反馈。</p>
+</blockquote>
+
+<p>要开始，请阅读<a href="https://docs.mun-lang.org">the Mun Book</a>看一看<a href="https://github.com/mun-lang/mun/tree/master/crates/mun_runtime/examples">Rust examples</a>.</p>
+
+<p>对于 Mun 的完整路线图，请查看<a href="https://trello.com/b/ZcMiREnC/mun-roadmap">Trello board</a>.</p>
+
+<p>_讨论：<a href="https://reddit.com/r/rust/comments/duw3ls/mun_v010_released">/r/rust</a>_</p>
+
+<h3 id="glsl-v3-0-https-reddit-com-r-rust-comments-dw87um-glsl30-official-release-announcement-glsl-v3-0"><a href="https://reddit.com/r/rust/comments/dw87um/glsl30_official_release_announcement">glsl v3.0</a> <a href="#glsl-v3-0">#</a></h3>
+
+<p><a href="https://crates.io/crates/glsl">glsl</a>是将 GLSL 格式的源码，解析为类型化 AST 的箱子。箱子公开了几个方法、类型和模块，对 AST 执行转换，包括输出 GLSL、SPIR-V 生成和使用可能的立即可访问 AST。</p>
+
+<p><a href="https://reddit.com/r/rust/comments/dw87um/glsl30_official_release_announcement">glsl v3.0</a>是由<a href="https://github.com/phaazon">@phaazon</a>发布的:</p>
+
+<ul>
+<li>CPP 指令（例如。<code>#line</code>, <code>#pragma</code>, <code>#ifdef</code>，等等）现在都已实现；</li>
+<li>改进了深度嵌套表达式的解析；</li>
+<li>多行注释 () 现在作为一项最大的努力得到了支持；</li>
+<li>其他错误修复。</li>
+</ul>
+
+<h3 id="spir-q-https-github-com-penguinliong-spirq-rs-spir-q"><a href="https://github.com/PENGUINLIONG/spirq-rs">SPIR-Q</a> <a href="#spir-q">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/spir-q.png" alt="example output" /></p>
+
+<p><a href="https://github.com/PENGUINLIONG/spirq-rs">SPIR-Q</a>是一个轻量级的<a href="https://en.wikipedia.org/wiki/Standard_Portable_Intermediate_Representation">SPIR-V</a>查询库。</p>
+
+<blockquote>
+<p>SPIR-Q&lt;…&gt;对于动态图形/计算管道构建、着色器调试等非常有用。SPIR-Q 目前与 SPIR-V 1.5 的一个子集兼容，具有大多数图形功能，但没有涉及 OpenCL 内核功能。顺便说一下，SPIR-Q 目前只依赖于 Rust 标准库。</p>
+</blockquote>
+
+<p>_讨论：<a href="https://reddit.com/r/rust_gamedev/comments/e1ft1k/spirq_spirv_metadata_extraction_library">/r/rust</a>_</p>
+
+<h3 id="iced-测试版本-https-reddit-com-r-rust-comments-e1jckj-iced-a-crossplatform-gui-library-new-release-iced-beta-version"><a href="https://reddit.com/r/rust/comments/e1jckj/iced_a_crossplatform_gui_library_new_release">Iced: 测试版本</a> <a href="#iced-beta-version">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/iced.gif" alt="Iced demo" /></p>
+
+<p><a href="https://github.com/hecrj/iced">Iced</a>是一个与渲染器无关的 GUI 库，主要关注简单性和类型安全性。</p>
+
+<p>这个月，一个<a href="https://reddit.com/r/rust/comments/e1jckj/iced_a_crossplatform_gui_library_new_release">Iced 测试版本 was released</a>。最重要的新功能是：</p>
+
+<ul>
+<li>一个<a href="https://github.com/hecrj/iced/pull/22">初级渲染器</a>建立在<a href="https://github.com/gfx-rs/wgpu">wgpu</a>之上;</li>
+<li>由<a href="https://github.com/rust-windowing/winit">winit</a>支撑一个 windowing shell;</li>
+<li>一个<a href="https://github.com/hecrj/iced/pull/17">web runtime</a>，它基于<a href="https://github.com/fitzgen/dodrio">dodrio</a>（试一试<a href="https://iced.rs">iced.rs</a>);</li>
+<li>头等<a href="https://github.com/hecrj/iced/pull/62">async actions</a>，leveraging futures；</li>
+<li>新的小部件，比如<a href="https://github.com/hecrj/iced/pull/37">文本输入</a>以及<a href="https://github.com/hecrj/iced/pull/35">可滚动</a>。</li>
+</ul>
+
+<p>还有，<a href="https://blog.cryptowat.ch/2019/11/25/sponsoring-rust-gui-library-iced">Cryptowatch 现在赞助 Iced 的开发!</a></p>
+
+<h3 id="embark-s-stockholm-rust-meetup-and-newsletter-embark-s-stockholm-rust-meetup-and-newsletter">Embark&rsquo;s Stockholm Rust Meetup and Newsletter <a href="#embark-s-stockholm-rust-meetup-and-newsletter">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/embark.png" alt="Embark logo white on black" /></p>
+
+<p>视频来自<a href="https://embark.rs">Embark</a>斯德哥尔摩 Rust 会议：</p>
+
+<ul>
+<li><p><a href="https://youtube.com/watch?v=RxtXGeDHu0w">&ldquo;一个 Rust 和 C++ 的邪恶合体， in physx-rs&rdquo;</a> - <a href="https://twitter.com/h3r2tic">Tomasz Stachowiak</a> Embark 的高级软件工程师，在创建 physx-rs 开源项目期间，详细介绍了结合 RIST 和 C++代码的经验。[<a href="https://reddit.com/r/rust/comments/du91t1/an_unholy_fusion_of_rust_and_c_in_physxrs">/r/rust</a>];</p></li>
+
+<li><p><a href="https://youtube.com/watch?v=lpOg2nl3kr0">&ldquo;Rust, Open Source, Game Dev&rdquo;</a> - <a href="https://twitter.com/Ca1ne">Jake Shadle</a>解释 Rust、开源和游戏开发如何结合在一起[<a href="https://reddit.com/r/rust/comments/du9g5d/rust_open_source_game_dev_stockholm_rust_meetup">/r/rust</a>];</p></li>
+</ul>
+
+<p>还有，<a href="https://embark.dev/#newsletter">Embark 开始了一个新时讯</a>。看看第一期<a href="http://eepurl.com/gI3v89">&ldquo;11/08/2019 - Rust, Blender, Hacktoberfest, and more: Newsletter 001 from Embark&rdquo;</a>.</p>
+
+<h3 id="创新码路-in-rust-with-nannou-https-dev-to-deciduously-creative-coding-in-rust-with-nannou-1lbl-creative-coding-in-rust-with-nannou"><a href="https://dev.to/deciduously/creative-coding-in-rust-with-nannou-1lbl">创新码路 in Rust with Nannou</a> <a href="#creative-coding-in-rust-with-nannou">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/nannou.png" alt="Nannou example screenshot" /></p>
+
+<p>一篇初级教程文章，教授如何使用<a href="https://nannou.cc">nannou</a> 这个创造性的编码框架。</p>
+
+<h3 id="rltk-https-github-com-thebracket-rltk-rs-rust-roguelike-tutorial-http-bfnightly-bracketproductions-com-rustbook-rltk-rust-roguelike-tutorial"><a href="https://github.com/thebracket/rltk_rs">RLTK</a> &amp; <a href="http://bfnightly.bracketproductions.com/rustbook">Rust Roguelike Tutorial</a> <a href="#rltk-rust-roguelike-tutorial">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/rogulike-demo.gif" alt="Dungeon generation demo" /></p>
+
+<p><a href="http://bfnightly.bracketproductions.com/rustbook">The Roguelike Tutorial</a> by <a href="https://patreon.com/blackfuture">@blackfuture</a>包括近 60 章现在和继续增长！</p>
+
+<p>11 月的一些更新：</p>
+
+<ul>
+<li>回溯/持续 地图，</li>
+<li>动态彩色照明，</li>
+<li>城镇门户，以及一般的远程传送（包括选择性地影响 NPC），</li>
+<li>作弊模式（用于测试以后的地图）。</li>
+</ul>
+
+<h3 id="nes-rust-https-github-com-takahirox-nes-rust-wasm-nes-https-en-wikipedia-org-wiki-nintendo-entertainment-system-emulator-nes-rust-wasm-nes-emulator"><a href="https://github.com/takahirox/nes-rust">nes-rust</a> - WASM <a href="https://en.wikipedia.org/wiki/Nintendo_Entertainment_System">NES</a> Emulator <a href="#nes-rust-wasm-nes-emulator">#</a></h3>
+
+<p><a href="https://raw.githack.com/takahirox/nes-rust/master/index.html"><img src="https://rust-gamedev.github.io/posts/newsletter-004/nes-wasm.gif" alt="Screenshot of the NES emulator" /></a></p>
+
+<p><a href="https://github.com/takahirox/nes-rust">nes-rust</a> by <a href="https://twitter.com/superhoge">@superhoge</a> - <a href="https://en.wikipedia.org/wiki/Nintendo_Entertainment_System">NES</a>（Famicom） Rust 编写的模拟器，编译成 WASM 到网络上。</p>
+
+<p>查看<a href="https://raw.githack.com/takahirox/nes-rust/master/index.html">online Demo</a>。</p>
+
+<h3 id="amethyst-amethyst">Amethyst <a href="#amethyst">#</a></h3>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/amethyst-logo.png" alt="Amethyst logo" /></p>
+
+<ul>
+<li><a href="https://blaineprice.me">Blaine Price</a>正在制作一个“十佳”游戏，并分享了一个<a href="https://blaineprice.me/posts/rustlang-up-some-grub">&ldquo;Rustlang Up Some Grub at The Ten Top&rdquo;</a> 关于依赖图的 devlog；</li>
+</ul>
+
+<p><img src="https://rust-gamedev.github.io/posts/newsletter-004/food_truck_cropped.jpg" alt="food truck" /></p>
+
+<ul>
+<li><p><a href="https://github.com/amethyst/rfcs/issues/22">&ldquo;[RFC Discussion] Legion ECS Evolution&rdquo;</a> [<a href="https://reddit.com/r/rust/comments/duki8d/amethyst_legion_ecs_rfc">/r/rust</a>, <a href="https://community.amethyst.rs/t/legion-ecs-discussion/965">forum</a>];</p></li>
+
+<li><p><a href="https://github.com/mvlabat">@mvlabat</a> 发了 <a href="https://community.amethyst.rs/t/how-can-we-improve-custom-shaders-user-experience/1230">&ldquo;我们如何提升惯用着色器用户经验?&rdquo;</a>;</p></li>
+
+<li><p><a href="https://community.amethyst.rs/t/future-of-nalgebra-and-math-in-amethyst/1228">&ldquo;nalgebra 和 math 在 Amethyst 的未来&rdquo;</a>讨论；</p></li>
+
+<li><p><a href="https://community.amethyst.rs/t/skepticism-about-rendy/1221">&ldquo;Rendy 的质疑&rdquo;</a>讨论；</p></li>
+
+<li><p><a href="https://community.amethyst.rs/t/obiwanuss-long-link-time-feedback/1207">A thread by @obiwanus 关于 long link time</a>;</p></li>
+</ul>
+
+<h2 id="popular-workgroup-issues-in-github-popular-workgroup-issues-in-github">Popular Workgroup Issues in Github <a href="#popular-workgroup-issues-in-github">#</a></h2>
+
+<ul>
+<li><a href="https://github.com/rust-gamedev/wg/issues/50">#50 &ldquo;Linking Time&rdquo;</a>;</li>
+<li><a href="https://github.com/rust-gamedev/wg/issues/51">#51 &ldquo;Using wasm-bindgen for games&rdquo;</a>;</li>
+<li><a href="https://github.com/rust-gamedev/wg/issues/68">#68 &ldquo;Modding&rdquo;</a>;</li>
+<li><a href="https://github.com/rust-gamedev/wg/issues/69">#69 &ldquo;输入控制处理&rdquo;</a>;</li>
+<li><a href="https://github.com/rust-gamedev/wg/issues/71">#71 &ldquo;概念箱子求证: Simplistic Bump Allocator&rdquo;</a>;</li>
+<li><a href="https://github.com/rust-gamedev/wg/issues/73">#73 &ldquo;Membership Listing&rdquo;</a>;</li>
+</ul>
+
+<h2 id="meeting-minutes-meeting-minutes">Meeting Minutes <a href="#meeting-minutes">#</a></h2>
+
+<p><a href="https://github.com/rust-gamedev/wg/issues?q=label%3Ameeting">查看所有的会面 issues</a>包括书面记录或<a href="https://github.com/rust-gamedev/wg#join-the-fun">加入下一 meeting</a>。</p>
+
+<h2 id="请求帮助-requests-for-contribution">请求帮助  <a href="#requests-for-contribution">#</a></h2>
+
+<ul>
+<li><a href="https://reddit.com/r/rust/comments/dyhylu/luster_lua_vm_in_rust_this_project_is_currently">@kyren 正寻找一个新的维护者 for &ldquo;rlua&rdquo;</a>;</li>
+<li><a href="https://itch.io/t/616119/contributing">添加资源 (图形, 关卡, 声效) to Le Train Dispatcher</a>;</li>
+<li><a href="https://reddit.com/r/rust/comments/diuqg7/need_help_porting_steam_libraries_to_rust">/r/rust: &ldquo;Need help porting steam libraries to rust&rdquo;</a>;</li>
+<li><a href="https://github.com/search?q=user:EmbarkStudios+state:open">Embark&rsquo;s open issues</a> (<a href="https://embark.rs">embark.rs</a>);</li>
+<li><a href="https://github.com/rust-windowing/winit/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+is%3Aopen+label%3A%22status%3A+help+wanted%22+label%3A%22Good+first+issue%22">winit&rsquo;s &ldquo;Good first issue&rdquo; 和 “help wanted” issues</a>;</li>
+<li><a href="https://github.com/gfx-rs/gfx/issues?q=is%3Aissue+is%3Aopen+label%3Acontributor-friendly">gfx-rs&rsquo;s &ldquo;contributor-friendly&rdquo; issues</a>;</li>
+<li><a href="https://github.com/gfx-rs/wgpu-rs/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22">wgpu&rsquo;s &ldquo;help wanted&rdquo; issues</a>;</li>
+<li><a href="https://github.com/phaazon/luminance-rs/issues?q=is%3Aissue+is%3Aopen+label%3A%22low+hanging+fruit%22">luminance&rsquo;s &ldquo;low hanging fruit&rdquo; issues</a>;</li>
+<li><a href="https://github.com/ggez/ggez/labels/%2AGOOD%20FIRST%20ISSUE%2A">ggez&rsquo;s &ldquo;good first issue&rdquo; issues</a>;</li>
+<li><a href="https://gitlab.com/veloren/veloren/issues?label_name=beginner">Veloren&rsquo;s &ldquo;beginner&rdquo; issues</a>;</li>
+<li><a href="https://github.com/amethyst/amethyst/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">Amethyst&rsquo;s &ldquo;good first issue&rdquo; issues</a>;</li>
+</ul>
+
+<h2 id="bonus-bonus">Bonus <a href="#bonus">#</a></h2>
+
+<p>只是一个有趣的 Rust 游戏开发从过去的链接。:)</p>
+
+<p><a href="https://youtube.com/watch?v=EgFr73AUwps"><img src="https://rust-gamedev.github.io/posts/newsletter-004/penguin.png" alt="Pascal Penguin logo" /></a></p>
+
+<p>^ <em>单击以查看<a href="https://youtube.com/watch?v=EgFr73AUwps">发布的预告片</a></em></p>
+
+<p><a href="http://luduminis.com/pascal/about/">&ldquo;Adventures of Pascal Penguin&rdquo;</a> by <a href="http://luduminis.com">Matthew Michelotti</a>是一款基于 2D 网格的益智游戏，其关卡围绕滑冰设计。</p>
+
+<blockquote>
+<p>当你试图到达每个关卡的末端时，推块并从保险杠上反弹。抓住隐形球穿过固体物体。在沸腾的熔岩和冰冷的水上建立一条安全的道路。有 40 个关卡分布在 5 个区域。你能全部完成吗？</p>
+</blockquote>
+
+<p>使用<a href="https://github.com/SergiusIW/gate">Gate</a>游戏引擎。</p>
+
+<hr />
+
+<p>今天都是新闻，谢谢你的阅读！</p>
+
+<p>订阅<a href="https://twitter.com/rust_gamedev">@rust_gamedev on Twitter</a>或者<a href="https://reddit.com/r/rust_gamedev">/r/rust_gamedev subreddit</a>如果你想得到新消息！</p>
+
+<p><strong>本帖讨论</strong>: <a href="https://reddit.com/r/rust/comments/e7xdwf/this_month_in_rust_gamedev_4_november_2019">/r/rust</a>, <a href="https://twitter.com/rust_gamedev/status/1203745439243223044">twitter</a>.</p>
+
+<p>[](<a href="https://rust-gamedev.github.io/posts/newsletter-004/">https://rust-gamedev.github.io/posts/newsletter-004/</a>)</p>
+
+<h2 id="rust-game-development-working-group">Rust Game Development Working Group</h2>
+
+<p>了解 Rust 游戏开发工作组的最新进展和最新进展。</p>
+
+<ul>
+<li><a href="https://github.com/rust-gamedev" title="rust-gamedev">Github (rust-gamedev)</a></li>
+<li><a href="https://twitter.com/rust_gamedev" title="rust_gamedev">Twitter (rust_gamedev)</a></li>
+<li><a href="https://discord.gg/j6QJsMd" title="Discord">Discord (#wg-gamedev)</a></li>
+<li><a href="https://rust-gamedev.github.io/feed.xml" title="RSS">RSS feed</a></li>
+</ul>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/js/copyCode.js"></script>
+<script src="/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2020 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/tags/month"> #month </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/categories/Rust"> #Rust </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("p img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\/Rust-GameDev-月刊-#4(译).md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>

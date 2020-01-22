@@ -6,10 +6,63 @@
     <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 20 Jan 2020 13:21:58 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 09:59:00 +0800</lastBuildDate>
     
 	<atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust GameDev 月刊 #5(译)</title>
+      <link>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-5%E8%AF%91/</link>
+      <pubDate>Wed, 22 Jan 2020 09:59:00 +0800</pubDate>
+      
+      <guid>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-5%E8%AF%91/</guid>
+      <description>a { color: #b33434;} div.inner { background: #fbf6ec !important;}  
+This Month in Rust GameDev #5 - December 2019 2020 年 1 月 10 日
+欢迎来到 Rust GameDev 工作组的第五期月刊。
+Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
+我们希望为想在开发过程中，使用 Rust 的人建立一个吸引人的生态系统！想参与吗？加入 Rust GameDev working group!
+想要加入下一期新闻？Send us a pull request 随意发送有关您自己的项目的 PR。
+演讲呼吁: Rust GameDev 伦敦站 #  我是Rust London的社区领导，我只想为任何一个在伦敦的人做些调查，想在我们的 Rust 伦敦站上做个演讲。我们想举办一个专门针对 GameDev 的 LDN 会谈。
+ 详细信息看这里.
+Game Updates # A/B Street - Adjust Traffic Patterns in Real Cities # 曾经坐在交通堵塞的公交车上，想知道为什么会有车停在路上，而不是公交专用道上？A/B Street这是一个探索道路空间和交通信号的微小变化，如何影响司机、骑自行车者、公交用户和行人的移动的游戏。游戏使用OpenStreetMap和其他公共数据集，让玩家调整现有的基础设施，然后做一个详细的比较，看看谁的变化有帮助/伤害。</description>
+    </item>
+    
+    <item>
+      <title>Rust GameDev 月刊 #4(译)</title>
+      <link>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-4%E8%AF%91/</link>
+      <pubDate>Wed, 22 Jan 2020 09:58:47 +0800</pubDate>
+      
+      <guid>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-4%E8%AF%91/</guid>
+      <description>a { color: #b33434;} div.inner { background: #fbf6ec !important;}  
+This Month in Rust GameDev #4 - 11 月 2019 2019-12-08
+Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
+我们希望为想在开发过程中，使用 Rust 的人建立一个吸引人的生态系统！想参与吗？加入 Rust GameDev working group!
+想要加入下一期新闻？Send us a pull request 随意发送有关您自己的项目的 PR。
+Game Updates # Le Train Dispatcher - Route Trains in 模拟铁路网络 # Le Train Dispatcher！itch.io，Patreon 允许你在完全模拟的铁路网络中，对火车进行路线选择。特别注意了光信号的实际管理（block 系统，开关保护），列车物理特性和弯道追踪。
+该游戏使用 Rust 编程，主要使用的箱子是：ggez，imgui 和 serde。
+这第一个版本完全可玩，但是如果您想发表评论，提出您的想法或为游戏的发展做出贡献，请不要犹豫地发布一个message。
+独特的特点：
+ 逼真的灯光信号模拟：已经进行了大量的工程工作，来对铁路信号进行逼真的管理。 没有碰撞：是的，放手，看到许多火车自动行驶，这很有趣。你的所有行为都要检查：不能将火车置于危险之中。 真实物理学  每个机车或货车都有其自身的重量，驱动力或制动力，和其粘连系数。 这些弯道不是简单的圆，它们的计算公式与实际道路或铁路网络中，使用的方程相同。   Veloren # Veloren是一个开放世界，开放源代码的多人体素 RPG。该游戏尚处于开发初期，但可以玩。</description>
+    </item>
+    
+    <item>
+      <title>Rust GameDev 月刊 #3(译)</title>
+      <link>/2020/01/21/rust-gamedev-%E6%9C%88%E5%88%8A-3%E8%AF%91/</link>
+      <pubDate>Tue, 21 Jan 2020 12:38:01 +0800</pubDate>
+      
+      <guid>/2020/01/21/rust-gamedev-%E6%9C%88%E5%88%8A-3%E8%AF%91/</guid>
+      <description>a { color: #b33434;} div.inner { background: #fbf6ec !important;}  
+Rust GameDev #3 月刊 - 10 月 2019  2019 年 11 月 7 日
+欢迎来到 Rust GameDev 工作组月刊，第三期。
+Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
+我们希望为想在开发过程中，使用 Rust 的人建立一个吸引人的生态系统！想参与吗？加入 Rust GameDev working group!
+游戏更新 # Sulis - a Turn-Based RPG # Sulis是一款角色扮演游戏（RPG），具有回合制、战略战斗、深度角色定制和引人入胜的故事情节。游戏从一开始，就以改造和定制的内容角度，进行考虑。当前支持 Windows 和 Linux 平台。
+该游戏目前是完全可玩的，包括 the first act of Twin Expanse，一个经典游戏类似的老式 RPG 战役，如*巴尔杜尔之门*，但混合了现代元素，如*神界原罪*和*永恒之柱*。
+核心游戏引擎以及战役仍在大力开发中。鼓励用户给出 bugs issues，功能请求或任何其他反馈。
+特征：
+ 跨平台原生二进制文件，当前构建，供给 Windows 和 Linux 多个战役，超过 8 小时的游玩时间，包括手工制作和过程内容。 一个详细和充分认知的世界和故事 —— 看看Lore page。 设计时考虑到了改造 —— 虽然在这方面还有更多的工作要做。 一个强大的二维图形引擎，可缩放，可扩展的用户界面，HiDPI 支持，和一个可交换的图形后端。 在非常温和的硬件，甚至软件渲染器上运行（尽管帧速率降低）。  GPLv3 许可证的源代码在 GitHub。Sulis 是用 Rust 编写的，脚本使用 Lua，大多数数据文件使用 YAML 格式。</description>
+    </item>
     
     <item>
       <title>Rust GameDev 月刊 #2(译)</title>
