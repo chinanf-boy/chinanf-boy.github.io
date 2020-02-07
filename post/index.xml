@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 30 Jan 2020 23:14:57 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 13:57:05 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 324(译)</title>
+      <link>/2020/02/07/rust%E5%91%A8%E6%8A%A5-324%E8%AF%91/</link>
+      <pubDate>Fri, 07 Feb 2020 13:57:05 +0800</pubDate>
+      
+      <guid>/2020/02/07/rust%E5%91%A8%E6%8A%A5-324%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-02-04 原文：324 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  🎈🎉宣布 Rust 1.41.0。🎉🎈 为什么 Discord，从 Go 切换到 Rust。 Rust 编写操作系统：2020 年 1 月更新。 用 Rust 测量钢琴键的 space-time 行为。 建立自己的 executor。 针对 Raspberry Pi，在 Linux 上交叉编译 Rust。 2020 Rust 活动主线。 使用 Bastion 编写 AWS Lambda 函数。 rust-search-extension：在浏览器的地址栏中，搜索标准文档，箱子，错误代码和属性。 嵌入式工作组的新闻咨询 23。 Rust Analyzer 变更日志 10。 IntelliJ Rust 更新日志 115。 Rust 区块链新闻 8：展望 2020。 宣布 async-std v1.5.0。 宣布 Tide 0.</description>
+    </item>
     
     <item>
       <title>Rust周报 323(译)</title>
