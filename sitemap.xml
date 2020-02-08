@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2020/02/08/rust%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%912020%E7%94%9F%E6%80%81%E5%9C%88%E5%B1%95%E6%9C%9B-%E8%B0%83%E6%9F%A5%E7%BB%93%E6%9E%9C%E8%AF%91/</loc>
+    <lastmod>2020-02-08T13:44:16+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2020/02/07/rust%E5%91%A8%E6%8A%A5-324%E8%AF%91/</loc>
     <lastmod>2020-02-07T13:57:05+08:00</lastmod>
   </url>
@@ -210,7 +215,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-02-07T13:57:05+08:00</lastmod>
+    <lastmod>2020-02-08T13:44:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -229,6 +234,12 @@
   <url>
     <loc>/tags/error/</loc>
     <lastmod>2019-02-25T14:17:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/gamedev/</loc>
+    <lastmod>2020-02-08T13:44:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -258,13 +269,13 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-02-07T13:57:05+08:00</lastmod>
+    <lastmod>2020-02-08T13:44:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/rust/</loc>
-    <lastmod>2020-02-07T13:57:05+08:00</lastmod>
+    <lastmod>2020-02-08T13:44:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   

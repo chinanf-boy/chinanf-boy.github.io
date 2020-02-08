@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gamedev on Code &gt; Explain &gt; Transalte 的人</title>
+    <link>/tags/gamedev/</link>
+    <description>Recent content in Gamedev on Code &gt; Explain &gt; Transalte 的人</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 08 Feb 2020 13:44:16 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/gamedev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rust游戏开发2020生态圈展望 调查结果(译)</title>
+      <link>/2020/02/08/rust%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%912020%E7%94%9F%E6%80%81%E5%9C%88%E5%B1%95%E6%9C%9B-%E8%B0%83%E6%9F%A5%E7%BB%93%E6%9E%9C%E8%AF%91/</link>
+      <pubDate>Sat, 08 Feb 2020 13:44:16 +0800</pubDate>
+      
+      <guid>/2020/02/08/rust%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%912020%E7%94%9F%E6%80%81%E5%9C%88%E5%B1%95%E6%9C%9B-%E8%B0%83%E6%9F%A5%E7%BB%93%E6%9E%9C%E8%AF%91/</guid>
+      <description>Rust Game Development - Ecosystem Survey 2020 年 2 月 6 日
+去年 8 月，我们对 Rust gamedev 生态圈进行了一次调查。在不幸的耽搁之后，我们终于可以交出结果了。我们收到了高达 403 个回复！这些宝贵的反馈将为工作组 2020 年的路线图提供动力。
+ 爱好者 or 开发者?  游戏开发你会用 Rust 吗?   如今, 挡在 Rust 游戏开发与你之间的最大阻力是什么?  Ecosystem 成熟 (114)  迭代用时 (68)  文档 (43)  缺乏完整功能的引擎 (35)  Rust 学习曲线 / 入门到小众语言 (29)  IDE/RLS story (28)  GUI 工具 (23)  游戏主机 (13)  Web/mobile 支持 (14)  Allocators (10)  C++ interop (7)   如今, 系在 Rust 游戏开发与你之间最亮眼的红线是什么?</description>
+    </item>
+    
+  </channel>
+</rss>
