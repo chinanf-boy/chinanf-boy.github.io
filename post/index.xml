@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 14 Feb 2020 11:34:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 21 Feb 2020 14:51:57 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 326(译)</title>
+      <link>/2020/02/21/rust%E5%91%A8%E6%8A%A5-326%E8%AF%91/</link>
+      <pubDate>Fri, 21 Feb 2020 14:51:57 +0800</pubDate>
+      
+      <guid>/2020/02/21/rust%E5%91%A8%E6%8A%A5-326%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-02-18 原文：326 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  Sealed Rust 更新：Rust 安全为重计划。 为什么 Rust 是最受欢迎的编程语言？ Rust ghost，signing off。 我审核了异步 RwLock 的 3 种不同实现。 deny(warnings) is 相当有害。 Rust for Java devs。 Rust，未定义行为的一些细微差别。 一个务实的方法，to 全局状态 Rust 中的图形：GraphCore 简介。 faux - 内部的样子 rust-analyzer changelog 12。 IntelliJ Rust changelog 116。 Rust GameDev 月刊 6 -2020 年 1 月。  周箱 这周的箱子是pointer-utils，一个用于处理指针的小型库，以及jlrs，一个箱子可以从 Rust 调用Julia。
+谢谢Vikrant的建议！
+提交下周的建议和投票！</description>
+    </item>
     
     <item>
       <title>Rust周报 325(译)</title>
