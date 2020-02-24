@@ -6,10 +6,23 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 21 Feb 2020 14:51:57 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 24 Feb 2020 15:00:04 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2019Rust图形库之路(译) —— ggez 作者</title>
+      <link>/2020/02/24/2019rust%E5%9B%BE%E5%BD%A2%E5%BA%93%E4%B9%8B%E8%B7%AF%E8%AF%91-ggez-%E4%BD%9C%E8%80%85/</link>
+      <pubDate>Mon, 24 Feb 2020 15:00:04 +0800</pubDate>
+      
+      <guid>/2020/02/24/2019rust%E5%9B%BE%E5%BD%A2%E5%BA%93%E4%B9%8B%E8%B7%AF%E8%AF%91-ggez-%E4%BD%9C%E8%80%85/</guid>
+      <description>2019 Rust 图形库之路  Rust 图形库指南 介绍 到底事情是怎么的  OpenGL DirectX Vulkan Metal  真真真 Rust! 好了，你是 gfx 粉丝仔，那其他的呢  glium luminance ash vulkano rendy  未来在继续书写 (in Rust) 所以，我要用什么，让一个三角形图出现在屏幕上呢？ 附录: 游戏框架  Rust 图形库指南 截至 2019 年 5 月。
+介绍 因为，在Unofficial Rust Discord的游戏开发频道上，大家在谈论图形 API 的问题，哪个到了什么地步以及做什么的，人们相互争执和相互纠正，&amp;rdquo;雨水来得过于猛烈&amp;rdquo;，一切的一切都变得有些模糊，混乱。所以在这里，我准备 尝试 捋一捋记录。本文旨在为希望使用 Rust，编写图形东西（视频游戏，动画，炫酷的可视化等）的人，但又不知道他们应从哪里开始，提供些背景知识。
+你为什么要相信我？因为我需要知道这些东西才能选择ggez的伙伴，所以最近几年我一直在关注事物的状态。而且因为我对这些东西真的很感兴趣; 而且因为我喜欢写作。就说，虽然我远不是专家，但更像是一个兴致勃勃的观察家。
+但是，在深入研究 Rust 细节之前，让我们先了解一下图形 API 的奇妙世界……
+到底事情是怎么的 没有人直接为 GPU 编写代码。硬件接口，指令集以及它们实际工作方式的细节受到制造商的严密保护，好吧，除了三个主要制造商中的两位 —— 现在开源了（大部分）驱动程序。因此，实际上只剩下 NVidia 是锁源的。GPU 硬件可以快速发展，而不必担心向后兼容性，但最近十年左右，看起来 GPU 和 CPU 相互通信的基本设计和折衷方法已经达到了更稳定的状态。Anyway，不管实际原因，操作系统的 GPU 驱动程序会与硬件进行所有对话，并为（可以是你写的）程序提供与之对话的 API。实际上，有很多这样的 API，您以前可能已经听说过其中一些，所以让我们来看看明星选手：</description>
+    </item>
     
     <item>
       <title>Rust周报 326(译)</title>
