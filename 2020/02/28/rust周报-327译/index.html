@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Rust周报 327(译)</title>
+
+    
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="/css/tooltips.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="/css/stylesheet.css"></link> <link rel="stylesheet" href="/css/rust-week.css"></link>
+        
+
+        
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner" style="position:relative;">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+<div class="blog-post">
+  <h2>Rust周报 327(译)</h2>
+        
+
+<p><img src="https://www.rust-lang.org/static/images/rust-logo-blk.svg" alt="rs logo" class="medium-zoom-image" style="
+    width: 200px;
+    background: white;
+"></p>
+
+<ul>
+<li><a href="(https://this-week-in-rust.org)">this-week-in-rust</a></li>
+<li>日期：2020-02-25</li>
+<li><a href="https://this-week-in-rust.org/blog/2020/02/25/this-week-in-rust-327/">原文：327 期</a></li>
+</ul>
+
+<p>你好，欢迎再来一期*本周的螃蟹行情*！<a href="http://rust-lang.org">Rust</a>是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特<a href="https://twitter.com/ThisWeekInRust">@ThisWeekInRust</a>或<a href="https://github.com/cmr/this-week-in-rust">向我们发送请求</a>。 想参与吗？<a href="https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md">我们热爱贡献</a>.</p>
+
+<p>*这本周的螃蟹行情*是在<a href="https://github.com/cmr/this-week-in-rust">在 Github 上</a>公开的。如果你在本周的问题中发现任何错误，<a href="https://github.com/cmr/this-week-in-rust/pulls">请提交 PR</a>。</p>
+
+<h1 id="rust-社区的更新">Rust 社区的更新</h1>
+
+<h2 id="新闻和博客文章">新闻和博客文章</h2>
+
+<ul>
+<li><a href="https://fasterthanli.me/blog/2020/working-with-strings-in-rust/">使用 Rust String</a>。</li>
+<li><a href="https://kennykerr.ca/2020/02/22/rust-winrt-coming-soon/">Rust / WinRT 即将推出</a>。</li>
+<li><a href="https://blog.rust-lang.org/inside-rust/2020/02/25/intro-rustc-self-profile.html">rustc 的自我分析器简介</a>。</li>
+<li><a href="https://blog.rust-lang.org/inside-rust/2020/02/26/crates-io-incident-report.html">crates.io 2020-02-20 事件报告</a>。</li>
+<li><a href="https://medium.com/adobetech/filtering-duplicates-on-the-command-line-30x-faster-than-sort-uniq-96ca5f7b4277">命令行：过滤重复项：比 sort | uniq 快 30 倍</a>。</li>
+<li><a href="https://fasterthanli.me/blog/2020/whats-in-a-linux-executable/">制作我们自己的可执行打包器</a>。</li>
+<li><a href="http://adventures.michaelfbryan.com/posts/line-simplification/">Ramer–Douglas–Peucker 算法 —— 将曲线近似表示为一系列点，并减少点的数量的一种算法</a>。</li>
+<li><a href="https://blog.yoshuawuyts.com/async-http/">异步 HTTP</a>。</li>
+<li><a href="https://medium.com/@polyglot_factotum/further-thoughts-on-async-await-7767f924cb7e">关于异步/等待的进一步思考</a>。</li>
+<li><a href="https://docs.rs/dtolnay/0.0.8/dtolnay/macro._04__triage_scale.html">Rust 团队按比例分流</a>。</li>
+<li><a href="https://tech.olx.com/presenting-dali-an-image-processor-service-514e6be00de8">介绍，图像处理服务 Dali</a>。</li>
+<li><a href="https://blog.wnut.pw/2020/02/25/anouncing-async_executors-a-building-block-for-executor-agnostic-libraries/">宣布 async_executors，这是 executor agnostic 库的构建块</a>。</li>
+<li><a href="https://bodil.lol/vgtk/">使用 vgtk 构建 TodoMVC</a>。</li>
+<li><a href="https://github.com/sn99/wasm-template-rust">在 github 页面或其他页面上，托管 Rust + Wasm 项目</a>。</li>
+<li><a href="https://medium.com/programming-servo/programming-servo-implementing-broadcastchannel-94516289ecd4">Programming Servo：实现 BroadcastChannel</a>。</li>
+<li><a href="https://fuchsia.googlesource.com/fuchsia/+/refs/heads/master/docs/project/policy/programming_languages.md">Fuchsia 编程语言政策</a>。</li>
+<li><a href="https://rust-analyzer.github.io/thisweek/2020/02/24/changelog-13.html">rust-analyzer changelog 113</a>。</li>
+</ul>
+
+<h1 id="周箱">周箱</h1>
+
+<p>这周的箱子是<a href="https://crates.io/crates/wundergraph">wundergraph</a>，一个 GraphQL 接口库；和<a href="https://github.com/ilai-deutel/kibi">kibi</a>，千行 Rust 的文本编辑器。</p>
+
+<p>谢谢<a href="https://users.rust-lang.org/t/crate-of-the-week/2704/732">Georg Semmler</a>和<a href="https://users.rust-lang.org/t/crate-of-the-week/2704/734">Vikrant</a>的建议！</p>
+
+<p><a href="https://users.rust-lang.org/t/crate-of-the-week/2704">提交下周的建议和投票</a>！</p>
+
+<h1 id="呼吁参与">呼吁参与</h1>
+
+<p>一直想为开源项目做贡献，但不知道从哪里开始？每周我们都会重点介绍 Rust 社区的一些任务，供您选择和开始！</p>
+
+<p>其中一些任务也可能有导师，请访问任务页面以获取更多信息。</p>
+
+<ul>
+<li>[good first issue]<a href="https://github.com/launchbadge/sqlx/issues/115">sqlx: 实现对 time-rs 0.2 的支持</a>。</li>
+</ul>
+
+<p>如果您是 Rust 项目的所有者并且正在寻找贡献者，请提交任务<a href="https://users.rust-lang.org/t/twir-call-for-participation/4821">这里</a>。</p>
+
+<h1 id="rust-core-的更新">Rust Core 的更新</h1>
+
+<p>共有 307 个拉取请求<a href="https://github.com/search?q=is%3Apr+org%3Arust-lang+is%3Amerged+merged%3A2020-02-17..2020-02-24">在上周合并</a></p>
+
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/69244">配置：为 LLVM 标志，设置一个值</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69366">解析：统一项目解析 &amp; 过滤非法项的种类</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69361">解析：允许<code>type Foo: Ord</code>句式</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69194">解析：将关联项和外部项，融合到 defaultness</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/67272"><code>recursion_limit</code>的解析控制，溢出</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69302">修复：生成器错误编译</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69248">不要消除 thumb target 上的 frame 指针</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69305">调整，绑定的 lifetime 建议文本</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/68877">不匹配的参数数量 —— (错误提示)指向参数位置，且所有提示英文：从‘parameter’改为‘argument’</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69217">不发出建议：对外部类型，实现操作 trait</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69084">从宏部分，拆分<code>unused_doc_comment</code>的非宏部分，分为两阶段/lints</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69113">结合<code>HaveBeenBorrowedLocals</code>与<code>IndirectlyMutableLocals</code>，变为一次数据流分析</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69200">修复：<code>Yield</code> terminator 的打印</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69242">质测 <code>object_safety_violations</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69181">更改 const eval，仅返回 the value</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/68847">允许在 const context 中的具体类型上，调用 trait 方法</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69256">性能：杂项(miscellaneous) 内联改进</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69072">perf：按名称查找关联项 —— O（log n）</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/68705">添加<code>LinkedList::remove</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/67925">更改<code>FromStr</code> for <code>String</code>，直接使用<code>Infallible</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/68984">让<code>u8::is_ascii</code>为稳定的<code>const fn</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/68978">使整数幂方法(integer exponentiation)，为不稳定 const</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/68597">简化<code>Skip::nth</code>和<code>Skip::last</code>实现</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/68945">稳定化：<code>Once::is_completed</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/69249">稳定化：{<code>f32</code>，<code>f64</code>}::{<code>LOG2_10</code>，<code>LOG10_2</code>}</a></li>
+<li><a href="https://github.com/rust-lang/git2-rs/pull/522">git2：添加<code>Branch::get_mut</code></a></li>
+<li><a href="https://github.com/rust-lang/futures-rs/pull/2085">futures：为 <code>FuturesUnordered</code>，放宽 bounds </a></li>
+<li><a href="https://github.com/rust-lang/futures-rs/pull/2068">futures：添加<code>StreamExt::flat_map</code></a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/7820">cargo：添加新功能解析器</a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/7903">cargo：添加选项 —— 将箱子版本，包含到生成的文档中</a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/7891">cargo：改进 <code>StringList</code>配置处理</a></li>
+<li><a href="https://github.com/rust-lang/rustfmt/pull/4044">rustfmt：支持格式化 half open range</a></li>
+</ul>
+
+<h2 id="批准的-rfc">批准的 RFC</h2>
+
+<p>对 Rust 的更改跟随 Rust<a href="https://github.com/rust-lang/rfcs#rust-rfcs">RFC（征求意见）流程</a>。以下是本周批准实施的 RFC：</p>
+
+<p><em>本周未批准 RFC。</em></p>
+
+<h2 id="最后意见征询期">最后意见征询期</h2>
+
+<p>每周<a href="https://www.rust-lang.org/team.html">团队</a>宣布即将做出决定的 RFC 和主要 PR 的“最终意见征询期”。立即发表您的意见。</p>
+
+<h3 id="rfc-https-github-com-rust-lang-rfcs-labels-final-comment-period"><a href="https://github.com/rust-lang/rfcs/labels/final-comment-period">RFC</a></h3>
+
+<ul>
+<li>[处置：合并] <a href="https://github.com/rust-lang/rfcs/pull/2834">cargo 报告 future-incompat</a>。</li>
+</ul>
+
+<h3 id="跟踪问题和-prs-https-github-com-rust-lang-rust-labels-final-comment-period"><a href="https://github.com/rust-lang/rust/labels/final-comment-period">跟踪问题和 PRs</a></h3>
+
+<ul>
+<li>[处置：合并] <a href="https://github.com/rust-lang/rust/pull/68004">许可： negative impls for non-auto traits</a>。</li>
+<li>[处置：合并] <a href="https://github.com/rust-lang/rust/pull/69373">稳定化： 将整数的 {to,from}_{be,le,ne}_bytes 方法，const</a>。</li>
+</ul>
+
+<h2 id="新的-rfc">新的 RFC</h2>
+
+<p><em>本周没有提议新的 RFC。</em></p>
+
+<h1 id="本周引用句">本周引用句</h1>
+
+<blockquote>
+<p>Yoda must have hit his head, though. <code>if let 42 = x {}</code> &ldquo;if let forty-two equals x&rdquo;</p>
+</blockquote>
+
+<p>– <a href="https://internals.rust-lang.org/t/using-if-let-to-check-for-equality/11750/19">Hutch on rust-internals</a></p>
+
+<p>Thanks to <a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328/821">Kornel</a> for the suggestions!</p>
+
+<p><a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328">Please submit quotes and vote for next week!</a></p>
+
+<p><em>This Week in Rust is edited by: <a href="https://github.com/nasa42">nasa42</a> and <a href="https://github.com/llogiq">llogiq</a>.</em></p>
+
+<p><small><a href="https://www.reddit.com/r/rust/comments/fabtwg/this_week_in_rust_327/">Discuss on r/rust</a>.</small></p>
+
+  </div>
+
+<br>
+  
+
+<button id="edit-button" class="icon-button" type="button" title="Fork and edit" aria-label="Fork and edit"
+aria-haspopup="true" aria-expanded="false" aria-controls="edit">
+<i class="fa fa-edit">编辑本文</i>
+</button>
+
+
+<br>
+
+
+
+<script src="/js/copyCode.js"></script>
+<script src="/js/tooltips.js"></script>
+
+
+<footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2020 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/tags/week"> #week </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/categories/Rust"> #Rust </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("p img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\/Rust周报-327(译).md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>
