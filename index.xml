@@ -6,10 +6,32 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 28 Feb 2020 11:11:08 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2020 11:19:14 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 329(译)</title>
+      <link>/2020/03/13/rust%E5%91%A8%E6%8A%A5-329%E8%AF%91/</link>
+      <pubDate>Fri, 13 Mar 2020 11:19:14 +0800</pubDate>
+      
+      <guid>/2020/03/13/rust%E5%91%A8%E6%8A%A5-329%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-03-10 原文：329 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  builder pattern 的替代方法，初始化结构模式。 Bottlerocket 是一种新的基于 Linux 的操作系统，几乎将所有新组件都使用了 Rust。 Rust pt 解析库 P1。 是的，我还在学习 Rust。 我刚刚为 rust-analyzer 做出了第一个开源贡献。 Nannou 更新 —— WebGPU，捕获帧等。 C＃程序员调查 Rust —— 第 1 部分。 我对 Rust 和.NET 的探索。 cfg(doctest)是稳定的，你应该使用它。 ExpressJS 与 Actix-Web：性能和运行成本比较。 rust-analyzer changelog 15。 本月 Rust gamedev 7 —— 2020 年 2 月。 2020 RustConf CFP 现已开放。  周箱 这周的箱子是plotly，plotly.</description>
+    </item>
+    
+    <item>
+      <title>Rust周报 328(译)</title>
+      <link>/2020/03/13/rust%E5%91%A8%E6%8A%A5-328%E8%AF%91/</link>
+      <pubDate>Fri, 13 Mar 2020 11:18:20 +0800</pubDate>
+      
+      <guid>/2020/03/13/rust%E5%91%A8%E6%8A%A5-328%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-03-03 原文：328 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  宣布 Rust 1.41.1。 半小时 Rust。 最近和将来的 pattern matching 改进。 高性能 Rust 的易技巧。 了解 Rust 中的 String 和＆str。 caniuse.rs - Rust feature 搜索。 在嵌入式 Rust 上的 async/await 。 RustCrypto aes-gcm和chacha20poly1305箱子，由 NCC 组审核。 FFI patterns ＃1 - 复杂的 Rust 数据结构，无缝地公开给 C ++。 多维数组，和 NDArray 的操作。 探索 Rust，使用中断处理程序实现和共享数据的方法。 使用 Rust 将 JavaScript 应用程序移植到 WebAssembly（第 3 部分）。 Pietro Albini 已加入核心团队。 宣布首次 FFI-unwind 项目设计会议。 Rust 编写操作系统：2020 年 2 月更新。 rust-analyzerChangelog 14。 IntelliJ Rust 更新日志 117。 本月 rustsim , 9。 Rust 区块链时讯 9：在家工作的月份。 Tokio v0.</description>
+    </item>
     
     <item>
       <title>Rust周报 327(译)</title>
