@@ -6,10 +6,21 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 15 Apr 2020 20:16:42 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2020 21:35:11 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 335(译)</title>
+      <link>/2020/04/23/rust%E5%91%A8%E6%8A%A5-335%E8%AF%91/</link>
+      <pubDate>Thu, 23 Apr 2020 21:35:11 +0800</pubDate>
+      
+      <guid>/2020/04/23/rust%E5%91%A8%E6%8A%A5-335%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-04-21 原文：335 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  Rust 2019 调研结果。 在 Dropbox 上，测试 sync。 用 Rust 为 Raspberry Pi 编写，操作系统。 Wired Logic —— 在浏览器上，运行的基于像素的数字电路模拟器（Rust 编译为 WASM）。 更好的 Firefox stack fixing。 在 Rust 代码内，编写 Python —— 第 1 部分。 网络上的 wgpu-rs。 从头开始构建 Rust Web 浏览器。 从 Pratt 到 Dijkstra。 Rust 技巧和窍门。 使用类型擦除(type-erased)的数据结构进行的实验。 如何编写 CRaP Rust 代码。 gfx-hal 简介 —— 第 3 部分：Vertex buffers。 我如何对 LastPass CLI 工具进行逆工程。 开放源码的 dotenv-linter：快如闪电的工具，可以整理您的 .</description>
+    </item>
     
     <item>
       <title>Rust周报 334(译)</title>
