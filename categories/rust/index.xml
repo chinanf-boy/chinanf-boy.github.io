@@ -6,10 +6,21 @@
     <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 23 Apr 2020 21:35:11 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2020 10:53:35 +0800</lastBuildDate>
     
 	<atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 336(译)</title>
+      <link>/2020/05/03/rust%E5%91%A8%E6%8A%A5-336%E8%AF%91/</link>
+      <pubDate>Sun, 03 May 2020 10:53:35 +0800</pubDate>
+      
+      <guid>/2020/05/03/rust%E5%91%A8%E6%8A%A5-336%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-04-28 原文：336 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  🎈🎉宣布 Rust 1.43.0。🎉🎈 2020 年，Rust 编译器的加速计划。 体验 Firefox 中的 WebGPU。 使用 Rust 和 AWS Lambda 进行数据提取。 嵌入式 Rust pattern —— zero sized references(零大小引用)。 Rust 实现线性四叉树。 tagged union 的内存有效序列化。 Unpacking Serde。 [视频] rust stream: ownership, closures, and threads (所有权，闭包和线程)- oh my。 Crust of Rust：生命周期注释。 对 Rust 和 WebAssembly 的第一印象。 从 Rust 到 WebAssembly：使用 Actix ＆ Yew 构建 交互式笔记 网络应用程序。 Rust 的 future：内部执行过程。 Rust 并发：五个简单的部分。 （几乎）无锁 stream buffering。 Rust 和 Node.</description>
+    </item>
     
     <item>
       <title>Rust周报 335(译)</title>
