@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 03 May 2020 10:53:35 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 06 May 2020 14:04:33 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 337(译)</title>
+      <link>/2020/05/06/rust%E5%91%A8%E6%8A%A5-337%E8%AF%91/</link>
+      <pubDate>Wed, 06 May 2020 14:04:33 +0800</pubDate>
+      
+      <guid>/2020/05/06/rust%E5%91%A8%E6%8A%A5-337%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-05-05 原文：337 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 新闻和博客文章  异步采访：目前为止 Rust 多线程 HTTP / WebSocket 服务器。 用 Traits 欺骗 Rank-n 了解真实世界 Rust 程序中，内存和线程安全实践和问题 Rust 的 gRPC 入门指南 安设 Anaconda，Jupyter 和 Rust 将一个 process 远程传送到另一台计算机上！ Rust 手动存出 WASI Rust Analyzer - 更新日志 #22 IntelliJ Rust 更新日志 ＃121 Rust Type-level 编程 FullStory 实行 Rust，第 2 部分：我们的移动 SDK 的外观 关于在 Rust 中解析的注意事项 Rust 创建快速的 REST API（第 1&amp;frasl;2 部分） The Safety Boat：Kubernetes 和 Rust From Pratt to Dijkstra 学习嵌入式 Rust —— 构建 RISC-V 驱动的机器人，第 4 部分 如何编写 CRaP Rust 代码 Rust 并发：流式工作流，并带有 back-pressure 的一面。 使用 PyO3 ，在 Rust 中编写 Python 模块 创建一个健壮的，可重复使用的 Link-Checker [视频] crust of rust: 声明式宏  [视频] rust stream: string it all together!</description>
+    </item>
     
     <item>
       <title>Rust周报 336(译)</title>
