@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 22 May 2020 00:24:54 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2020 00:25:48 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 340(译)</title>
+      <link>/2020/05/29/rust%E5%91%A8%E6%8A%A5-340%E8%AF%91/</link>
+      <pubDate>Fri, 29 May 2020 00:25:48 +0800</pubDate>
+      
+      <guid>/2020/05/29/rust%E5%91%A8%E6%8A%A5-340%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-05-27 原文：340 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+查看这周的 This Week in Rust Podcast 
+Rust 社区的更新 新闻和博客文章  为 Windows 98 SE 及更高版本，编译 Rust 二进制文件：一段旅程 从零到生产＃0：前言 一些使用 Rust 的大型项目 在 Rust 代码中编写 Python —— 第 4 部分 用 Rust 绘制 SVG 图形 设计 Rust Unleash API 客户端 用 Rust 编写， NES 上 Conway&amp;rsquo;s Game of Life 如何组织 Rust 测试 Just：我如何组织大型 Rust 计划 将 Qt 事件集成到 Actix 和 Rust 中 Docker 中的 Actix-Web：如何构建小型且安全的镜像(images) Angular，Rust，WebAssembly，Node.</description>
+    </item>
     
     <item>
       <title>Rust周报 339(译)</title>
