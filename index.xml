@@ -6,10 +6,27 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 29 May 2020 00:25:48 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 13:26:58 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 341(译)</title>
+      <link>/2020/06/05/rust%E5%91%A8%E6%8A%A5-341%E8%AF%91/</link>
+      <pubDate>Fri, 05 Jun 2020 13:26:58 +0800</pubDate>
+      
+      <guid>/2020/06/05/rust%E5%91%A8%E6%8A%A5-341%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-06-02 原文：341 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+本周没有 This Week in Rust 播客，下周的节目将涵盖本周和下周。
+我们与你一起 自从我们上一期报道以来，关于美国民权话语的新闻很多，这是由明尼阿波利斯警察局的一名警察杀害 George Floyd 引起的。我们与黑人社区，我们的黑人兄弟姐妹，不管是现在还是以后都永远站在一起。
+我们认为，这不是政治立场的站位问题，而是基本人权和平等的重大问题。
+我们相信，Rustaceans 不管对社区，还是世界其他地方，都是负有责任义务 —— 确保人们都感到舒适和受到欢迎，不管他们来自哪里。在我们自己的社区，《Rust 行为准则》明确规定，我们打算让每个人都感到安全，但这份热心不应只适用于我们。
+正如我们支持 Rustaceans 一样，我们也赞成人类是一个整体。而现在正是这个社会时代前进的时候了。我们支持那些冒着自身危险，支持 George Floyd, Breonna Taylor, Ahmaud Aubery，以及所有在警察手中面临不公正待遇的人。我们与抗议者站在一起，希望世界变得更好。
+如果你想表达你的支持，这是一个资源管理网站. 我们鼓励你们大声说出来，因为多一个声音，就更接近一个更美好的世界。
+Rust 社区的更新 新闻和博客文章  RustConf 2020 注册已开放 2020 年贡献者调查 回顾 2018 年 rust-lang.org 网站重新设计 Rust Disaasembly（逆汇编）：第 1 部分 模糊测试 Sequoia-PGP 异步世界中的 Mutex Diesel 中的自定义类型 Rust 中新指令集的自动向量化 飞行控制器内，Embedded Rust 的现状 （模拟鸟群）三维 boids 在完美的协调中游动；在 Rust 中实现 boids 群集算法 Coverage Marks Ringbahn：一种安全、符合人体工程学的 Rust IO-使用 API rust-analyzer changelog #26 作为一名 Java 程序员，我为什么喜欢学习 Rust 助力 to Rust 查看用于 WebAssembly 的关键 Rust 箱子 10 种最受欢迎的编程语言：Rust、TypeScript 等 用 Rust 创造一颗红宝石（Ruby Gem） 设计 Rust release API 客户端 如何用 Rust 构建一个 WebSocket 服务器 在分布式游戏对象上，调用函数 IPv6 与 Rust Rust 可是一种高级语言 Rust 中的排序算法 Programming Servo：集成流 To Rust or not to Rust（仿 To Be or not to Be） [西班牙语] aprende rust en español [视频] 一个 rust &amp;amp; wasm tutorial 构建比特币 bitcoin 基础设施.</description>
+    </item>
     
     <item>
       <title>Rust周报 340(译)</title>
