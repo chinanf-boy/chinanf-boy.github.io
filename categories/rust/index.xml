@@ -6,10 +6,22 @@
     <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 12 Jun 2020 17:25:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 22:10:45 +0800</lastBuildDate>
     
 	<atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 343(译)</title>
+      <link>/2020/06/17/rust%E5%91%A8%E6%8A%A5-343%E8%AF%91/</link>
+      <pubDate>Wed, 17 Jun 2020 22:10:45 +0800</pubDate>
+      
+      <guid>/2020/06/17/rust%E5%91%A8%E6%8A%A5-343%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-06-16 原文：343 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+看看本周的 This Week in Rust Podcast
+Rust 社区的更新 新闻和博客文章  2020 年大事件 —— 更新 nightly 版本现提供新的 inline 汇编语法 宣布 RustFest Global 2020🎉 RustConf 2020 注册已开放 了解 Rust 生态系统 您想学习 Rust，但不知道从哪里开始 7 种强大的 Rust 驱动的命令行实用程序 Rust 驱动的命令行实用程序可提高您的生产率 Rust 中的 Errors：一次深入研究 Hyper 陷阱 STM32 Nucleo-F302R8 和 Rust 入门 微软：Rust 是安全系统编程行业的“最佳机会” Rust 之旅：第 7 章 —— 面向对象的编程 Rust Analyzer Changelog ＃29 Rustls 安全回顾和审核报告 NDArray 索引数组和 Mask 索引数组 Ringbahn 的两个内存错误 Dart 遇见 Rust：天堂造的干柴烈火 C++ 开发者学习 Rust！ 装满水的容器 Rust 中的泛型和编译时 借助 Rust：改善您的 Phoenix 应用程序全栈的性能 改进 IDE for Rust / WinRT  我在 Rust 开源项目中的经验 Rust 玩代号 将你的好奇之心落于 Rust  Rust 编译器并不慢!</description>
+    </item>
     
     <item>
       <title>Rust周报 342(译)</title>
