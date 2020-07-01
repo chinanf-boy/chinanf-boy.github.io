@@ -6,10 +6,22 @@
     <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 24 Jun 2020 17:04:12 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 20:37:12 +0800</lastBuildDate>
     
 	<atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 345(译)</title>
+      <link>/2020/07/01/rust%E5%91%A8%E6%8A%A5-345%E8%AF%91/</link>
+      <pubDate>Wed, 01 Jul 2020 20:37:12 +0800</pubDate>
+      
+      <guid>/2020/07/01/rust%E5%91%A8%E6%8A%A5-345%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-06-30 原文：345 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+查看本周的 This Week in Rust Podcast
+Rust 社区的更新 新闻和博客文章  async in Rust 实用指南 安全 Rust 准则 —— ANSSI（法国国家网络安全局） 使用 VSCode 在 AWS EC2 上，更快地进行 Rust 开发 Rust 验证工具 用 Rust 检查 ARM vs X86 内存模型 磁盘空间和 LTO 的改进 Rust 构建更快的 CouchDB View 服务器 使用 SQLx 和 Postgres 实现一个作业队列 Rust + Actix + CosmosDB（MongoDB）教程 api 极其简单的 Rust Rocket 框架教程 使用 Rust 和 Rocket 构建智能书签工具 一个 Future 就是一个暂停的调度程序 为 Raspberry Pi 跨平台构建 Rust GStreamer 插件 xi-editor 回顾 Rust 编写的数据库项目，本月报告 Rust 编译缓慢的较多原因 在 RISC-V 上，修复 Rust 的测试套件 Rust - Protobuf 代码生成 使用 Rust 和 OpenCV 跟踪眼中心位置 使用 rust，blurz，读取一个 BLE 设备 rust-analyzer 变更日志 ＃31 IntelliJ Rust 变更日志 ＃125 [视频] manipulating ports, virtual ports and pseudo terminals - rust wrocław webinar [视频] rust stream: iterators  周箱 这周的箱子是print_bytes，该库可将任意 bytes，尽可能无损地打印到 stream 中。</description>
+    </item>
     
     <item>
       <title>Rust周报 344(译)</title>
