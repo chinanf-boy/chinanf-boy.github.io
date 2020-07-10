@@ -6,10 +6,22 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 01 Jul 2020 20:37:12 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2020 14:49:32 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 346(译)</title>
+      <link>/2020/07/10/rust%E5%91%A8%E6%8A%A5-346%E8%AF%91/</link>
+      <pubDate>Fri, 10 Jul 2020 14:49:32 +0800</pubDate>
+      
+      <guid>/2020/07/10/rust%E5%91%A8%E6%8A%A5-346%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-07-07 原文：346 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+查看本周的 This Week in Rust Podcast
+Rust 社区的更新 新闻和博客文章  宣布 Rustup 1.22.0 标准库实现：所有权「Ownership」 编译器团队 2020-2021 年，路线图会议纪要 回到古老的技巧..（或 Rust 中的婴儿学步的阶段） Rust 中的小 strings 选择 一项 Rust Web 框架，2020 edition Rust 编写 Interpreters：指南 让一个 Kernel 模块转成 Rust 所带来的：好的，坏的和丑陋的 Bad Apple！！以及我如何为任务管理器编写一个 Rust 视频播放器！！ Boa 发布 v0.9 版，并利用 Rust 量化 RiB（Rust in Blockchain）新闻稿#13 我从将 C 密码库移植到 Rust 中，学到的 7 件事 Rust GameDev 月刊#11 中（2020 年 6 月） Rust 配 AWS Lambda 用 Rust 写一个 4K 的成功介绍 Ringbahn II：中央状态机 Tide 上的 Bastion：第二部分 把 Godot 移植到 Rust（P1） 图像衰减服务 IntelliJ 变更日志 #125 抽象出正确性 Rust 的 渲染 Rust fuzzing —— 超级英雄式的代码审查 什么是悬挂的指针？ 简单的 Rocket 网络框架教程 | POST 请求 操作系统进阶：系统调用 分配 API、分配器和虚拟内存 Cargo [features] 举例说明 嵌入式 Rust 中的并发模式 WebAssembly 和 Rust 入门 如何在 Rust 中，编写一个 Stack 在 Rust 中实现 WebSockets rust-analyzer 变更日志 32 Rust for JavaScript 开发人员 —— 函数和控制流 Rust：新的 LLVM 使用 Rust 和 WebAssembly 处理视频源中的像素 带有 Rust 和 React 的 WebAssembly（使用 create React app） [葡萄牙语] aprendendo rust: 01 - hello world [音频] mun [音频] rust and machine learning #3 with alec mocatta (ep.</description>
+    </item>
     
     <item>
       <title>Rust周报 345(译)</title>
