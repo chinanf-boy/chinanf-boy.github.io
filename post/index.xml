@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Jul 2020 14:49:32 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2020 10:52:19 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 347(译)</title>
+      <link>/2020/07/15/rust%E5%91%A8%E6%8A%A5-347%E8%AF%91/</link>
+      <pubDate>Wed, 15 Jul 2020 10:52:19 +0800</pubDate>
+      
+      <guid>/2020/07/15/rust%E5%91%A8%E6%8A%A5-347%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-07-14 原文：347 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+查看本周的 This Week in Rust Podcast
+Rust 社区的更新 新闻和博客文章  宣布 Rustup 1.22.1 语言团队设计会议：通往成员之路 Rust 社区缓和的观点 Programming Servo：鸟瞰 更快的整数解析（Rust port） 学习 Rust：让我们构建一个解析器 nnnoiseless：将音频代码，从 C 移植到 rust 新调试器的灵魂 Rust 中的 String interners Rust 的 Target Feature vs Target CPU Rust 及其孤儿（Orphan）规则 异步访谈＃8：Stjepan Glavina 在 Rust 中使用 RabbitMQ 创建一个自定义目标 静态，Sized，高阶的多态性 摆脱 Rust futures 的麻烦 Rust Analyzer 变更日志＃33 IntelliJ Rust 更新日志＃126 Rust OSDev 月刊（2020 年 6 月） 跨平台编译 Rust， 从 ARM 到 x86-64 用 Rustler，为 Elixir 编写 Rust NIF 几何约束 求解器第 1 部分：代数表达式 观察，Rust 异步内存访问 构建 Canrun：用于 Rust 的静态类型，逻辑编程库（第 1 部分） 在 Rust Wasm build 中，寻找非确定性错误 在 Rust 中实现 Clipper Chip 密码 Linux 开发人员可能会讨论，在内核中允许 Rust 代码 Rust 和 WebAssembly 中的机器学习 从 TypeScript 迁移到 Rust / WebAssembly RSoC：改进 驱动程序和内核 —— 第 1 部分（更大的 io_uring） 从零开始的 Rust 和 WebAssembly：带 Strings 的 Hello World 适用于 JavaScript 开发人员的 Rust —— 模式匹配和枚举 令人惊讶的是，Rust 作为服务器语言是真的棒 实现标准化 Rust，描述人员的一些经验 在 Rust 中，子类化 GTK 小部件 [西班牙文] rust es orientado a objeto?</description>
+    </item>
     
     <item>
       <title>Rust周报 346(译)</title>
