@@ -6,10 +6,22 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 15 Jul 2020 10:52:19 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2020 21:11:35 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 348(译)</title>
+      <link>/2020/07/23/rust%E5%91%A8%E6%8A%A5-348%E8%AF%91/</link>
+      <pubDate>Thu, 23 Jul 2020 21:11:35 +0800</pubDate>
+      
+      <guid>/2020/07/23/rust%E5%91%A8%E6%8A%A5-348%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-07-21 原文：348 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+查看本周的 This Week in Rust Podcast
+Rust 社区的更新 新闻和博客文章  crates.io 安全咨文 宣布 Rust 1.45.0 Trait 工作组 2020 第三冲刺总结 2020 年最值得学习的编程语言（Rust Lang） 了解如何用 Rust，制作推箱子游戏！ 详细说明 Rust 的模块系统 查看 Rust features 的状态 Programming Servo：随处可见 使用 Rust ，对终极 Tic Tac Toe 的高效描述 下一个算法：回溯 n 个皇后问题 RSoC：改进驱动程序和内核 —— 第 3 部分（主要是 io_uring） 用 Rust 编写异步 MQTT Broker —— 第 2 部分 Rust 闭包：move闭包，返回impl Fn 用 Rust 编写内核驱动程序 用 Rust 重写 FORTRAN 软件 用 Rust 构建和调试高吞吐量守护程序 为什么甚至未使用的数据也需要有效 响应式 IDE 的三种架构 包装和&amp;rsquo;售出&amp;rsquo; Rust 软件 —— Windows 异步 Rust，但不那么吓人 Rust Analyzer Changelog ＃34 基准测试 Rust＆Go 的 gRPC Rust 中的函数重载 几何约束求解器第 1 部分：代数表达式 Haskell::From(Rust) I：中缀表示法和 Currying 如何用 Rust 编写队列 实现一个工作流程图 在 Rust 中，实现flat_map IntelliJ Rust 0.</description>
+    </item>
     
     <item>
       <title>Rust周报 347(译)</title>
