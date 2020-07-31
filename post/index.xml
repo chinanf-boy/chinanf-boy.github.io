@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 23 Jul 2020 21:11:35 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 20:36:01 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 349(译)</title>
+      <link>/2020/07/31/rust%E5%91%A8%E6%8A%A5-349%E8%AF%91/</link>
+      <pubDate>Fri, 31 Jul 2020 20:36:01 +0800</pubDate>
+      
+      <guid>/2020/07/31/rust%E5%91%A8%E6%8A%A5-349%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-07-28 原文：349 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+查看本周的 This Week in Rust Podcast
+Rust 社区的更新 官方  开展，核心团队议程 Rust 的 CI 正在转向 GitHub Actions  工具  IntelliJ Rust 更新日志＃127 Rust Analyzer Changelog ＃35  观察/想法  深入了解 Rust 编程语言 关于较小 Rust 的注意事项 Rust at FP Complete，2020 年更新 为什么 Rust 模块系统，可能是难以理解 让 Rust 在 2020 年再发一枪  学习  Rust 使用&amp;rsquo;英语&amp;rsquo;简单解释 Rust 中的（几种）高级变量类型 Tokio 和 async Rust 教程 Rust 中面向数据设计，简介 通过将 Python 思维转换到 Rust —— 学习 Rust Rust 从头开始编写文件系统 Rust 的内存安全 —— 第 1 部分 使用 Rusoto 和 Serde，分析 GitHub TB 级别的压缩文档数据 Rust 的大小关系 今年七月，Rust 编写的数据库项目 Rust 中的 Cell，RefCell 和内部可变性（Interior Mutability） Rust 中的 命令行自动补全算法 压缩机构 从 C＃到 Rust：代码基础 Rust 和 WebAssembly 的 Hello World 交互式 ‘和弦’ 图（使用 Rust 进行数据分析） Rust 计算斐波纳契数的一些（许多）方法 用 Rust 编写一个简单的查询系统 带有 Rust 和 Diesel 的 JSONB Data Enum 或 Trait Object Rayon 并行流（Parallel Stream）处理 Compile Time CUDA 设备检查 使用 Rust，进行 AVR 的 Async/Await 使用 Rust 和 WebAssembly，在 48 小时内制作游戏 [葡萄牙语] aprendendo rust: 04 - comentários, documentação e tipos de variáveis primitivas [英国] пошук в глибину на прикладі задачі ханойської вежі [视频] utility ai (with rust example) - how-to [视频] writing a guide to slice data in rust [视频] learning rust gamedev patterns [视频] run any web container for free on google cloudrun (example in rust/warp) [视频] technologieplauscherl: memory ownership in c# and rust [视频] fltk rust tutorial: create a media player using the vlc crate [视频] rust at speed - building a fast concurrent database [法语] [视频] Développement Web Rust &amp;amp; Rocket [葡萄牙语] [视频] Hoje sai o data tables em RUST  项目更新  Ballista 分布式计算：一年后 使用 Nix 跨平台编译为 Redox 公开声明：您现在可以在 Redox OS 上，使用 GDB 调试程序啦 Rocket 现在可以在 Stable Rust 上编译  杂项  ANSSI —— 使用 Rust 开发安全应用程序的编程规则 在 5 种最主要的语言受欢迎度列表中，Rust 现在是排名前 20 位的语言 站在 Linkerd 最先进的 Rust 代理背后的是，Linkerd2-proxy 性能比较：Rust，PyO3 和 Python 优化 Rust ：顺时针三角形  周箱 这周的箱子是polyfuse，一个用于使用异步代码编写 FUSE 文件系统的库。</description>
+    </item>
     
     <item>
       <title>Rust周报 348(译)</title>
