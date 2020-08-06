@@ -6,10 +6,22 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 31 Jul 2020 20:36:01 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2020 00:21:23 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 350(译)</title>
+      <link>/2020/08/07/rust%E5%91%A8%E6%8A%A5-350%E8%AF%91/</link>
+      <pubDate>Fri, 07 Aug 2020 00:21:23 +0800</pubDate>
+      
+      <guid>/2020/08/07/rust%E5%91%A8%E6%8A%A5-350%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-08-04 原文：350 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+查看本周的 This Week in Rust Podcast
+Rust 社区的更新 官方  宣布 Rust 1.45.1 宣布 Rust 1.45.2  工具  Rust Analyzer Changelog ＃36 IntelliJ Rust：2020.2 版本的更新 Headcrab：2020 年 7 月进度报告  时事通讯  Rust OSDev 月刊（2020 年 7 月）  观察/思考  Go vs Rust：编写 CLI 工具 如何在 2020 年，加快 Rust 编译器的速度 云（Cloud）上，Rust TLS 和 Postgres 的奇怪故事  学习标准 Rust  学习 Rust：心态和期望 了解 Rust 借用检查器 Rust 错误处理 —— 初学者指南 Rust Hashmaps 教程 Rust：什么是“内存安全”，真的吗？ 如何使用 Rust 编译器作为你自用的集成测试框架 一个全面的教程 —— Rust 初学者 关于无符号（Unsigned）、有符号整数（Signed Integers）和 Casting（转换）in Rust Rust 的内存安全性 —— 第 2 部分 Rust 汇编的友好简介 通过使用non exhaustiveenums，防止 Future 版本中的破坏性代码更改 Stacks 的 一堆（Heaping）帮助 Python 使用者之 Rust 1：Why 和 When？ [PT] aprendendo rust: 05 - funções [RU] rust: работа с потоками [video] learning rust by working through the rustlings exercises  了解更多 Rust  为 Rust 项目创建 Linux 包（1/2） Raspberry Pi 上的 Rust 操作系统开发教程 用 Rust 逆向工程一个 USB 设备 A Simple Crud on Rust (With Rocket.</description>
+    </item>
     
     <item>
       <title>Rust周报 349(译)</title>
