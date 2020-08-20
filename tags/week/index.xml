@@ -6,10 +6,22 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 13 Aug 2020 15:57:34 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2020 00:07:53 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 352(译)</title>
+      <link>/2020/08/21/rust%E5%91%A8%E6%8A%A5-352%E8%AF%91/</link>
+      <pubDate>Fri, 21 Aug 2020 00:07:53 +0800</pubDate>
+      
+      <guid>/2020/08/21/rust%E5%91%A8%E6%8A%A5-352%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-08-18 原文：352 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+查看本周的 This Week in Rust Podcast
+Updates from Rust Community（Rust 社区更新） Official（官方）  为 Rust&amp;rsquo;s future 打好地基  Tooling（工具）  Rust Analyzer Changelog #38  Newsletters（时讯）  嵌入式工作组 Newsletter - 24  Observations/Thoughts（观察/思考）  为什么 Rust 挺合适嵌入式软件 为什么 Rust&amp;rsquo;s Unsafe 就能行 Rust RwLock 和 Mutex 性能怪癖 2020 最激动人心的旅程 丝滑般的 resize 测试 &amp;ldquo;Rust 并没有一个稳定的(stable) ABI&amp;rdquo; Rust 回顾 Rust vs C++: 一个 JS/TS 开发者的角度 比较 Unsafety Code Smell: 具体抽象 抵制 Glob 形式（::*）的导入  Learn Standard Rust  Lifetimes in Rust Learning Rust: 编译器可是你的朋友 我是一名 Java, C#, C or C++ 开发者, 是时候搞搞 Rust 啦 令人沮丧?</description>
+    </item>
     
     <item>
       <title>Rust周报 351(译)</title>
