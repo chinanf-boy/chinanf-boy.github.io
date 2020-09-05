@@ -6,10 +6,21 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 27 Aug 2020 22:47:57 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2020 22:33:02 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 354(译)</title>
+      <link>/2020/09/05/rust%E5%91%A8%E6%8A%A5-354%E8%AF%91/</link>
+      <pubDate>Sat, 05 Sep 2020 22:33:02 +0800</pubDate>
+      
+      <guid>/2020/09/05/rust%E5%91%A8%E6%8A%A5-354%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-09-04 原文：354 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community（Rust 社区更新） Official（官方）  宣 Rust 1.46.0  Tooling（工具）  Rust Analyzer Changelog #40 给予 IntelliJ Rust 插件帮助: Writing an intention  Newsletters（时讯）  Rust 区块链月刊 #15 - Turbofish in the Blocksea  Observations/Thoughts（观察/思考）  我们应该把系统编程语言的未来，压在 Rust 身上吗? Optionality（可选性） in the type systems of Julia and Rust 从 quick-error 迁移到 SNAFU: 关于改进错误处理流程的故事 去使用那些 Traits 吧 Starframe devlog: 架构 将事件链（Event Chaining）作为一种解耦方法 in Entity-Component-System Rust 序列化功能: 啥是已经准备好放入生产环境了呢?</description>
+    </item>
     
     <item>
       <title>Rust周报 353(译)</title>
