@@ -6,10 +6,22 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Sep 2020 21:44:15 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2020 12:03:53 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 356(译)</title>
+      <link>/2020/09/18/rust%E5%91%A8%E6%8A%A5-356%E8%AF%91/</link>
+      <pubDate>Fri, 18 Sep 2020 12:03:53 +0800</pubDate>
+      
+      <guid>/2020/09/18/rust%E5%91%A8%E6%8A%A5-356%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-09-16 原文：356 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community（Rust 社区更新） Newsletters（时讯） 本周没有时讯
+Official（官方）  发起 2020 Rust 状态调查 WG-prioritization 团队，呼吁参与  Tooling（工具）  Rust Analyzer Changelog #42  Observations/Thoughts（观察/思考）  哪些解析方法? 挑战 LR Parsing 从对 Http4k, Ktor (Kotlin) 和 Actix v2, v3 (Rust) Microservices 的基准测试中，学到什么 Rust 中没有 Namespaces，可以是一个 Feature 构建 devserver: 一个超少的 Rust Server 驯服 nalgebra&amp;rsquo;s Rustdoc Rust 在科学 和不断变化的需求的应用 From @Test to #[test]: 一个关于 Java 和 Rust 之间测试的小故事  Learn Standard Rust  用一个 API，收集数据 SQLite 文件解析器 第一部分: The Header Rust 面向数据设计的介绍 Rust for Java developers 用 zbus 为桌面应用增色  Learn More Rust  实现 Records in x7 让我们构建一体 gRPC server-client 二进制文件 with Rust in 2020 - 第四部分 制造一个语言 - 第三部分: 定义 variables 用 httpmock 进行 Rust HTTP 测试  Project Updates  宣布 CCS811 室内空气质量传感器.</description>
+    </item>
     
     <item>
       <title>Rust周报 355(译)</title>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2020/09/18/rust%E5%91%A8%E6%8A%A5-356%E8%AF%91/</loc>
+    <lastmod>2020-09-18T12:03:53+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2020/09/10/rust%E5%91%A8%E6%8A%A5-355%E8%AF%91/</loc>
     <lastmod>2020-09-10T21:44:15+08:00</lastmod>
   </url>
@@ -375,7 +380,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-09-10T21:44:15+08:00</lastmod>
+    <lastmod>2020-09-18T12:03:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -435,7 +440,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-09-10T21:44:15+08:00</lastmod>
+    <lastmod>2020-09-18T12:03:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -495,7 +500,7 @@
   
   <url>
     <loc>/tags/week/</loc>
-    <lastmod>2020-09-10T21:44:15+08:00</lastmod>
+    <lastmod>2020-09-18T12:03:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
