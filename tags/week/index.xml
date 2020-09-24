@@ -6,10 +6,22 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 18 Sep 2020 12:03:53 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2020 23:27:04 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 357(译)</title>
+      <link>/2020/09/24/rust%E5%91%A8%E6%8A%A5-357%E8%AF%91/</link>
+      <pubDate>Thu, 24 Sep 2020 23:27:04 +0800</pubDate>
+      
+      <guid>/2020/09/24/rust%E5%91%A8%E6%8A%A5-357%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-09-23 原文：357 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Rust 社区的更新 本周没有新闻通讯。
+官方  2021 年路线图参与博客，即将结束 宣布错误处理项目组 [内部] intra-doc links 接近稳定  工具  IntelliJ Rust 更新日志＃131 Rust Analyzer 变更日志＃43 Knurling-rs 变更日志＃1  观察/想法  将 EBU R128 音频响度分析，从 C 移植到 Rust 字符串上的类型：Rust 中的可扩展架构 为什么不用 Rust？ 为什么不用 Rust for 安全？ 为什么 Rust 不是成熟的编程语言 我最喜欢的 Rust 签名 Rust 是伪装的函数式语言吗？ Async Iteration 语义 Cranelift 的新后端，第 1 部分：指令选择 丢码 我开始学习 Rust 基于纯 AST 的 linting，真的很烂 Rust 嵌入式抽象的潜在改进  学习标准 Rust  TL;;DR Rust Rust 中的变量和可变性 Rust 初学者的工作路线 学习 Rust：OMG WTF RS —— 帮助您入门 Rust 的资源 仅用 10 行编写您自己的 Rust 编译器插件！ Rust 中的可选参数 Rust 二叉搜索树的实现 [FR] le concept de “propriétaire” ou “ownership” en rust [TH] rustler 101: ferris say  了解更多 Rust  动态迭代器 底层-学院 使用 tokio，在 Rust 中编写 HTTP（S）隧道。 与 TLS 同舞 实在太 Rust 啦：元编程 Bevy 游戏引擎＃1 使用 Rust 和 WebAssembly 在 Node.</description>
+    </item>
     
     <item>
       <title>Rust周报 356(译)</title>
