@@ -110,6 +110,19 @@
         
         
             
+                <a href="/2020/10/01/rust%E5%91%A8%E6%8A%A5-358%E8%AF%91/" data-series="Rust周报-中文" style="margin-left:1rem;"><time style="color:black;">2020-10-01</time>  / Rust周报 358(译) </a>
+              
+        
+      
+    </li>
+    
+
+    <li class="list-group-item title">
+      
+         
+        
+        
+            
                 <a href="/2020/09/24/rust%E5%91%A8%E6%8A%A5-357%E8%AF%91/" data-series="Rust周报-中文" style="margin-left:1rem;"><time style="color:black;">2020-09-24</time>  / Rust周报 357(译) </a>
               
         
@@ -1077,9 +1090,8 @@
 </div> 
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -1117,8 +1129,10 @@
     for(let i in nameSeries){
       var dcreateE = document.createElement("details")
       var screateE = document.createElement("summary")
-      screateE.innerHTML = `${i} <i style="border-radius: 49%;border: 2px dashed #fe16fe;padding:3px;">${nameSeries[i].length} </i>`;
-      var inner = screateE.outerHTML // details innerHTML
+      screateE.innerHTML = `系列:<span style="color: #777;"> ${i} </span>` + 
+      `<span style="border-radius: 29%;border: 2px dashed #fe16fe;padding:3px;">No.${nameSeries[i].length}</span> ` + 
+      `最新:${nameSeries[i][0].text}`;
+      var inner = screateE.outerHTML 
 
       nameSeries[i].forEach(x =>{
         inner += x.outerHTML
