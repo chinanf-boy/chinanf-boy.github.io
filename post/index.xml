@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 01 Oct 2020 13:38:35 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2020 14:03:46 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 359(译)</title>
+      <link>/2020/10/08/rust%E5%91%A8%E6%8A%A5-359%E8%AF%91/</link>
+      <pubDate>Thu, 08 Oct 2020 14:03:46 +0800</pubDate>
+      
+      <guid>/2020/10/08/rust%E5%91%A8%E6%8A%A5-359%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-10-07 原文：359 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official  [Inside] 1.47.0 pre-release testing [Inside] 1.47.0 second pre-release testing  Newsletters  Rust OSDev (9, 2020) 月刊 Rust in Blockchain Newsletter #16 - Secure Enclaves（大致可翻译为：安全地带） à la Crab（法语：螃蟹） Dimforge #1 (10, 2020) 月刊  Tooling  Rust Analyzer Changelog #45 IntelliJ Rust Changelog #132  Observations/Thoughts  为什么我把 use 语句放得到处都是？ Rust + 树莓派 Tide Clock 现，赋予你编写 Slow Rust Code Rust 遇上 the web - programming 范例的冲突 动态小组件 草图 后感：创作 JS Library with Rust and Wasm Ringbahn III: 深入 drivers Fast Thread Locals In Rust Formicarium：集群智能  Learn Simple Rust  Dancing Links In Rust 入门 nRF52840 in Rust That&amp;rsquo;s so Rust!</description>
+    </item>
     
     <item>
       <title>Rust周报 358(译)</title>
