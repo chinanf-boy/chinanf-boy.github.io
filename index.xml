@@ -6,10 +6,21 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 08 Oct 2020 14:03:46 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2020 20:22:02 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 360(译)</title>
+      <link>/2020/10/15/rust%E5%91%A8%E6%8A%A5-360%E8%AF%91/</link>
+      <pubDate>Thu, 15 Oct 2020 20:22:02 +0800</pubDate>
+      
+      <guid>/2020/10/15/rust%E5%91%A8%E6%8A%A5-360%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-10-14 原文：360 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official  Announcing Rust 1.47.0  Newsletters  Rust GameDev 月刊 #14  Tooling  Rust Analyzer Changelog #46 关于 rust 代码覆盖率的两个视频 in VSCode  Observations/Thoughts  美好背后的 Rust 构建最快的 RaptorQ (RFC6330) Codec in Rust 通过开源和在线代码预览，学习 Rust 制作一个 Canvas Based 游戏的错误， with Rust and WebAssembly Cranelift 新后端, Part 1: Instruction Selection Optional parameters in Rust 构建一个 async-compatible actor system [视频] contract as code as contract: using rust to unify specification and implementation  Learn Simple Rust  Iterators in Rust Learn Rust Together Part 5: Structs and Enums!</description>
+    </item>
     
     <item>
       <title>Rust周报 359(译)</title>
