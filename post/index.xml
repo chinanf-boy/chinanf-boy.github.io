@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 15 Oct 2020 20:22:02 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2020 22:59:34 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 361(译)</title>
+      <link>/2020/10/23/rust%E5%91%A8%E6%8A%A5-361%E8%AF%91/</link>
+      <pubDate>Fri, 23 Oct 2020 22:59:34 +0800</pubDate>
+      
+      <guid>/2020/10/23/rust%E5%91%A8%E6%8A%A5-361%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-10-21 原文：361 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有新闻通讯。
+Official  将 issues 标记为 regressions [内部] lang team RFC 大整理 和 项目协议  Tooling  Rust-Analyzer Changelog #47 IntelliJ Rust Changelog #133  Observations/Thoughts  无畏并发: Clojure, Rust, Pony, Erlang and Dart 是怎么做到这一步的。 震惊 Result&amp;lt;&amp;gt;?: 关于文件解析上的一个测试，Rust 快过 Python  构建一个 Recipe 管理器 - Part 2 - Druid 经验报告 不, C++ 还没有切掉它 Rust&amp;rsquo;s move/copy/drop 语义的一个陷阱，和 对数据进行 0 处理 证明：1 + 1 = 10 in Rust 学习 std::io::Error 与 Rust&amp;rsquo;s Traits 玩耍  Learn Simple Rust  Arrays, vectors 和 slices in Rust 构建你自己的 Error Type: Part 1 Lifetimes in Rust Piece by Piece: 编写 Readable Rust Code 那些个 out 参数 in Rust，会是符合常理的吗?</description>
+    </item>
     
     <item>
       <title>Rust周报 360(译)</title>
