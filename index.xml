@@ -6,10 +6,23 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Oct 2020 22:59:34 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2020 22:54:11 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 362(译)</title>
+      <link>/2020/10/29/rust%E5%91%A8%E6%8A%A5-362%E8%AF%91/</link>
+      <pubDate>Thu, 29 Oct 2020 22:54:11 +0800</pubDate>
+      
+      <guid>/2020/10/29/rust%E5%91%A8%E6%8A%A5-362%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-10-28 原文：362 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+RustFest Global RustFest schedule上线啦！RustFest 提供免费门票，截止日期为 11 月 1 日 。全时区，所有人都可以使用！
+Updates from Rust Community 本周没有新闻通讯。
+Official  [内部]core 队员变更  Tooling  Rust Analyzer Changelog #48 Knurling-rs Changelog #3  Observations/Thoughts  斗争进行中：Rust&amp;rsquo;s Expressive Type System XMHell: 处理 38GB， UTF-16 XML 文件地狱 （一个快速游戏制作聚会）LudumDare 47 - The Island 食谱管理程序 - Part 3 - Parsing and more Druid 通过 OIBITs（别称：auto traits），模拟（默认方法）specialization  Flask Creator Armin Ronacher 采访 妙探寻凶游戏重构  Learn Rust  Rust for a Gopher Lesson 1 Rust for a Gopher Lesson 2 用 AssemblyLift 构建 &amp;ldquo;todo 清单&amp;rdquo; 🚀🔒 听说，你想要面向对象的 Rust [系列] a web app in rust 向 IntelliJ Rust 插件提供帮助: 实现一个 refactoring 5 倍速： Rust Docker Builds with cargo-chef 编写一个简单的 AWS Lambda Custom Runtime in Rust 来了来了，他来了!</description>
+    </item>
     
     <item>
       <title>Rust周报 361(译)</title>
