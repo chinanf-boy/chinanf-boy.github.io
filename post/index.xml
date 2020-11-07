@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Oct 2020 22:54:11 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2020 13:16:43 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 363(译)</title>
+      <link>/2020/11/07/rust%E5%91%A8%E6%8A%A5-363%E8%AF%91/</link>
+      <pubDate>Sat, 07 Nov 2020 13:16:43 +0800</pubDate>
+      
+      <guid>/2020/11/07/rust%E5%91%A8%E6%8A%A5-363%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-11-04 原文：363 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有 Rust Blog 帖子。
+Newsletters  RiB Newsletter #17 - Trick? Or Trait? This month in Dimforge #2 (October 2020) These Weeks in Actix | Sep-Oct &amp;lsquo;20  Tooling  Rust-Analyzer Changelog #49 IntelliJ Rust Changelog #134 IntelliJ Rust: 新功能性 Cargo Features  Observations/Thoughts  Semantic FFI Bindings in Rust - 重启 the Borrow Checker 异常安全 in Rust: using transient（短暂的） droppers 防止内存泄漏 Wasmcloud 进度 Fast programming languages: C, C++, Rust, and Assembly 对于复杂的应用, Rust 生产力可比 Kotlin Rust for 数据密集型计算 Using Rust for a simple 硬件项目 致命缺陷之 Ownership Semantics 修复 bootstrap of rustc，通过使用 cg_clif Cargo [features] 高阶用法  Rust Walkthroughs  Rust 测试性设计: 调查问卷 Rust from a Gopher - Lessons 3 &amp;amp; 4 （Web 框架）Rocket Tutorial 01: 基础 构建一个 AWS Lambda 扩展 with Rust A Gopher Client in Rust - 02 Core Client A Gopher Client in Rust - 03 Bookmarks and Full Code Rust HTTP Testing：使用 httpmock Newtype 模式 in Rust How to: Rust + SDL2 + OpenGL on the web 微编译器: Lexing 持续发布 For Rust Applications (Zero To Production In Rust #5) [DE] The Rust Programming Language (translated in German) [video] (Live Coding) Audio adventures in Rust: UI with WASM, Yew, and WebView [video] How to build a multiplayer game - RustFest.</description>
+    </item>
     
     <item>
       <title>Rust周报 362(译)</title>
