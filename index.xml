@@ -6,10 +6,21 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 07 Nov 2020 13:16:43 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2020 18:02:52 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 364(译)</title>
+      <link>/2020/11/14/rust%E5%91%A8%E6%8A%A5-364%E8%AF%91/</link>
+      <pubDate>Sat, 14 Nov 2020 18:02:52 +0800</pubDate>
+      
+      <guid>/2020/11/14/rust%E5%91%A8%E6%8A%A5-364%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-11-11 原文：364 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official  [内部] Rust compiler，PGO（按配置优化）  Newsletters  This Month in Rust OSDev (October 2020) This Month in Rust GameDev #15 - October 2020  Tooling  Rust-Analyzer Changelog #50 用 OKteto 进行 Kubernetes 化，开发 &amp;amp; 发布 Your Rust Application  Observations/Thoughts  Rust 光追器, 一次更新 (and SIMD) Rust 的 emit=asm 功能可能会被误解 静态分析器配置: Clippy for Rust, part 1 为啥说 Rust 是游戏开发的未来 Rust 是一个 ’丰满‘的高级语言 40 毫秒 bug 后处理型的宏 in Rust 权衡性，嵌入式数据 Why Developers Love Rust  Rust Walkthroughs  Make a Language - Part Nine: Function Calls 构建一个天气站 UI 获取图像输出 from our Custom RISC-V Operating System in Rust Build your own: GPG Rpi 4 遇见 Flutter 与 Rust AWS Lambda + Rust Orchestration（编排） in Rust Rocket Tutorial 02: Minimalist API 简单 IO 分析 using Rust (throughput, &amp;hellip;) Type-Safe 离散事件仿真 in Rust [系列] a gemini client in rust 处理一系列 Items with Iterators in Rust Active Directory（管理网络目录权限）的日志汇集 Using Rust [FR] the rust programming language (translated in french)  Project Updates  新的 doc 注释控制实现 in rustdoc  Miscellaneous  Rust vs Go 我是这样学习汇编的：通过编写大量的操蛋的编译器 in Rust  Crate of the Week 这周的箱子是postfix-macros，这是一个聪明的技巧箱子，可以在 stable Rust 中，使用 postfix 宏。</description>
+    </item>
     
     <item>
       <title>Rust周报 363(译)</title>
