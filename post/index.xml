@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 14 Nov 2020 18:02:52 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2020 00:24:55 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 365(译)</title>
+      <link>/2020/11/21/rust%E5%91%A8%E6%8A%A5-365%E8%AF%91/</link>
+      <pubDate>Sat, 21 Nov 2020 00:24:55 +0800</pubDate>
+      
+      <guid>/2020/11/21/rust%E5%91%A8%E6%8A%A5-365%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-11-18 原文：365 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official  Announcing Rust 1.48.0 [内部] source-based 代码覆盖率 in nightly  Newsletters Tooling  IntelliJ Rust Changelog #135 Rust-Analyzer Changelog #51 Knurling-rs Changelog #6  Observations/Thoughts  ECS 规划者想法, Part 1 生成一个 config 文件模板, for CLI tools in Rust Rust in 2021 Anonymous Sum Types(各类错误类型合集) for Rust Error Handling C 标准库不是没有依赖 Trait 实现的&amp;rsquo;可见性&amp;rsquo;  Rust Walkthroughs  SQLite 文件解析器 Pt.</description>
+    </item>
     
     <item>
       <title>Rust周报 364(译)</title>
