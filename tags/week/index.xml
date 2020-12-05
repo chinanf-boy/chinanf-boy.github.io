@@ -6,10 +6,22 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 26 Nov 2020 20:13:21 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 05 Dec 2020 21:20:26 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 367(译)</title>
+      <link>/2020/12/05/rust%E5%91%A8%E6%8A%A5-367%E8%AF%91/</link>
+      <pubDate>Sat, 05 Dec 2020 21:20:26 +0800</pubDate>
+      
+      <guid>/2020/12/05/rust%E5%91%A8%E6%8A%A5-367%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-12-02 原文：367 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有项目更新。
+Official  Announcing Rustup 1.23.0  Newsletters  This Month in Rust Dimforge #3  Tooling  IntelliJ Rust Changelog #136 Rust Analyzer Changelog #53 Knurling-rs Changelog #8  Observations/Thoughts  Rust 开发持续性 为什么 Rust&amp;rsquo;s BTreeMap 没有 with_capacity() 方法? 为什么 WebAssembly 和 Rust 一起能提升 Node.js 性能 lib-ruby-parser Understanding Partial Moves in Rust Error 处理真困难 可扩展性基准测试 with Rust Streams 上个月，我将 1 万行 JS 代码，变为 Rust。这里，我记录下  Rust Walkthroughs  References in Rust OS in Rust: Building kernel for custom target: Part-4 用 Elixir 方式，编写 Rust Risp (in (Rust) (Lisp)) Props 和 嵌套的 Components，with Yew 通过 Rust，使用 Selenium Rocket Tutorial 04: Data Persistency and Rocket (with MongoDB) The Little Book of Rust Macros [系列视频] futures explained in 200 lines of rust [视频] demo: 🦀️ building a runtime reflection system for rust [视频] sapling livestream 5 - deleting code  Miscellaneous  为什么科学家，开始使用 Rust Pijul - 简单，合理，可扩展的版本控制系统 Amazon: We&amp;rsquo;re hiring software engineers who know programming language Rust  Crate of the Week 这周的箱子是kira，一个用于表达游戏音频的库</description>
+    </item>
     
     <item>
       <title>Rust周报 366(译)</title>
