@@ -6,10 +6,21 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 05 Dec 2020 21:20:26 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 11 Dec 2020 17:20:23 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 368(译)</title>
+      <link>/2020/12/11/rust%E5%91%A8%E6%8A%A5-368%E8%AF%91/</link>
+      <pubDate>Fri, 11 Dec 2020 17:20:23 +0800</pubDate>
+      
+      <guid>/2020/12/11/rust%E5%91%A8%E6%8A%A5-368%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-12-09 原文：368 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official  The Foundation 交流会  Newsletters  This Month in Rust GameDev #16 - November 2020 RiB Newsletter #18 - On to the Ribbles  Tooling  Rust Analyzer Changelog #54 Knurling-rs Changelog #9 IntelliJ Rust: Updates for 2020.3  Observations/Thoughts  Monads and GATs in Nightly Rust &amp;ndash;&amp;gt; ruanyifeng 解释 Monads 消除 零 for 几何代数 in Rust On 泛型 和 关联类型 自适应 请求并发。 大规模化的弹性观察能力。 Rust 压缩库 Rust 让 跨平台编译，简单到如同小孩的玩意 使用 builder 模式，去定义测试场景 测量 内存使用 in Rust 切换用户，节省时间: Async 支持 in Goose 为什么 Rust 的用意，是去替代 C  Rust Walkthroughs  实时视频处理 with Rust, FFmpeg and OpenCV 合并 k 排序数组 in Rust Make A Language - Part Thirteen: Whitespace &amp;amp; Events 单元测试一个 console app (a text editor) Rust and Async (on embedded devices) 避免重复 Strings in Rust OS in Rust: Custom target to build kernel for bare metal: Part-3 OS in Rust: Building kernel for custom target: Part-4 [视频] introduction to rust part 2  Project Updates  rust-gpu v0.</description>
+    </item>
     
     <item>
       <title>Rust周报 367(译)</title>
