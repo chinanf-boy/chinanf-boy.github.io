@@ -6,10 +6,21 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 11 Dec 2020 17:20:23 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 Dec 2020 23:06:54 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 369(译)</title>
+      <link>/2020/12/19/rust%E5%91%A8%E6%8A%A5-369%E8%AF%91/</link>
+      <pubDate>Sat, 19 Dec 2020 23:06:54 +0800</pubDate>
+      
+      <guid>/2020/12/19/rust%E5%91%A8%E6%8A%A5-369%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-12-16 原文：369 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official  关于 non-poisoning Mutex 和 RwLock 实现的调查 Foundation Conversation 下一站 Rust Survey 2020 Results [内部] changes to rust compiler team  Newsletters  This Month in Rust OSDev (November 2020)  Tooling  IntelliJ Rust Changelog #137 Rust Analyzer Changelog #55 Knurling-rs Changelog #10 These Months in explaine.rs Cargo2nix 0.9.0 release notes  Observations/Thoughts  FFI-Safe 多态性: Thin Trait Objects Adding BPF target support to the Rust compiler Why Rust 有一个美好未来 in the Cloud Closures: Magic Functions Notes on cross-compiling Rust Polymorphism in Rust: Enums vs Traits Beyond R and Python: Rust for Science Pointers 是复杂的 II, 或者说: 我们需要更好的语言规范 Serde tricks: 来自重构 rspotify 的学习经验 Notes On Lock Poisoning 我在尽我之能，尝试写出最快的排序算法&amp;hellip; in Rust Still Rusting - One Year Later 6 大原则：构建健全，灵活的共享数据 Apps with Rust &amp;amp; MongoDB [视频] The Unsafe Chronicles: Exhibit A: Aliasing Boxes  Rust Walkthroughs  Make A Language - Part Fourteen: Comments Make A Language - Part Fifteen: Markers Rust, Python and Fish 国际象棋游戏 in Rust using Bevy Rust on the BBC micro:bit Developing 智能合约 with ink!</description>
+    </item>
     
     <item>
       <title>Rust周报 368(译)</title>
