@@ -6,10 +6,22 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 19 Dec 2020 23:06:54 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 27 Dec 2020 00:15:43 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 370(译)</title>
+      <link>/2020/12/27/rust%E5%91%A8%E6%8A%A5-370%E8%AF%91/</link>
+      <pubDate>Sun, 27 Dec 2020 00:15:43 +0800</pubDate>
+      
+      <guid>/2020/12/27/rust%E5%91%A8%E6%8A%A5-370%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-12-23 原文：370 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有官方博客文章或新闻通讯。
+Project/Tooling Updates  Rust Analyzer Changelog #56 Knurling-rs Changelog #11 Bevy 0.4 Announcing Tokio 1.0 hyper 0.14 RustFFT 5.0.0.experimental-1: Now faster than FFTW! Allsorts Font Shaping Engine Year in Review  Observations/Thoughts  Looking back on 2020 I rewrote a Clojure tool in Rust 🦀 Rust Reviewed: 是合理的炒作吗? 🦀 Three things I wish I&amp;rsquo;d known learning Rust Rust in a KDE Project First 3 Months of Rust How rust changed and saved my life Rust 后端应用的构建问题 in 2020 接触 (当前的) Rust 类型系统上的限制 with asynchronous programming [音频] Rust Gamedev Podcast - interview with fedor logachev  Rust Walkthroughs  Build your own async primitive Make A Language - Part Sixteen: Refactoring Make A Language - Part Seventeen: Crates Make A Language - Part Eighteen: Errors 一个简单的神经网络 (&amp;lt;200LoC, Rust) Rocket Tutorial 05: 强制邮件的唯一性 终端复用器 with Rust, Async, and Actors - Part 2 Learning Rust: static trait bounds Async: What is blocking?</description>
+    </item>
     
     <item>
       <title>Rust周报 369(译)</title>
