@@ -6,10 +6,22 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 27 Dec 2020 00:15:43 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 02 Jan 2021 13:08:01 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 371(译)</title>
+      <link>/2021/01/02/rust%E5%91%A8%E6%8A%A5-371%E8%AF%91/</link>
+      <pubDate>Sat, 02 Jan 2021 13:08:01 +0800</pubDate>
+      
+      <guid>/2021/01/02/rust%E5%91%A8%E6%8A%A5-371%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2020-12-30 原文：371 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有新闻通讯。
+Official  [Inside] 欢迎 cjgillot and nadrieril to compiler-contributors [Inside] 1.49.0 pre-release testing  Project/Tooling Updates  IntelliJ Rust Changelog #138 Rust Analyzer Changelog #57 Redox OS 0.6.0  Observations/Thoughts  Call Site Dependency 注射情况 瞧瞧 tokio 1.0 API Changes Memory-Safety Challenge Considered Solved? An In-Depth Study with All Rust CVEs（通用漏洞披露） 45,000+ lines of Rust code later: An update on the 记录 &amp;amp; 调试工具 (rd) Cloning A Reference and Method Call Syntax in Rust 可以运行的 PNGs Why mongodump is fast  Rust Walkthroughs  Concurrency in modern programming languages: Rust Building distributed GraphQL backend using Rust and Apollo Federation 提高代码质量 using matches macro!</description>
+    </item>
     
     <item>
       <title>Rust周报 370(译)</title>
