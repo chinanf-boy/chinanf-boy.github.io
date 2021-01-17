@@ -6,10 +6,21 @@
     <description>Recent content in Week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 Jan 2021 01:04:14 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Jan 2021 12:19:15 +0800</lastBuildDate>
     
 	<atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 373(译)</title>
+      <link>/2021/01/17/rust%E5%91%A8%E6%8A%A5-373%E8%AF%91/</link>
+      <pubDate>Sun, 17 Jan 2021 12:19:15 +0800</pubDate>
+      
+      <guid>/2021/01/17/rust%E5%91%A8%E6%8A%A5-373%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-01-13 原文：373 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official Newsletters  This Month in Rust GameDev #17 - December 2020 This Month in Rust OSDev (December 2020)  Project/Tooling Updates  rust-analyzer Changelog #59 Knurling-rs Changelog #12 GCC Rust – How it can be achieved Open Source Security, Inc. Announces Funding of GCC Front-End for Rust Progress report on rustc_codegen_cranelift (Dec 2020)  Observations/Thoughts  XML parsing in Rust 8 倍速，parsing baseball files in Rust instead of Python!</description>
+    </item>
     
     <item>
       <title>Rust周报 372(译)</title>
