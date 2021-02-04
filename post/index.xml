@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 30 Jan 2021 00:04:59 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Feb 2021 16:01:35 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 376(译)</title>
+      <link>/2021/02/04/rust%E5%91%A8%E6%8A%A5-376%E8%AF%91/</link>
+      <pubDate>Thu, 04 Feb 2021 16:01:35 +0800</pubDate>
+      
+      <guid>/2021/02/04/rust%E5%91%A8%E6%8A%A5-376%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-02-03 原文：376 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有官方博客文章。
+Newsletters  RiB Newsletter #20 - Old fashioned chill  Project/Tooling Updates  rust-analyzer Changelog #62 IntelliJ Rust Changelog #140 Llama Rust SDK preview 0.1.3 Gfx-rs Release of v0.7 Open-sourcing Datanymizer: in-flight template-driven data anonymization（测试数据的匿名工具） Announcing Step/Dir - Universal Stepper Motor Interface（步进电机接口） Announcing RampMaker - Stepper Motor Acceleration Ramp Generator（配置工具） Krustlet v0.6.0  Observations/Thoughts  Is Rust a Functional Programming Language?</description>
+    </item>
     
     <item>
       <title>Rust周报 375(译)</title>
