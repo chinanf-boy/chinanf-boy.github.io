@@ -6,10 +6,34 @@
     <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 21 Feb 2021 00:10:21 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Mar 2021 21:10:35 +0800</lastBuildDate>
     
 	<atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 380(译)</title>
+      <link>/2021/03/04/rust%E5%91%A8%E6%8A%A5-380%E8%AF%91/</link>
+      <pubDate>Thu, 04 Mar 2021 21:10:35 +0800</pubDate>
+      
+      <guid>/2021/03/04/rust%E5%91%A8%E6%8A%A5-380%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-03-03 原文：380 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有新闻通讯。
+Official  Const generics MVP hits beta! [Inside] lang team march update  Project/Tooling Updates  IntelliJ Rust Changelog #142 rust-analyzer changelog #66 Knurling-rs changelog #18 Last Month in Flott - March 2021 RampMaker 0.2 - Stepper Motor Acceleration Ramp Generator  Observations/Thoughts  Why we built the core auth library in Rust (interview with CTO of Oso) Data Manipulation: Pandas vs Rust 快速 Rust Evolution of Kube Temporal RDO（失真率优化）update optimization Introducing The Calypso Chronicles（自写小语言） Rust: Beware of Escape Sequences\n Introducing Rustybot (part 3 of n) Delete Cargo Integration Tests  Rust Walkthroughs  C++ to Rust - or how to render your mindset Generic impl blocks are kinda like macros&amp;hellip; Make a Back-End Number Guessing Game with Rust Captures in closures and async blocks Testing a driver crate Using Rust for AWS Lambdas Always-On Benchmarking in Rust Building an OpenStreetMap app in Rust, Part IV Solving Advent of Code 2020 in under a second The Case for the Typestate Pattern - Introducing Algebraic Data Types [DE] weniger frust mit rust [video] learning rust: procedural macros [video] rust proxy server with warp and hyper  Miscellaneous  Ferrocene Part 3: The Road to Rust in mission- and safety-critical How our AWS Rust team will contribute to Rust&amp;rsquo;s future successes Librsvg, Rust, and non-mainstream architectures Always-On Benchmarking In Rust [DE] weniger frust mit rust  Crate of the Week 这周的箱子是camino，具有 UTF-8 编码路径的库，模仿std::os::Path的 API。</description>
+    </item>
+    
+    <item>
+      <title>Rust周报 379(译)</title>
+      <link>/2021/03/04/rust%E5%91%A8%E6%8A%A5-379%E8%AF%91/</link>
+      <pubDate>Thu, 04 Mar 2021 21:09:22 +0800</pubDate>
+      
+      <guid>/2021/03/04/rust%E5%91%A8%E6%8A%A5-379%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-02-24 原文：379 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有时事通讯或官方博客。
+Project/Tooling Updates  MoonZoon - New Rust fullstack framework rust-analyzer Changelog #65 Knurling-rs changelog #17  Observations/Thoughts  Rust for web development: 2 years later Integrating Rust and C++ in Firefox Building a telnet chat server with Rust and Lunatic 我反对，Packaging Rust Crates Why building a front-end framework in Rust is hard Oxidizing Kraken Maybe We Can Have Nice Things Three Things I Miss About Rust Storages: an alternative to allocators  Rust Walkthroughs  Rust ownership, the hard way Handling Unix Kill Signals in Rust Replacing FastAPI with Rust: Part 5 - Rocket 0.</description>
+    </item>
     
     <item>
       <title>Rust周报 378(译)</title>
