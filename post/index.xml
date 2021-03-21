@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 12 Mar 2021 23:15:26 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Mar 2021 15:15:37 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 382(译)</title>
+      <link>/2021/03/21/rust%E5%91%A8%E6%8A%A5-382%E8%AF%91/</link>
+      <pubDate>Sun, 21 Mar 2021 15:15:37 +0800</pubDate>
+      
+      <guid>/2021/03/21/rust%E5%91%A8%E6%8A%A5-382%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-03-17 原文：382 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official 本周没有官方博客文章
+Newsletters 本周没有新闻通讯
+Project/Tooling Updates  MiniWASM - Rust WebAssembly 项目模板极简版 Stepper 0.5 (formerly Step/Dir) - Universal Stepper Motor Interface Rust Analyzer Changelog #68 IntelliJ Rust Changelog #143  Observations/Thoughts  Starship —— Rust 写成的 shell prompt (项目创建者采访) Rust vs. Go: 一起会更强 Cranelift, Part 3: Correctness in Register Allocation Making Great Docs with Rustdoc Writing a Postgres SQL Pretty Printer in Rust: Part 1 Data Manipulation: Polars vs Rust  Rust Walkthroughs  OS in Rust: Incorporate VGA buffer: Part-7 Rust Koans（启蒙） How to send emails with Rust Writing Pong in Rust for my OS Arenas in Rust 永不下线的部署 Deploy A Rust Website on Heroku One enum to rule them all Writing a 3D Shooter using rg3d - #3 - Bots, AI Developing High Performance Apache Cassandra™ Applications in Rust (Part 1) Strings in Rust Rust - Reqwest examples libp2p tutorial: Build a peer-to-peer app in Rust [video] rust for beginners - watch me code the rustlings tutorial [video] crust of rust: the drop check (live edition)  Papers and Research Projects *本周没有论文和研究项目</description>
+    </item>
     
     <item>
       <title>Rust周报 381(译)</title>
