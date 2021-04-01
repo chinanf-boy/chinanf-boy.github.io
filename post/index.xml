@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 28 Mar 2021 10:45:47 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 01 Apr 2021 22:22:51 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 384(译)</title>
+      <link>/2021/04/01/rust%E5%91%A8%E6%8A%A5-384%E8%AF%91/</link>
+      <pubDate>Thu, 01 Apr 2021 22:22:51 +0800</pubDate>
+      
+      <guid>/2021/04/01/rust%E5%91%A8%E6%8A%A5-384%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-03-31 原文：384 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有新闻通讯。
+Official  Announcing Rust 1.51.0 [Foundation] introducing mark rousskov [Foundation] introducing nell shamrell-harrington  Project/Tooling Updates  rust-analyzer changelog #70 IntelliJ Rust Changelog #144 Knurling-rs Financial Update and Call for Funding Ockam | End-to-end encrypted messaging and mutual authentication between distributed applications Announcing the Deno Company  Observations/Thoughts  Using Rust 极致腐蚀 Python run-times The current state of Rust web frameworks GhostCell: Separating Permissions from Data in Rust Using const generics in slipstream Rust iterators tips and tricks  Rust Walkthroughs  Pin and suffering 将 Rust 嵌入进 Zephyr Firmware using C-bindgen Parser combinators in Rust Grids in Rust, part 2: const generics Ergonomic error handling with Rust Implementing SHA2 (256&amp;frasl;512) algorithm with Rust const generics 使用 GNU 调试器分析 Rust 中的内存分配 Testing an embedded application Using Const Generics To Model An Electronics Graph Rust&amp;rsquo;s Module System Explained [series] working with the trust-dns-resolver crate  Papers and Research Projects  [Video] safer rust: program verification with creusot  Miscellaneous  Linus Torvalds weighs in on Rust language in the Linux kernel Ownership Concept Diagram  Crate of the Week 这周的箱子是tide-acme，一个使用“Let&amp;rsquo;s Encrypt for Tide”，自动 HTTPS 认证的箱子。</description>
+    </item>
     
     <item>
       <title>Rust周报 383(译)</title>
