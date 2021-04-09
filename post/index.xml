@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 01 Apr 2021 22:22:51 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 09 Apr 2021 22:33:11 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 385(译)</title>
+      <link>/2021/04/09/rust%E5%91%A8%E6%8A%A5-385%E8%AF%91/</link>
+      <pubDate>Fri, 09 Apr 2021 22:33:11 +0800</pubDate>
+      
+      <guid>/2021/04/09/rust%E5%91%A8%E6%8A%A5-385%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-04-07 原文：385 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有论文/研究项目。
+Official  [Inside] core team updates [Foundation] introducing peixin hou [Foundation] introducing florian gilcher  Newsletters  This Month in Rust OSDev (March 2021) RiB Newsletter #22 - A few tweaks  Project/Tooling Updates  GCC Rust Monthly Report #4 March 2021 mrustc upgrade: rustc 1.39.0 rust-analyzer Changelog #71 A new Left Recursive PEG Parser Generator for rust Last Month in Flott (Motion Control Toolkit in Rust) - April 2021 Recent updates in IntelliJ Rust Bevy 0.</description>
+    </item>
     
     <item>
       <title>Rust周报 384(译)</title>
