@@ -1,0 +1,61 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    
+        <url>
+            <loc>/bevyengine-cn/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/contributing/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/contributing/code/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/contributing/docs/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/faq/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/getting-started/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/getting-started/apps/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/getting-started/ecs/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/getting-started/plugins/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/getting-started/resources/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/getting-started/setup/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/introduction/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/next-steps/</loc>
+        </url>
+    
+        <url>
+            <loc>/bevyengine-cn/troubleshooting/</loc>
+        </url>
+    
+    
+</urlset>
