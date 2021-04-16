@@ -6,10 +6,19 @@
     <description>Recent content in Gamedev on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 08 Feb 2020 13:44:16 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 16 Apr 2021 16:21:10 +0800</lastBuildDate>
     
 	<atom:link href="/tags/gamedev/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bevy Rust游戏引擎</title>
+      <link>/2021/04/16/bevy-rust%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</link>
+      <pubDate>Fri, 16 Apr 2021 16:21:10 +0800</pubDate>
+      
+      <guid>/2021/04/16/bevy-rust%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</guid>
+      <description>.blog-post  h2:first-child {display:none}  一款由Rust语言构建且简单明了的数据驱动的游戏引擎 永远开源免费!  数据驱动 所有引擎和游戏逻辑使用Bevy ECS系统  快: 大规模并行, 缓存友好. 根据某些基准测试最快的ECS  简单: 组件是Rust的结构体, 系统是Rust的函数  给力: 查询, 全局资源, 本地资源, 变化检测, 无锁并行调度        2D 渲染 为游戏和应用程序渲染实时2D图形  功能: 精灵表, 动态纹理图集, 摄像机, 纹理和材质  可扩展: 自定义着色器, 材质, 和渲染管道 通用核心: 建立在Bevy的渲染图之上     3D 渲染 一个现代和灵活的3D渲染器 功能: 灯光, 摄像机, 网格, 纹理, 材质, gltf加载 可扩展: 自定义着色器, 材质, 和渲染管道 通用核心: 建立在Bevy的渲染图之上      图形渲染 使用图形结构组合自定义渲染管道 并行: 图形渲染是自动并行渲染的  模块化: 使用渲染图形节点构建可组合和可重用的渲染逻辑  后端不可知: 不绑定到特定的图形API    跨平台 支持所有主要的桌面平台: Windows, MacOS, Linux  还有更多敬请期待: Android, iOS, Web       Bevy UI 一个定制的ecs驱动的UI框架, 专门为Bevy构建 直接建立在Bevy的ECS，渲染器，和场景插件之上 使用Bevy的场景格式声明或者在代码中动态的编写 使用熟悉的&#34;</description>
+    </item>
     
     <item>
       <title>Rust游戏开发2020生态圈展望 调查结果(译)</title>
