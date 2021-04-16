@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2021/04/16/rust%E5%91%A8%E6%8A%A5-386%E8%AF%91/</loc>
+    <lastmod>2021-04-16T20:01:04+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2021/04/16/bevy-rust%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</loc>
     <lastmod>2021-04-16T16:21:10+08:00</lastmod>
   </url>
@@ -530,7 +535,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2021-04-16T16:21:10+08:00</lastmod>
+    <lastmod>2021-04-16T20:01:04+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -590,7 +595,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2021-04-16T16:21:10+08:00</lastmod>
+    <lastmod>2021-04-16T20:01:04+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -602,7 +607,7 @@
   
   <url>
     <loc>/categories/rust/</loc>
-    <lastmod>2021-04-16T16:21:10+08:00</lastmod>
+    <lastmod>2021-04-16T20:01:04+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -650,7 +655,7 @@
   
   <url>
     <loc>/tags/week/</loc>
-    <lastmod>2021-04-09T22:33:11+08:00</lastmod>
+    <lastmod>2021-04-16T20:01:04+08:00</lastmod>
     <priority>0</priority>
   </url>
   

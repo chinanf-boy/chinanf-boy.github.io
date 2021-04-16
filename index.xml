@@ -6,10 +6,22 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 16 Apr 2021 16:21:10 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 16 Apr 2021 20:01:04 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 386(译)</title>
+      <link>/2021/04/16/rust%E5%91%A8%E6%8A%A5-386%E8%AF%91/</link>
+      <pubDate>Fri, 16 Apr 2021 20:01:04 +0800</pubDate>
+      
+      <guid>/2021/04/16/rust%E5%91%A8%E6%8A%A5-386%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-04-14 原文：386 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有论文/研究项目。
+Official  Brainstorming Async Rust&amp;rsquo;s Shiny Future [Foundation] introducing florian gilcher [Foundation] introducing peixin hou  Newsletters  This Month in Rust GameDev #20 - March 2021  Project/Tooling Updates  Progress report on rustc_codegen_cranelift (April 2021) IntelliJ Rust: Updates for 2021.1 IntelliJ Rust Changelog #145 rust-analyzer Changelog #72 Ballista has been donated to the Apache Arrow project  Observations/Thoughts  Rust in Production: MeiliSearch Rust 是给专业人士的 Rust 是 async 型语言 ？是，还是不是 Using Rust for 科学型计算应用: Learning from Past Experiences PlaintDB Servers - another milestone reached Why Rust for Robots?</description>
+    </item>
     
     <item>
       <title>Bevy Rust游戏引擎</title>
