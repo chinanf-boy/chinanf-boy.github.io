@@ -6,10 +6,22 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 16 Apr 2021 20:01:04 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 23 Apr 2021 23:14:43 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 387(译)</title>
+      <link>/2021/04/23/rust%E5%91%A8%E6%8A%A5-387%E8%AF%91/</link>
+      <pubDate>Fri, 23 Apr 2021 23:14:43 +0800</pubDate>
+      
+      <guid>/2021/04/23/rust%E5%91%A8%E6%8A%A5-387%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-04-21 原文：387 期  你好，欢迎再来一期 本周的螃蟹行情 ！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有论文/研究项目。
+Official  [Inside] rust compiler april steering cycle [Inside] lang team april update [Inside] jacob hoffman-andrews joins the rustdoc team [Foundation] introducing jane lusby [Foundation] introducing shane miller  Newsletters Project/Tooling Updates  rust-analyzer Changelog #73 Knurling-rs changelog #23 This Week in Ballista #11 Welcoming Alice Ryhl as the first paid Tokio contributor Zellij: a Rusty terminal multiplexer(终端复用/多窗口器) releases a beta version faux: a struct mocking library - landing v0.</description>
+    </item>
     
     <item>
       <title>Rust周报 386(译)</title>
