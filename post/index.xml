@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Apr 2021 23:14:43 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 May 2021 11:01:00 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust周报 388(译)</title>
+      <link>/2021/05/01/rust%E5%91%A8%E6%8A%A5-388%E8%AF%91/</link>
+      <pubDate>Sat, 01 May 2021 11:01:00 +0800</pubDate>
+      
+      <guid>/2021/05/01/rust%E5%91%A8%E6%8A%A5-388%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-04-28 原文：388 期  你好，欢迎再来一期*本周的螃蟹行情*！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+*这本周的螃蟹行情*是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有新闻通讯。
+Official  Announcing Rustup 1.24.0 [Inside] congrats to compiler team member aaron hill [Foundation] introducing josh stone [Foundation] introducing lars bergstrom  Project/Tooling Updates  rust-analyzer Changelog #74 IntelliJ Rust Changelog #146 Lemmy Release v0.11.0 simdutf v0.1.1 - A small step for semver, one giant leap for performance The playable demo of Outer Wonders, our cute, colorful and Rust-powered 猜谜游戏, is live on itch.</description>
+    </item>
     
     <item>
       <title>Rust周报 387(译)</title>
