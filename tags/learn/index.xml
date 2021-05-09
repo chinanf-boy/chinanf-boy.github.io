@@ -1,27 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Learn on Code &gt; Explain &gt; Transalte 的人</title>
+    <title>learn on Code &gt; Explain &gt; Transalte 的人</title>
     <link>/tags/learn/</link>
-    <description>Recent content in Learn on Code &gt; Explain &gt; Transalte 的人</description>
+    <description>Recent content in learn on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 28 Dec 2018 20:13:43 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/learn/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 28 Dec 2018 20:13:43 +0800</lastBuildDate><atom:link href="/tags/learn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>&gt;&gt;&gt; Rust 官方学习索引(译&#43;Copy)</title>
       <link>/2018/12/28/rust-%E5%AE%98%E6%96%B9%E5%AD%A6%E4%B9%A0%E7%B4%A2%E5%BC%95%E8%AF%91-copy/</link>
       <pubDate>Fri, 28 Dec 2018 20:13:43 +0800</pubDate>
       
       <guid>/2018/12/28/rust-%E5%AE%98%E6%96%B9%E5%AD%A6%E4%B9%A0%E7%B4%A2%E5%BC%95%E8%AF%91-copy/</guid>
-      <description>.blog-post  h2:first-child {display:none}   ❤️ 学习 Rust    开启您的 Rust 之旅   《Rust 程序设计语言》被亲切地称为“圣经”。本书从基本原则出发，给出了 Rust 语言的概览。您将在阅读本书的过程中构建几个项目，读完本书后，您就能扎实地掌握 Rust 语言。
-阅读本书！（中文）   此外，Rustlings 课程会指导您下载并设置 Rust 工具链，在命令行中教您阅读和编写 Rust 代码的语法基础。它可以运行在您自己的环境中，是《通过例子学 Rust》之外的另一种选择。
-学习 Rustlings 课程！   如果您不喜欢阅读大量的文档来学习语言，那么《通过例子学 Rust》就能涵盖您要学的知识。虽然本书花了很多篇幅来解释代码，但它展示的代码很丰富，并且尽量减少了文字解释。它还包括很多练习！
-阅读《通过例子学 Rust》！（中文）       与 Rust 共同成长    阅读核心文档 以下所有文档都可以用 rustup doc 命令在本地阅读，它会在您的浏览器中离线打开这些资源！
-标准库 详尽的 Rust 标准库 API 手册。  版本指南 Rust 版本指南。  Cargo 之书（中文） Rust 的包管理器和构建系统。  rustdoc 之书(中文) 学习如何为您的 crate 编写完美的文档。  rustc 之书(中文) 熟悉 Rust 编译器中可用的选项。  编译错误索引表 深入解释了您可能会遇到的编译错误。     在应用领域中点亮您的技能树 命令行之书 (中文)  学习如何用 Rust 构建高效的命令行应用。  WebAssembly 之书(中文)  通过 WebAssembly 用 Rust 构建浏览器原生的库。  嵌入式之书  熟练掌握用 Rust 编写微控制器和其它嵌入式系统程序。</description>
+      <description>  &amp;lt;a class=&amp;quot;button button-secondary&amp;quot; href=&amp;quot;https://doc.rust-lang.org/nomicon/index.html&amp;quot;&amp;gt; 阅读《Rust 秘典》 &amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt;  </description>
     </item>
     
   </channel>

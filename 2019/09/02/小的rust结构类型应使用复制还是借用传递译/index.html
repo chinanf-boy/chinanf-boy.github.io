@@ -100,14 +100,9 @@
   
   <div class="blog-post post">
     <h2 class="post-title">小的Rust结构类型,应使用复制还是借用传递?(译)</h2>
-    
-
-<p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/header.png" alt=" " /></p>
-
-<h1 id="对于小的-rust-结构类型-应使用复制-copy-还是借用-borrow-传递">对于小的 Rust 结构类型，应使用复制（copy）还是借用(borrow)传递？</h1>
-
+    <p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/header.png" alt=" "></p>
+<h1 id="对于小的-rust-结构类型应使用复制copy还是借用borrow传递">对于小的 Rust 结构类型，应使用复制（copy）还是借用(borrow)传递？</h1>
 <p>2019 年 8 月 26 日 ❤️ <a href="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow">原文</a></p>
-
 <p>像许多好故事一样，这个故事从一个简单的问题开始。对于小的 Rust 结构类型，应使用复制还是借用传递？例如：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Vector3</span> {
     x: <span style="color:#8be9fd">f32</span>,
@@ -122,23 +117,15 @@
 <span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">dot_product_by_borrow</span>(a: <span style="color:#ff79c6">&amp;</span><span style="color:#50fa7b">Vector3</span>, b: <span style="color:#ff79c6">&amp;</span><span style="color:#50fa7b">Vector3</span>) -&gt; <span style="color:#50fa7b">float</span> {
     a.x<span style="color:#ff79c6">*</span>b.x <span style="color:#ff79c6">+</span> a.y<span style="color:#ff79c6">*</span>b.y <span style="color:#ff79c6">+</span> a.z<span style="color:#ff79c6">*</span>b.z
 }
-</code></pre></div>
-<p>就是这个简单的问题将我带向了长征之路，带有些惊人的曲折和发现。</p>
-
+</code></pre></div><p>就是这个简单的问题将我带向了长征之路，带有些惊人的曲折和发现。</p>
 <h2 id="为什么这个问题是重要的呢">为什么这个问题是重要的呢</h2>
-
 <p>这个问题的答案有两个原因：性能和人体工程学。</p>
-
 <h3 id="性能">性能</h3>
-
 <p>通过复制传递就是说，我们要每个<code>Vector3</code>复制 12 个字节(3 个 f32 类型)。 若是通过 borrow 传递，那么每个<code>Vector3</code>就是一个 8 字节的指针（在 64 位上）。其实两者很接近，也许对性能来说无关紧要。</p>
-
 <p>但是如果我们<code>f32</code>改为<code>f64</code>，现在它一个类型，所占的大小就是 8 字节（借用）对 24 字节（复制）。而对于使用<code>Vector4</code>的代码，就有 4 个<code>f64</code>，那么我们突然就升到 8 字节对 32 字节。</p>
-
 <h3 id="人体工程学">人体工程学</h3>
-
 <p>在 C++中，我确切地知道如何写这个。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#ff79c6">struct</span> Vector3 {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Vector3</span> {
     <span style="color:#8be9fd">float</span> x;
     <span style="color:#8be9fd">float</span> y;
     <span style="color:#8be9fd">float</span> z;
@@ -158,25 +145,18 @@ fn do_math(<span style="color:#8be9fd;font-style:italic">p1</span>: Vector3, <sp
     let b <span style="color:#ff79c6">=</span> p2 <span style="color:#ff79c6">+</span> s<span style="color:#ff79c6">*</span>d2;
     dot_product(b <span style="color:#ff79c6">-</span> a, b <span style="color:#ff79c6">-</span> a)
 }
-</code></pre></div>
-<p>然而，当使用借用语义时，它会变成一团丑陋的混乱：</p>
+</code></pre></div><p>然而，当使用借用语义时，它会变成一团丑陋的混乱：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">do_math</span>(p1: <span style="color:#ff79c6">&amp;</span><span style="color:#50fa7b">Vector3</span>, p2: <span style="color:#ff79c6">&amp;</span><span style="color:#50fa7b">Vector3</span>, d1: <span style="color:#ff79c6">&amp;</span><span style="color:#50fa7b">Vector3</span>, d2: <span style="color:#ff79c6">&amp;</span><span style="color:#50fa7b">Vector3</span>, s: <span style="color:#8be9fd">f32</span>, t: <span style="color:#8be9fd">f32</span>) -&gt; <span style="color:#8be9fd">f32</span> {
     <span style="color:#8be9fd;font-style:italic">let</span> a <span style="color:#ff79c6">=</span> p1 <span style="color:#ff79c6">+</span> <span style="color:#ff79c6">&amp;</span>(<span style="color:#ff79c6">&amp;</span>d1<span style="color:#ff79c6">*</span>s);
     <span style="color:#8be9fd;font-style:italic">let</span> b <span style="color:#ff79c6">=</span> p2 <span style="color:#ff79c6">+</span> <span style="color:#ff79c6">&amp;</span>(<span style="color:#ff79c6">&amp;</span>d2<span style="color:#ff79c6">*</span>t);
     <span style="color:#8be9fd;font-style:italic">let</span> result <span style="color:#ff79c6">=</span> dot_product(<span style="color:#ff79c6">&amp;</span>(<span style="color:#ff79c6">&amp;</span>b <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">&amp;</span>a), <span style="color:#ff79c6">&amp;</span>(<span style="color:#ff79c6">&amp;</span>b <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">&amp;</span>a));
 }
-</code></pre></div>
-<p>呕！要明确借用临时值的写法让人 🤮。</p>
-
+</code></pre></div><p>呕！要明确借用临时值的写法让人 🤮。</p>
 <h2 id="建立基准">建立基准</h2>
-
 <p>所以，Rust 应该传递小结构，比如<code>Vector3</code>，用复制还是借用？</p>
-
 <p>Twitter，Reddit 或 StackOverflow 都没有得到很好的答案。我检查了像 nalgebra（借用）和 cgmath（按值）的流行箱子，发现两种方式都很常见。</p>
-
 <p>我不喜欢借用的人体工程学。但性能呢？如果复制速度很快，那么这一切都不重要。所以我做了唯一合理的事情。我建立了一个基准！</p>
-
-<p>我想要测试一些东西，稍微多过原始操作性能测试。虽它仍然是一个愚蠢的综合基准，不能代表真正的应用程序。但这是一个很好的起点。这里*大致*给出我想到的。</p>
+<p>我想要测试一些东西，稍微多过原始操作性能测试。虽它仍然是一个愚蠢的综合基准，不能代表真正的应用程序。但这是一个很好的起点。这里<em>大致</em>给出我想到的。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#8be9fd;font-style:italic">let</span> num_shapes <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">4000</span>;
 <span style="color:#ff79c6">for</span> cycle <span style="color:#ff79c6">in</span> <span style="color:#bd93f9">0</span>...<span style="color:#bd93f9">5</span> {
     <span style="color:#8be9fd;font-style:italic">let</span> (spheres, capsules, segments, triangles) <span style="color:#ff79c6">=</span> generate_shapes(num_shapes);
@@ -189,68 +169,44 @@ fn do_math(<span style="color:#8be9fd;font-style:italic">p1</span>: Vector3, <sp
         }
     }
 }
-</code></pre></div>
-<p>我随机生成 4000 个 spheres, capsules, segments, 和 triangles。然后，我对所有 SphereSphere，SphereCapsule，CapsuleCapsule 和 SegmentTriangle 两两配对，来个简单重叠测试。这些测试是对应复制和借用传递。在测试<code>test_by_copy</code>和<code>test_by_borrow</code>中，只计算时间。</p>
-
+</code></pre></div><p>我随机生成 4000 个 spheres, capsules, segments, 和 triangles。然后，我对所有 SphereSphere，SphereCapsule，CapsuleCapsule 和 SegmentTriangle 两两配对，来个简单重叠测试。这些测试是对应复制和借用传递。在测试<code>test_by_copy</code>和<code>test_by_borrow</code>中，只计算时间。</p>
 <p>每个完整的基准测试执行 32 亿次比较，发现约 2.2 亿个重叠对。以下是在我强大的 i7-8700k Windows 桌面上，单线程运行的一些结果。所有时间都以毫秒为单位。</p>
-
 <pre><code>  Rust
     f32 by-copy:   7,109
     f32 by-borrow: 7,172 (0.88% slower)
 
     f64 by-copy:   9,642
     f64 by-borrow: 9,601 (0.42% faster)
-</code></pre>
-
-<p>嗯，这有点令人惊讶。通过复制或通过借用几乎没有什么区别！这些结果非常一致。虽然有小于 1％的差异，完全在误差范围内。</p>
-
+</code></pre><p>嗯，这有点令人惊讶。通过复制或通过借用几乎没有什么区别！这些结果非常一致。虽然有小于 1％的差异，完全在误差范围内。</p>
 <p>这是我们问题的答案吗？我们应该复制传递就好了吗？我还没那么快下定论。</p>
-
-<h2 id="随我来到-c-rabbit-hole">随我来到 C ++ Rabbit Hole</h2>
-
+<h2 id="随我来到-c--rabbit-hole">随我来到 C ++ Rabbit Hole</h2>
 <p>在我最初的 Rust 基准测试之后，我决定将我的测试套件移植到 C ++ 。代码类似，但不完全相同。Rust 和 C ++ 的代码实现都是我认为在各自语言中常用方式的。</p>
-
 <pre><code>  C++
     f32 by-copy:   14,526
     f32 by-borrow: 13,880 (4.5% faster)
 
     f64 by-copy:   13,439
     f64 by-borrow: 13,942 (3.8% slower)
-</code></pre>
-
-<p>等等，什么？！至少有两件事情在这里非常奇怪。</p>
-
+</code></pre><p>等等，什么？！至少有两件事情在这里非常奇怪。</p>
 <ol>
-<li><code>double</code>(f64)按值传递是*快*过<code>float</code>按值传递</li>
+<li><code>double</code>(f64)按值传递是<em>快</em>过<code>float</code>按值传递</li>
 <li>C ++ <code>float</code>比 Rust 的<code>f32</code>慢了两倍</li>
 </ol>
-
 <h3 id="内联">内联</h3>
-
 <p>显然，发生了一些意外。使用 Visual Studio 2019，让我来一把快速 CPU 性能分析（CPU Profiles）。</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/01.png" alt="Visual Studio Benchmark C++ Result" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/01.png" alt="Visual Studio Benchmark C++ Result"></p>
 <p>C ++ 分析</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/02.png" alt="Visual Studio Benchmark Rust Result" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/02.png" alt="Visual Studio Benchmark Rust Result"></p>
 <p>Rust 分析</p>
-
 <p>啊哈！Rust 看起来几乎都在内联。让我们复刻 Rust，并在我们的 C ++ 实现之前，扔出一发强力的<code>__forceinline</code>。</p>
-
 <pre><code>  C++ w/ inlining
     f32 by-copy:   12,688
     f32 by-borrow: 12,108 (4.5% faster)
 
     f64 by-copy:   11,860
     f64 by-borrow: 11,967 (0.9% slower)
-</code></pre>
-
-<p>内联 C ++ 提供了大约 12％的提升。但<code>double</code>仍然比<code>float</code>快。C ++ 仍然比 Rust 慢。</p>
-
+</code></pre><p>内联 C ++ 提供了大约 12％的提升。但<code>double</code>仍然比<code>float</code>快。C ++ 仍然比 Rust 慢。</p>
 <h3 id="别名">别名</h3>
-
 <p>我认为我的 C ++ 和 Rust 实现都是常见用法。然而他们是不同的！当 Rust 返回一个元组时，C ++ 则是通过引用取出参数。这是因为 Rust 元组的使用令人愉快，而 C ++ 元组是一个怪物。但我离题了。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#6272a4">// Rust
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">fn</span> <span style="color:#50fa7b">closest_pt_segment_segment</span>(p1: <span style="color:#50fa7b">Vector3</span>, q1: <span style="color:#50fa7b">Vector3</span>, p2: <span style="color:#50fa7b">Vector3</span>, q2: <span style="color:#50fa7b">Vector3</span>)
@@ -265,35 +221,27 @@ fn do_math(<span style="color:#8be9fd;font-style:italic">p1</span>: Vector3, <sp
 {
     <span style="color:#6272a4">// Do math
 </span><span style="color:#6272a4"></span>}
-</code></pre></div>
-<p>这种微妙的差异可能会对性能产生巨大影响。C ++ 版本编译器无法确定输出参数是否有别名。这可能会限制其优化能力。同时 Rust 使用，并返回已知为非别名（non-aliased）的局部变量。</p>
-
+</code></pre></div><p>这种微妙的差异可能会对性能产生巨大影响。C ++ 版本编译器无法确定输出参数是否有别名。这可能会限制其优化能力。同时 Rust 使用，并返回已知为非别名（non-aliased）的局部变量。</p>
 <p>有趣的是，修复上面的别名并没有什么区别！通过内联的方式，编译器已经处理它。令我惊讶的是，以下代码 C ++ 并没有处理好：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">run_test</span>(
     vector<span style="color:#ff79c6">&lt;</span>TSphere<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">const</span><span style="color:#ff79c6">&amp;</span> _spheres,
     vector<span style="color:#ff79c6">&lt;</span>TCapsule<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">const</span><span style="color:#ff79c6">&amp;</span> _capsules,
     vector<span style="color:#ff79c6">&lt;</span>TSegment<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">const</span><span style="color:#ff79c6">&amp;</span> _segments,
     vector<span style="color:#ff79c6">&lt;</span>TTriangle<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">const</span><span style="color:#ff79c6">&amp;</span> _triangles,
-    int64_t<span style="color:#ff79c6">&amp;</span> num_overlaps,
-    int64_t<span style="color:#ff79c6">&amp;</span> milliseconds)
+    <span style="color:#8be9fd">int64_t</span><span style="color:#ff79c6">&amp;</span> num_overlaps,
+    <span style="color:#8be9fd">int64_t</span><span style="color:#ff79c6">&amp;</span> milliseconds)
 {
     <span style="color:#6272a4">// perform overlaps
 </span><span style="color:#6272a4"></span>}
-</code></pre></div>
-<p>更改<code>run_test</code>函数，选择返回<code>std::tuple&lt;int64_t, int64_t&gt;</code>，提供了一个小但明显的改进。</p>
-
+</code></pre></div><p>更改<code>run_test</code>函数，选择返回<code>std::tuple&lt;int64_t, int64_t&gt;</code>，提供了一个小但明显的改进。</p>
 <pre><code>  C++ w/ inlining, tuples
     f32 by-copy:   12,863
     f32 by-borrow: 11,555 (10.17% faster)
 
     f64 by-copy:   11,832
     f64 by-borrow: 11,524 (2.60% faster)
-</code></pre>
-
-<h2 id="编译标志-compile-flags">编译标志（Compile Flags）</h2>
-
+</code></pre><h2 id="编译标志compile-flags">编译标志（Compile Flags）</h2>
 <p>此时，C ++ 和 Rust 都使用默认选项进行编译。Visual Studio 能给出大量的标志。我尝试调整一堆标志来提高性能。</p>
-
 <ul>
 <li>代码速度优先（/Ot）</li>
 <li>禁用异常</li>
@@ -303,49 +251,30 @@ fn do_math(<span style="color:#8be9fd;font-style:italic">p1</span>: Vector3, <sp
 <li>禁用安全检查 /GS-</li>
 <li>控制流防护: No</li>
 </ul>
-
 <p>唯一能够产生真正差异的标志是“禁用异常”和 AVX2。每个约 10％ 提升。在与 Rust 硬碰硬的尝试中，我决定停止 AVX2。</p>
-
 <pre><code>  C++ w/ inlining, tuples, no C++ exceptions
     f32 by-copy:   11,651
     f32 by-borrow: 10,455 (10.27% faster)
 
     f64 by-copy:   10,866
     f64 by-borrow: 10,467 (3.67% faster)
-</code></pre>
-
-<p>我们已经进行了三次 C ++ 优化，但我们仍然存在两个谜团。为什么是<code>double</code>比<code>float</code>快？为什么 C ++ 仍比 Rust 慢得多？</p>
-
+</code></pre><p>我们已经进行了三次 C ++ 优化，但我们仍然存在两个谜团。为什么是<code>double</code>比<code>float</code>快？为什么 C ++ 仍比 Rust 慢得多？</p>
 <h2 id="更深入">更深入</h2>
-
 <p>我试着在<a href="https://godbolt.org/z/1gENA_">Godbolt</a>对代码反汇编一下。显然存在差异。但我不够聪明，无法量化它们。</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/03.png" alt="Godbolt C++" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/03.png" alt="Godbolt C++"></p>
 <p>接下来我决定敲打敲打 open VTune。而这差异，一天就揭示了！</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/04.png" alt="VTune Rust f32" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/img/04.png" alt="VTune Rust f32"></p>
 <p>分支错误预测很糟糕。不奇怪。仔细查看 Vector Capacity Usage（FPU）。以下是针对不同构建，该值的报告:</p>
-
 <pre><code>  Rust f32    42.3%
   Rust f64    32.7%
   C++  float  12.5%
   C++  double 25.0%
-</code></pre>
-
-<p>Yowza！无论出于何种原因，我都不知道究竟是什么，Rust 在利用 CPU 的浮点向量方面效率更高。差异是巨大的！Rust<code>f32</code>效率几乎是 C ++ <code>float</code>的 3.5 倍。并且，出于某种原因，C ++ <code>double</code>是<code>float</code>效率的两倍！🤷♂️</p>
-
+</code></pre><p>Yowza！无论出于何种原因，我都不知道究竟是什么，Rust 在利用 CPU 的浮点向量方面效率更高。差异是巨大的！Rust<code>f32</code>效率几乎是 C ++ <code>float</code>的 3.5 倍。并且，出于某种原因，C ++ <code>double</code>是<code>float</code>效率的两倍！🤷♂️</p>
 <p>显而易见的猜测是 Rust 编译器在自动 Vector 化方面做得更好。那么故事到此为止了吗，还是 To be Continued？我老实说不知道。我现在已尽可能地深挖。如果有任何专家愿意提供更多详细信息，我会全力以赴。</p>
-
 <h2 id="复制与借用传递">复制与借用传递</h2>
-
 <p>不知何故，我的 Rust 文章花了更多时间谈论 C ++ 。但那没关系！</p>
-
 <p>我们的初步测试表明，复制和借用之间的差异不到百分之一。在我的综合测试中，关键原因似乎是因为，尽管我没有任何一个<code>#[inline]</code>宣言/声明，Rust 也会自动内联！此外，Rust 自动生成代码的速度是类似 C ++ 实现的两倍。</p>
-
 <p>对于小型 Rust 结构，我对复制与借用的答案是<strong>复制传递</strong>。这个答案有几点需要注意。</p>
-
 <ol>
 <li>“小”的定义未经测试且未知。</li>
 <li>鉴于较少的自动 Vector 化，较少的数学结构可能不会起作用。</li>
@@ -353,45 +282,30 @@ fn do_math(<span style="color:#8be9fd;font-style:italic">p1</span>: Vector3, <sp
 <li>包括在另一个箱子中实现的小结构是未经测试的。</li>
 <li>综合基准并不反映现实世界。常记测量！</li>
 </ol>
-
 <h2 id="结论">结论</h2>
-
 <p>我从一个简单的问题开始，继续进行有趣的教育之旅。在这一点上，我将继续通过复制传递小结构。虽说在所有情况下，我都不是 100％确信它是正确的选择。但是我要为 Vector 数学库转身。</p>
-
 <p>我怀疑会出现这样的情况，即性能不佳。我建议谨慎乐观。相信编译器做出正确的决定&hellip;但要验证您的真实场景。</p>
-
 <p>谢谢阅读。</p>
-
 <h2 id="源代码">源代码</h2>
-
 <p>我的基准测试的完整源代码可用。</p>
-
 <p><a href="https://www.forrestthewoods.com/blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/assets/data/fts_small_struct_bench.zip">FullProjects.zip</a></p>
-
-<p><strong>Rust</strong><br />
-<a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/rust_main">main.rs</a><br />
-<a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/rust_by_copy">by_copy.rs</a><br />
+<p><strong>Rust</strong><br>
+<a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/rust_main">main.rs</a><br>
+<a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/rust_by_copy">by_copy.rs</a><br>
 <a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/rust_by_borrow">by_borrow.rs</a></p>
-
-<p><strong>C++</strong><br />
-<a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/cpp_main">main.cpp</a><br />
-<a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/cpp_by_value">by_value.cpp</a><br />
+<p><strong>C++</strong><br>
+<a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/cpp_main">main.cpp</a><br>
+<a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/cpp_by_value">by_value.cpp</a><br>
 <a href="https://www.forrestthewoods.com//blog/should-small-rust-structs-be-passed-by-copy-or-by-borrow/cpp_by_ref">by_ref CPP</a></p>
-
 <h2 id="clang">Clang</h2>
-
 <p>上面所有的 C++基准都是使用 VisualStudio 2019 中的 MSVC 构建链完成的。我想知道 Clang 是否能做得更好。按值计算，速度要快一点。但它在处理引用传递的 doubles 方面做得非常差。</p>
-
 <pre><code>  C++ (Clang) w/ inlining, tuples, no C++ exceptions
     f32 by-copy:   10416
     f32 by-borrow: 10072 (3.30% faster)
 
     f64 by-copy:   10520
     f64 by-borrow: 11335 (7.47% slower)
-</code></pre>
-
-<p>所有这些代码都可以优化为更好。应该有可能得到 C++和 Rust 到完全相同的水平。但这超出了本文范围与我最初的问题。</p>
-
+</code></pre><p>所有这些代码都可以优化为更好。应该有可能得到 C++和 Rust 到完全相同的水平。但这超出了本文范围与我最初的问题。</p>
 <p>Forrest Smith©2019 年。版权所有。</p>
 
   </div>

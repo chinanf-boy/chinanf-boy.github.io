@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Code &gt; Explain &gt; Transalte 的人</title>
@@ -6,49 +6,18 @@
     <description>Recent content in Tags on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 02 Sep 2019 10:11:45 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 06 May 2021 20:06:42 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Borrow</title>
-      <link>/tags/borrow/</link>
-      <pubDate>Mon, 02 Sep 2019 10:11:45 +0800</pubDate>
+      <title>week</title>
+      <link>/tags/week/</link>
+      <pubDate>Thu, 06 May 2021 20:06:42 +0800</pubDate>
       
-      <guid>/tags/borrow/</guid>
+      <guid>/tags/week/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Config</title>
-      <link>/tags/config/</link>
-      <pubDate>Sun, 17 Feb 2019 14:11:05 +0800</pubDate>
-      
-      <guid>/tags/config/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Copy</title>
-      <link>/tags/copy/</link>
-      <pubDate>Mon, 02 Sep 2019 10:11:45 +0800</pubDate>
-      
-      <guid>/tags/copy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Error</title>
-      <link>/tags/error/</link>
-      <pubDate>Mon, 25 Feb 2019 14:17:47 +0800</pubDate>
-      
-      <guid>/tags/error/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gamedev</title>
+      <title>gamedev</title>
       <link>/tags/gamedev/</link>
       <pubDate>Fri, 16 Apr 2021 16:21:10 +0800</pubDate>
       
@@ -57,7 +26,7 @@
     </item>
     
     <item>
-      <title>Guide</title>
+      <title>guide</title>
       <link>/tags/guide/</link>
       <pubDate>Mon, 24 Feb 2020 15:00:04 +0800</pubDate>
       
@@ -66,16 +35,7 @@
     </item>
     
     <item>
-      <title>Learn</title>
-      <link>/tags/learn/</link>
-      <pubDate>Fri, 28 Dec 2018 20:13:43 +0800</pubDate>
-      
-      <guid>/tags/learn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Month</title>
+      <title>month</title>
       <link>/tags/month/</link>
       <pubDate>Wed, 22 Jan 2020 09:59:00 +0800</pubDate>
       
@@ -84,16 +44,7 @@
     </item>
     
     <item>
-      <title>Rust</title>
-      <link>/tags/rust/</link>
-      <pubDate>Wed, 27 Feb 2019 14:56:41 +0800</pubDate>
-      
-      <guid>/tags/rust/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Size</title>
+      <title>size</title>
       <link>/tags/size/</link>
       <pubDate>Thu, 05 Sep 2019 10:52:40 +0800</pubDate>
       
@@ -102,7 +53,25 @@
     </item>
     
     <item>
-      <title>Struct</title>
+      <title>borrow</title>
+      <link>/tags/borrow/</link>
+      <pubDate>Mon, 02 Sep 2019 10:11:45 +0800</pubDate>
+      
+      <guid>/tags/borrow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>copy</title>
+      <link>/tags/copy/</link>
+      <pubDate>Mon, 02 Sep 2019 10:11:45 +0800</pubDate>
+      
+      <guid>/tags/copy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>struct</title>
       <link>/tags/struct/</link>
       <pubDate>Mon, 02 Sep 2019 10:11:45 +0800</pubDate>
       
@@ -111,25 +80,7 @@
     </item>
     
     <item>
-      <title>Talk</title>
-      <link>/tags/talk/</link>
-      <pubDate>Tue, 05 Feb 2019 15:27:19 +0800</pubDate>
-      
-      <guid>/tags/talk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Templite</title>
-      <link>/tags/templite/</link>
-      <pubDate>Wed, 20 Feb 2019 12:55:13 +0800</pubDate>
-      
-      <guid>/tags/templite/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vscode</title>
+      <title>VSCode</title>
       <link>/tags/vscode/</link>
       <pubDate>Fri, 30 Aug 2019 11:13:52 +0800</pubDate>
       
@@ -138,11 +89,56 @@
     </item>
     
     <item>
-      <title>Week</title>
-      <link>/tags/week/</link>
-      <pubDate>Thu, 06 May 2021 20:06:42 +0800</pubDate>
+      <title>rust</title>
+      <link>/tags/rust/</link>
+      <pubDate>Wed, 27 Feb 2019 14:56:41 +0800</pubDate>
       
-      <guid>/tags/week/</guid>
+      <guid>/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>error</title>
+      <link>/tags/error/</link>
+      <pubDate>Mon, 25 Feb 2019 14:17:47 +0800</pubDate>
+      
+      <guid>/tags/error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>templite</title>
+      <link>/tags/templite/</link>
+      <pubDate>Wed, 20 Feb 2019 12:55:13 +0800</pubDate>
+      
+      <guid>/tags/templite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>config</title>
+      <link>/tags/config/</link>
+      <pubDate>Sun, 17 Feb 2019 14:11:05 +0800</pubDate>
+      
+      <guid>/tags/config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>talk</title>
+      <link>/tags/talk/</link>
+      <pubDate>Tue, 05 Feb 2019 15:27:19 +0800</pubDate>
+      
+      <guid>/tags/talk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>learn</title>
+      <link>/tags/learn/</link>
+      <pubDate>Fri, 28 Dec 2018 20:13:43 +0800</pubDate>
+      
+      <guid>/tags/learn/</guid>
       <description></description>
     </item>
     

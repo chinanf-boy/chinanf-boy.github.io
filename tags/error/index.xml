@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Error on Code &gt; Explain &gt; Transalte 的人</title>
+    <title>error on Code &gt; Explain &gt; Transalte 的人</title>
     <link>/tags/error/</link>
-    <description>Recent content in Error on Code &gt; Explain &gt; Transalte 的人</description>
+    <description>Recent content in error on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 25 Feb 2019 14:17:47 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/error/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 25 Feb 2019 14:17:47 +0800</lastBuildDate><atom:link href="/tags/error/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rust E0008 - ref 的重要性（译）</title>
       <link>/2019/02/25/rust-e0008-ref-%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E8%AF%91/</link>
@@ -19,9 +15,9 @@
       <guid>/2019/02/25/rust-e0008-ref-%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E8%AF%91/</guid>
       <description>官方原文  E0008，(无法逾越的 ref 关键字) 匹配条件语句中的绑定名称，在模式控制中保留了其类型。因此，若在一个模式中，这一名称是通过移动进行绑定的，那它也会被移动到在模式代码中的参考变量位置。这样做的话，会阻止原名称在匹配语句的主体中可用。
 考虑以下:
-match Some(&amp;#34;hi&amp;#34;.to_string()) { Some(s) if s.len() == 0 =&amp;gt; {}, // 使用 s.  _ =&amp;gt; {}, }  变量 s 具有 String 类型，并且它在 匹配语句 中的用法是 String 类型的变量。 使用s变量的代码，在匹配语句主体的分离作用域内，执行有效，因此该值被移动到此匿名作用域内，结果就是在匹配语句的主体中变得不可用。
+match Some(&amp;#34;hi&amp;#34;.to_string()) { Some(s) if s.len() == 0 =&amp;gt; {}, // 使用 s.  _ =&amp;gt; {}, } 变量 s 具有 String 类型，并且它在 匹配语句 中的用法是 String 类型的变量。 使用s变量的代码，在匹配语句主体的分离作用域内，执行有效，因此该值被移动到此匿名作用域内，结果就是在匹配语句的主体中变得不可用。
 上面的问题，可以通过使用 ref 关键字来解决。
-match Some(&amp;#34;hi&amp;#34;.to_string()) { Some(ref s) if s.len() == 0 =&amp;gt; {}, _ =&amp;gt; {}, }  虽然，这个例子似乎不怎么厉害且易于解决，但当它遇到消耗该值的函数时,问题就变得清晰了:
+match Some(&amp;#34;hi&amp;#34;.to_string()) { Some(ref s) if s.len() == 0 =&amp;gt; {}, _ =&amp;gt; {}, } 虽然，这个例子似乎不怎么厉害且易于解决，但当它遇到消耗该值的函数时,问题就变得清晰了:
 struct A{} impl A { fn consume(self) -&amp;gt; usize { 0 } } fn main() { let a = Some(A{}); match a { Some(y) if y.</description>
     </item>
     

@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Talk on Code &gt; Explain &gt; Transalte 的人</title>
+    <title>talk on Code &gt; Explain &gt; Transalte 的人</title>
     <link>/tags/talk/</link>
-    <description>Recent content in Talk on Code &gt; Explain &gt; Transalte 的人</description>
+    <description>Recent content in talk on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 05 Feb 2019 15:27:19 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/talk/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 05 Feb 2019 15:27:19 +0800</lastBuildDate><atom:link href="/tags/talk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>终端命令行篇-起始</title>
       <link>/2019/02/05/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AF%87-%E8%B5%B7%E5%A7%8B/</link>
@@ -18,7 +14,7 @@
       
       <guid>/2019/02/05/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AF%87-%E8%B5%B7%E5%A7%8B/</guid>
       <description>终端命令脚本 为了，不一次次重复。集合工作流程为命令，是必要的。 我所有的*-zh 项目:中文翻译 和 *-explain:解释都是从这里开始的。
-开始中文翻译(zh) $ init https://github.com/worrydream/Tangle.git es  开始解释项目(explain) $ init https://github.com/worrydream/Tangle.git ex  总览脚本 此终端脚本思路  1. 获取 添加了 zh/explain 的 项目名称，并建立此名称目录 2. 初始化 git 存储库，放入目录 source 中(此处存在本地/远程的分支，由第三参数决定) 3. 得到 source 中，存储库的最新 git 信息(日期，commit 码) 4. 启用 mrm ，一个 gitignore，readme&amp;hellip; 快速初始化的 js 工具。(运用之前获得的信息+参数) 5. 找出 source 中的所有 md 文件，并添加到上一目录层.mds-list文件(使用 find) 6. 复制本地脚本sync-en.sh到项目目录 7. 对 source 目录 执行[translate-mds]- js 翻译工具 8. 对 项目目录 执行 doc-templite - js 模版工具 9.</description>
+开始中文翻译(zh) $ init https://github.com/worrydream/Tangle.git es 开始解释项目(explain) $ init https://github.com/worrydream/Tangle.git ex 总览脚本 此终端脚本思路  1. 获取 添加了 zh/explain 的 项目名称，并建立此名称目录 2. 初始化 git 存储库，放入目录 source 中(此处存在本地/远程的分支，由第三参数决定) 3. 得到 source 中，存储库的最新 git 信息(日期，commit 码) 4. 启用 mrm ，一个 gitignore，readme&amp;hellip; 快速初始化的 js 工具。(运用之前获得的信息+参数) 5. 找出 source 中的所有 md 文件，并添加到上一目录层.mds-list文件(使用 find) 6. 复制本地脚本sync-en.sh到项目目录 7. 对 source 目录 执行[translate-mds]- js 翻译工具 8. 对 项目目录 执行 doc-templite - js 模版工具 9.</description>
     </item>
     
   </channel>

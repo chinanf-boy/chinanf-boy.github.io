@@ -100,24 +100,16 @@
   
   <div class="blog-post post">
     <h2 class="post-title">Rust周报 347(译)</h2>
-    
-
-<ul>
+    <ul>
 <li><a href="https://this-week-in-rust.org">this-week-in-rust</a></li>
 <li>日期：2020-07-14</li>
 <li><a href="https://this-week-in-rust.org/blog/2020/07/14/this-week-in-rust-347/">原文：347 期</a></li>
 </ul>
-
-<p>你好，欢迎再来一期*本周的螃蟹行情*！<a href="http://rust-lang.org">Rust</a>是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特<a href="https://twitter.com/ThisWeekInRust">@ThisWeekInRust</a>或<a href="https://github.com/cmr/this-week-in-rust">向我们发送请求</a>。 想参与吗？<a href="https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md">我们热爱贡献</a>.</p>
-
-<p>*这本周的螃蟹行情*是在<a href="https://github.com/cmr/this-week-in-rust">在 Github 上</a>公开的。如果你在本周的问题中发现任何错误，<a href="https://github.com/cmr/this-week-in-rust/pulls">请提交 PR</a>。</p>
-
+<p>你好，欢迎再来一期<em>本周的螃蟹行情</em>！<a href="http://rust-lang.org">Rust</a>是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特<a href="https://twitter.com/ThisWeekInRust">@ThisWeekInRust</a>或<a href="https://github.com/cmr/this-week-in-rust">向我们发送请求</a>。 想参与吗？<a href="https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md">我们热爱贡献</a>.</p>
+<p><em>这本周的螃蟹行情</em>是在<a href="https://github.com/cmr/this-week-in-rust">在 Github 上</a>公开的。如果你在本周的问题中发现任何错误，<a href="https://github.com/cmr/this-week-in-rust/pulls">请提交 PR</a>。</p>
 <p>查看<a href="https://rustacean-station.org/episode/022-twir-347/">本周的 <em>This Week in Rust Podcast</em></a></p>
-
 <h1 id="rust-社区的更新">Rust 社区的更新</h1>
-
 <h2 id="新闻和博客文章">新闻和博客文章</h2>
-
 <ul>
 <li><a href="https://blog.rust-lang.org/2020/07/08/Rustup-1.22.1.html">宣布 Rustup 1.22.1</a></li>
 <li><a href="https://blog.rust-lang.org/inside-rust/2020/07/09/lang-team-path-to-membership.html">语言团队设计会议：通往成员之路</a></li>
@@ -162,31 +154,19 @@
 <li>[视频] <a href="https://www.youtube.com/watch?v=dmbqpg5BuBY">rust + webassembly - edgexr @ netlight</a></li>
 <li>[视频] <a href="https://www.youtube.com/watch?v=7YQGwb4_AvA">rust meetup - adding wasm support to a native application (gamedev edition)</a></li>
 </ul>
-
 <h1 id="周箱">周箱</h1>
-
 <p>这周的箱子是<a href="https://jneem.github.io/nnnoiseless">nnnoiseless</a>，是从 C 移植的，用于消除音频噪声的过滤器。</p>
-
 <p>谢谢<a href="https://users.rust-lang.org/t/crate-of-the-week/2704/790">mmmmib</a>的建议！</p>
-
 <p><a href="https://users.rust-lang.org/t/crate-of-the-week/2704">提交下周的建议和投票</a>！</p>
-
 <h1 id="呼吁参与">呼吁参与</h1>
-
 <p>一直想为开源项目做贡献，但不知道从哪里开始？每周我们都会重点介绍 Rust 社区的一些任务，供您选择和开始！</p>
-
 <p>其中一些任务也可能有导师，请访问任务页面以获取更多信息。</p>
-
 <ul>
 <li><a href="https://github.com/rahul-thakoor/rust_gpiozero/issues/11">rust_gpiozero 正在寻找贡献者</a></li>
 </ul>
-
 <p>如果您是 Rust 项目的所有者并且正在寻找贡献者，请提交任务<a href="https://users.rust-lang.org/t/twir-call-for-participation/4821">这里</a>。</p>
-
 <h1 id="rust-core-的更新">Rust Core 的更新</h1>
-
 <p>共有 273 个拉取请求<a href="https://github.com/search?q=is%3Apr+org%3Arust-lang+is%3Amerged+merged%3A2020-07-06..2020-07-13">在上周合并</a></p>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rust/pull/73978">收缩<code>ParamEnv</code>，变为 16 个字节</a></li>
 <li><a href="https://github.com/rust-lang/rust/pull/73887">稳定化：const <code>mem::forget</code></a></li>
@@ -203,63 +183,41 @@
 <li><a href="https://github.com/rust-lang/stdarch/pull/873">arch：在 avx512f set 中，添加<code>f32</code>与<code>f64</code> unaligned（未对齐）的 stores（储存） and loads（加载）</a></li>
 <li><a href="https://github.com/rust-lang/hashbrown/pull/179">hashbrown：添加<code>HashSet::drain_filter</code>方法</a></li>
 </ul>
-
 <h2 id="rust-编译器性能分类">Rust 编译器性能分类</h2>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rustc-perf/blob/master/triage/2020-07-14.md">2020-07-14</a>。检查了十二个修订版。零性能回归。一项改进。</li>
 </ul>
-
 <h2 id="批准的-rfc">批准的 RFC</h2>
-
 <p>对 Rust 的更改跟随 Rust<a href="https://github.com/rust-lang/rfcs#rust-rfcs">RFC（征求意见）流程</a>。以下是本周批准实施的 RFC：</p>
-
 <p><em>本周未批准任何 RFC。</em></p>
-
 <h2 id="最后意见征询期">最后意见征询期</h2>
-
 <p>每周<a href="https://www.rust-lang.org/team.html">团队</a>宣布即将做出决定的 RFC 和主要 PR 的“最终意见征询期”。立即发表您的意见。</p>
-
-<h3 id="rfcs-https-github-com-rust-lang-rfcs-labels-final-comment-period"><a href="https://github.com/rust-lang/rfcs/labels/final-comment-period">RFCs</a></h3>
-
+<h3 id="rfcshttpsgithubcomrust-langrfcslabelsfinal-comment-period"><a href="https://github.com/rust-lang/rfcs/labels/final-comment-period">RFCs</a></h3>
 <p><em>当前没有 RFC 处于最后评论期。</em></p>
-
-<h3 id="跟踪问题和-prs-https-github-com-rust-lang-rust-labels-final-comment-period"><a href="https://github.com/rust-lang/rust/labels/final-comment-period">跟踪问题和 PRs</a></h3>
-
+<h3 id="跟踪问题和-prshttpsgithubcomrust-langrustlabelsfinal-comment-period"><a href="https://github.com/rust-lang/rust/labels/final-comment-period">跟踪问题和 PRs</a></h3>
 <ul>
 <li>[处置：合并] <a href="https://github.com/rust-lang/rust/pull/74060">移除 trait <code>lengthatmost32</code></a></li>
 <li>[处置：合并] <a href="https://github.com/rust-lang/rust/pull/73893">稳定化：control-flow-guard codegen 选项</a></li>
 <li>[处置：合并] <a href="https://github.com/rust-lang/rust/pull/73197">impl Default for ranges</a></li>
 <li>[处置：合并] <a href="https://github.com/rust-lang/rust/issues/66770">跟踪问题：<code>core::{f32,f64}::consts::tau</code> </a></li>
 </ul>
-
 <h2 id="新的-rfc">新的 RFC</h2>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rfcs/pull/2955">可选择，稳定的 Trait VTables</a></li>
 </ul>
-
 <h1 id="本周最佳语录">本周最佳语录</h1>
-
 <blockquote>
 <p>Rust 所有权完全是一种类型系统假象。</p>
 </blockquote>
-
 <p>— dodomorandi</p>
-
 <blockquote>
 <p>我不知道这说的是什么意思。许多语言中的“所有权”在对我来说，是非常实际的事情。</p>
 </blockquote>
-
 <p>– and <a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328/900">ZiCog on rust-users</a></p>
-
 <p>Thanks to <a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328/903">Stephan Sokolow</a> for the suggestions!</p>
-
 <p><a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328">Please submit quotes and vote for next week!</a></p>
-
 <p><em>This Week in Rust is edited by: <a href="https://github.com/nellshamrell">nellshamrell</a>, <a href="https://github.com/llogiq">llogiq</a>, and <a href="https://github.com/cdmistman">cdmistman</a>.</em></p>
-
-<p><small><a href="https://www.reddit.com/r/rust/comments/hrc4dt/this_week_in_rust_347/">Discuss on r/rust</a></small></p>
+<p><!-- raw HTML omitted --><a href="https://www.reddit.com/r/rust/comments/hrc4dt/this_week_in_rust_347/">Discuss on r/rust</a><!-- raw HTML omitted --></p>
 
   </div>
 

@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Templite on Code &gt; Explain &gt; Transalte 的人</title>
+    <title>templite on Code &gt; Explain &gt; Transalte 的人</title>
     <link>/tags/templite/</link>
-    <description>Recent content in Templite on Code &gt; Explain &gt; Transalte 的人</description>
+    <description>Recent content in templite on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 20 Feb 2019 12:55:13 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/templite/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 20 Feb 2019 12:55:13 +0800</lastBuildDate><atom:link href="/tags/templite/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Doc Templite 模版工具</title>
       <link>/2019/02/20/doc-templite-%E6%A8%A1%E7%89%88%E5%B7%A5%E5%85%B7/</link>
@@ -21,7 +17,7 @@
  8. 对 项目目录 执行 [doc-templite] - js 模版工具  doc-templite 为了解决，能一次性替换，文件中相应部分的内容，doc-templite 诞生了。 吸取了doctoc,templite,toml&amp;hellip;相关工具/库的精华，综合而成。
 readme doc-templite   为 多个 md 文件 准备的模版工具
  当我们使用 多个文件或者多项目的readme.md时,样式可以帮助我们说出或显示某些东西,比如 md 表格,但下次我想要一个 md 网络链接. 太麻烦了! 去修改更改这些文件,所以doc-templite也许有帮助.
- 安装 npm i -g doc-templite 示例 1. 修改readme.md👇 必须有 doc-templite 标签 &amp;lt;!-- doc-templite START --&amp;gt; &amp;lt;!-- doc-templite-id = &amp;#39;readme&amp;#39; --&amp;gt; &amp;lt;!-- name = &amp;#39;yobrave&amp;#39; age = 18 --&amp;gt; &amp;lt;!-- doc-templite END --&amp;gt;  注意:在 START-END 块中,我们使用的是 toml 和 &amp;lt;!</description>
+ 安装 npm i -g doc-templite 示例 1. 修改readme.md👇 必须有 doc-templite 标签 &amp;lt;!-- doc-templite START --&amp;gt; &amp;lt;!-- doc-templite-id = &amp;#39;readme&amp;#39; --&amp;gt; &amp;lt;!-- name = &amp;#39;yobrave&amp;#39; age = 18 --&amp;gt; &amp;lt;!-- doc-templite END --&amp;gt;  **注意:**在 START-END 块中,我们使用的是 toml 和 &amp;lt;!</description>
     </item>
     
   </channel>

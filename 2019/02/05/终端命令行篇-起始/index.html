@@ -100,27 +100,15 @@
   
   <div class="blog-post post">
     <h2 class="post-title">终端命令行篇-起始</h2>
-    
-
-<h2 id="终端命令脚本">终端命令脚本</h2>
-
+    <h2 id="终端命令脚本">终端命令脚本</h2>
 <p>为了，不一次次重复。集合工作流程为命令，是必要的。
 我所有的<a href="https://github.com/chinanf-boy?utf8=%E2%9C%93&amp;tab=repositories&amp;q=-zh&amp;type=source&amp;language=">*-zh 项目:中文翻译 和 *-explain:解释</a>都是从这里开始的。</p>
-
-<h3 id="开始中文翻译-zh">开始中文翻译(zh)</h3>
-
+<h3 id="开始中文翻译zh">开始中文翻译(zh)</h3>
 <pre><code>$ init https://github.com/worrydream/Tangle.git es
-</code></pre>
-
-<h3 id="开始解释项目-explain">开始解释项目(explain)</h3>
-
+</code></pre><h3 id="开始解释项目explain">开始解释项目(explain)</h3>
 <pre><code>$ init https://github.com/worrydream/Tangle.git ex
-</code></pre>
-
-<h2 id="总览脚本">总览脚本</h2>
-
+</code></pre><h2 id="总览脚本">总览脚本</h2>
 <h3 id="此终端脚本思路">此终端脚本思路</h3>
-
 <ul>
 <li><strong>1.</strong> 获取 添加了 <code>zh</code>/<code>explain</code> 的 项目名称，并建立此名称目录</li>
 <li><strong>2.</strong> 初始化 <code>git</code> 存储库，放入目录 <code>source</code> 中(此处存在本地/远程的分支，由第三参数决定)</li>
@@ -223,9 +211,8 @@ git init
 <span style="color:#ff79c6">else</span>
 
     <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;错误 ：not in *-zh Dir&#34;</span>
-<span style="color:#ff79c6">fi</span></code></pre></div>
-<h3 id="sync-en-sh">sync-en.sh</h3>
-
+<span style="color:#ff79c6">fi</span>
+</code></pre></div><h3 id="sync-ensh">sync-en.sh</h3>
 <p>主要是，对<code>.mds-list</code>的复制</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat <span style="color:#f1fa8c">&#39;./.mds-list&#39;</span> | <span style="color:#ff79c6">while</span> <span style="color:#8be9fd;font-style:italic">read</span> line <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">[[</span> -n <span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">line</span><span style="color:#f1fa8c">}</span> <span style="color:#ff79c6">]]</span>
 <span style="color:#ff79c6">do</span>
@@ -249,7 +236,8 @@ git init
         <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$line</span><span style="color:#f1fa8c"> &gt;&gt; </span><span style="color:#8be9fd;font-style:italic">$dir</span><span style="color:#f1fa8c">/</span><span style="color:#8be9fd;font-style:italic">$filename</span><span style="color:#f1fa8c">&#34;</span>
         mkdir -p <span style="color:#8be9fd;font-style:italic">$dir</span> <span style="color:#ff79c6">&amp;&amp;</span> cp <span style="color:#8be9fd;font-style:italic">$line</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$_</span><span style="color:#f1fa8c">/</span><span style="color:#8be9fd;font-style:italic">$filename</span><span style="color:#f1fa8c">&#34;</span>
     <span style="color:#ff79c6">fi</span>
-<span style="color:#ff79c6">done</span></code></pre></div>
+<span style="color:#ff79c6">done</span>
+</code></pre></div>
   </div>
 
   <br />

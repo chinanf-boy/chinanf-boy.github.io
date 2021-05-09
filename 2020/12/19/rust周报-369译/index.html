@@ -100,37 +100,26 @@
   
   <div class="blog-post post">
     <h2 class="post-title">Rust周报 369(译)</h2>
-    
-
-<ul>
+    <ul>
 <li><a href="https://this-week-in-rust.org">this-week-in-rust</a></li>
 <li>日期：2020-12-16</li>
 <li><a href="https://this-week-in-rust.org/blog/2020/12/16/this-week-in-rust-369/">原文：369 期</a></li>
 </ul>
-
-<p>你好，欢迎再来一期*本周的螃蟹行情*！<a href="http://rust-lang.org">Rust</a>是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特<a href="https://twitter.com/ThisWeekInRust">@ThisWeekInRust</a>或<a href="https://github.com/cmr/this-week-in-rust">向我们发送请求</a>。 想参与吗？<a href="https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md">我们热爱贡献</a>.</p>
-
-<p>*这本周的螃蟹行情*是在<a href="https://github.com/cmr/this-week-in-rust">在 Github 上</a>公开的。如果你在本周的问题中发现任何错误，<a href="https://github.com/cmr/this-week-in-rust/pulls">请提交 PR</a>。</p>
-
+<p>你好，欢迎再来一期<em>本周的螃蟹行情</em>！<a href="http://rust-lang.org">Rust</a>是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特<a href="https://twitter.com/ThisWeekInRust">@ThisWeekInRust</a>或<a href="https://github.com/cmr/this-week-in-rust">向我们发送请求</a>。 想参与吗？<a href="https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md">我们热爱贡献</a>.</p>
+<p><em>这本周的螃蟹行情</em>是在<a href="https://github.com/cmr/this-week-in-rust">在 Github 上</a>公开的。如果你在本周的问题中发现任何错误，<a href="https://github.com/cmr/this-week-in-rust/pulls">请提交 PR</a>。</p>
 <h1 id="updates-from-rust-community">Updates from Rust Community</h1>
-
 <h3 id="official">Official</h3>
-
 <ul>
 <li><a href="https://blog.rust-lang.org/2020/12/11/lock-poisoning-survey.html">关于 non-poisoning Mutex 和 RwLock 实现的调查</a></li>
 <li><a href="https://blog.rust-lang.org/2020/12/14/Next-steps-for-the-foundation-conversation.html">Foundation Conversation 下一站</a></li>
 <li><a href="https://blog.rust-lang.org/2020/12/16/rust-survey-2020.html">Rust Survey 2020 Results</a></li>
 <li>[内部] <a href="https://blog.rust-lang.org/inside-rust/2020/12/14/changes-to-compiler-team.html">changes to rust compiler team</a></li>
 </ul>
-
 <h3 id="newsletters">Newsletters</h3>
-
 <ul>
 <li><a href="https://rust-osdev.com/this-month/2020-11/">This Month in Rust OSDev (November 2020)</a></li>
 </ul>
-
 <h3 id="tooling">Tooling</h3>
-
 <ul>
 <li><a href="https://intellij-rust.github.io/2020/12/14/changelog-137.html">IntelliJ Rust Changelog #137</a></li>
 <li><a href="https://rust-analyzer.github.io/thisweek/2020/12/14/changelog-55.html">Rust Analyzer Changelog #55</a></li>
@@ -138,9 +127,7 @@
 <li><a href="https://jrvidal.github.io/explaine.rs/blog/these-months-in-explainers.html">These Months in explaine.rs</a></li>
 <li><a href="https://github.com/cargo2nix/cargo2nix/releases/tag/v0.9.0">Cargo2nix 0.9.0 release notes</a></li>
 </ul>
-
-<h3 id="observations-thoughts">Observations/Thoughts</h3>
-
+<h3 id="observationsthoughts">Observations/Thoughts</h3>
 <ul>
 <li><a href="https://adventures.michaelfbryan.com/posts/ffi-safe-polymorphism-in-rust/">FFI-Safe 多态性: Thin Trait Objects</a></li>
 <li><a href="https://confused.ai/posts/rust-bpf-target">Adding BPF target support to the Rust compiler</a></li>
@@ -157,9 +144,7 @@
 <li><a href="https://developer.mongodb.com/article/six-principles-building-robust-flexible-shared-data-applications">6 大原则：构建健全，灵活的共享数据 Apps with Rust &amp; MongoDB</a></li>
 <li>[视频] <a href="https://youtu.be/EY7Wi9fV5bk">The Unsafe Chronicles: Exhibit A: Aliasing Boxes</a></li>
 </ul>
-
 <h3 id="rust-walkthroughs">Rust Walkthroughs</h3>
-
 <ul>
 <li><a href="https://arzg.github.io/lang/14/">Make A Language - Part Fourteen: Comments</a></li>
 <li><a href="https://arzg.github.io/lang/15/">Make A Language - Part Fifteen: Markers</a></li>
@@ -176,17 +161,13 @@
 <li>[视频] <a href="https://youtu.be/3OL95gZgPWA">implementing rust&rsquo;s vec from scratch</a></li>
 <li>[RU] [video] <a href="https://www.youtube.com/watch?v=yCrc5BwZrtw">Rust: Not as hard as you think / Russian Rust Online Meetup</a></li>
 </ul>
-
 <h3 id="project-updates">Project Updates</h3>
-
 <ul>
 <li><a href="https://jrvidal.github.io/explaine.rs/blog/these-months-in-explainers.html">These Months in explaine.rs</a></li>
 <li><a href="https://www.sequoia-pgp.org/">Sequoia PGP</a>发布 <a href="https://sequoia-pgp.org/blog/2020/12/16/202012-1.0/">version 1.0</a></li>
 <li><a href="http://www.cyrilfougeray.com/2020/12/14/leger-rust-wallet-1.html">将设备链接到区块链 with Léger</a></li>
 </ul>
-
 <h3 id="miscellaneous">Miscellaneous</h3>
-
 <ul>
 <li><a href="https://www.reddit.com/r/rust/comments/kdo06l/signal_group_calls_are_powered_by_rust/">信号组 Calls are powered by Rust</a></li>
 <li><a href="https://www.reddit.com/r/rust/comments/kdfb9k/rusts_option_in_one_figure/">Rust&rsquo;s Option in One Figure</a></li>
@@ -195,31 +176,19 @@
 <li><a href="https://lupyuen.github.io/articles/debug">Debug Rust on PineCone BL602 with VSCode and GDB</a></li>
 <li>[RU] [audio] <a href="https://www.youtube.com/watch?v=w99C9heBWHE&amp;feature=youtu.be">SitCast#32 - Эх, Rust, да ещё Rust…</a></li>
 </ul>
-
 <h1 id="crate-of-the-week">Crate of the Week</h1>
-
 <p>这周的箱子是<a href="https://github.com/raygon-renderer/thermite">thermite</a>，一个 SIMD 数组结构算法库。</p>
-
 <p>谢谢<a href="https://users.rust-lang.org/t/crate-of-the-week/2704/857">Willi Kappler</a>的建议！</p>
-
 <p><a href="https://users.rust-lang.org/t/crate-of-the-week/2704">提交您下周的建议和投票</a>！</p>
-
 <h1 id="call-for-participation">Call for Participation</h1>
-
 <p>一直想为开源项目做贡献，但不知道从哪里开始？每周我们都会重点介绍 Rust 社区的一些任务，供您选择和开始！</p>
-
 <p>其中一些任务也可能有导师，请访问任务页面以获取更多信息。</p>
-
 <ul>
 <li><a href="https://github.com/hubblo-org/scaphandre/issues">scaphandre: several help wanted issues</a></li>
 </ul>
-
 <p>如果您是 Rust 项目的所有者并且正在寻找贡献者，请提交任务<a href="https://users.rust-lang.org/t/twir-call-for-participation/4821">这里</a>。</p>
-
 <h1 id="updates-from-rust-core">Updates from Rust Core</h1>
-
-<p>有 300 个拉取请求<a href="https://github.com/search?q=is%3Apr+org%3Arust-lang+is%3Amerged+merged%3A2020-12-07..2020-12-14">在上周合并</a></p>
-
+<p>有 300 个拉取请求[在上周合并] <a href="https://github.com/search?q=is%3Apr+org%3Arust-lang+is%3Amerged+merged%3A2020-12-07..2020-12-14">merged</a></p>
 <ul>
 <li><a href="https://github.com/rust-lang/rust/pull/79818">fixes to Rust coverage</a></li>
 <li><a href="https://github.com/rust-lang/rust/pull/79721">在增量模式中，正确 re-use def path hash</a></li>
@@ -236,38 +205,24 @@
 <li><a href="https://github.com/rust-lang/rust-clippy/pull/6424">clippy: add MSRV to more lints</a></li>
 <li><a href="https://github.com/rust-lang/rustfmt/pull/4557">rustfmt: 在一个空 where 子句后，不强行添加一个新行</a></li>
 </ul>
-
 <h2 id="rust-compiler-performance-triage">Rust Compiler Performance Triage</h2>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rustc-perf/blob/master/triage/2020-12-15.md">2020-12-15</a>：6 个退步，1 个改进，2 个混合</li>
 </ul>
-
 <p>这周，有相当多的小的退步。大部分要么是针对变更的修复，这些变更在前几周获得了较大的性能胜利，要么是较小的性能损失，因为已经有了计划来弥补这些损失。</p>
-
 <p>分类由 @rylev 完成。</p>
-
 <p>见<a href="https://github.com/rust-lang/rustc-perf/blob/master/triage/2020-12-15.md">full report</a>更多。</p>
-
 <h2 id="approved-rfcs">Approved RFCs</h2>
-
 <p>对 Rust 的更改跟随 Rust<a href="https://github.com/rust-lang/rfcs#rust-rfcs">RFC (request for comments) process</a>。以下是本周批准实施的 RFC：</p>
-
 <p><em>本周未批准任何 RFC。</em></p>
-
 <h2 id="final-comment-period">Final Comment Period</h2>
-
 <p>每周<a href="https://www.rust-lang.org/team.html">the team</a>宣布即将做出决定的 RFC 和主要 PR 的“最终评论期”。立即发表您的意见。</p>
-
-<h3 id="rfcs-https-github-com-rust-lang-rfcs-labels-final-comment-period"><a href="https://github.com/rust-lang/rfcs/labels/final-comment-period">RFCs</a></h3>
-
+<h3 id="rfcshttpsgithubcomrust-langrfcslabelsfinal-comment-period"><a href="https://github.com/rust-lang/rfcs/labels/final-comment-period">RFCs</a></h3>
 <ul>
 <li><a href="https://github.com/rust-lang/rfcs/pull/2992">RFC: 添加 <code>target_abi</code> 配置</a></li>
 <li><a href="https://github.com/rust-lang/rfcs/pull/2859">added secret types rfc</a></li>
 </ul>
-
-<h3 id="tracking-issues-prs-https-github-com-rust-lang-rust-labels-final-comment-period"><a href="https://github.com/rust-lang/rust/labels/final-comment-period">Tracking Issues &amp; PRs</a></h3>
-
+<h3 id="tracking-issues--prshttpsgithubcomrust-langrustlabelsfinal-comment-period"><a href="https://github.com/rust-lang/rust/labels/final-comment-period">Tracking Issues &amp; PRs</a></h3>
 <ul>
 <li>[处置：合并] <a href="https://github.com/rust-lang/rust/pull/79502">implement <code>from&lt;char&gt;</code> for u64 and u128.</a></li>
 <li>[处置：合并] <a href="https://github.com/rust-lang/rust/pull/79485">稳定化：<code>unsafe_cell_get_mut</code></a></li>
@@ -288,31 +243,21 @@
 <li>[处置：合并] <a href="https://github.com/rust-lang/rust/pull/74304">稳定化：the Wake trait</a></li>
 <li>[处置：合并] <a href="https://github.com/rust-lang/rust/issues/63514">跟踪问题：map_ok and map_err method for <code>Poll&lt;Option&lt;Result&lt;T, E&gt;&gt;&gt;</code></a></li>
 </ul>
-
 <h2 id="new-rfcs">New RFCs</h2>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rfcs/pull/3036">Add min_target_api_version cfg predicate</a></li>
 <li><a href="https://github.com/rust-lang/rfcs/pull/3035">Cargo: providing artifacts (for artifact dependencies) via build.rs</a></li>
 </ul>
-
 <h1 id="quote-of-the-week">Quote of the Week</h1>
-
 <blockquote>
 <p>工程并不是要“不犯错误”。工程学是关于设计确保错误更少发生的系统。</p>
-
 <p>Rust 就是这样的系统。</p>
 </blockquote>
-
 <p>– <a href="https://fasterthanli.me/articles/aiming-for-correctness-with-types">amos on his blog</a></p>
-
 <p>Thanks to <a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328/972">Joshua Nelson</a> for the suggestion.</p>
-
 <p><a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328">Please submit quotes and vote for next week!</a></p>
-
 <p><em>This Week in Rust is edited by: <a href="https://github.com/nellshamrell">nellshamrell</a>, <a href="https://github.com/llogiq">llogiq</a>, and <a href="https://github.com/cdmistman">cdmistman</a>.</em></p>
-
-<p><small><a href="https://this-week-in-rust.org/blog/2020/12/16/this-week-in-rust-369/">Discuss on r/rust</a></small></p>
+<p><!-- raw HTML omitted --><a href="https://this-week-in-rust.org/blog/2020/12/16/this-week-in-rust-369/">Discuss on r/rust</a><!-- raw HTML omitted --></p>
 
   </div>
 

@@ -100,98 +100,53 @@
   
   <div class="blog-post post">
     <h2 class="post-title">如何用VSCode调试Rust(译)</h2>
-    
-
-<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/header.png" alt=" " /></p>
-
+    <p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/header.png" alt=" "></p>
 <h1 id="如何用-visual-studio-code-调试-rust">如何用 Visual Studio Code 调试 Rust</h1>
-
 <p>🌟 2019-03-24 ❤️ <a href="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/">原文</a></p>
-
 <p>我是 Visual Studio Code 编辑器的铁杆。不幸的是，它的 Rust 调试不 <em>太能</em> 开箱即用。</p>
-
 <p>配置调试器并不困难。但有几个步骤。我已经看了好几遍了。我写这本指南是为了省下未来回想的脑力。</p>
-
 <p>希望本指南对其他一些人也有用。</p>
-
 <h2 id="安装-rust-和-vs-code">安装 Rust 和 VS Code</h2>
-
 <p>这应该不用多说了。</p>
-
-<p><a href="https://www.rust-lang.org/tools/install">安装 Rust</a><br />
+<p><a href="https://www.rust-lang.org/tools/install">安装 Rust</a><br>
 <a href="https://code.visualstudio.com/download">安装 Visual Studio Code</a></p>
-
 <h2 id="安装-vs-code-扩展">安装 VS Code 扩展</h2>
-
 <p>您需要安装一个扩展。哪一个取决于你的平台。</p>
-
-<p><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++（Windows）</a><br />
+<p><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++（Windows）</a><br>
 <a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">codelldb（OS X/Linux）</a></p>
-
 <p>还要继续安装<a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust">Rust 扩展</a>。</p>
-
 <h2 id="配置-vs-code">配置 VS Code</h2>
-
 <p>现在已经安装了工具，您需要配置 VS Code 启动属性。</p>
-
-<p>单击“调试(Debug)”-&gt;“添加配置(Add Configuration)”<br />
-如果您在 Windows 上，请选择<code>C++ (Windows)</code><br />
+<p>单击“调试(Debug)”-&gt;“添加配置(Add Configuration)”<br>
+如果您在 Windows 上，请选择<code>C++ (Windows)</code><br>
 如果您使用的是 Mac 或 Linux，请选择<code>LLDB: Custom Launch</code></p>
-
 <p>这应该会创建并打开<code>launch.json</code>。您必须手动更改“program”下的可执行文件名。</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/01.png" alt="launch.json" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/01.png" alt="launch.json"></p>
 <p>接下来，您应该验证是否启用了断点。有些读者说需要这样做。一些机器是默认启用它。🤷‍♂️</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/07.png" alt="Breakpoint settings" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/07.png" alt="Breakpoint settings"></p>
 <p>文件-&gt;首选项-&gt;设置（File -&gt; Preferences -&gt; Settings）</p>
-
 <p>就这样！</p>
-
 <p>添加断点。按 F5 启动。哇！</p>
-
 <h2 id="限制">限制</h2>
-
-<p>Rust 的调试工作*确实*好。虽不算完美。但是已经很好拉！</p>
-
+<p>Rust 的调试工作<em>确实</em>好。虽不算完美。但是已经很好拉！</p>
 <p>基本类型工作正常。当然，是它们没有被编译器优化掉的假设下。</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/02.png" alt="Basic Types" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/02.png" alt="Basic Types"></p>
 <p>我发现，在优化“未使用”变量时，Rust 编译器比 C++更具侵略性。有时我只是为了调试下，在变量中存储中间值，但值总是会’缺席‘，这有点烦人。</p>
-
 <p><code>Vectors</code>工作很好。谢天谢地。我希望未展开的“preview”能提供更多信息。</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/03.png" alt="Basic Types" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/03.png" alt="Basic Types"></p>
 <p>不幸的是，其他容器类型根本不起作用。<code>HashMap</code>是无法辨认的废品。:(</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/04.png" alt="HashMap" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/04.png" alt="HashMap"></p>
 <p>Visual Studio 2017 拥有<a href="https://docs.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2017">natvis</a>，这个 C++ 调试工具。其实并不太好。我有很多抱怨。但总比 Rust 强。</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/06.png" alt="VisualStudio2017" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/06.png" alt="VisualStudio2017"></p>
 <h2 id="混合调试">混合调试</h2>
-
 <p>在写这篇文章的时候，我学到了一些新的东西。我有点激动，想和大家分享。</p>
-
 <p>我正在试验<a href="https://crates.io/crates/microprofile">microprofile</a>箱子。其中，它的行为不像我想象的那样，所以我进入了调试器。令我惊讶的是，我能无缝地进入箱子的 Rust 代码。但真正让我震惊的是，我还可以直接进入它的底层 C++代码！</p>
-
-<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/05.png" alt="C++ Debugging" /></p>
-
+<p><img src="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/img/05.png" alt="C++ Debugging"></p>
 <p>所有的这些都会“奏效”。不需要其他配置。您不必手动指定包含路径。</p>
-
 <p>这太棒了！你可以很容易地进入箱子依赖。如果箱子依赖 C++代码，那么您也可以调试它。</p>
-
 <p>我不知道这么容易。多么令人愉快的惊喜！</p>
-
 <h2 id="示例项目">示例项目</h2>
-
 <p>我已经准备了一个小样本项目，它的<code>launch.json</code>预配置。这应该“奏效”。</p>
-
 <ol>
 <li>运行<code>cargo build</code></li>
 <li>打开<code>.vscode/ws.code-workspace</code></li>
@@ -199,17 +154,11 @@
 <li>选择调试启动配置</li>
 <li>按 F5 键</li>
 </ol>
-
 <p>下载：<a href="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/assets/vscode_rust_example.zip">vscode_rust_example.zip</a></p>
-
 <h2 id="最后的想法">最后的想法</h2>
-
 <p>感谢调试组的工作人员。使用 VS Code 调试 rust 并不完美，但它非常好。本指南应包含您开始所需的一切。</p>
-
 <p>这应该在任何平台上都能工作。不过，我只测试了 Windows 和 OS X。如果我错过了一个步骤或进程发生了更改，请通知我。</p>
-
 <p>谢谢你的阅读。</p>
-
 <p>Forrest Smith©2019 年。版权所有。</p>
 
   </div>

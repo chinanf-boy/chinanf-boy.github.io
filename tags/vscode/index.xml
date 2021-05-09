@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vscode on Code &gt; Explain &gt; Transalte 的人</title>
+    <title>VSCode on Code &gt; Explain &gt; Transalte 的人</title>
     <link>/tags/vscode/</link>
-    <description>Recent content in Vscode on Code &gt; Explain &gt; Transalte 的人</description>
+    <description>Recent content in VSCode on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 30 Aug 2019 11:13:52 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 30 Aug 2019 11:13:52 +0800</lastBuildDate><atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何用VSCode调试Rust(译)</title>
       <link>/2019/08/30/%E5%A6%82%E4%BD%95%E7%94%A8vscode%E8%B0%83%E8%AF%95rust%E8%AF%91/</link>
@@ -34,7 +30,8 @@ codelldb（OS X/Linux）
 如果您使用的是 Mac 或 Linux，请选择LLDB: Custom Launch
 这应该会创建并打开launch.json。您必须手动更改“program”下的可执行文件名。
 接下来，您应该验证是否启用了断点。有些读者说需要这样做。一些机器是默认启用它。🤷‍♂️
-文件-&amp;gt;首选项-&amp;gt;设置（File -&amp;gt; Preferences -&amp;gt; Settings）</description>
+文件-&amp;gt;首选项-&amp;gt;设置（File -&amp;gt; Preferences -&amp;gt; Settings）
+就这样！</description>
     </item>
     
   </channel>

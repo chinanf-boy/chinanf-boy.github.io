@@ -100,22 +100,13 @@
   
   <div class="blog-post post">
     <h2 class="post-title">Rust周报 309(译)</h2>
-    
-
-<p><a href="https://this-week-in-rust.org/">本周的螃蟹行情</a></p>
-
+    <p><a href="https://this-week-in-rust.org/">本周的螃蟹行情</a></p>
 <p>日期：2019-10-22</p>
-
 <p><a href="https://this-week-in-rust.org/blog/2019/10/22/this-week-in-rust-309/">原文：本周 Rust(螃蟹) 309</a></p>
-
-<p>你好，欢迎再来一期*本周的螃蟹行情*！<a href="http://rust-lang.org">Rust</a>是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特<a href="https://twitter.com/ThisWeekInRust">@ThisWeekInRust</a>或<a href="https://github.com/cmr/this-week-in-rust">向我们发送请求</a>。 想参与吗？<a href="https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md">我们热爱贡献</a>.</p>
-
-<p>*这本周的螃蟹行情*是在<a href="https://github.com/cmr/this-week-in-rust">在 Github 上</a>公开的。如果你在本周的问题中发现任何错误，<a href="https://github.com/cmr/this-week-in-rust/pulls">请提交 PR</a>。</p>
-
+<p>你好，欢迎再来一期<em>本周的螃蟹行情</em>！<a href="http://rust-lang.org">Rust</a>是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特<a href="https://twitter.com/ThisWeekInRust">@ThisWeekInRust</a>或<a href="https://github.com/cmr/this-week-in-rust">向我们发送请求</a>。 想参与吗？<a href="https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md">我们热爱贡献</a>.</p>
+<p><em>这本周的螃蟹行情</em>是在<a href="https://github.com/cmr/this-week-in-rust">在 Github 上</a>公开的。如果你在本周的问题中发现任何错误，<a href="https://github.com/cmr/this-week-in-rust/pulls">请提交 PR</a>。</p>
 <h1 id="rust-社区的更新">Rust 社区的更新</h1>
-
 <h2 id="新闻和博客文章">新闻和博客文章</h2>
-
 <ul>
 <li><a href="https://kyle.space/posts/i-made-a-nes-emulator/">我使用生成器，制作了一个 Rust 的 NES 模拟器</a>。</li>
 <li><a href="https://wiki.alopex.li/WhereRustcSpendsItsTime">rustc 把时间花在了哪些地方</a>。</li>
@@ -130,33 +121,21 @@
 <li><a href="https://medium.com/programming-servo/programming-servo-shipping-message-ports-via-a-detour-into-spectre-c96683ac0b8">编程 Servo ：运送信息端口（通过一个 detour{绕行}进入 Spectre）</a>。</li>
 <li><a href="https://leshow.github.io/post/rotary_encoder_hal/">嵌入式 Rust 中的 Rotary 编码器</a>。</li>
 </ul>
-
 <h1 id="本周箱子">本周箱子</h1>
-
 <p>这周的箱子是<a href="https://github.com/dooskington/grubbnet">grubbnet</a>，一个用于网络应用程序和游戏的 TCP 客户端/服务器库。</p>
-
 <p>谢谢<a href="https://users.rust-lang.org/t/crate-of-the-week/2704/650">Dooskington</a>的建议！</p>
-
 <p><a href="https://users.rust-lang.org/t/crate-of-the-week/2704">提交您下周的建议和投票</a>！</p>
-
 <h1 id="呼吁参与">呼吁参与</h1>
-
 <p>总是想为开源项目做出贡献，但不知道从哪里开始？每周我们都会强调一些来自 Rust 社区的任务，供您挑选并开始！</p>
-
 <p>其中一些任务也可能会有指导者，请访问任务页，了解更多信息。</p>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rust-clippy/issues/353">Clippy：传递可变引用</a>。</li>
 <li><a href="https://github.com/rust-lang/rust-bindgen/issues/1375">rust-bindgen：添加 &ndash;symbol-prefix 标志</a>。</li>
 <li>[good first issue]<a href="https://github.com/vorner/spirit/issues/42">spirit: 为 spirit 写一个教程</a>。Spirit 是使创建和配置 unix 守护程序更容易的助手。</li>
 </ul>
-
 <p>如果您是 Rust 项目的所有者并且正在寻找贡献者，请提交任务<a href="https://users.rust-lang.org/t/twir-call-for-participation/4821">这里</a>。</p>
-
 <h1 id="rust-core-的更新">Rust Core 的更新</h1>
-
 <p><a href="https://github.com/search?q=is%3Apr+org%3Arust-lang+is%3Amerged+merged%3A2019-10-14..2019-10-21">在上周合并</a>了共有 353 个拉取请求</p>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rust/pull/64035">稳定化： proc 宏生成<code>macro_rules</code> items</a></li>
 <li><a href="https://github.com/rust-lang/rust/pull/65389">对所有零大小的数组，从<code>needs_drop</code>返回<code>false</code></a></li>
@@ -189,23 +168,14 @@
 <li><a href="https://github.com/rust-lang/cargo/pull/7525">cargo：允许<code>--all-features</code>在虚拟工作区的根目录中</a></li>
 <li><a href="https://github.com/rust-lang/rustup.rs/pull/2075">rustup 安装：添加<code>--profile</code>标志，以覆盖配置文件</a></li>
 </ul>
-
 <h2 id="批准的-rfc">批准的 RFC</h2>
-
 <p>经过 Rust 的<a href="https://github.com/rust-lang/rfcs#rust-rfcs">RFC（征求意见）流程</a>后，Rust 的变化。这些是本周批准实现的 RFC：</p>
-
 <p><em>本周未批准任何 RFC。</em></p>
-
 <h2 id="最终评论期">最终评论期</h2>
-
 <p>每周<a href="https://www.rust-lang.org/team.html">团队</a>宣布正在做出决定的 RFC 和关键 PR 的“最终评论期”。现在表达你的意见。</p>
-
-<h3 id="rfc-https-github-com-rust-lang-rfcs-labels-final-comment-period"><a href="https://github.com/rust-lang/rfcs/labels/final-comment-period">RFC</a></h3>
-
+<h3 id="rfchttpsgithubcomrust-langrfcslabelsfinal-comment-period"><a href="https://github.com/rust-lang/rfcs/labels/final-comment-period">RFC</a></h3>
 <p><em>当前没有 RFC 处于最后评论期。</em></p>
-
-<h3 id="跟踪问题和prs-https-github-com-rust-lang-rust-labels-final-comment-period"><a href="https://github.com/rust-lang/rust/labels/final-comment-period">跟踪问题和PRs</a></h3>
-
+<h3 id="跟踪问题和prshttpsgithubcomrust-langrustlabelsfinal-comment-period"><a href="https://github.com/rust-lang/rust/labels/final-comment-period">跟踪问题和PRs</a></h3>
 <ul>
 <li>[处理：合并] <a href="https://github.com/rust-lang/rust/issues/59277">关注问题： todo! macro</a>。</li>
 <li>[处理：合并] <a href="https://github.com/rust-lang/rust/issues/60446">关注问题： floats ↔ bytes 转换</a>。</li>
@@ -215,31 +185,22 @@
 <li>[处理：合并] <a href="https://github.com/rust-lang/rust/pull/64747">稳定化： <code>option::flatten</code></a>。</li>
 <li>[处理：合并] <a href="https://github.com/rust-lang/rust/pull/65188">稳定化： <code>const_constructor</code></a>。</li>
 </ul>
-
 <h2 id="新的-rfc">新的 RFC</h2>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rfcs/pull/2788">标准 lazy 类型</a>。</li>
 <li><a href="https://github.com/rust-lang/rfcs/pull/2789">通过 HTTP，将 crates-io 注册表作为静态文件服务</a>。</li>
 </ul>
-
 <h1 id="本周引用句">本周引用句</h1>
-
 <blockquote>
 <p>Rust 帮助我掌握，在 C++编写时就应该知道的概念。</p>
 </blockquote>
-
 <ul>
 <li><a href="https://msrc-blog.microsoft.com/2019/10/16/an-interns-experience-with-rust/">Alexander Clarke 在 Microsoft 安全响应中心博客上</a>。</li>
 </ul>
-
 <p>多谢<a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328/712">mmmmib</a>这个建议！</p>
-
 <p><a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328">请提交引用句并为下周投票！</a></p>
-
 <p><em>This Week in Rust is edited by: <a href="https://github.com/nasa42">nasa42</a>, <a href="https://github.com/llogiq">llogiq</a>, and <a href="https://github.com/Flavsditz">Flavsditz</a>.</em></p>
-
-<p><small><a href="https://www.reddit.com/r/rust/comments/d6920w/this_week_in_rust_304/">Discuss on r/rust</a>.</small></p>
+<p><!-- raw HTML omitted --><a href="https://www.reddit.com/r/rust/comments/d6920w/this_week_in_rust_304/">Discuss on r/rust</a>.<!-- raw HTML omitted --></p>
 
   </div>
 

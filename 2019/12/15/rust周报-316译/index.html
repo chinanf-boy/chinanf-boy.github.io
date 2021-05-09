@@ -100,22 +100,13 @@
   
   <div class="blog-post post">
     <h2 class="post-title">Rust周报 316(译)</h2>
-    
-
-<p><a href="https://this-week-in-rust.org/">本周的螃蟹行情</a></p>
-
+    <p><a href="https://this-week-in-rust.org/">本周的螃蟹行情</a></p>
 <p>日期：2019-12-10</p>
-
 <p><a href="https://this-week-in-rust.org/blog/2019/12/10/this-week-in-rust-316/">原文：本周 Rust(螃蟹) 316</a></p>
-
-<p>你好，欢迎再来一期*本周的螃蟹行情*！<a href="http://rust-lang.org">Rust</a>是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特<a href="https://twitter.com/ThisWeekInRust">@ThisWeekInRust</a>或<a href="https://github.com/cmr/this-week-in-rust">向我们发送请求</a>。 想参与吗？<a href="https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md">我们热爱贡献</a>.</p>
-
-<p>*这本周的螃蟹行情*是在<a href="https://github.com/cmr/this-week-in-rust">在 Github 上</a>公开的。如果你在本周的问题中发现任何错误，<a href="https://github.com/cmr/this-week-in-rust/pulls">请提交 PR</a>。</p>
-
+<p>你好，欢迎再来一期<em>本周的螃蟹行情</em>！<a href="http://rust-lang.org">Rust</a>是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特<a href="https://twitter.com/ThisWeekInRust">@ThisWeekInRust</a>或<a href="https://github.com/cmr/this-week-in-rust">向我们发送请求</a>。 想参与吗？<a href="https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md">我们热爱贡献</a>.</p>
+<p><em>这本周的螃蟹行情</em>是在<a href="https://github.com/cmr/this-week-in-rust">在 Github 上</a>公开的。如果你在本周的问题中发现任何错误，<a href="https://github.com/cmr/this-week-in-rust/pulls">请提交 PR</a>。</p>
 <h1 id="rust-社区的更新">Rust 社区的更新</h1>
-
 <h2 id="新闻和博客文章">新闻和博客文章</h2>
-
 <ul>
 <li><a href="https://blog.mozilla.org/nnethercote/2019/12/11/how-to-speed-up-the-rust-compiler-one-last-time-in-2019/">如何在 2019 年，最后一次加速 Rust 编译器</a>。</li>
 <li><a href="https://jamesmunns.com/blog/fmt-unreasonably-expensive/">Formatting 对于嵌入式 Rust 来说，是不合理的昂贵</a>。</li>
@@ -131,38 +122,24 @@
 <li><a href="https://lukaskalbertodt.github.io/2019/12/05/generalized-autoref-based-specialization.html">推广 基于 autoref 的规范</a>。</li>
 <li><a href="https://blog.eldruin.com/si4703-fm-radio-receiver-driver-in-rust/">A rusty radio：Si4703 FM 收音机 receiver 驱动程序</a>。</li>
 </ul>
-
 <h3 id="rust2020">＃Rust2020</h3>
-
 <p>查找位于＃Rust2020 的所有帖子<a href="https://readrust.net/rust-2020/">读 Rust</a>。</p>
-
 <h1 id="周箱">周箱</h1>
-
 <p>这周的箱子是<a href="https://github.com/slightlyoutofphase/staticvec">StaticVec</a>，是 nightly-only const 泛型支持的，固定大小 vec 板箱子。</p>
-
 <p>谢谢<a href="https://users.rust-lang.org/t/crate-of-the-week/2704/682">ABagOfChips</a>的建议！</p>
-
 <p><a href="https://users.rust-lang.org/t/crate-of-the-week/2704">提交您下周的建议和投票</a>！</p>
-
 <h1 id="呼吁参与">呼吁参与</h1>
-
 <p>一直想为开源项目做贡献，但不知道从哪里开始？每周我们都会重点介绍 Rust 社区的一些任务，供您选择和开始！</p>
-
 <p>其中一些任务也可能有导师，请访问任务页面以获取更多信息。</p>
-
 <ul>
 <li><a href="https://www.reddit.com/r/rust/comments/e7rer9/we_need_your_help_before_rustup_1210_can_be/">我们需要您的帮助，在<code>rustup</code>1.21.0 发布之前</a>。</li>
 <li><a href="https://github.com/servo/rust-smallvec/issues/178">smallvec：为 IntoIter <code>IntoIter&lt;A: Array&gt;</code>实现 Clone where A：Clone</a>。</li>
 <li><a href="https://github.com/google/mundane/issues/22">mundane：在功能标记后面，记录 items</a>。</li>
 <li><a href="https://github.com/rust-lang/crates.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3AE-mentor">crates.io：carols10cents 将指导 11 月和 12 月的多个问题</a>。</li>
 </ul>
-
 <p>如果您是 Rust 项目的所有者并且正在寻找贡献者，请提交任务<a href="https://users.rust-lang.org/t/twir-call-for-participation/4821">这里</a>。</p>
-
 <h1 id="rust-core-的更新">Rust Core 的更新</h1>
-
 <p>共有 247 个拉取请求<a href="https://github.com/search?q=is%3Apr+org%3Arust-lang+is%3Amerged+merged%3A2019-12-02..2019-12-09">在上周合并</a></p>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rust/pull/65881">实现<code>#[track_caller]</code>属性</a>（RFC＃<a href="https://rust-lang.github.io/rfcs/2091-inline-semantic.html">2091 年</a>）</li>
 <li><a href="https://github.com/rust-lang/rust/pull/66935">语法：统一 AST 中的 macro 和 attribute 参数</a></li>
@@ -188,7 +165,7 @@
 <li><a href="https://github.com/rust-lang/rust/pull/66866">仅在 const eval 期间，记住 const fn calls</a></li>
 <li><a href="https://github.com/rust-lang/miri/pull/1106">miri：添加标志，以忽略内存泄漏</a></li>
 <li><a href="https://github.com/rust-lang/miri/pull/1105">更好的方法，来忽略 miri 中的测试</a></li>
-<li><a href="https://github.com/rust-lang/rust/pull/67054">无效的<code>SetDiscriminant</code>，代码生成&rdquo;unreachable&rdquo;</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/67054">无效的<code>SetDiscriminant</code>，代码生成&quot;unreachable&quot;</a></li>
 <li><a href="https://github.com/rust-lang/rust/pull/67033">codegen：迁移至<code>LLVM</code>{<code>Get</code>，<code>Set</code>}<code>ValueName2</code></a></li>
 <li><a href="https://github.com/rust-lang/rust/pull/66973">更新最小外部 LLVM 为 7</a></li>
 <li><a href="https://github.com/rust-lang/rust/pull/67016">使用 Polonius，实现非法的子集关系错误</a></li>
@@ -204,25 +181,16 @@
 <li><a href="https://github.com/rust-lang/rustup/pull/2132">rustup：解决潜在的未来冲击（x.yyy.zz）</a></li>
 <li><a href="https://github.com/rust-lang/crates.io/pull/1700">crates.io：将审计流程添加到 publish，yank 和 unyank 公告</a></li>
 </ul>
-
 <h2 id="批准的-rfc">批准的 RFC</h2>
-
 <p>对 Rust 的更改跟随 Rust<a href="https://github.com/rust-lang/rfcs#rust-rfcs">RFC（征求意见）流程</a>。以下是本周批准实施的 RFC：</p>
-
 <p><em>本周未批准任何 RFC。</em></p>
-
 <h2 id="最后意见征询期">最后意见征询期</h2>
-
 <p>每周<a href="https://www.rust-lang.org/team.html">团队</a>宣布即将做出决定的 RFC 和主要 PR 的“最终意见征询期”。立即发表您的意见。</p>
-
-<h3 id="rfc-https-github-com-rust-lang-rfcs-labels-final-comment-period"><a href="https://github.com/rust-lang/rfcs/labels/final-comment-period">RFC</a></h3>
-
+<h3 id="rfchttpsgithubcomrust-langrfcslabelsfinal-comment-period"><a href="https://github.com/rust-lang/rfcs/labels/final-comment-period">RFC</a></h3>
 <ul>
 <li>[处理：合并] <a href="https://github.com/rust-lang/rfcs/pull/2795">提出，formatting macros 的暗含名字的参数</a>。</li>
 </ul>
-
-<h3 id="跟踪问题和prs-https-github-com-rust-lang-rust-labels-final-comment-period"><a href="https://github.com/rust-lang/rust/labels/final-comment-period">跟踪问题和PRs</a></h3>
-
+<h3 id="跟踪问题和prshttpsgithubcomrust-langrustlabelsfinal-comment-period"><a href="https://github.com/rust-lang/rust/labels/final-comment-period">跟踪问题和PRs</a></h3>
 <ul>
 <li>[处理：合并] <a href="https://github.com/rust-lang/rust/pull/66919">强力反对 error::description</a>。</li>
 <li>[处理：合并] <a href="https://github.com/rust-lang/rust/pull/66771">稳定化： <code>core::panic</code> 模块</a>。</li>
@@ -230,9 +198,7 @@
 <li>[处理：合并] <a href="https://github.com/rust-lang/rust/pull/66254">使 layout::new 为 const</a>。</li>
 <li>[处理：合并] <a href="https://github.com/rust-lang/rust/pull/64273">稳定化：在内联模块上的 attribute macros</a>。</li>
 </ul>
-
 <h2 id="新的-rfc">新的 RFC</h2>
-
 <ul>
 <li><a href="https://github.com/rust-lang/rfcs/pull/2837">将 Apple 32bit targets 降级为 Tier 3 </a>。</li>
 <li><a href="https://github.com/rust-lang/rfcs/pull/2832">将<code>std::net</code>，移动到<code>core:.net</code></a>。</li>
@@ -240,22 +206,15 @@
 <li><a href="https://github.com/rust-lang/rfcs/pull/2835">宣布 safe-transmute 项目组</a>。</li>
 <li><a href="https://github.com/rust-lang/rfcs/pull/2836">介绍 ASM 项目组</a>。</li>
 </ul>
-
 <h1 id="本周引用句">本周引用句</h1>
-
 <blockquote>
 <p>当我使用 Rust 时，感觉好像我真的细细考虑该程序，而不是浪费我的一半精力，通过必要的’仪式‘手段，来阻止该语言的 panic。</p>
 </blockquote>
-
 <p>– <a href="https://www.reddit.com/r/rust/comments/e8tms0/rust_is_fun/faei257/">/u/rime-frost on reddit</a></p>
-
 <p>Thanks to <a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328/755">ssokolow</a> for the suggestion!</p>
-
 <p><a href="https://users.rust-lang.org/t/twir-quote-of-the-week/328">Please submit quotes and vote for next week!</a></p>
-
 <p><em>This Week in Rust is edited by: <a href="https://github.com/nasa42">nasa42</a> and <a href="https://github.com/llogiq">llogiq</a>.</em></p>
-
-<p><small><a href="https://www.reddit.com/r/rust/comments/e9t7cl/this_week_in_rust_316/">Discuss on r/rust</a>.</small></p>
+<p><!-- raw HTML omitted --><a href="https://www.reddit.com/r/rust/comments/e9t7cl/this_week_in_rust_316/">Discuss on r/rust</a>.<!-- raw HTML omitted --></p>
 
   </div>
 

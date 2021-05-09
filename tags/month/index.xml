@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Month on Code &gt; Explain &gt; Transalte 的人</title>
+    <title>month on Code &gt; Explain &gt; Transalte 的人</title>
     <link>/tags/month/</link>
-    <description>Recent content in Month on Code &gt; Explain &gt; Transalte 的人</description>
+    <description>Recent content in month on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 22 Jan 2020 09:59:00 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/month/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 22 Jan 2020 09:59:00 +0800</lastBuildDate><atom:link href="/tags/month/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rust GameDev 月刊 #5(译)</title>
-      <link>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-5%E8%AF%91/</link>
+      <link>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-#5%E8%AF%91/</link>
       <pubDate>Wed, 22 Jan 2020 09:59:00 +0800</pubDate>
       
-      <guid>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-5%E8%AF%91/</guid>
+      <guid>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-#5%E8%AF%91/</guid>
       <description>This Month in Rust GameDev #5 - December 2019 2020 年 1 月 10 日
 欢迎来到 Rust GameDev 工作组的第五期月刊。
 Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
@@ -30,10 +26,10 @@ A/B Street 是用 Rust 编写的，在glium之上，使用自定义 GUI 库。</
     
     <item>
       <title>Rust GameDev 月刊 #4(译)</title>
-      <link>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-4%E8%AF%91/</link>
+      <link>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-#4%E8%AF%91/</link>
       <pubDate>Wed, 22 Jan 2020 09:58:47 +0800</pubDate>
       
-      <guid>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-4%E8%AF%91/</guid>
+      <guid>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-#4%E8%AF%91/</guid>
       <description>This Month in Rust GameDev #4 - 11 月 2019 2019-12-08
 Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
 我们希望为想在开发过程中，使用 Rust 的人建立一个吸引人的生态系统！想参与吗？加入 Rust GameDev working group!
@@ -42,23 +38,23 @@ Game Updates # Le Train Dispatcher - Route Trains in 模拟铁路网络 # Le Tr
 该游戏使用 Rust 编程，主要使用的箱子是：ggez，imgui 和 serde。
 这第一个版本完全可玩，但是如果您想发表评论，提出您的想法或为游戏的发展做出贡献，请不要犹豫地发布一个message。
 独特的特点：
- 逼真的灯光信号模拟：已经进行了大量的工程工作，来对铁路信号进行逼真的管理。 没有碰撞：是的，放手，看到许多火车自动行驶，这很有趣。你的所有行为都要检查：不能将火车置于危险之中。 真实物理学  每个机车或货车都有其自身的重量，驱动力或制动力，和其粘连系数。 这些弯道不是简单的圆，它们的计算公式与实际道路或铁路网络中，使用的方程相同。   Veloren # Veloren是一个开放世界，开放源代码的多人体素 RPG。该游戏尚处于开发初期，但可以玩。
+ 逼真的灯光信号模拟：已经进行了大量的工程工作，来对铁路信号进行逼真的管理。 没有碰撞：是的，放手，看到许多火车自动行驶，这很有趣。你的所有行为都要检查：不能将火车置于危险之中。 真实物理学  每个机车或货车都有其自身的重量，驱动力或制动力，和其粘连系数。 这些弯道不是简单的圆，它们的计算公式与实际道路或铁路网络中，使用的方程相同。    Veloren # Veloren是一个开放世界，开放源代码的多人体素 RPG。该游戏尚处于开发初期，但可以玩。
 11 月的一些更新：
  主存储库达到 50,000 行代码（根据Tokei）; Airshipper launcher 明显改善； 游戏设计工作组成立； 改进了身份验证，玩家创建界面，资产压缩，故事和配乐； CI 升级，大量错误修正和内容升级。  完整的每周开发日志“本周在 Veloren &amp;hellip;”：#40，#41，#42，#43。</description>
     </item>
     
     <item>
       <title>Rust GameDev 月刊 #3(译)</title>
-      <link>/2020/01/21/rust-gamedev-%E6%9C%88%E5%88%8A-3%E8%AF%91/</link>
+      <link>/2020/01/21/rust-gamedev-%E6%9C%88%E5%88%8A-#3%E8%AF%91/</link>
       <pubDate>Tue, 21 Jan 2020 12:38:01 +0800</pubDate>
       
-      <guid>/2020/01/21/rust-gamedev-%E6%9C%88%E5%88%8A-3%E8%AF%91/</guid>
+      <guid>/2020/01/21/rust-gamedev-%E6%9C%88%E5%88%8A-#3%E8%AF%91/</guid>
       <description>Rust GameDev #3 月刊 - 10 月 2019  2019 年 11 月 7 日
 欢迎来到 Rust GameDev 工作组月刊，第三期。
 Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
 我们希望为想在开发过程中，使用 Rust 的人建立一个吸引人的生态系统！想参与吗？加入 Rust GameDev working group!
 游戏更新 # Sulis - a Turn-Based RPG # Sulis是一款角色扮演游戏（RPG），具有回合制、战略战斗、深度角色定制和引人入胜的故事情节。游戏从一开始，就以改造和定制的内容角度，进行考虑。当前支持 Windows 和 Linux 平台。
-该游戏目前是完全可玩的，包括 the first act of Twin Expanse，一个经典游戏类似的老式 RPG 战役，如*巴尔杜尔之门*，但混合了现代元素，如*神界原罪*和*永恒之柱*。
+该游戏目前是完全可玩的，包括 the first act of Twin Expanse，一个经典游戏类似的老式 RPG 战役，如巴尔杜尔之门，但混合了现代元素，如神界原罪和永恒之柱。
 核心游戏引擎以及战役仍在大力开发中。鼓励用户给出 bugs issues，功能请求或任何其他反馈。
 特征：
  跨平台原生二进制文件，当前构建，供给 Windows 和 Linux 多个战役，超过 8 小时的游玩时间，包括手工制作和过程内容。 一个详细和充分认知的世界和故事 —— 看看Lore page。 设计时考虑到了改造 —— 虽然在这方面还有更多的工作要做。 一个强大的二维图形引擎，可缩放，可扩展的用户界面，HiDPI 支持，和一个可交换的图形后端。 在非常温和的硬件，甚至软件渲染器上运行（尽管帧速率降低）。  GPLv3 许可证的源代码在 GitHub。Sulis 是用 Rust 编写的，脚本使用 Lua，大多数数据文件使用 YAML 格式。</description>
@@ -66,10 +62,10 @@ Rust是一种追求三重性的系统语言：安全性、并发性和速度。�
     
     <item>
       <title>Rust GameDev 月刊 #2(译)</title>
-      <link>/2020/01/20/rust-gamedev-%E6%9C%88%E5%88%8A-2%E8%AF%91/</link>
+      <link>/2020/01/20/rust-gamedev-%E6%9C%88%E5%88%8A-#2%E8%AF%91/</link>
       <pubDate>Mon, 20 Jan 2020 13:21:58 +0800</pubDate>
       
-      <guid>/2020/01/20/rust-gamedev-%E6%9C%88%E5%88%8A-2%E8%AF%91/</guid>
+      <guid>/2020/01/20/rust-gamedev-%E6%9C%88%E5%88%8A-#2%E8%AF%91/</guid>
       <description>Rust GameDev #2 月刊 - 9 月 2019  2019-10-05
 欢迎来到 Rust GameDev 工作组的月刊第二期。
 Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
@@ -86,10 +82,10 @@ Twenty Asteroids #</description>
     
     <item>
       <title>Rust GameDev 月刊 #1(译)</title>
-      <link>/2020/01/19/rust-gamedev-%E6%9C%88%E5%88%8A-1%E8%AF%91/</link>
+      <link>/2020/01/19/rust-gamedev-%E6%9C%88%E5%88%8A-#1%E8%AF%91/</link>
       <pubDate>Sun, 19 Jan 2020 10:35:38 +0800</pubDate>
       
-      <guid>/2020/01/19/rust-gamedev-%E6%9C%88%E5%88%8A-1%E8%AF%91/</guid>
+      <guid>/2020/01/19/rust-gamedev-%E6%9C%88%E5%88%8A-#1%E8%AF%91/</guid>
       <description>Rust GameDev #1 月刊 - 8 月 2019  2019 年 9 月 2 日
 欢迎来到 Rust 游戏开发工作组月刊（希望如此！）的创刊号新闻稿。
 Rust是一种追求三重性的系统语言：安全性、并发性和速度。这些目标与游戏开发非常一致。
@@ -97,10 +93,10 @@ Rust是一种追求三重性的系统语言：安全性、并发性和速度。�
 新闻和博文 # the Rust GameDev Working Group 的调查问卷 📋 # 对在游戏开发中使用 Rust 感兴趣（可能已经投资了？）？请留出一点时间，来回答这个简短的调查，了解我们游戏开发生态系统的现状，以及游戏开发工作组可以做些什么，来培育它。🌱
 尽管我们非常感谢您提供少量的信息，以便我们可以方便地与您联系进行进一步的讨论，但共享这些信息是可选的。这项调查中只有 3 个问题是强制性的，我们把最重要的问题留到最后。
 目前正在处理问卷，以供稍后的发布。在调查结果公布并随后永久关闭之前，我们仍在接受回复。
-_讨论：/r/rust,twitter_
-还有，看看我们之前的帖子&amp;ldquo;欢迎 Rust Game Development Working Group&amp;rdquo;，如果你还没看到[/r/rust,twitter].
+讨论：/r/rust,twitter
+ 还有，看看我们之前的帖子&amp;ldquo;欢迎 Rust Game Development Working Group&amp;rdquo;，如果你还没看到[/r/rust,twitter].
 Rustsim #7 月刊 (June − July 2019) # nphysics 0.12 release 版本包含几个期待已久的功能：
- 支持 colliders 的线性和非线性的*连续碰撞检测（CCD）*，在刚体和传感器。还有关于它的全新的用户手册。 刚体*速率降*：这允许人为地减慢一些物体的速度。这对于不能使用传统摩擦的自上而下二维游戏来说，是必不可少的。 刚体*最大速率*限制：有可能迫使一个刚体永远不会得到高于阈值的速度。 *自定义容器*有可能用于实体、colliders、关节和 force 生成器。这有助于克服与借用相关的一些困难，也有助于 npphysics 与其他解决方案的集成。物理世界结构将不再拥有这些容器。  与ncollide 0.</description>
+ 支持 colliders 的线性和非线性的连续碰撞检测（CCD），在刚体和传感器。还有关于它的全新的用户手册。 刚体速率降：这允许人为地减慢一些物体的速度。这对于不能使用传统摩擦的自上而下二维游戏来说，是必不可少的。 刚体最大速率限制：有可能迫使一个刚体永远不会得到高于阈值的速度。 自定义容器有可能用于实体、colliders、关节和 force 生成器。这有助于克服与借用相关的一些困难，也有助于 npphysics 与其他解决方案的集成。物理世界结构将不再拥有这些容器。  与ncollide 0.</description>
     </item>
     
   </channel>

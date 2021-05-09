@@ -100,24 +100,17 @@
   
   <div class="blog-post post">
     <h2 class="post-title">Rust游戏开发2020生态圈展望 调查结果(译)</h2>
-    
-
-<h1 id="rust-game-development-ecosystem-survey-https-rust-gamedev-github-io-posts-survey-01"><a href="https://rust-gamedev.github.io/posts/survey-01/">Rust Game Development - Ecosystem Survey</a></h1>
-
+    <h1 id="rust-game-development---ecosystem-surveyhttpsrust-gamedevgithubiopostssurvey-01"><a href="https://rust-gamedev.github.io/posts/survey-01/">Rust Game Development - Ecosystem Survey</a></h1>
 <p>2020 年 2 月 6 日</p>
-
 <p>去年 8 月，我们对 Rust gamedev 生态圈进行了一次调查。在不幸的耽搁之后，我们终于可以交出结果了。我们收到了高达 403 个回复！这些宝贵的反馈将为工作组 2020 年的路线图提供动力。</p>
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#%E7%88%B1%E5%A5%BD%E8%80%85-or-%E5%BC%80%E5%8F%91%E8%80%85">爱好者 or 开发者? </a></li>
 <li><a href="#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%BD%A0%E4%BC%9A%E7%94%A8-rust-%E5%90%97">游戏开发你会用 Rust 吗? </a>
-
 <ul>
-<li><a href="#%E5%A6%82%E4%BB%8A-%E6%8C%A1%E5%9C%A8-rust-%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E4%BD%A0%E4%B9%8B%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E9%98%BB%E5%8A%9B%E6%98%AF%E4%BB%80%E4%B9%88">如今, 挡在 Rust 游戏开发与你之间的最大阻力是什么? </a></li>
+<li><a href="#%E5%A6%82%E4%BB%8A-%E6%8C%A1%E5%9C%A8-rust-%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E4%BD%A0%E4%B9%8B%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E9%98%BB%E5%8A%9B%E6%98%AF%E4%BB%80%E4%B9%88">如今, 挡在 Rust 游戏开发与你之间的最大阻力是什么? </a>
+<ul>
 <li><a href="#ecosystem-%E6%88%90%E7%86%9F-114">Ecosystem 成熟 (114) </a></li>
 <li><a href="#%E8%BF%AD%E4%BB%A3%E7%94%A8%E6%97%B6-68">迭代用时 (68) </a></li>
 <li><a href="#%E6%96%87%E6%A1%A3-43">文档 (43) </a></li>
@@ -129,9 +122,11 @@
 <li><a href="#webmobile-%E6%94%AF%E6%8C%81-14">Web/mobile 支持 (14) </a></li>
 <li><a href="#allocators-10">Allocators (10) </a></li>
 <li><a href="#c-interop-7">C++ interop (7) </a></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#%E5%A6%82%E4%BB%8A-%E7%B3%BB%E5%9C%A8-rust-%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E4%BD%A0%E4%B9%8B%E9%97%B4%E6%9C%80%E4%BA%AE%E7%9C%BC%E7%9A%84%E7%BA%A2%E7%BA%BF%E6%98%AF%E4%BB%80%E4%B9%88">如今, 系在 Rust 游戏开发与你之间最亮眼的红线是什么? </a>
-
 <ul>
 <li><a href="#%E5%AE%89%E5%85%A8-100">安全 (100) </a></li>
 <li><a href="#%E6%80%A7%E8%83%BD-89">性能 (89) </a></li>
@@ -144,7 +139,8 @@
 <li><a href="#%E8%B7%A8%E5%B9%B3%E5%8F%B0-5">跨平台 (5) </a></li>
 <li><a href="#c-%E4%BA%92%E6%93%8D%E4%BD%9C-3">C 互操作 (3) </a></li>
 <li><a href="#%E7%BD%AE%E9%A1%B6%E8%AE%A8%E8%AE%BA">置顶讨论</a></li>
-<li><a href="#%E4%BD%A0%E6%80%8E%E4%B9%88%E7%9C%8B%E5%9C%A8%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84-3-6-%E6%9C%88-game-dev-%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9A%84%E4%BC%98%E5%85%88%E4%BA%8B%E9%A1%B9">你怎么看在接下来的 3-6 月, game-dev 工作组的优先事项? </a></li>
+<li><a href="#%E4%BD%A0%E6%80%8E%E4%B9%88%E7%9C%8B%E5%9C%A8%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84-3-6-%E6%9C%88-game-dev-%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9A%84%E4%BC%98%E5%85%88%E4%BA%8B%E9%A1%B9">你怎么看在接下来的 3-6 月, game-dev 工作组的优先事项? </a>
+<ul>
 <li><a href="#documentation-107">Documentation (107) </a></li>
 <li><a href="#%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81-59">跨平台支持 (59) </a></li>
 <li><a href="#%E7%94%9F%E6%80%81%E5%9C%88%E6%8F%90%E8%AE%AE--%E5%8D%8F%E4%BD%9C-51">生态圈提议 &amp; 协作 (51) </a></li>
@@ -155,226 +151,149 @@
 <li><a href="#%E7%8E%B0%E6%9C%89%E5%B7%A5%E4%BD%9C%E9%93%BE%E7%9A%84%E9%9B%86%E6%88%90-14">现有工作链的集成 (14) </a></li>
 <li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%86%E9%85%8D-10">自定义分配 (10) </a></li>
 <li><a href="#%E8%B0%83%E8%AF%95%E6%94%AF%E6%8C%81%E5%92%8C-ide-%E9%9B%86%E6%88%90-5">调试支持和 IDE 集成 (5) </a></li>
-<li><a href="#%E5%BA%93%E4%B8%8E%E5%BA%93%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9C%89%E6%9D%A5%E7%9C%BC%E5%8E%BB%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-5">库与库之间的&rdquo;眉来眼去(互操作性)&rdquo; (5) </a></li>
+<li><a href="#%E5%BA%93%E4%B8%8E%E5%BA%93%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9C%89%E6%9D%A5%E7%9C%BC%E5%8E%BB%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7-5">库与库之间的&quot;眉来眼去(互操作性)&quot; (5) </a></li>
+</ul>
+</li>
 <li><a href="#%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%AF%B4%E8%AF%B4%E5%93%AA%E4%BA%9B%E5%BA%93%E6%98%AF%E4%BD%A0%E6%83%B3%E6%84%9F%E8%B0%A2%E7%9A%84%E6%88%96%E6%98%AF%E6%84%9F%E5%85%B4%E8%B6%A3%E7%9A%84">你可以说说哪些库是你想感谢的或是感兴趣的? </a></li>
 <li><a href="#rust-game-development-working-group">Rust Game Development Working Group</a></li>
-</ul></li>
 </ul>
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
+</li>
+</ul>
+<!-- raw HTML omitted -->
 <h1 id="爱好者-or-开发者">爱好者 or 开发者? </h1>
-
-<p><img src="https://rust-gamedev.github.io/posts/survey-01/hobbyist-or-professional.png" alt="Respondents identifying as professional or hobbyist" />在 400 名受访者中，有 <sup>3</sup>&frasl;<sub>4</sub> 被确定为*爱好者(Hobbyist)*。还应注意的是，*专业人士(Professionals)*这个极其重要部分，更准确地说是“有抱负的专业人士”，他们承担了他们的第一个游戏开发风险。依然让 Rust 游戏开发引起了大量的商业兴趣！</p>
-
+<p><img src="https://rust-gamedev.github.io/posts/survey-01/hobbyist-or-professional.png" alt="Respondents identifying as professional or hobbyist">在 400 名受访者中，有 3/4 被确定为<em>爱好者(Hobbyist)</em>。还应注意的是，*专业人士(Professionals)*这个极其重要部分，更准确地说是“有抱负的专业人士”，他们承担了他们的第一个游戏开发风险。依然让 Rust 游戏开发引起了大量的商业兴趣！</p>
 <h1 id="游戏开发你会用-rust-吗">游戏开发你会用 Rust 吗? </h1>
-
-<p><img src="https://rust-gamedev.github.io/posts/survey-01/using-rust.png" alt="Respondents using Rust in game development" />在专业人士中，只有 <sup>1</sup>&frasl;<sub>4</sub> 的人说他们目前在游戏中使用 Rust。这意味着，目前在 gamedev 中使用 Rust 的 200 名受访者大多是爱好者。这并不奇怪，因为大多数专业人士都无法承担成为早期使用者的风险。赞美推动现状的所有爱好者，对少数在产品中使用 Rust 的制厂点赞，而这些制厂早在大多数行业同行&rdquo;闻到这种气味&rdquo;之前, 就已经开始使用 Rust 了。</p>
-
-<hr />
-
+<p><img src="https://rust-gamedev.github.io/posts/survey-01/using-rust.png" alt="Respondents using Rust in game development">在专业人士中，只有 1/4 的人说他们目前在游戏中使用 Rust。这意味着，目前在 gamedev 中使用 Rust 的 200 名受访者大多是爱好者。这并不奇怪，因为大多数专业人士都无法承担成为早期使用者的风险。赞美推动现状的所有爱好者，对少数在产品中使用 Rust 的制厂点赞，而这些制厂早在大多数行业同行&quot;闻到这种气味&quot;之前, 就已经开始使用 Rust 了。</p>
+<hr>
 <p><em>对于随后的自由形式的回答，使用基本的情绪分析，将 400 个回答提炼成可消化的形式。标题旁边的（#）数字大致表示该主题出现的次数。把它想象成主题的<strong>信号强度</strong>。</em></p>
-
 <h2 id="如今-挡在-rust-游戏开发与你之间的最大阻力是什么">如今, 挡在 Rust 游戏开发与你之间的最大阻力是什么? </h2>
-
 <p>专业人士和业余爱好者的关注重点基本相同。最大的区别是：</p>
-
 <ul>
-<li><p>爱好者们要求”生态圈成熟度“是其他的 2 倍。</p></li>
-
-<li><p>爱好者更关心移动/网络支持</p></li>
-
-<li><p>专业人士更关心主机支持</p></li>
-
-<li><p>专业人员更关心 C++互操作</p></li>
+<li>
+<p>爱好者们要求”生态圈成熟度“是其他的 2 倍。</p>
+</li>
+<li>
+<p>爱好者更关心移动/网络支持</p>
+</li>
+<li>
+<p>专业人士更关心主机支持</p>
+</li>
+<li>
+<p>专业人员更关心 C++互操作</p>
+</li>
 </ul>
-
 <h3 id="ecosystem-成熟-114">Ecosystem 成熟 (114) </h3>
-
 <blockquote>
 <p>从在太空中玩我知道用 Rust 做游戏是可能的。然而在生态圈中，我最大的阻力是[缺乏]案例研究和演示。</p>
-
 <p>与 C++相比，Rust 仍然是一个危险的选择。</p>
-
 <p>仍然感觉像一个新的社区。总有风险与此相关 - 语言是否朝着某个方向有很大的变化-是否支持 drop。我对底层（嵌入式/操作系统）开发的支持感到鼓舞，这意味着, 核心特性集仍然是健壮的。</p>
-
 <p>许多未完成的，未维护的箱子。总是在搅来搅去。</p>
-
 <p>很多常见的需求还没有“开箱即用”。</p>
 </blockquote>
-
 <h3 id="迭代用时-68">迭代用时 (68) </h3>
-
 <blockquote>
 <p>编译时，没有运行时反射，更新树中的深层依赖关系很困难。</p>
-
 <p>我认为迭代用时太长了，因为编译的时间，[缺乏]热重载工具等。</p>
-
 <p>迭代用时（特别是在原型设计时）。当我知道我很快就会重写某些内容时, 其中包括编译时，也包括对 lifetimes 的整理，在编译时, 这种“预先准备”借用检查器运行的努力对大多数任务都是有用的，但当我想快速尝试某些内容时，这可能就拖我后腿了，在这方面，GC(垃圾回收)&rsquo;d 语言有个 imo 优势。</p>
-
 <p>由于“fighting the compiler(&lsquo;天天&rsquo;编译器)”，在 Rust 中, 原型设计似乎不容易.</p>
 </blockquote>
-
 <h3 id="文档-43">文档 (43) </h3>
-
 <blockquote>
 <p>没有足够的文档度过初级阶段</p>
-
 <p>缺少 gamedev libs 的示例。</p>
-
 <p>文档通常是高阶的或示例的，但很少两者都有。很少有现实世界的例子可以借鉴。</p>
 </blockquote>
-
 <h3 id="缺乏完整功能的引擎-35">缺乏完整功能的引擎 (35) </h3>
-
 <blockquote>
 <p>缺乏一个基于数据与脚本的引擎，比如虚幻引擎或 Unity，意味着即使是小项目，最终也会是“自己订自己的快餐单(引擎)”。</p>
-
 <p>缺少图形编辑器，游戏的无摩擦原型</p>
 </blockquote>
-
-<h3 id="rust-学习曲线-入门到小众语言-29">Rust 学习曲线 / 入门到小众语言 (29) </h3>
-
+<h3 id="rust-学习曲线--入门到小众语言-29">Rust 学习曲线 / 入门到小众语言 (29) </h3>
 <blockquote>
 <p>这种语言比我所知道的任何其他主流语言都有更高的前期认知负荷，主要是由于借用检查器。很难深入并逃脱，这使得它成为一个特别难以叫卖的游戏原型。</p>
-
 <p>我知道这是一种不太常见的语言，所以作为一家公司，我必须让我的员工学会 Rust，然后才能开始工作。</p>
-
 <p>Rust 人员可能很难雇佣，而雇佣一个不懂 Rust 的人来从事 Rust 工作会有一个爬梯期。</p>
 </blockquote>
-
-<h3 id="ide-rls-story-28">IDE/RLS story (28) </h3>
-
+<h3 id="iderls-story-28">IDE/RLS story (28) </h3>
 <p>相比于 VisualStudio 与 C++ 或 C 语言，IDE 中的工具是受限的。</p>
-
 <blockquote>
 <p>显然缺乏合适的 IDE（比如现成的 Cargo 集成 和 working 调试器 —— 是的，我测试了 Visual Studio Code，它非常慢，建议不好，运行、检查和构建的最快方法是使用终端 —— 而不是 IDE）-我想说 QT Creator 或 visualstudio 之类的东西会很棒</p>
-
 <p>关于调试，行业标准是 Visual Studio（或者我知道的是 visualstudio），因为它是非常好的 IDE 和工具，而且，很多用户非常习惯这种工具，看起来 Rust 缺少了一些工具。</p>
-
 <p>rust-analyzer 还很不完善，但这是唯一对我有用的东西.</p>
-
 <p>IDE 的调试支持较差。主要是 visual studio。</p>
-
 <p>无法正确调试，例如, 哈希映射绝对不可调试。不确定它是如何工作的（而不是 C++）。</p>
-
 <p>调试模式太慢，通常需要为 dev profile 设置 <code>opt-level=1</code> 或 2.</p>
 </blockquote>
-
 <h3 id="gui-工具-23">GUI 工具 (23) </h3>
-
 <blockquote>
 <p>作为一个工具开发人员，一个主要的缺点是目前缺乏可靠的 GUI 框架（我们在 Visual Studio 中使用 WPF+C）。</p>
 </blockquote>
-
 <h3 id="游戏主机-13">游戏主机 (13) </h3>
-
 <blockquote>
 <p>没有官方对主机开发的支持，这使得 Rust 在很多专业工作中都很难存活。</p>
-
 <p>Rust 在索尼或微软的游戏机上不受官方支持。</p>
-
 <p>目前还不能认真考虑 Rust，因为它没有 PS4 SDK 的支持。虽然还有其他的考虑（Studio 文化，与现有系统的集成等），索尼的官方支持是一个要求，这样 Rust 才可以在 PS4 游戏中使用。</p>
 </blockquote>
-
-<h3 id="web-mobile-支持-14">Web/mobile 支持 (14) </h3>
-
+<h3 id="webmobile-支持-14">Web/mobile 支持 (14) </h3>
 <h3 id="allocators-10">Allocators (10) </h3>
-
 <h3 id="c-interop-7">C++ interop (7) </h3>
-
 <blockquote>
 <p>我们的代码，以及任何我们可以授权的中间件/引擎，都是 C++的。使用 Rust 和 C++是痛苦的，对现有技术, 改写成纯粹的 Rust 将是非常昂贵的。</p>
 </blockquote>
-
 <p>测试和太多东西是与 C 联系的。</p>
-
 <blockquote>
 <p>而且，还没有专业的游戏引擎（UE4，Unity）与 Rust 集成。</p>
-
 <p>未知的兼容性</p>
-
 <p>缺乏一个简单的路径，使 Rust 与 C++ 互通有无。我现在看到的唯一可信任的方法是通过手动 C 包装器，这是一种容易出错且耗时的方法。</p>
 </blockquote>
-
 <h1 id="如今-系在-rust-游戏开发与你之间最亮眼的红线是什么">如今, 系在 Rust 游戏开发与你之间最亮眼的红线是什么? </h1>
-
 <h3 id="安全-100">安全 (100) </h3>
-
 <blockquote>
 <p>强类型系统允许轻松执行, 一些性能和安全最佳实践</p>
-
 <p>多线程安全</p>
-
 <p>消除数据竞争, 大大提高了多线程代码的可靠性。</p>
-
 <p>安全并发</p>
 </blockquote>
-
 <h3 id="性能-89">性能 (89) </h3>
-
 <blockquote>
 <p>出色的性能和编译时检验</p>
-
 <p>性能和可靠性</p>
-
 <p>并发性</p>
 </blockquote>
-
 <h3 id="社区-69">社区 (69) </h3>
-
 <blockquote>
 <p>生态圈中充满了热情和聪明的人，他们非常重视高质量的软件</p>
-
 <p>一个真正热情的社区，有着伟大的目标和追求目标的勇气</p>
-
 <p>集体努力“构建正确的事情”和“把事情构建正确”</p>
 </blockquote>
-
 <h3 id="cargo-57">Cargo (57) </h3>
-
 <blockquote>
 <p>能够一点一点地把库拆下来，让他们马上用你的东西来建造，is great.</p>
 </blockquote>
-
 <h3 id="生态圈-50">生态圈 (50) </h3>
-
 <blockquote>
 <p>一个成熟的 Rust 生态圈将会比 一个成熟的 C++生态圈，（希望！）具有更底的门槛, 而不放弃性能。</p>
 </blockquote>
-
 <h3 id="wasm-web-支持-20">WASM (web) 支持 (20) </h3>
-
 <h3 id="没有垃圾回收机制-8">没有垃圾回收机制 (8) </h3>
-
 <h3 id="ecs-数据驱动-面向数据-8">ECS; 数据驱动; 面向数据 (8) </h3>
-
 <h3 id="跨平台-5">跨平台 (5) </h3>
-
 <h3 id="c-互操作-3">C 互操作 (3) </h3>
-
 <h2 id="置顶讨论">置顶讨论</h2>
-
 <blockquote>
-<p>这种语言比其他主流语言具有更高的前期认知负荷。这意味着，在一个已建立的、更大的项目（也许幕后有个团队），与 C++相比，生产率是惊人的！表达强而安全的接口要容易得多，而这些接口会使 bug 更难浸入。且在网络上大放异彩，网络代码是需要 100%安全和‘对坏淫的抵制’！我当前的游戏服务器代码有 0 个 unwrapps/panics/expects，所以我就*知道*它不会崩溃&hellip; 我希望我能在 C++中有这种感觉。相反，C++很容易激发出 20%的崩溃率和性能下降，并且需要 2 周的时间来敲击成形，在 2 周之后，它看起来却像 Rust 代码。不幸的是，由于了解 gamedev 行业的管理文化，Rust 面临着一条极其艰难的道路。以我的经验，gamedev 被极端的短期（比如，1 个月）所困扰，自然导致了崩溃和糟糕的折中技术。Rust 做了很多选择，推迟了那个决定命运的“demo day with the execs”，因为它迫使你正确做事。但很少有人能解释为什么这是对行业有价值的，和倾听。</p>
-
+<p>这种语言比其他主流语言具有更高的前期认知负荷。这意味着，在一个已建立的、更大的项目（也许幕后有个团队），与 C++相比，生产率是惊人的！表达强而安全的接口要容易得多，而这些接口会使 bug 更难浸入。且在网络上大放异彩，网络代码是需要 100%安全和‘对坏淫的抵制’！我当前的游戏服务器代码有 0 个 unwrapps/panics/expects，所以我就<em>知道</em>它不会崩溃&hellip; 我希望我能在 C++中有这种感觉。相反，C++很容易激发出 20%的崩溃率和性能下降，并且需要 2 周的时间来敲击成形，在 2 周之后，它看起来却像 Rust 代码。不幸的是，由于了解 gamedev 行业的管理文化，Rust 面临着一条极其艰难的道路。以我的经验，gamedev 被极端的短期（比如，1 个月）所困扰，自然导致了崩溃和糟糕的折中技术。Rust 做了很多选择，推迟了那个决定命运的“demo day with the execs”，因为它迫使你正确做事。但很少有人能解释为什么这是对行业有价值的，和倾听。</p>
 <p>我喜欢 Rust！•它非常适合“有 API 头脑”的系统程序员 • 随着越来越多的生产用户的到来，一切都会变得非常好非常快 • 跨平台比以往任何时候都容易 • 重构非常有趣• proc 宏非常酷非常有用 • serde 非常有用 • 真的有很多很棒的箱子 • 我知道我们最终会在一起的！</p>
-
 <p>我们对程序生成和人工智能的数据驱动游戏特别感兴趣。Rust 似乎非常适合这种计算密集型的工作。</p>
-
 <p>由于大多数游戏开发人员都是修补工，而不是工程师或科学家，整个行业都饱受代码质量差、缺乏体系结构和糟糕的代码设计的困扰。未定义的行为、nullptr 异常、释放后使用、多线程问题等都是经常出现的问题。Rust 最大的积极意义在于它解决了所有这些问题，而不需要改变游戏背后的人。这就是为什么我这么相信它 :）。同样值得注意的是，模块系统和箱子在当今非常重要，因为数百万行代码的庞大而僵化的代码库真的是一个地狱般的工作。</p>
 </blockquote>
-
 <h2 id="你怎么看在接下来的-3-6-月-game-dev-工作组的优先事项">你怎么看在接下来的 3-6 月, game-dev 工作组的优先事项? </h2>
-
 <h3 id="documentation-107">Documentation (107) </h3>
-
 <ul>
 <li>更好地参与 rust gamedev</li>
 <li>最佳做法的更好地解释</li>
 <li>如何开始</li>
 <li>经验丰富 gamedevs 的 Rust</li>
-<li>*现在*能工作是什么?</li>
+<li><em>现在</em>能工作是什么?</li>
 <li>示例游戏</li>
 <li>常见 gamedev 问题的标准实践</li>
 <li>如何制作窗口</li>
@@ -382,9 +301,7 @@
 <li>如何制作 ECS</li>
 <li>基础库的更多文档</li>
 </ul>
-
 <h3 id="跨平台支持-59">跨平台支持 (59) </h3>
-
 <ul>
 <li>下一代游戏机采用 Rust 的讨论室。</li>
 <li>有关主机支持的更清晰信息。</li>
@@ -396,9 +313,7 @@
 <li>跨平台编译</li>
 <li>XR（AR/VR）</li>
 </ul>
-
-<h3 id="生态圈提议-协作-51">生态圈提议 &amp; 协作 (51) </h3>
-
+<h3 id="生态圈提议--协作-51">生态圈提议 &amp; 协作 (51) </h3>
 <ul>
 <li>发展行业内的联系，以便工作组可以成为行业和 OSS 开发人员之间的联络人。通过邀请和参与行业，生态圈可以增长，并可能得到支持（以 PRs，开源的现有工具，或为 OSS 开发人员提供资金支持形式）。</li>
 <li>鼓励和促进现有工具的协作。</li>
@@ -412,24 +327,18 @@
 <li>识别正在进行的问题，并为 Rust 语言提出, 与游戏开发相关的新问题。（例如，调试 Rust 非常慢，因此我们需要好的方法来控制哪些是优化的，哪些不是优化的。）</li>
 <li>尽可能寻求解决交叉问题的机会。最近对&rsquo;原窗口控制&rsquo;的研究, 和对是否可以/应该在数学库上收敛的评估都是很好的例子。</li>
 </ul>
-
-<h3 id="头等游戏引擎-框架-46">头等游戏引擎/框架 (46) </h3>
-
+<h3 id="头等游戏引擎框架-46">头等游戏引擎/框架 (46) </h3>
 <ul>
 <li>简单的二维游戏引擎</li>
 <li>基本编辑器工作流</li>
 <li>像 SDL 一样</li>
 <li>Unity/ Unreal 的竞争对手</li>
 </ul>
-
 <h3 id="图形库-33">图形库 (33) </h3>
-
 <ul>
 <li>提高图形编程的可访问性</li>
 </ul>
-
 <h3 id="功能库-27">功能库 (27) </h3>
-
 <ul>
 <li>用户界面库</li>
 <li>窗口</li>
@@ -438,40 +347,27 @@
 <li>“标准箱子”合集，并提供某种形式的工作组支持</li>
 <li>推动稳定标准</li>
 </ul>
-
 <h3 id="更快的迭代用时-17">更快的迭代用时 (17) </h3>
-
 <ul>
 <li>Hot 代码重加载</li>
 <li>兼并脚本</li>
 <li>更快的编译时间</li>
 <li>进展更多库</li>
 </ul>
-
 <h3 id="现有工作链的集成-14">现有工作链的集成 (14) </h3>
-
 <ul>
 <li>C/C++</li>
 <li>Xcode、Android studio、Visual studio、Blender</li>
 <li>Unity/Unreal/Godot</li>
 </ul>
-
 <h3 id="自定义分配-10">自定义分配 (10) </h3>
-
 <h3 id="调试支持和-ide-集成-5">调试支持和 IDE 集成 (5) </h3>
-
-<h3 id="库与库之间的-眉来眼去-互操作性-5">库与库之间的&rdquo;眉来眼去(互操作性)&rdquo; (5) </h3>
-
+<h3 id="库与库之间的眉来眼去互操作性-5">库与库之间的&quot;眉来眼去(互操作性)&quot; (5) </h3>
 <h2 id="你可以说说哪些库是你想感谢的或是感兴趣的">你可以说说哪些库是你想感谢的或是感兴趣的? </h2>
-
-<p>为了好玩，我们让受访者说出他们感谢的库或项目。在这项调查结束后的 6 个月里，有相当多的新来者正在崛起.，如果我们今天再问一次，他们可能会在这里表现得更为突出。请放心，会有更多的调查。<img src="https://rust-gamedev.github.io/posts/survey-01/survey-thanks.png" alt="Shoutouts to ecosystem projects" /> <em>多亏了调查对象和所有不懈努力的人们，Rust 来到了游戏开发语言以及生态圈发展的第一层。</em></p>
-
-<p>[](<a href="https://rust-gamedev.github.io/posts/survey-01/">https://rust-gamedev.github.io/posts/survey-01/</a>)</p>
-
+<p>为了好玩，我们让受访者说出他们感谢的库或项目。在这项调查结束后的 6 个月里，有相当多的新来者正在崛起.，如果我们今天再问一次，他们可能会在这里表现得更为突出。请放心，会有更多的调查。<img src="https://rust-gamedev.github.io/posts/survey-01/survey-thanks.png" alt="Shoutouts to ecosystem projects"> <em>多亏了调查对象和所有不懈努力的人们，Rust 来到了游戏开发语言以及生态圈发展的第一层。</em></p>
+<p><a href="https://rust-gamedev.github.io/posts/survey-01/"></a></p>
 <h2 id="rust-game-development-working-group">Rust Game Development Working Group</h2>
-
 <p>了解 Rust 游戏开发工作组的最新进展和最新进展。</p>
-
 <ul>
 <li><a href="https://github.com/rust-gamedev" title="rust-gamedev">Github (rust-gamedev)</a></li>
 <li><a href="https://twitter.com/rust_gamedev" title="rust_gamedev">Twitter (rust_gamedev)</a></li>

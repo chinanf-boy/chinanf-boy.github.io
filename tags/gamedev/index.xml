@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gamedev on Code &gt; Explain &gt; Transalte 的人</title>
+    <title>gamedev on Code &gt; Explain &gt; Transalte 的人</title>
     <link>/tags/gamedev/</link>
-    <description>Recent content in Gamedev on Code &gt; Explain &gt; Transalte 的人</description>
+    <description>Recent content in gamedev on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 16 Apr 2021 16:21:10 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/gamedev/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 16 Apr 2021 16:21:10 +0800</lastBuildDate><atom:link href="/tags/gamedev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bevy Rust游戏引擎</title>
       <link>/2021/04/16/bevy-rust%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</link>
       <pubDate>Fri, 16 Apr 2021 16:21:10 +0800</pubDate>
       
       <guid>/2021/04/16/bevy-rust%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</guid>
-      <description>.blog-post  h2:first-child {display:none}  一款由Rust语言构建且简单明了的数据驱动的游戏引擎 永远开源免费!  数据驱动 所有引擎和游戏逻辑使用Bevy ECS系统  快: 大规模并行, 缓存友好. 根据某些基准测试最快的ECS  简单: 组件是Rust的结构体, 系统是Rust的函数  给力: 查询, 全局资源, 本地资源, 变化检测, 无锁并行调度        2D 渲染 为游戏和应用程序渲染实时2D图形  功能: 精灵表, 动态纹理图集, 摄像机, 纹理和材质  可扩展: 自定义着色器, 材质, 和渲染管道 通用核心: 建立在Bevy的渲染图之上     3D 渲染 一个现代和灵活的3D渲染器 功能: 灯光, 摄像机, 网格, 纹理, 材质, gltf加载 可扩展: 自定义着色器, 材质, 和渲染管道 通用核心: 建立在Bevy的渲染图之上      图形渲染 使用图形结构组合自定义渲染管道 并行: 图形渲染是自动并行渲染的  模块化: 使用渲染图形节点构建可组合和可重用的渲染逻辑  后端不可知: 不绑定到特定的图形API    跨平台 支持所有主要的桌面平台: Windows, MacOS, Linux  还有更多敬请期待: Android, iOS, Web       Bevy UI 一个定制的ecs驱动的UI框架, 专门为Bevy构建 直接建立在Bevy的ECS，渲染器，和场景插件之上 使用Bevy的场景格式声明或者在代码中动态的编写 使用熟悉的&#34;</description>
+      <description></description>
     </item>
     
     <item>
@@ -28,7 +24,7 @@
       <guid>/2020/02/08/rust%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%912020%E7%94%9F%E6%80%81%E5%9C%88%E5%B1%95%E6%9C%9B-%E8%B0%83%E6%9F%A5%E7%BB%93%E6%9E%9C%E8%AF%91/</guid>
       <description>Rust Game Development - Ecosystem Survey 2020 年 2 月 6 日
 去年 8 月，我们对 Rust gamedev 生态圈进行了一次调查。在不幸的耽搁之后，我们终于可以交出结果了。我们收到了高达 403 个回复！这些宝贵的反馈将为工作组 2020 年的路线图提供动力。
- 爱好者 or 开发者?  游戏开发你会用 Rust 吗?   如今, 挡在 Rust 游戏开发与你之间的最大阻力是什么?  Ecosystem 成熟 (114)  迭代用时 (68)  文档 (43)  缺乏完整功能的引擎 (35)  Rust 学习曲线 / 入门到小众语言 (29)  IDE/RLS story (28)  GUI 工具 (23)  游戏主机 (13)  Web/mobile 支持 (14)  Allocators (10)  C++ interop (7)   如今, 系在 Rust 游戏开发与你之间最亮眼的红线是什么?</description>
+ 爱好者 or 开发者?  游戏开发你会用 Rust 吗?   如今, 挡在 Rust 游戏开发与你之间的最大阻力是什么?   Ecosystem 成熟 (114)  迭代用时 (68)  文档 (43)  缺乏完整功能的引擎 (35)  Rust 学习曲线 / 入门到小众语言 (29)  IDE/RLS story (28)  GUI 工具 (23)  游戏主机 (13)  Web/mobile 支持 (14)  Allocators (10)  C++ interop (7)      如今, 系在 Rust 游戏开发与你之间最亮眼的红线是什么?</description>
     </item>
     
   </channel>

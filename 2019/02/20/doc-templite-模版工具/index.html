@@ -100,51 +100,38 @@
   
   <div class="blog-post post">
     <h2 class="post-title">Doc Templite 模版工具</h2>
-    
-
-<h2 id="回顾初始化脚本">回顾初始化脚本</h2>
-
+    <h2 id="回顾初始化脚本">回顾初始化脚本</h2>
 <p><strong>第八步：</strong></p>
-
 <ul>
 <li><strong>8.</strong> 对 项目目录 执行 [doc-templite] - js 模版工具</li>
 </ul>
-
 <h2 id="doc-templite">doc-templite</h2>
-
 <p>为了解决，能一次性替换，文件中相应部分的内容，doc-templite 诞生了。
 吸取了<code>doctoc</code>,<code>templite</code>,<code>toml</code>&hellip;相关工具/库的精华，综合而成。</p>
-
 <h3 id="readme">readme</h3>
-
-<h1 id="doc-templite-build-status-https-travis-ci-org-chinanf-boy-doc-templite-svg-branch-master-https-travis-ci-org-chinanf-boy-doc-templite-codecov-https-codecov-io-gh-chinanf-boy-doc-templite-badge-svg-branch-master-https-codecov-io-gh-chinanf-boy-doc-templite-branch-master-explain-http-llever-com-explain-svg-https-github-com-chinanf-boy-doc-templite-explain">doc-templite<a href="https://travis-ci.org/chinanf-boy/doc-templite"><img src="https://travis-ci.org/chinanf-boy/doc-templite.svg?branch=master" alt="Build Status" /></a> <a href="https://codecov.io/gh/chinanf-boy/doc-templite?branch=master"><img src="https://codecov.io/gh/chinanf-boy/doc-templite/badge.svg?branch=master" alt="codecov" /></a> <a href="https://github.com/chinanf-boy/doc-templite-explain"><img src="http://llever.com/explain.svg" alt="explain" /></a></h1>
-
+<h1 id="doc-templitebuild-statushttpstravis-ciorgchinanf-boydoc-templitesvgbranchmasterhttpstravis-ciorgchinanf-boydoc-templite-codecovhttpscodecovioghchinanf-boydoc-templitebadgesvgbranchmasterhttpscodecovioghchinanf-boydoc-templitebranchmaster-explainhttpllevercomexplainsvghttpsgithubcomchinanf-boydoc-templite-explain">doc-templite<a href="https://travis-ci.org/chinanf-boy/doc-templite"><img src="https://travis-ci.org/chinanf-boy/doc-templite.svg?branch=master" alt="Build Status"></a> <a href="https://codecov.io/gh/chinanf-boy/doc-templite?branch=master"><img src="https://codecov.io/gh/chinanf-boy/doc-templite/badge.svg?branch=master" alt="codecov"></a> <a href="https://github.com/chinanf-boy/doc-templite-explain"><img src="http://llever.com/explain.svg" alt="explain"></a></h1>
 <p>为 多个 md 文件 准备的模版工具</p>
-
 <blockquote>
 <p>当我们使用 多个文件或者多项目的<code>readme.md</code>时,样式可以帮助我们说出或显示某些东西,比如 md 表格,但下次我想要一个 md 网络链接. 太麻烦了! 去修改更改这些文件,所以<code>doc-templite</code>也许有帮助.</p>
 </blockquote>
-
 <h2 id="安装">安装</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm i -g doc-templite</code></pre></div>
-<h2 id="示例">示例</h2>
-
-<h3 id="1-修改-readme-md-必须有-doc-templite-标签"><strong>1.</strong> 修改<code>readme.md</code>👇 必须有 doc-templite 标签</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm i -g doc-templite
+</code></pre></div><h2 id="示例">示例</h2>
+<h3 id="1-修改readmemd-必须有-doc-templite-标签"><strong>1.</strong> 修改<code>readme.md</code>👇 必须有 doc-templite 标签</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#6272a4">&lt;!-- doc-templite START --&gt;</span>
 <span style="color:#6272a4">&lt;!-- doc-templite-id = &#39;readme&#39; --&gt;</span>
 
 <span style="color:#6272a4">&lt;!-- name = &#39;yobrave&#39;
 </span><span style="color:#6272a4">age = 18 --&gt;</span>
 
-<span style="color:#6272a4">&lt;!-- doc-templite END --&gt;</span></code></pre></div>
+<span style="color:#6272a4">&lt;!-- doc-templite END --&gt;</span>
+</code></pre></div><blockquote>
+<p>**注意:**在 START-END 块中,我们使用的是 toml 和 <code>&lt;!-- --&gt;</code></p>
+</blockquote>
 <blockquote>
-<p><strong>注意:</strong>在 START-END 块中,我们使用的是 toml 和 <code>&lt;!-- --&gt;</code></p>
-
 <p>多行注释只能<strong>一段</strong>, 单行注释可以<strong>多个</strong></p>
 </blockquote>
-
-<h3 id="2-需要-templite-文件-doc-templite-js-在命令行运行时的目录"><strong>2.</strong> 需要 templite 文件<code>.doc-templite.js</code>,在命令行运行时的目录</h3>
-
+<h3 id="2-需要-templite-文件doc-templitejs在命令行运行时的目录"><strong>2.</strong> 需要 templite 文件<code>.doc-templite.js</code>,在命令行运行时的目录</h3>
 <blockquote>
 <p>注意: readme 字段匹配<code>1. readme.md</code>中的<code>&lt;! - doc-templite-id ='readme' - &gt;</code></p>
 </blockquote>
@@ -153,26 +140,19 @@
 </span><span style="color:#f1fa8c">---------|----------
 </span><span style="color:#f1fa8c"> {{ name }} | {{ age }}`</span>
 };
-</code></pre></div>
-<blockquote>
+</code></pre></div><blockquote>
 <p>注意: 默认 <code>docTempliteId === 'readme'</code></p>
 </blockquote>
-
-<h3 id="3-运行-doc-templite"><strong>3.</strong> 运行<code>doc-templite .</code></h3>
-
+<h3 id="3-运行doc-templite-"><strong>3.</strong> 运行<code>doc-templite .</code></h3>
 <blockquote>
 <p>搜索所有文件,但只会修改有 <strong>doc-templite 标签</strong> 的文件</p>
 </blockquote>
-
 <pre><code>doc-templite .
 </code></pre>
-
 <blockquote>
 <p>目录下要有 <code>.doc-templite.js</code> 文件喔</p>
 </blockquote>
-
-<h3 id="4-做完了-readme-md-文件内容变成"><strong>4.</strong> 做完了,<code>readme.md</code>文件内容变成</h3>
-
+<h3 id="4-做完了readmemd文件内容变成"><strong>4.</strong> 做完了,<code>readme.md</code>文件内容变成</h3>
 <pre><code>&lt;!-- doc-templite START --&gt;
 &lt;!-- doc-templite-id = 'readme' --&gt;
 
@@ -184,16 +164,13 @@ name | age
 yobrave | 18
 
 &lt;!-- doc-templite END --&gt;
-</code></pre>
-
-<table>
+</code></pre><table>
 <thead>
 <tr>
 <th>名称</th>
 <th>年龄</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>yobrave</td>
@@ -201,12 +178,9 @@ yobrave | 18
 </tr>
 </tbody>
 </table>
-
 <h2 id="cli">CLI</h2>
-
 <pre><code>npm install --global doc-templite
 </code></pre>
-
 <pre><code>    Usage
   	$ doc-templite [folder/file name] [Optioins]
 
@@ -218,39 +192,15 @@ yobrave | 18
 
 	⭐ [High Options]
 		--OR  only Read, no reWrite files &lt;default:false&gt;
-</code></pre>
-
-<!-- ## API
-
-### docTemplite(input, [options])
-
-#### input
-
-| name: | input        |
-| ----- | ------------ |
-| Type: | `string`     |
-| Desc: | Lorem ipsum. |
-
-#### options
-
-##### foo
-
-| name:    | foo          |
-| -------- | ------------ |
-| Type:    | `boolean`    |
-| Default: | `false`      |
-| Desc:    | Lorem ipsum. | -->
-
+</code></pre><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h2 id="启发与关联">启发与关联</h2>
-
 <ul>
 <li><a href="https://github.com/thlorenz/doctoc">doctoc</a> 生成 markdown 文件的目录</li>
 <li><a href="https://github.com/lukeed/templite">templite</a> 轻量级模板,150 字节</li>
 <li><a href="https://github.com/toml-lang/toml">toml</a> 列表语法,最小的语言</li>
 </ul>
-
 <h2 id="执照">执照</h2>
-
 <p>麻省理工学院 ©<a href="http://llever.com">chinanf-boy</a></p>
 
   </div>
