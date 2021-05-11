@@ -101,7 +101,7 @@
   <div class="blog-post post">
     <h2 class="post-title">Rust ? 语法糖 (译)</h2>
     <h2 id="宏-stdtry">宏 <code>std::try</code></h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">macro_rules<span style="color:#ff79c6">!</span> try {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">macro_rules<span style="color:#ff79c6">!</span> <span style="color:#ff79c6">try</span> {
     ( <span style="color:#ff79c6">$</span> expr : <span style="color:#50fa7b">expr</span> ) <span style="color:#ff79c6">=&gt;</span> { ... };
     ( <span style="color:#ff79c6">$</span> expr : <span style="color:#50fa7b">expr</span> , ) <span style="color:#ff79c6">=&gt;</span> { ... };
 }

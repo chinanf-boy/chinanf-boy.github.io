@@ -1,655 +1,395 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/categories/</loc>
     <lastmod>2021-05-06T20:06:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
     <lastmod>2021-05-06T20:06:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/</loc>
     <lastmod>2021-05-06T20:06:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/rust/</loc>
     <lastmod>2021-05-06T20:06:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/05/06/rust%E5%91%A8%E6%8A%A5-389%E8%AF%91/</loc>
     <lastmod>2021-05-06T20:06:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
     <lastmod>2021-05-06T20:06:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/week/</loc>
     <lastmod>2021-05-06T20:06:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/05/01/rust%E5%91%A8%E6%8A%A5-388%E8%AF%91/</loc>
     <lastmod>2021-05-01T11:01:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/04/23/rust%E5%91%A8%E6%8A%A5-387%E8%AF%91/</loc>
     <lastmod>2021-04-23T23:14:43+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/04/16/rust%E5%91%A8%E6%8A%A5-386%E8%AF%91/</loc>
     <lastmod>2021-04-16T20:01:04+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/04/16/bevy-rust%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</loc>
     <lastmod>2021-04-16T16:21:10+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/gamedev/</loc>
     <lastmod>2021-04-16T16:21:10+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/04/09/rust%E5%91%A8%E6%8A%A5-385%E8%AF%91/</loc>
     <lastmod>2021-04-09T22:33:11+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/04/01/rust%E5%91%A8%E6%8A%A5-384%E8%AF%91/</loc>
     <lastmod>2021-04-01T22:22:51+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/03/28/rust%E5%91%A8%E6%8A%A5-383%E8%AF%91/</loc>
     <lastmod>2021-03-28T10:45:47+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/03/21/rust%E5%91%A8%E6%8A%A5-382%E8%AF%91/</loc>
     <lastmod>2021-03-21T15:15:37+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/03/12/rust%E5%91%A8%E6%8A%A5-381%E8%AF%91/</loc>
     <lastmod>2021-03-12T23:15:26+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/03/04/rust%E5%91%A8%E6%8A%A5-380%E8%AF%91/</loc>
     <lastmod>2021-03-04T21:10:35+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/03/04/rust%E5%91%A8%E6%8A%A5-379%E8%AF%91/</loc>
     <lastmod>2021-03-04T21:09:22+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/02/21/rust%E5%91%A8%E6%8A%A5-378%E8%AF%91/</loc>
     <lastmod>2021-02-21T00:10:21+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/02/13/rust%E5%91%A8%E6%8A%A5-377%E8%AF%91/</loc>
     <lastmod>2021-02-13T09:09:52+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/02/04/rust%E5%91%A8%E6%8A%A5-376%E8%AF%91/</loc>
     <lastmod>2021-02-04T16:01:35+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/01/30/rust%E5%91%A8%E6%8A%A5-375%E8%AF%91/</loc>
     <lastmod>2021-01-30T00:04:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/01/23/rust%E5%91%A8%E6%8A%A5-374%E8%AF%91/</loc>
     <lastmod>2021-01-23T00:25:28+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/01/17/rust%E5%91%A8%E6%8A%A5-373%E8%AF%91/</loc>
     <lastmod>2021-01-17T12:19:15+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/01/09/rust%E5%91%A8%E6%8A%A5-372%E8%AF%91/</loc>
     <lastmod>2021-01-09T01:04:14+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2021/01/02/rust%E5%91%A8%E6%8A%A5-371%E8%AF%91/</loc>
     <lastmod>2021-01-02T13:08:01+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/12/27/rust%E5%91%A8%E6%8A%A5-370%E8%AF%91/</loc>
     <lastmod>2020-12-27T00:15:43+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/12/19/rust%E5%91%A8%E6%8A%A5-369%E8%AF%91/</loc>
     <lastmod>2020-12-19T23:06:54+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/12/11/rust%E5%91%A8%E6%8A%A5-368%E8%AF%91/</loc>
     <lastmod>2020-12-11T17:20:23+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/12/05/rust%E5%91%A8%E6%8A%A5-367%E8%AF%91/</loc>
     <lastmod>2020-12-05T21:20:26+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/11/26/rust%E5%91%A8%E6%8A%A5-366%E8%AF%91/</loc>
     <lastmod>2020-11-26T20:13:21+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/11/21/rust%E5%91%A8%E6%8A%A5-365%E8%AF%91/</loc>
     <lastmod>2020-11-21T00:24:55+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/11/14/rust%E5%91%A8%E6%8A%A5-364%E8%AF%91/</loc>
     <lastmod>2020-11-14T18:02:52+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/11/07/rust%E5%91%A8%E6%8A%A5-363%E8%AF%91/</loc>
     <lastmod>2020-11-07T13:16:43+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/10/29/rust%E5%91%A8%E6%8A%A5-362%E8%AF%91/</loc>
     <lastmod>2020-10-29T22:54:11+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/10/23/rust%E5%91%A8%E6%8A%A5-361%E8%AF%91/</loc>
     <lastmod>2020-10-23T22:59:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/10/15/rust%E5%91%A8%E6%8A%A5-360%E8%AF%91/</loc>
     <lastmod>2020-10-15T20:22:02+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/10/08/rust%E5%91%A8%E6%8A%A5-359%E8%AF%91/</loc>
     <lastmod>2020-10-08T14:03:46+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/10/01/rust%E5%91%A8%E6%8A%A5-358%E8%AF%91/</loc>
     <lastmod>2020-10-01T13:38:35+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/09/24/rust%E5%91%A8%E6%8A%A5-357%E8%AF%91/</loc>
     <lastmod>2020-09-24T23:27:04+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/09/18/rust%E5%91%A8%E6%8A%A5-356%E8%AF%91/</loc>
     <lastmod>2020-09-18T12:03:53+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/09/10/rust%E5%91%A8%E6%8A%A5-355%E8%AF%91/</loc>
     <lastmod>2020-09-10T21:44:15+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/09/05/rust%E5%91%A8%E6%8A%A5-354%E8%AF%91/</loc>
     <lastmod>2020-09-05T22:33:02+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/08/27/rust%E5%91%A8%E6%8A%A5-353%E8%AF%91/</loc>
     <lastmod>2020-08-27T22:47:57+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/08/21/rust%E5%91%A8%E6%8A%A5-352%E8%AF%91/</loc>
     <lastmod>2020-08-21T00:07:53+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/08/13/rust%E5%91%A8%E6%8A%A5-351%E8%AF%91/</loc>
     <lastmod>2020-08-13T15:57:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/08/07/rust%E5%91%A8%E6%8A%A5-350%E8%AF%91/</loc>
     <lastmod>2020-08-07T00:21:23+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/07/31/rust%E5%91%A8%E6%8A%A5-349%E8%AF%91/</loc>
     <lastmod>2020-07-31T20:36:01+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/07/23/rust%E5%91%A8%E6%8A%A5-348%E8%AF%91/</loc>
     <lastmod>2020-07-23T21:11:35+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/07/15/rust%E5%91%A8%E6%8A%A5-347%E8%AF%91/</loc>
     <lastmod>2020-07-15T10:52:19+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/07/10/rust%E5%91%A8%E6%8A%A5-346%E8%AF%91/</loc>
     <lastmod>2020-07-10T14:49:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/07/01/rust%E5%91%A8%E6%8A%A5-345%E8%AF%91/</loc>
     <lastmod>2020-07-01T20:37:12+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/06/24/rust%E5%91%A8%E6%8A%A5-344%E8%AF%91/</loc>
     <lastmod>2020-06-24T17:04:12+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/06/17/rust%E5%91%A8%E6%8A%A5-343%E8%AF%91/</loc>
     <lastmod>2020-06-17T22:10:45+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/06/12/rust%E5%91%A8%E6%8A%A5-342%E8%AF%91/</loc>
     <lastmod>2020-06-12T17:25:40+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/06/05/rust%E5%91%A8%E6%8A%A5-341%E8%AF%91/</loc>
     <lastmod>2020-06-05T13:26:58+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/05/29/rust%E5%91%A8%E6%8A%A5-340%E8%AF%91/</loc>
     <lastmod>2020-05-29T00:25:48+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/05/22/rust%E5%91%A8%E6%8A%A5-339%E8%AF%91/</loc>
     <lastmod>2020-05-22T00:24:54+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/05/16/rust%E5%91%A8%E6%8A%A5-338%E8%AF%91/</loc>
     <lastmod>2020-05-16T23:12:22+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/05/06/rust%E5%91%A8%E6%8A%A5-337%E8%AF%91/</loc>
     <lastmod>2020-05-06T14:04:33+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/05/03/rust%E5%91%A8%E6%8A%A5-336%E8%AF%91/</loc>
     <lastmod>2020-05-03T10:53:35+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/04/23/rust%E5%91%A8%E6%8A%A5-335%E8%AF%91/</loc>
     <lastmod>2020-04-23T21:35:11+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/04/15/rust%E5%91%A8%E6%8A%A5-334%E8%AF%91/</loc>
     <lastmod>2020-04-15T20:16:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/04/10/rust%E5%91%A8%E6%8A%A5-333%E8%AF%91/</loc>
     <lastmod>2020-04-10T20:19:44+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/04/04/rust%E5%91%A8%E6%8A%A5-332%E8%AF%91/</loc>
     <lastmod>2020-04-04T22:15:50+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/03/27/rust%E5%91%A8%E6%8A%A5-331%E8%AF%91/</loc>
     <lastmod>2020-03-27T11:26:39+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/03/20/rust%E5%91%A8%E6%8A%A5-330%E8%AF%91/</loc>
     <lastmod>2020-03-20T11:39:31+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/03/13/rust%E5%91%A8%E6%8A%A5-329%E8%AF%91/</loc>
     <lastmod>2020-03-13T11:19:14+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/03/13/rust%E5%91%A8%E6%8A%A5-328%E8%AF%91/</loc>
     <lastmod>2020-03-13T11:18:20+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/02/28/rust%E5%91%A8%E6%8A%A5-327%E8%AF%91/</loc>
     <lastmod>2020-02-28T11:11:08+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/02/24/2019rust%E5%9B%BE%E5%BD%A2%E5%BA%93%E4%B9%8B%E8%B7%AF%E8%AF%91-ggez-%E4%BD%9C%E8%80%85/</loc>
     <lastmod>2020-02-24T15:00:04+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/guide/</loc>
     <lastmod>2020-02-24T15:00:04+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/02/21/rust%E5%91%A8%E6%8A%A5-326%E8%AF%91/</loc>
     <lastmod>2020-02-21T14:51:57+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/02/14/rust%E5%91%A8%E6%8A%A5-325%E8%AF%91/</loc>
     <lastmod>2020-02-14T11:34:24+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/02/08/rust%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%912020%E7%94%9F%E6%80%81%E5%9C%88%E5%B1%95%E6%9C%9B-%E8%B0%83%E6%9F%A5%E7%BB%93%E6%9E%9C%E8%AF%91/</loc>
     <lastmod>2020-02-08T13:44:16+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/02/07/rust%E5%91%A8%E6%8A%A5-324%E8%AF%91/</loc>
     <lastmod>2020-02-07T13:57:05+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/30/rust%E5%91%A8%E6%8A%A5-323%E8%AF%91/</loc>
     <lastmod>2020-01-30T23:14:57+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/23/rust%E5%91%A8%E6%8A%A5-322%E8%AF%91/</loc>
     <lastmod>2020-01-23T21:50:07+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/month/</loc>
     <lastmod>2020-01-22T09:59:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-#5%E8%AF%91/</loc>
     <lastmod>2020-01-22T09:59:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/22/rust-gamedev-%E6%9C%88%E5%88%8A-#4%E8%AF%91/</loc>
     <lastmod>2020-01-22T09:58:47+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/21/rust-gamedev-%E6%9C%88%E5%88%8A-#3%E8%AF%91/</loc>
     <lastmod>2020-01-21T12:38:01+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/20/rust-gamedev-%E6%9C%88%E5%88%8A-#2%E8%AF%91/</loc>
     <lastmod>2020-01-20T13:21:58+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/19/rust-gamedev-%E6%9C%88%E5%88%8A-#1%E8%AF%91/</loc>
     <lastmod>2020-01-19T10:35:38+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/16/rust%E5%91%A8%E6%8A%A5-321%E8%AF%91/</loc>
     <lastmod>2020-01-16T21:38:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/10/rust%E5%91%A8%E6%8A%A5-320%E8%AF%91/</loc>
     <lastmod>2020-01-10T10:26:30+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2020/01/03/rust%E5%91%A8%E6%8A%A5-319%E8%AF%91/</loc>
     <lastmod>2020-01-03T10:42:33+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/12/28/rust%E5%91%A8%E6%8A%A5-318%E8%AF%91/</loc>
     <lastmod>2019-12-28T11:40:52+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/12/21/rust%E5%91%A8%E6%8A%A5-317%E8%AF%91/</loc>
     <lastmod>2019-12-21T11:01:11+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/12/15/rust%E5%91%A8%E6%8A%A5-316%E8%AF%91/</loc>
     <lastmod>2019-12-15T17:01:31+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/12/06/rust%E5%91%A8%E6%8A%A5-315%E8%AF%91/</loc>
     <lastmod>2019-12-06T09:55:24+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/11/29/rust%E5%91%A8%E6%8A%A5-314%E8%AF%91/</loc>
     <lastmod>2019-11-29T10:28:22+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/11/22/rust%E5%91%A8%E6%8A%A5-313%E8%AF%91/</loc>
     <lastmod>2019-11-22T11:47:05+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/11/16/rust%E5%91%A8%E6%8A%A5-312%E8%AF%91/</loc>
     <lastmod>2019-11-16T20:44:26+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/11/07/rust%E5%91%A8%E6%8A%A5-311%E8%AF%91/</loc>
     <lastmod>2019-11-07T10:04:45+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/10/31/rust%E5%91%A8%E6%8A%A5-310%E8%AF%91/</loc>
     <lastmod>2019-10-31T23:02:52+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/10/24/rust%E5%91%A8%E6%8A%A5-309%E8%AF%91/</loc>
     <lastmod>2019-10-24T17:55:15+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/10/19/rust%E5%91%A8%E6%8A%A5-308%E8%AF%91/</loc>
     <lastmod>2019-10-19T22:16:31+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/10/10/rust%E5%91%A8%E6%8A%A5-307%E8%AF%91/</loc>
     <lastmod>2019-10-10T23:09:19+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/10/04/rust%E5%91%A8%E6%8A%A5-306%E8%AF%91/</loc>
     <lastmod>2019-10-04T15:35:58+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/09/26/rust%E5%91%A8%E6%8A%A5-305%E8%AF%91/</loc>
     <lastmod>2019-09-26T17:01:18+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/09/19/rust%E5%91%A8%E6%8A%A5-304%E8%AF%91/</loc>
     <lastmod>2019-09-19T22:15:46+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/09/12/rust%E5%91%A8%E6%8A%A5-303%E8%AF%91/</loc>
     <lastmod>2019-09-12T10:57:01+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/size/</loc>
     <lastmod>2019-09-05T10:52:40+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/09/05/%E5%85%B3%E4%BA%8Erust%E9%A1%B9%E7%9B%AE%E8%82%A5%E5%A4%A7%E7%9A%84%E6%80%9D%E8%80%83%E8%AF%91/</loc>
     <lastmod>2019-09-05T10:52:40+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/09/04/rust%E5%91%A8%E6%8A%A5-302%E8%AF%91/</loc>
     <lastmod>2019-09-04T21:39:23+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/09/04/rust%E5%91%A8%E6%8A%A5-301%E8%AF%91/</loc>
     <lastmod>2019-09-04T14:07:11+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/borrow/</loc>
     <lastmod>2019-09-02T10:11:45+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/copy/</loc>
     <lastmod>2019-09-02T10:11:45+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/struct/</loc>
     <lastmod>2019-09-02T10:11:45+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/09/02/%E5%B0%8F%E7%9A%84rust%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%BA%94%E4%BD%BF%E7%94%A8%E5%A4%8D%E5%88%B6%E8%BF%98%E6%98%AF%E5%80%9F%E7%94%A8%E4%BC%A0%E9%80%92%E8%AF%91/</loc>
     <lastmod>2019-09-02T10:11:45+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/vscode/</loc>
     <lastmod>2019-08-30T11:13:52+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/08/30/%E5%A6%82%E4%BD%95%E7%94%A8vscode%E8%B0%83%E8%AF%95rust%E8%AF%91/</loc>
     <lastmod>2019-08-30T11:13:52+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/rust/</loc>
     <lastmod>2019-02-27T14:56:41+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/02/27/rust-%E8%AF%AD%E6%B3%95%E7%B3%96-%E8%AF%91/</loc>
     <lastmod>2019-02-27T14:56:41+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/error/</loc>
     <lastmod>2019-02-25T14:17:47+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/02/25/rust-e0008-ref-%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E8%AF%91/</loc>
     <lastmod>2019-02-25T14:17:47+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/02/20/doc-templite-%E6%A8%A1%E7%89%88%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2019-02-20T12:55:13+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/js/</loc>
     <lastmod>2019-02-20T12:55:13+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/templite/</loc>
     <lastmod>2019-02-20T12:55:13+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/config/</loc>
     <lastmod>2019-02-17T14:11:05+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/mrm/</loc>
     <lastmod>2019-02-17T14:11:05+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/02/17/mrm-%E5%AE%9A%E5%88%B6%E4%BD%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6-js%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2019-02-17T14:11:05+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/talk/</loc>
     <lastmod>2019-02-05T15:27:19+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/tools/</loc>
     <lastmod>2019-02-05T15:27:19+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/02/05/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AF%87-%E8%B5%B7%E5%A7%8B/</loc>
     <lastmod>2019-02-05T15:27:19+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2018/12/28/rust-%E5%AE%98%E6%96%B9%E5%AD%A6%E4%B9%A0%E7%B4%A2%E5%BC%95%E8%AF%91-copy/</loc>
     <lastmod>2018-12-28T20:13:43+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/learn/</loc>
     <lastmod>2018-12-28T20:13:43+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/about/</loc>
     <lastmod>2015-04-14T22:17:00+00:00</lastmod>
   </url>
-  
 </urlset>
