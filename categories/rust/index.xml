@@ -6,7 +6,19 @@
     <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 14 May 2021 20:43:24 +0800</lastBuildDate><atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 May 2021 00:04:48 +0800</lastBuildDate><atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 391(译)</title>
+      <link>/2021/05/21/rust%E5%91%A8%E6%8A%A5-391%E8%AF%91/</link>
+      <pubDate>Fri, 21 May 2021 00:04:48 +0800</pubDate>
+      
+      <guid>/2021/05/21/rust%E5%91%A8%E6%8A%A5-391%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-05-19 原文：391 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有新闻通讯或研究论文。
+Official  Announcing Rustup 1.24.2 Six Years of Rust  Project/Tooling Updates  rust-analyzer Changelog #77 IntelliJ Rust Changelog #147 GCC Rust Weekly Status Report 15 MoonZoon Dev News (3): Signals, React-like Hooks, Optimizations Alacritty Version 0.8.0 Micromath 2.0.0: approximation-based embedded arithmetic, 2D/3D vector, quarternion, and statistics library（算术运算） This Week In TensorBase 3  Observations/Thoughts  Scylla Developer Hackathon: Rust Driver Plugins in Rust: The Technologies gRPC load-balancing in Rust Verifying vectorized Rust revisited（Rust 验证工具的思考） Routes to Discovering Rust How we utilized fuzzing to improve security in the TezEdge node，created an open-source CI tool for Rust code fuzzing Boost productivity with Rust Building &amp;lsquo;Outer Wonders for Linux&amp;rsquo; Behind the scenes of &amp;lsquo;1Password for Linux&amp;rsquo; Writing Pythonic Rust Upgradable parking_lot::RwLock might not be what you expect Why Rust for Embedded Development?</description>
+    </item>
+    
     <item>
       <title>Rust周报 390(译)</title>
       <link>/2021/05/14/rust%E5%91%A8%E6%8A%A5-390%E8%AF%91/</link>
