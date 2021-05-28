@@ -109,6 +109,18 @@
         
         
             
+                <a href="/2021/05/28/rust%E5%91%A8%E6%8A%A5-392%E8%AF%91/" data-series="Rust周报-中文" style="margin-left:1rem;"><time style="color:black;">2021-05-28</time>  / Rust周报 392(译) </a>
+              
+        
+      
+    </li>
+     
+    <li class="list-group-item title">
+      
+         
+        
+        
+            
                 <a href="/2021/05/21/rust%E5%91%A8%E6%8A%A5-391%E8%AF%91/" data-series="Rust周报-中文" style="margin-left:1rem;"><time style="color:black;">2021-05-21</time>  / Rust周报 391(译) </a>
               
         
@@ -1466,10 +1478,11 @@
     for(let i in nameSeries){
       var dcreateE = document.createElement("details")
       var screateE = document.createElement("summary")
+      screateE.style.display = "list-item" 
       screateE.innerHTML = `系列:<span style="color: #777;"> ${i} </span>` + 
       `<span style="border-radius: 29%;border: 2px dashed #fe16fe;padding:3px;">No.${nameSeries[i].length}</span> ` + 
-      `最新:${nameSeries[i][0].text}`;
-      var inner = screateE.outerHTML 
+      `最新:<span style="color: #428bca;">${nameSeries[i][0].text} </span>`;
+      var inner = screateE.outerHTML // details innerHTML
 
       nameSeries[i].forEach(x =>{
         inner += x.outerHTML
