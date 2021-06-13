@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>app on Code &gt; Explain &gt; Transalte 的人</title>
+    <link>/tags/app/</link>
+    <description>Recent content in app on Code &gt; Explain &gt; Transalte 的人</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 14 Jun 2021 00:42:19 +0800</lastBuildDate><atom:link href="/tags/app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alacritty —— 小于5M, 跨平台, OpenGL 终端应用</title>
+      <link>/2021/06/14/alacritty-%E5%B0%8F%E4%BA%8E5m-%E8%B7%A8%E5%B9%B3%E5%8F%B0-opengl-%E7%BB%88%E7%AB%AF%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Mon, 14 Jun 2021 00:42:19 +0800</pubDate>
+      
+      <guid>/2021/06/14/alacritty-%E5%B0%8F%E4%BA%8E5m-%E8%B7%A8%E5%B9%B3%E5%8F%B0-opengl-%E7%BB%88%E7%AB%AF%E5%BA%94%E7%94%A8/</guid>
+      <description>Alacritty Alacritty - 小于 5M, 跨平台, OpenGL 终端窗口。
+配置 开始，你要自己新建一个配置文件（下面任一路径都行）：
+ $XDG_CONFIG_HOME/alacritty/alacritty.yml $XDG_CONFIG_HOME/alacritty.yml $HOME/.config/alacritty/alacritty.yml $HOME/.alacritty.yml   而在 Windows，配置应该在 %APPDATA%\alacritty\alacritty.yml。  下面是我的简单示例，详细了解，请进入 Alacritty 的 releases 页面的最新版本，其中的 alacritty.yml 。
+window: dimensions: columns: 170 lines: 40 position: x: 300 y: 300 font: size: 16.0 colors: primary: background: &amp;#34;#272822&amp;#34; foreground: &amp;#34;#F8F8F2&amp;#34; normal: black: &amp;#34;#272822&amp;#34; red: &amp;#34;#F92672&amp;#34; green: &amp;#34;#A6E22E&amp;#34; yellow: &amp;#34;#F4BF75&amp;#34; blue: &amp;#34;#66D9EF&amp;#34; magenta: &amp;#34;#AE81FF&amp;#34; cyan: &amp;#34;#A1EFE4&amp;#34; white: &amp;#34;#F8F8F2&amp;#34; bright: black: &amp;#34;#75715E&amp;#34; red: &amp;#34;#F92672&amp;#34; green: &amp;#34;#A6E22E&amp;#34; yellow: &amp;#34;#F4BF75&amp;#34; blue: &amp;#34;#66D9EF&amp;#34; magenta: &amp;#34;#AE81FF&amp;#34; cyan: &amp;#34;#A1EFE4&amp;#34; white: &amp;#34;#F9F8F5&amp;#34; shell: program: wsl.</description>
+    </item>
+    
+  </channel>
+</rss>

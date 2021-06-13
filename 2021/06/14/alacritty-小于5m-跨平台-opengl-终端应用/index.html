@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
+    
+    <title>Alacritty —— 小于5M, 跨平台, OpenGL 终端应用</title>
+
+    
+
+        
+        <script src="https://cdn.bootcdn.net/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                anchors.options = {
+                visible: 'hover',
+                placement: 'left',
+                icon: "¶"
+                };
+            anchors.add();
+            })
+        </script>
+        
+        
+
+        
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <link href="/css/tooltips.css" rel="stylesheet">
+            
+        
+
+        
+        
+        <style type="text/css">
+            body {background-color: #fbf6ec;}
+        </style>
+        
+
+        
+        
+             <link rel="stylesheet" href="/css/main.css"></link> <link rel="stylesheet" href="/css/stylesheet.css"></link> <link rel="stylesheet" href="/css/rust-week.css"></link>
+        
+
+        
+    
+    <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+</head>
+
+
+<body>
+    <script>
+        window.addEventListener("resize", resizeThrottler, false);
+
+        var resizeTimeout;
+        function resizeThrottler() {
+        
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+            resizeTimeout = null;
+            actualResizeHandler();
+        
+            
+            }, 66);
+        }
+        }
+        actualResizeHandler()
+        function actualResizeHandler() {
+                if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+                {
+                    document.body.classList.add('mobile');
+                }else{
+                    document.body.classList.remove('mobile');  
+                }
+    }</script>
+
+    
+    
+
+
+    
+
+<div class="inner container center" style="position: relative">
+  
+  <div class="side-btn"><a href="/" class="back">Home</a></div>
+  
+  <div class="blog-post post">
+    <h2 class="post-title">Alacritty —— 小于5M, 跨平台, OpenGL 终端应用</h2>
+    <h1 id="alacritty">Alacritty</h1>
+<p><a href="https://github.com/alacritty/alacritty#configuration">Alacritty</a> - 小于 5M, 跨平台, OpenGL 终端窗口。</p>
+<p><img src="/file_imgs/2021/alacritty-demo.png" alt="demo"></p>
+<h2 id="配置">配置</h2>
+<p>开始，你要自己新建一个配置文件（下面任一路径都行）：</p>
+<ol>
+<li><code>$XDG_CONFIG_HOME/alacritty/alacritty.yml</code></li>
+<li><code>$XDG_CONFIG_HOME/alacritty.yml</code></li>
+<li><code>$HOME/.config/alacritty/alacritty.yml</code></li>
+<li><code>$HOME/.alacritty.yml</code></li>
+</ol>
+<ul>
+<li>而在 Windows，配置应该在 <code>%APPDATA%\alacritty\alacritty.yml</code>。</li>
+</ul>
+<p>下面是我的简单示例，详细了解，请进入 Alacritty 的 <a href="https://github.com/alacritty/alacritty/releases">releases 页面的最新版本，其中的 <code>alacritty.yml</code></a> 。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#ff79c6">window</span>:
+  <span style="color:#ff79c6">dimensions</span>:
+    <span style="color:#ff79c6">columns</span>: <span style="color:#bd93f9">170</span>
+    <span style="color:#ff79c6">lines</span>: <span style="color:#bd93f9">40</span>
+  <span style="color:#ff79c6">position</span>:
+    <span style="color:#ff79c6">x</span>: <span style="color:#bd93f9">300</span>
+    <span style="color:#ff79c6">y</span>: <span style="color:#bd93f9">300</span>
+
+<span style="color:#ff79c6">font</span>:
+  <span style="color:#ff79c6">size</span>: <span style="color:#bd93f9">16.0</span>
+
+<span style="color:#ff79c6">colors</span>:
+  <span style="color:#ff79c6">primary</span>:
+    <span style="color:#ff79c6">background</span>: <span style="color:#f1fa8c">&#34;#272822&#34;</span>
+    <span style="color:#ff79c6">foreground</span>: <span style="color:#f1fa8c">&#34;#F8F8F2&#34;</span>
+
+  <span style="color:#ff79c6">normal</span>:
+    <span style="color:#ff79c6">black</span>: <span style="color:#f1fa8c">&#34;#272822&#34;</span>
+    <span style="color:#ff79c6">red</span>: <span style="color:#f1fa8c">&#34;#F92672&#34;</span>
+    <span style="color:#ff79c6">green</span>: <span style="color:#f1fa8c">&#34;#A6E22E&#34;</span>
+    <span style="color:#ff79c6">yellow</span>: <span style="color:#f1fa8c">&#34;#F4BF75&#34;</span>
+    <span style="color:#ff79c6">blue</span>: <span style="color:#f1fa8c">&#34;#66D9EF&#34;</span>
+    <span style="color:#ff79c6">magenta</span>: <span style="color:#f1fa8c">&#34;#AE81FF&#34;</span>
+    <span style="color:#ff79c6">cyan</span>: <span style="color:#f1fa8c">&#34;#A1EFE4&#34;</span>
+    <span style="color:#ff79c6">white</span>: <span style="color:#f1fa8c">&#34;#F8F8F2&#34;</span>
+
+  <span style="color:#ff79c6">bright</span>:
+    <span style="color:#ff79c6">black</span>: <span style="color:#f1fa8c">&#34;#75715E&#34;</span>
+    <span style="color:#ff79c6">red</span>: <span style="color:#f1fa8c">&#34;#F92672&#34;</span>
+    <span style="color:#ff79c6">green</span>: <span style="color:#f1fa8c">&#34;#A6E22E&#34;</span>
+    <span style="color:#ff79c6">yellow</span>: <span style="color:#f1fa8c">&#34;#F4BF75&#34;</span>
+    <span style="color:#ff79c6">blue</span>: <span style="color:#f1fa8c">&#34;#66D9EF&#34;</span>
+    <span style="color:#ff79c6">magenta</span>: <span style="color:#f1fa8c">&#34;#AE81FF&#34;</span>
+    <span style="color:#ff79c6">cyan</span>: <span style="color:#f1fa8c">&#34;#A1EFE4&#34;</span>
+    <span style="color:#ff79c6">white</span>: <span style="color:#f1fa8c">&#34;#F9F8F5&#34;</span>
+
+<span style="color:#ff79c6">shell</span>:
+  <span style="color:#ff79c6">program</span>: wsl.exe -d Ubuntu-20.04
+
+<span style="color:#ff79c6">mouse_bindings</span>:
+  - { <span style="color:#ff79c6">mouse: Middle, action</span>: PasteSelection }
+  - { <span style="color:#ff79c6">mouse: Right, action</span>: Paste }
+
+<span style="color:#ff79c6">key_bindings</span>:
+  - { <span style="color:#ff79c6">key: V, mods: Control, action</span>: Paste }
+</code></pre></div>
+  </div>
+
+  <br />
+
+  
+  <button
+    id="edit-button"
+    class="icon-button"
+    type="button"
+    title="Fork and edit"
+    aria-label="Fork and edit"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-controls="edit"
+  >
+    <i class="fa fa-edit">编辑本文</i>
+  </button>
+  
+
+  <br />
+
+  
+  <script src="/js/copyCode.js"></script>
+  <script src="/js/tooltips.js"></script>
+   <footer>
+    <p style="float:right;margin:0 1rem;">
+        &copy; 2021 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
+        
+      </p>
+  <hr>
+
+  
+
+  <ul class="tags"  style="float: left!important;">
+      
+        <span>标签:</span>
+        <li><a class="link" href="/tags/app"> #app </a></li>
+      
+      <span>  </span>
+        
+        <span>分类:</span>
+        <li><a class="link" href="/categories/Rust"> #Rust </a></li>
+      
+  </ul>
+  
+  <br>
+
+
+</footer>
+</div> 
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128555056-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128555056-1');
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.4/dist/medium-zoom.min.js"></script>
+
+<script>
+  const zoom = mediumZoom()
+  
+  zoom.attach("p img")
+</script>
+
+
+
+
+
+
+<script>
+        document.getElementById("edit-button").addEventListener("click", function () {
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\/alacritty.md");
+        });</script>
+
+    
+
+
+
+
+</body>
+
+</html>
+</div>
