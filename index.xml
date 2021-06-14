@@ -6,7 +6,20 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 14 Jun 2021 00:42:19 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Jun 2021 09:58:49 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linkedideas - 极简的MacOS思维导图应用</title>
+      <link>/2021/06/14/linkedideas-%E6%9E%81%E7%AE%80%E7%9A%84macos%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Mon, 14 Jun 2021 09:58:49 +0800</pubDate>
+      
+      <guid>/2021/06/14/linkedideas-%E6%9E%81%E7%AE%80%E7%9A%84macos%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%BA%94%E7%94%A8/</guid>
+      <description>LinkedIdeas 思维导图：两个字，框和线
+ 可惜，它只有 MacOS 版本。
+ 键盘快捷键 画框/线  框：⇧ ⏎: 随机位置给出一个框。 箭头线：选中框 -&amp;gt; 按住Ctrl -&amp;gt; 移动到另一个框 -&amp;gt; 点击。  对齐位置 一组框:
+ ⌃A: 垂直左对齐 ⌃E: 水平居中对齐 ⌃⇧ A: 垂直左对齐，且水平位置相等  格式化 选中框, 然后:
+ ⌘ ⇧ E: 删除横线 (todo 列表) ⌘ B: 粗体 ⌘ ⌥ (1-7): 七种颜色变化 ⌘ +: 增 字体大小 ⌘ -: 减 字体大小  </description>
+    </item>
+    
     <item>
       <title>Alacritty —— 小于5M, 跨平台, OpenGL 终端应用</title>
       <link>/2021/06/14/alacritty-%E5%B0%8F%E4%BA%8E5m-%E8%B7%A8%E5%B9%B3%E5%8F%B0-opengl-%E7%BB%88%E7%AB%AF%E5%BA%94%E7%94%A8/</link>
