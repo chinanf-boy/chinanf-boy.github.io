@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Code &gt; Explain &gt; Transalte 的人</title>
+    <link>/categories/windows/</link>
+    <description>Recent content in Windows on Code &gt; Explain &gt; Transalte 的人</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 18 Jun 2021 15:38:44 +0800</lastBuildDate><atom:link href="/categories/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alfred 与 Wox：桌面效率工具的代名词</title>
+      <link>/2021/06/18/alfred-%E4%B8%8E-wox%E6%A1%8C%E9%9D%A2%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BB%A3%E5%90%8D%E8%AF%8D/</link>
+      <pubDate>Fri, 18 Jun 2021 15:38:44 +0800</pubDate>
+      
+      <guid>/2021/06/18/alfred-%E4%B8%8E-wox%E6%A1%8C%E9%9D%A2%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BB%A3%E5%90%8D%E8%AF%8D/</guid>
+      <description>效率工具 Alfred 与 Wox。 场景：网页链接/本地文件与程序/翻译，与网址沟通等等。
+ 翻译
+ 对应安装教程 知乎 for Wox 与 简书 for Alfred
+Wox 示例：添加一个快速的翻译页面跳转。  在桌面屏幕，右下方找到 Wox 图标，右键 setting。 设置新的网页链接:  URL(注意那个 {q}，就是用户所写的占位符):
+https://translate.google.cn/?sl=en&amp;amp;tl=zh-CN&amp;amp;text={q}%20&amp;amp;op=translate </description>
+    </item>
+    
+  </channel>
+</rss>
