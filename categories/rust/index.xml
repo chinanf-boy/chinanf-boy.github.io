@@ -6,7 +6,23 @@
     <description>Recent content in Rust on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 14 Jun 2021 22:53:51 +0800</lastBuildDate><atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Jun 2021 23:07:42 +0800</lastBuildDate><atom:link href="/categories/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 395(译)</title>
+      <link>/2021/06/18/rust%E5%91%A8%E6%8A%A5-395%E8%AF%91/</link>
+      <pubDate>Fri, 18 Jun 2021 23:07:42 +0800</pubDate>
+      
+      <guid>/2021/06/18/rust%E5%91%A8%E6%8A%A5-395%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-06-16 原文：395 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 强调
+主题：自杀，心理健康
+哀悼 Rust 社区中，某人的去世。这是一个非常敏感的话题，很难真正为人命的损失伸张正义。我们能做的最重要的事情是提高人们对心理健康的认识。
+如果您或您认识的人需要自杀预防热线，请访问https://www.opencounseling.com/suicide-hotlines获取您所在国家/地区的紧急情况和预防自杀热线电话号码。
+Open Source and Mental Health
+Official  [Inside] 1.53.0 pre-release testing [Inside] please welcome boxy, léo lanteri thauvin and the8472 to compiler-contributors  Newsletters  This Month in Rust GameDev #22 - May 2021  Project/Tooling Updates  rust-analyzer Changelog #81 AWS-SDK-Rust: CloudFormation, SageMaker, EC2, and SES Announcing Aya This Week In TensorBase 7 Introducing cap-std, a capability-based version of the Rust standard library Wasmer 2.</description>
+    </item>
+    
     <item>
       <title>Espanso - 可以作为打字替换工具的首选</title>
       <link>/2021/06/14/espanso-%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E6%89%93%E5%AD%97%E6%9B%BF%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%9A%84%E9%A6%96%E9%80%89/</link>
