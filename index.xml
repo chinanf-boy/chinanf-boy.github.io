@@ -6,7 +6,19 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 18 Jun 2021 23:07:42 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Jun 2021 23:16:15 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 396(译)</title>
+      <link>/2021/06/24/rust%E5%91%A8%E6%8A%A5-396%E8%AF%91/</link>
+      <pubDate>Thu, 24 Jun 2021 23:16:15 +0800</pubDate>
+      
+      <guid>/2021/06/24/rust%E5%91%A8%E6%8A%A5-396%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-06-23 原文：396 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community 本周没有时事通讯或研究文章。
+Official  Announcing Rust 1.53.0 [Inside] rust compiler june steering cycle  Project/Tooling Updates  rust-analyzer Changelog #82 IntelliJ Rust Changelog #149 rustymind - Parse and visualize 脑电破 with Rust This Week In TensorBase 8 Supporting Miguel Ojeda&amp;rsquo;s Work on Rust in the Linux Kernel rustc_codegen_gcc: Progress Report #1  Observations/Thoughts  Walking through &amp;ldquo;The Java Tutorials&amp;rdquo; with Rust - boxed trait objects and the search for inheritance WABT: A wonderful CLI for manipulating Wasm wasm-bindgen making Rust and JavaScript interoperability easy Type-checked keypaths in Rust Exploring ways to make async Rust easier Reading Back What You Wrote in Rust First Rust Project: A Chess Engine Rust vs C++ for game development Skipping Tests in Rust [ZH] build a gameboy emulator in rust [video] why the future of the cloud will be built on rust - oliver gould, buoyant  Rust Walkthroughs  Rust and AWS Lambda Deserializing Binary Data Files in Rust 又一个时髦的 Rust CLI Build an API in Rust (Part 2) 多态性 in Rust Getting started with MongoDB and Redis in Rust Making My Website Part 1: Monitoring On A Raspberry Pi [ZH] Develop WebAssembly Program in Rust [video] Rust Fuzzing #3: How to write (better) Rust fuzz targets?</description>
+    </item>
+    
     <item>
       <title>Rust周报 395(译)</title>
       <link>/2021/06/18/rust%E5%91%A8%E6%8A%A5-395%E8%AF%91/</link>
