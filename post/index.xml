@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 24 Jun 2021 23:16:15 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jul 2021 11:36:00 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 397(译)</title>
+      <link>/2021/07/01/rust%E5%91%A8%E6%8A%A5-397%E8%AF%91/</link>
+      <pubDate>Thu, 01 Jul 2021 11:36:00 +0800</pubDate>
+      
+      <guid>/2021/07/01/rust%E5%91%A8%E6%8A%A5-397%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-06-30 原文：397 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official  [Foundation] announcing our executive search  Project/Tooling Updates  ChainSafe&amp;rsquo;s Polkadot Index Network Token update #2 Rust Analyzer Changelog #83 Fang This Week In Veloren 125 This Week In TensorBase 9  Observations/Thoughts  ‘wasmi’ - 帮助 wasm 模块 与 Rust 结合 [video] rust - 网络云的未来  Rust Walkthroughs  反序列化 二进制(0/1)数据文件 in Rust Type-checked keypaths in Rust Polymorphism in Rust GitHub Actions(持续集成产物)：跨平台编译 Rust 项目 Rust #2: Lifetimes, Owners and Borrowers, OH MY!</description>
+    </item>
+    
     <item>
       <title>Rust周报 396(译)</title>
       <link>/2021/06/24/rust%E5%91%A8%E6%8A%A5-396%E8%AF%91/</link>
