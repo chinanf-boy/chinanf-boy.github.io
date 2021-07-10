@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 01 Jul 2021 11:36:00 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Jul 2021 22:32:27 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 398(译)</title>
+      <link>/2021/07/10/rust%E5%91%A8%E6%8A%A5-398%E8%AF%91/</link>
+      <pubDate>Sat, 10 Jul 2021 22:32:27 +0800</pubDate>
+      
+      <guid>/2021/07/10/rust%E5%91%A8%E6%8A%A5-398%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-07-07 原文：398 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Updates from Rust Community Official  [Inside] what the error handling project group is working towards  Project/Tooling Updates  Linux Rust Support Patches Intellij Rust Changelog #150 Rust Analyzer Changelog #84 GCC Rust Monthly Report #7 June 2021 The future of Buck ChainSafe&amp;rsquo;s Rust implementation of Mina spec Community Spotlight (video) MoonZoon Dev News (5): Chat example, MoonZoon Cloud Fluvio: The Programmable Data Platform butido - a Linux Package Building Tool in Rust Knurling-rs changelog #28 fcp 0.</description>
+    </item>
+    
     <item>
       <title>Rust周报 397(译)</title>
       <link>/2021/07/01/rust%E5%91%A8%E6%8A%A5-397%E8%AF%91/</link>
