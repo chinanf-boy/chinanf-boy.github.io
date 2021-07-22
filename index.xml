@@ -6,7 +6,20 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 17 Jul 2021 19:56:02 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 20:42:47 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 400(译)</title>
+      <link>/2021/07/22/rust%E5%91%A8%E6%8A%A5-400%E8%AF%91/</link>
+      <pubDate>Thu, 22 Jul 2021 20:42:47 +0800</pubDate>
+      
+      <guid>/2021/07/22/rust%E5%91%A8%E6%8A%A5-400%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-07-21 原文：400 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+400 期啦 We are so happy to have reached issue 400 of This Week in Rust! To mark this occasion, we would like to introduce you to your editors who put these issues together for you every week!
+Current Editors Nell Shamrell-Harrington
+Hello everyone! I&amp;rsquo;m Nell Shamrell-Harrington (nellshamrell on GitHub). I&amp;rsquo;ve served as lead editor of This Week in Rust for a little over a year now.</description>
+    </item>
+    
     <item>
       <title>Rust周报 399(译)</title>
       <link>/2021/07/17/rust%E5%91%A8%E6%8A%A5-399%E8%AF%91/</link>
