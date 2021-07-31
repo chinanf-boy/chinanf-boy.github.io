@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2021-07-30T23:31:23+08:00</lastmod>
+    <loc>/tags/app/</loc>
+    <lastmod>2021-07-31T11:35:36+08:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-07-30T23:31:23+08:00</lastmod>
+    <lastmod>2021-07-31T11:35:36+08:00</lastmod>
+  </url><url>
+    <loc>/2021/07/31/host%E7%9A%84%E7%A7%98%E5%AF%86%E4%BB%A5%E5%8F%8A%E5%B7%A5%E5%85%B7-usbeam-hosts-editor/</loc>
+    <lastmod>2021-07-31T11:35:36+08:00</lastmod>
   </url><url>
     <loc>/post/</loc>
+    <lastmod>2021-07-31T11:35:36+08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2021-07-31T11:35:36+08:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
     <lastmod>2021-07-30T23:31:23+08:00</lastmod>
   </url><url>
     <loc>/categories/rust/</loc>
     <lastmod>2021-07-30T23:31:23+08:00</lastmod>
   </url><url>
     <loc>/2021/07/30/rust%E5%91%A8%E6%8A%A5-401%E8%AF%91/</loc>
-    <lastmod>2021-07-30T23:31:23+08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2021-07-30T23:31:23+08:00</lastmod>
   </url><url>
     <loc>/tags/week/</loc>
@@ -42,9 +48,6 @@
     <lastmod>2021-06-18T23:07:42+08:00</lastmod>
   </url><url>
     <loc>/2021/06/18/alfred-%E4%B8%8E-wox%E6%A1%8C%E9%9D%A2%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BB%A3%E5%90%8D%E8%AF%8D/</loc>
-    <lastmod>2021-06-18T15:38:44+08:00</lastmod>
-  </url><url>
-    <loc>/tags/app/</loc>
     <lastmod>2021-06-18T15:38:44+08:00</lastmod>
   </url><url>
     <loc>/categories/windows/</loc>
