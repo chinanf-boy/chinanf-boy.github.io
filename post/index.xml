@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 31 Jul 2021 11:35:36 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Aug 2021 22:49:38 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 402(译)</title>
+      <link>/2021/08/06/rust%E5%91%A8%E6%8A%A5-402%E8%AF%91/</link>
+      <pubDate>Fri, 06 Aug 2021 22:49:38 +0800</pubDate>
+      
+      <guid>/2021/08/06/rust%E5%91%A8%E6%8A%A5-402%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-08-04 原文：402 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。
+Updates from Rust Community Official  Announcing Rust 1.54.0 The push for GATs stabilization [Inside] rust compile august steering cycle  Project/Tooling Updates  IntelliJ Rust Changelog #152 What&amp;rsquo;s new in IntelliJ Rust rust-analyzer Changelog #88 GCC Rust Monthly Report #8 July 2021 rustc_codegen_gcc: Progress Report #2 Rust on Espressif chips ConnectorX: accelerate data loading from databases to dataframes This week in SixtyFPS (a Rust GUI toolkit) This week in Fluvio 1: the programmable streaming platform This week in Datafuse #1 This Week In TensorBase 14  Observations/Thoughts  15k inserts/s with Rust and SQLite Deep Learning in Rust with GPU using onnxruntime-rs Rewriting my mobile game in Rust targeting WASM 怎么编写 超慢的 Rust code Rust: First Thoughts 5 Reasons Why You Should Start Using Rust for Personal Projects 一场值得铭记的 Borrowck 战斗 [audio] open source security episode 282 - the security of rust: who left all this awesome in here?</description>
+    </item>
+    
     <item>
       <title>Host的秘密以及工具 UsbEAm Hosts Editor</title>
       <link>/2021/07/31/host%E7%9A%84%E7%A7%98%E5%AF%86%E4%BB%A5%E5%8F%8A%E5%B7%A5%E5%85%B7-usbeam-hosts-editor/</link>
