@@ -6,7 +6,18 @@
     <description>Recent content in week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Aug 2021 22:49:38 +0800</lastBuildDate><atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Aug 2021 22:57:31 +0800</lastBuildDate><atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 403(译)</title>
+      <link>/2021/08/13/rust%E5%91%A8%E6%8A%A5-403%E8%AF%91/</link>
+      <pubDate>Fri, 13 Aug 2021 22:57:31 +0800</pubDate>
+      
+      <guid>/2021/08/13/rust%E5%91%A8%E6%8A%A5-403%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-08-10 原文：403 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。 Rust*公开开发on GitHub.如果您在本周的问题中发现任何错误，please submit a PR.
+Updates from Rust Community Official  The push for GATs stabilization [Inside] lang team august update  Newsletters  This Month in Rust GameDev #24 - July 2021 This Month in Rust OSDev (July 2021) The Monthly Oxide #5 Rust Module of the Week: std::fs (Part 2): Dirs, Dirs, Dirs  Project/Tooling Updates  Rustdoc 会在源码页面，添加 定义链接 !</description>
+    </item>
+    
     <item>
       <title>Rust周报 402(译)</title>
       <link>/2021/08/06/rust%E5%91%A8%E6%8A%A5-402%E8%AF%91/</link>
