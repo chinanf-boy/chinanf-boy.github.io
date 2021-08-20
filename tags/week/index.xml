@@ -6,7 +6,19 @@
     <description>Recent content in week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 13 Aug 2021 22:57:31 +0800</lastBuildDate><atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Aug 2021 00:51:28 +0800</lastBuildDate><atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 404(译)</title>
+      <link>/2021/08/21/rust%E5%91%A8%E6%8A%A5-404%E8%AF%91/</link>
+      <pubDate>Sat, 21 Aug 2021 00:51:28 +0800</pubDate>
+      
+      <guid>/2021/08/21/rust%E5%91%A8%E6%8A%A5-404%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-08-18 原文：404 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。 Rust*公开开发on GitHub.如果您在本周的问题中发现任何错误，please submit a PR.
+In the case of this newsletter, 404 is indeed found!
+Updates from Rust Community Project/Tooling Updates  rust-analyzer Changelog #90 IntelliJ Rust Changelog #153 Sixtyfps weekly report for 16th of August 2021 Relm4 beta released 🎉 This week in Fluvio #2: the programmable streaming platform This Week In TensorBase 15 This week in Datafuse #2&amp;amp;This week in Datafuse #3 nailing-cargo 1.</description>
+    </item>
+    
     <item>
       <title>Rust周报 403(译)</title>
       <link>/2021/08/13/rust%E5%91%A8%E6%8A%A5-403%E8%AF%91/</link>
