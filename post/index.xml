@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 04 Sep 2021 10:11:32 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Sep 2021 17:49:28 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 407(译)</title>
+      <link>/2021/09/10/rust%E5%91%A8%E6%8A%A5-407%E8%AF%91/</link>
+      <pubDate>Fri, 10 Sep 2021 17:49:28 +0800</pubDate>
+      
+      <guid>/2021/09/10/rust%E5%91%A8%E6%8A%A5-407%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-09-08 原文：407 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。 Rust*公开开发on GitHub.如果您在本周的问题中发现任何错误，please submit a PR
+Updates from Rust Community Official  [Inside] splitting the const generics features [Inside] 1.55.0 pre-release testing  Newsletters  This Month in Rust GameDev #25 - August 2021 This Month in Rust OSDev (August 2021)  Project/Tooling Updates  rust-analyzer Changelog #93 This week in Fluvio #5: the programmable streaming platform rustc_codegen_gcc: Progress Report #3 This week in Datafuse #6 Announcing Relm4 v0.</description>
+    </item>
+    
     <item>
       <title>Rust周报 406(译)</title>
       <link>/2021/09/04/rust%E5%91%A8%E6%8A%A5-406%E8%AF%91/</link>
