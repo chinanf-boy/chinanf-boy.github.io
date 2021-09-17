@@ -6,7 +6,18 @@
     <description>Recent content on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Sep 2021 17:49:28 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Sep 2021 21:01:20 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust周报 408(译)</title>
+      <link>/2021/09/17/rust%E5%91%A8%E6%8A%A5-408%E8%AF%91/</link>
+      <pubDate>Fri, 17 Sep 2021 21:01:20 +0800</pubDate>
+      
+      <guid>/2021/09/17/rust%E5%91%A8%E6%8A%A5-408%E8%AF%91/</guid>
+      <description>this-week-in-rust 日期：2021-09-15 原文：408 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
+这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。 Rust*公开开发on GitHub.如果您在本周的问题中发现任何错误，please submit a PR
+Updates from Rust Community Official  Announcing Rust 1.55.0 [video] rustconf 2021 video stream  Newsletters Project/Tooling Updates  Announcing Sycamore v0.6.0: Faster and faster with plenty of fixes and features… SixtyFPS (GUI crate) weekly report 12th of September This week in Databend #7 Introducing DHCProto IntelliJ Rust Changelog #155 Rust Analyzer Changelog #94 Introducing Matchbox  Observations/Thoughts  Building Cloudflare Images in Rust and Cloudflare Workers Zenoh performance: a stroll in Rust async wonderland [audio] rust game dev podcast - interview with remco and basz  Rust Walkthroughs  How to Write and Compile Shellcode in Rust How to implement HTTP Long Polling in Rust An experimental Diesel-based CRUD for Rocket Rust cli example #2: Ferris hunts errors Test Cases in Rust are simple to write Full-stack sum types with TypeScript, Rust and Postgres Tokio stack overview: Runtime [video] Java 开发人员的 Rust -简介[Beginners] [video] fltk rust: a new basics tutorial [video] rust for linux  Miscellaneous  Native Rust support on Cloudflare Workers Launching Porta Ecosystem Grants LLVM internals, part 3: from bitcode to IR  Crate of the Week 本周的板条箱是qcell，它有个类型，其工作方式，类似于编译时的RefCell。</description>
+    </item>
+    
     <item>
       <title>Rust周报 407(译)</title>
       <link>/2021/09/10/rust%E5%91%A8%E6%8A%A5-407%E8%AF%91/</link>
