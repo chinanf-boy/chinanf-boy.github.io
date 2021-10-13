@@ -1,0 +1,1 @@
+import{_ as e}from"./index.7a6b267d.js";import{o,e as r}from"./vendor.c4966802.js";const n={};function t(a,s,c,d,i,p){return o(),r("div",null," nihao ")}var l=e(n,[["render",t]]);export{l as default};
