@@ -3,27 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/categories/</loc>
-    <lastmod>2021-10-02T22:32:52+08:00</lastmod>
+    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-10-02T22:32:52+08:00</lastmod>
+    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
   </url><url>
     <loc>/post/</loc>
-    <lastmod>2021-10-02T22:32:52+08:00</lastmod>
+    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
   </url><url>
     <loc>/categories/rust/</loc>
-    <lastmod>2021-10-02T22:32:52+08:00</lastmod>
-  </url><url>
-    <loc>/2021/10/02/rust%E5%91%A8%E6%8A%A5-410%E8%AF%91/</loc>
-    <lastmod>2021-10-02T22:32:52+08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2021-10-02T22:32:52+08:00</lastmod>
-  </url><url>
-    <loc>/tags/week/</loc>
-    <lastmod>2021-10-02T22:32:52+08:00</lastmod>
+    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
   </url><url>
     <loc>/2021/09/25/rust%E5%91%A8%E6%8A%A5-409%E8%AF%91/</loc>
+    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
+  </url><url>
+    <loc>/tags/week/</loc>
     <lastmod>2021-09-25T22:32:44+08:00</lastmod>
   </url><url>
     <loc>/2021/09/17/rust%E5%91%A8%E6%8A%A5-408%E8%AF%91/</loc>

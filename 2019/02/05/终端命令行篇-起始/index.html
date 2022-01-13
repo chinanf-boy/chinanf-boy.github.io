@@ -104,9 +104,9 @@
 <p>为了，不一次次重复。集合工作流程为命令，是必要的。
 我所有的<a href="https://github.com/chinanf-boy?utf8=%E2%9C%93&amp;tab=repositories&amp;q=-zh&amp;type=source&amp;language=">*-zh 项目:中文翻译 和 *-explain:解释</a>都是从这里开始的。</p>
 <h3 id="开始中文翻译zh">开始中文翻译(zh)</h3>
-<pre><code>$ init https://github.com/worrydream/Tangle.git es
+<pre tabindex="0"><code>$ init https://github.com/worrydream/Tangle.git es
 </code></pre><h3 id="开始解释项目explain">开始解释项目(explain)</h3>
-<pre><code>$ init https://github.com/worrydream/Tangle.git ex
+<pre tabindex="0"><code>$ init https://github.com/worrydream/Tangle.git ex
 </code></pre><h2 id="总览脚本">总览脚本</h2>
 <h3 id="此终端脚本思路">此终端脚本思路</h3>
 <ul>
@@ -120,7 +120,7 @@
 <li><strong>8.</strong> 对 项目目录 执行 <a href="https://github.com/chinanf-boy/doc-templite">doc-templite</a> - js 模版工具</li>
 <li><strong>9.</strong> 添加 ，<a href="https://github.com/github/hub">hub</a> 的快速初始化项目，命令脚本文件(留待后来使用)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#8be9fd;font-style:italic">repo</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">1</span>##*/<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#8be9fd;font-style:italic">repo</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">1</span>##*/<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>
 <span style="color:#8be9fd;font-style:italic">repo</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">repo</span>/.git/<span style="color:#f1fa8c">}</span>
 <span style="color:#8be9fd;font-style:italic">two</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$repo</span>
 <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$repo</span><span style="color:#f1fa8c">&#34;</span>
@@ -214,7 +214,7 @@ git init
 <span style="color:#ff79c6">fi</span>
 </code></pre></div><h3 id="sync-ensh">sync-en.sh</h3>
 <p>主要是，对<code>.mds-list</code>的复制</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat <span style="color:#f1fa8c">&#39;./.mds-list&#39;</span> | <span style="color:#ff79c6">while</span> <span style="color:#8be9fd;font-style:italic">read</span> line <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">[[</span> -n <span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">line</span><span style="color:#f1fa8c">}</span> <span style="color:#ff79c6">]]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat <span style="color:#f1fa8c">&#39;./.mds-list&#39;</span> | <span style="color:#ff79c6">while</span> <span style="color:#8be9fd;font-style:italic">read</span> line <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">[[</span> -n <span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">line</span><span style="color:#f1fa8c">}</span> <span style="color:#ff79c6">]]</span>
 <span style="color:#ff79c6">do</span>
     <span style="color:#8be9fd;font-style:italic">testseq</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;zh.md&#34;</span>
     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[[</span> <span style="color:#8be9fd;font-style:italic">$line</span> <span style="color:#ff79c6">=</span>~ <span style="color:#8be9fd;font-style:italic">$testseq</span> <span style="color:#ff79c6">||</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$line</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#ff79c6">]]</span>; <span style="color:#ff79c6">then</span>
@@ -264,7 +264,7 @@ git init
   <script src="/js/tooltips.js"></script>
    <footer>
     <p style="float:right;margin:0 1rem;">
-        &copy; 2021 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
+        &copy; 2022 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
         
       </p>
   <hr>
@@ -324,7 +324,7 @@ git init
 
 <script>
         document.getElementById("edit-button").addEventListener("click", function () {
-            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\/终端命令行-起始.md");
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\\终端命令行-起始.md");
         });</script>
 
     

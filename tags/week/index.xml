@@ -6,18 +6,7 @@
     <description>Recent content in week on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 02 Oct 2021 22:32:52 +0800</lastBuildDate><atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Rust周报 410(译)</title>
-      <link>/2021/10/02/rust%E5%91%A8%E6%8A%A5-410%E8%AF%91/</link>
-      <pubDate>Sat, 02 Oct 2021 22:32:52 +0800</pubDate>
-      
-      <guid>/2021/10/02/rust%E5%91%A8%E6%8A%A5-410%E8%AF%91/</guid>
-      <description>this-week-in-rust 日期：2021-09-29 原文：410 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
-这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。 Rust*公开开发on GitHub.如果您在本周的问题中发现任何错误，please submit a PR
-Updates from Rust Community Official  Core team membership updates Rust Foundation Member Spotlight: Open Source Security  Project/Tooling Updates  SixtyFPS (GUI crate) weekly update for 27th of September 2021 This week in Fluvio #6: the programmable streaming platform This week in Databend #9: an elastic and reliable cloud warehouse IntelliJ Rust Changelog #156 Rust Analyzer #96  Observations/Thoughts  常见新手错误和不好的习惯 in Rust 为什么在医学影像领域使用 Rust ?</description>
-    </item>
-    
+    <lastBuildDate>Sat, 25 Sep 2021 22:32:44 +0800</lastBuildDate><atom:link href="/tags/week/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rust周报 409(译)</title>
       <link>/2021/09/25/rust%E5%91%A8%E6%8A%A5-409%E8%AF%91/</link>

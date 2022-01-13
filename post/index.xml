@@ -6,18 +6,7 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 02 Oct 2021 22:32:52 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Rust周报 410(译)</title>
-      <link>/2021/10/02/rust%E5%91%A8%E6%8A%A5-410%E8%AF%91/</link>
-      <pubDate>Sat, 02 Oct 2021 22:32:52 +0800</pubDate>
-      
-      <guid>/2021/10/02/rust%E5%91%A8%E6%8A%A5-410%E8%AF%91/</guid>
-      <description>this-week-in-rust 日期：2021-09-29 原文：410 期  你好，欢迎再来一期本周的螃蟹行情！Rust是一种追求三位一体的系统语言：安全性、并发性和速度。这是它的进展和社区的每周总结。有什么要说的吗？推特@ThisWeekInRust或向我们发送请求。 想参与吗？我们热爱贡献.
-这本周的螃蟹行情是在在 Github 上公开的。如果你在本周的问题中发现任何错误，请提交 PR。 Rust*公开开发on GitHub.如果您在本周的问题中发现任何错误，please submit a PR
-Updates from Rust Community Official  Core team membership updates Rust Foundation Member Spotlight: Open Source Security  Project/Tooling Updates  SixtyFPS (GUI crate) weekly update for 27th of September 2021 This week in Fluvio #6: the programmable streaming platform This week in Databend #9: an elastic and reliable cloud warehouse IntelliJ Rust Changelog #156 Rust Analyzer #96  Observations/Thoughts  常见新手错误和不好的习惯 in Rust 为什么在医学影像领域使用 Rust ?</description>
-    </item>
-    
+    <lastBuildDate>Sat, 25 Sep 2021 22:32:44 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rust周报 409(译)</title>
       <link>/2021/09/25/rust%E5%91%A8%E6%8A%A5-409%E8%AF%91/</link>
@@ -215,7 +204,7 @@ Official  [Inside] 1.53.0 pre-release testing [Inside] please welcome boxy, léo
  翻译
  对应安装教程 知乎 for Wox 与 简书 for Alfred
 Wox 示例：添加一个快速的翻译页面跳转。  在桌面屏幕，右下方找到 Wox 图标，右键 setting。 设置新的网页链接:  URL(注意那个 {q}，就是用户所写的占位符):
-https://translate.google.cn/?sl=en&amp;amp;tl=zh-CN&amp;amp;text={q}%20&amp;amp;op=translate </description>
+https://translate.google.cn/?sl=en&amp;amp;tl=zh-CN&amp;amp;text={q}%20&amp;amp;op=translate</description>
     </item>
     
     <item>
@@ -366,7 +355,7 @@ Official  Brainstorming Async Rust&amp;rsquo;s Shiny Future [Foundation] introdu
       <pubDate>Fri, 16 Apr 2021 16:21:10 +0800</pubDate>
       
       <guid>/2021/04/16/bevy-rust%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</guid>
-      <description>.blog-post  h2:first-child {display:none}  一款由Rust语言构建且简单明了的数据驱动的游戏引擎 永远开源免费!  数据驱动 所有引擎和游戏逻辑使用Bevy ECS系统  快: 大规模并行, 缓存友好. 根据某些基准测试最快的ECS  简单: 组件是Rust的结构体, 系统是Rust的函数  给力: 查询, 全局资源, 本地资源, 变化检测, 无锁并行调度        2D 渲染 为游戏和应用程序渲染实时2D图形  功能: 精灵表, 动态纹理图集, 摄像机, 纹理和材质  可扩展: 自定义着色器, 材质, 和渲染管道 通用核心: 建立在Bevy的渲染图之上     3D 渲染 一个现代和灵活的3D渲染器 功能: 灯光, 摄像机, 网格, 纹理, 材质, gltf加载 可扩展: 自定义着色器, 材质, 和渲染管道 通用核心: 建立在Bevy的渲染图之上      图形渲染 使用图形结构组合自定义渲染管道 并行: 图形渲染是自动并行渲染的  模块化: 使用渲染图形节点构建可组合和可重用的渲染逻辑  后端不可知: 不绑定到特定的图形API    跨平台 支持所有主要的桌面平台: Windows, MacOS, Linux  还有更多敬请期待: Android, iOS, Web       Bevy UI 一个定制的ecs驱动的UI框架, 专门为Bevy构建 直接建立在Bevy的ECS，渲染器，和场景插件之上 使用Bevy的场景格式声明或者在代码中动态的编写 使用熟悉的&#34;</description>
+      <description>.blog-post  h2:first-child {display:none} 一款由Rust语言构建且简单明了的数据驱动的游戏引擎永远开源免费! 数据驱动所有引擎和游戏逻辑使用Bevy ECS系统快: 大规模并行, 缓存友好. 根据某些基准测试最快的ECS简单: 组件是Rust的结构体, 系统是Rust的函数给力: 查询, 全局资源, 本地资源, 变化检测,无锁并行调度2D 渲染为游戏和应用程序渲染实时2D图形功能: 精灵表, 动态纹理图集, 摄像机, 纹理和材质可扩展: 自定义着色器, 材质, 和渲染管道通用核心: 建立在Bevy的渲染图之上3D 渲染一个现代和灵活的3D渲染器功能: 灯光, 摄像机, 网格, 纹理, 材质, gltf加载可扩展: 自定义着色器, 材质, 和渲染管道通用核心: 建立在Bevy的渲染图之上图形渲染使用图形结构组合自定义渲染管道并行: 图形渲染是自动并行渲染的模块化: 使用渲染图形节点构建可组合和可重用的渲染逻辑后端不可知: 不绑定到特定的图形API跨平台支持所有主要的桌面平台:Windows, MacOS, Linux还有更多敬请期待:Android, iOS, WebBevy UI一个定制的ecs驱动的UI框架, 专门为Bevy构建直接建立在Bevy的ECS，渲染器，和场景插件之上使用Bevy的场景格式声明或者在代码中动态的编写使用熟悉的&#34;</description>
     </item>
     
     <item>
@@ -1707,7 +1696,7 @@ readme doc-templite   为 多个 md 文件 准备的模版工具
       
       <guid>/2019/02/05/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AF%87-%E8%B5%B7%E5%A7%8B/</guid>
       <description>终端命令脚本 为了，不一次次重复。集合工作流程为命令，是必要的。 我所有的*-zh 项目:中文翻译 和 *-explain:解释都是从这里开始的。
-开始中文翻译(zh) $ init https://github.com/worrydream/Tangle.git es 开始解释项目(explain) $ init https://github.com/worrydream/Tangle.git ex 总览脚本 此终端脚本思路  1. 获取 添加了 zh/explain 的 项目名称，并建立此名称目录 2. 初始化 git 存储库，放入目录 source 中(此处存在本地/远程的分支，由第三参数决定) 3. 得到 source 中，存储库的最新 git 信息(日期，commit 码) 4. 启用 mrm ，一个 gitignore，readme&amp;hellip; 快速初始化的 js 工具。(运用之前获得的信息+参数) 5. 找出 source 中的所有 md 文件，并添加到上一目录层.mds-list文件(使用 find) 6. 复制本地脚本sync-en.sh到项目目录 7. 对 source 目录 执行[translate-mds]- js 翻译工具 8. 对 项目目录 执行 doc-templite - js 模版工具 9.</description>
+开始中文翻译(zh) $ init https://github.com/worrydream/Tangle.git es开始解释项目(explain) $ init https://github.com/worrydream/Tangle.git ex总览脚本 此终端脚本思路  1. 获取 添加了 zh/explain 的 项目名称，并建立此名称目录 2. 初始化 git 存储库，放入目录 source 中(此处存在本地/远程的分支，由第三参数决定) 3. 得到 source 中，存储库的最新 git 信息(日期，commit 码) 4. 启用 mrm ，一个 gitignore，readme&amp;hellip; 快速初始化的 js 工具。(运用之前获得的信息+参数) 5. 找出 source 中的所有 md 文件，并添加到上一目录层.mds-list文件(使用 find) 6. 复制本地脚本sync-en.sh到项目目录 7. 对 source 目录 执行[translate-mds]- js 翻译工具 8. 对 项目目录 执行 doc-templite - js 模版工具 9.</description>
     </item>
     
     <item>
@@ -1716,7 +1705,7 @@ readme doc-templite   为 多个 md 文件 准备的模版工具
       <pubDate>Fri, 28 Dec 2018 20:13:43 +0800</pubDate>
       
       <guid>/2018/12/28/rust-%E5%AE%98%E6%96%B9%E5%AD%A6%E4%B9%A0%E7%B4%A2%E5%BC%95%E8%AF%91-copy/</guid>
-      <description>  &amp;lt;a class=&amp;quot;button button-secondary&amp;quot; href=&amp;quot;https://doc.rust-lang.org/nomicon/index.html&amp;quot;&amp;gt; 阅读《Rust 秘典》 &amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt;  </description>
+      <description>  &amp;lt;a class=&amp;quot;button button-secondary&amp;quot; href=&amp;quot;https://doc.rust-lang.org/nomicon/index.html&amp;quot;&amp;gt;阅读《Rust 秘典》&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; </description>
     </item>
     
   </channel>

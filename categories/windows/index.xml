@@ -17,7 +17,7 @@
  翻译
  对应安装教程 知乎 for Wox 与 简书 for Alfred
 Wox 示例：添加一个快速的翻译页面跳转。  在桌面屏幕，右下方找到 Wox 图标，右键 setting。 设置新的网页链接:  URL(注意那个 {q}，就是用户所写的占位符):
-https://translate.google.cn/?sl=en&amp;amp;tl=zh-CN&amp;amp;text={q}%20&amp;amp;op=translate </description>
+https://translate.google.cn/?sl=en&amp;amp;tl=zh-CN&amp;amp;text={q}%20&amp;amp;op=translate</description>
     </item>
     
   </channel>

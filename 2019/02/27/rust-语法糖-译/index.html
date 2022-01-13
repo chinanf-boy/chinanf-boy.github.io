@@ -101,9 +101,9 @@
   <div class="blog-post post">
     <h2 class="post-title">Rust ? 语法糖 (译)</h2>
     <h2 id="宏-stdtry">宏 <code>std::try</code></h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">macro_rules<span style="color:#ff79c6">!</span> <span style="color:#ff79c6">try</span> {
-    ( <span style="color:#ff79c6">$</span> expr : <span style="color:#50fa7b">expr</span> ) <span style="color:#ff79c6">=&gt;</span> { ... };
-    ( <span style="color:#ff79c6">$</span> expr : <span style="color:#50fa7b">expr</span> , ) <span style="color:#ff79c6">=&gt;</span> { ... };
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">macro_rules! <span style="color:#ff79c6">try</span> {
+    ( <span style="color:#ff79c6">$</span> expr : <span style="color:#50fa7b">expr</span> ) <span style="color:#ff79c6">=&gt;</span> { <span style="color:#ff79c6">..</span>. };
+    ( <span style="color:#ff79c6">$</span> expr : <span style="color:#50fa7b">expr</span> , ) <span style="color:#ff79c6">=&gt;</span> { <span style="color:#ff79c6">..</span>. };
 }
 </code></pre></div><p>用于减少样板代码，以匹配<code>Result</code>以及转换下游错误的帮助宏。</p>
 <p>增加<code>?</code>运算符，以替换<code>try!</code>。简化。</p>
@@ -111,7 +111,7 @@
 <p>如果是 <code>Err</code> 变量，则检索内部错误。<code>try!</code>！然后使用 From 执行转换。这提供了专用错误和更通用错误之间的自动转换。然后立即返回错误。</p>
 <p>因为提前返回，<code>try!</code>只能在返回<code>Result</code>的函数中使用。</p>
 <h3 id="examples">Examples</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">use</span> std::io;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#ff79c6">use</span> std::io;
 <span style="color:#ff79c6">use</span> std::fs::File;
 <span style="color:#ff79c6">use</span> std::io::prelude::<span style="color:#ff79c6">*</span>;
 
@@ -175,7 +175,7 @@
   <script src="/js/tooltips.js"></script>
    <footer>
     <p style="float:right;margin:0 1rem;">
-        &copy; 2021 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
+        &copy; 2022 <a href="https://github.com/chinanf-boy/yobrave-blog-with-Hugo/issues">yobrave (Issue me).</a>
         
       </p>
   <hr>
@@ -235,7 +235,7 @@
 
 <script>
         document.getElementById("edit-button").addEventListener("click", function () {
-            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\/rust-?-语法糖.md");
+            var editWindow = window.open("https:\/\/github.com\/chinanf-boy\/yobrave-blog-with-Hugo/edit/master/content/post\\rust-语法糖.md");
         });</script>
 
     
