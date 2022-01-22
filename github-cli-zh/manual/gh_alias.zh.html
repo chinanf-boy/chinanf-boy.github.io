@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>gh_alias.md - Github Cli 中文文档（非官方翻译)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Github Cli 中文文档 2022 新开始，新年快乐，祝大家，万事如意，身体健康，合家安康 ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../README.zh.html"><strong aria-hidden="true">1.</strong> README.md</a></li><li class="chapter-item expanded "><a href="../command-line-syntax.zh.html"><strong aria-hidden="true">2.</strong> command-line-syntax.md</a></li><li class="chapter-item expanded "><a href="../gh-vs-hub.zh.html"><strong aria-hidden="true">3.</strong> gh-vs-hub.zh.md</a></li><li class="chapter-item expanded "><a href="../install_linux.zh.html"><strong aria-hidden="true">4.</strong> install_linux.md</a></li><li class="chapter-item expanded "><a href="../project-layout.zh.html"><strong aria-hidden="true">5.</strong> project-layout.md</a></li><li class="chapter-item expanded "><a href="../releasing.zh.html"><strong aria-hidden="true">6.</strong> releasing.md</a></li><li class="chapter-item expanded "><a href="../source.zh.html"><strong aria-hidden="true">7.</strong> source.md</a></li><li class="chapter-item expanded "><a href="../triage.zh.html"><strong aria-hidden="true">8.</strong> triage.md</a></li><li class="chapter-item expanded "><a href="../manual/gh.zh.html"><strong aria-hidden="true">9.</strong> gh.md</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../manual/gh_actions.zh.html"><strong aria-hidden="true">9.1.</strong> gh_actions.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_alias.zh.html" class="active"><strong aria-hidden="true">9.2.</strong> gh_alias.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_alias_delete.zh.html"><strong aria-hidden="true">9.3.</strong> gh_alias_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_alias_list.zh.html"><strong aria-hidden="true">9.4.</strong> gh_alias_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_alias_set.zh.html"><strong aria-hidden="true">9.5.</strong> gh_alias_set.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_api.zh.html"><strong aria-hidden="true">9.6.</strong> gh_api.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth.zh.html"><strong aria-hidden="true">9.7.</strong> gh_auth.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_login.zh.html"><strong aria-hidden="true">9.8.</strong> gh_auth_login.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_logout.zh.html"><strong aria-hidden="true">9.9.</strong> gh_auth_logout.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_refresh.zh.html"><strong aria-hidden="true">9.10.</strong> gh_auth_refresh.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_setup-git.zh.html"><strong aria-hidden="true">9.11.</strong> gh_auth_setup-git.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_status.zh.html"><strong aria-hidden="true">9.12.</strong> gh_auth_status.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_browse.zh.html"><strong aria-hidden="true">9.13.</strong> gh_browse.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace.zh.html"><strong aria-hidden="true">9.14.</strong> gh_codespace.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_code.zh.html"><strong aria-hidden="true">9.15.</strong> gh_codespace_code.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_cp.zh.html"><strong aria-hidden="true">9.16.</strong> gh_codespace_cp.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_create.zh.html"><strong aria-hidden="true">9.17.</strong> gh_codespace_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_delete.zh.html"><strong aria-hidden="true">9.18.</strong> gh_codespace_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_list.zh.html"><strong aria-hidden="true">9.19.</strong> gh_codespace_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_logs.zh.html"><strong aria-hidden="true">9.20.</strong> gh_codespace_logs.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_ports.zh.html"><strong aria-hidden="true">9.21.</strong> gh_codespace_ports.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_ports_forward.zh.html"><strong aria-hidden="true">9.22.</strong> gh_codespace_ports_forward.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_ports_visibility.zh.html"><strong aria-hidden="true">9.23.</strong> gh_codespace_ports_visibility.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_ssh.zh.html"><strong aria-hidden="true">9.24.</strong> gh_codespace_ssh.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_stop.zh.html"><strong aria-hidden="true">9.25.</strong> gh_codespace_stop.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_completion.zh.html"><strong aria-hidden="true">9.26.</strong> gh_completion.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_config.zh.html"><strong aria-hidden="true">9.27.</strong> gh_config.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_config_get.zh.html"><strong aria-hidden="true">9.28.</strong> gh_config_get.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_config_list.zh.html"><strong aria-hidden="true">9.29.</strong> gh_config_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_config_set.zh.html"><strong aria-hidden="true">9.30.</strong> gh_config_set.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension.zh.html"><strong aria-hidden="true">9.31.</strong> gh_extension.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_create.zh.html"><strong aria-hidden="true">9.32.</strong> gh_extension_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_install.zh.html"><strong aria-hidden="true">9.33.</strong> gh_extension_install.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_list.zh.html"><strong aria-hidden="true">9.34.</strong> gh_extension_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_remove.zh.html"><strong aria-hidden="true">9.35.</strong> gh_extension_remove.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_upgrade.zh.html"><strong aria-hidden="true">9.36.</strong> gh_extension_upgrade.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist.zh.html"><strong aria-hidden="true">9.37.</strong> gh_gist.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_clone.zh.html"><strong aria-hidden="true">9.38.</strong> gh_gist_clone.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_create.zh.html"><strong aria-hidden="true">9.39.</strong> gh_gist_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_delete.zh.html"><strong aria-hidden="true">9.40.</strong> gh_gist_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_edit.zh.html"><strong aria-hidden="true">9.41.</strong> gh_gist_edit.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_list.zh.html"><strong aria-hidden="true">9.42.</strong> gh_gist_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_view.zh.html"><strong aria-hidden="true">9.43.</strong> gh_gist_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gpg-key.zh.html"><strong aria-hidden="true">9.44.</strong> gh_gpg-key.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gpg-key_add.zh.html"><strong aria-hidden="true">9.45.</strong> gh_gpg-key_add.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gpg-key_list.zh.html"><strong aria-hidden="true">9.46.</strong> gh_gpg-key_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help.zh.html"><strong aria-hidden="true">9.47.</strong> gh_help.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help_environment.zh.html"><strong aria-hidden="true">9.48.</strong> gh_help_environment.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help_formatting.zh.html"><strong aria-hidden="true">9.49.</strong> gh_help_formatting.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help_mintty.zh.html"><strong aria-hidden="true">9.50.</strong> gh_help_mintty.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help_reference.zh.html"><strong aria-hidden="true">9.51.</strong> gh_help_reference.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue.zh.html"><strong aria-hidden="true">9.52.</strong> gh_issue.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_close.zh.html"><strong aria-hidden="true">9.53.</strong> gh_issue_close.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_comment.zh.html"><strong aria-hidden="true">9.54.</strong> gh_issue_comment.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_create.zh.html"><strong aria-hidden="true">9.55.</strong> gh_issue_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_delete.zh.html"><strong aria-hidden="true">9.56.</strong> gh_issue_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_edit.zh.html"><strong aria-hidden="true">9.57.</strong> gh_issue_edit.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_list.zh.html"><strong aria-hidden="true">9.58.</strong> gh_issue_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_reopen.zh.html"><strong aria-hidden="true">9.59.</strong> gh_issue_reopen.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_status.zh.html"><strong aria-hidden="true">9.60.</strong> gh_issue_status.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_transfer.zh.html"><strong aria-hidden="true">9.61.</strong> gh_issue_transfer.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_view.zh.html"><strong aria-hidden="true">9.62.</strong> gh_issue_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr.zh.html"><strong aria-hidden="true">9.63.</strong> gh_pr.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_checkout.zh.html"><strong aria-hidden="true">9.64.</strong> gh_pr_checkout.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_checks.zh.html"><strong aria-hidden="true">9.65.</strong> gh_pr_checks.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_close.zh.html"><strong aria-hidden="true">9.66.</strong> gh_pr_close.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_comment.zh.html"><strong aria-hidden="true">9.67.</strong> gh_pr_comment.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_create.zh.html"><strong aria-hidden="true">9.68.</strong> gh_pr_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_diff.zh.html"><strong aria-hidden="true">9.69.</strong> gh_pr_diff.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_edit.zh.html"><strong aria-hidden="true">9.70.</strong> gh_pr_edit.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_list.zh.html"><strong aria-hidden="true">9.71.</strong> gh_pr_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_merge.zh.html"><strong aria-hidden="true">9.72.</strong> gh_pr_merge.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_ready.zh.html"><strong aria-hidden="true">9.73.</strong> gh_pr_ready.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_reopen.zh.html"><strong aria-hidden="true">9.74.</strong> gh_pr_reopen.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_review.zh.html"><strong aria-hidden="true">9.75.</strong> gh_pr_review.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_status.zh.html"><strong aria-hidden="true">9.76.</strong> gh_pr_status.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_view.zh.html"><strong aria-hidden="true">9.77.</strong> gh_pr_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release.zh.html"><strong aria-hidden="true">9.78.</strong> gh_release.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_create.zh.html"><strong aria-hidden="true">9.79.</strong> gh_release_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_delete.zh.html"><strong aria-hidden="true">9.80.</strong> gh_release_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_download.zh.html"><strong aria-hidden="true">9.81.</strong> gh_release_download.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_list.zh.html"><strong aria-hidden="true">9.82.</strong> gh_release_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_upload.zh.html"><strong aria-hidden="true">9.83.</strong> gh_release_upload.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_view.zh.html"><strong aria-hidden="true">9.84.</strong> gh_release_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo.zh.html"><strong aria-hidden="true">9.85.</strong> gh_repo.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_archive.zh.html"><strong aria-hidden="true">9.86.</strong> gh_repo_archive.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_clone.zh.html"><strong aria-hidden="true">9.87.</strong> gh_repo_clone.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_create.zh.html"><strong aria-hidden="true">9.88.</strong> gh_repo_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_delete.zh.html"><strong aria-hidden="true">9.89.</strong> gh_repo_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_edit.zh.html"><strong aria-hidden="true">9.90.</strong> gh_repo_edit.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_fork.zh.html"><strong aria-hidden="true">9.91.</strong> gh_repo_fork.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_list.zh.html"><strong aria-hidden="true">9.92.</strong> gh_repo_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_rename.zh.html"><strong aria-hidden="true">9.93.</strong> gh_repo_rename.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_sync.zh.html"><strong aria-hidden="true">9.94.</strong> gh_repo_sync.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_view.zh.html"><strong aria-hidden="true">9.95.</strong> gh_repo_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run.zh.html"><strong aria-hidden="true">9.96.</strong> gh_run.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_cancel.zh.html"><strong aria-hidden="true">9.97.</strong> gh_run_cancel.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_download.zh.html"><strong aria-hidden="true">9.98.</strong> gh_run_download.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_list.zh.html"><strong aria-hidden="true">9.99.</strong> gh_run_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_rerun.zh.html"><strong aria-hidden="true">9.100.</strong> gh_run_rerun.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_view.zh.html"><strong aria-hidden="true">9.101.</strong> gh_run_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_watch.zh.html"><strong aria-hidden="true">9.102.</strong> gh_run_watch.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_secret.zh.html"><strong aria-hidden="true">9.103.</strong> gh_secret.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_secret_list.zh.html"><strong aria-hidden="true">9.104.</strong> gh_secret_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_secret_remove.zh.html"><strong aria-hidden="true">9.105.</strong> gh_secret_remove.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_secret_set.zh.html"><strong aria-hidden="true">9.106.</strong> gh_secret_set.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_ssh-key.zh.html"><strong aria-hidden="true">9.107.</strong> gh_ssh-key.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_ssh-key_add.zh.html"><strong aria-hidden="true">9.108.</strong> gh_ssh-key_add.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_ssh-key_list.zh.html"><strong aria-hidden="true">9.109.</strong> gh_ssh-key_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow.zh.html"><strong aria-hidden="true">9.110.</strong> gh_workflow.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_disable.zh.html"><strong aria-hidden="true">9.111.</strong> gh_workflow_disable.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_enable.zh.html"><strong aria-hidden="true">9.112.</strong> gh_workflow_enable.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_list.zh.html"><strong aria-hidden="true">9.113.</strong> gh_workflow_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_run.zh.html"><strong aria-hidden="true">9.114.</strong> gh_workflow_run.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_view.zh.html"><strong aria-hidden="true">9.115.</strong> gh_workflow_view.md</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Github Cli 中文文档（非官方翻译)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="gh-alias"><a class="header" href="#gh-alias">gh alias</a></h2>
+<p>别名，可用于为 gh 命令</p>
+<ul>
+<li>创建快捷方式</li>
+<li>组合多个命令。</li>
+</ul>
+<p>运行 <code>gh help alias set</code> 了解更多信息。</p>
+<h3 id="commands"><a class="header" href="#commands">Commands</a></h3>
+<ul>
+<li><a href="./gh_alias_delete.zh.html">gh alias delete</a></li>
+<li><a href="./gh_alias_list.zh.html">gh alias list</a></li>
+<li><a href="./gh_alias_set.zh.html">gh alias set</a></li>
+</ul>
+<h3 id="see-also"><a class="header" href="#see-also">See also</a></h3>
+<ul>
+<li><a href="./gh.zh.html">gh</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../manual/gh_actions.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../manual/gh_alias_delete.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../manual/gh_actions.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../manual/gh_alias_delete.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
