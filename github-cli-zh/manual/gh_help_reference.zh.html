@@ -1,0 +1,809 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>gh_help_reference.md - Github Cli 中文文档（非官方翻译)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Github Cli 中文文档 2022 新开始，新年快乐，祝大家，万事如意，身体健康，合家安康 ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../README.zh.html"><strong aria-hidden="true">1.</strong> README.md</a></li><li class="chapter-item expanded "><a href="../command-line-syntax.zh.html"><strong aria-hidden="true">2.</strong> command-line-syntax.md</a></li><li class="chapter-item expanded "><a href="../gh-vs-hub.zh.html"><strong aria-hidden="true">3.</strong> gh-vs-hub.zh.md</a></li><li class="chapter-item expanded "><a href="../install_linux.zh.html"><strong aria-hidden="true">4.</strong> install_linux.md</a></li><li class="chapter-item expanded "><a href="../project-layout.zh.html"><strong aria-hidden="true">5.</strong> project-layout.md</a></li><li class="chapter-item expanded "><a href="../releasing.zh.html"><strong aria-hidden="true">6.</strong> releasing.md</a></li><li class="chapter-item expanded "><a href="../source.zh.html"><strong aria-hidden="true">7.</strong> source.md</a></li><li class="chapter-item expanded "><a href="../triage.zh.html"><strong aria-hidden="true">8.</strong> triage.md</a></li><li class="chapter-item expanded "><a href="../manual/gh.zh.html"><strong aria-hidden="true">9.</strong> gh.md</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../manual/gh_actions.zh.html"><strong aria-hidden="true">9.1.</strong> gh_actions.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_alias.zh.html"><strong aria-hidden="true">9.2.</strong> gh_alias.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_alias_delete.zh.html"><strong aria-hidden="true">9.3.</strong> gh_alias_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_alias_list.zh.html"><strong aria-hidden="true">9.4.</strong> gh_alias_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_alias_set.zh.html"><strong aria-hidden="true">9.5.</strong> gh_alias_set.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_api.zh.html"><strong aria-hidden="true">9.6.</strong> gh_api.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth.zh.html"><strong aria-hidden="true">9.7.</strong> gh_auth.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_login.zh.html"><strong aria-hidden="true">9.8.</strong> gh_auth_login.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_logout.zh.html"><strong aria-hidden="true">9.9.</strong> gh_auth_logout.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_refresh.zh.html"><strong aria-hidden="true">9.10.</strong> gh_auth_refresh.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_setup-git.zh.html"><strong aria-hidden="true">9.11.</strong> gh_auth_setup-git.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_auth_status.zh.html"><strong aria-hidden="true">9.12.</strong> gh_auth_status.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_browse.zh.html"><strong aria-hidden="true">9.13.</strong> gh_browse.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace.zh.html"><strong aria-hidden="true">9.14.</strong> gh_codespace.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_code.zh.html"><strong aria-hidden="true">9.15.</strong> gh_codespace_code.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_cp.zh.html"><strong aria-hidden="true">9.16.</strong> gh_codespace_cp.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_create.zh.html"><strong aria-hidden="true">9.17.</strong> gh_codespace_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_delete.zh.html"><strong aria-hidden="true">9.18.</strong> gh_codespace_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_list.zh.html"><strong aria-hidden="true">9.19.</strong> gh_codespace_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_logs.zh.html"><strong aria-hidden="true">9.20.</strong> gh_codespace_logs.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_ports.zh.html"><strong aria-hidden="true">9.21.</strong> gh_codespace_ports.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_ports_forward.zh.html"><strong aria-hidden="true">9.22.</strong> gh_codespace_ports_forward.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_ports_visibility.zh.html"><strong aria-hidden="true">9.23.</strong> gh_codespace_ports_visibility.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_ssh.zh.html"><strong aria-hidden="true">9.24.</strong> gh_codespace_ssh.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_codespace_stop.zh.html"><strong aria-hidden="true">9.25.</strong> gh_codespace_stop.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_completion.zh.html"><strong aria-hidden="true">9.26.</strong> gh_completion.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_config.zh.html"><strong aria-hidden="true">9.27.</strong> gh_config.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_config_get.zh.html"><strong aria-hidden="true">9.28.</strong> gh_config_get.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_config_list.zh.html"><strong aria-hidden="true">9.29.</strong> gh_config_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_config_set.zh.html"><strong aria-hidden="true">9.30.</strong> gh_config_set.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension.zh.html"><strong aria-hidden="true">9.31.</strong> gh_extension.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_create.zh.html"><strong aria-hidden="true">9.32.</strong> gh_extension_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_install.zh.html"><strong aria-hidden="true">9.33.</strong> gh_extension_install.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_list.zh.html"><strong aria-hidden="true">9.34.</strong> gh_extension_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_remove.zh.html"><strong aria-hidden="true">9.35.</strong> gh_extension_remove.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_extension_upgrade.zh.html"><strong aria-hidden="true">9.36.</strong> gh_extension_upgrade.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist.zh.html"><strong aria-hidden="true">9.37.</strong> gh_gist.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_clone.zh.html"><strong aria-hidden="true">9.38.</strong> gh_gist_clone.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_create.zh.html"><strong aria-hidden="true">9.39.</strong> gh_gist_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_delete.zh.html"><strong aria-hidden="true">9.40.</strong> gh_gist_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_edit.zh.html"><strong aria-hidden="true">9.41.</strong> gh_gist_edit.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_list.zh.html"><strong aria-hidden="true">9.42.</strong> gh_gist_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gist_view.zh.html"><strong aria-hidden="true">9.43.</strong> gh_gist_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gpg-key.zh.html"><strong aria-hidden="true">9.44.</strong> gh_gpg-key.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gpg-key_add.zh.html"><strong aria-hidden="true">9.45.</strong> gh_gpg-key_add.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_gpg-key_list.zh.html"><strong aria-hidden="true">9.46.</strong> gh_gpg-key_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help.zh.html"><strong aria-hidden="true">9.47.</strong> gh_help.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help_environment.zh.html"><strong aria-hidden="true">9.48.</strong> gh_help_environment.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help_formatting.zh.html"><strong aria-hidden="true">9.49.</strong> gh_help_formatting.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help_mintty.zh.html"><strong aria-hidden="true">9.50.</strong> gh_help_mintty.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_help_reference.zh.html" class="active"><strong aria-hidden="true">9.51.</strong> gh_help_reference.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue.zh.html"><strong aria-hidden="true">9.52.</strong> gh_issue.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_close.zh.html"><strong aria-hidden="true">9.53.</strong> gh_issue_close.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_comment.zh.html"><strong aria-hidden="true">9.54.</strong> gh_issue_comment.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_create.zh.html"><strong aria-hidden="true">9.55.</strong> gh_issue_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_delete.zh.html"><strong aria-hidden="true">9.56.</strong> gh_issue_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_edit.zh.html"><strong aria-hidden="true">9.57.</strong> gh_issue_edit.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_list.zh.html"><strong aria-hidden="true">9.58.</strong> gh_issue_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_reopen.zh.html"><strong aria-hidden="true">9.59.</strong> gh_issue_reopen.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_status.zh.html"><strong aria-hidden="true">9.60.</strong> gh_issue_status.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_transfer.zh.html"><strong aria-hidden="true">9.61.</strong> gh_issue_transfer.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_issue_view.zh.html"><strong aria-hidden="true">9.62.</strong> gh_issue_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr.zh.html"><strong aria-hidden="true">9.63.</strong> gh_pr.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_checkout.zh.html"><strong aria-hidden="true">9.64.</strong> gh_pr_checkout.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_checks.zh.html"><strong aria-hidden="true">9.65.</strong> gh_pr_checks.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_close.zh.html"><strong aria-hidden="true">9.66.</strong> gh_pr_close.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_comment.zh.html"><strong aria-hidden="true">9.67.</strong> gh_pr_comment.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_create.zh.html"><strong aria-hidden="true">9.68.</strong> gh_pr_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_diff.zh.html"><strong aria-hidden="true">9.69.</strong> gh_pr_diff.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_edit.zh.html"><strong aria-hidden="true">9.70.</strong> gh_pr_edit.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_list.zh.html"><strong aria-hidden="true">9.71.</strong> gh_pr_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_merge.zh.html"><strong aria-hidden="true">9.72.</strong> gh_pr_merge.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_ready.zh.html"><strong aria-hidden="true">9.73.</strong> gh_pr_ready.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_reopen.zh.html"><strong aria-hidden="true">9.74.</strong> gh_pr_reopen.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_review.zh.html"><strong aria-hidden="true">9.75.</strong> gh_pr_review.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_status.zh.html"><strong aria-hidden="true">9.76.</strong> gh_pr_status.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_pr_view.zh.html"><strong aria-hidden="true">9.77.</strong> gh_pr_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release.zh.html"><strong aria-hidden="true">9.78.</strong> gh_release.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_create.zh.html"><strong aria-hidden="true">9.79.</strong> gh_release_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_delete.zh.html"><strong aria-hidden="true">9.80.</strong> gh_release_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_download.zh.html"><strong aria-hidden="true">9.81.</strong> gh_release_download.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_list.zh.html"><strong aria-hidden="true">9.82.</strong> gh_release_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_upload.zh.html"><strong aria-hidden="true">9.83.</strong> gh_release_upload.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_release_view.zh.html"><strong aria-hidden="true">9.84.</strong> gh_release_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo.zh.html"><strong aria-hidden="true">9.85.</strong> gh_repo.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_archive.zh.html"><strong aria-hidden="true">9.86.</strong> gh_repo_archive.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_clone.zh.html"><strong aria-hidden="true">9.87.</strong> gh_repo_clone.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_create.zh.html"><strong aria-hidden="true">9.88.</strong> gh_repo_create.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_delete.zh.html"><strong aria-hidden="true">9.89.</strong> gh_repo_delete.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_edit.zh.html"><strong aria-hidden="true">9.90.</strong> gh_repo_edit.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_fork.zh.html"><strong aria-hidden="true">9.91.</strong> gh_repo_fork.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_list.zh.html"><strong aria-hidden="true">9.92.</strong> gh_repo_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_rename.zh.html"><strong aria-hidden="true">9.93.</strong> gh_repo_rename.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_sync.zh.html"><strong aria-hidden="true">9.94.</strong> gh_repo_sync.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_repo_view.zh.html"><strong aria-hidden="true">9.95.</strong> gh_repo_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run.zh.html"><strong aria-hidden="true">9.96.</strong> gh_run.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_cancel.zh.html"><strong aria-hidden="true">9.97.</strong> gh_run_cancel.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_download.zh.html"><strong aria-hidden="true">9.98.</strong> gh_run_download.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_list.zh.html"><strong aria-hidden="true">9.99.</strong> gh_run_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_rerun.zh.html"><strong aria-hidden="true">9.100.</strong> gh_run_rerun.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_view.zh.html"><strong aria-hidden="true">9.101.</strong> gh_run_view.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_run_watch.zh.html"><strong aria-hidden="true">9.102.</strong> gh_run_watch.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_secret.zh.html"><strong aria-hidden="true">9.103.</strong> gh_secret.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_secret_list.zh.html"><strong aria-hidden="true">9.104.</strong> gh_secret_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_secret_remove.zh.html"><strong aria-hidden="true">9.105.</strong> gh_secret_remove.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_secret_set.zh.html"><strong aria-hidden="true">9.106.</strong> gh_secret_set.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_ssh-key.zh.html"><strong aria-hidden="true">9.107.</strong> gh_ssh-key.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_ssh-key_add.zh.html"><strong aria-hidden="true">9.108.</strong> gh_ssh-key_add.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_ssh-key_list.zh.html"><strong aria-hidden="true">9.109.</strong> gh_ssh-key_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow.zh.html"><strong aria-hidden="true">9.110.</strong> gh_workflow.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_disable.zh.html"><strong aria-hidden="true">9.111.</strong> gh_workflow_disable.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_enable.zh.html"><strong aria-hidden="true">9.112.</strong> gh_workflow_enable.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_list.zh.html"><strong aria-hidden="true">9.113.</strong> gh_workflow_list.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_run.zh.html"><strong aria-hidden="true">9.114.</strong> gh_workflow_run.md</a></li><li class="chapter-item expanded "><a href="../manual/gh_workflow_view.zh.html"><strong aria-hidden="true">9.115.</strong> gh_workflow_view.md</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Github Cli 中文文档（非官方翻译)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="gh-reference"><a class="header" href="#gh-reference">gh reference</a></h2>
+<h1 id="gh-reference-1"><a class="header" href="#gh-reference-1">gh reference</a></h1>
+<h2 id="gh-actions"><a class="header" href="#gh-actions"><code>gh actions</code></a></h2>
+<p>了解如何使用 GitHub Actions</p>
+<h2 id="gh-alias-command"><a class="header" href="#gh-alias-command"><code>gh alias &lt;command&gt;</code></a></h2>
+<p>创建命令快捷方式</p>
+<h3 id="gh-alias-delete-alias"><a class="header" href="#gh-alias-delete-alias"><code>gh alias delete &lt;alias&gt;</code></a></h3>
+<p>删除别名</p>
+<h3 id="gh-alias-list"><a class="header" href="#gh-alias-list"><code>gh alias list</code></a></h3>
+<p>列出你的别名</p>
+<h3 id="gh-alias-set-alias-expansion-flags"><a class="header" href="#gh-alias-set-alias-expansion-flags"><code>gh alias set &lt;alias&gt; &lt;expansion&gt; [flags]</code></a></h3>
+<p>为 gh 命令，创建快捷方式</p>
+<pre><code>-s, --shell   定义个 alias 传递给 shell 解释器，r
+</code></pre>
+<h2 id="gh-api-endpoint-flags"><a class="header" href="#gh-api-endpoint-flags"><code>gh api &lt;endpoint&gt; [flags]</code></a></h2>
+<p>发出，经过身份验证的 GitHub API 请求</p>
+<pre><code>    --cache duration        缓存一个响应, e.g. &quot;3600s&quot;, &quot;60m&quot;, &quot;1h&quot;
+-F, --field key=value       添加一个类型参数，格式是 key=value
+-H, --header key:value      添加一个 HTTP 请求头，格式是 key=value
+    --hostname string       请求的 GitHub 主址 (default &quot;github.com&quot;)
+-i, --include               将 HTTP 响应头也输出
+    --input file            file 作为 HTTP 请求的主体 (使用 &quot;-&quot; 可以从标准输入读取)
+-q, --jq string             使用 jq 语法，查询响应的值
+-X, --method string         HTTP 方法 (默认 &quot;GET&quot;)
+    --paginate              发出额外的 HTTP 请求，获取所有的结果页
+-p, --preview strings       GitHub API 预览版本的功能
+-f, --raw-field key=value   添加一个字符串参数，格式是 key=value
+    --silent                不打印
+-t, --template string       用模板格式化响应
+</code></pre>
+<h2 id="gh-auth-command"><a class="header" href="#gh-auth-command"><code>gh auth &lt;command&gt;</code></a></h2>
+<p>登录、注销和刷新您的身份验证</p>
+<h3 id="gh-auth-login-flags"><a class="header" href="#gh-auth-login-flags"><code>gh auth login [flags]</code></a></h3>
+<p>通过 GitHub 主机进行身份验证</p>
+<pre><code>-h, --hostname string   身份验证的 GitHub 主址
+-s, --scopes strings    权限范围
+-w, --web               打开浏览器，进行身份验证
+    --with-token        从标准输入读取令牌
+</code></pre>
+<h3 id="gh-auth-logout-flags"><a class="header" href="#gh-auth-logout-flags"><code>gh auth logout [flags]</code></a></h3>
+<p>注销 GitHub 主机</p>
+<pre><code>-h, --hostname string   身份登出的 GitHub 主址
+</code></pre>
+<h3 id="gh-auth-refresh-flags"><a class="header" href="#gh-auth-refresh-flags"><code>gh auth refresh [flags]</code></a></h3>
+<p>刷新存储的身份验证凭据</p>
+<pre><code>-h, --hostname string   身份验证的 GitHub 主址
+-s, --scopes strings    权限范围
+</code></pre>
+<h3 id="gh-auth-setup-git-flags"><a class="header" href="#gh-auth-setup-git-flags"><code>gh auth setup-git [flags]</code></a></h3>
+<p>配置 git，以将 GitHub CLI 用作凭据帮助器</p>
+<pre><code>-h, --hostname string   配置 git 的 主机网址
+</code></pre>
+<h3 id="gh-auth-status-flags"><a class="header" href="#gh-auth-status-flags"><code>gh auth status [flags]</code></a></h3>
+<p>查看身份验证状态</p>
+<pre><code>-h, --hostname string   检查的主机
+-t, --show-token        展示 身份令牌
+</code></pre>
+<h2 id="gh-browse-number--path-flags"><a class="header" href="#gh-browse-number--path-flags"><code>gh browse [&lt;number&gt; | &lt;path&gt;] [flags]</code></a></h2>
+<p>在浏览器中，打开存储库</p>
+<pre><code>-b, --branch string   换分支
+-c, --commit          打开最后的 commit
+-n, --no-browser      给 URL，不打开浏览器
+-p, --projects        打开 projects
+-s, --settings        打开 settings
+-w, --wiki            打开 wiki
+</code></pre>
+<h2 id="gh-codespace"><a class="header" href="#gh-codespace"><code>gh codespace</code></a></h2>
+<p>连接，并管理您的代码空间</p>
+<h3 id="gh-codespace-code-flags"><a class="header" href="#gh-codespace-code-flags"><code>gh codespace code [flags]</code></a></h3>
+<p>在 Visual Studio Code 中打开代码空间</p>
+<pre><code>-c, --codespace string   名字
+    --insiders           Use the insiders version of Visual Studio Code
+</code></pre>
+<h3 id="gh-codespace-cp--e--r-sources-dest"><a class="header" href="#gh-codespace-cp--e--r-sources-dest"><code>gh codespace cp [-e] [-r] &lt;sources&gt;... &lt;dest&gt;</code></a></h3>
+<p>在本地和远程文件系统之间，复制文件</p>
+<pre><code>-c, --codespace string   名字
+-e, --expand             在远程 shell上，展开远程的（多个）文件名
+-r, --recursive          递归复制目录
+</code></pre>
+<h3 id="gh-codespace-create-flags"><a class="header" href="#gh-codespace-create-flags"><code>gh codespace create [flags]</code></a></h3>
+<p>创建一个代码空间</p>
+<pre><code>-b, --branch string           分支
+    --idle-timeout duration   在 codespace 停止之前，不活动的时间, e.g. &quot;10m&quot;, &quot;1h&quot;
+-m, --machine string          VM 硬件规格
+-r, --repo string             拥有者的库名: user/repo
+-s, --status                  展示 post-create 命令和 dotfiles
+</code></pre>
+<h3 id="gh-codespace-delete-flags"><a class="header" href="#gh-codespace-delete-flags"><code>gh codespace delete [flags]</code></a></h3>
+<p>删除代码空间</p>
+<pre><code>    --all                删除所有
+-c, --codespace string   名字
+    --days N             删除过去 N 天
+-f, --force              强制删除
+-r, --repo repository    删除一个库
+</code></pre>
+<h3 id="gh-codespace-list-flags"><a class="header" href="#gh-codespace-list-flags"><code>gh codespace list [flags]</code></a></h3>
+<p>列出你的代码空间</p>
+<pre><code>-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-L, --limit int         Maximum number of codespaces to list (default 30)
+-t, --template string   模板化输出
+</code></pre>
+<h3 id="gh-codespace-logs-flags"><a class="header" href="#gh-codespace-logs-flags"><code>gh codespace logs [flags]</code></a></h3>
+<p>访问代码空间日志</p>
+<pre><code>-c, --codespace string   名字
+-f, --follow             日志跟随滚动
+</code></pre>
+<h3 id="gh-codespace-ports-flags"><a class="header" href="#gh-codespace-ports-flags"><code>gh codespace ports [flags]</code></a></h3>
+<p>列出代码空间中的端口</p>
+<pre><code>-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-t, --template string   模板化输出
+</code></pre>
+<h4 id="gh-codespace-ports-forward-remote-portlocal-port"><a class="header" href="#gh-codespace-ports-forward-remote-portlocal-port"><code>gh codespace ports forward &lt;remote-port&gt;:&lt;local-port&gt;...</code></a></h4>
+<p>转发端口</p>
+<h4 id="gh-codespace-ports-visibility-portpublicprivateorg"><a class="header" href="#gh-codespace-ports-visibility-portpublicprivateorg"><code>gh codespace ports visibility &lt;port&gt;:{public|private|org}...</code></a></h4>
+<p>更改转发端口的可见性</p>
+<h3 id="gh-codespace-ssh-flags----ssh-flags-command"><a class="header" href="#gh-codespace-ssh-flags----ssh-flags-command"><code>gh codespace ssh [&lt;flags&gt;...] [-- &lt;ssh-flags&gt;...] [&lt;command&gt;]</code></a></h3>
+<p>SSH 到一个代码空间</p>
+<pre><code>-c, --codespace string    名字
+-d, --debug               调试数据装入文件
+    --debug-file string   文件日志的路径
+    --profile string      所使用的 SSH profile 名称
+    --server-port int     SSH 服务器端口号 (0 =&gt; pick unused)
+</code></pre>
+<h3 id="gh-codespace-stop-flags"><a class="header" href="#gh-codespace-stop-flags"><code>gh codespace stop [flags]</code></a></h3>
+<p>停止运行代码空间</p>
+<pre><code>-c, --codespace string   名字
+</code></pre>
+<h2 id="gh-completion--s-shell"><a class="header" href="#gh-completion--s-shell"><code>gh completion -s &lt;shell&gt;</code></a></h2>
+<p>生成 shell 完成脚本</p>
+<pre><code>-s, --shell string   Shell type: {bash|zsh|fish|powershell}
+</code></pre>
+<h2 id="gh-config-command"><a class="header" href="#gh-config-command"><code>gh config &lt;command&gt;</code></a></h2>
+<p>管理 gh 的配置</p>
+<h3 id="gh-config-get-key-flags"><a class="header" href="#gh-config-get-key-flags"><code>gh config get &lt;key&gt; [flags]</code></a></h3>
+<p>打印给定配置密钥的值</p>
+<pre><code>-h, --host string   获取每个 host 的 setting
+</code></pre>
+<h3 id="gh-config-list-flags"><a class="header" href="#gh-config-list-flags"><code>gh config list [flags]</code></a></h3>
+<p>打印配置键和值的列表</p>
+<pre><code>-h, --host string   获取每个 host 的 configuration
+</code></pre>
+<h3 id="gh-config-set-key-value-flags"><a class="header" href="#gh-config-set-key-value-flags"><code>gh config set &lt;key&gt; &lt;value&gt; [flags]</code></a></h3>
+<p>使用给定密钥的值更新配置</p>
+<pre><code>-h, --host string   设置每个 host 的 setting
+</code></pre>
+<h2 id="gh-extension"><a class="header" href="#gh-extension"><code>gh extension</code></a></h2>
+<p>管理 gh 扩展</p>
+<h3 id="gh-extension-create-name-flags"><a class="header" href="#gh-extension-create-name-flags"><code>gh extension create [&lt;name&gt;] [flags]</code></a></h3>
+<p>创建一个新的扩展名</p>
+<pre><code>--precompiled string   预编译扩展。可能的值: go, other
+</code></pre>
+<h3 id="gh-extension-install-repository"><a class="header" href="#gh-extension-install-repository"><code>gh extension install &lt;repository&gt;</code></a></h3>
+<p>从存储库安装 gh 扩展</p>
+<h3 id="gh-extension-list"><a class="header" href="#gh-extension-list"><code>gh extension list</code></a></h3>
+<p>列出已安装的扩展命令</p>
+<h3 id="gh-extension-remove-name"><a class="header" href="#gh-extension-remove-name"><code>gh extension remove &lt;name&gt;</code></a></h3>
+<p>删除已安装的扩展</p>
+<h3 id="gh-extension-upgrade-name----all-flags"><a class="header" href="#gh-extension-upgrade-name----all-flags"><code>gh extension upgrade {&lt;name&gt; | --all} [flags]</code></a></h3>
+<p>升级已安装的扩展</p>
+<pre><code>--all     更新所有
+--force   强制更新
+</code></pre>
+<h2 id="gh-gist-command"><a class="header" href="#gh-gist-command"><code>gh gist &lt;command&gt;</code></a></h2>
+<p>与 GitHub gist（要点） 合作</p>
+<h3 id="gh-gist-clone-gist-directory----gitflags"><a class="header" href="#gh-gist-clone-gist-directory----gitflags"><code>gh gist clone &lt;gist&gt; [&lt;directory&gt;] [-- &lt;gitflags&gt;...]</code></a></h3>
+<p>本地克隆要点</p>
+<h3 id="gh-gist-create-filename----flags"><a class="header" href="#gh-gist-create-filename----flags"><code>gh gist create [&lt;filename&gt;... | -] [flags]</code></a></h3>
+<p>创造一个新的要点</p>
+<pre><code>-d, --desc string       描述
+-f, --filename string   标准输入，给个文件名
+-p, --public            公开 (default: secret)
+-w, --web               gist 链接，打开浏览器
+</code></pre>
+<h3 id="gh-gist-delete-id--url"><a class="header" href="#gh-gist-delete-id--url"><code>gh gist delete {&lt;id&gt; | &lt;url&gt;}</code></a></h3>
+<p>删除要点</p>
+<h3 id="gh-gist-edit-id--url-flags"><a class="header" href="#gh-gist-edit-id--url-flags"><code>gh gist edit {&lt;id&gt; | &lt;url&gt;} [flags]</code></a></h3>
+<p>编辑一个要点</p>
+<pre><code>-a, --add string        新增一个文件
+-f, --filename string   选择一个文件编辑
+</code></pre>
+<h3 id="gh-gist-list-flags"><a class="header" href="#gh-gist-list-flags"><code>gh gist list [flags]</code></a></h3>
+<p>列出你的要点</p>
+<pre><code>-L, --limit int   Maximum number of gists to fetch (default 10)
+    --public      Show only public gists
+    --secret      Show only secret gists
+</code></pre>
+<h3 id="gh-gist-view-id--url-flags"><a class="header" href="#gh-gist-view-id--url-flags"><code>gh gist view [&lt;id&gt; | &lt;url&gt;] [flags]</code></a></h3>
+<p>要点</p>
+<pre><code>-f, --filename string   展示单个文件
+    --files             列出文件名列表
+-r, --raw               原始内容
+-w, --web               浏览器打开
+</code></pre>
+<h2 id="gh-gpg-key-command"><a class="header" href="#gh-gpg-key-command"><code>gh gpg-key &lt;command&gt;</code></a></h2>
+<p>管理 GPG 密钥</p>
+<h3 id="gh-gpg-key-add-key-file"><a class="header" href="#gh-gpg-key-add-key-file"><code>gh gpg-key add [&lt;key-file&gt;]</code></a></h3>
+<p>将 GPG 密钥添加到 GitHub 帐户</p>
+<h3 id="gh-gpg-key-list"><a class="header" href="#gh-gpg-key-list"><code>gh gpg-key list</code></a></h3>
+<p>列出 GitHub 帐户中的 GPG 密钥</p>
+<h2 id="gh-issue-command"><a class="header" href="#gh-issue-command"><code>gh issue &lt;command&gt;</code></a></h2>
+<p>管理问题</p>
+<h3 id="gh-issue-close-number--url"><a class="header" href="#gh-issue-close-number--url"><code>gh issue close {&lt;number&gt; | &lt;url&gt;}</code></a></h3>
+<p>结案</p>
+<h3 id="gh-issue-comment-number--url-flags"><a class="header" href="#gh-issue-comment-number--url-flags"><code>gh issue comment {&lt;number&gt; | &lt;url&gt;} [flags]</code></a></h3>
+<p>创建新的问题注释</p>
+<pre><code>-b, --body string      提供主体内容。不填，也会提示
+-F, --body-file file   读取文件，输入主体内容 (使用 &quot;-&quot; 可以从标准输入读取)
+-e, --editor           通过 editor 添加主体
+-w, --web              用浏览器打开网络链接，添加主体
+</code></pre>
+<h3 id="gh-issue-create-flags"><a class="header" href="#gh-issue-create-flags"><code>gh issue create [flags]</code></a></h3>
+<p>创刊</p>
+<pre><code>-a, --assignee login   通过 login 分配人员。使用 @me 自我分配。
+-b, --body string      提供主体内容。不填，也会提示
+-F, --body-file file   读取文件，输入主体内容 (使用 &quot;-&quot; 可以从标准输入读取)
+-l, --label name       添加标签
+-m, --milestone name   通过 name，添加 issue 到 name 里程牌
+-p, --project name     通过 name，添加 issue 到 name 项目
+    --recover string   一次失败创建，带来的恢复输入
+-t, --title string     提供一个标题。不填，也会提示
+-w, --web              浏览器打开，创建 issue
+</code></pre>
+<h3 id="gh-issue-delete-number--url"><a class="header" href="#gh-issue-delete-number--url"><code>gh issue delete {&lt;number&gt; | &lt;url&gt;}</code></a></h3>
+<p>删除问题</p>
+<h3 id="gh-issue-edit-number--url-flags"><a class="header" href="#gh-issue-edit-number--url-flags"><code>gh issue edit {&lt;number&gt; | &lt;url&gt;} [flags]</code></a></h3>
+<p>编辑问题</p>
+<pre><code>    --add-assignee login      通过 login 分配人员。使用 @me 自我分配。
+    --add-label name          添加标签
+    --add-project name        通过 name，添加 issue 到 name 项目
+-b, --body string             设置新的主体内容.
+-F, --body-file file          读取文件，输入主体内容 (使用 &quot;-&quot; 可以从标准输入读取)
+-m, --milestone name          用 name，编辑下里程碑
+    --remove-assignee login   移除 login 的人员配置. 使用 @me 就移除自己
+    --remove-label name       移除 name 标签
+    --remove-project name     移除 name 项目
+-t, --title string            设置新的标题.
+</code></pre>
+<h3 id="gh-issue-list-flags"><a class="header" href="#gh-issue-list-flags"><code>gh issue list [flags]</code></a></h3>
+<p>列出并筛选此存储库中的问题</p>
+<pre><code>-a, --assignee string    过滤项：assignee
+-A, --author string      过滤项：author
+-q, --jq expression      jq 表达式，过滤 JSON 输出
+    --json fields        JSON 输出特殊字段
+-l, --label strings      过滤项：labels
+-L, --limit int          Maximum number of issues to fetch (default 30)
+    --mention string     过滤项：mention
+-m, --milestone number   过滤项：milestone number or `title`
+-S, --search query       query 搜索 issue
+-s, --state string       过滤项：state: {open|closed|all} (default &quot;open&quot;)
+-t, --template string    模板化输出
+-w, --web                浏览器打开，列出 issue(s)
+</code></pre>
+<h3 id="gh-issue-reopen-number--url"><a class="header" href="#gh-issue-reopen-number--url"><code>gh issue reopen {&lt;number&gt; | &lt;url&gt;}</code></a></h3>
+<p>重新发行</p>
+<h3 id="gh-issue-status-flags"><a class="header" href="#gh-issue-status-flags"><code>gh issue status [flags]</code></a></h3>
+<p>显示相关问题的状态</p>
+<pre><code>-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-t, --template string   模板化输出
+</code></pre>
+<h3 id="gh-issue-transfer-number--url-destination-repo"><a class="header" href="#gh-issue-transfer-number--url-destination-repo"><code>gh issue transfer {&lt;number&gt; | &lt;url&gt;} &lt;destination-repo&gt;</code></a></h3>
+<p>将问题转移到另一个存储库</p>
+<h3 id="gh-issue-view-number--url-flags"><a class="header" href="#gh-issue-view-number--url-flags"><code>gh issue view {&lt;number&gt; | &lt;url&gt;} [flags]</code></a></h3>
+<p>看问题</p>
+<pre><code>-c, --comments          View issue comments
+-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-t, --template string   模板化输出
+-w, --web               Open an issue in the browser
+</code></pre>
+<h2 id="gh-pr-command"><a class="header" href="#gh-pr-command"><code>gh pr &lt;command&gt;</code></a></h2>
+<p>管理拉取请求</p>
+<h3 id="gh-pr-checkout-number--url--branch-flags"><a class="header" href="#gh-pr-checkout-number--url--branch-flags"><code>gh pr checkout {&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;} [flags]</code></a></h3>
+<p>查看 git 中的 pull 请求</p>
+<pre><code>-b, --branch string        本地分支名 (default: the name of the head branch)
+    --detach               以一种分离 HEAD 的状态，查看 PR
+-f, --force                重设本地分支为最新的PR
+    --recurse-submodules   在 checkout 之后，更新所有的 submodules
+</code></pre>
+<h3 id="gh-pr-checks-number--url--branch-flags"><a class="header" href="#gh-pr-checks-number--url--branch-flags"><code>gh pr checks [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;] [flags]</code></a></h3>
+<p>显示单个 PR 的 CI 状态</p>
+<pre><code>-w, --web   浏览器打开
+</code></pre>
+<h3 id="gh-pr-close-number--url--branch-flags"><a class="header" href="#gh-pr-close-number--url--branch-flags"><code>gh pr close {&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;} [flags]</code></a></h3>
+<p>关闭拉取请求</p>
+<pre><code>-d, --delete-branch   关闭 PR 之后，删除本地与远程的分支
+</code></pre>
+<h3 id="gh-pr-comment-number--url--branch-flags"><a class="header" href="#gh-pr-comment-number--url--branch-flags"><code>gh pr comment [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;] [flags]</code></a></h3>
+<p>创建新的 PR 评论</p>
+<pre><code>-b, --body string      提供主体内容。不填，也会提示
+-F, --body-file file   读取文件，输入主体内容 (使用 &quot;-&quot; 可以从标准输入读取)
+-e, --editor           通过 editor 添加主体
+-w, --web              用浏览器打开网络链接，添加主体
+</code></pre>
+<h3 id="gh-pr-create-flags"><a class="header" href="#gh-pr-create-flags"><code>gh pr create [flags]</code></a></h3>
+<p>创建拉取请求</p>
+<pre><code>-a, --assignee login       通过 login 分配人员。使用 @me 自我分配。
+-B, --base branch          要合并到的分支
+-b, --body string          PR 的主体内容
+-F, --body-file file       读取文件，输入主体内容
+-d, --draft                草稿版
+-f, --fill                 不用提示，使用 commit 的信息填入 title/body
+-H, --head branch          包含你 commits 的分支 (default: current branch)
+-l, --label name           添加标签
+-m, --milestone name       通过 name，添加 PR 到 name 里程牌
+    --no-maintainer-edit   禁用维护人员修改 PR 
+-p, --project name         将 pull request 添加到 name 项目
+    --recover string       一次失败创建，带来的恢复输入
+-r, --reviewer handle      PR 审查人员
+-t, --title string         添加 标题
+-w, --web                  浏览器打开
+</code></pre>
+<h3 id="gh-pr-diff-number--url--branch-flags"><a class="header" href="#gh-pr-diff-number--url--branch-flags"><code>gh pr diff [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;] [flags]</code></a></h3>
+<p>查看拉取请求中的更改</p>
+<pre><code>--color string   在 diff 输出中，使用颜色: {always|never|auto} (default &quot;auto&quot;)
+--patch          以 patch 格式，展示 diff
+</code></pre>
+<h3 id="gh-pr-edit-number--url--branch-flags"><a class="header" href="#gh-pr-edit-number--url--branch-flags"><code>gh pr edit [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;] [flags]</code></a></h3>
+<p>编辑拉取请求</p>
+<pre><code>    --add-assignee login      通过 login 分配人员。使用 @me 自我分配
+    --add-label name          添加标签
+    --add-project name        将 pull request 添加到 name 项目
+    --add-reviewer login      通过 login ，添加审查人员.
+-B, --base branch             更改 PR 的基分支
+-b, --body string             设置新的主体内容.
+-F, --body-file file          读取文件，输入主体内容 (使用 &quot;-&quot; 可以从标准输入读取)
+-m, --milestone name          编辑 name 里程牌
+    --remove-assignee login   移除 login 的人员配置. 使用 @me 就移除自己
+    --remove-label name       移除 name 标签
+    --remove-project name     移除 name 项目的 PR
+    --remove-reviewer login   通过 login ，移除审查人员.
+-t, --title string            设置新的标题.
+</code></pre>
+<h3 id="gh-pr-list-flags"><a class="header" href="#gh-pr-list-flags"><code>gh pr list [flags]</code></a></h3>
+<p>列出并筛选此存储库中的请求</p>
+<pre><code>-a, --assignee string   过滤项：assignee
+-A, --author string     过滤项：author
+-B, --base string       过滤项：base branch
+-d, --draft             过滤项：draft state
+-H, --head string       过滤项：head branch
+-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-l, --label strings     过滤项：labels
+-L, --limit int         Maximum number of items to fetch (default 30)
+-S, --search query      Search pull requests with query
+-s, --state string      过滤项：state: {open|closed|merged|all} (default &quot;open&quot;)
+-t, --template string   模板化输出
+-w, --web               Open the browser to list the pull requests
+</code></pre>
+<h3 id="gh-pr-merge-number--url--branch-flags"><a class="header" href="#gh-pr-merge-number--url--branch-flags"><code>gh pr merge [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;] [flags]</code></a></h3>
+<p>合并拉取请求</p>
+<pre><code>    --admin            即便条件不达标，用管理员权限合并
+    --auto             条件符合，自动合并
+-b, --body text        合并的主体内容
+-F, --body-file file   读取文件，输入主体内容 (使用 &quot;-&quot; 可以从标准输入读取)
+-d, --delete-branch    合并后，删除本地与远程分支
+    --disable-auto     禁止自动合并
+-m, --merge            合并
+-r, --rebase           变基
+-s, --squash           将多个提交变成一个，再合并
+-t, --subject text     合并提交的主题
+</code></pre>
+<h3 id="gh-pr-ready-number--url--branch"><a class="header" href="#gh-pr-ready-number--url--branch"><code>gh pr ready [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;]</code></a></h3>
+<p>将 PR 标记为已准备好进行审查</p>
+<h3 id="gh-pr-reopen-number--url--branch"><a class="header" href="#gh-pr-reopen-number--url--branch"><code>gh pr reopen {&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;}</code></a></h3>
+<p>重新打开拉取请求</p>
+<h3 id="gh-pr-review-number--url--branch-flags"><a class="header" href="#gh-pr-review-number--url--branch-flags"><code>gh pr review [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;] [flags]</code></a></h3>
+<p>向拉取请求添加审阅</p>
+<pre><code>-a, --approve           批准 pull request
+-b, --body string       指定一个审查的主体内容
+-F, --body-file file    读取文件，输入主体内容 (使用 &quot;-&quot; 可以从标准输入读取)
+-c, --comment           给出评论
+-r, --request-changes   要求 PR 修改
+</code></pre>
+<h3 id="gh-pr-status-flags"><a class="header" href="#gh-pr-status-flags"><code>gh pr status [flags]</code></a></h3>
+<p>显示相关拉取请求的状态</p>
+<pre><code>-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-t, --template string   模板化输出
+</code></pre>
+<h3 id="gh-pr-view-number--url--branch-flags"><a class="header" href="#gh-pr-view-number--url--branch-flags"><code>gh pr view [&lt;number&gt; | &lt;url&gt; | &lt;branch&gt;] [flags]</code></a></h3>
+<p>查看拉取请求</p>
+<pre><code>-c, --comments          查看 pull request 评论
+-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-t, --template string   模板化输出
+-w, --web               浏览器打开
+</code></pre>
+<h2 id="gh-release-command"><a class="header" href="#gh-release-command"><code>gh release &lt;command&gt;</code></a></h2>
+<p>管理 GitHub 发布</p>
+<h3 id="gh-release-create-tag-files"><a class="header" href="#gh-release-create-tag-files"><code>gh release create [&lt;tag&gt;] [&lt;files&gt;...]</code></a></h3>
+<p>创建一个新版本</p>
+<pre><code>    --discussion-category string   开始指定主题分类的讨论
+-d, --draft                        一个草稿版本
+    --generate-notes               自动生成，release 的 标题与笔记
+-n, --notes string                 Release 笔记
+-F, --notes-file file              用文件，读笔记 (使用 &quot;-&quot; 可以从标准输入读取)
+-p, --prerelease                   预览版
+    --target branch                指定的分支或是完整的 commit SHA (default: main branch)
+-t, --title string                 Release 标题
+</code></pre>
+<h3 id="gh-release-delete-tag-flags"><a class="header" href="#gh-release-delete-tag-flags"><code>gh release delete &lt;tag&gt; [flags]</code></a></h3>
+<p>删除发布</p>
+<pre><code>-y, --yes   跳过提示
+</code></pre>
+<h3 id="gh-release-download-tag-flags"><a class="header" href="#gh-release-download-tag-flags"><code>gh release download [&lt;tag&gt;] [flags]</code></a></h3>
+<p>下载发布资产</p>
+<pre><code>-A, --archive format        下载的格式 (zip or tar.gz)
+-D, --dir string            下载的位置 (default &quot;.&quot;)
+-p, --pattern stringArray   只下载符合 glob 匹配模式的资源
+</code></pre>
+<h3 id="gh-release-list-flags"><a class="header" href="#gh-release-list-flags"><code>gh release list [flags]</code></a></h3>
+<p>在存储库中列出发布</p>
+<pre><code>-L, --limit int   Maximum number of items to fetch (default 30)
+</code></pre>
+<h3 id="gh-release-upload-tag-files-flags"><a class="header" href="#gh-release-upload-tag-files-flags"><code>gh release upload &lt;tag&gt; &lt;files&gt;... [flags]</code></a></h3>
+<p>将资产上载到发布</p>
+<pre><code>--clobber   覆盖同名资源
+</code></pre>
+<h3 id="gh-release-view-tag-flags"><a class="header" href="#gh-release-view-tag-flags"><code>gh release view [&lt;tag&gt;] [flags]</code></a></h3>
+<p>查看有关发布的信息</p>
+<pre><code>-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-t, --template string   模板化输出
+-w, --web               浏览器打开
+</code></pre>
+<h2 id="gh-repo-command"><a class="header" href="#gh-repo-command"><code>gh repo &lt;command&gt;</code></a></h2>
+<p>创建、克隆、分叉和查看存储库</p>
+<h3 id="gh-repo-archive-repository-flags"><a class="header" href="#gh-repo-archive-repository-flags"><code>gh repo archive [&lt;repository&gt;] [flags]</code></a></h3>
+<p>归档存储库</p>
+<pre><code>-y, --confirm   跳过提示
+</code></pre>
+<h3 id="gh-repo-clone-repository-directory----gitflags"><a class="header" href="#gh-repo-clone-repository-directory----gitflags"><code>gh repo clone &lt;repository&gt; [&lt;directory&gt;] [-- &lt;gitflags&gt;...]</code></a></h3>
+<p>在本地克隆存储库</p>
+<h3 id="gh-repo-create-name-flags"><a class="header" href="#gh-repo-create-name-flags"><code>gh repo create [&lt;name&gt;] [flags]</code></a></h3>
+<p>创建一个新的存储库</p>
+<pre><code>-c, --clone                 Clone 新的存储库到当前目录
+-d, --description string    存储库的描述
+    --disable-issues        禁用 issues
+    --disable-wiki          禁用 wiki
+-g, --gitignore string      指定一个 gitignore 的模板
+-h, --homepage URL          主页URL
+    --internal              内部可见
+-l, --license string        指定开源的协议
+    --private               私有存储库
+    --public                公开存储库
+    --push                  推送本地的 commits 到新的存储库
+-r, --remote string         指定 remote 名称
+-s, --source string         指定存储库的源代码路径e
+-t, --team name             可以访问存储库的组织名字
+-p, --template repository   让新的存储库，基于 一个模板存储库生成
+</code></pre>
+<h3 id="gh-repo-delete-repository-flags"><a class="header" href="#gh-repo-delete-repository-flags"><code>gh repo delete [&lt;repository&gt;] [flags]</code></a></h3>
+<p>删除存储库</p>
+<pre><code>--confirm   直接通过提示
+</code></pre>
+<h3 id="gh-repo-edit-repository-flags"><a class="header" href="#gh-repo-edit-repository-flags"><code>gh repo edit [&lt;repository&gt;] [flags]</code></a></h3>
+<p>编辑存储库设置</p>
+<pre><code>    --add-topic strings        添加 存储库 标签主题
+    --allow-forking            允许被 fork
+    --default-branch name      设置默认的分支
+    --delete-branch-on-merge   当 pull requests 被合并，删除 HEAD 分支
+-d, --description string       存储库的描述
+    --enable-auto-merge        启动 auto-merge（自动合并） 功能
+    --enable-issues            启用 issues
+    --enable-merge-commit      可以用 merge commit，合并 PR
+    --enable-projects          启用 projects
+    --enable-rebase-merge      可用变基（rebase）的方式合并 PR
+    --enable-squash-merge      可用，将多个commit变为一个的方式，合并PR
+    --enable-wiki              启用 wiki
+-h, --homepage URL             主页URL
+    --remove-topic strings     移除存储库的标签主题
+    --template                 可将存储库当成，模板存储库
+    --visibility string        将存储库的可见性改为 {public,private,internal}
+</code></pre>
+<h3 id="gh-repo-fork-repository----gitflags-flags"><a class="header" href="#gh-repo-fork-repository----gitflags-flags"><code>gh repo fork [&lt;repository&gt;] [-- &lt;gitflags&gt;...] [flags]</code></a></h3>
+<p>创建存储库的分支</p>
+<pre><code>--clone                Clone the fork {true|false}
+--org string           在一个组织内，创建副本
+--remote               要添加远程（上级）存储库吗 {true|false}
+--remote-name string   Specify a name for a fork's new remote. (default &quot;origin&quot;)
+</code></pre>
+<h3 id="gh-repo-list-owner-flags"><a class="header" href="#gh-repo-list-owner-flags"><code>gh repo list [&lt;owner&gt;] [flags]</code></a></h3>
+<p>列出用户或组织拥有的存储库</p>
+<pre><code>    --archived          仅展示存档的存储库
+    --fork              仅展示副本存储库
+-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-l, --language string   主编程语言的过滤
+-L, --limit int         Maximum number of repositories to list (default 30)
+    --no-archived       不要存档的存储库
+    --private           仅展示私有存储库
+    --public            仅展示公开的存储库
+    --source            仅展示非副本的存储库
+-t, --template string   模板化输出
+    --topic string      标题主题的过滤
+</code></pre>
+<h3 id="gh-repo-rename-new-name-flags"><a class="header" href="#gh-repo-rename-new-name-flags"><code>gh repo rename [&lt;new-name&gt;] [flags]</code></a></h3>
+<p>重命名存储库</p>
+<pre><code>-y, --confirm   跳过提示，直接确定
+</code></pre>
+<h3 id="gh-repo-sync-destination-repository-flags"><a class="header" href="#gh-repo-sync-destination-repository-flags"><code>gh repo sync [&lt;destination-repository&gt;] [flags]</code></a></h3>
+<p>同步存储库</p>
+<pre><code>-b, --branch string   同步的分支 (default: main branch)
+    --force           强制同步
+-s, --source string   源存储库
+</code></pre>
+<h3 id="gh-repo-view-repository-flags"><a class="header" href="#gh-repo-view-repository-flags"><code>gh repo view [&lt;repository&gt;] [flags]</code></a></h3>
+<p>查看存储库</p>
+<pre><code>-b, --branch string     显示特定分支
+-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-t, --template string   模板化输出
+-w, --web               浏览器打开
+</code></pre>
+<h2 id="gh-run-command"><a class="header" href="#gh-run-command"><code>gh run &lt;command&gt;</code></a></h2>
+<p>查看有关工作流运行的详细信息</p>
+<h3 id="gh-run-cancel-run-id"><a class="header" href="#gh-run-cancel-run-id"><code>gh run cancel [&lt;run-id&gt;]</code></a></h3>
+<p>取消工作流运行</p>
+<h3 id="gh-run-download-run-id-flags"><a class="header" href="#gh-run-download-run-id-flags"><code>gh run download [&lt;run-id&gt;] [flags]</code></a></h3>
+<p>下载工作流运行生成的工件</p>
+<pre><code>-D, --dir string         下载的目录 (default &quot;.&quot;)
+-n, --name stringArray   仅下载匹配文件名的工件
+</code></pre>
+<h3 id="gh-run-list-flags"><a class="header" href="#gh-run-list-flags"><code>gh run list [flags]</code></a></h3>
+<p>列出最近的工作流运行</p>
+<pre><code>-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+-L, --limit int         Maximum number of runs to fetch (default 20)
+-t, --template string   模板化输出
+-w, --workflow string   工作流的过滤
+</code></pre>
+<h3 id="gh-run-rerun-run-id"><a class="header" href="#gh-run-rerun-run-id"><code>gh run rerun [&lt;run-id&gt;]</code></a></h3>
+<p>重新运行失败的运行</p>
+<h3 id="gh-run-view-run-id-flags"><a class="header" href="#gh-run-view-run-id-flags"><code>gh run view [&lt;run-id&gt;] [flags]</code></a></h3>
+<p>查看工作流运行的摘要</p>
+<pre><code>    --exit-status       Exit with non-zero status if run failed
+-j, --job string        查看一个特定的 job ID
+-q, --jq expression     jq 表达式，过滤 JSON 输出
+    --json fields       JSON 输出特殊字段
+    --log               查看 完整的日志
+    --log-failed        查看运行失败的日志
+-t, --template string   模板化输出
+-v, --verbose           展示 job 步骤
+-w, --web               浏览器打开
+</code></pre>
+<h3 id="gh-run-watch-run-id-flags"><a class="header" href="#gh-run-watch-run-id-flags"><code>gh run watch &lt;run-id&gt; [flags]</code></a></h3>
+<p>观察跑步直到完成，并显示其进度</p>
+<pre><code>    --exit-status    运行失败，退出代码 非零
+-i, --interval int   刷新的时间间隙 (default 3)
+</code></pre>
+<h2 id="gh-secret-command"><a class="header" href="#gh-secret-command"><code>gh secret &lt;command&gt;</code></a></h2>
+<p>管理 GitHub 机密</p>
+<h3 id="gh-secret-list-flags"><a class="header" href="#gh-secret-list-flags"><code>gh secret list [flags]</code></a></h3>
+<p>列出秘密</p>
+<pre><code>-e, --env string   环境的机密
+-o, --org string   组织的机密
+-u, --user         用户的机密
+</code></pre>
+<h3 id="gh-secret-remove-secret-name-flags"><a class="header" href="#gh-secret-remove-secret-name-flags"><code>gh secret remove &lt;secret-name&gt; [flags]</code></a></h3>
+<p>揭秘</p>
+<pre><code>-e, --env string   移除环境的机密
+-o, --org string   移除组织的机密
+-u, --user         移除用户的机密
+</code></pre>
+<h3 id="gh-secret-set-secret-name-flags"><a class="header" href="#gh-secret-set-secret-name-flags"><code>gh secret set &lt;secret-name&gt; [flags]</code></a></h3>
+<p>创建或更新机密</p>
+<pre><code>-b, --body string                         机密内容 (reads from standard input if not specified)
+-e, --env environment                     设置发布环境的机密
+-f, --env-file file                       加载 secret 名与值 (dotenv 格式文件）
+    --no-store                            打印 encrypted, base64-encoded 值，而不是在 Github 上存储
+-o, --org organization                    设置组织的机密
+-r, --repos repositories                  能访问到一个组织或用户机密，列出这样的存储库
+-u, --user                                设置用户的机密
+-v, --visibility {all|private|selected}   设置一个组织机密的可见性: {all|private|selected} (default &quot;private&quot;)
+</code></pre>
+<h2 id="gh-ssh-key-command"><a class="header" href="#gh-ssh-key-command"><code>gh ssh-key &lt;command&gt;</code></a></h2>
+<p>管理 SSH 密钥</p>
+<h3 id="gh-ssh-key-add-key-file-flags"><a class="header" href="#gh-ssh-key-add-key-file-flags"><code>gh ssh-key add [&lt;key-file&gt;] [flags]</code></a></h3>
+<p>向 GitHub 帐户添加 SSH 密钥</p>
+<pre><code>-t, --title string   密钥的 标题
+</code></pre>
+<h3 id="gh-ssh-key-list"><a class="header" href="#gh-ssh-key-list"><code>gh ssh-key list</code></a></h3>
+<p>列出 GitHub 帐户中的 SSH 密钥</p>
+<h2 id="gh-workflow-command"><a class="header" href="#gh-workflow-command"><code>gh workflow &lt;command&gt;</code></a></h2>
+<p>查看有关 GitHub Actions 工作流的详细信息</p>
+<h3 id="gh-workflow-disable-workflow-id--workflow-name"><a class="header" href="#gh-workflow-disable-workflow-id--workflow-name"><code>gh workflow disable [&lt;workflow-id&gt; | &lt;workflow-name&gt;]</code></a></h3>
+<p>禁用工作流</p>
+<h3 id="gh-workflow-enable-workflow-id--workflow-name"><a class="header" href="#gh-workflow-enable-workflow-id--workflow-name"><code>gh workflow enable [&lt;workflow-id&gt; | &lt;workflow-name&gt;]</code></a></h3>
+<p>启用工作流</p>
+<h3 id="gh-workflow-list-flags"><a class="header" href="#gh-workflow-list-flags"><code>gh workflow list [flags]</code></a></h3>
+<p>列出工作流</p>
+<pre><code>-a, --all         展示所有，即便是禁用的工作流
+-L, --limit int   Maximum number of workflows to fetch (default 50)
+</code></pre>
+<h3 id="gh-workflow-run-workflow-id--workflow-name-flags"><a class="header" href="#gh-workflow-run-workflow-id--workflow-name-flags"><code>gh workflow run [&lt;workflow-id&gt; | &lt;workflow-name&gt;] [flags]</code></a></h3>
+<p>为给定工作流，创建 <code>workflow_dispatch</code> 事件。</p>
+<pre><code>-F, --field key=value       key=value 模式的字符串参数，遵守 @ 语法
+    --json                  通过 STDIN，读取 JSON 格式的工作流输入
+-f, --raw-field key=value   key=value 模式的字符串参数
+-r, --ref string            想要运行的 分支与 tag 下的工作流文件
+</code></pre>
+<h3 id="gh-workflow-view-workflow-id--workflow-name--filename-flags"><a class="header" href="#gh-workflow-view-workflow-id--workflow-name--filename-flags"><code>gh workflow view [&lt;workflow-id&gt; | &lt;workflow-name&gt; | &lt;filename&gt;] [flags]</code></a></h3>
+<p>查看工作流摘要</p>
+<pre><code>-r, --ref string   The branch or tag name which contains the version of the workflow file you'd like to view
+-w, --web          浏览器打开
+-y, --yaml         查看工作流的 yaml 文件
+</code></pre>
+<h3 id="see-also"><a class="header" href="#see-also">See also</a></h3>
+<ul>
+<li><a href="./gh.zh.html">gh</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../manual/gh_help_mintty.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../manual/gh_issue.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../manual/gh_help_mintty.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../manual/gh_issue.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

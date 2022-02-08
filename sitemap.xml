@@ -3,21 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/categories/</loc>
-    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
+    <lastmod>2022-02-08T11:58:43+08:00</lastmod>
+  </url><url>
+    <loc>/tags/checklist/</loc>
+    <lastmod>2022-02-08T11:58:43+08:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
+    <lastmod>2022-02-08T11:58:43+08:00</lastmod>
   </url><url>
     <loc>/post/</loc>
-    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
+    <lastmod>2022-02-08T11:58:43+08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-02-08T11:58:43+08:00</lastmod>
+  </url><url>
+    <loc>/2022/02/08/%E4%BA%A7%E5%93%81%E5%8F%91%E5%B0%84%E5%87%86%E5%A4%87%E8%AF%91/</loc>
+    <lastmod>2022-02-08T11:58:43+08:00</lastmod>
+  </url><url>
+    <loc>/categories/%E5%88%9B%E4%B8%9A/</loc>
+    <lastmod>2022-02-08T11:58:43+08:00</lastmod>
   </url><url>
     <loc>/categories/rust/</loc>
     <lastmod>2021-09-25T22:32:44+08:00</lastmod>
   </url><url>
     <loc>/2021/09/25/rust%E5%91%A8%E6%8A%A5-409%E8%AF%91/</loc>
-    <lastmod>2021-09-25T22:32:44+08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2021-09-25T22:32:44+08:00</lastmod>
   </url><url>
     <loc>/tags/week/</loc>

@@ -13,7 +13,7 @@
       <pubDate>Fri, 28 Dec 2018 20:13:43 +0800</pubDate>
       
       <guid>/2018/12/28/rust-%E5%AE%98%E6%96%B9%E5%AD%A6%E4%B9%A0%E7%B4%A2%E5%BC%95%E8%AF%91-copy/</guid>
-      <description>  &amp;lt;a class=&amp;quot;button button-secondary&amp;quot; href=&amp;quot;https://doc.rust-lang.org/nomicon/index.html&amp;quot;&amp;gt;阅读《Rust 秘典》&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; </description>
+      <description> .blog-post  h2:first-child {display:none}  &amp;lt;a class=&amp;quot;button button-secondary&amp;quot; href=&amp;quot;https://doc.rust-lang.org/nomicon/index.html&amp;quot;&amp;gt;阅读《Rust 秘典》&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; </description>
     </item>
     
   </channel>

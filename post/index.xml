@@ -6,7 +6,20 @@
     <description>Recent content in Posts on Code &gt; Explain &gt; Transalte 的人</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Sep 2021 22:32:44 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Feb 2022 11:58:43 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>产品发射准备(译)</title>
+      <link>/2022/02/08/%E4%BA%A7%E5%93%81%E5%8F%91%E5%B0%84%E5%87%86%E5%A4%87%E8%AF%91/</link>
+      <pubDate>Tue, 08 Feb 2022 11:58:43 +0800</pubDate>
+      
+      <guid>/2022/02/08/%E4%BA%A7%E5%93%81%E5%8F%91%E5%B0%84%E5%87%86%E5%A4%87%E8%AF%91/</guid>
+      <description>li {list-style-type: none !important;margin-left: 5px;} 这是什么？ 创业公司营销清单是一个全面的，按时间顺序排列的营销策略和想法列表，您可以在创业公司中尝试。始于 2017。它是完全免费和开源的。
+发射前 营销策略的构想，早在你产品发布之前就开始了。市场调研、规划和准备是任何营销策略的关键部分。
+竞争对手研究  我一生都在面对激烈的竞争。没有它，我就不知道如何生活。 - 沃尔特·迪士尼
+  列出竞争对手的名单（参见这是研究竞争对手的工具列表)。 要收集的竞争对手数据：  他们网站的链接。 竞争对手使用的标语和&amp;quot;关键语句&amp;quot;。 定价和商业模式。 博客/RSS 的链接。 社交媒体的链接。 社交媒体上的关键员工。   订阅，竞争对手的博客（RSS 订阅源）。 在社交媒体上，关注你的竞争对手及其关键员工。 监控竞争对手的网站以了解变化。 要尝试的站点监控工具：  Deep Dive Duck Versionista   订阅，行业通讯、杂志、行业期刊等。 使用谷歌趋势进行初始需求和搜索量研究。  客户调查  如果我们知道自己在做什么，就不会被称为研究。 - 阿尔伯特·爱因斯坦
+  在你的联系人列表中，找到可能是未来客户的人。获取他们对你想法的反馈。 参加针对目标市场的会议。 认识另一位拥有类似或竞争产品的企业家。 列出竞争对手的客户名单：  查看竞争对手的 Twitter 关注者、所提及的。 看看他们的 Facebook 粉丝。 在 Linkedin 上，找到关注他们的人。 查看他们的网站。一些公司会在其网站上列出客户故事。   接触竞争对手的客户，了解他们喜欢/不喜欢什么。 为潜在的未来客户创建 “提前使用” 列表。  公关（公共关系）准备  创建科技、创业和行业博客列表。 创建本地小型企业列表。 创建你所在行业的本地博主和记者名单。 创建 “方便传播的工具” 页面(看看这个例子)。  网站设置  想出一个名字和域名。 写网络标语和电梯宣传。 创建一个 Logo（请参见Logo 创建工具列表)。 设置登录页（请参见登录页工具列表)。 创建 “关于” 和 “联系” 页面。 创建定价页面（请参见这里的定价模式): 考虑/测试各种定价选项：  为您的付费产品创建免费或试用层。 提供 100%满意/退款保证。 让产品从仅限邀请用户开始。 为早期采用者/测试者提供免费/折扣访问。   将产品社交媒体的关注链接，添加到登录页。 设置分析，以了解谁注册、谁停留等。 要尝试的分析平台：  谷歌分析 Mixpanel 接吻指标 网站管理员工具 Plausible Analytics Smartlook   设置错误记录、监视、捕获等。 要尝试的错误监视工具：  Bugsnag Rollbar Sentry   设置即时消息，以捕获潜在客户，并在客户登陆您的网站时吸引他们（请参阅我们的实时客户聊天工具列表)。 测试你的网站是否存在常见的 SEO、速度和安全问题，如断开的链接、缺少的页面标题和不安全的页面（请参阅检测机器人)。  电子邮件设置 查看电子邮件营销工具列表，帮助你更容易管理电子邮件的服务。</description>
+    </item>
+    
     <item>
       <title>Rust周报 409(译)</title>
       <link>/2021/09/25/rust%E5%91%A8%E6%8A%A5-409%E8%AF%91/</link>
@@ -1705,7 +1718,7 @@ readme doc-templite   为 多个 md 文件 准备的模版工具
       <pubDate>Fri, 28 Dec 2018 20:13:43 +0800</pubDate>
       
       <guid>/2018/12/28/rust-%E5%AE%98%E6%96%B9%E5%AD%A6%E4%B9%A0%E7%B4%A2%E5%BC%95%E8%AF%91-copy/</guid>
-      <description>  &amp;lt;a class=&amp;quot;button button-secondary&amp;quot; href=&amp;quot;https://doc.rust-lang.org/nomicon/index.html&amp;quot;&amp;gt;阅读《Rust 秘典》&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; </description>
+      <description> .blog-post  h2:first-child {display:none}  &amp;lt;a class=&amp;quot;button button-secondary&amp;quot; href=&amp;quot;https://doc.rust-lang.org/nomicon/index.html&amp;quot;&amp;gt;阅读《Rust 秘典》&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; </description>
     </item>
     
   </channel>
